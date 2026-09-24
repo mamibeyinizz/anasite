@@ -29,18 +29,21 @@ Bu şu anlama gelir:
 
 Renk paleti sade ve kısıtlıdır. Amaç: editorial sakinlik + net bir marka vurgusu.
 
-| Token | Kullanım | Değer (referans) |
+> **TBD — mevcut marka kaynağından doğrulanacak.** Aşağıdaki tüm değerler (marka ana renkleri, yardımcı renkler, accent renkler, logo renkleri dahil) henüz belirlenmemiştir. Bu projede veya önceki konuşmalarda doğrulanmış bir marka kaynağı (logo/brand kit) bulunmadığından hiçbir hex değeri tahmini olarak sabitlenmemiştir. Yalnızca token **rolleri** (hangi tokenın ne işe yaradığı) kalıcıdır; gerçek değerler marka kaynağı sağlandığında bu tabloya girilecektir.
+
+| Token | Kullanım | Değer |
 |---|---|---|
-| `--color-bg` | Ana zemin | `#FFFFFF` |
-| `--color-bg-alt` | Alternatif/section zemin | `#F7F7F5` |
-| `--color-ink` | Ana metin | `#14151A` |
-| `--color-ink-muted` | İkincil metin | `#5B5E68` |
-| `--color-border` | Çizgi/ayraç | `#E6E6E2` |
-| `--color-brand` | Marka vurgusu (CTA, link, aktif durum) | `#1A5F4A` |
-| `--color-brand-dark` | Marka vurgusu hover/basılı | `#123F32` |
-| `--color-accent` | İkincil vurgu (opsiyonel, sınırlı kullanım) | `#C9A25D` |
-| `--color-danger` | Hata/uyarı | `#B3261E` |
-| `--color-success` | Onay/başarı | `#1E7A4C` |
+| `--color-bg` | Ana zemin | TBD |
+| `--color-bg-alt` | Alternatif/section zemin | TBD |
+| `--color-ink` | Ana metin | TBD |
+| `--color-ink-muted` | İkincil metin | TBD |
+| `--color-border` | Çizgi/ayraç | TBD |
+| `--color-brand` | Marka ana rengi (CTA, link, aktif durum) | TBD |
+| `--color-brand-dark` | Marka ana rengi hover/basılı | TBD |
+| `--color-accent` | Accent/ikincil vurgu (opsiyonel, sınırlı kullanım) | TBD |
+| `--color-danger` | Hata/uyarı | TBD |
+| `--color-success` | Onay/başarı | TBD |
+| `--color-logo-*` | Logo renkleri | TBD |
 
 Kurallar:
 - Marka rengi (`--color-brand`) sayfada **azınlık** olarak kullanılır: CTA butonları, aktif linkler, küçük vurgu detayları. Büyük renkli bloklar/arka planlar için kullanılmaz.
@@ -53,9 +56,12 @@ Kurallar:
 ## 3. Tipografi
 
 ### Font ailesi
-- **Başlıklar (display/heading)**: Serif veya güçlü karakterli bir editorial serif (örn. "Editorial-style serif") — markanın "dergi" hissini taşır.
-- **Gövde metni (body/UI)**: Nötr, okunabilir bir sans-serif (örn. sistem sans veya Inter benzeri).
-- Font seçimi kesinleştiğinde bu tabloya font-family değerleri eklenecektir; şu an yalnızca rol tanımı kalıcıdır (serif = başlık, sans = gövde).
+
+> **TBD — mevcut marka kaynağından doğrulanacak.** Somut font-family isimleri (örn. belirli bir serif/sans-serif adı) henüz belirlenmemiştir; hiçbir font adı tahmini olarak sabitlenmemiştir.
+
+- **Başlıklar (display/heading)**: Rol olarak editorial/güçlü karakterli bir serif düşünülüyor — markanın "dergi" hissini taşıması hedefleniyor. Somut font adı: TBD.
+- **Gövde metni (body/UI)**: Rol olarak nötr, okunabilir bir sans-serif düşünülüyor. Somut font adı: TBD.
+- Font seçimi doğrulandığında bu tabloya gerçek `font-family` değerleri eklenecektir; şu an yalnızca rol tanımı (serif = başlık, sans = gövde) kalıcıdır.
 
 ### Tipografi hiyerarşisi
 
