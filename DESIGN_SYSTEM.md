@@ -6,6 +6,17 @@ Bu dosya yalnızca **kural** tanımlar. Herhangi bir section, layout veya sayfa 
 
 ---
 
+## 0. Source of Truth
+
+**Existing production UI code is the source of truth for already implemented visual tokens. New site sections must reuse these tokens unless a deliberate design-system change is explicitly approved.**
+
+- Hero V3 (mevcut production kodu), bu dokümanda **[Kesin]** olarak işaretlenen tüm değerlerin doğrulama kaynağıdır.
+- Hero V3 kodunda açıkça bulunan renk, tipografi, layout ve component değerleri bu dosyaya **olduğu gibi** aktarılmıştır; hiçbiri yorumlanarak veya genişletilerek değiştirilmemiştir.
+- Hero V3'te bulunmayan ama bu dosyada daha önce yer alan değerler (varsayımsal renk/font/spacing) **[Varsayım — doğrulanmadı]** olarak işaretlidir ve resmi token kabul edilmez; yeni section'lar bunları kullanamaz.
+- Yeni bir section üretilirken, ilgili görsel token zaten Hero V3'te doğrulanmışsa, o token **aynen** yeniden kullanılır. Yeni bir değere gerçekten ihtiyaç varsa, bu önce açık bir onayla bu dosyaya eklenir; koda doğrudan "tek seferlik" yeni değer yazılmaz.
+
+---
+
 ## 1. Tasarım Kimliği
 
 QR Menu Official, **premium editorial SaaS** estetiğine sahiptir.
@@ -29,27 +40,33 @@ Bu şu anlama gelir:
 
 Renk paleti sade ve kısıtlıdır. Amaç: editorial sakinlik + net bir marka vurgusu.
 
-> **TBD — mevcut marka kaynağından doğrulanacak.** Aşağıdaki tüm değerler (marka ana renkleri, yardımcı renkler, accent renkler, logo renkleri dahil) henüz belirlenmemiştir. Bu projede veya önceki konuşmalarda doğrulanmış bir marka kaynağı (logo/brand kit) bulunmadığından hiçbir hex değeri tahmini olarak sabitlenmemiştir. Yalnızca token **rolleri** (hangi tokenın ne işe yaradığı) kalıcıdır; gerçek değerler marka kaynağı sağlandığında bu tabloya girilecektir.
+### [Kesin] — Hero V3'ten doğrulanmış marka renkleri
+
+Aşağıdaki değerler Hero V3 production kodunda açıkça bulunur ve resmi marka paleti olarak kabul edilir.
 
 | Token | Kullanım | Değer |
 |---|---|---|
-| `--color-bg` | Ana zemin | TBD |
-| `--color-bg-alt` | Alternatif/section zemin | TBD |
-| `--color-ink` | Ana metin | TBD |
-| `--color-ink-muted` | İkincil metin | TBD |
-| `--color-border` | Çizgi/ayraç | TBD |
-| `--color-brand` | Marka ana rengi (CTA, link, aktif durum) | TBD |
-| `--color-brand-dark` | Marka ana rengi hover/basılı | TBD |
-| `--color-accent` | Accent/ikincil vurgu (opsiyonel, sınırlı kullanım) | TBD |
+| `--color-deep-forest` | Primary / Deep Forest | `#0D2B22` |
+| `--color-secondary-forest` | Secondary Forest | `#173226` |
+| `--color-green-hover` | Green Hover | `#1E3D2F` |
+| `--color-gold` | Gold | `#C9A84C` |
+| `--color-gold-light` | Gold Light | `#E8C766` |
+| `--color-off-white` | Off White | `#F4F1E8` |
+
+### TBD — Hero V3'te doğrulanmayan roller
+
+Aşağıdaki rollere karşılık gelen kesin bir değer Hero V3'te bulunmuyor. Bu roller resmi token olarak sabitlenmemiştir; uydurulmamıştır ve marka kaynağından/Hero V3'ün başka bir bileşeninden doğrulandığında girilecektir.
+
+| Token (rol) | Kullanım | Değer |
+|---|---|---|
 | `--color-danger` | Hata/uyarı | TBD |
 | `--color-success` | Onay/başarı | TBD |
-| `--color-logo-*` | Logo renkleri | TBD |
+| `--color-logo-*` | Logo renkleri (Hero V3 dışında logo asset'i doğrulanmadı) | TBD |
 
 Kurallar:
-- Marka rengi (`--color-brand`) sayfada **azınlık** olarak kullanılır: CTA butonları, aktif linkler, küçük vurgu detayları. Büyük renkli bloklar/arka planlar için kullanılmaz.
-- `--color-accent` çok sınırlı, tekil vurgu noktalarında (örn. bir rakam, bir alıntı işareti) kullanılır — asla ana CTA rengi olarak kullanılmaz.
-- Sayfanın %90'ından fazlası nötr tonlarda (bg, ink, border) kalır.
-- Koyu tema bu aşamada tanımlanmamıştır; ileride eklenirse aynı token yapısı üzerinden `data-theme="dark"` ile genişletilir.
+- Deep Forest (`--color-deep-forest`) ve Secondary Forest (`--color-secondary-forest`) marka zemin/yüzey rengi olarak kullanılır; Gold (`--color-gold`) ve Gold Light (`--color-gold-light`) **sınırlı, tekil vurgu** amacıyla kullanılır (kenarlık, ikon, ince detay) — geniş dolgu/arka plan rengi olarak kullanılmaz.
+- Off White (`--color-off-white`) açık zemin/metin karşıtlığı için kullanılır.
+- Koyu tema bu aşamada ayrıca tanımlanmamıştır; Hero V3'ün kendisi zaten koyu (deep forest) bir zemin üzerine kuruludur.
 
 ---
 
@@ -57,29 +74,37 @@ Kurallar:
 
 ### Font ailesi
 
-> **TBD — mevcut marka kaynağından doğrulanacak.** Somut font-family isimleri (örn. belirli bir serif/sans-serif adı) henüz belirlenmemiştir; hiçbir font adı tahmini olarak sabitlenmemiştir.
+#### [Kesin] — Hero V3'ten doğrulanmış font stack
 
-- **Başlıklar (display/heading)**: Rol olarak editorial/güçlü karakterli bir serif düşünülüyor — markanın "dergi" hissini taşıması hedefleniyor. Somut font adı: TBD.
-- **Gövde metni (body/UI)**: Rol olarak nötr, okunabilir bir sans-serif düşünülüyor. Somut font adı: TBD.
-- Font seçimi doğrulandığında bu tabloya gerçek `font-family` değerleri eklenecektir; şu an yalnızca rol tanımı (serif = başlık, sans = gövde) kalıcıdır.
+```
+"Segoe UI", Roboto, Helvetica, Arial, sans-serif
+```
 
-### Tipografi hiyerarşisi
+Bu, Hero V3'te gövde ve başlıklarda kullanılan gerçek font stack'idir.
 
-| Token | Rol | Yaklaşık boyut (desktop) | Yaklaşık boyut (mobile) |
+**Playfair Display veya başka bir editorial serif, resmi site fontu olarak tanımlanmamıştır.** Hero V3 kodunda serif font kullanımı yoktur; önceki taslakta yer alan "başlıklarda serif" varsayımı Hero V3 ile doğrulanmadığı için kaldırılmıştır ve resmi token değildir.
+
+- **Başlıklar ve gövde metni**: Yukarıdaki sans-serif stack, Hero V3'te hem başlık hem gövde için kullanılır. Ayrı bir başlık fontu (serif veya başka bir aile) şu an doğrulanmamıştır ve **[Varsayım — doğrulanmadı]** kabul edilir; yeni section'larda uydurulmaz.
+
+### [Kesin] — Hero V3'ten doğrulanmış tipografi değerleri (Hero bileşeni)
+
+Aşağıdaki değerler yalnızca Hero V3 bileşeninde doğrulanmıştır; genel site tipografi skalası olarak genişletilmemiştir.
+
+| Öğe | Boyut | Weight | Diğer |
 |---|---|---|---|
-| `--text-display` | Hero/ana başlık | 56–72px | 32–40px |
-| `--text-h1` | Section başlığı (birincil) | 40–48px | 28–32px |
-| `--text-h2` | Section başlığı (ikincil) | 28–32px | 22–24px |
-| `--text-h3` | Alt başlık / kart başlığı | 20–22px | 18–19px |
-| `--text-body-lg` | Vurgulu gövde metni (lead paragraf) | 18–20px | 16–17px |
-| `--text-body` | Standart gövde metni | 16px | 15–16px |
-| `--text-small` | Yardımcı/etiket metni | 13–14px | 13px |
+| Eyebrow | `11px` | `800` | letter-spacing `.19em` |
+| H1 | `clamp(32px, 5vw, 58px)` | `800` | line-height `1.14`, letter-spacing `-.025em` |
+| Subtitle | `clamp(17px, 2.2vw, 23px)` | `700` | — |
+| Description | `clamp(15px, 1.7vw, 17.5px)` | — | line-height `1.65` |
+| Feature title | `clamp(14.5px, 1.5vw, 16px)` | `700` | — |
+| Feature secondary text | `clamp(12px, 1.2vw, 13.5px)` | — | — |
 
-Kurallar:
-- Satır yüksekliği: başlıklarda `1.1–1.25`, gövde metninde `1.5–1.7`.
-- Satır uzunluğu (measure): gövde metni bloklarında yaklaşık `60–75` karakter/satır; daha uzun blok gerekiyorsa metin ikiye bölünür.
-- Bir section içinde en fazla 2 seviye başlık hiyerarşisi kullanılır (örn. h2 + h3); daha derin iç içe başlık yapısı kurulmaz.
-- Ağırlık (font-weight) skalası sınırlıdır: Regular (400), Medium (500), Semibold (600). Bold (700+) yalnızca çok istisnai vurgularda.
+### TBD — Hero V3 dışındaki genel tipografi skalası
+
+Önceki taslakta yer alan genel `--text-display / --text-h1 / --text-h2 / --text-h3 / --text-body-lg / --text-body / --text-small` skalası Hero V3 kodunda doğrulanmamıştır. Bu tokenlar **resmi değer olarak sabitlenmemiştir**; Hero V3'te doğrulanan tipografi yalnızca yukarıdaki Hero-özel tablodur. Site genelinde kullanılacak h2/h3/body ölçekleri, ilgili section'lar production'a alınırken (veya başka bir doğrulanmış kaynaktan) netleştirilecektir.
+
+Hero V3'ten doğrulanan genel kurallar:
+- Ağırlık skalası Hero V3'te `700` ve `800` olarak gözlenmiştir; `400/500/600` gibi ara ağırlıkların genel site kuralı olduğu doğrulanmamıştır.
 
 ---
 
@@ -87,32 +112,42 @@ Kurallar:
 
 Mobile-first yaklaşım esastır; stiller önce mobil için yazılır, sonra `min-width` ile büyütülür.
 
-| Token | Aralık | Hedef |
-|---|---|---|
-| `--bp-mobile` | `0–599px` | Telefon |
-| `--bp-tablet` | `600–1023px` | Tablet / küçük laptop |
-| `--bp-desktop` | `1024–1439px` | Standart masaüstü |
-| `--bp-desktop-lg` | `1440px+` | Geniş ekran |
+### [Kesin] — Hero V3'ten doğrulanmış breakpoint ve gutter değerleri
+
+| Değer | Karşılık |
+|---|---|
+| Mobile breakpoint | `900px` (bu noktanın altında Hero tek kolona düşer) |
+| Mobile horizontal gutter | `20px` |
+| `<=480px` gutter | `16px` |
+
+### TBD — genel site breakpoint skalası
+
+Önceki taslaktaki `--bp-mobile (0–599px)`, `--bp-tablet (600–1023px)`, `--bp-desktop (1024–1439px)`, `--bp-desktop-lg (1440px+)` token'ları Hero V3 kodunda doğrulanmamıştır ve **[Varsayım — doğrulanmadı]** kabul edilir; resmi token olarak sabitlenmemiştir. Hero V3'ün doğruladığı tek kesin kırılım noktası `900px`'dir (mobil/desktop ayrımı için). Ara bir "tablet" kırılımı Hero V3'te ayrıca tanımlanmamıştır.
 
 Kurallar:
 - Medya sorguları yalnızca `min-width` ile yukarı doğru kurulur (mobile-first). `max-width` sorguları yalnızca istisnai düzeltmelerde kullanılır.
-- Tasarım 3 ana kırılımda test edilir: **375px (mobil)**, **768px (tablet)**, **1440px (desktop)**. Bu üç genişlikte de taşma ve kırılma olmamalıdır.
+- Hero V3 doğrulaması: `900px` altı mobil düzen, `<=480px` ve `<=360px` için ayrıca görsel boyut ayarları mevcuttur (bkz. madde 5 ve madde 11).
 
 ---
 
 ## 5. Max-Width ve Grid Sistemi
 
-| Token | Değer | Kullanım |
-|---|---|---|
-| `--container-max` | `1200px` | Standart içerik container'ı |
-| `--container-max-narrow` | `760px` | Metin ağırlıklı bloklar (uzun paragraf, alıntı) |
-| `--container-max-wide` | `1440px` | Tam genişlik görsel/vurgu section'ları |
-| `--gutter` | `24px` (mobile) / `40px` (tablet) / `64px` (desktop) | Container yan boşluğu |
+### [Kesin] — Hero V3'ten doğrulanmış layout değerleri
 
-Grid:
-- Temel grid **12 kolon**dur, `--gutter` kadar kolon aralığıyla.
-- Mobilde grid genellikle **tek kolona** düşer; tablet'te section'a göre **2 kolon**, desktop'ta gerektiğinde **12 kolonun alt kümeleri** (örn. 6+6, 4+8, 3+3+3+3) kullanılır.
-- Grid, görsel dolgu amacıyla değil, **anlam ilişkisini** yansıtmak için bölünür (örn. problem solda / sonuç sağda).
+| Değer | Karşılık |
+|---|---|
+| Hero desktop grid | `1.08fr / 0.92fr` (sol içerik / sağ görsel) |
+| Desktop/tablet sol içerik padding-left | `5vw` |
+| Desktop/tablet sağ görsel padding-right | `5vw` |
+| Grid gap | `clamp(24px, 4vw, 56px)` |
+| Hero max-width | `none` — desktop'ta Hero inner container tam viewport genişliğinde grid kurar |
+| `--qrmo-site-max-width` | `1536px` olarak tanımlı, **ancak** desktop Hero'da inner max-width `none` olduğu için bu değer aktif desktop container sınırı olarak kabul edilmez |
+
+Mobilde (900px altı) Hero tek kolona düşer (bkz. madde 4 ve madde 12).
+
+### TBD — genel site container/grid sistemi
+
+Önceki taslaktaki `--container-max (1200px)`, `--container-max-narrow (760px)`, `--container-max-wide (1440px)`, `--gutter` ve "12 kolon grid" tanımı Hero V3 kodunda doğrulanmamıştır; **[Varsayım — doğrulanmadı]** kabul edilir ve resmi token olarak sabitlenmemiştir. Hero V3'ün doğruladığı tek container/max-width bilgisi yukarıdaki tablodadır. Genel site container sistemi, ilgili section'lar Hero V3 dışında bir production kaynakla doğrulandığında netleştirilecektir.
 
 ---
 
@@ -133,36 +168,40 @@ Kurallar:
 
 ## 7. Border Radius
 
-| Token | Değer | Kullanım |
-|---|---|---|
-| `--radius-sm` | `6px` | Etiket, badge, küçük UI elemanı |
-| `--radius-md` | `12px` | Buton, input, küçük kart |
-| `--radius-lg` | `20px` | Büyük kart, panel |
-| `--radius-xl` | `28px` | Görsel çerçeveleri, öne çıkan bloklar |
-| `--radius-pill` | `999px` | Pill-buton, tag |
+### [Kesin] — Hero V3'ten doğrulanmış radius değerleri
 
-Kural: Sayfa genelinde en fazla 2–3 radius değeri birlikte kullanılır (örn. buton için `md`, kart için `lg`). Rastgele karışık radius kullanımı yasaktır.
+| Değer | Kullanım |
+|---|---|
+| `11px` | Feature icon radius |
+| `12px` | CTA radius |
+| `20px` | Hero image radius |
+
+### TBD — genel radius skalası
+
+Önceki taslaktaki `--radius-sm (6px)`, `--radius-lg (20px, "büyük kart" rolüyle)`, `--radius-xl (28px)`, `--radius-pill (999px)` token'ları Hero V3'te bu rolleriyle doğrulanmamıştır; **[Varsayım — doğrulanmadı]** kabul edilir. Not: `12px` (CTA) ve `20px` (Hero image) değerleri Hero V3'te doğrulanmıştır ancak yukarıdaki genel `--radius-md` / `--radius-lg` tanımlarıyla aynı role sahip olduğu **varsayılmaz** — yalnızca yukarıdaki tabloda belirtilen bileşenler için geçerlidir.
+
+Kural: Yeni bir component radius'a ihtiyaç duyarsa, önce Hero V3'te doğrulanmış bir değer (11px / 12px / 20px) tekrar kullanılabilir mi diye kontrol edilir; kullanılamıyorsa yeni değer bu dosyaya açık onayla eklenir.
 
 ---
 
 ## 8. Buton Sistemi
 
-### Varyantlar
-- **Primary**: `--color-brand` zemin, beyaz metin. Ana CTA'lar için (tek section'da genellikle 1 adet).
-- **Secondary**: şeffaf/ghost zemin, `--color-ink` metin, `--color-border` çerçeve. İkincil aksiyonlar için.
-- **Text/Link buton**: zemin yok, alt çizgi veya ok ikonuyla desteklenen metin linki. Düşük öncelikli aksiyonlar için.
+### [Kesin] — Hero V3'ten doğrulanmış CTA değerleri
 
-### Boyutlar
-| Token | Yükseklik | Kullanım |
-|---|---|---|
-| `--btn-lg` | 56px | Hero / ana CTA |
-| `--btn-md` | 48px | Section içi standart CTA |
-| `--btn-sm` | 40px | Yardımcı/ikincil aksiyon |
+| Değer | Karşılık |
+|---|---|
+| Zemin | Green gradient: `#1E3D2F → #0D2B22` |
+| Kenarlık | Gold border, `1.5px` |
+| Radius | `12px` (bkz. madde 7) |
+| Diğer | Shadow ve subtle hover motion mevcut (Hero V3'te gözlenen davranış; kesin easing/süre değeri kodda ayrıca belirtilmedi) |
+
+### TBD — genel buton varyant/boyut sistemi
+
+Önceki taslaktaki "Primary / Secondary / Text" varyant tanımları ve `--btn-lg (56px) / --btn-md (48px) / --btn-sm (40px)` yükseklik skalası Hero V3 kodunda doğrulanmamıştır; **[Varsayım — doğrulanmadı]** kabul edilir ve resmi token olarak sabitlenmemiştir. Hero V3'ün doğruladığı tek CTA, yukarıdaki tablodaki gradient/gold-border/12px-radius kombinasyonudur.
 
 Kurallar:
-- Bir section içinde en fazla **1 primary buton** bulunur; birden fazla CTA gerekiyorsa ikincisi mutlaka `secondary` veya `text` varyantıdır.
+- Bir section içinde en fazla **1 primary buton** bulunur; birden fazla CTA gerekiyorsa ikincisi mutlaka daha düşük vurgulu bir varyanttır (varyant detayı TBD).
 - Buton metni her zaman net bir eylem bildirir ("Demo iste", "Fiyatları gör"); belirsiz metin ("Devam et", "Tıkla") kullanılmaz.
-- Buton içi yatay padding dikeyin en az 2 katıdır (örn. 48px yükseklik → min 24px yan padding).
 
 ---
 
@@ -190,17 +229,42 @@ Kart kullanılmaması gereken yerler:
 
 ## 10. İkon Kullanımı
 
+### [Kesin] — Hero V3'ten doğrulanmış feature icon değerleri
+
+| Değer | Karşılık |
+|---|---|
+| Zemin | Dark green background (`--color-deep-forest` / `--color-secondary-forest` ailesi) |
+| Kenarlık | Gold border |
+| İkon rengi | Gold-light |
+| Boyut | `clamp(38px, 3vw, 44px)` |
+| Radius | `11px` (bkz. madde 7) |
+| Ayraç (feature separators) | `rgba(201,168,76,.25)` |
+
+### TBD — genel ikon skalası
+
+Önceki taslaktaki `20px / 24px / 32–40px` genel ikon boyut skalası Hero V3'te bu haliyle doğrulanmamıştır; **[Varsayım — doğrulanmadı]** kabul edilir. Hero V3'ün doğruladığı tek ikon boyutu `clamp(38px, 3vw, 44px)` (feature icon) değeridir.
+
+Kurallar:
 - İkonlar **açıklayıcı**, tekil çizgi (line/outline) stilinde, tutarlı bir ikon setinden gelir. Emoji, karışık stil ikon (bazısı dolu bazısı çizgi) kullanılmaz.
 - İkon, metnin yerine geçmez; her zaman bir metinle birlikte anlam taşır. Salt dekoratif/anlamsız ikon kullanılmaz.
-- Standart ikon boyutları: `20px` (metin içi/inline), `24px` (buton/liste), `32–40px` (öne çıkan tekil vurgu).
-- İkon rengi varsayılan olarak `--color-ink` veya `--color-ink-muted`; marka rengi yalnızca gerçek bir vurgu/aktif durum ifade ediyorsa kullanılır.
 
 ---
 
 ## 11. Görsel / Mockup Kullanımı
 
+### [Kesin] — Hero V3'ten doğrulanmış hero görsel değerleri
+
+| Değer | Karşılık |
+|---|---|
+| Max-width (desktop) | `480px` |
+| Radius | `20px` (bkz. madde 7) |
+| Efekt | Subtle dark shadow + subtle gold outline |
+| `<=480px` max-width | `260px` |
+| `<=360px` max-width | `220px` |
+| Mobil davranış | Görsel, içerik bloğunun **altına** taşınır (bkz. madde 4 ve madde 12) |
+
+Kurallar:
 - Ürün görselleri gerçek arayüz ekran görüntüsü/mockup temellidir; soyut illüstrasyon veya stok görsel "SaaS klişesi" (el sıkışan insanlar, jenerik grafik ikonlar) kullanılmaz.
-- Mockup'lar cihaz çerçevesiyle (telefon/tablet frame) veya sade bir kart/panel çerçevesiyle sunulur; gölge ve perspektif abartılı olmaz.
 - Bir section'da en fazla **1 ana görsel/mockup odağı** olur; birden fazla görsel varsa biri baskın, diğerleri destekleyicidir (hiyerarşi net olmalı).
 - Görseller her zaman `alt` metniyle birlikte, gerçek ürün bağlamını yansıtır; kurgusal/yanıltıcı arayüz ekranı üretilmez.
 
@@ -208,14 +272,23 @@ Kart kullanılmaması gereken yerler:
 
 ## 12. Responsive Kurallar ve Mobile-First Davranış
 
-- Tüm CSS **mobil stil temel alınarak** yazılır; tablet/desktop stiller `min-width` media query ile eklenir.
-- Mobilde:
-  - Grid tek kolona düşer.
-  - Yatay scroll/taşma sıfır tolerans.
-  - Dokunma hedefleri (buton, link) minimum `44x44px`.
-  - Büyük görseller mobilde yeniden kadrajlanır/kırpılır, sadece küçültülmez.
-- Tablet, mobil ile desktop arasında **kendi ara durumu** olarak ele alınır; doğrudan desktop grid'inin küçültülmüş hali değildir.
-- Section spacing mobilde oransal olarak azalır (bkz. madde 6) ama hiyerarşi (hangi boşluk daha büyük) korunur.
+### [Kesin] — Hero V3'ten doğrulanmış responsive davranış
+
+| Değer | Karşılık |
+|---|---|
+| Mobile breakpoint | `900px` |
+| Mobile horizontal gutter | `20px` |
+| `<=480px` gutter | `16px` |
+| Layout | `900px` altında tek kolona düşer |
+| Metin hizası | Mobilde ortalanır (text-align: center) |
+| Görsel konumu | Hero image, içerik bloğunun altına taşınır |
+| Görsel boyutu | `<=480px`: max-width `260px`; `<=360px`: max-width `220px` |
+
+### Genel kurallar
+
+- Tüm CSS **mobil stil temel alınarak** yazılır; büyük ekran stilleri `min-width` media query ile eklenir.
+- Yatay scroll/taşma sıfır tolerans, tüm genişliklerde.
+- "Tablet" için Hero V3'te ayrı bir ara kırılım noktası doğrulanmamıştır (bkz. madde 4); genel siteye özel bir tablet davranışı TBD kabul edilir.
 
 ---
 
