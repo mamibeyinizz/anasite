@@ -1124,14 +1124,28 @@
    DENEYSEL: 320px VE ALTI
    Description ve feature başlıklarının satır sayısını azaltmak için
    en küçük font-size kırpması (line-height/width/padding/margin
-   değişmedi).
+   değişmedi). Ardından CTA'yı fold içine almak için yalnızca
+   CTA-öncesi dikey spacing (wrap/content padding-top ve
+   eyebrow/H1/H2/desc margin-bottom) küçük miktarlarda kırpıldı;
+   features→CTA 16px boşluğu, feature-row padding'i, CTA ve
+   font-size'lar dokunulmadı.
 ========================================================= */
 
 @media (max-width: 320px) {
 
-  .qrmo-hero-v3-desc { font-size: 14px; }
+  .qrmo-hero-v3-desc { font-size: 14px; margin-bottom: 10px; }
 
   .qrmo-hero-v3-feature-text { font-size: 12px; }
+
+  .qrmo-hero-v3-wrap { padding-top: 8px; }
+
+  .qrmo-hero-v3-content { padding-top: clamp(2px, 1svh, 8px); }
+
+  .qrmo-hero-v3-eyebrow { margin-bottom: 10px; }
+
+  .qrmo-hero-v3-title { margin-bottom: 8px; }
+
+  .qrmo-hero-v3-subtitle { margin-bottom: 10px; }
 
 }
 
