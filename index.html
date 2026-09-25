@@ -1368,5 +1368,348 @@
 }
 
 </style>
+
+
+<section class="qrmo-flow" aria-label="Çözüm: uçtan uca akış">
+  <div class="qrmo-flow__inner">
+
+    <p class="qrmo-flow__kicker">BAŞTAN SONA</p>
+
+    <h2 class="qrmo-flow__heading">QR'dan servise kadar her adım birbirine bağlı ilerler.</h2>
+
+    <p class="qrmo-flow__desc">Müşteri menüyü keşfeder, sorar, çağırır; siz servis eder ve süreçten öğrenirsiniz — hepsi aynı akışın içinde.</p>
+
+    <ol class="qrmo-flow__steps">
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">1</span>
+        <span class="qrmo-flow__step-label">QR</span>
+      </li>
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">2</span>
+        <span class="qrmo-flow__step-label">MENÜ</span>
+      </li>
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">3</span>
+        <span class="qrmo-flow__step-label">SEÇ</span>
+      </li>
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">4</span>
+        <span class="qrmo-flow__step-label">SOR</span>
+      </li>
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">5</span>
+        <span class="qrmo-flow__step-label">ÇAĞIR</span>
+      </li>
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">6</span>
+        <span class="qrmo-flow__step-label">SERVİS</span>
+      </li>
+
+      <li class="qrmo-flow__step">
+        <span class="qrmo-flow__step-badge" aria-hidden="true">7</span>
+        <span class="qrmo-flow__step-label">ÖĞREN</span>
+      </li>
+
+    </ol>
+
+  </div>
+</section>
+
+
+<style>
+
+/* =========================================================
+   QR MENU OFFICIAL — SECTION 3: "ÇÖZÜM / AKIŞ ÖZETİ"
+
+   İZOLASYON: Bu blok yalnızca .qrmo-flow namespace'i altındaki
+   selector'ları içerir. Hero V3'ün (.qrmo-hero-v3-*) ve Section 2'nin
+   (.qrmo-problem*) hiçbir kuralına dokunmaz, global element
+   selector'ı (body/h2/p/ol/li) kullanmaz. Renk degerleri Hero'nun
+   scoped custom property'lerine (--qrmo-*) baglanmadan, literal hex
+   olarak tekrar kullanilir (bu degiskenler yalnizca .qrmo-hero-v3-wrap
+   alt agacinda tanimli, kardes section'a miras gecmez).
+   Breakpoint 900/480px, Hero V3 ile ayni dogrulanmis degerlerdir —
+   yeni breakpoint icat edilmedi. JS yok, animasyon yok.
+========================================================= */
+
+.qrmo-flow,
+.qrmo-flow *,
+.qrmo-flow *::before,
+.qrmo-flow *::after {
+
+  box-sizing: border-box;
+}
+
+
+.qrmo-flow {
+
+  background: #F4F1E8;
+
+  padding: 120px 20px;
+}
+
+
+.qrmo-flow__inner {
+
+  max-width: 1040px;
+
+  margin-inline: auto;
+
+  text-align: center;
+}
+
+
+.qrmo-flow__kicker {
+
+  margin: 0 0 24px;
+
+  color: rgba(13, 43, 34, .65);
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .19em;
+
+  line-height: 1.4;
+}
+
+
+.qrmo-flow__heading {
+
+  margin: 0 0 24px;
+
+  color: #173226;
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(17px, 2.2vw, 23px);
+
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+
+.qrmo-flow__desc {
+
+  margin: 0 auto 48px;
+
+  max-width: 640px;
+
+  color: rgba(13, 43, 34, .78);
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(15px, 1.7vw, 17.5px);
+
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+.qrmo-flow__steps {
+
+  position: relative;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 8px;
+}
+
+
+.qrmo-flow__steps::before {
+
+  content: '';
+
+  position: absolute;
+
+  top: calc(clamp(38px, 3vw, 44px) / 2 - .5px);
+
+  left: 0;
+
+  right: 0;
+
+  height: 1px;
+
+  background: rgba(201, 168, 76, .25);
+
+  z-index: 0;
+}
+
+
+.qrmo-flow__step {
+
+  position: relative;
+
+  z-index: 1;
+
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.qrmo-flow__step-badge {
+
+  flex: 0 0 auto;
+
+  width: clamp(38px, 3vw, 44px);
+
+  height: clamp(38px, 3vw, 44px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #E8C766;
+
+  background: #0D2B22;
+
+  border: 1px solid #C9A84C;
+
+  border-radius: 11px;
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(14.5px, 1.5vw, 16px);
+
+  font-weight: 700;
+}
+
+
+.qrmo-flow__step-label {
+
+  color: #173226;
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(14.5px, 1.5vw, 16px);
+
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================================
+   MOBİL
+   0 – 900px (Hero V3 ile ayni dogrulanmis kirilim)
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .qrmo-flow {
+
+    padding: 64px 20px;
+  }
+
+
+  .qrmo-flow__kicker {
+
+    margin-bottom: 16px;
+  }
+
+
+  .qrmo-flow__heading {
+
+    margin-bottom: 16px;
+  }
+
+
+  .qrmo-flow__desc {
+
+    margin-bottom: 32px;
+  }
+
+
+  .qrmo-flow__steps {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 16px;
+  }
+
+
+  .qrmo-flow__steps::before {
+
+    top: 0;
+
+    bottom: 0;
+
+    left: calc(clamp(38px, 3vw, 44px) / 2 - .5px);
+
+    right: auto;
+
+    width: 1px;
+
+    height: auto;
+  }
+
+
+  .qrmo-flow__step {
+
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    text-align: left;
+
+    gap: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   KÜÇÜK MOBİL
+   0 – 480px (Hero V3 ile ayni dogrulanmis gutter)
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .qrmo-flow {
+
+    padding-left: 16px;
+
+    padding-right: 16px;
+  }
+
+}
+
+</style>
 </body>
 </html>
