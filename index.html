@@ -807,7 +807,11 @@
 
     --qrmo-site-gutter: 20px;
 
-    padding: 20px 0 20px;
+    min-height: 100svh;
+
+    min-height: 100dvh;
+
+    padding: 28px 0 36px;
 
     display: flex;
 
@@ -849,7 +853,7 @@
 
     justify-content: flex-start;
 
-    padding-top: clamp(4px, 2svh, 16px);
+    padding-top: clamp(8px, 4svh, 28px);
 
     padding-bottom: clamp(16px, 4svh, 32px);
   }
@@ -987,6 +991,8 @@
   .qrmo-hero-v3-content {
 
     min-height: auto;
+
+    padding-top: clamp(4px, 2svh, 16px);
   }
 
 
