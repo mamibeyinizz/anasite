@@ -1170,5 +1170,237 @@
 }
 
 </style>
+
+
+<section class="qrmo-problem" aria-label="Restoranın günlük sorunu">
+  <div class="qrmo-problem__inner">
+
+    <p class="qrmo-problem__kicker">TANIDIK BİR MESAİ</p>
+
+    <h2 class="qrmo-problem__heading">Bir yandan müşteri soruyor, bir yandan masa çağırıyor.</h2>
+
+    <p class="qrmo-problem__desc">Yoğun saatte personeliniz aynı anda birçok şeyle uğraşır: sorulara cevap vermek, çağrıları fark etmek, menüdeki güncel bilgiyi doğru aktarmak.</p>
+
+    <ul class="qrmo-problem__list">
+      <li class="qrmo-problem__item">Müşteri soruları (alerjen, içerik, öneri) personeli sürekli meşgul eder.</li>
+      <li class="qrmo-problem__item">Garson ya da hesap çağrıları gözden kaçabilir, geç fark edilebilir.</li>
+      <li class="qrmo-problem__item">Menüde fiyat veya kampanya değiştiğinde, güncellemek zaman ve dikkat ister.</li>
+    </ul>
+
+  </div>
+</section>
+
+
+<style>
+
+/* =========================================================
+   QR MENU OFFICIAL — SECTION 2: "RESTORANIN GÜNLÜK SORUNU"
+
+   İZOLASYON: Bu blok yalnızca .qrmo-problem namespace'i altındaki
+   selector'ları içerir. Hero V3'ün (.qrmo-hero-v3-*) hiçbir kuralına
+   dokunmaz, global element selector'ı (body/h2/p/ul/li) kullanmaz.
+   Breakpoint'ler Hero V3 ile aynı doğrulanmış degerlerdir (900px,
+   480px) — yeni breakpoint icat edilmedi.
+========================================================= */
+
+.qrmo-problem,
+.qrmo-problem *,
+.qrmo-problem *::before,
+.qrmo-problem *::after {
+
+  box-sizing: border-box;
+}
+
+
+.qrmo-problem {
+
+  background: #F4F1E8;
+
+  padding: 120px 20px;
+}
+
+
+.qrmo-problem__inner {
+
+  max-width: 640px;
+
+  margin-inline: auto;
+
+  animation: qrmo-problem-in 320ms ease-out both;
+}
+
+
+@keyframes qrmo-problem-in {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(12px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+.qrmo-problem__kicker {
+
+  margin: 0 0 24px;
+
+  color: rgba(13, 43, 34, .58);
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .19em;
+
+  line-height: 1.4;
+}
+
+
+.qrmo-problem__heading {
+
+  margin: 0 0 24px;
+
+  color: #173226;
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(17px, 2.2vw, 23px);
+
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+
+.qrmo-problem__desc {
+
+  margin: 0 0 48px;
+
+  color: rgba(13, 43, 34, .78);
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(15px, 1.7vw, 17.5px);
+
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+.qrmo-problem__list {
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.qrmo-problem__item {
+
+  margin: 0 0 24px;
+
+  color: rgba(13, 43, 34, .78);
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  font-size: clamp(15px, 1.7vw, 17.5px);
+
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+.qrmo-problem__item:last-child {
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   MOBİL
+   0 – 900px (Hero V3 ile ayni dogrulanmis kirilim)
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .qrmo-problem {
+
+    padding: 64px 20px;
+
+    text-align: center;
+  }
+
+
+  .qrmo-problem__kicker {
+
+    margin-bottom: 16px;
+  }
+
+
+  .qrmo-problem__heading {
+
+    margin-bottom: 16px;
+  }
+
+
+  .qrmo-problem__desc {
+
+    margin-bottom: 32px;
+  }
+
+
+  .qrmo-problem__item {
+
+    margin-bottom: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   KÜÇÜK MOBİL
+   0 – 480px (Hero V3 ile ayni dogrulanmis gutter)
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .qrmo-problem {
+
+    padding-left: 16px;
+
+    padding-right: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qrmo-problem__inner {
+
+    animation: none;
+  }
+
+}
+
+</style>
 </body>
 </html>
