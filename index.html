@@ -4787,5 +4787,3632 @@
 </script>
 
 </div>
+
+<section class="qrmo-tables-v5" aria-labelledby="qrmo-tables-v5-title">
+
+<style>
+
+/* =========================================================
+   QR MENU OFFICIAL
+   SINIRSIZ QR MASA — RESPONSIVE V6
+   ========================================================= */
+
+.qrmo-tables-v5{
+
+  --qmt-dark:#0D2B22;
+  --qmt-dark-2:#173226;
+  --qmt-dark-3:#1E3D2F;
+
+  --qmt-gold:#C9A84C;
+  --qmt-gold-light:#E8C766;
+
+  --qmt-cream:#F4F1E8;
+  --qmt-muted:#3F4A45;
+  --qmt-line:rgba(13,43,34,.12);
+
+  width:100%;
+  margin:0;
+  padding:88px 0;
+
+  position:relative;
+
+  background:transparent !important;
+
+  color:var(--qmt-dark);
+
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  overflow:visible;
+}
+
+.qrmo-tables-v5 *,
+.qrmo-tables-v5 *::before,
+.qrmo-tables-v5 *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   MAIN GRID
+
+   DESKTOP / TABLET:
+   viewport'un %5'i solda
+   viewport'un %5'i sağda
+
+   width:90%
+   margin:auto
+
+   Böylece:
+   left edge  = 5vw
+   right edge = 5vw
+   ========================================================= */
+
+.qrmo-tables-v5__inner{
+
+  width:90%;
+  max-width:none;
+
+  margin-left:auto;
+  margin-right:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(0,1fr);
+
+  gap:clamp(38px,5vw,86px);
+
+  align-items:center;
+}
+
+
+/* =========================================================
+   LEFT / DEMO
+
+   ÖNEMLİ:
+   justify-content:flex-start
+   => animasyon gerçekten %5 çizgisinden başlar
+   ========================================================= */
+
+.qrmo-tables-v5__demo{
+
+  min-width:0;
+
+  width:100%;
+
+  display:flex;
+
+  justify-content:flex-start;
+  align-items:center;
+
+  padding:
+    12px
+    0
+    16px;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.qrmo-tables-v5__app{
+
+  width:100%;
+
+  max-width:540px;
+
+  margin-left:0;
+  margin-right:auto;
+
+  background:var(--qmt-dark);
+
+  border-radius:28px;
+
+  padding:12px;
+
+  border:1px solid rgba(201,168,76,.15);
+
+  box-shadow:
+    0 4px 10px rgba(13,43,34,.08),
+    0 28px 55px rgba(13,43,34,.17);
+
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   APP BAR
+   ========================================================= */
+
+.qrmo-tables-v5__appbar{
+
+  height:38px;
+
+  padding:
+    0
+    8px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  color:var(--qmt-cream);
+}
+
+.qrmo-tables-v5__brand{
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:800;
+
+  letter-spacing:.14em;
+
+  color:var(--qmt-cream);
+}
+
+.qrmo-tables-v5__brand b{
+  color:var(--qmt-gold-light);
+}
+
+.qrmo-tables-v5__dots{
+
+  display:flex;
+
+  gap:5px;
+
+  align-items:center;
+}
+
+.qrmo-tables-v5__dots i{
+
+  width:7px;
+  height:7px;
+
+  display:block;
+
+  border-radius:50%;
+
+  background:rgba(244,241,232,.25);
+}
+
+
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
+.qrmo-tables-v5__screen{
+
+  position:relative;
+
+  width:100%;
+
+  min-height:500px;
+  height:500px;
+
+  padding:22px;
+
+  background:var(--qmt-cream);
+
+  border-radius:20px;
+
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   SCREEN HEADER
+   ========================================================= */
+
+.qrmo-tables-v5__screen-head{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  margin-bottom:18px;
+}
+
+.qrmo-tables-v5__screen-kicker{
+
+  display:block;
+
+  margin:
+    0
+    0
+    5px;
+
+  font-size:9px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  color:var(--qmt-gold);
+}
+
+.qrmo-tables-v5__screen-title{
+
+  margin:0;
+
+  font-size:25px;
+  line-height:1.08;
+
+  font-weight:800;
+
+  letter-spacing:-.025em;
+
+  color:var(--qmt-dark);
+}
+
+.qrmo-tables-v5__screen-count{
+
+  flex:0 0 auto;
+
+  min-width:56px;
+  height:30px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    0
+    9px;
+
+  border-radius:9px;
+
+  background:rgba(201,168,76,.13);
+
+  border:1px solid rgba(201,168,76,.30);
+
+  color:var(--qmt-dark);
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:800;
+
+  transition:
+    background-color .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+
+/* =========================================================
+   MODE
+   ========================================================= */
+
+.qrmo-tables-v5__mode{
+
+  width:100%;
+  height:40px;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  padding:3px;
+
+  margin:
+    0
+    0
+    14px;
+
+  border-radius:11px;
+
+  background:rgba(13,43,34,.08);
+}
+
+.qrmo-tables-v5__mode-item{
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:8px;
+
+  color:var(--qmt-muted);
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:700;
+
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.qrmo-tables-v5__mode-item.is-active{
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-cream);
+}
+
+
+/* =========================================================
+   CREATE
+   ========================================================= */
+
+.qrmo-tables-v5__create{
+
+  position:relative;
+
+  padding:16px;
+
+  margin:0;
+
+  border-radius:14px;
+
+  background:#fff;
+
+  border:1px solid rgba(13,43,34,.07);
+
+  box-shadow:
+    0 8px 20px rgba(13,43,34,.05);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.qrmo-tables-v5__create-head{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin:
+    0
+    0
+    13px;
+}
+
+.qrmo-tables-v5__create-title{
+
+  margin:0;
+
+  font-size:12px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  color:var(--qmt-dark);
+}
+
+.qrmo-tables-v5__create-status{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:5px;
+
+  color:#65706b;
+
+  font-size:9px;
+  line-height:1;
+
+  font-weight:600;
+
+  opacity:.8;
+}
+
+.qrmo-tables-v5__create-status-dot{
+
+  width:6px;
+  height:6px;
+
+  display:block;
+
+  border-radius:50%;
+
+  background:#b7beb9;
+
+  transition:
+    background-color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.qrmo-tables-v5__fields{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1.55fr)
+    minmax(74px,.55fr)
+    minmax(74px,.55fr);
+
+  gap:8px;
+
+  margin:
+    0
+    0
+    10px;
+}
+
+.qrmo-tables-v5__field{
+  min-width:0;
+}
+
+.qrmo-tables-v5__field-label{
+
+  display:block;
+
+  margin:
+    0
+    0
+    5px
+    2px;
+
+  font-size:8px;
+  line-height:1;
+
+  font-weight:700;
+
+  color:var(--qmt-muted);
+}
+
+.qrmo-tables-v5__field-box{
+
+  height:36px;
+
+  display:flex;
+
+  align-items:center;
+
+  padding:
+    0
+    10px;
+
+  border-radius:8px;
+
+  background:#f8f7f2;
+
+  border:1px solid rgba(13,43,34,.09);
+
+  color:var(--qmt-dark);
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:600;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   RANGE
+   ========================================================= */
+
+.qrmo-tables-v5__range{
+
+  min-height:39px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:
+    0
+    10px;
+
+  margin:
+    0
+    0
+    10px;
+
+  border-radius:8px;
+
+  background:#faf9f5;
+
+  border:1px solid rgba(13,43,34,.06);
+
+  color:var(--qmt-muted);
+
+  font-size:8.5px;
+  line-height:1.3;
+
+  font-weight:500;
+}
+
+.qrmo-tables-v5__range-text{
+
+  min-width:0;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+
+  white-space:nowrap;
+}
+
+.qrmo-tables-v5__range-count{
+
+  flex:0 0 auto;
+
+  color:var(--qmt-gold);
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+   ========================================================= */
+
+.qrmo-tables-v5__create-button{
+
+  width:100%;
+  height:40px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:0;
+
+  border-radius:9px;
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-cream);
+
+  font-family:inherit;
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:800;
+
+  transition:
+    background-color .25s ease,
+    transform .25s ease;
+}
+
+.qrmo-tables-v5__create-button::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(232,199,102,.16) 50%,
+      transparent 100%
+    );
+
+  transform:translateX(-110%);
+
+  transition:
+    transform .55s ease;
+}
+
+.qrmo-tables-v5__create-button.is-processing{
+
+  background:var(--qmt-dark-2);
+}
+
+.qrmo-tables-v5__create-button.is-processing::after{
+
+  transform:translateX(110%);
+}
+
+
+/* =========================================================
+   PROCESSING
+   ========================================================= */
+
+.qrmo-tables-v5__processing{
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:30px;
+
+  background:rgba(244,241,232,.96);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transition:
+    opacity .28s ease,
+    visibility .28s ease;
+}
+
+.qrmo-tables-v5__processing.is-visible{
+
+  opacity:1;
+
+  visibility:visible;
+}
+
+.qrmo-tables-v5__processing-icon{
+
+  width:52px;
+  height:52px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:13px;
+
+  border-radius:15px;
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-gold-light);
+
+  box-shadow:
+    0 10px 24px rgba(13,43,34,.14);
+}
+
+.qrmo-tables-v5__spinner{
+
+  width:22px;
+  height:22px;
+
+  border-radius:50%;
+
+  border:
+    2px solid
+    rgba(232,199,102,.25);
+
+  border-top-color:
+    var(--qmt-gold-light);
+
+  animation:
+    qrmoTablesSpin .75s linear infinite;
+}
+
+@keyframes qrmoTablesSpin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+.qrmo-tables-v5__processing-title{
+
+  margin:
+    0
+    0
+    5px;
+
+  color:var(--qmt-dark);
+
+  font-size:15px;
+  line-height:1.2;
+
+  font-weight:800;
+}
+
+.qrmo-tables-v5__processing-text{
+
+  margin:0;
+
+  color:var(--qmt-muted);
+
+  font-size:10px;
+  line-height:1.4;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.qrmo-tables-v5__result{
+
+  position:absolute;
+
+  inset:22px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:translateY(12px);
+
+  transition:
+    opacity .42s ease,
+    transform .42s cubic-bezier(.22,.61,.36,1),
+    visibility .42s ease;
+}
+
+.qrmo-tables-v5__result.is-visible{
+
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto;
+
+  transform:translateY(0);
+}
+
+.qrmo-tables-v5__result-top{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  margin:
+    0
+    0
+    15px;
+}
+
+.qrmo-tables-v5__result-kicker{
+
+  display:block;
+
+  margin:
+    0
+    0
+    5px;
+
+  font-size:8px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  letter-spacing:.13em;
+
+  text-transform:uppercase;
+
+  color:var(--qmt-gold);
+}
+
+.qrmo-tables-v5__result-title{
+
+  margin:0;
+
+  font-size:21px;
+  line-height:1.1;
+
+  font-weight:800;
+
+  letter-spacing:-.02em;
+
+  color:var(--qmt-dark);
+}
+
+.qrmo-tables-v5__result-success{
+
+  flex:0 0 auto;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  padding:
+    7px
+    9px;
+
+  border-radius:8px;
+
+  background:rgba(42,156,90,.08);
+
+  color:#2f8b56;
+
+  font-size:8.5px;
+  line-height:1;
+
+  font-weight:800;
+}
+
+.qrmo-tables-v5__success-check{
+
+  width:13px;
+  height:13px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#2f8b56;
+
+  color:#fff;
+
+  font-size:8px;
+}
+
+
+/* =========================================================
+   QR GRID
+   ========================================================= */
+
+.qrmo-tables-v5__qr-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,minmax(0,1fr));
+
+  gap:7px;
+
+  flex:1 1 auto;
+
+  min-height:0;
+
+  align-content:start;
+}
+
+.qrmo-tables-v5__qr-card{
+
+  min-width:0;
+
+  padding:
+    8px
+    6px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  border-radius:9px;
+
+  background:#fff;
+
+  border:1px solid rgba(13,43,34,.07);
+
+  box-shadow:
+    0 5px 12px rgba(13,43,34,.04);
+
+  opacity:0;
+
+  transform:
+    translateY(10px)
+    scale(.94);
+
+  transition:
+    opacity .35s cubic-bezier(.22,.61,.36,1),
+    transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+.qrmo-tables-v5__qr-card.is-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+.qrmo-tables-v5__qr{
+
+  width:42px;
+  height:42px;
+
+  position:relative;
+
+  margin:
+    0
+    0
+    6px;
+
+  border-radius:5px;
+
+  background:
+    linear-gradient(
+      45deg,
+      #111 25%,
+      transparent 25%,
+      transparent 75%,
+      #111 75%
+    ),
+    linear-gradient(
+      45deg,
+      #111 25%,
+      transparent 25%,
+      transparent 75%,
+      #111 75%
+    );
+
+  background-size:8px 8px;
+
+  background-position:
+    0 0,
+    4px 4px;
+
+  border:
+    4px solid #fff;
+
+  box-shadow:
+    0 0 0 1px rgba(13,43,34,.12);
+}
+
+.qrmo-tables-v5__qr::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  width:11px;
+  height:11px;
+
+  transform:
+    translate(-50%,-50%);
+
+  border-radius:3px;
+
+  background:var(--qmt-dark);
+
+  box-shadow:
+    0 0 0 2px var(--qmt-gold);
+}
+
+.qrmo-tables-v5__qr-name{
+
+  max-width:100%;
+
+  margin:0;
+
+  font-size:8px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  color:var(--qmt-dark);
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   RESULT FOOT
+   ========================================================= */
+
+.qrmo-tables-v5__result-foot{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin-top:12px;
+
+  padding-top:11px;
+
+  border-top:
+    1px solid
+    var(--qmt-line);
+}
+
+.qrmo-tables-v5__result-note{
+
+  min-width:0;
+
+  color:var(--qmt-muted);
+
+  font-size:9px;
+  line-height:1.35;
+}
+
+.qrmo-tables-v5__exports{
+
+  flex:0 0 auto;
+
+  display:flex;
+
+  gap:6px;
+}
+
+.qrmo-tables-v5__export{
+
+  height:27px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    0
+    9px;
+
+  border-radius:7px;
+
+  background:#fff;
+
+  border:
+    1px solid
+    rgba(13,43,34,.12);
+
+  color:var(--qmt-dark);
+
+  font-family:inherit;
+
+  font-size:8px;
+  line-height:1;
+
+  font-weight:800;
+
+  opacity:0;
+
+  transform:translateY(5px);
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease,
+    background-color .2s ease;
+}
+
+.qrmo-tables-v5__export.is-visible{
+
+  opacity:1;
+
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   CURSOR
+   ========================================================= */
+
+.qrmo-tables-v5__cursor{
+
+  position:absolute;
+
+  width:19px;
+  height:19px;
+
+  left:0;
+  top:0;
+
+  z-index:20;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transform:
+    translate3d(0,0,0);
+
+  transition:
+    transform .58s cubic-bezier(.4,0,.2,1),
+    opacity .22s ease;
+}
+
+.qrmo-tables-v5__cursor.is-visible{
+  opacity:1;
+}
+
+.qrmo-tables-v5__cursor svg{
+
+  display:block;
+
+  width:24px;
+  height:24px;
+
+  filter:
+    drop-shadow(
+      0 2px 4px rgba(0,0,0,.25)
+    );
+
+  transform-origin:20% 20%;
+
+  transition:
+    transform .12s ease;
+}
+
+.qrmo-tables-v5__cursor.is-clicking svg{
+  transform:scale(.78);
+}
+
+.qrmo-tables-v5__click-ring{
+
+  position:absolute;
+
+  left:-8px;
+  top:-8px;
+
+  width:34px;
+  height:34px;
+
+  border:
+    2px solid
+    var(--qmt-gold);
+
+  border-radius:50%;
+
+  opacity:0;
+
+  transform:scale(.45);
+}
+
+.qrmo-tables-v5__cursor.is-clicking
+.qrmo-tables-v5__click-ring{
+
+  animation:
+    qrmoTablesClick .42s ease-out;
+}
+
+@keyframes qrmoTablesClick{
+
+  0%{
+    opacity:.75;
+    transform:scale(.45);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(1.15);
+  }
+
+}
+
+
+/* =========================================================
+   RIGHT CONTENT
+
+   ÖNEMLİ:
+   align-items:flex-end
+   => içerik bloğunun sağ kenarı %5 çizgisinde
+   ========================================================= */
+
+.qrmo-tables-v5__content{
+
+  min-width:0;
+
+  width:100%;
+
+  max-width:620px;
+
+  margin-left:auto;
+  margin-right:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:flex-start;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.qrmo-tables-v5__eyebrow{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin:
+    0
+    0
+    18px;
+
+  color:var(--qmt-gold);
+
+  font-size:12px;
+  line-height:1.2;
+
+  font-weight:700;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+}
+
+.qrmo-tables-v5__eyebrow::before{
+
+  content:"";
+
+  width:32px;
+  height:2px;
+
+  flex:0 0 32px;
+
+  border-radius:2px;
+
+  background:var(--qmt-gold);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.qrmo-tables-v5__title{
+
+  width:100%;
+
+  max-width:590px;
+
+  margin:
+    0
+    0
+    17px;
+
+  color:var(--qmt-dark);
+
+  font-size:clamp(40px,4vw,56px);
+
+  line-height:1.02;
+
+  font-weight:800;
+
+  letter-spacing:-.035em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.qrmo-tables-v5__description{
+
+  width:100%;
+
+  max-width:610px;
+
+  margin:
+    0
+    0
+    27px;
+
+  color:var(--qmt-muted);
+
+  font-size:17px;
+
+  line-height:1.6;
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.qrmo-tables-v5__benefits{
+
+  width:100%;
+
+  max-width:620px;
+
+  list-style:none;
+
+  margin:
+    0
+    0
+    26px;
+
+  padding:0;
+
+  display:grid;
+
+  gap:17px;
+}
+
+.qrmo-tables-v5__benefit{
+
+  display:grid;
+
+  grid-template-columns:
+    26px
+    minmax(0,1fr);
+
+  gap:12px;
+
+  align-items:start;
+
+  margin:0;
+  padding:0;
+}
+
+.qrmo-tables-v5__check{
+
+  width:24px;
+  height:24px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-top:1px;
+
+  border-radius:50%;
+
+  background:rgba(201,168,76,.20);
+}
+
+.qrmo-tables-v5__check svg{
+
+  width:13px;
+  height:13px;
+
+  fill:none;
+
+  stroke:var(--qmt-gold);
+
+  stroke-width:3;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.qrmo-tables-v5__benefit-title{
+
+  display:block;
+
+  margin:
+    0
+    0
+    3px;
+
+  color:var(--qmt-dark);
+
+  font-size:16px;
+
+  line-height:1.3;
+
+  font-weight:700;
+}
+
+.qrmo-tables-v5__benefit-desc{
+
+  display:block;
+
+  margin:0;
+
+  color:var(--qmt-muted);
+
+  font-size:14px;
+
+  line-height:1.5;
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.qrmo-tables-v5 a.qrmo-tables-v5__cta,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:link,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:visited,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:hover,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:focus,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:active{
+
+  text-decoration:none !important;
+
+  box-shadow:none;
+}
+
+.qrmo-tables-v5__cta{
+
+  min-width:272px;
+
+  min-height:53px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+  padding:
+    0
+    21px;
+
+  border:0;
+
+  border-bottom:
+    2px solid
+    var(--qmt-gold);
+
+  border-radius:12px;
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-cream) !important;
+
+  font-family:inherit;
+
+  font-size:16px;
+
+  line-height:1.2;
+
+  font-weight:700;
+
+  transition:
+    transform .23s ease,
+    background-color .23s ease;
+}
+
+.qrmo-tables-v5__cta:hover,
+.qrmo-tables-v5__cta:focus-visible{
+
+  background:var(--qmt-dark-2);
+
+  color:var(--qmt-cream) !important;
+
+  transform:translateY(-1px);
+}
+
+.qrmo-tables-v5__cta:focus-visible{
+
+  outline:
+    2px solid
+    var(--qmt-gold);
+
+  outline-offset:3px;
+}
+
+.qrmo-tables-v5__cta-text{
+
+  flex:1 1 auto;
+
+  min-width:0;
+
+  text-align:left;
+
+  color:var(--qmt-cream);
+}
+
+.qrmo-tables-v5__cta-arrow{
+
+  width:20px;
+  height:20px;
+
+  flex:0 0 auto;
+
+  fill:none;
+
+  stroke:var(--qmt-gold-light);
+
+  stroke-width:2.2;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+
+  margin-left:auto;
+}
+
+
+/* =========================================================
+   TABLET
+   768px — 1100px
+
+   %5 SOL / %5 SAĞ KORUNUR
+   ========================================================= */
+
+@media (min-width:768px) and (max-width:1100px){
+
+  .qrmo-tables-v5{
+
+    padding:
+      72px
+      0;
+  }
+
+  .qrmo-tables-v5__inner{
+
+    width:90%;
+
+    grid-template-columns:
+      minmax(0,1fr)
+      minmax(0,1fr);
+
+    gap:
+      clamp(26px,4vw,48px);
+  }
+
+  .qrmo-tables-v5__demo{
+
+    justify-content:flex-start;
+
+    padding:
+      8px
+      0
+      12px;
+  }
+
+  .qrmo-tables-v5__app{
+
+    width:100%;
+
+    max-width:100%;
+
+    margin-left:0;
+    margin-right:auto;
+
+    border-radius:24px;
+
+    padding:10px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    height:450px;
+
+    min-height:450px;
+
+    padding:18px;
+
+    border-radius:18px;
+  }
+
+  .qrmo-tables-v5__content{
+
+    width:100%;
+
+    max-width:100%;
+
+    margin-left:auto;
+    margin-right:0;
+  }
+
+  .qrmo-tables-v5__title{
+
+    font-size:
+      clamp(36px,4vw,46px);
+  }
+
+  .qrmo-tables-v5__description{
+
+    font-size:15px;
+
+    line-height:1.55;
+  }
+
+  .qrmo-tables-v5__benefits{
+
+    gap:14px;
+  }
+
+  .qrmo-tables-v5__benefit-title{
+
+    font-size:14px;
+  }
+
+  .qrmo-tables-v5__benefit-desc{
+
+    font-size:12px;
+  }
+
+  .qrmo-tables-v5__cta{
+
+    min-width:250px;
+
+    min-height:50px;
+
+    font-size:14px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   768 — 860
+
+   Hâlâ %5 sınırları korunuyor.
+   ========================================================= */
+
+@media (min-width:768px) and (max-width:860px){
+
+  .qrmo-tables-v5__inner{
+
+    gap:26px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    height:420px;
+
+    min-height:420px;
+
+    padding:15px;
+  }
+
+  .qrmo-tables-v5__screen-title{
+
+    font-size:21px;
+  }
+
+  .qrmo-tables-v5__fields{
+
+    grid-template-columns:
+      minmax(0,1.35fr)
+      minmax(55px,.55fr)
+      minmax(55px,.55fr);
+
+    gap:5px;
+  }
+
+  .qrmo-tables-v5__field-box{
+
+    padding:
+      0
+      7px;
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__qr{
+
+    width:34px;
+    height:34px;
+
+    background-size:7px 7px;
+
+    background-position:
+      0 0,
+      3.5px 3.5px;
+  }
+
+  .qrmo-tables-v5__qr-name{
+
+    font-size:6.5px;
+  }
+
+  .qrmo-tables-v5__result{
+
+    inset:15px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:767px){
+
+  .qrmo-tables-v5{
+
+    padding:0;
+
+    overflow:hidden;
+  }
+
+  /*
+   * Mobilde %5 viewport sistemi kaldırılıyor.
+   * Çünkü burada içerik tam genişlikte kontrollü
+   * padding ile yönetiliyor.
+   */
+
+  .qrmo-tables-v5__inner{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:0;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE CONTENT TOP
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__content{
+
+    order:1;
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0;
+
+    padding:
+      52px
+      20px
+      38px;
+
+    align-items:flex-start;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE DEMO BOTTOM
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__demo{
+
+    order:2;
+
+    width:100%;
+
+    padding:
+      18px
+      20px
+      52px;
+
+    justify-content:center;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE CONTENT
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__eyebrow{
+
+    margin-bottom:12px;
+
+    font-size:10px;
+
+    gap:9px;
+  }
+
+  .qrmo-tables-v5__eyebrow::before{
+
+    width:25px;
+
+    flex-basis:25px;
+  }
+
+  .qrmo-tables-v5__title{
+
+    max-width:100%;
+
+    margin-bottom:12px;
+
+    font-size:
+      clamp(32px,9vw,39px);
+
+    line-height:1.04;
+  }
+
+  .qrmo-tables-v5__description{
+
+    max-width:100%;
+
+    margin-bottom:21px;
+
+    font-size:15px;
+
+    line-height:1.5;
+  }
+
+  .qrmo-tables-v5__benefits{
+
+    max-width:100%;
+
+    gap:15px;
+
+    margin-bottom:23px;
+  }
+
+  .qrmo-tables-v5__benefit{
+
+    grid-template-columns:
+      22px
+      minmax(0,1fr);
+
+    gap:10px;
+  }
+
+  .qrmo-tables-v5__check{
+
+    width:21px;
+    height:21px;
+  }
+
+  .qrmo-tables-v5__check svg{
+
+    width:11px;
+    height:11px;
+  }
+
+  .qrmo-tables-v5__benefit-title{
+
+    font-size:14px;
+  }
+
+  .qrmo-tables-v5__benefit-desc{
+
+    font-size:12px;
+
+    line-height:1.42;
+  }
+
+  .qrmo-tables-v5__cta{
+
+    width:100%;
+
+    min-width:0;
+
+    min-height:52px;
+
+    height:52px;
+
+    padding:
+      0
+      18px;
+
+    font-size:15px;
+
+    border-radius:12px;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE APP
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__app{
+
+    width:100%;
+
+    max-width:390px;
+
+    margin:0 auto;
+
+    padding:9px;
+
+    border-radius:23px;
+  }
+
+  .qrmo-tables-v5__appbar{
+
+    height:31px;
+
+    padding:
+      0
+      7px;
+  }
+
+  .qrmo-tables-v5__brand{
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__dots i{
+
+    width:6px;
+    height:6px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    width:100%;
+
+    height:430px;
+
+    min-height:430px;
+
+    padding:15px;
+
+    border-radius:17px;
+  }
+
+  .qrmo-tables-v5__screen-head{
+
+    margin-bottom:13px;
+  }
+
+  .qrmo-tables-v5__screen-title{
+
+    font-size:20px;
+  }
+
+  .qrmo-tables-v5__screen-kicker{
+
+    font-size:7px;
+  }
+
+  .qrmo-tables-v5__screen-count{
+
+    min-width:49px;
+
+    height:27px;
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__mode{
+
+    height:36px;
+
+    margin-bottom:11px;
+  }
+
+  .qrmo-tables-v5__mode-item{
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__create{
+
+    padding:13px;
+  }
+
+  .qrmo-tables-v5__create-title{
+
+    font-size:10px;
+  }
+
+  .qrmo-tables-v5__create-status{
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__fields{
+
+    gap:6px;
+
+    margin-bottom:8px;
+  }
+
+  .qrmo-tables-v5__field-label{
+
+    font-size:7px;
+  }
+
+  .qrmo-tables-v5__field-box{
+
+    height:32px;
+
+    padding:
+      0
+      8px;
+
+    font-size:8.5px;
+  }
+
+  .qrmo-tables-v5__range{
+
+    min-height:34px;
+
+    font-size:7.5px;
+
+    padding:
+      0
+      8px;
+  }
+
+  .qrmo-tables-v5__create-button{
+
+    height:35px;
+
+    font-size:8.5px;
+  }
+
+  .qrmo-tables-v5__processing{
+
+    padding:20px;
+  }
+
+  .qrmo-tables-v5__processing-icon{
+
+    width:44px;
+    height:44px;
+
+    margin-bottom:10px;
+  }
+
+  .qrmo-tables-v5__processing-title{
+
+    font-size:13px;
+  }
+
+  .qrmo-tables-v5__processing-text{
+
+    font-size:9px;
+  }
+
+  .qrmo-tables-v5__result{
+
+    inset:15px;
+  }
+
+  .qrmo-tables-v5__result-top{
+
+    margin-bottom:11px;
+  }
+
+  .qrmo-tables-v5__result-title{
+
+    font-size:18px;
+  }
+
+  .qrmo-tables-v5__result-success{
+
+    font-size:7.5px;
+
+    padding:
+      6px
+      7px;
+  }
+
+  .qrmo-tables-v5__qr-grid{
+
+    grid-template-columns:
+      repeat(5,minmax(0,1fr));
+
+    gap:5px;
+  }
+
+  .qrmo-tables-v5__qr-card{
+
+    padding:
+      6px
+      4px;
+
+    border-radius:7px;
+  }
+
+  .qrmo-tables-v5__qr{
+
+    width:34px;
+    height:34px;
+
+    background-size:7px 7px;
+
+    background-position:
+      0 0,
+      3.5px 3.5px;
+
+    border-width:3px;
+  }
+
+  .qrmo-tables-v5__qr::after{
+
+    width:9px;
+    height:9px;
+  }
+
+  .qrmo-tables-v5__qr-name{
+
+    font-size:6.5px;
+  }
+
+  .qrmo-tables-v5__result-foot{
+
+    margin-top:9px;
+
+    padding-top:8px;
+  }
+
+  .qrmo-tables-v5__result-note{
+
+    font-size:7.5px;
+  }
+
+  .qrmo-tables-v5__export{
+
+    height:24px;
+
+    padding:
+      0
+      7px;
+
+    font-size:7px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width:380px){
+
+  .qrmo-tables-v5__content{
+
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .qrmo-tables-v5__demo{
+
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .qrmo-tables-v5__title{
+
+    font-size:31px;
+  }
+
+  .qrmo-tables-v5__description{
+
+    font-size:14px;
+  }
+
+  .qrmo-tables-v5__benefit-title{
+
+    font-size:13px;
+  }
+
+  .qrmo-tables-v5__benefit-desc{
+
+    font-size:11.5px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    height:400px;
+
+    min-height:400px;
+
+    padding:13px;
+  }
+
+  .qrmo-tables-v5__result{
+
+    inset:13px;
+  }
+
+  .qrmo-tables-v5__qr{
+
+    width:30px;
+    height:30px;
+  }
+
+  .qrmo-tables-v5__qr-name{
+
+    font-size:6px;
+  }
+
+}
+
+
+/* =========================================================
+   UX / RESPONSIVE QA (entegrasyon)
+   ========================================================= */
+
+/* ≥1101: S3 alt boşluğu (90) ile üst üste binip ~222px oluşuyordu;
+   üst 88 → 24 ile S3 → S4 geçişi ~158px */
+@media (min-width:1101px){
+
+  .qrmo-tables-v5{
+    padding-top:24px;
+  }
+
+}
+
+/* 768–900: Hero / Section 2 / Section 3 ile aynı 20px hat */
+@media (min-width:768px) and (max-width:900px){
+
+  .qrmo-tables-v5__inner{
+    width:calc(100% - 40px);
+  }
+
+}
+
+/* ≤480: Hero / Section 2 / Section 3 ile aynı 16px gutter */
+@media (max-width:480px){
+
+  .qrmo-tables-v5__content,
+  .qrmo-tables-v5__demo{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  .qrmo-tables-v5 *,
+  .qrmo-tables-v5 *::before,
+  .qrmo-tables-v5 *::after{
+
+    animation-duration:.001ms !important;
+
+    animation-iteration-count:1 !important;
+
+    transition-duration:.001ms !important;
+  }
+
+  .qrmo-tables-v5__cursor{
+
+    display:none;
+  }
+
+}
+
+</style>
+
+<div class="qrmo-tables-v5__inner">
+
+  <!-- =====================================================
+       SOL — ANİMASYON
+       ===================================================== -->
+
+  <div class="qrmo-tables-v5__demo">
+
+    <div class="qrmo-tables-v5__app">
+
+
+      <div class="qrmo-tables-v5__appbar">
+
+        <span class="qrmo-tables-v5__brand">
+          QR<b>MENU</b>
+        </span>
+
+        <span
+          class="qrmo-tables-v5__dots"
+          aria-hidden="true"
+        >
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+
+      </div>
+
+
+      <div class="qrmo-tables-v5__screen">
+
+
+        <!-- =================================================
+             CREATE
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__create"
+          data-qmt-create
+        >
+
+          <div class="qrmo-tables-v5__screen-head">
+
+            <div>
+
+              <span class="qrmo-tables-v5__screen-kicker">
+                QR Masa Yönetimi
+              </span>
+
+              <h3 class="qrmo-tables-v5__screen-title">
+                Masalar
+              </h3>
+
+            </div>
+
+            <span
+              class="qrmo-tables-v5__screen-count"
+              data-qmt-count
+            >
+              0 Masa
+            </span>
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__mode">
+
+            <span class="qrmo-tables-v5__mode-item is-active">
+              Toplu Oluştur
+            </span>
+
+            <span class="qrmo-tables-v5__mode-item">
+              Tek Masa
+            </span>
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__create-head">
+
+            <h4 class="qrmo-tables-v5__create-title">
+              Toplu QR Oluştur
+            </h4>
+
+            <span
+              class="qrmo-tables-v5__create-status"
+              data-qmt-status
+            >
+
+              <i
+                class="qrmo-tables-v5__create-status-dot"
+                data-qmt-status-dot
+              ></i>
+
+              Hazır
+
+            </span>
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__fields">
+
+
+            <div class="qrmo-tables-v5__field">
+
+              <span class="qrmo-tables-v5__field-label">
+                Önek
+              </span>
+
+              <span class="qrmo-tables-v5__field-box">
+                ic-masa
+              </span>
+
+            </div>
+
+
+            <div class="qrmo-tables-v5__field">
+
+              <span class="qrmo-tables-v5__field-label">
+                Başlangıç
+              </span>
+
+              <span class="qrmo-tables-v5__field-box">
+                1
+              </span>
+
+            </div>
+
+
+            <div class="qrmo-tables-v5__field">
+
+              <span class="qrmo-tables-v5__field-label">
+                Bitiş
+              </span>
+
+              <span class="qrmo-tables-v5__field-box">
+                10
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__range">
+
+            <span class="qrmo-tables-v5__range-text">
+              ic-masa-1 → ic-masa-10
+            </span>
+
+            <span class="qrmo-tables-v5__range-count">
+              10 masa
+            </span>
+
+          </div>
+
+
+          <div
+            class="qrmo-tables-v5__create-button"
+            data-qmt-create-button
+          >
+            Masaları Oluştur
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROCESSING
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__processing"
+          data-qmt-processing
+        >
+
+          <div class="qrmo-tables-v5__processing-icon">
+
+            <span class="qrmo-tables-v5__spinner"></span>
+
+          </div>
+
+          <h4 class="qrmo-tables-v5__processing-title">
+            QR masalar hazırlanıyor
+          </h4>
+
+          <p class="qrmo-tables-v5__processing-text">
+            10 masa için QR hedefleri oluşturuluyor.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             RESULT
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__result"
+          data-qmt-result
+        >
+
+          <div class="qrmo-tables-v5__result-top">
+
+            <div>
+
+              <span class="qrmo-tables-v5__result-kicker">
+                QR Masa Yönetimi
+              </span>
+
+              <h3 class="qrmo-tables-v5__result-title">
+                10 masa hazır.
+              </h3>
+
+            </div>
+
+
+            <span class="qrmo-tables-v5__result-success">
+
+              <span class="qrmo-tables-v5__success-check">
+                ✓
+              </span>
+
+              Oluşturuldu
+
+            </span>
+
+          </div>
+
+
+          <div
+            class="qrmo-tables-v5__qr-grid"
+            data-qmt-grid
+          >
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 1</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 2</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 3</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 4</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 5</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 6</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 7</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 8</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 9</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 10</span>
+            </div>
+
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__result-foot">
+
+            <span class="qrmo-tables-v5__result-note">
+              QR kodlar kullanıma hazır.
+            </span>
+
+            <div class="qrmo-tables-v5__exports">
+
+              <span
+                class="qrmo-tables-v5__export"
+                data-qmt-export
+              >
+                PNG
+              </span>
+
+              <span
+                class="qrmo-tables-v5__export"
+                data-qmt-export
+              >
+                PDF
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CURSOR
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__cursor"
+          data-qmt-cursor
+          aria-hidden="true"
+        >
+
+          <span class="qrmo-tables-v5__click-ring"></span>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+
+            <path
+              d="M5.5 3.21V20.8C5.5 21.46 6.27 21.82 6.78 21.4L11.08 17.65C11.27 17.48 11.51 17.4 11.76 17.4H17.5C18.15 17.4 18.5 16.63 18.06 16.14L6.75 3.12C6.39 2.7 5.5 2.96 5.5 3.21Z"
+              fill="white"
+              stroke="black"
+              stroke-width="1.5"
+            />
+
+          </svg>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SAĞ — İÇERİK
+       ===================================================== -->
+
+  <div class="qrmo-tables-v5__content">
+
+    <span class="qrmo-tables-v5__eyebrow">
+      QR Menu Official • Modül
+    </span>
+
+
+    <h2
+      class="qrmo-tables-v5__title"
+      id="qrmo-tables-v5-title"
+    >
+      Sınırsız QR Masa
+      Oluşturun.
+    </h2>
+
+
+    <p class="qrmo-tables-v5__description">
+      Masalarınızı tek tek veya toplu olarak oluşturun; her masa için QR kodunuzu otomatik hazırlayın ve işletmenizde kullanıma hazır hale getirin.
+    </p>
+
+
+    <ul class="qrmo-tables-v5__benefits">
+
+
+      <li class="qrmo-tables-v5__benefit">
+
+        <span
+          class="qrmo-tables-v5__check"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <polyline
+              points="4 12 10 18 20 6"
+            ></polyline>
+
+          </svg>
+
+        </span>
+
+
+        <span>
+
+          <span class="qrmo-tables-v5__benefit-title">
+            Tekli veya toplu masa oluşturun
+          </span>
+
+          <span class="qrmo-tables-v5__benefit-desc">
+            İhtiyacınız kadar masa ekleyin veya numaralı masaları tek işlemde oluşturun.
+          </span>
+
+        </span>
+
+      </li>
+
+
+      <li class="qrmo-tables-v5__benefit">
+
+        <span
+          class="qrmo-tables-v5__check"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <polyline
+              points="4 12 10 18 20 6"
+            ></polyline>
+
+          </svg>
+
+        </span>
+
+
+        <span>
+
+          <span class="qrmo-tables-v5__benefit-title">
+            Her masaya özel QR kod
+          </span>
+
+          <span class="qrmo-tables-v5__benefit-desc">
+            Her masa için ayrı QR hedefi oluşturun; masa adını sonradan değiştirseniz bile mevcut QR yapısını koruyun.
+          </span>
+
+        </span>
+
+      </li>
+
+
+      <li class="qrmo-tables-v5__benefit">
+
+        <span
+          class="qrmo-tables-v5__check"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <polyline
+              points="4 12 10 18 20 6"
+            ></polyline>
+
+          </svg>
+
+        </span>
+
+
+        <span>
+
+          <span class="qrmo-tables-v5__benefit-title">
+            PNG ve PDF olarak hazır
+          </span>
+
+          <span class="qrmo-tables-v5__benefit-desc">
+            QR kodlarınızı tek tek indirebilir veya tüm masaları tek PDF içinde yazdırmaya hazırlayabilirsiniz.
+          </span>
+
+        </span>
+
+      </li>
+
+
+    </ul>
+
+
+    <a
+      class="qrmo-tables-v5__cta"
+      href="#"
+    >
+
+      <span class="qrmo-tables-v5__cta-text">
+        QR Masa Modülünü İncele
+      </span>
+
+      <svg
+        class="qrmo-tables-v5__cta-arrow"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <line
+          x1="5"
+          y1="12"
+          x2="19"
+          y2="12"
+        ></line>
+
+        <polyline
+          points="13 6 19 12 13 18"
+        ></polyline>
+
+      </svg>
+
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+(function(){
+
+  /* ========================================================
+     QR MENU OFFICIAL
+     QR MASA MODÜLÜ — ANIMATION ENGINE
+     ======================================================== */
+
+  function bootQRTableModule(){
+
+    var sections =
+      document.querySelectorAll(
+        '.qrmo-tables-v5'
+      );
+
+    if(!sections.length){
+      return;
+    }
+
+
+    sections.forEach(function(root){
+
+      if(
+        root.getAttribute(
+          'data-qmt-ready'
+        ) === '1'
+      ){
+        return;
+      }
+
+      root.setAttribute(
+        'data-qmt-ready',
+        '1'
+      );
+
+
+      /* ====================================================
+         ELEMENTS
+         ==================================================== */
+
+      var screen =
+        root.querySelector(
+          '.qrmo-tables-v5__screen'
+        );
+
+      var create =
+        root.querySelector(
+          '[data-qmt-create]'
+        );
+
+      var createButton =
+        root.querySelector(
+          '[data-qmt-create-button]'
+        );
+
+      var processing =
+        root.querySelector(
+          '[data-qmt-processing]'
+        );
+
+      var result =
+        root.querySelector(
+          '[data-qmt-result]'
+        );
+
+      var cursor =
+        root.querySelector(
+          '[data-qmt-cursor]'
+        );
+
+      var qrCards =
+        root.querySelectorAll(
+          '.qrmo-tables-v5__qr-card'
+        );
+
+      var exports =
+        root.querySelectorAll(
+          '[data-qmt-export]'
+        );
+
+      var count =
+        root.querySelector(
+          '[data-qmt-count]'
+        );
+
+      var status =
+        root.querySelector(
+          '[data-qmt-status]'
+        );
+
+
+      if(
+        !screen ||
+        !create ||
+        !createButton ||
+        !processing ||
+        !result
+      ){
+        return;
+      }
+
+
+      /* ====================================================
+         SETTINGS
+         ==================================================== */
+
+      var reduceMotion =
+        window.matchMedia &&
+        window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+      var running=false;
+
+      var timers=[];
+
+      var observer=null;
+
+
+      /* ====================================================
+         TIMER
+         ==================================================== */
+
+      function later(fn,ms){
+
+        var id =
+          window.setTimeout(
+            fn,
+            ms
+          );
+
+        timers.push(id);
+
+        return id;
+      }
+
+
+      function clearTimers(){
+
+        timers.forEach(
+          function(id){
+
+            window.clearTimeout(id);
+
+          }
+        );
+
+        timers=[];
+      }
+
+
+      /* ====================================================
+         CURSOR
+         ==================================================== */
+
+      function moveCursorTo(element){
+
+        if(
+          !cursor ||
+          !element
+        ){
+          return;
+        }
+
+        var sr =
+          screen.getBoundingClientRect();
+
+        var er =
+          element.getBoundingClientRect();
+
+        var x =
+          er.left -
+          sr.left +
+          er.width / 2 -
+          5;
+
+        var y =
+          er.top -
+          sr.top +
+          er.height / 2 -
+          5;
+
+        cursor.style.transform =
+          'translate3d('+
+          Math.round(x)+
+          'px,'+
+          Math.round(y)+
+          'px,0)';
+      }
+
+
+      function cursorClick(){
+
+        if(!cursor){
+          return;
+        }
+
+        cursor.classList.remove(
+          'is-clicking'
+        );
+
+        void cursor.offsetWidth;
+
+        cursor.classList.add(
+          'is-clicking'
+        );
+      }
+
+
+      /* ====================================================
+         RESET
+         ==================================================== */
+
+      function resetUI(){
+
+        create.style.opacity='1';
+
+        create.style.transform=
+          'translateY(0)';
+
+        processing.classList.remove(
+          'is-visible'
+        );
+
+        result.classList.remove(
+          'is-visible'
+        );
+
+        createButton.classList.remove(
+          'is-processing'
+        );
+
+
+        if(count){
+
+          count.textContent=
+            '0 Masa';
+
+        }
+
+
+        if(status){
+
+          status.innerHTML=
+            '<i class="qrmo-tables-v5__create-status-dot"></i> Hazır';
+
+        }
+
+
+        qrCards.forEach(
+          function(card){
+
+            card.classList.remove(
+              'is-visible'
+            );
+
+          }
+        );
+
+
+        exports.forEach(
+          function(item){
+
+            item.classList.remove(
+              'is-visible'
+            );
+
+          }
+        );
+
+
+        if(cursor){
+
+          cursor.classList.remove(
+            'is-visible'
+          );
+
+          cursor.classList.remove(
+            'is-clicking'
+          );
+
+        }
+
+      }
+
+
+      /* ====================================================
+         PROCESSING
+         ==================================================== */
+
+      function showProcessing(){
+
+        if(count){
+
+          count.textContent=
+            '10 Masa';
+
+        }
+
+
+        if(status){
+
+          status.innerHTML=
+            '<i class="qrmo-tables-v5__create-status-dot"></i> Oluşturuluyor...';
+
+          var dot =
+            status.querySelector(
+              '.qrmo-tables-v5__create-status-dot'
+            );
+
+          if(dot){
+
+            dot.style.backgroundColor=
+              'var(--qmt-gold)';
+
+            dot.style.boxShadow=
+              '0 0 0 4px rgba(201,168,76,.12)';
+
+          }
+
+        }
+
+
+        createButton.classList.add(
+          'is-processing'
+        );
+
+        processing.classList.add(
+          'is-visible'
+        );
+
+      }
+
+
+      /* ====================================================
+         RESULT
+         ==================================================== */
+
+      function showResult(){
+
+        processing.classList.remove(
+          'is-visible'
+        );
+
+
+        create.style.opacity='0';
+
+        create.style.transform=
+          'translateY(-7px)';
+
+
+        result.classList.add(
+          'is-visible'
+        );
+
+
+        qrCards.forEach(
+          function(card,index){
+
+            later(
+              function(){
+
+                if(!running){
+                  return;
+                }
+
+                card.classList.add(
+                  'is-visible'
+                );
+
+              },
+              100 + index * 75
+            );
+
+          }
+        );
+
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            exports.forEach(
+              function(item,index){
+
+                later(
+                  function(){
+
+                    if(running){
+
+                      item.classList.add(
+                        'is-visible'
+                      );
+
+                    }
+
+                  },
+                  index * 100
+                );
+
+              }
+            );
+
+          },
+          900
+        );
+
+      }
+
+
+      /* ====================================================
+         PLAY
+         ==================================================== */
+
+      function play(){
+
+        if(!running){
+          return;
+        }
+
+
+        resetUI();
+
+
+        /*
+         * Cursor → butona gelir
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            if(cursor){
+
+              cursor.classList.add(
+                'is-visible'
+              );
+
+            }
+
+            moveCursorTo(
+              createButton
+            );
+
+          },
+          650
+        );
+
+
+        /*
+         * Tıklama
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            cursorClick();
+
+            createButton.classList.add(
+              'is-processing'
+            );
+
+          },
+          1300
+        );
+
+
+        /*
+         * Oluşturuluyor
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            showProcessing();
+
+            if(cursor){
+
+              cursor.classList.remove(
+                'is-visible'
+              );
+
+            }
+
+          },
+          1600
+        );
+
+
+        /*
+         * Sonuç
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            showResult();
+
+          },
+          2850
+        );
+
+
+        /*
+         * Yeni döngü
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            play();
+
+          },
+          8200
+        );
+
+      }
+
+
+      /* ====================================================
+         START
+         ==================================================== */
+
+      function start(){
+
+        if(
+          running ||
+          reduceMotion
+        ){
+          return;
+        }
+
+        running=true;
+
+        clearTimers();
+
+        play();
+
+      }
+
+
+      /* ====================================================
+         STOP
+         ==================================================== */
+
+      function stop(){
+
+        running=false;
+
+        clearTimers();
+
+        resetUI();
+
+      }
+
+
+      /* ====================================================
+         REDUCED MOTION
+         ==================================================== */
+
+      if(reduceMotion){
+
+        resetUI();
+
+
+        create.style.opacity='0';
+
+        create.style.transform=
+          'translateY(-7px)';
+
+
+        result.classList.add(
+          'is-visible'
+        );
+
+
+        qrCards.forEach(
+          function(card){
+
+            card.classList.add(
+              'is-visible'
+            );
+
+          }
+        );
+
+
+        exports.forEach(
+          function(item){
+
+            item.classList.add(
+              'is-visible'
+            );
+
+          }
+        );
+
+      }else{
+
+
+        /* ==================================================
+           INTERSECTION OBSERVER
+
+           Ekranda görünür değilse animasyon çalışmaz.
+           Böylece sayfanın geri kalanını yormaz.
+           ================================================== */
+
+        if(
+          'IntersectionObserver' in window
+        ){
+
+          observer =
+            new IntersectionObserver(
+              function(entries){
+
+                if(!entries.length){
+                  return;
+                }
+
+
+                if(
+                  entries[0].isIntersecting &&
+                  !document.hidden
+                ){
+
+                  start();
+
+                }else{
+
+                  stop();
+
+                }
+
+              },
+              {
+                threshold:.28
+              }
+            );
+
+
+          observer.observe(root);
+
+        }else{
+
+          start();
+
+        }
+
+      }
+
+
+      /* ====================================================
+         TAB VISIBILITY
+         ==================================================== */
+
+      document.addEventListener(
+        'visibilitychange',
+        function(){
+
+          if(document.hidden){
+
+            stop();
+
+          }else if(!reduceMotion){
+
+            start();
+
+          }
+
+        }
+      );
+
+    });
+
+  }
+
+
+  /* ========================================================
+     INITIAL BOOT
+     ======================================================== */
+
+  if(
+    document.readyState ===
+    'loading'
+  ){
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      bootQRTableModule
+    );
+
+  }else{
+
+    bootQRTableModule();
+
+  }
+
+
+  window.addEventListener(
+    'load',
+    bootQRTableModule
+  );
+
+
+  /* ========================================================
+     ELEMENTOR
+     ======================================================== */
+
+  if(window.jQuery){
+
+    jQuery(
+      window
+    ).on(
+      'elementor/frontend/init',
+      function(){
+
+        if(
+          window.elementorFrontend &&
+          window.elementorFrontend.hooks
+        ){
+
+          window.elementorFrontend.hooks.addAction(
+            'frontend/element_ready/html.default',
+            bootQRTableModule
+          );
+
+        }
+
+        bootQRTableModule();
+
+      }
+    );
+
+  }
+
+})();
+
+</script>
+
+</section>
 </body>
 </html>
