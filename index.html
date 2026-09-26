@@ -1642,7 +1642,8 @@
 
   box-sizing:border-box;
   width:100%;
-  padding:90px 0;
+  /* QA: üst 90→24; Section 2 alt boşluğu (96) + ortalama payı ile ~150px geçiş */
+  padding:24px 0 90px;
   font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   color:var(--qt-dark);
   position:relative;
@@ -2467,6 +2468,13 @@
   }
 }
 
+/* QA: 768–900 → Hero / Section 2 ile aynı 20px kenar boşluğu */
+@media (min-width:768px) and (max-width:900px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-inner{
+    width:calc(100% - 40px);
+  }
+}
+
 /* ============================================================
    MOBILE
    DOKUNULMADI: istek yalnızca masaüstü/tablet içindi.
@@ -2511,8 +2519,9 @@
     order:1;
 
     width:100%;
-    height:100svh;
-    min-height:100svh;
+    /* QA: 100svh → 75svh taban; içerik uzunsa blok büyür, kesilmez */
+    height:auto;
+    min-height:75svh;
 
     padding:
       clamp(18px,4svh,28px)
@@ -2908,13 +2917,15 @@
     gap:7px;
   }
 
+  /* QA: sabit ekran yüksekliği 3. ürün kartını ~32px kırpıyordu;
+     ekran içerik yüksekliğini alır (min 360 korunur), çerçeve de uzar */
   #qrmo-translation-v3-root .qrmo-translation-v3-phone{
     max-width:min(292px,100%);
-    max-height:66svh;
+    max-height:none;
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-screen{
-    height:min(56svh,400px);
+    height:auto;
     min-height:360px;
   }
 }
