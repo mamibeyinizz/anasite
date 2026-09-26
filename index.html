@@ -11303,6 +11303,73 @@
 }
 
 
+/* Scroll: dikey sürükleme / wheel ana sayfaya geçer.
+   Liste kullanıcı scroll'una kapalı; programatik scrollTo() çalışır. */
+.qrmo-real-filter-phone,
+.qrmo-real-filter-scroll {
+
+  touch-action:
+    pan-y;
+
+  overscroll-behavior:
+    auto;
+
+}
+
+
+.qrmo-real-filter-scroll {
+
+  overflow-y:
+    hidden;
+
+}
+
+
+/* Reduced motion: demo yok → liste elle kaydırılabilir
+   (Kalori / Fiyat / Ürün Özellikleri erişilebilir; sonunda sayfaya zincirlenir) */
+@media (prefers-reduced-motion: reduce) {
+
+  .qrmo-real-filter-scroll {
+
+    overflow-y:
+      auto;
+
+    scroll-behavior:
+      auto;
+
+  }
+
+}
+
+
+/* Mobil: başlık bloğu Hero / Section 2–4 gibi ortalı; benefits ve CTA sola */
+@media (max-width: 767px) {
+
+  .qrmo-smart-filter-kicker {
+
+    justify-content:
+      center;
+
+  }
+
+
+  .qrmo-smart-filter-copy > h2,
+  .qrmo-smart-filter-lead {
+
+    margin-left:
+      auto;
+
+    margin-right:
+      auto;
+
+    text-align:
+      center;
+
+  }
+
+}
+
+
 
 /* =========================================================
    REDUCED MOTION
@@ -11419,12 +11486,45 @@
      SLEEP
   ======================================================== */
 
+  /*
+   * Lifecycle: her bekleme sonrası demonun hâlâ geçerli olup
+   * olmadığı kontrol edilir. Kullanıcı etkileşimi, ekran dışı veya
+   * gizli sekme runToken'ı artırır; bekleyen adımlar iptal olur
+   * ve sonraki seçim / scroll / feedback çalışmaz.
+   */
+
+  const DEMO_CANCELLED = {};
+
+  let runToken = 0;
+
+  let inView = false;
+
+  let startTimer = null;
+
+
   function sleep(ms) {
 
+    const token = runToken;
+
     return new Promise(
-      resolve =>
+      (resolve, reject) =>
         setTimeout(
-          resolve,
+          function () {
+
+            if (
+              token !== runToken ||
+              userInteracted
+            ) {
+
+              reject(DEMO_CANCELLED);
+
+            } else {
+
+              resolve();
+
+            }
+
+          },
           ms
         )
     );
@@ -11432,85 +11532,34 @@
   }
 
 
-  /* =======================================================
-     USER SCROLL LOCK
-  ======================================================== */
+  function haltDemo() {
 
-  function blockManualScroll(event) {
+    runToken++;
 
-    event.preventDefault();
+    animationRunning = false;
 
-    event.stopPropagation();
+    clearTimeout(startTimer);
+
+    startTimer = null;
+
+    pointer.classList.remove("is-visible");
+
+    root.querySelectorAll(".qrmo-demo-click").forEach(
+      el => el.classList.remove("qrmo-demo-click")
+    );
+
+    applyButton.classList.remove("qrmo-applying");
+
+    feedback.classList.remove("is-visible");
 
   }
 
 
-  scrollArea.addEventListener(
-    "wheel",
-    blockManualScroll,
-    {
-      passive: false
-    }
-  );
-
-
-  scrollArea.addEventListener(
-    "touchmove",
-    blockManualScroll,
-    {
-      passive: false
-    }
-  );
-
-
-  scrollArea.addEventListener(
-    "pointermove",
-    function (event) {
-
-      if (
-        event.buttons !== 0
-      ) {
-
-        event.preventDefault();
-
-      }
-
-    },
-    {
-      passive: false
-    }
-  );
-
-
-  scrollArea.addEventListener(
-    "keydown",
-    function (event) {
-
-      const blockedKeys = [
-
-        "ArrowUp",
-        "ArrowDown",
-        "PageUp",
-        "PageDown",
-        " ",
-        "Home",
-        "End"
-
-      ];
-
-
-      if (
-        blockedKeys.includes(
-          event.key
-        )
-      ) {
-
-        event.preventDefault();
-
-      }
-
-    }
-  );
+  /* =======================================================
+     USER SCROLL
+     Liste CSS ile kullanıcı scroll'una kapalı (overflow-y:hidden).
+     wheel / touch / klavye olayları engellenmez → ana sayfa kayar.
+  ======================================================== */
 
 
   /* =======================================================
@@ -11900,7 +11949,7 @@
      MAIN DEMO
   ======================================================== */
 
-  async function runDemo() {
+  async function runDemoSteps() {
 
     if (
       animationRunning ||
@@ -12102,6 +12151,25 @@
   }
 
 
+  async function runDemo() {
+
+    try {
+
+      await runDemoSteps();
+
+    } catch (error) {
+
+      if (error !== DEMO_CANCELLED) {
+
+        throw error;
+
+      }
+
+    }
+
+  }
+
+
   /* =======================================================
      MANUAL SORT
   ======================================================== */
@@ -12115,6 +12183,9 @@
 
           userInteracted =
             true;
+
+
+          haltDemo();
 
 
           pointer.classList.remove(
@@ -12148,6 +12219,9 @@
             true;
 
 
+          haltDemo();
+
+
           pointer.classList.remove(
             "is-visible"
           );
@@ -12174,6 +12248,9 @@
 
       userInteracted =
         true;
+
+
+      haltDemo();
 
 
       resetDemoState();
@@ -12203,6 +12280,9 @@
 
       userInteracted =
         true;
+
+
+      haltDemo();
 
 
       feedback.classList.add(
@@ -12243,6 +12323,9 @@
         true;
 
 
+      haltDemo();
+
+
       pointer.classList.remove(
         "is-visible"
       );
@@ -12265,6 +12348,62 @@
      START ONLY WHEN VISIBLE
   ======================================================== */
 
+  function syncDemo() {
+
+    if (
+      reduceMotion ||
+      userInteracted
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      inView &&
+      !document.hidden
+    ) {
+
+      if (
+        !animationRunning &&
+        !startTimer
+      ) {
+
+        startTimer =
+          setTimeout(
+            function () {
+
+              startTimer = null;
+
+              if (
+                inView &&
+                !document.hidden &&
+                !userInteracted
+              ) {
+
+                runDemo();
+
+              }
+
+            },
+            500
+          );
+
+      }
+
+    } else if (
+      animationRunning ||
+      startTimer
+    ) {
+
+      haltDemo();
+
+    }
+
+  }
+
+
   if (!reduceMotion) {
 
     const observer =
@@ -12275,31 +12414,22 @@
           entries.forEach(
             entry => {
 
-              if (
+              inView =
                 entry.isIntersecting &&
-                entry.intersectionRatio > .35 &&
-                !animationRunning &&
-                !userInteracted
-              ) {
-
-                observer.disconnect();
-
-
-                setTimeout(
-                  runDemo,
-                  500
-                );
-
-              }
+                entry.intersectionRatio > .35;
 
             }
           );
+
+
+          syncDemo();
 
         },
 
         {
           threshold:
             [
+              0,
               .35,
               .55
             ]
@@ -12310,6 +12440,12 @@
 
     observer.observe(
       panel
+    );
+
+
+    document.addEventListener(
+      "visibilitychange",
+      syncDemo
     );
 
   }
