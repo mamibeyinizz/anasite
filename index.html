@@ -273,6 +273,12 @@
 
   overflow: hidden;
 
+  /* UX: yatayda kırp, dikeyde görsel gölgesi alt sınırda kesilmesin
+     (clip desteklemeyen tarayıcı yukarıdaki hidden'da kalır) */
+  overflow-x: clip;
+
+  overflow-y: visible;
+
   position: relative;
 
   background: transparent;
@@ -2519,9 +2525,9 @@
     order:1;
 
     width:100%;
-    /* QA: 100svh → 75svh taban; içerik uzunsa blok büyür, kesilmez */
+    /* UX: blok içerik kadar; CTA → demo arasında boş ekran kalmaz */
     height:auto;
-    min-height:75svh;
+    min-height:0;
 
     padding:
       clamp(18px,4svh,28px)
@@ -2667,8 +2673,9 @@
     order:2;
 
     width:100%;
-    height:100svh;
-    min-height:100svh;
+    /* UX: 100svh ortalaması telefonun üstünde/altında ~140px boşluk bırakıyordu */
+    height:auto;
+    min-height:0;
 
     padding:
       clamp(18px,4svh,30px)
@@ -2958,6 +2965,47 @@
 
   #qrmo-translation-v3-root .qrmo-translation-v3-lang-list{
     width:140px;
+  }
+}
+
+/* ============================================================
+   UX DÜZELTMELERİ (scroll kaydı QA)
+   ============================================================ */
+
+/* Masaüstü: metin ölçüsü 560 → 640; telefon sağda kalır,
+   metin ↔ telefon arası boşluk daralır */
+@media (min-width:1100px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-description,
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefits,
+  #qrmo-translation-v3-root .qrmo-translation-v3-stats,
+  #qrmo-translation-v3-root .qrmo-translation-v3-footnote{
+    max-width:640px;
+  }
+}
+
+/* Mobil: başlık bloğu Hero / Section 2 gibi ortalı */
+@media (max-width:767px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-eyebrow{
+    justify-content:center;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-title,
+  #qrmo-translation-v3-root .qrmo-translation-v3-description{
+    text-align:center;
+  }
+
+  /* CTA → demo başlığı: tüm mobil yüksekliklerde tutarlı ayrım */
+  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
+    padding-top:40px;
+  }
+}
+
+/* ≤480: Hero / Section 2 ile aynı 16px gutter */
+@media (max-width:480px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-content,
+  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
+    padding-left:16px;
+    padding-right:16px;
   }
 }
 
