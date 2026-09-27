@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QR Menu Official</title>
+  <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
 <section class="qrmo-hero-v3-wrap" aria-label="QR Menu Official tanıtım alanı">    <div class="qrmo-hero-v3-inner">  <!-- =====================================================
@@ -271,6 +272,12 @@
   box-sizing: border-box;
 
   overflow: hidden;
+
+  /* UX: yatayda kırp, dikeyde görsel gölgesi alt sınırda kesilmesin
+     (clip desteklemeyen tarayıcı yukarıdaki hidden'da kalır) */
+  overflow-x: clip;
+
+  overflow-y: visible;
 
   position: relative;
 
@@ -1136,5 +1143,11340 @@
 }
 
 </style>
+
+<section class="qrmo-features-v3-wrap" aria-labelledby="qrmo-features-v3-title">
+
+  <header class="qrmo-features-v3-header">
+
+    <div class="qrmo-features-v3-heading">
+
+      <p class="qrmo-features-v3-kicker">NELER SUNUYORUZ</p>
+
+      <h2 id="qrmo-features-v3-title" class="qrmo-features-v3-title">
+        Restoranınızın dijital tarafını oluşturan dört alan.
+      </h2>
+
+    </div>
+
+    <p class="qrmo-features-v3-desc">
+      Menü yönetiminden müşteri deneyimine uzanan sekiz özellik, günlük kullanımın farklı noktalarına göre gruplanır.
+    </p>
+
+  </header>
+
+  <div class="qrmo-features-v3-map">
+
+    <!-- 01 — MENÜ YÖNETİMİ -->
+    <div class="qrmo-features-v3-group">
+      <h3 class="qrmo-features-v3-group-title">Menü Yönetimi</h3>
+      <span class="qrmo-features-v3-rule" aria-hidden="true"></span>
+      <ul class="qrmo-features-v3-list">
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Akıllı Filtreleme</h4>
+          <p class="qrmo-features-v3-item-desc">Müşterilerin aradıkları ürünleri daha hızlı bulmasını sağlayın.</p>
+        </li>
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Sınırsız QR Masa</h4>
+          <p class="qrmo-features-v3-item-desc">Restoranınızdaki masalar için sınırsız QR kod oluşturun.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 02 — AKILLI DENEYİM -->
+    <div class="qrmo-features-v3-group">
+      <h3 class="qrmo-features-v3-group-title">Akıllı Deneyim</h3>
+      <span class="qrmo-features-v3-rule" aria-hidden="true"></span>
+      <ul class="qrmo-features-v3-list">
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Yapay Zekâlı Asistan</h4>
+          <p class="qrmo-features-v3-item-desc">Müşteri sorularını otomatik yanıtlayarak personel yükünü azaltın.</p>
+        </li>
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Çok Dilli Menü</h4>
+          <p class="qrmo-features-v3-item-desc">Yabancı müşterilerin menünüzü kendi dillerinde kolayca anlamasını sağlayın.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 03 — SİPARİŞ & SERVİS -->
+    <div class="qrmo-features-v3-group">
+      <h3 class="qrmo-features-v3-group-title">Sipariş &amp; Servis</h3>
+      <span class="qrmo-features-v3-rule" aria-hidden="true"></span>
+      <ul class="qrmo-features-v3-list">
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Hızlı QR Sipariş</h4>
+          <p class="qrmo-features-v3-item-desc">Garson beklemeden sipariş sürecini başlatın.</p>
+        </li>
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Hesap &amp; Garson Çağırma</h4>
+          <p class="qrmo-features-v3-item-desc">Garson çağrısını ve hesap taleplerini tek dokunuşa indirin.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 04 — MÜŞTERİ DENEYİMİ -->
+    <div class="qrmo-features-v3-group">
+      <h3 class="qrmo-features-v3-group-title">Müşteri Deneyimi</h3>
+      <span class="qrmo-features-v3-rule" aria-hidden="true"></span>
+      <ul class="qrmo-features-v3-list">
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Geri Bildirim Yönetimi</h4>
+          <p class="qrmo-features-v3-item-desc">Müşteri yorumlarını ve geri bildirimlerini tek noktadan yönetin.</p>
+        </li>
+        <li class="qrmo-features-v3-item">
+          <h4 class="qrmo-features-v3-item-title">Premium Menü Tasarımı</h4>
+          <p class="qrmo-features-v3-item-desc">Markanıza uygun, modern bir menü deneyimi sunun.</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================================================
+   QR MENU OFFICIAL — FEATURES V3 (SECTION 2)
+
+   Hizalama Hero V3 ile ortak:
+   ≥901px : 5vw yatay boşluk, max-width yok
+   ≤900px : 20px
+   ≤480px : 16px
+
+   Kırılımlar (Hero V3'ten): 1279/1280, 900, 480, 360
+========================================================= */
+
+.qrmo-features-v3-wrap {
+
+  --qrmo-f3-green-dark: #0D2B22;
+  --qrmo-f3-gold: #C9A84C;
+  --qrmo-f3-line: rgba(201, 168, 76, .25);
+  --qrmo-f3-text: rgba(13, 43, 34, .78);
+  --qrmo-f3-kicker: rgba(13, 43, 34, .58);
+
+  --qrmo-f3-gutter: 5vw;
+
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding: 72px var(--qrmo-f3-gutter) 96px;
+
+  box-sizing: border-box;
+
+  background: transparent;
+
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.qrmo-features-v3-wrap *,
+.qrmo-features-v3-wrap *::before,
+.qrmo-features-v3-wrap *::after {
+  box-sizing: border-box;
+}
+
+
+/* :where() → sıfır özgüllük; bileşen margin'lerini ezmez */
+
+:where(.qrmo-features-v3-wrap) :where(h2, h3, h4, p, ul, li) {
+  margin: 0;
+  padding: 0;
+}
+
+
+:where(.qrmo-features-v3-wrap) :where(ul) {
+  list-style: none;
+}
+
+
+/* =========================================================
+   HEADER
+   ≥1280: sol kolon kicker + H2, sağ kolon açıklama
+   (kolonlar haritanın kolonlarıyla aynı hatta)
+========================================================= */
+
+.qrmo-features-v3-header {
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  column-gap: 64px;
+
+  align-items: end;
+}
+
+
+.qrmo-features-v3-heading {
+  min-width: 0;
+}
+
+
+.qrmo-features-v3-kicker {
+
+  margin-bottom: 18px;
+
+  color: var(--qrmo-f3-kicker);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: .19em;
+
+  line-height: 1.4;
+}
+
+
+.qrmo-features-v3-title {
+
+  max-width: 32ch;
+
+  color: var(--qrmo-f3-green-dark);
+
+  font-size: clamp(30px, 3.4vw, 44px);
+
+  font-weight: 800;
+
+  line-height: 1.14;
+
+  letter-spacing: -.025em;
+
+  text-wrap: balance;
+
+  overflow-wrap: break-word;
+}
+
+
+.qrmo-features-v3-desc {
+
+  max-width: 46ch;
+
+  color: var(--qrmo-f3-text);
+
+  font-size: clamp(15px, 1.7vw, 17.5px);
+
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   HARİTA — 2×2
+========================================================= */
+
+.qrmo-features-v3-map {
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  column-gap: 64px;
+
+  row-gap: 64px;
+
+  margin-top: 64px;
+}
+
+
+.qrmo-features-v3-group {
+  min-width: 0;
+}
+
+
+.qrmo-features-v3-group-title {
+
+  color: var(--qrmo-f3-green-dark);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  line-height: 1.3;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+}
+
+
+/* İnce çizgi + sol başta gold vurgu */
+
+.qrmo-features-v3-rule {
+
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  height: 1px;
+
+  margin-top: 12px;
+
+  background: var(--qrmo-f3-line);
+}
+
+
+.qrmo-features-v3-rule::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -.5px;
+
+  left: 0;
+
+  width: 34px;
+
+  height: 2px;
+
+  background: var(--qrmo-f3-gold);
+}
+
+
+/* Kategori içi: ≥1280 iki özellik yan yana */
+
+.qrmo-features-v3-list {
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+  column-gap: 32px;
+
+  row-gap: 24px;
+
+  margin-top: 24px;
+}
+
+
+.qrmo-features-v3-item {
+  min-width: 0;
+}
+
+
+.qrmo-features-v3-item-title {
+
+  color: var(--qrmo-f3-green-dark);
+
+  font-size: clamp(15.5px, 1.5vw, 17px);
+
+  font-weight: 700;
+
+  line-height: 1.35;
+
+  letter-spacing: -.005em;
+
+  overflow-wrap: break-word;
+}
+
+
+.qrmo-features-v3-item-desc {
+
+  max-width: 40ch;
+
+  margin-top: 6px;
+
+  color: var(--qrmo-f3-text);
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 1.55;
+
+  overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   901px – 1279px
+   Başlık tek sütun, harita 2×2, özellikler alt alta
+========================================================= */
+
+@media (max-width: 1279px) {
+
+  .qrmo-features-v3-wrap {
+    padding-top: 64px;
+    padding-bottom: 80px;
+  }
+
+  .qrmo-features-v3-header {
+    display: block;
+  }
+
+  .qrmo-features-v3-desc {
+    margin-top: 20px;
+  }
+
+  .qrmo-features-v3-map {
+    column-gap: 48px;
+    row-gap: 56px;
+    margin-top: 56px;
+  }
+
+  .qrmo-features-v3-list {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+
+}
+
+
+/* =========================================================
+   ≤900px — Hero ile aynı mobil kırılım
+   Başlık ortalı, harita tek kolon ve sola yaslı
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .qrmo-features-v3-wrap {
+    --qrmo-f3-gutter: 20px;
+    padding-top: 40px;
+    padding-bottom: 64px;
+  }
+
+  .qrmo-features-v3-header {
+    text-align: center;
+  }
+
+  .qrmo-features-v3-kicker {
+    margin-bottom: 10px;
+    font-size: 10px;
+    letter-spacing: .16em;
+  }
+
+  .qrmo-features-v3-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(28px, 6vw, 34px);
+  }
+
+  .qrmo-features-v3-desc {
+    max-width: 560px;
+    margin: 16px auto 0;
+  }
+
+  .qrmo-features-v3-map {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 40px;
+    margin-top: 40px;
+  }
+
+  .qrmo-features-v3-group-title {
+    font-size: 11px;
+  }
+
+  .qrmo-features-v3-rule {
+    margin-top: 10px;
+  }
+
+  .qrmo-features-v3-list {
+    row-gap: 20px;
+    margin-top: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   ≤480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .qrmo-features-v3-wrap {
+    --qrmo-f3-gutter: 16px;
+    padding-top: 32px;
+    padding-bottom: 56px;
+  }
+
+  .qrmo-features-v3-kicker {
+    margin-bottom: 14px;
+    font-size: 9px;
+    letter-spacing: .13em;
+  }
+
+  .qrmo-features-v3-map {
+    row-gap: 36px;
+    margin-top: 36px;
+  }
+
+  .qrmo-features-v3-item-desc {
+    font-size: 13.5px;
+  }
+
+}
+
+
+/* =========================================================
+   ≤360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .qrmo-features-v3-title {
+    font-size: 26px;
+  }
+
+}
+
+</style>
+
+<div class="qrmo-translation-v3-wrap" id="qrmo-translation-v3-root">
+
+<style>
+#qrmo-translation-v3-root{
+  --qt-dark:#0D2B22;
+  --qt-dark2:#173226;
+  --qt-dark3:#1E3D2F;
+  --qt-gold:#C9A84C;
+  --qt-gold-l:#E8C766;
+  --qt-cream:#F4F1E8;
+  --qt-muted:#3F4A45;
+
+  box-sizing:border-box;
+  width:100%;
+  /* QA: üst 90→24; Section 2 alt boşluğu (96) + ortalama payı ile ~150px geçiş */
+  padding:24px 0 90px;
+  font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--qt-dark);
+  position:relative;
+  overflow:visible;
+}
+
+#qrmo-translation-v3-root *,
+#qrmo-translation-v3-root *::before,
+#qrmo-translation-v3-root *::after{
+  box-sizing:border-box;
+}
+
+/* ============================================================
+   DESKTOP INNER
+   DEĞİŞTİ: width 93.2% -> 90% (margin:0 auto ile ortalandığı
+   için her iki yanda otomatik %5 boşluk oluşur).
+   ============================================================ */
+
+#qrmo-translation-v3-root .qrmo-translation-v3-inner{
+  width:90%;
+  max-width:none;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);
+  gap:48px;
+  align-items:center;
+}
+
+#qrmo-translation-v3-root .qt-only-mobile{
+  display:none;
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+
+#qrmo-translation-v3-root .qrmo-translation-v3-content{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:0 0 18px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--qt-gold);
+  line-height:1.2;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-eyebrow::before{
+  content:"";
+  flex:0 0 32px;
+  height:2px;
+  background:var(--qt-gold);
+  border-radius:2px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-title{
+  margin:0 0 16px;
+  font-size:46px;
+  line-height:1.08;
+  font-weight:800;
+  color:var(--qt-dark);
+  letter-spacing:-.015em;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-description{
+  margin:0 0 26px;
+  max-width:560px;
+  font-size:17px;
+  line-height:1.6;
+  font-weight:400;
+  color:var(--qt-muted);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefits{
+  list-style:none;
+  margin:0 0 26px;
+  padding:0;
+  display:grid;
+  gap:16px;
+  max-width:560px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit{
+  display:grid;
+  grid-template-columns:26px 1fr;
+  gap:12px;
+  align-items:start;
+  margin:0;
+  padding:0;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-check{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:rgba(201,168,76,.24);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-check svg{
+  width:13px;
+  height:13px;
+  stroke:var(--qt-gold);
+  stroke-width:3.2;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
+  display:block;
+  font-size:16px;
+  line-height:1.3;
+  font-weight:700;
+  color:var(--qt-dark);
+  margin:0 0 3px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc{
+  display:block;
+  font-size:14px;
+  line-height:1.5;
+  font-weight:400;
+  color:var(--qt-muted);
+  margin:0;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px 40px;
+  margin:0;
+  padding:18px 0 0;
+  border-top:1px solid rgba(13,43,34,.12);
+  max-width:560px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-stat{
+  min-width:0;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-stat-num{
+  display:block;
+  font-size:28px;
+  line-height:1;
+  font-weight:800;
+  color:var(--qt-dark);
+  letter-spacing:-.01em;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-stat-label{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  line-height:1.3;
+  font-weight:500;
+  color:var(--qt-muted);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-footnote{
+  margin:12px 0 24px;
+  font-size:12px;
+  line-height:1.45;
+  color:var(--qt-muted);
+  max-width:560px;
+}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta,
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:link,
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:visited,
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:hover,
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:focus,
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:active{
+  text-decoration:none !important;
+  box-shadow:none;
+}
+
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta{
+  display:flex;
+  align-items:center;
+  width:fit-content;
+  min-width:280px;
+  max-width:100%;
+  min-height:54px;
+  gap:14px;
+  padding:0 22px;
+  margin:0;
+  background:var(--qt-dark);
+  color:var(--qt-cream);
+  font-family:inherit;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.2;
+  border:0;
+  border-bottom:2px solid var(--qt-gold);
+  border-radius:12px;
+  cursor:pointer;
+  transition:transform .23s ease,background-color .23s ease;
+}
+
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:hover,
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:focus-visible{
+  background:var(--qt-dark2);
+  color:var(--qt-cream);
+  transform:translateY(-1px);
+}
+
+#qrmo-translation-v3-root a.qrmo-translation-v3-cta:focus-visible{
+  outline:2px solid var(--qt-gold);
+  outline-offset:3px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-cta-text{
+  flex:1 1 auto;
+  min-width:0;
+  text-align:left;
+  color:var(--qt-cream);
+  overflow-wrap:anywhere;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-cta-arrow{
+  flex:0 0 auto;
+  width:20px;
+  height:20px;
+  stroke:var(--qt-gold-l);
+  stroke-width:2.2;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  margin-left:auto;
+}
+
+/* ============================================================
+   DEMO
+   ============================================================ */
+
+#qrmo-translation-v3-root .qrmo-translation-v3-demo{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-end;
+  min-width:0;
+  padding:24px 8px 32px 0;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-phone{
+  position:relative;
+  width:100%;
+  max-width:374px;
+  background:var(--qt-dark);
+  border-radius:38px;
+  padding:12px;
+  box-shadow:
+    0 2px 6px rgba(13,43,34,.10),
+    0 30px 60px -14px rgba(13,43,34,.32);
+  border:1px solid rgba(232,199,102,.18);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-screen{
+  position:relative;
+  background:var(--qt-cream);
+  border-radius:28px;
+  padding:14px 14px 0;
+  height:560px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+#qrmo-translation-v3-root .qt-header{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:0 0 10px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-logo{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.14em;
+  color:var(--qt-dark);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-logo b{
+  color:var(--qt-gold);
+  font-weight:800;
+}
+
+#qrmo-translation-v3-root .qt-header-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+#qrmo-translation-v3-root .qt-burger{
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  background:#fff;
+  border:1px solid rgba(13,43,34,.12);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+}
+
+#qrmo-translation-v3-root .qt-burger i{
+  display:block;
+  width:13px;
+  height:1.6px;
+  background:var(--qt-dark);
+  border-radius:2px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-language{
+  position:relative;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-btn{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:#fff;
+  border:1px solid rgba(13,43,34,.14);
+  border-radius:9px;
+  padding:0 9px;
+  height:30px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--qt-dark);
+  font-family:inherit;
+  line-height:1;
+  cursor:default;
+  white-space:nowrap;
+  transition:background-color .20s ease,border-color .20s ease;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-btn.is-hi{
+  background:rgba(201,168,76,.16);
+  border-color:rgba(201,168,76,.55);
+}
+
+#qrmo-translation-v3-root .qt-code{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:20px;
+  height:16px;
+  padding:0 3px;
+  border-radius:4px;
+  background:var(--qt-dark);
+  color:var(--qt-gold-l);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.04em;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-caret{
+  width:9px;
+  height:9px;
+  stroke:var(--qt-dark);
+  stroke-width:2.6;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  transition:transform .27s ease;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-language.is-open .qrmo-translation-v3-caret{
+  transform:rotate(180deg);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-list{
+  position:absolute;
+  top:calc(100% + 6px);
+  right:0;
+  width:168px;
+  background:#fff;
+  border:1px solid rgba(13,43,34,.12);
+  border-radius:12px;
+  padding:5px;
+  margin:0;
+  list-style:none;
+  box-shadow:0 12px 28px rgba(13,43,34,.18);
+  opacity:0;
+  transform:translateY(-4px);
+  pointer-events:none;
+  transition:
+    opacity .25s cubic-bezier(.22,.61,.36,1),
+    transform .25s cubic-bezier(.22,.61,.36,1);
+  z-index:6;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-language.is-open .qrmo-translation-v3-lang-list{
+  opacity:1;
+  transform:translateY(0);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-item{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:5px 8px;
+  margin:0;
+  font-size:12.5px;
+  font-weight:500;
+  line-height:1.2;
+  color:var(--qt-dark);
+  border-radius:8px;
+  transition:background-color .18s ease;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-item[dir="rtl"]{
+  flex-direction:row-reverse;
+  text-align:right;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-item.is-active{
+  background:rgba(201,168,76,.14);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-lang-item.is-hover{
+  background:rgba(201,168,76,.28);
+}
+
+#qrmo-translation-v3-root .qt-banner{
+  flex:0 0 auto;
+  position:relative;
+  height:74px;
+  border-radius:14px;
+  overflow:hidden;
+  background:linear-gradient(
+    135deg,
+    var(--qt-dark) 0%,
+    var(--qt-dark3) 100%
+  );
+  margin:0 0 10px;
+  padding:12px 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+#qrmo-translation-v3-root .qt-banner::after{
+  content:"";
+  position:absolute;
+  right:-18px;
+  top:-18px;
+  width:86px;
+  height:86px;
+  border-radius:50%;
+  border:2px solid rgba(201,168,76,.4);
+}
+
+#qrmo-translation-v3-root .qt-banner-k{
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--qt-gold-l);
+  margin:0 0 3px;
+}
+
+#qrmo-translation-v3-root .qt-banner-t{
+  font-size:15px;
+  font-weight:700;
+  line-height:1.2;
+  color:var(--qt-cream);
+}
+
+#qrmo-translation-v3-root .qt-tools{
+  flex:0 0 auto;
+  display:flex;
+  gap:8px;
+  margin:0 0 10px;
+}
+
+#qrmo-translation-v3-root .qt-search{
+  flex:1 1 auto;
+  min-width:0;
+  height:34px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid rgba(13,43,34,.1);
+  padding:0 11px;
+  display:flex;
+  align-items:center;
+  font-size:12px;
+  color:var(--qt-muted);
+}
+
+#qrmo-translation-v3-root .qt-filter{
+  flex:0 0 auto;
+  height:34px;
+  padding:0 12px;
+  border-radius:10px;
+  background:#fff;
+  border:1px solid rgba(13,43,34,.1);
+  display:flex;
+  align-items:center;
+  font-size:12px;
+  font-weight:600;
+  color:var(--qt-dark);
+}
+
+#qrmo-translation-v3-root .qt-cats{
+  flex:0 0 auto;
+  display:flex;
+  gap:6px;
+  margin:0 0 10px;
+  overflow:hidden;
+}
+
+#qrmo-translation-v3-root .qt-cat{
+  flex:0 0 auto;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(13,43,34,.1);
+  font-size:11.5px;
+  font-weight:600;
+  color:var(--qt-dark);
+  white-space:nowrap;
+}
+
+#qrmo-translation-v3-root .qt-cat.is-on{
+  background:var(--qt-dark);
+  color:var(--qt-cream);
+  border-color:var(--qt-dark);
+}
+
+#qrmo-translation-v3-root .qt-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  flex:1 1 auto;
+  min-height:0;
+  overflow:hidden;
+  padding-bottom:4px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-product{
+  flex:0 0 auto;
+  background:#fff;
+  border-radius:14px;
+  padding:10px;
+  border:1px solid rgba(13,43,34,.08);
+  display:flex;
+  gap:11px;
+  align-items:center;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pimg{
+  flex:0 0 auto;
+  width:64px;
+  height:64px;
+  border-radius:11px;
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(
+    circle at 32% 30%,
+    var(--qt-dark3) 0%,
+    var(--qt-dark) 72%
+  );
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pimg::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:52%;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  border:2px solid rgba(232,199,102,.55);
+  background:rgba(232,199,102,.12);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pimg::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:52%;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(244,241,232,.22);
+}
+
+#qrmo-translation-v3-root .qt-pinfo{
+  flex:1 1 auto;
+  min-width:0;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pname{
+  display:block;
+  margin:0 0 2px;
+  font-size:13.5px;
+  font-weight:700;
+  line-height:1.25;
+  color:var(--qt-dark);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pdesc{
+  display:block;
+  margin:0 0 5px;
+  font-size:11px;
+  line-height:1.35;
+  color:var(--qt-muted);
+}
+
+#qrmo-translation-v3-root .qt-prow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pprice{
+  font-size:13px;
+  font-weight:700;
+  color:var(--qt-gold);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-pbtn{
+  display:inline-block;
+  padding:5px 10px;
+  background:var(--qt-dark);
+  color:var(--qt-cream);
+  font-size:10.5px;
+  font-weight:600;
+  line-height:1;
+  border-radius:7px;
+  white-space:nowrap;
+}
+
+#qrmo-translation-v3-root .qt-product-lite{
+  padding:8px 10px;
+}
+
+#qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg{
+  width:44px;
+  height:44px;
+  border-radius:9px;
+}
+
+#qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg::before{
+  width:26px;
+  height:26px;
+}
+
+#qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg::after{
+  width:12px;
+  height:12px;
+}
+
+#qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pname{
+  font-size:12.5px;
+  margin:0;
+}
+
+#qrmo-translation-v3-root .qt-product-lite .qt-prow{
+  margin-top:3px;
+}
+
+#qrmo-translation-v3-root .qt-bottom{
+  flex:0 0 auto;
+  display:flex;
+  gap:8px;
+  padding:8px 0 12px;
+}
+
+#qrmo-translation-v3-root .qt-bbtn{
+  flex:1 1 0;
+  min-width:0;
+  height:36px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:11.5px;
+  font-weight:700;
+  text-align:center;
+  line-height:1.1;
+}
+
+#qrmo-translation-v3-root .qt-bbtn-a{
+  background:var(--qt-dark);
+  color:var(--qt-cream);
+}
+
+#qrmo-translation-v3-root .qt-bbtn-b{
+  background:#fff;
+  color:var(--qt-dark);
+  border:1px solid rgba(13,43,34,.14);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-screen[data-dir="rtl"] [data-i18n]{
+  direction:rtl;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-screen[data-dir="rtl"] .qt-banner-k,
+#qrmo-translation-v3-root .qrmo-translation-v3-screen[data-dir="rtl"] .qt-banner-t,
+#qrmo-translation-v3-root .qrmo-translation-v3-screen[data-dir="rtl"] .qrmo-translation-v3-pname,
+#qrmo-translation-v3-root .qrmo-translation-v3-screen[data-dir="rtl"] .qrmo-translation-v3-pdesc{
+  text-align:right;
+}
+
+#qrmo-translation-v3-root [data-i18n]{
+  transition:
+    opacity .31s cubic-bezier(.22,.61,.36,1),
+    transform .31s cubic-bezier(.22,.61,.36,1);
+}
+
+#qrmo-translation-v3-root [data-i18n].is-out{
+  opacity:0;
+  transform:translateY(4px);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-cursor{
+  position:absolute;
+  top:0;
+  left:0;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:rgba(13,43,34,.45);
+  border:2px solid rgba(255,255,255,.9);
+  transform:translate3d(220px,420px,0);
+  opacity:0;
+  transition:
+    transform .63s cubic-bezier(.4,0,.2,1),
+    opacity .22s ease;
+  pointer-events:none;
+  z-index:8;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-cursor.is-on{
+  opacity:.9;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-ring{
+  position:absolute;
+  top:-10px;
+  left:-10px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:2px solid var(--qt-gold);
+  opacity:0;
+  transform:scale(.4);
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-cursor.is-click .qrmo-translation-v3-ring{
+  animation:qrmo-translation-v3-ring .38s ease-out;
+}
+
+@keyframes qrmo-translation-v3-ring{
+  0%{
+    opacity:.7;
+    transform:scale(.4);
+  }
+  100%{
+    opacity:0;
+    transform:scale(1.1);
+  }
+}
+
+/* ============================================================
+   TABLET / DESKTOP
+   ============================================================ */
+
+@media (max-width:1279px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-phone{
+    max-width:350px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-screen{
+    height:540px;
+  }
+}
+
+@media (max-width:1099px){
+  #qrmo-translation-v3-root{
+    padding:72px 0;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-inner{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:32px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-title{
+    font-size:38px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-phone{
+    max-width:320px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-screen{
+    height:520px;
+  }
+}
+
+/* QA: 768–900 → Hero / Section 2 ile aynı 20px kenar boşluğu */
+@media (min-width:768px) and (max-width:900px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-inner{
+    width:calc(100% - 40px);
+  }
+}
+
+/* ============================================================
+   MOBILE
+   DOKUNULMADI: istek yalnızca masaüstü/tablet içindi.
+   ============================================================ */
+
+@media (max-width:767px){
+
+  #qrmo-translation-v3-root{
+    width:100%;
+    padding:0;
+    overflow:visible;
+  }
+
+  #qrmo-translation-v3-root .qt-only-desktop{
+    display:none;
+  }
+
+  #qrmo-translation-v3-root .qt-only-mobile{
+    display:block;
+  }
+
+  /*
+   * İKİ GERÇEK VIEWPORT SECTION
+   *
+   * CONTENT = 1
+   * DEMO    = 2
+   */
+  #qrmo-translation-v3-root .qrmo-translation-v3-inner{
+    width:100%;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    align-items:stretch;
+  }
+
+  /* ==========================================================
+     1. KONTEYNER — CONTENT
+     ========================================================== */
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-content{
+    order:1;
+
+    width:100%;
+    /* UX: blok içerik kadar; CTA → demo arasında boş ekran kalmaz */
+    height:auto;
+    min-height:0;
+
+    padding:
+      clamp(18px,4svh,28px)
+      20px
+      clamp(14px,3svh,24px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    overflow:hidden;
+    scroll-snap-align:none;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-eyebrow{
+    flex:0 0 auto;
+    margin:0 0 clamp(7px,1.5svh,12px);
+    font-size:11px;
+    gap:10px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-eyebrow::before{
+    flex-basis:28px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-title{
+    flex:0 0 auto;
+    font-size:clamp(28px,8.4vw,34px);
+    line-height:1.08;
+    margin:0 0 clamp(8px,1.5svh,12px);
+    letter-spacing:-.02em;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-description{
+    flex:0 0 auto;
+    font-size:clamp(14px,4vw,16px);
+    line-height:1.45;
+    max-width:none;
+    margin:0 0 clamp(12px,2.2svh,18px);
+  }
+
+  /* 4 özellik */
+  #qrmo-translation-v3-root .qt-features{
+    flex:0 0 auto;
+    list-style:none;
+    margin:0 0 clamp(12px,2.2svh,18px);
+    padding:0;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:clamp(11px,2svh,17px) 16px;
+  }
+
+  #qrmo-translation-v3-root .qt-feature{
+    display:grid;
+    grid-template-columns:18px 1fr;
+    gap:8px;
+    align-items:start;
+    margin:0;
+    padding:0;
+    min-width:0;
+  }
+
+  #qrmo-translation-v3-root .qt-feature .qrmo-translation-v3-check{
+    width:18px;
+    height:18px;
+    background:rgba(201,168,76,.2);
+    margin-top:1px;
+  }
+
+  #qrmo-translation-v3-root .qt-feature .qrmo-translation-v3-check svg{
+    width:10px;
+    height:10px;
+  }
+
+  #qrmo-translation-v3-root .qt-feature-title{
+    display:block;
+    font-size:13.5px;
+    line-height:1.22;
+    font-weight:700;
+    color:var(--qt-dark);
+    margin:0 0 3px;
+    overflow-wrap:anywhere;
+  }
+
+  #qrmo-translation-v3-root .qt-feature-desc{
+    display:block;
+    font-size:11.5px;
+    line-height:1.35;
+    font-weight:400;
+    color:var(--qt-muted);
+    margin:0;
+    overflow-wrap:anywhere;
+  }
+
+  /* Stats */
+  #qrmo-translation-v3-root .qrmo-translation-v3-stats{
+    flex:0 0 auto;
+    max-width:none;
+    gap:10px 30px;
+    padding:clamp(10px,2svh,15px) 0 0;
+    margin:0;
+    border-top:1px solid rgba(13,43,34,.12);
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-stat-num{
+    font-size:22px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-stat-label{
+    font-size:11.5px;
+    margin-top:4px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-footnote{
+    flex:0 0 auto;
+    max-width:none;
+    margin:
+      clamp(7px,1.5svh,10px)
+      0
+      clamp(10px,2svh,16px);
+
+    font-size:10.5px;
+    line-height:1.38;
+  }
+
+  #qrmo-translation-v3-root a.qrmo-translation-v3-cta{
+    flex:0 0 auto;
+    width:100%;
+    min-width:0;
+    min-height:52px;
+    height:52px;
+    font-size:15px;
+    padding:0 18px;
+    border-radius:12px;
+  }
+
+  /* ==========================================================
+     2. KONTEYNER — DEMO
+     ========================================================== */
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
+    order:2;
+
+    width:100%;
+    /* UX: 100svh ortalaması telefonun üstünde/altında ~140px boşluk bırakıyordu */
+    height:auto;
+    min-height:0;
+
+    padding:
+      clamp(18px,4svh,30px)
+      20px
+      clamp(14px,3svh,24px);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:clamp(8px,1.6svh,14px);
+
+    /*
+     * ÖNEMLİ:
+     * overflow:hidden YOK.
+     * Bölümün kendi yüksekliğini bozacak kesme yapılmıyor.
+     */
+    overflow:visible;
+
+    scroll-snap-align:none;
+  }
+
+  #qrmo-translation-v3-root .qt-m-top{
+    flex:0 0 auto;
+    width:100%;
+    text-align:center;
+  }
+
+  #qrmo-translation-v3-root .qt-m-title{
+    margin:0 0 4px;
+    font-size:clamp(17px,4.9vw,20px);
+    line-height:1.2;
+    font-weight:800;
+    color:var(--qt-dark);
+    letter-spacing:-.01em;
+  }
+
+  #qrmo-translation-v3-root .qt-m-text{
+    margin:0;
+    font-size:clamp(12px,3.4vw,13.5px);
+    line-height:1.4;
+    color:var(--qt-muted);
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-phone{
+    flex:0 0 auto;
+    width:100%;
+    max-width:min(316px,100%);
+    max-height:68svh;
+    padding:10px;
+    border-radius:34px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-screen{
+    height:min(58svh,430px);
+    min-height:390px;
+    padding:10px 11px 0;
+    border-radius:25px;
+  }
+
+  #qrmo-translation-v3-root .qt-header{
+    margin-bottom:6px;
+  }
+
+  #qrmo-translation-v3-root .qt-banner{
+    height:50px;
+    padding:8px 12px;
+    margin-bottom:6px;
+  }
+
+  #qrmo-translation-v3-root .qt-banner-k{
+    margin-bottom:2px;
+  }
+
+  #qrmo-translation-v3-root .qt-banner-t{
+    font-size:13px;
+  }
+
+  #qrmo-translation-v3-root .qt-tools{
+    margin-bottom:6px;
+  }
+
+  #qrmo-translation-v3-root .qt-search,
+  #qrmo-translation-v3-root .qt-filter{
+    height:28px;
+  }
+
+  #qrmo-translation-v3-root .qt-cats{
+    margin-bottom:6px;
+  }
+
+  #qrmo-translation-v3-root .qt-cat{
+    padding:4px 10px;
+    font-size:11px;
+  }
+
+  #qrmo-translation-v3-root .qt-list{
+    gap:5px;
+    padding-bottom:2px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-product{
+    padding:8px;
+    gap:10px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-pimg{
+    width:48px;
+    height:48px;
+    border-radius:10px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-pimg::before{
+    width:28px;
+    height:28px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-pimg::after{
+    width:13px;
+    height:13px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-pdesc{
+    margin-bottom:3px;
+    font-size:10.5px;
+    line-height:1.3;
+  }
+
+  #qrmo-translation-v3-root .qt-product-lite{
+    padding:4px 8px;
+  }
+
+  #qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg{
+    width:32px;
+    height:32px;
+    border-radius:8px;
+  }
+
+  #qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg::before{
+    width:19px;
+    height:19px;
+  }
+
+  #qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg::after{
+    width:8px;
+    height:8px;
+  }
+
+  #qrmo-translation-v3-root .qt-bottom{
+    padding:5px 0 8px;
+    gap:6px;
+  }
+
+  #qrmo-translation-v3-root .qt-bbtn{
+    height:30px;
+    font-size:11px;
+  }
+
+  /* dropdown */
+  #qrmo-translation-v3-root .qrmo-translation-v3-lang-list{
+    width:148px;
+    padding:4px;
+    border-radius:11px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-lang-item{
+    padding:4px 8px;
+    font-size:12px;
+    gap:8px;
+  }
+
+  /* destek */
+  #qrmo-translation-v3-root .qt-m-support{
+    flex:0 0 auto;
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px 10px;
+    justify-content:center;
+    align-items:center;
+    font-size:11px;
+    font-weight:700;
+    color:var(--qt-dark);
+    text-align:center;
+  }
+
+  #qrmo-translation-v3-root .qt-m-support i{
+    display:inline-block;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:var(--qt-gold);
+  }
+}
+
+/* ============================================================
+   VERY SHORT MOBILE SCREENS
+   ============================================================ */
+
+@media (max-width:767px) and (max-height:720px){
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-content{
+    padding-top:14px;
+    padding-bottom:12px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-title{
+    font-size:clamp(26px,8vw,31px);
+    margin-bottom:7px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-description{
+    font-size:13.5px;
+    line-height:1.4;
+    margin-bottom:11px;
+  }
+
+  #qrmo-translation-v3-root .qt-features{
+    gap:9px 14px;
+    margin-bottom:11px;
+  }
+
+  #qrmo-translation-v3-root .qt-feature-title{
+    font-size:12.5px;
+  }
+
+  #qrmo-translation-v3-root .qt-feature-desc{
+    font-size:10.5px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-footnote{
+    font-size:10px;
+    margin-top:6px;
+    margin-bottom:9px;
+  }
+
+  #qrmo-translation-v3-root a.qrmo-translation-v3-cta{
+    height:48px;
+    min-height:48px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
+    padding-top:12px;
+    padding-bottom:10px;
+    gap:7px;
+  }
+
+  /* QA: sabit ekran yüksekliği 3. ürün kartını ~32px kırpıyordu;
+     ekran içerik yüksekliğini alır (min 360 korunur), çerçeve de uzar */
+  #qrmo-translation-v3-root .qrmo-translation-v3-phone{
+    max-width:min(292px,100%);
+    max-height:none;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-screen{
+    height:auto;
+    min-height:360px;
+  }
+}
+
+/* ============================================================
+   EXTRA SMALL WIDTH
+   ============================================================ */
+
+@media (max-width:359px){
+
+  #qrmo-translation-v3-root .qt-features{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-title{
+    font-size:27px;
+  }
+
+  #qrmo-translation-v3-root a.qrmo-translation-v3-cta{
+    padding:0 16px;
+    font-size:14px;
+    gap:10px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-cta-arrow{
+    width:18px;
+    height:18px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-lang-list{
+    width:140px;
+  }
+}
+
+/* ============================================================
+   UX DÜZELTMELERİ (scroll kaydı QA)
+   ============================================================ */
+
+/* Masaüstü: metin ölçüsü 560 → 640; telefon sağda kalır,
+   metin ↔ telefon arası boşluk daralır */
+@media (min-width:1100px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-description,
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefits,
+  #qrmo-translation-v3-root .qrmo-translation-v3-stats,
+  #qrmo-translation-v3-root .qrmo-translation-v3-footnote{
+    max-width:640px;
+  }
+}
+
+/* Mobil: başlık bloğu Hero / Section 2 gibi ortalı */
+@media (max-width:767px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-eyebrow{
+    justify-content:center;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-title,
+  #qrmo-translation-v3-root .qrmo-translation-v3-description{
+    text-align:center;
+  }
+
+  /* CTA → demo başlığı: tüm mobil yüksekliklerde tutarlı ayrım */
+  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
+    padding-top:40px;
+  }
+}
+
+/* ≤480: Hero / Section 2 ile aynı 16px gutter */
+@media (max-width:480px){
+  #qrmo-translation-v3-root .qrmo-translation-v3-content,
+  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
+    padding-left:16px;
+    padding-right:16px;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion:reduce){
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-cursor{
+    display:none;
+  }
+
+  #qrmo-translation-v3-root [data-i18n],
+  #qrmo-translation-v3-root .qrmo-translation-v3-caret,
+  #qrmo-translation-v3-root .qrmo-translation-v3-lang-list,
+  #qrmo-translation-v3-root .qrmo-translation-v3-lang-item,
+  #qrmo-translation-v3-root .qrmo-translation-v3-lang-btn,
+  #qrmo-translation-v3-root a.qrmo-translation-v3-cta{
+    transition:none;
+  }
+}
+</style>
+
+<div class="qrmo-translation-v3-inner">
+
+  <!-- ========================================================
+       1. KONTEYNER — CONTENT
+       ======================================================== -->
+
+  <div class="qrmo-translation-v3-content">
+
+    <span class="qrmo-translation-v3-eyebrow">
+      QR Menu Official • Modül
+    </span>
+
+    <h2 class="qrmo-translation-v3-title">
+      Dil Çeviri Modülü
+    </h2>
+
+    <p class="qrmo-translation-v3-description qt-only-desktop">
+      Menünüzü farklı dillerde sunarak yabancı müşterilerinizin ürünleri daha kolay anlamasını ve daha rahat seçim yapmasını sağlayın.
+    </p>
+
+    <p class="qrmo-translation-v3-description qt-only-mobile">
+      Menünüzü müşterilerinizin kendi dilinde sunun. Ürün bilgileri ve kategoriler seçilen dile uyarlanır; yabancı müşterileriniz daha rahat seçim yapar.
+    </p>
+
+    <!-- DESKTOP -->
+    <ul class="qrmo-translation-v3-benefits qt-only-desktop">
+
+      <li class="qrmo-translation-v3-benefit">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qrmo-translation-v3-benefit-title">
+            Müşteri dilini seçer
+          </span>
+
+          <span class="qrmo-translation-v3-benefit-desc">
+            Menünüzü desteklenen dillerde kolayca görüntüleyebilir.
+          </span>
+        </span>
+      </li>
+
+      <li class="qrmo-translation-v3-benefit">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qrmo-translation-v3-benefit-title">
+            Ürünleri daha kolay anlar
+          </span>
+
+          <span class="qrmo-translation-v3-benefit-desc">
+            Ürün adları ve açıklamaları seçilen dilde gösterilir.
+          </span>
+        </span>
+      </li>
+
+      <li class="qrmo-translation-v3-benefit">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qrmo-translation-v3-benefit-title">
+            Daha rahat seçim yapar
+          </span>
+
+          <span class="qrmo-translation-v3-benefit-desc">
+            Dil bariyerini azaltarak müşterinin karar vermesini kolaylaştırın.
+          </span>
+        </span>
+      </li>
+
+    </ul>
+
+    <!-- MOBİL 4 ÖZELLİK -->
+    <ul class="qt-features qt-only-mobile">
+
+      <li class="qt-feature">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qt-feature-title">
+            Tek Dokunuşla Dil Değişimi
+          </span>
+
+          <span class="qt-feature-desc">
+            Müşteri menü dilini anında değiştirebilir.
+          </span>
+        </span>
+      </li>
+
+      <li class="qt-feature">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qt-feature-title">
+            Ürün Adları ve Açıklamalar
+          </span>
+
+          <span class="qt-feature-desc">
+            Ürün bilgileri seçilen dilde görüntülenir.
+          </span>
+        </span>
+      </li>
+
+      <li class="qt-feature">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qt-feature-title">
+            Kategoriler Çevrilir
+          </span>
+
+          <span class="qt-feature-desc">
+            Ana yemek, tatlı ve içecek gibi bölümler dile uyarlanır.
+          </span>
+        </span>
+      </li>
+
+      <li class="qt-feature">
+        <span class="qrmo-translation-v3-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="4 12 10 18 20 6"/>
+          </svg>
+        </span>
+
+        <span>
+          <span class="qt-feature-title" data-claim-title>
+            Çoklu Dil Desteği
+          </span>
+
+          <span class="qt-feature-desc">
+            Farklı ülkelerden gelen müşterilere daha rahat hizmet verin.
+          </span>
+        </span>
+      </li>
+
+    </ul>
+
+    <!-- STATS -->
+    <div class="qrmo-translation-v3-stats">
+
+      <div class="qrmo-translation-v3-stat">
+        <span class="qrmo-translation-v3-stat-num">
+          +150%
+        </span>
+
+        <span class="qrmo-translation-v3-stat-label">
+          Gelir potansiyeli*
+        </span>
+      </div>
+
+      <div class="qrmo-translation-v3-stat">
+        <span class="qrmo-translation-v3-stat-num">
+          86%
+        </span>
+
+        <span class="qrmo-translation-v3-stat-label">
+          Tekrar ziyaret potansiyeli*
+        </span>
+      </div>
+
+    </div>
+
+    <p class="qrmo-translation-v3-footnote">
+      * Örnek senaryo verisidir; gerçek sonuçlar işletmeye, müşteri profiline ve kullanım koşullarına göre değişebilir.
+    </p>
+
+    <a class="qrmo-translation-v3-cta" href="#">
+      <span class="qrmo-translation-v3-cta-text">
+        Çeviri Modülünü İncele
+      </span>
+
+      <svg
+        class="qrmo-translation-v3-cta-arrow"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <line x1="5" y1="12" x2="19" y2="12"/>
+        <polyline points="13 6 19 12 13 18"/>
+      </svg>
+    </a>
+
+  </div>
+
+
+  <!-- ========================================================
+       2. KONTEYNER — DEMO
+       ======================================================== -->
+
+  <div class="qrmo-translation-v3-demo">
+
+    <!-- MOBİL ÜST MESAJ -->
+    <div class="qt-m-top qt-only-mobile">
+
+      <h3 class="qt-m-title">
+        Yabancı müşterileriniz menünüzün tamamını anlayabilsin.
+      </h3>
+
+      <p class="qt-m-text">
+        Tek dokunuşla menü dilini değiştirin.
+      </p>
+
+    </div>
+
+
+    <!-- PHONE -->
+    <div
+      class="qrmo-translation-v3-phone"
+      aria-hidden="true"
+    >
+
+      <div
+        class="qrmo-translation-v3-screen"
+        data-dir="ltr"
+      >
+
+        <div class="qt-header">
+
+          <span class="qrmo-translation-v3-logo">
+            QR<b>MENU</b>
+          </span>
+
+          <div class="qt-header-right">
+
+            <div class="qrmo-translation-v3-language">
+
+              <div class="qrmo-translation-v3-lang-btn">
+
+                <span
+                  class="qt-code"
+                  data-role="code"
+                >
+                  TR
+                </span>
+
+                <span data-role="lang-current">
+                  Türkçe
+                </span>
+
+                <svg
+                  class="qrmo-translation-v3-caret"
+                  viewBox="0 0 24 24"
+                >
+                  <polyline points="5 9 12 16 19 9"/>
+                </svg>
+
+              </div>
+
+              <ul
+                class="qrmo-translation-v3-lang-list"
+                data-role="list"
+              ></ul>
+
+            </div>
+
+            <div class="qt-burger">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="qt-banner">
+
+          <span
+            class="qt-banner-k"
+            data-i18n="banner_k"
+          >
+            Bugünün Önerisi
+          </span>
+
+          <span
+            class="qt-banner-t"
+            data-i18n="banner_t"
+          >
+            Şefin Özel Menüsü
+          </span>
+
+        </div>
+
+
+        <div class="qt-tools">
+
+          <div class="qt-search">
+            <span data-i18n="search">
+              Ürün ara...
+            </span>
+          </div>
+
+          <div class="qt-filter">
+            <span data-i18n="filter">
+              Filtrele
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="qt-cats">
+
+          <span
+            class="qt-cat"
+            data-i18n="cat_rec"
+          >
+            Önerilen
+          </span>
+
+          <span
+            class="qt-cat is-on"
+            data-i18n="cat_main"
+          >
+            Ana Yemek
+          </span>
+
+          <span
+            class="qt-cat"
+            data-i18n="cat_dessert"
+          >
+            Tatlılar
+          </span>
+
+        </div>
+
+
+        <div class="qt-list">
+
+          <div class="qrmo-translation-v3-product">
+
+            <div class="qrmo-translation-v3-pimg"></div>
+
+            <div class="qt-pinfo">
+
+              <span
+                class="qrmo-translation-v3-pname"
+                data-i18n="p1_name"
+              >
+                İzgara Tavuk
+              </span>
+
+              <span
+                class="qrmo-translation-v3-pdesc"
+                data-i18n="p1_desc"
+              >
+                Taze mevsim sebzeleriyle servis edilir.
+              </span>
+
+              <div class="qt-prow">
+
+                <span class="qrmo-translation-v3-pprice">
+                  420 ₺
+                </span>
+
+                <span
+                  class="qrmo-translation-v3-pbtn"
+                  data-i18n="add"
+                >
+                  Sepete Ekle
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="qrmo-translation-v3-product qt-product-lite">
+
+            <div class="qrmo-translation-v3-pimg"></div>
+
+            <div class="qt-pinfo">
+
+              <span
+                class="qrmo-translation-v3-pname"
+                data-i18n="p2_name"
+              >
+                Serpme Kahvaltı
+              </span>
+
+              <div class="qt-prow">
+
+                <span class="qrmo-translation-v3-pprice">
+                  550 ₺
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="qrmo-translation-v3-product qt-product-lite">
+
+            <div class="qrmo-translation-v3-pimg"></div>
+
+            <div class="qt-pinfo">
+
+              <span
+                class="qrmo-translation-v3-pname"
+                data-i18n="p3_name"
+              >
+                Filtre Kahve
+              </span>
+
+              <div class="qt-prow">
+
+                <span class="qrmo-translation-v3-pprice">
+                  90 ₺
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="qt-bottom">
+
+          <span
+            class="qt-bbtn qt-bbtn-a"
+            data-i18n="waiter"
+          >
+            Garson Çağır
+          </span>
+
+          <span
+            class="qt-bbtn qt-bbtn-b"
+            data-i18n="bill"
+          >
+            Hesap İste
+          </span>
+
+        </div>
+
+
+        <div class="qrmo-translation-v3-cursor">
+          <span class="qrmo-translation-v3-ring"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- MOBİL DESTEK -->
+    <div class="qt-m-support qt-only-mobile">
+
+      <span data-claim-support>
+        Çoklu Dil Desteği
+      </span>
+
+      <i></i>
+
+      <span>
+        Tek Dokunuş
+      </span>
+
+      <i></i>
+
+      <span>
+        Tüm Menüde Uyum
+      </span>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+(function(){
+
+  var ROOT_ID='qrmo-translation-v3-root';
+
+  /*
+   * ==========================================================
+   * TEK KAYNAK
+   * ==========================================================
+   */
+
+  var PRODUCT_LANGUAGES=[
+    'tr',
+    'en',
+    'de',
+    'fr',
+    'es',
+    'it',
+    'ru',
+    'ar'
+  ];
+
+  var DATA={
+
+    tr:{
+      code:'TR',
+      dir:'ltr',
+      label:'Türkçe',
+      banner_k:'Bugünün Önerisi',
+      banner_t:'Şefin Özel Menüsü',
+      search:'Ürün ara...',
+      filter:'Filtrele',
+      cat_rec:'Önerilen',
+      cat_main:'Ana Yemek',
+      cat_dessert:'Tatlılar',
+      p1_name:'İzgara Tavuk',
+      p1_desc:'Taze mevsim sebzeleriyle servis edilir.',
+      add:'Sepete Ekle',
+      p2_name:'Serpme Kahvaltı',
+      p3_name:'Filtre Kahve',
+      waiter:'Garson Çağır',
+      bill:'Hesap İste'
+    },
+
+    en:{
+      code:'EN',
+      dir:'ltr',
+      label:'English',
+      banner_k:"Today's Pick",
+      banner_t:"Chef's Special Menu",
+      search:'Search products...',
+      filter:'Filter',
+      cat_rec:'Featured',
+      cat_main:'Main Courses',
+      cat_dessert:'Desserts',
+      p1_name:'Grilled Chicken',
+      p1_desc:'Served with fresh seasonal vegetables.',
+      add:'Add to Cart',
+      p2_name:'Turkish Breakfast Platter',
+      p3_name:'Filter Coffee',
+      waiter:'Call Waiter',
+      bill:'Request Bill'
+    },
+
+    de:{
+      code:'DE',
+      dir:'ltr',
+      label:'Deutsch',
+      banner_k:'Empfehlung des Tages',
+      banner_t:'Spezialmenü des Küchenchefs',
+      search:'Produkte suchen...',
+      filter:'Filtern',
+      cat_rec:'Empfohlen',
+      cat_main:'Hauptgerichte',
+      cat_dessert:'Desserts',
+      p1_name:'Gegrilltes Hähnchen',
+      p1_desc:'Mit frischem Saisongemüse serviert.',
+      add:'In den Warenkorb',
+      p2_name:'Türkisches Frühstück',
+      p3_name:'Filterkaffee',
+      waiter:'Kellner rufen',
+      bill:'Rechnung'
+    },
+
+    fr:{
+      code:'FR',
+      dir:'ltr',
+      label:'Français',
+      banner_k:'Suggestion du jour',
+      banner_t:'Menu spécial du chef',
+      search:'Rechercher...',
+      filter:'Filtrer',
+      cat_rec:'Suggestions',
+      cat_main:'Plats',
+      cat_dessert:'Desserts',
+      p1_name:'Poulet Grillé',
+      p1_desc:'Servi avec des légumes frais de saison.',
+      add:'Ajouter',
+      p2_name:'Petit-déjeuner Turc',
+      p3_name:'Café Filtre',
+      waiter:'Appeler le serveur',
+      bill:"L'addition"
+    },
+
+    es:{
+      code:'ES',
+      dir:'ltr',
+      label:'Español',
+      banner_k:'Sugerencia del día',
+      banner_t:'Menú especial del chef',
+      search:'Buscar productos...',
+      filter:'Filtrar',
+      cat_rec:'Destacados',
+      cat_main:'Platos Principales',
+      cat_dessert:'Postres',
+      p1_name:'Pollo a la Parrilla',
+      p1_desc:'Servido con verduras frescas de temporada.',
+      add:'Añadir',
+      p2_name:'Desayuno Turco',
+      p3_name:'Café de Filtro',
+      waiter:'Llamar al camarero',
+      bill:'Pedir la cuenta'
+    },
+
+    it:{
+      code:'IT',
+      dir:'ltr',
+      label:'Italiano',
+      banner_k:'Consiglio del giorno',
+      banner_t:'Menu speciale dello chef',
+      search:'Cerca prodotti...',
+      filter:'Filtra',
+      cat_rec:'Consigliati',
+      cat_main:'Piatti Principali',
+      cat_dessert:'Dolci',
+      p1_name:'Pollo alla Griglia',
+      p1_desc:'Servito con verdure fresche di stagione.',
+      add:'Aggiungi',
+      p2_name:'Colazione Turca',
+      p3_name:'Caffè Filtro',
+      waiter:'Chiama il cameriere',
+      bill:'Chiedi il conto'
+    },
+
+    ru:{
+      code:'RU',
+      dir:'ltr',
+      label:'Русский',
+      banner_k:'Выбор дня',
+      banner_t:'Специальное меню от шефа',
+      search:'Поиск блюд...',
+      filter:'Фильтр',
+      cat_rec:'Рекомендуем',
+      cat_main:'Основные блюда',
+      cat_dessert:'Десерты',
+      p1_name:'Курица на гриле',
+      p1_desc:'Подаётся со свежими сезонными овощами.',
+      add:'В корзину',
+      p2_name:'Турецкий завтрак',
+      p3_name:'Фильтр-кофе',
+      waiter:'Позвать официанта',
+      bill:'Попросить счёт'
+    },
+
+    ar:{
+      code:'AR',
+      dir:'rtl',
+      label:'العربية',
+      banner_k:'اقتراح اليوم',
+      banner_t:'قائمة الشيف الخاصة',
+      search:'ابحث عن المنتجات...',
+      filter:'تصفية',
+      cat_rec:'مقترحات',
+      cat_main:'الأطباق الرئيسية',
+      cat_dessert:'الحلويات',
+      p1_name:'دجاج مشوي',
+      p1_desc:'يُقدَّم مع خضار طازجة موسمية.',
+      add:'أضف إلى السلة',
+      p2_name:'فطور تركي',
+      p3_name:'قهوة مفلترة',
+      waiter:'استدعاء النادل',
+      bill:'طلب الفاتورة'
+    }
+
+  };
+
+
+  var LANGS=PRODUCT_LANGUAGES.filter(function(lang){
+    return DATA[lang];
+  });
+
+  var SEQ=LANGS.filter(function(lang){
+    return lang!=='tr';
+  });
+
+  SEQ.push('tr');
+
+  var CLAIM=
+    LANGS.length>=8
+      ? '8+ Dil Desteği'
+      : 'Çoklu Dil Desteği';
+
+
+  var reduce=
+    window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  function init(){
+
+    var root=document.getElementById(ROOT_ID);
+
+    if(
+      !root ||
+      root.getAttribute('data-qrmoInit')==='1'
+    ){
+      return;
+    }
+
+    root.setAttribute('data-qrmoInit','1');
+
+
+    var langBox=root.querySelector(
+      '.qrmo-translation-v3-language'
+    );
+
+    var listEl=root.querySelector(
+      '[data-role="list"]'
+    );
+
+    var codeEl=root.querySelector(
+      '[data-role="code"]'
+    );
+
+    var current=root.querySelector(
+      '[data-role="lang-current"]'
+    );
+
+    var i18n=root.querySelectorAll(
+      '[data-i18n]'
+    );
+
+    var cursor=root.querySelector(
+      '.qrmo-translation-v3-cursor'
+    );
+
+    var screen=root.querySelector(
+      '.qrmo-translation-v3-screen'
+    );
+
+    var btn=root.querySelector(
+      '.qrmo-translation-v3-lang-btn'
+    );
+
+    var phone=root.querySelector(
+      '.qrmo-translation-v3-phone'
+    );
+
+    if(
+      !langBox ||
+      !listEl ||
+      !cursor ||
+      !screen ||
+      !btn ||
+      !phone ||
+      !i18n.length
+    ){
+      return;
+    }
+
+
+    var claimTitle=root.querySelector(
+      '[data-claim-title]'
+    );
+
+    if(claimTitle){
+      claimTitle.textContent=CLAIM;
+    }
+
+
+    var claimSupport=root.querySelector(
+      '[data-claim-support]'
+    );
+
+    if(claimSupport){
+      claimSupport.textContent=CLAIM;
+    }
+
+
+    /*
+     * LANGUAGE DROPDOWN
+     */
+
+    var frag=document.createDocumentFragment();
+
+    LANGS.forEach(function(lang){
+
+      var li=document.createElement('li');
+
+      li.className=
+        'qrmo-translation-v3-lang-item';
+
+      li.setAttribute(
+        'data-lang',
+        lang
+      );
+
+      if(DATA[lang].dir==='rtl'){
+        li.setAttribute('dir','rtl');
+      }
+
+      var code=document.createElement('span');
+
+      code.className='qt-code';
+
+      code.textContent=DATA[lang].code;
+
+      li.appendChild(code);
+
+      li.appendChild(
+        document.createTextNode(
+          DATA[lang].label
+        )
+      );
+
+      frag.appendChild(li);
+
+    });
+
+    listEl.appendChild(frag);
+
+
+    var items=listEl.querySelectorAll(
+      '.qrmo-translation-v3-lang-item'
+    );
+
+
+    /*
+     * DEMO STATE
+     */
+
+    var timers=[];
+    var running=false;
+    var inView=false;
+    var idx=0;
+    var active='tr';
+
+
+    function later(fn,ms){
+
+      var id=setTimeout(
+        fn,
+        ms
+      );
+
+      timers.push(id);
+
+      return id;
+    }
+
+
+    function clearAll(){
+
+      for(
+        var i=0;
+        i<timers.length;
+        i++
+      ){
+        clearTimeout(
+          timers[i]
+        );
+      }
+
+      timers=[];
+    }
+
+
+    function markActive(){
+
+      for(
+        var i=0;
+        i<items.length;
+        i++
+      ){
+
+        items[i].classList.toggle(
+          'is-active',
+          items[i].getAttribute('data-lang')===active
+        );
+
+      }
+
+    }
+
+
+    function applyLang(code){
+
+      var d=DATA[code];
+
+      codeEl.textContent=d.code;
+
+      current.textContent=d.label;
+
+      screen.setAttribute(
+        'data-dir',
+        d.dir
+      );
+
+
+      for(
+        var i=0;
+        i<i18n.length;
+        i++
+      ){
+
+        var key=
+          i18n[i].getAttribute(
+            'data-i18n'
+          );
+
+        if(d[key]!=null){
+          i18n[i].textContent=d[key];
+        }
+
+      }
+
+      active=code;
+
+      markActive();
+
+    }
+
+
+    function hoverItem(code){
+
+      for(
+        var i=0;
+        i<items.length;
+        i++
+      ){
+
+        items[i].classList.toggle(
+          'is-hover',
+          items[i].getAttribute('data-lang')===code
+        );
+
+      }
+
+    }
+
+
+    function moveCursorTo(el){
+
+      var sr=
+        screen.getBoundingClientRect();
+
+      var r=
+        el.getBoundingClientRect();
+
+      var x=
+        r.left-
+        sr.left+
+        r.width/2;
+
+      var y=
+        r.top-
+        sr.top+
+        r.height/2;
+
+      cursor.style.transform=
+        'translate3d('+
+        Math.round(x-6)+
+        'px,'+
+        Math.round(y-6)+
+        'px,0)';
+
+    }
+
+
+    function click(){
+
+      cursor.classList.remove(
+        'is-click'
+      );
+
+      void cursor.offsetWidth;
+
+      cursor.classList.add(
+        'is-click'
+      );
+
+    }
+
+
+    function fadeOut(){
+
+      for(
+        var i=0;
+        i<i18n.length;
+        i++
+      ){
+        i18n[i].classList.add(
+          'is-out'
+        );
+      }
+
+    }
+
+
+    function fadeIn(){
+
+      for(
+        var i=0;
+        i<i18n.length;
+        i++
+      ){
+        i18n[i].classList.remove(
+          'is-out'
+        );
+      }
+
+    }
+
+
+    function resetTransient(){
+
+      langBox.classList.remove(
+        'is-open'
+      );
+
+      btn.classList.remove(
+        'is-hi'
+      );
+
+      hoverItem('');
+
+      cursor.classList.remove(
+        'is-on'
+      );
+
+      cursor.classList.remove(
+        'is-click'
+      );
+
+      fadeIn();
+
+    }
+
+
+    function step(){
+
+      if(!running){
+        return;
+      }
+
+      resetTransient();
+
+      var code=
+        SEQ[idx%SEQ.length];
+
+      idx++;
+
+      cursor.classList.add(
+        'is-on'
+      );
+
+      moveCursorTo(btn);
+
+
+      later(function(){
+
+        if(!running){
+          return;
+        }
+
+        btn.classList.add(
+          'is-hi'
+        );
+
+        click();
+
+        langBox.classList.add(
+          'is-open'
+        );
+
+
+        later(function(){
+
+          if(!running){
+            return;
+          }
+
+          var target=
+            listEl.querySelector(
+              '.qrmo-translation-v3-lang-item[data-lang="'+
+              code+
+              '"]'
+            );
+
+          if(target){
+            moveCursorTo(target);
+            hoverItem(code);
+          }
+
+
+          later(function(){
+
+            if(!running){
+              return;
+            }
+
+            click();
+
+            langBox.classList.remove(
+              'is-open'
+            );
+
+            btn.classList.remove(
+              'is-hi'
+            );
+
+            hoverItem('');
+
+            cursor.classList.remove(
+              'is-on'
+            );
+
+
+            later(function(){
+
+              if(!running){
+                return;
+              }
+
+              fadeOut();
+
+
+              later(function(){
+
+                if(!running){
+                  return;
+                }
+
+                applyLang(code);
+
+                fadeIn();
+
+
+                later(function(){
+
+                  if(running){
+                    step();
+                  }
+
+                },code==='tr'?2000:1700);
+
+              },280);
+
+            },110);
+
+          },300);
+
+        },220);
+
+      },630);
+
+    }
+
+
+    function start(){
+
+      if(
+        running ||
+        reduce
+      ){
+        return;
+      }
+
+      running=true;
+
+      later(
+        step,
+        1400
+      );
+
+    }
+
+
+    function stop(){
+
+      running=false;
+
+      clearAll();
+
+      resetTransient();
+
+      idx=0;
+
+      applyLang('tr');
+
+    }
+
+
+    /*
+     * MOCKUP ANIMATION VISIBILITY
+     */
+
+    function syncDemo(){
+
+      if(reduce){
+        return;
+      }
+
+      if(
+        inView &&
+        !document.hidden
+      ){
+        start();
+      }else{
+        stop();
+      }
+
+    }
+
+
+    /*
+     * ========================================================
+     * MOBILE SECTION TRANSITION
+     *
+     * CSS scroll-snap YOK.
+     * Body scroll-lock YOK.
+     * touch-action:none YOK.
+     * preventDefault YOK.
+     * ========================================================
+     */
+
+    var mobileQuery=
+      window.matchMedia
+        ? window.matchMedia('(max-width:767px)')
+        : null;
+
+    var content=
+      root.querySelector(
+        '.qrmo-translation-v3-content'
+      );
+
+    var demo=
+      root.querySelector(
+        '.qrmo-translation-v3-demo'
+      );
+
+    var transitionLock=false;
+
+    var touchStartY=0;
+    var touchStartX=0;
+    var touchActive=false;
+
+
+    function isMobile(){
+
+      return mobileQuery
+        ? mobileQuery.matches
+        : window.innerWidth<=767;
+
+    }
+
+
+    function getPageTop(el){
+
+      return(
+        el.getBoundingClientRect().top+
+        window.pageYOffset
+      );
+
+    }
+
+
+    function easeOutCubic(t){
+
+      return 1-Math.pow(
+        1-t,
+        3
+      );
+
+    }
+
+
+    function animateTo(targetTop){
+
+      if(transitionLock){
+        return;
+      }
+
+      transitionLock=true;
+
+
+      var startTop=
+        window.pageYOffset;
+
+      var distance=
+        targetTop-startTop;
+
+      var duration=390;
+
+      var startTime=null;
+
+
+      function frame(timestamp){
+
+        if(!startTime){
+          startTime=timestamp;
+        }
+
+        var progress=
+          Math.min(
+            1,
+            (timestamp-startTime)/
+            duration
+          );
+
+        var eased=
+          easeOutCubic(progress);
+
+        window.scrollTo(
+          0,
+          startTop+
+          distance*eased
+        );
+
+
+        if(progress<1){
+
+          window.requestAnimationFrame(
+            frame
+          );
+
+        }else{
+
+          window.scrollTo(
+            0,
+            targetTop
+          );
+
+          window.setTimeout(
+            function(){
+              transitionLock=false;
+            },
+            140
+          );
+
+        }
+
+      }
+
+
+      window.requestAnimationFrame(
+        frame
+      );
+
+    }
+
+
+    function sectionAtBoundary(){
+
+      if(!content || !demo){
+        return null;
+      }
+
+      var contentTop=
+        getPageTop(content);
+
+      var demoTop=
+        getPageTop(demo);
+
+      var scrollTop=
+        window.pageYOffset;
+
+      var tolerance=18;
+
+
+      /*
+       * 1. section aktif / üst sınırına yakın
+       */
+      if(
+        Math.abs(
+          scrollTop-contentTop
+        )<=tolerance
+      ){
+        return 'content';
+      }
+
+
+      /*
+       * 2. section üst sınırına yakın
+       */
+      if(
+        Math.abs(
+          scrollTop-demoTop
+        )<=tolerance
+      ){
+        return 'demo';
+      }
+
+
+      return null;
+
+    }
+
+
+    function handleTouchStart(event){
+
+      if(!isMobile()){
+        return;
+      }
+
+      if(
+        !event.touches ||
+        !event.touches.length
+      ){
+        return;
+      }
+
+      touchActive=true;
+
+      touchStartY=
+        event.touches[0].clientY;
+
+      touchStartX=
+        event.touches[0].clientX;
+
+    }
+
+
+    function handleTouchEnd(event){
+
+      if(
+        !isMobile() ||
+        !touchActive ||
+        transitionLock
+      ){
+        touchActive=false;
+        return;
+      }
+
+      touchActive=false;
+
+
+      if(
+        !event.changedTouches ||
+        !event.changedTouches.length
+      ){
+        return;
+      }
+
+
+      var endY=
+        event.changedTouches[0].clientY;
+
+      var endX=
+        event.changedTouches[0].clientX;
+
+
+      var deltaY=
+        touchStartY-endY;
+
+      var deltaX=
+        touchStartX-endX;
+
+
+      /*
+       * Yatay hareket baskınsa
+       * section transition yapma.
+       */
+      if(
+        Math.abs(deltaX)>
+        Math.abs(deltaY)
+      ){
+        return;
+      }
+
+
+      var threshold=52;
+
+
+      /*
+       * AŞAĞI SWIPE
+       *
+       * 1. konteyner -> 2. konteyner
+       */
+      if(deltaY>threshold){
+
+        var current=
+          sectionAtBoundary();
+
+        if(current==='content'){
+
+          animateTo(
+            getPageTop(demo)
+          );
+
+          return;
+
+        }
+
+      }
+
+
+      /*
+       * YUKARI SWIPE
+       *
+       * 2. konteyner -> 1. konteyner
+       *
+       * Sadece 2. konteynerin
+       * üst sınırındayken.
+       */
+      if(deltaY<-threshold){
+
+        var currentUp=
+          sectionAtBoundary();
+
+        if(currentUp==='demo'){
+
+          animateTo(
+            getPageTop(content)
+          );
+
+          return;
+
+        }
+
+      }
+
+    }
+
+
+    /*
+     * TOUCH EVENTS
+     *
+     * passive=true:
+     * browser scroll davranışı korunur.
+     */
+    if(window.PointerEvent){
+
+      root.addEventListener(
+        'pointerdown',
+        function(event){
+
+          if(
+            !isMobile() ||
+            event.pointerType!=='touch'
+          ){
+            return;
+          }
+
+          touchActive=true;
+
+          touchStartY=
+            event.clientY;
+
+          touchStartX=
+            event.clientX;
+
+        },
+        {
+          passive:true
+        }
+      );
+
+
+      root.addEventListener(
+        'pointerup',
+        function(event){
+
+          if(
+            !isMobile() ||
+            event.pointerType!=='touch'
+          ){
+            return;
+          }
+
+          handleTouchEnd({
+            changedTouches:[
+              {
+                clientY:event.clientY,
+                clientX:event.clientX
+              }
+            ]
+          });
+
+        },
+        {
+          passive:true
+        }
+      );
+
+    }else{
+
+      root.addEventListener(
+        'touchstart',
+        handleTouchStart,
+        {
+          passive:true
+        }
+      );
+
+      root.addEventListener(
+        'touchend',
+        handleTouchEnd,
+        {
+          passive:true
+        }
+      );
+
+    }
+
+
+    /*
+     * Browser resize / orientation
+     */
+    if(mobileQuery){
+
+      var onMobileChange=
+        function(){
+
+          if(!mobileQuery.matches){
+            transitionLock=false;
+          }
+
+        };
+
+
+      if(mobileQuery.addEventListener){
+
+        mobileQuery.addEventListener(
+          'change',
+          onMobileChange
+        );
+
+      }else if(mobileQuery.addListener){
+
+        mobileQuery.addListener(
+          onMobileChange
+        );
+
+      }
+
+    }
+
+
+    /*
+     * ========================================================
+     * MOCKUP INTERSECTION
+     * ========================================================
+     */
+
+    markActive();
+
+
+    if(reduce){
+
+      applyLang('tr');
+
+    }else{
+
+      if(
+        'IntersectionObserver' in window
+      ){
+
+        var io=
+          new IntersectionObserver(
+            function(entries){
+
+              inView=
+                entries[0].isIntersecting;
+
+              syncDemo();
+
+            },
+            {
+              threshold:.25
+            }
+          );
+
+        io.observe(phone);
+
+      }else{
+
+        inView=true;
+
+        syncDemo();
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      'visibilitychange',
+      syncDemo
+    );
+
+  }
+
+
+  function boot(){
+    init();
+  }
+
+
+  if(
+    document.readyState===
+    'loading'
+  ){
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      boot
+    );
+
+  }else{
+
+    boot();
+
+  }
+
+
+  window.addEventListener(
+    'load',
+    boot
+  );
+
+
+  window.addEventListener(
+    'elementor/frontend/init',
+    function(){
+
+      if(
+        window.elementorFrontend &&
+        window.elementorFrontend.hooks
+      ){
+
+        window.elementorFrontend.hooks.addAction(
+          'frontend/element_ready/html.default',
+          boot
+        );
+
+      }
+
+      boot();
+
+    }
+  );
+
+})();
+</script>
+
+</div>
+
+<section class="qrmo-tables-v5" aria-labelledby="qrmo-tables-v5-title">
+
+<style>
+
+/* =========================================================
+   QR MENU OFFICIAL
+   SINIRSIZ QR MASA — RESPONSIVE V6
+   ========================================================= */
+
+.qrmo-tables-v5{
+
+  --qmt-dark:#0D2B22;
+  --qmt-dark-2:#173226;
+  --qmt-dark-3:#1E3D2F;
+
+  --qmt-gold:#C9A84C;
+  --qmt-gold-light:#E8C766;
+
+  --qmt-cream:#F4F1E8;
+  --qmt-muted:#3F4A45;
+  --qmt-line:rgba(13,43,34,.12);
+
+  width:100%;
+  margin:0;
+  padding:88px 0;
+
+  position:relative;
+
+  background:transparent !important;
+
+  color:var(--qmt-dark);
+
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  overflow:visible;
+}
+
+.qrmo-tables-v5 *,
+.qrmo-tables-v5 *::before,
+.qrmo-tables-v5 *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   MAIN GRID
+
+   DESKTOP / TABLET:
+   viewport'un %5'i solda
+   viewport'un %5'i sağda
+
+   width:90%
+   margin:auto
+
+   Böylece:
+   left edge  = 5vw
+   right edge = 5vw
+   ========================================================= */
+
+.qrmo-tables-v5__inner{
+
+  width:90%;
+  max-width:none;
+
+  margin-left:auto;
+  margin-right:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(0,1fr);
+
+  gap:clamp(38px,5vw,86px);
+
+  align-items:center;
+}
+
+
+/* =========================================================
+   LEFT / DEMO
+
+   ÖNEMLİ:
+   justify-content:flex-start
+   => animasyon gerçekten %5 çizgisinden başlar
+   ========================================================= */
+
+.qrmo-tables-v5__demo{
+
+  min-width:0;
+
+  width:100%;
+
+  display:flex;
+
+  justify-content:flex-start;
+  align-items:center;
+
+  padding:
+    12px
+    0
+    16px;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.qrmo-tables-v5__app{
+
+  width:100%;
+
+  max-width:540px;
+
+  margin-left:0;
+  margin-right:auto;
+
+  background:var(--qmt-dark);
+
+  border-radius:28px;
+
+  padding:12px;
+
+  border:1px solid rgba(201,168,76,.15);
+
+  box-shadow:
+    0 4px 10px rgba(13,43,34,.08),
+    0 28px 55px rgba(13,43,34,.17);
+
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   APP BAR
+   ========================================================= */
+
+.qrmo-tables-v5__appbar{
+
+  height:38px;
+
+  padding:
+    0
+    8px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  color:var(--qmt-cream);
+}
+
+.qrmo-tables-v5__brand{
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:800;
+
+  letter-spacing:.14em;
+
+  color:var(--qmt-cream);
+}
+
+.qrmo-tables-v5__brand b{
+  color:var(--qmt-gold-light);
+}
+
+.qrmo-tables-v5__dots{
+
+  display:flex;
+
+  gap:5px;
+
+  align-items:center;
+}
+
+.qrmo-tables-v5__dots i{
+
+  width:7px;
+  height:7px;
+
+  display:block;
+
+  border-radius:50%;
+
+  background:rgba(244,241,232,.25);
+}
+
+
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
+.qrmo-tables-v5__screen{
+
+  position:relative;
+
+  width:100%;
+
+  min-height:500px;
+  height:500px;
+
+  padding:22px;
+
+  background:var(--qmt-cream);
+
+  border-radius:20px;
+
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   SCREEN HEADER
+   ========================================================= */
+
+.qrmo-tables-v5__screen-head{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  margin-bottom:18px;
+}
+
+.qrmo-tables-v5__screen-kicker{
+
+  display:block;
+
+  margin:
+    0
+    0
+    5px;
+
+  font-size:9px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  color:var(--qmt-gold);
+}
+
+.qrmo-tables-v5__screen-title{
+
+  margin:0;
+
+  font-size:25px;
+  line-height:1.08;
+
+  font-weight:800;
+
+  letter-spacing:-.025em;
+
+  color:var(--qmt-dark);
+}
+
+.qrmo-tables-v5__screen-count{
+
+  flex:0 0 auto;
+
+  min-width:56px;
+  height:30px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    0
+    9px;
+
+  border-radius:9px;
+
+  background:rgba(201,168,76,.13);
+
+  border:1px solid rgba(201,168,76,.30);
+
+  color:var(--qmt-dark);
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:800;
+
+  transition:
+    background-color .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+
+/* =========================================================
+   MODE
+   ========================================================= */
+
+.qrmo-tables-v5__mode{
+
+  width:100%;
+  height:40px;
+
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  padding:3px;
+
+  margin:
+    0
+    0
+    14px;
+
+  border-radius:11px;
+
+  background:rgba(13,43,34,.08);
+}
+
+.qrmo-tables-v5__mode-item{
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:8px;
+
+  color:var(--qmt-muted);
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:700;
+
+  transition:
+    background-color .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.qrmo-tables-v5__mode-item.is-active{
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-cream);
+}
+
+
+/* =========================================================
+   CREATE
+   ========================================================= */
+
+.qrmo-tables-v5__create{
+
+  position:relative;
+
+  padding:16px;
+
+  margin:0;
+
+  border-radius:14px;
+
+  background:#fff;
+
+  border:1px solid rgba(13,43,34,.07);
+
+  box-shadow:
+    0 8px 20px rgba(13,43,34,.05);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.qrmo-tables-v5__create-head{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin:
+    0
+    0
+    13px;
+}
+
+.qrmo-tables-v5__create-title{
+
+  margin:0;
+
+  font-size:12px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  color:var(--qmt-dark);
+}
+
+.qrmo-tables-v5__create-status{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:5px;
+
+  color:#65706b;
+
+  font-size:9px;
+  line-height:1;
+
+  font-weight:600;
+
+  opacity:.8;
+}
+
+.qrmo-tables-v5__create-status-dot{
+
+  width:6px;
+  height:6px;
+
+  display:block;
+
+  border-radius:50%;
+
+  background:#b7beb9;
+
+  transition:
+    background-color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+/* =========================================================
+   INPUTS
+   ========================================================= */
+
+.qrmo-tables-v5__fields{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1.55fr)
+    minmax(74px,.55fr)
+    minmax(74px,.55fr);
+
+  gap:8px;
+
+  margin:
+    0
+    0
+    10px;
+}
+
+.qrmo-tables-v5__field{
+  min-width:0;
+}
+
+.qrmo-tables-v5__field-label{
+
+  display:block;
+
+  margin:
+    0
+    0
+    5px
+    2px;
+
+  font-size:8px;
+  line-height:1;
+
+  font-weight:700;
+
+  color:var(--qmt-muted);
+}
+
+.qrmo-tables-v5__field-box{
+
+  height:36px;
+
+  display:flex;
+
+  align-items:center;
+
+  padding:
+    0
+    10px;
+
+  border-radius:8px;
+
+  background:#f8f7f2;
+
+  border:1px solid rgba(13,43,34,.09);
+
+  color:var(--qmt-dark);
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:600;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   RANGE
+   ========================================================= */
+
+.qrmo-tables-v5__range{
+
+  min-height:39px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:
+    0
+    10px;
+
+  margin:
+    0
+    0
+    10px;
+
+  border-radius:8px;
+
+  background:#faf9f5;
+
+  border:1px solid rgba(13,43,34,.06);
+
+  color:var(--qmt-muted);
+
+  font-size:8.5px;
+  line-height:1.3;
+
+  font-weight:500;
+}
+
+.qrmo-tables-v5__range-text{
+
+  min-width:0;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+
+  white-space:nowrap;
+}
+
+.qrmo-tables-v5__range-count{
+
+  flex:0 0 auto;
+
+  color:var(--qmt-gold);
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   CREATE BUTTON
+   ========================================================= */
+
+.qrmo-tables-v5__create-button{
+
+  width:100%;
+  height:40px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:0;
+
+  border-radius:9px;
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-cream);
+
+  font-family:inherit;
+
+  font-size:10px;
+  line-height:1;
+
+  font-weight:800;
+
+  transition:
+    background-color .25s ease,
+    transform .25s ease;
+}
+
+.qrmo-tables-v5__create-button::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(232,199,102,.16) 50%,
+      transparent 100%
+    );
+
+  transform:translateX(-110%);
+
+  transition:
+    transform .55s ease;
+}
+
+.qrmo-tables-v5__create-button.is-processing{
+
+  background:var(--qmt-dark-2);
+}
+
+.qrmo-tables-v5__create-button.is-processing::after{
+
+  transform:translateX(110%);
+}
+
+
+/* =========================================================
+   PROCESSING
+   ========================================================= */
+
+.qrmo-tables-v5__processing{
+
+  position:absolute;
+
+  inset:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:30px;
+
+  background:rgba(244,241,232,.96);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transition:
+    opacity .28s ease,
+    visibility .28s ease;
+}
+
+.qrmo-tables-v5__processing.is-visible{
+
+  opacity:1;
+
+  visibility:visible;
+}
+
+.qrmo-tables-v5__processing-icon{
+
+  width:52px;
+  height:52px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:13px;
+
+  border-radius:15px;
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-gold-light);
+
+  box-shadow:
+    0 10px 24px rgba(13,43,34,.14);
+}
+
+.qrmo-tables-v5__spinner{
+
+  width:22px;
+  height:22px;
+
+  border-radius:50%;
+
+  border:
+    2px solid
+    rgba(232,199,102,.25);
+
+  border-top-color:
+    var(--qmt-gold-light);
+
+  animation:
+    qrmoTablesSpin .75s linear infinite;
+}
+
+@keyframes qrmoTablesSpin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+.qrmo-tables-v5__processing-title{
+
+  margin:
+    0
+    0
+    5px;
+
+  color:var(--qmt-dark);
+
+  font-size:15px;
+  line-height:1.2;
+
+  font-weight:800;
+}
+
+.qrmo-tables-v5__processing-text{
+
+  margin:0;
+
+  color:var(--qmt-muted);
+
+  font-size:10px;
+  line-height:1.4;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.qrmo-tables-v5__result{
+
+  position:absolute;
+
+  inset:22px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:translateY(12px);
+
+  transition:
+    opacity .42s ease,
+    transform .42s cubic-bezier(.22,.61,.36,1),
+    visibility .42s ease;
+}
+
+.qrmo-tables-v5__result.is-visible{
+
+  opacity:1;
+
+  visibility:visible;
+
+  pointer-events:auto;
+
+  transform:translateY(0);
+}
+
+.qrmo-tables-v5__result-top{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:space-between;
+
+  gap:14px;
+
+  margin:
+    0
+    0
+    15px;
+}
+
+.qrmo-tables-v5__result-kicker{
+
+  display:block;
+
+  margin:
+    0
+    0
+    5px;
+
+  font-size:8px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  letter-spacing:.13em;
+
+  text-transform:uppercase;
+
+  color:var(--qmt-gold);
+}
+
+.qrmo-tables-v5__result-title{
+
+  margin:0;
+
+  font-size:21px;
+  line-height:1.1;
+
+  font-weight:800;
+
+  letter-spacing:-.02em;
+
+  color:var(--qmt-dark);
+}
+
+.qrmo-tables-v5__result-success{
+
+  flex:0 0 auto;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  padding:
+    7px
+    9px;
+
+  border-radius:8px;
+
+  background:rgba(42,156,90,.08);
+
+  color:#2f8b56;
+
+  font-size:8.5px;
+  line-height:1;
+
+  font-weight:800;
+}
+
+.qrmo-tables-v5__success-check{
+
+  width:13px;
+  height:13px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#2f8b56;
+
+  color:#fff;
+
+  font-size:8px;
+}
+
+
+/* =========================================================
+   QR GRID
+   ========================================================= */
+
+.qrmo-tables-v5__qr-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,minmax(0,1fr));
+
+  gap:7px;
+
+  flex:1 1 auto;
+
+  min-height:0;
+
+  align-content:start;
+}
+
+.qrmo-tables-v5__qr-card{
+
+  min-width:0;
+
+  padding:
+    8px
+    6px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  border-radius:9px;
+
+  background:#fff;
+
+  border:1px solid rgba(13,43,34,.07);
+
+  box-shadow:
+    0 5px 12px rgba(13,43,34,.04);
+
+  opacity:0;
+
+  transform:
+    translateY(10px)
+    scale(.94);
+
+  transition:
+    opacity .35s cubic-bezier(.22,.61,.36,1),
+    transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+.qrmo-tables-v5__qr-card.is-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+.qrmo-tables-v5__qr{
+
+  width:42px;
+  height:42px;
+
+  position:relative;
+
+  margin:
+    0
+    0
+    6px;
+
+  border-radius:5px;
+
+  background:
+    linear-gradient(
+      45deg,
+      #111 25%,
+      transparent 25%,
+      transparent 75%,
+      #111 75%
+    ),
+    linear-gradient(
+      45deg,
+      #111 25%,
+      transparent 25%,
+      transparent 75%,
+      #111 75%
+    );
+
+  background-size:8px 8px;
+
+  background-position:
+    0 0,
+    4px 4px;
+
+  border:
+    4px solid #fff;
+
+  box-shadow:
+    0 0 0 1px rgba(13,43,34,.12);
+}
+
+.qrmo-tables-v5__qr::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  width:11px;
+  height:11px;
+
+  transform:
+    translate(-50%,-50%);
+
+  border-radius:3px;
+
+  background:var(--qmt-dark);
+
+  box-shadow:
+    0 0 0 2px var(--qmt-gold);
+}
+
+.qrmo-tables-v5__qr-name{
+
+  max-width:100%;
+
+  margin:0;
+
+  font-size:8px;
+  line-height:1.2;
+
+  font-weight:800;
+
+  color:var(--qmt-dark);
+
+  white-space:nowrap;
+
+  overflow:hidden;
+
+  text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   RESULT FOOT
+   ========================================================= */
+
+.qrmo-tables-v5__result-foot{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:12px;
+
+  margin-top:12px;
+
+  padding-top:11px;
+
+  border-top:
+    1px solid
+    var(--qmt-line);
+}
+
+.qrmo-tables-v5__result-note{
+
+  min-width:0;
+
+  color:var(--qmt-muted);
+
+  font-size:9px;
+  line-height:1.35;
+}
+
+.qrmo-tables-v5__exports{
+
+  flex:0 0 auto;
+
+  display:flex;
+
+  gap:6px;
+}
+
+.qrmo-tables-v5__export{
+
+  height:27px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    0
+    9px;
+
+  border-radius:7px;
+
+  background:#fff;
+
+  border:
+    1px solid
+    rgba(13,43,34,.12);
+
+  color:var(--qmt-dark);
+
+  font-family:inherit;
+
+  font-size:8px;
+  line-height:1;
+
+  font-weight:800;
+
+  opacity:0;
+
+  transform:translateY(5px);
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease,
+    background-color .2s ease;
+}
+
+.qrmo-tables-v5__export.is-visible{
+
+  opacity:1;
+
+  transform:translateY(0);
+}
+
+
+/* =========================================================
+   CURSOR
+   ========================================================= */
+
+.qrmo-tables-v5__cursor{
+
+  position:absolute;
+
+  width:19px;
+  height:19px;
+
+  left:0;
+  top:0;
+
+  z-index:20;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transform:
+    translate3d(0,0,0);
+
+  transition:
+    transform .58s cubic-bezier(.4,0,.2,1),
+    opacity .22s ease;
+}
+
+.qrmo-tables-v5__cursor.is-visible{
+  opacity:1;
+}
+
+.qrmo-tables-v5__cursor svg{
+
+  display:block;
+
+  width:24px;
+  height:24px;
+
+  filter:
+    drop-shadow(
+      0 2px 4px rgba(0,0,0,.25)
+    );
+
+  transform-origin:20% 20%;
+
+  transition:
+    transform .12s ease;
+}
+
+.qrmo-tables-v5__cursor.is-clicking svg{
+  transform:scale(.78);
+}
+
+.qrmo-tables-v5__click-ring{
+
+  position:absolute;
+
+  left:-8px;
+  top:-8px;
+
+  width:34px;
+  height:34px;
+
+  border:
+    2px solid
+    var(--qmt-gold);
+
+  border-radius:50%;
+
+  opacity:0;
+
+  transform:scale(.45);
+}
+
+.qrmo-tables-v5__cursor.is-clicking
+.qrmo-tables-v5__click-ring{
+
+  animation:
+    qrmoTablesClick .42s ease-out;
+}
+
+@keyframes qrmoTablesClick{
+
+  0%{
+    opacity:.75;
+    transform:scale(.45);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(1.15);
+  }
+
+}
+
+
+/* =========================================================
+   RIGHT CONTENT
+
+   ÖNEMLİ:
+   align-items:flex-end
+   => içerik bloğunun sağ kenarı %5 çizgisinde
+   ========================================================= */
+
+.qrmo-tables-v5__content{
+
+  min-width:0;
+
+  width:100%;
+
+  max-width:620px;
+
+  margin-left:auto;
+  margin-right:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:flex-start;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.qrmo-tables-v5__eyebrow{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin:
+    0
+    0
+    18px;
+
+  color:var(--qmt-gold);
+
+  font-size:12px;
+  line-height:1.2;
+
+  font-weight:700;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+}
+
+.qrmo-tables-v5__eyebrow::before{
+
+  content:"";
+
+  width:32px;
+  height:2px;
+
+  flex:0 0 32px;
+
+  border-radius:2px;
+
+  background:var(--qmt-gold);
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.qrmo-tables-v5__title{
+
+  width:100%;
+
+  max-width:590px;
+
+  margin:
+    0
+    0
+    17px;
+
+  color:var(--qmt-dark);
+
+  font-size:clamp(40px,4vw,56px);
+
+  line-height:1.02;
+
+  font-weight:800;
+
+  letter-spacing:-.035em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.qrmo-tables-v5__description{
+
+  width:100%;
+
+  max-width:610px;
+
+  margin:
+    0
+    0
+    27px;
+
+  color:var(--qmt-muted);
+
+  font-size:17px;
+
+  line-height:1.6;
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
+
+.qrmo-tables-v5__benefits{
+
+  width:100%;
+
+  max-width:620px;
+
+  list-style:none;
+
+  margin:
+    0
+    0
+    26px;
+
+  padding:0;
+
+  display:grid;
+
+  gap:17px;
+}
+
+.qrmo-tables-v5__benefit{
+
+  display:grid;
+
+  grid-template-columns:
+    26px
+    minmax(0,1fr);
+
+  gap:12px;
+
+  align-items:start;
+
+  margin:0;
+  padding:0;
+}
+
+.qrmo-tables-v5__check{
+
+  width:24px;
+  height:24px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  margin-top:1px;
+
+  border-radius:50%;
+
+  background:rgba(201,168,76,.20);
+}
+
+.qrmo-tables-v5__check svg{
+
+  width:13px;
+  height:13px;
+
+  fill:none;
+
+  stroke:var(--qmt-gold);
+
+  stroke-width:3;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.qrmo-tables-v5__benefit-title{
+
+  display:block;
+
+  margin:
+    0
+    0
+    3px;
+
+  color:var(--qmt-dark);
+
+  font-size:16px;
+
+  line-height:1.3;
+
+  font-weight:700;
+}
+
+.qrmo-tables-v5__benefit-desc{
+
+  display:block;
+
+  margin:0;
+
+  color:var(--qmt-muted);
+
+  font-size:14px;
+
+  line-height:1.5;
+
+  font-weight:400;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.qrmo-tables-v5 a.qrmo-tables-v5__cta,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:link,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:visited,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:hover,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:focus,
+.qrmo-tables-v5 a.qrmo-tables-v5__cta:active{
+
+  text-decoration:none !important;
+
+  box-shadow:none;
+}
+
+.qrmo-tables-v5__cta{
+
+  min-width:272px;
+
+  min-height:53px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+  padding:
+    0
+    21px;
+
+  border:0;
+
+  border-bottom:
+    2px solid
+    var(--qmt-gold);
+
+  border-radius:12px;
+
+  background:var(--qmt-dark);
+
+  color:var(--qmt-cream) !important;
+
+  font-family:inherit;
+
+  font-size:16px;
+
+  line-height:1.2;
+
+  font-weight:700;
+
+  transition:
+    transform .23s ease,
+    background-color .23s ease;
+}
+
+.qrmo-tables-v5__cta:hover,
+.qrmo-tables-v5__cta:focus-visible{
+
+  background:var(--qmt-dark-2);
+
+  color:var(--qmt-cream) !important;
+
+  transform:translateY(-1px);
+}
+
+.qrmo-tables-v5__cta:focus-visible{
+
+  outline:
+    2px solid
+    var(--qmt-gold);
+
+  outline-offset:3px;
+}
+
+.qrmo-tables-v5__cta-text{
+
+  flex:1 1 auto;
+
+  min-width:0;
+
+  text-align:left;
+
+  color:var(--qmt-cream);
+}
+
+.qrmo-tables-v5__cta-arrow{
+
+  width:20px;
+  height:20px;
+
+  flex:0 0 auto;
+
+  fill:none;
+
+  stroke:var(--qmt-gold-light);
+
+  stroke-width:2.2;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+
+  margin-left:auto;
+}
+
+
+/* =========================================================
+   TABLET
+   768px — 1100px
+
+   %5 SOL / %5 SAĞ KORUNUR
+   ========================================================= */
+
+@media (min-width:768px) and (max-width:1100px){
+
+  .qrmo-tables-v5{
+
+    padding:
+      72px
+      0;
+  }
+
+  .qrmo-tables-v5__inner{
+
+    width:90%;
+
+    grid-template-columns:
+      minmax(0,1fr)
+      minmax(0,1fr);
+
+    gap:
+      clamp(26px,4vw,48px);
+  }
+
+  .qrmo-tables-v5__demo{
+
+    justify-content:flex-start;
+
+    padding:
+      8px
+      0
+      12px;
+  }
+
+  .qrmo-tables-v5__app{
+
+    width:100%;
+
+    max-width:100%;
+
+    margin-left:0;
+    margin-right:auto;
+
+    border-radius:24px;
+
+    padding:10px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    height:450px;
+
+    min-height:450px;
+
+    padding:18px;
+
+    border-radius:18px;
+  }
+
+  .qrmo-tables-v5__content{
+
+    width:100%;
+
+    max-width:100%;
+
+    margin-left:auto;
+    margin-right:0;
+  }
+
+  .qrmo-tables-v5__title{
+
+    font-size:
+      clamp(36px,4vw,46px);
+  }
+
+  .qrmo-tables-v5__description{
+
+    font-size:15px;
+
+    line-height:1.55;
+  }
+
+  .qrmo-tables-v5__benefits{
+
+    gap:14px;
+  }
+
+  .qrmo-tables-v5__benefit-title{
+
+    font-size:14px;
+  }
+
+  .qrmo-tables-v5__benefit-desc{
+
+    font-size:12px;
+  }
+
+  .qrmo-tables-v5__cta{
+
+    min-width:250px;
+
+    min-height:50px;
+
+    font-size:14px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   768 — 860
+
+   Hâlâ %5 sınırları korunuyor.
+   ========================================================= */
+
+@media (min-width:768px) and (max-width:860px){
+
+  .qrmo-tables-v5__inner{
+
+    gap:26px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    height:420px;
+
+    min-height:420px;
+
+    padding:15px;
+  }
+
+  .qrmo-tables-v5__screen-title{
+
+    font-size:21px;
+  }
+
+  .qrmo-tables-v5__fields{
+
+    grid-template-columns:
+      minmax(0,1.35fr)
+      minmax(55px,.55fr)
+      minmax(55px,.55fr);
+
+    gap:5px;
+  }
+
+  .qrmo-tables-v5__field-box{
+
+    padding:
+      0
+      7px;
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__qr{
+
+    width:34px;
+    height:34px;
+
+    background-size:7px 7px;
+
+    background-position:
+      0 0,
+      3.5px 3.5px;
+  }
+
+  .qrmo-tables-v5__qr-name{
+
+    font-size:6.5px;
+  }
+
+  .qrmo-tables-v5__result{
+
+    inset:15px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:767px){
+
+  .qrmo-tables-v5{
+
+    padding:0;
+
+    overflow:hidden;
+  }
+
+  /*
+   * Mobilde %5 viewport sistemi kaldırılıyor.
+   * Çünkü burada içerik tam genişlikte kontrollü
+   * padding ile yönetiliyor.
+   */
+
+  .qrmo-tables-v5__inner{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:0;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE CONTENT TOP
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__content{
+
+    order:1;
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0;
+
+    padding:
+      52px
+      20px
+      38px;
+
+    align-items:flex-start;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE DEMO BOTTOM
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__demo{
+
+    order:2;
+
+    width:100%;
+
+    padding:
+      18px
+      20px
+      52px;
+
+    justify-content:center;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE CONTENT
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__eyebrow{
+
+    margin-bottom:12px;
+
+    font-size:10px;
+
+    gap:9px;
+  }
+
+  .qrmo-tables-v5__eyebrow::before{
+
+    width:25px;
+
+    flex-basis:25px;
+  }
+
+  .qrmo-tables-v5__title{
+
+    max-width:100%;
+
+    margin-bottom:12px;
+
+    font-size:
+      clamp(32px,9vw,39px);
+
+    line-height:1.04;
+  }
+
+  .qrmo-tables-v5__description{
+
+    max-width:100%;
+
+    margin-bottom:21px;
+
+    font-size:15px;
+
+    line-height:1.5;
+  }
+
+  .qrmo-tables-v5__benefits{
+
+    max-width:100%;
+
+    gap:15px;
+
+    margin-bottom:23px;
+  }
+
+  .qrmo-tables-v5__benefit{
+
+    grid-template-columns:
+      22px
+      minmax(0,1fr);
+
+    gap:10px;
+  }
+
+  .qrmo-tables-v5__check{
+
+    width:21px;
+    height:21px;
+  }
+
+  .qrmo-tables-v5__check svg{
+
+    width:11px;
+    height:11px;
+  }
+
+  .qrmo-tables-v5__benefit-title{
+
+    font-size:14px;
+  }
+
+  .qrmo-tables-v5__benefit-desc{
+
+    font-size:12px;
+
+    line-height:1.42;
+  }
+
+  .qrmo-tables-v5__cta{
+
+    width:100%;
+
+    min-width:0;
+
+    min-height:52px;
+
+    height:52px;
+
+    padding:
+      0
+      18px;
+
+    font-size:15px;
+
+    border-radius:12px;
+  }
+
+
+  /* ---------------------------------------------------------
+     MOBILE APP
+     --------------------------------------------------------- */
+
+  .qrmo-tables-v5__app{
+
+    width:100%;
+
+    max-width:390px;
+
+    margin:0 auto;
+
+    padding:9px;
+
+    border-radius:23px;
+  }
+
+  .qrmo-tables-v5__appbar{
+
+    height:31px;
+
+    padding:
+      0
+      7px;
+  }
+
+  .qrmo-tables-v5__brand{
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__dots i{
+
+    width:6px;
+    height:6px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    width:100%;
+
+    height:430px;
+
+    min-height:430px;
+
+    padding:15px;
+
+    border-radius:17px;
+  }
+
+  .qrmo-tables-v5__screen-head{
+
+    margin-bottom:13px;
+  }
+
+  .qrmo-tables-v5__screen-title{
+
+    font-size:20px;
+  }
+
+  .qrmo-tables-v5__screen-kicker{
+
+    font-size:7px;
+  }
+
+  .qrmo-tables-v5__screen-count{
+
+    min-width:49px;
+
+    height:27px;
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__mode{
+
+    height:36px;
+
+    margin-bottom:11px;
+  }
+
+  .qrmo-tables-v5__mode-item{
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__create{
+
+    padding:13px;
+  }
+
+  .qrmo-tables-v5__create-title{
+
+    font-size:10px;
+  }
+
+  .qrmo-tables-v5__create-status{
+
+    font-size:8px;
+  }
+
+  .qrmo-tables-v5__fields{
+
+    gap:6px;
+
+    margin-bottom:8px;
+  }
+
+  .qrmo-tables-v5__field-label{
+
+    font-size:7px;
+  }
+
+  .qrmo-tables-v5__field-box{
+
+    height:32px;
+
+    padding:
+      0
+      8px;
+
+    font-size:8.5px;
+  }
+
+  .qrmo-tables-v5__range{
+
+    min-height:34px;
+
+    font-size:7.5px;
+
+    padding:
+      0
+      8px;
+  }
+
+  .qrmo-tables-v5__create-button{
+
+    height:35px;
+
+    font-size:8.5px;
+  }
+
+  .qrmo-tables-v5__processing{
+
+    padding:20px;
+  }
+
+  .qrmo-tables-v5__processing-icon{
+
+    width:44px;
+    height:44px;
+
+    margin-bottom:10px;
+  }
+
+  .qrmo-tables-v5__processing-title{
+
+    font-size:13px;
+  }
+
+  .qrmo-tables-v5__processing-text{
+
+    font-size:9px;
+  }
+
+  .qrmo-tables-v5__result{
+
+    inset:15px;
+  }
+
+  .qrmo-tables-v5__result-top{
+
+    margin-bottom:11px;
+  }
+
+  .qrmo-tables-v5__result-title{
+
+    font-size:18px;
+  }
+
+  .qrmo-tables-v5__result-success{
+
+    font-size:7.5px;
+
+    padding:
+      6px
+      7px;
+  }
+
+  .qrmo-tables-v5__qr-grid{
+
+    grid-template-columns:
+      repeat(5,minmax(0,1fr));
+
+    gap:5px;
+  }
+
+  .qrmo-tables-v5__qr-card{
+
+    padding:
+      6px
+      4px;
+
+    border-radius:7px;
+  }
+
+  .qrmo-tables-v5__qr{
+
+    width:34px;
+    height:34px;
+
+    background-size:7px 7px;
+
+    background-position:
+      0 0,
+      3.5px 3.5px;
+
+    border-width:3px;
+  }
+
+  .qrmo-tables-v5__qr::after{
+
+    width:9px;
+    height:9px;
+  }
+
+  .qrmo-tables-v5__qr-name{
+
+    font-size:6.5px;
+  }
+
+  .qrmo-tables-v5__result-foot{
+
+    margin-top:9px;
+
+    padding-top:8px;
+  }
+
+  .qrmo-tables-v5__result-note{
+
+    font-size:7.5px;
+  }
+
+  .qrmo-tables-v5__export{
+
+    height:24px;
+
+    padding:
+      0
+      7px;
+
+    font-size:7px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   ========================================================= */
+
+@media (max-width:380px){
+
+  .qrmo-tables-v5__content{
+
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .qrmo-tables-v5__demo{
+
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .qrmo-tables-v5__title{
+
+    font-size:31px;
+  }
+
+  .qrmo-tables-v5__description{
+
+    font-size:14px;
+  }
+
+  .qrmo-tables-v5__benefit-title{
+
+    font-size:13px;
+  }
+
+  .qrmo-tables-v5__benefit-desc{
+
+    font-size:11.5px;
+  }
+
+  .qrmo-tables-v5__screen{
+
+    height:400px;
+
+    min-height:400px;
+
+    padding:13px;
+  }
+
+  .qrmo-tables-v5__result{
+
+    inset:13px;
+  }
+
+  .qrmo-tables-v5__qr{
+
+    width:30px;
+    height:30px;
+  }
+
+  .qrmo-tables-v5__qr-name{
+
+    font-size:6px;
+  }
+
+}
+
+
+/* =========================================================
+   UX / RESPONSIVE QA (entegrasyon)
+   ========================================================= */
+
+/* ≥1101: S3 alt boşluğu (90) ile üst üste binip ~222px oluşuyordu;
+   üst 88 → 24 ile S3 → S4 geçişi ~158px */
+@media (min-width:1101px){
+
+  .qrmo-tables-v5{
+    padding-top:24px;
+  }
+
+}
+
+/* ≥768: S4 → S5 içerik arası 120px. Demo alt padding'i gölge için
+   gerekli değil (section/inner/demo overflow:visible); sütun
+   yüksekliğine göre kayan boşluk üretmesin diye sıfırlanır.
+   S5 >980'de 760px min-height içinde ortalı → içerik 70px içeride
+   (120 − 70 = 50); ≤980'de 60px üst padding (120 − 60 = 60). */
+@media (min-width:768px){
+
+  .qrmo-tables-v5__demo{
+    padding-bottom:0;
+  }
+
+  .qrmo-tables-v5{
+    padding-bottom:50px;
+  }
+
+}
+
+@media (min-width:768px) and (max-width:980px){
+
+  .qrmo-tables-v5{
+    padding-bottom:60px;
+  }
+
+}
+
+/* 768–900: Hero / Section 2 / Section 3 ile aynı 20px hat */
+@media (min-width:768px) and (max-width:900px){
+
+  .qrmo-tables-v5__inner{
+    width:calc(100% - 40px);
+  }
+
+}
+
+/* ≤480: Hero / Section 2 / Section 3 ile aynı 16px gutter */
+@media (max-width:480px){
+
+  .qrmo-tables-v5__content,
+  .qrmo-tables-v5__demo{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+}
+
+/* Mobil: başlık bloğu Hero / S2 / S3 gibi ortalı; fayda listesi ve CTA sola */
+@media (max-width:767px){
+
+  .qrmo-tables-v5__eyebrow{
+    align-self:center;
+  }
+
+  .qrmo-tables-v5__title,
+  .qrmo-tables-v5__description{
+    text-align:center;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  .qrmo-tables-v5 *,
+  .qrmo-tables-v5 *::before,
+  .qrmo-tables-v5 *::after{
+
+    animation-duration:.001ms !important;
+
+    animation-iteration-count:1 !important;
+
+    transition-duration:.001ms !important;
+  }
+
+  .qrmo-tables-v5__cursor{
+
+    display:none;
+  }
+
+}
+
+</style>
+
+<div class="qrmo-tables-v5__inner">
+
+  <!-- =====================================================
+       SOL — ANİMASYON
+       ===================================================== -->
+
+  <div class="qrmo-tables-v5__demo">
+
+    <div class="qrmo-tables-v5__app">
+
+
+      <div class="qrmo-tables-v5__appbar">
+
+        <span class="qrmo-tables-v5__brand">
+          QR<b>MENU</b>
+        </span>
+
+        <span
+          class="qrmo-tables-v5__dots"
+          aria-hidden="true"
+        >
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+
+      </div>
+
+
+      <div class="qrmo-tables-v5__screen">
+
+
+        <!-- =================================================
+             CREATE
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__create"
+          data-qmt-create
+        >
+
+          <div class="qrmo-tables-v5__screen-head">
+
+            <div>
+
+              <span class="qrmo-tables-v5__screen-kicker">
+                QR Masa Yönetimi
+              </span>
+
+              <h3 class="qrmo-tables-v5__screen-title">
+                Masalar
+              </h3>
+
+            </div>
+
+            <span
+              class="qrmo-tables-v5__screen-count"
+              data-qmt-count
+            >
+              0 Masa
+            </span>
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__mode">
+
+            <span class="qrmo-tables-v5__mode-item is-active">
+              Toplu Oluştur
+            </span>
+
+            <span class="qrmo-tables-v5__mode-item">
+              Tek Masa
+            </span>
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__create-head">
+
+            <h4 class="qrmo-tables-v5__create-title">
+              Toplu QR Oluştur
+            </h4>
+
+            <span
+              class="qrmo-tables-v5__create-status"
+              data-qmt-status
+            >
+
+              <i
+                class="qrmo-tables-v5__create-status-dot"
+                data-qmt-status-dot
+              ></i>
+
+              Hazır
+
+            </span>
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__fields">
+
+
+            <div class="qrmo-tables-v5__field">
+
+              <span class="qrmo-tables-v5__field-label">
+                Önek
+              </span>
+
+              <span class="qrmo-tables-v5__field-box">
+                ic-masa
+              </span>
+
+            </div>
+
+
+            <div class="qrmo-tables-v5__field">
+
+              <span class="qrmo-tables-v5__field-label">
+                Başlangıç
+              </span>
+
+              <span class="qrmo-tables-v5__field-box">
+                1
+              </span>
+
+            </div>
+
+
+            <div class="qrmo-tables-v5__field">
+
+              <span class="qrmo-tables-v5__field-label">
+                Bitiş
+              </span>
+
+              <span class="qrmo-tables-v5__field-box">
+                10
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__range">
+
+            <span class="qrmo-tables-v5__range-text">
+              ic-masa-1 → ic-masa-10
+            </span>
+
+            <span class="qrmo-tables-v5__range-count">
+              10 masa
+            </span>
+
+          </div>
+
+
+          <div
+            class="qrmo-tables-v5__create-button"
+            data-qmt-create-button
+          >
+            Masaları Oluştur
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROCESSING
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__processing"
+          data-qmt-processing
+        >
+
+          <div class="qrmo-tables-v5__processing-icon">
+
+            <span class="qrmo-tables-v5__spinner"></span>
+
+          </div>
+
+          <h4 class="qrmo-tables-v5__processing-title">
+            QR masalar hazırlanıyor
+          </h4>
+
+          <p class="qrmo-tables-v5__processing-text">
+            10 masa için QR hedefleri oluşturuluyor.
+          </p>
+
+        </div>
+
+
+        <!-- =================================================
+             RESULT
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__result"
+          data-qmt-result
+        >
+
+          <div class="qrmo-tables-v5__result-top">
+
+            <div>
+
+              <span class="qrmo-tables-v5__result-kicker">
+                QR Masa Yönetimi
+              </span>
+
+              <h3 class="qrmo-tables-v5__result-title">
+                10 masa hazır.
+              </h3>
+
+            </div>
+
+
+            <span class="qrmo-tables-v5__result-success">
+
+              <span class="qrmo-tables-v5__success-check">
+                ✓
+              </span>
+
+              Oluşturuldu
+
+            </span>
+
+          </div>
+
+
+          <div
+            class="qrmo-tables-v5__qr-grid"
+            data-qmt-grid
+          >
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 1</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 2</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 3</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 4</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 5</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 6</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 7</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 8</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 9</span>
+            </div>
+
+
+            <div class="qrmo-tables-v5__qr-card">
+              <span class="qrmo-tables-v5__qr"></span>
+              <span class="qrmo-tables-v5__qr-name">Masa 10</span>
+            </div>
+
+
+          </div>
+
+
+          <div class="qrmo-tables-v5__result-foot">
+
+            <span class="qrmo-tables-v5__result-note">
+              QR kodlar kullanıma hazır.
+            </span>
+
+            <div class="qrmo-tables-v5__exports">
+
+              <span
+                class="qrmo-tables-v5__export"
+                data-qmt-export
+              >
+                PNG
+              </span>
+
+              <span
+                class="qrmo-tables-v5__export"
+                data-qmt-export
+              >
+                PDF
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CURSOR
+             ================================================= -->
+
+        <div
+          class="qrmo-tables-v5__cursor"
+          data-qmt-cursor
+          aria-hidden="true"
+        >
+
+          <span class="qrmo-tables-v5__click-ring"></span>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+
+            <path
+              d="M5.5 3.21V20.8C5.5 21.46 6.27 21.82 6.78 21.4L11.08 17.65C11.27 17.48 11.51 17.4 11.76 17.4H17.5C18.15 17.4 18.5 16.63 18.06 16.14L6.75 3.12C6.39 2.7 5.5 2.96 5.5 3.21Z"
+              fill="white"
+              stroke="black"
+              stroke-width="1.5"
+            />
+
+          </svg>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SAĞ — İÇERİK
+       ===================================================== -->
+
+  <div class="qrmo-tables-v5__content">
+
+    <span class="qrmo-tables-v5__eyebrow">
+      QR Menu Official • Modül
+    </span>
+
+
+    <h2
+      class="qrmo-tables-v5__title"
+      id="qrmo-tables-v5-title"
+    >
+      Sınırsız QR Masa
+      Oluşturun.
+    </h2>
+
+
+    <p class="qrmo-tables-v5__description">
+      Masalarınızı tek tek veya toplu olarak oluşturun; her masa için QR kodunuzu otomatik hazırlayın ve işletmenizde kullanıma hazır hale getirin.
+    </p>
+
+
+    <ul class="qrmo-tables-v5__benefits">
+
+
+      <li class="qrmo-tables-v5__benefit">
+
+        <span
+          class="qrmo-tables-v5__check"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <polyline
+              points="4 12 10 18 20 6"
+            ></polyline>
+
+          </svg>
+
+        </span>
+
+
+        <span>
+
+          <span class="qrmo-tables-v5__benefit-title">
+            Tekli veya toplu masa oluşturun
+          </span>
+
+          <span class="qrmo-tables-v5__benefit-desc">
+            İhtiyacınız kadar masa ekleyin veya numaralı masaları tek işlemde oluşturun.
+          </span>
+
+        </span>
+
+      </li>
+
+
+      <li class="qrmo-tables-v5__benefit">
+
+        <span
+          class="qrmo-tables-v5__check"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <polyline
+              points="4 12 10 18 20 6"
+            ></polyline>
+
+          </svg>
+
+        </span>
+
+
+        <span>
+
+          <span class="qrmo-tables-v5__benefit-title">
+            Her masaya özel QR kod
+          </span>
+
+          <span class="qrmo-tables-v5__benefit-desc">
+            Her masa için ayrı QR hedefi oluşturun; masa adını sonradan değiştirseniz bile mevcut QR yapısını koruyun.
+          </span>
+
+        </span>
+
+      </li>
+
+
+      <li class="qrmo-tables-v5__benefit">
+
+        <span
+          class="qrmo-tables-v5__check"
+          aria-hidden="true"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <polyline
+              points="4 12 10 18 20 6"
+            ></polyline>
+
+          </svg>
+
+        </span>
+
+
+        <span>
+
+          <span class="qrmo-tables-v5__benefit-title">
+            PNG ve PDF olarak hazır
+          </span>
+
+          <span class="qrmo-tables-v5__benefit-desc">
+            QR kodlarınızı tek tek indirebilir veya tüm masaları tek PDF içinde yazdırmaya hazırlayabilirsiniz.
+          </span>
+
+        </span>
+
+      </li>
+
+
+    </ul>
+
+
+    <a
+      class="qrmo-tables-v5__cta"
+      href="#"
+    >
+
+      <span class="qrmo-tables-v5__cta-text">
+        QR Masa Modülünü İncele
+      </span>
+
+      <svg
+        class="qrmo-tables-v5__cta-arrow"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
+        <line
+          x1="5"
+          y1="12"
+          x2="19"
+          y2="12"
+        ></line>
+
+        <polyline
+          points="13 6 19 12 13 18"
+        ></polyline>
+
+      </svg>
+
+    </a>
+
+  </div>
+
+</div>
+
+<script>
+
+(function(){
+
+  /* ========================================================
+     QR MENU OFFICIAL
+     QR MASA MODÜLÜ — ANIMATION ENGINE
+     ======================================================== */
+
+  function bootQRTableModule(){
+
+    var sections =
+      document.querySelectorAll(
+        '.qrmo-tables-v5'
+      );
+
+    if(!sections.length){
+      return;
+    }
+
+
+    sections.forEach(function(root){
+
+      if(
+        root.getAttribute(
+          'data-qmt-ready'
+        ) === '1'
+      ){
+        return;
+      }
+
+      root.setAttribute(
+        'data-qmt-ready',
+        '1'
+      );
+
+
+      /* ====================================================
+         ELEMENTS
+         ==================================================== */
+
+      var screen =
+        root.querySelector(
+          '.qrmo-tables-v5__screen'
+        );
+
+      var create =
+        root.querySelector(
+          '[data-qmt-create]'
+        );
+
+      var createButton =
+        root.querySelector(
+          '[data-qmt-create-button]'
+        );
+
+      var processing =
+        root.querySelector(
+          '[data-qmt-processing]'
+        );
+
+      var result =
+        root.querySelector(
+          '[data-qmt-result]'
+        );
+
+      var cursor =
+        root.querySelector(
+          '[data-qmt-cursor]'
+        );
+
+      var qrCards =
+        root.querySelectorAll(
+          '.qrmo-tables-v5__qr-card'
+        );
+
+      var exports =
+        root.querySelectorAll(
+          '[data-qmt-export]'
+        );
+
+      var count =
+        root.querySelector(
+          '[data-qmt-count]'
+        );
+
+      var status =
+        root.querySelector(
+          '[data-qmt-status]'
+        );
+
+
+      if(
+        !screen ||
+        !create ||
+        !createButton ||
+        !processing ||
+        !result
+      ){
+        return;
+      }
+
+
+      /* ====================================================
+         SETTINGS
+         ==================================================== */
+
+      var reduceMotion =
+        window.matchMedia &&
+        window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+      var running=false;
+
+      var timers=[];
+
+      var observer=null;
+
+
+      /* ====================================================
+         TIMER
+         ==================================================== */
+
+      function later(fn,ms){
+
+        var id =
+          window.setTimeout(
+            fn,
+            ms
+          );
+
+        timers.push(id);
+
+        return id;
+      }
+
+
+      function clearTimers(){
+
+        timers.forEach(
+          function(id){
+
+            window.clearTimeout(id);
+
+          }
+        );
+
+        timers=[];
+      }
+
+
+      /* ====================================================
+         CURSOR
+         ==================================================== */
+
+      function moveCursorTo(element){
+
+        if(
+          !cursor ||
+          !element
+        ){
+          return;
+        }
+
+        var sr =
+          screen.getBoundingClientRect();
+
+        var er =
+          element.getBoundingClientRect();
+
+        var x =
+          er.left -
+          sr.left +
+          er.width / 2 -
+          5;
+
+        var y =
+          er.top -
+          sr.top +
+          er.height / 2 -
+          5;
+
+        cursor.style.transform =
+          'translate3d('+
+          Math.round(x)+
+          'px,'+
+          Math.round(y)+
+          'px,0)';
+      }
+
+
+      function cursorClick(){
+
+        if(!cursor){
+          return;
+        }
+
+        cursor.classList.remove(
+          'is-clicking'
+        );
+
+        void cursor.offsetWidth;
+
+        cursor.classList.add(
+          'is-clicking'
+        );
+      }
+
+
+      /* ====================================================
+         RESET
+         ==================================================== */
+
+      function resetUI(){
+
+        create.style.opacity='1';
+
+        create.style.transform=
+          'translateY(0)';
+
+        processing.classList.remove(
+          'is-visible'
+        );
+
+        result.classList.remove(
+          'is-visible'
+        );
+
+        createButton.classList.remove(
+          'is-processing'
+        );
+
+
+        if(count){
+
+          count.textContent=
+            '0 Masa';
+
+        }
+
+
+        if(status){
+
+          status.innerHTML=
+            '<i class="qrmo-tables-v5__create-status-dot"></i> Hazır';
+
+        }
+
+
+        qrCards.forEach(
+          function(card){
+
+            card.classList.remove(
+              'is-visible'
+            );
+
+          }
+        );
+
+
+        exports.forEach(
+          function(item){
+
+            item.classList.remove(
+              'is-visible'
+            );
+
+          }
+        );
+
+
+        if(cursor){
+
+          cursor.classList.remove(
+            'is-visible'
+          );
+
+          cursor.classList.remove(
+            'is-clicking'
+          );
+
+        }
+
+      }
+
+
+      /* ====================================================
+         PROCESSING
+         ==================================================== */
+
+      function showProcessing(){
+
+        if(count){
+
+          count.textContent=
+            '10 Masa';
+
+        }
+
+
+        if(status){
+
+          status.innerHTML=
+            '<i class="qrmo-tables-v5__create-status-dot"></i> Oluşturuluyor...';
+
+          var dot =
+            status.querySelector(
+              '.qrmo-tables-v5__create-status-dot'
+            );
+
+          if(dot){
+
+            dot.style.backgroundColor=
+              'var(--qmt-gold)';
+
+            dot.style.boxShadow=
+              '0 0 0 4px rgba(201,168,76,.12)';
+
+          }
+
+        }
+
+
+        createButton.classList.add(
+          'is-processing'
+        );
+
+        processing.classList.add(
+          'is-visible'
+        );
+
+      }
+
+
+      /* ====================================================
+         RESULT
+         ==================================================== */
+
+      function showResult(){
+
+        processing.classList.remove(
+          'is-visible'
+        );
+
+
+        create.style.opacity='0';
+
+        create.style.transform=
+          'translateY(-7px)';
+
+
+        result.classList.add(
+          'is-visible'
+        );
+
+
+        qrCards.forEach(
+          function(card,index){
+
+            later(
+              function(){
+
+                if(!running){
+                  return;
+                }
+
+                card.classList.add(
+                  'is-visible'
+                );
+
+              },
+              100 + index * 75
+            );
+
+          }
+        );
+
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            exports.forEach(
+              function(item,index){
+
+                later(
+                  function(){
+
+                    if(running){
+
+                      item.classList.add(
+                        'is-visible'
+                      );
+
+                    }
+
+                  },
+                  index * 100
+                );
+
+              }
+            );
+
+          },
+          900
+        );
+
+      }
+
+
+      /* ====================================================
+         PLAY
+         ==================================================== */
+
+      function play(){
+
+        if(!running){
+          return;
+        }
+
+
+        resetUI();
+
+
+        /*
+         * Cursor → butona gelir
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            if(cursor){
+
+              cursor.classList.add(
+                'is-visible'
+              );
+
+            }
+
+            moveCursorTo(
+              createButton
+            );
+
+          },
+          650
+        );
+
+
+        /*
+         * Tıklama
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            cursorClick();
+
+            createButton.classList.add(
+              'is-processing'
+            );
+
+          },
+          1300
+        );
+
+
+        /*
+         * Oluşturuluyor
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            showProcessing();
+
+            if(cursor){
+
+              cursor.classList.remove(
+                'is-visible'
+              );
+
+            }
+
+          },
+          1600
+        );
+
+
+        /*
+         * Sonuç
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            showResult();
+
+          },
+          2850
+        );
+
+
+        /*
+         * Yeni döngü
+         */
+
+        later(
+          function(){
+
+            if(!running){
+              return;
+            }
+
+            play();
+
+          },
+          8200
+        );
+
+      }
+
+
+      /* ====================================================
+         START
+         ==================================================== */
+
+      function start(){
+
+        if(
+          running ||
+          reduceMotion
+        ){
+          return;
+        }
+
+        running=true;
+
+        clearTimers();
+
+        play();
+
+      }
+
+
+      /* ====================================================
+         STOP
+         ==================================================== */
+
+      function stop(){
+
+        running=false;
+
+        clearTimers();
+
+        resetUI();
+
+      }
+
+
+      /* ====================================================
+         REDUCED MOTION
+         ==================================================== */
+
+      if(reduceMotion){
+
+        resetUI();
+
+
+        create.style.opacity='0';
+
+        create.style.transform=
+          'translateY(-7px)';
+
+
+        result.classList.add(
+          'is-visible'
+        );
+
+
+        qrCards.forEach(
+          function(card){
+
+            card.classList.add(
+              'is-visible'
+            );
+
+          }
+        );
+
+
+        exports.forEach(
+          function(item){
+
+            item.classList.add(
+              'is-visible'
+            );
+
+          }
+        );
+
+      }else{
+
+
+        /* ==================================================
+           INTERSECTION OBSERVER
+
+           Ekranda görünür değilse animasyon çalışmaz.
+           Böylece sayfanın geri kalanını yormaz.
+           ================================================== */
+
+        if(
+          'IntersectionObserver' in window
+        ){
+
+          observer =
+            new IntersectionObserver(
+              function(entries){
+
+                if(!entries.length){
+                  return;
+                }
+
+
+                if(
+                  entries[0].isIntersecting &&
+                  !document.hidden
+                ){
+
+                  start();
+
+                }else{
+
+                  stop();
+
+                }
+
+              },
+              {
+                threshold:.28
+              }
+            );
+
+
+          observer.observe(root);
+
+        }else{
+
+          start();
+
+        }
+
+      }
+
+
+      /* ====================================================
+         TAB VISIBILITY
+         ==================================================== */
+
+      document.addEventListener(
+        'visibilitychange',
+        function(){
+
+          if(document.hidden){
+
+            stop();
+
+          }else if(!reduceMotion){
+
+            start();
+
+          }
+
+        }
+      );
+
+    });
+
+  }
+
+
+  /* ========================================================
+     INITIAL BOOT
+     ======================================================== */
+
+  if(
+    document.readyState ===
+    'loading'
+  ){
+
+    document.addEventListener(
+      'DOMContentLoaded',
+      bootQRTableModule
+    );
+
+  }else{
+
+    bootQRTableModule();
+
+  }
+
+
+  window.addEventListener(
+    'load',
+    bootQRTableModule
+  );
+
+
+  /* ========================================================
+     ELEMENTOR
+     ======================================================== */
+
+  if(window.jQuery){
+
+    jQuery(
+      window
+    ).on(
+      'elementor/frontend/init',
+      function(){
+
+        if(
+          window.elementorFrontend &&
+          window.elementorFrontend.hooks
+        ){
+
+          window.elementorFrontend.hooks.addAction(
+            'frontend/element_ready/html.default',
+            bootQRTableModule
+          );
+
+        }
+
+        bootQRTableModule();
+
+      }
+    );
+
+  }
+
+})();
+
+</script>
+
+</section>
+
+<section class="qrmo-smart-filter-showcase">
+
+  <div class="qrmo-smart-filter-layout">
+
+    <!-- =====================================================
+         LEFT CONTENT
+    ====================================================== -->
+
+    <div class="qrmo-smart-filter-copy">
+
+      <div class="qrmo-smart-filter-kicker">
+        <span></span>
+        <strong>QR MENU OFFICIAL • MODÜL</strong>
+      </div>
+
+      <h2>
+        Aradığına Göre<br>
+        Filtrelenen Menü
+      </h2>
+
+      <p class="qrmo-smart-filter-lead">
+        Müşteriniz menüyü kendi tercihine göre daraltır. Sıralama ve
+        filtreler, ürünlerinize girdiğiniz besin değeri, acılık, alerjen
+        ve fiyat bilgileriyle çalışır.
+      </p>
+
+
+      <div class="qrmo-smart-filter-benefits">
+
+        <div class="qrmo-smart-filter-benefit">
+
+          <span class="qrmo-benefit-check">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 12.5l4 4L18 8.5"></path>
+            </svg>
+          </span>
+
+          <div>
+            <strong>8 farklı sıralama</strong>
+
+            <p>
+              Müşteri menüyü fiyat, protein, karbonhidrat veya acılık seviyesine göre sıralar.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="qrmo-smart-filter-benefit">
+
+          <span class="qrmo-benefit-check">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 12.5l4 4L18 8.5"></path>
+            </svg>
+          </span>
+
+          <div>
+            <strong>Alerjen hariç tutma</strong>
+
+            <p>
+              Müşteri 14 alerjenden istemediklerini seçer; bu alerjenlerle işaretlediğiniz ürünler listede gösterilmez.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="qrmo-smart-filter-benefit">
+
+          <span class="qrmo-benefit-check">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 12.5l4 4L18 8.5"></path>
+            </svg>
+          </span>
+
+          <div>
+            <strong>Tek panelde filtre</strong>
+
+            <p>
+              Kalori ve fiyat aralığı; Popüler, Yeni, Önerilen ve İndirimli etiketleriyle birlikte aynı panelde.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <a
+        href="#"
+        class="qrmo-smart-filter-cta"
+        aria-label="Filtreleri İncele"
+      >
+        <span>Filtreleri İncele</span>
+        <span aria-hidden="true">→</span>
+      </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         RIGHT FILTER DEMO
+    ====================================================== -->
+
+    <div class="qrmo-real-filter-stage">
+
+      <div class="qrmo-real-filter-phone">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="qrmo-real-filter-header">
+
+          <div class="qrmo-real-filter-heading">
+
+            <span
+              class="qrmo-header-dot"
+              aria-hidden="true"
+            ></span>
+
+            <strong>Filtrele &amp; Sırala</strong>
+
+          </div>
+
+
+          <button
+            type="button"
+            class="qrmo-real-filter-close"
+            aria-label="Filtreyi kapat"
+          >
+            <span></span>
+            <span></span>
+          </button>
+
+        </div>
+
+
+        <!-- =================================================
+             SCROLL CONTENT
+        ================================================== -->
+
+        <div
+          class="qrmo-real-filter-scroll"
+          tabindex="0"
+          aria-label="Filtre seçenekleri"
+        >
+
+
+          <!-- ===============================================
+               SIRALAMA
+          ================================================ -->
+
+          <div class="qrmo-real-filter-section">
+
+            <div class="qrmo-real-filter-section-title">
+
+              <span>SIRALA</span>
+
+              <i aria-hidden="true"></i>
+
+            </div>
+
+
+            <div class="qrmo-sort-grid">
+
+
+              <!-- ÖNERİLEN -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card is-selected"
+                data-demo="recommended"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-gold"
+                  aria-hidden="true"
+                >☆</span>
+
+                <strong>Önerilen</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- A-Z -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-blue"
+                  aria-hidden="true"
+                >⇥</span>
+
+                <strong>A → Z</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- UCUZDAN -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-green"
+                  aria-hidden="true"
+                >↑</span>
+
+                <strong>Ucuzdan Pahalıya</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- PAHALIDAN -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-orange"
+                  aria-hidden="true"
+                >↓</span>
+
+                <strong>Pahalıdan Ucuza</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- PROTEİN -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+                data-demo="protein"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-red"
+                  aria-hidden="true"
+                >♧</span>
+
+                <strong>En Proteinli</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- KARBONHİDRAT -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-teal"
+                  aria-hidden="true"
+                >⌁</span>
+
+                <strong>En Az Karbonhidratlı</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- ACI -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-red-dark"
+                  aria-hidden="true"
+                >♢</span>
+
+                <strong>En Acı</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- AZ ACI -->
+
+              <button
+                type="button"
+                class="qrmo-real-sort-card"
+              >
+
+                <span
+                  class="qrmo-sort-icon qrmo-icon-cyan"
+                  aria-hidden="true"
+                >♢</span>
+
+                <strong>En Az Acı</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               ALERJENLER
+          ================================================ -->
+
+          <div class="qrmo-real-filter-section">
+
+            <div class="qrmo-real-filter-section-title">
+
+              <span>ALERJENLERİ HARİÇ TUT</span>
+
+              <i aria-hidden="true"></i>
+
+            </div>
+
+
+            <div class="qrmo-allergen-grid">
+
+
+              <!-- GLUTEN -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+                data-demo="gluten"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-green"
+                  aria-hidden="true"
+                >◉</span>
+
+                <strong>Glüten</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- SÜT -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+                data-demo="milk"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-blue"
+                  aria-hidden="true"
+                >▣</span>
+
+                <strong>Süt / Laktoz</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- YUMURTA -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-yellow"
+                  aria-hidden="true"
+                >◯</span>
+
+                <strong>Yumurta</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- FINDIK -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-brown"
+                  aria-hidden="true"
+                >◒</span>
+
+                <strong>Fındık / Kuruyemiş</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- YER FISTIĞI -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-orange"
+                  aria-hidden="true"
+                >◯</span>
+
+                <strong>Yer Fıstığı</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- SOYA -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-lime"
+                  aria-hidden="true"
+                >✤</span>
+
+                <strong>Soya</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- BALIK -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-blue"
+                  aria-hidden="true"
+                >◈</span>
+
+                <strong>Balık</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- KABUKLU DENİZ -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-red"
+                  aria-hidden="true"
+                >≋</span>
+
+                <strong>Kabuklu Deniz Ürünü</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- SUSAM -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-beige"
+                  aria-hidden="true"
+                >⁙</span>
+
+                <strong>Susam</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- KEREVİZ -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-lime"
+                  aria-hidden="true"
+                >♣</span>
+
+                <strong>Kereviz</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- HARDAL -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-yellow"
+                  aria-hidden="true"
+                >▣</span>
+
+                <strong>Hardal</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- LÜPİN -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-orange"
+                  aria-hidden="true"
+                >∞</span>
+
+                <strong>Lüpin</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- SÜLFİT -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-purple"
+                  aria-hidden="true"
+                >♢</span>
+
+                <strong>Kükürt Dioksit/Sülfit</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- YUMUŞAKÇA -->
+
+              <button
+                type="button"
+                class="qrmo-allergen-card"
+              >
+
+                <span
+                  class="qrmo-allergen-icon qrmo-a-darkblue"
+                  aria-hidden="true"
+                >⌒</span>
+
+                <strong>Yumuşakça</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               KALORİ
+          ================================================ -->
+
+          <div class="qrmo-real-filter-section">
+
+            <div class="qrmo-real-filter-section-title">
+
+              <span>KALORİ</span>
+
+              <i aria-hidden="true"></i>
+
+            </div>
+
+
+            <div class="qrmo-range-grid">
+
+              <label>
+
+                <span>En az (kcal)</span>
+
+                <div class="qrmo-fake-input">
+                  0
+                </div>
+
+              </label>
+
+
+              <span
+                class="qrmo-range-separator"
+                aria-hidden="true"
+              >—</span>
+
+
+              <label>
+
+                <span>En çok (kcal)</span>
+
+                <div class="qrmo-fake-input">
+                  Sınırsız
+                </div>
+
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               FİYAT
+          ================================================ -->
+
+          <div class="qrmo-real-filter-section">
+
+            <div class="qrmo-real-filter-section-title">
+
+              <span>FİYAT</span>
+
+              <i aria-hidden="true"></i>
+
+            </div>
+
+
+            <div class="qrmo-range-grid">
+
+              <label>
+
+                <span>En az</span>
+
+                <div class="qrmo-fake-input">
+                  0
+                </div>
+
+              </label>
+
+
+              <span
+                class="qrmo-range-separator"
+                aria-hidden="true"
+              >—</span>
+
+
+              <label>
+
+                <span>En çok</span>
+
+                <div class="qrmo-fake-input">
+                  Sınırsız
+                </div>
+
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- ===============================================
+               ÜRÜN ÖZELLİKLERİ
+          ================================================ -->
+
+          <div class="qrmo-real-filter-section">
+
+            <div class="qrmo-real-filter-section-title">
+
+              <span>ÜRÜN ÖZELLİKLERİ</span>
+
+              <i aria-hidden="true"></i>
+
+            </div>
+
+
+            <div class="qrmo-product-feature-grid">
+
+
+              <!-- POPÜLER -->
+
+              <button
+                type="button"
+                class="qrmo-product-feature-card"
+                data-demo="popular"
+              >
+
+                <span
+                  class="qrmo-product-icon qrmo-p-orange"
+                  aria-hidden="true"
+                >★</span>
+
+                <strong>Popüler</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- YENİ -->
+
+              <button
+                type="button"
+                class="qrmo-product-feature-card"
+              >
+
+                <span
+                  class="qrmo-product-icon qrmo-p-green"
+                  aria-hidden="true"
+                >✣</span>
+
+                <strong>Yeni</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- ÖNERİLEN -->
+
+              <button
+                type="button"
+                class="qrmo-product-feature-card"
+              >
+
+                <span
+                  class="qrmo-product-icon qrmo-p-purple"
+                  aria-hidden="true"
+                >☆</span>
+
+                <strong>Önerilen</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+
+              <!-- İNDİRİMLİ -->
+
+              <button
+                type="button"
+                class="qrmo-product-feature-card"
+              >
+
+                <span
+                  class="qrmo-product-icon qrmo-p-red"
+                  aria-hidden="true"
+                >%</span>
+
+                <strong>İndirimli</strong>
+
+                <span
+                  class="qrmo-selection-mark"
+                  aria-hidden="true"
+                >✓</span>
+
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="qrmo-scroll-bottom-space"
+            aria-hidden="true"
+          ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="qrmo-real-filter-footer">
+
+          <button
+            type="button"
+            class="qrmo-real-reset"
+          >
+            Sıfırla
+          </button>
+
+          <button
+            type="button"
+            class="qrmo-real-apply"
+          >
+            Uygula
+          </button>
+
+        </div>
+
+
+        <!-- =================================================
+             DEMO POINTER
+        ================================================== -->
+
+        <div
+          class="qrmo-demo-pointer"
+          aria-hidden="true"
+        >
+
+          <svg
+            viewBox="0 0 24 30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+
+            <path
+              d="
+                M3 2
+                L3 23
+                L9 17
+                L13 27
+                L17 25
+                L13 15
+                L21 15
+                Z
+              "
+            />
+
+          </svg>
+
+        </div>
+
+
+        <!-- =================================================
+             APPLY FEEDBACK
+        ================================================== -->
+
+        <div
+          class="qrmo-apply-feedback"
+          aria-hidden="true"
+        >
+
+          <div class="qrmo-feedback-check">
+            ✓
+          </div>
+
+          <strong>
+            Filtreler uygulandı
+          </strong>
+
+          <small>
+            Menü sonuçları güncelleniyor
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   ROOT
+   NO OUTER BACKGROUND
+========================================================= */
+
+.qrmo-smart-filter-showcase {
+
+  --qrmo-green: #0D2B22;
+  --qrmo-green-soft: #173226;
+
+  --qrmo-gold: #C9A84C;
+  --qrmo-gold-light: #E8C766;
+
+  --qrmo-black: #080908;
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 760px;
+
+  margin: 0;
+
+  padding: 0;
+
+  background: transparent !important;
+
+  overflow: hidden;
+
+  font-family:
+    "Source Sans 3",
+    Arial,
+    sans-serif;
+
+  box-sizing: border-box;
+}
+
+
+.qrmo-smart-filter-showcase *,
+.qrmo-smart-filter-showcase *::before,
+.qrmo-smart-filter-showcase *::after {
+
+  box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+.qrmo-smart-filter-layout {
+
+  width: 90%;
+
+  min-height: 760px;
+
+  margin-left: 5%;
+
+  margin-right: 5%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    340px;
+
+  column-gap:
+    clamp(55px, 7vw, 115px);
+
+  align-items: center;
+
+}
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.qrmo-smart-filter-copy {
+
+  width: 100%;
+
+  max-width: 650px;
+
+}
+
+
+.qrmo-smart-filter-kicker {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 19px;
+
+}
+
+
+.qrmo-smart-filter-kicker > span {
+
+  display: block;
+
+  width: 29px;
+
+  height: 2px;
+
+  background:
+    var(--qrmo-gold);
+
+}
+
+
+.qrmo-smart-filter-kicker strong {
+
+  color:
+    var(--qrmo-gold);
+
+  font-size: 11px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: 1.45px;
+
+}
+
+
+.qrmo-smart-filter-copy > h2 {
+
+  margin: 0;
+
+  max-width: 600px;
+
+  color:
+    var(--qrmo-green);
+
+  font-size:
+    clamp(40px, 3.2vw, 51px);
+
+  line-height: 1.01;
+
+  font-weight: 800;
+
+  letter-spacing: -1.7px;
+
+}
+
+
+.qrmo-smart-filter-lead {
+
+  max-width: 585px;
+
+  margin: 23px 0 0;
+
+  color:
+    #50534E;
+
+  font-size: 16px;
+
+  line-height: 1.62;
+
+  font-weight: 400;
+
+}
+
+
+.qrmo-smart-filter-benefits {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  margin-top: 27px;
+
+}
+
+
+.qrmo-smart-filter-benefit {
+
+  display: grid;
+
+  grid-template-columns:
+    24px
+    minmax(0,1fr);
+
+  column-gap: 11px;
+
+  align-items: start;
+
+}
+
+
+.qrmo-benefit-check {
+
+  width: 24px;
+
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    #EAE1C5;
+
+}
+
+
+.qrmo-benefit-check svg {
+
+  width: 12px;
+
+  height: 12px;
+
+  fill: none;
+
+  stroke:
+    var(--qrmo-gold);
+
+  stroke-width: 2.5;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+}
+
+
+.qrmo-smart-filter-benefit strong {
+
+  display: block;
+
+  margin-bottom: 2px;
+
+  color:
+    var(--qrmo-green);
+
+  font-size: 15px;
+
+  line-height: 1.25;
+
+  font-weight: 700;
+
+}
+
+
+.qrmo-smart-filter-benefit p {
+
+  margin: 0;
+
+  color:
+    #62655F;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.qrmo-smart-filter-cta {
+
+  width: 264px;
+
+  min-height: 50px;
+
+  margin-top: 29px;
+
+  padding:
+    0 17px 0 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  border-radius: 9px;
+
+  background:
+    var(--qrmo-green);
+
+  border-bottom:
+    2px solid
+    var(--qrmo-gold);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 24px
+    rgba(13,43,34,.13);
+
+  transition:
+    transform .22s ease,
+    background .22s ease,
+    box-shadow .22s ease;
+
+}
+
+
+.qrmo-smart-filter-cta:hover {
+
+  color: #fff;
+
+  background:
+    var(--qrmo-green-soft);
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 28px
+    rgba(13,43,34,.17);
+
+}
+
+
+.qrmo-smart-filter-cta span:last-child {
+
+  color:
+    var(--qrmo-gold-light);
+
+  font-size: 23px;
+
+}
+
+
+/* =========================================================
+   RIGHT STAGE
+========================================================= */
+
+.qrmo-real-filter-stage {
+
+  width: 340px;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  position: relative;
+
+}
+
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.qrmo-real-filter-phone {
+
+  position: relative;
+
+  width: 340px;
+
+  height: 620px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    #080908;
+
+  border:
+    1px solid
+    rgba(255,255,255,.055);
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 27px 58px
+    rgba(13,43,34,.16),
+
+    0 7px 22px
+    rgba(13,43,34,.08);
+
+  touch-action: none;
+
+  overscroll-behavior: none;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.qrmo-real-filter-header {
+
+  position: relative;
+
+  z-index: 20;
+
+  flex:
+    0 0 58px;
+
+  height: 58px;
+
+  padding:
+    0 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background:
+    #090A09;
+
+  border-bottom:
+    1px solid
+    #20211F;
+
+}
+
+
+.qrmo-real-filter-heading {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+}
+
+
+.qrmo-header-dot {
+
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    #D8B64D;
+
+}
+
+
+.qrmo-real-filter-heading strong {
+
+  color:
+    #F1F0EC;
+
+  font-size: 16px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+  letter-spacing: -.25px;
+
+}
+
+
+.qrmo-real-filter-close {
+
+  position: relative;
+
+  width: 31px;
+
+  height: 31px;
+
+  padding: 0;
+
+  border:
+    1px solid
+    #292B29;
+
+  border-radius: 50%;
+
+  background:
+    transparent;
+
+}
+
+
+.qrmo-real-filter-close span {
+
+  position: absolute;
+
+  left: 8px;
+
+  top: 14px;
+
+  width: 14px;
+
+  height: 1.4px;
+
+  background:
+    #818181;
+
+}
+
+
+.qrmo-real-filter-close span:first-child {
+
+  transform:
+    rotate(45deg);
+
+}
+
+
+.qrmo-real-filter-close span:last-child {
+
+  transform:
+    rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   SCROLL AREA
+========================================================= */
+
+.qrmo-real-filter-scroll {
+
+  position: relative;
+
+  flex: 1;
+
+  min-height: 0;
+
+  padding:
+    14px 14px 20px;
+
+  overflow-y: auto;
+
+  overflow-x: hidden;
+
+  scroll-behavior:
+    smooth;
+
+  scrollbar-width:
+    none;
+
+  -ms-overflow-style:
+    none;
+
+  touch-action:
+    none;
+
+  overscroll-behavior:
+    none;
+
+  user-select:
+    none;
+
+}
+
+
+.qrmo-real-filter-scroll::-webkit-scrollbar {
+
+  display: none;
+
+  width: 0;
+
+  height: 0;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.qrmo-real-filter-section {
+
+  margin-bottom:
+    22px;
+
+}
+
+
+.qrmo-real-filter-section-title {
+
+  width: 100%;
+
+  margin-bottom:
+    10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+}
+
+
+.qrmo-real-filter-section-title span {
+
+  flex:
+    0 0 auto;
+
+  color:
+    #D4B35A;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing:
+    1.25px;
+
+}
+
+
+.qrmo-real-filter-section-title i {
+
+  height: 1px;
+
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      #30312F,
+      rgba(48,49,47,.10)
+    );
+
+}
+
+
+/* =========================================================
+   SORT CARDS
+========================================================= */
+
+.qrmo-sort-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap: 7px;
+
+}
+
+
+.qrmo-real-sort-card {
+
+  position: relative;
+
+  min-width: 0;
+
+  min-height: 53px;
+
+  padding:
+    7px 9px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 4px;
+
+  border:
+    1px solid
+    #292B29;
+
+  border-radius: 9px;
+
+  background:
+    #101110;
+
+  color:
+    #E8E7E3;
+
+  text-align: left;
+
+  font-family:
+    inherit;
+
+  cursor:
+    pointer;
+
+  transition:
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .18s ease,
+    transform .12s ease;
+
+}
+
+
+.qrmo-real-sort-card strong {
+
+  color:
+    #E8E7E3;
+
+  font-size: 9px;
+
+  line-height: 1.1;
+
+  font-weight: 700;
+
+}
+
+
+.qrmo-sort-icon {
+
+  min-height: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  font-size: 14px;
+
+  line-height: 1;
+
+  font-weight: 700;
+
+}
+
+
+.qrmo-icon-gold {
+  color: #D7B742;
+}
+
+.qrmo-icon-blue {
+  color: #377AC0;
+}
+
+.qrmo-icon-green {
+  color: #168A50;
+}
+
+.qrmo-icon-orange {
+  color: #C4542C;
+}
+
+.qrmo-icon-red {
+  color: #C4453A;
+}
+
+.qrmo-icon-teal {
+  color: #138A70;
+}
+
+.qrmo-icon-red-dark {
+  color: #B92F35;
+}
+
+.qrmo-icon-cyan {
+  color: #087B7A;
+}
+
+
+/* =========================================================
+   SELECTED
+========================================================= */
+
+.qrmo-real-sort-card.is-selected {
+
+  border-color:
+    #D6B548;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(215,183,70,.20),
+      rgba(215,183,70,.045)
+    );
+
+  box-shadow:
+    0 0 16px
+    rgba(215,183,70,.11),
+
+    inset 0 0 0 1px
+    rgba(215,183,70,.20);
+
+}
+
+
+.qrmo-real-sort-card.is-selected strong {
+
+  color:
+    #E1C160;
+
+}
+
+
+/* =========================================================
+   CHECK
+========================================================= */
+
+.qrmo-selection-mark {
+
+  position: absolute;
+
+  right: 6px;
+
+  top: 6px;
+
+  width: 13px;
+
+  height: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    #D8B84C;
+
+  color:
+    #080908;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  opacity: 0;
+
+  transform:
+    scale(.6);
+
+  transition:
+    opacity .16s ease,
+    transform .16s ease;
+
+}
+
+
+.is-selected >
+.qrmo-selection-mark {
+
+  opacity: 1;
+
+  transform:
+    scale(1);
+
+}
+
+
+/* =========================================================
+   ALLERGEN
+========================================================= */
+
+.qrmo-allergen-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap: 7px;
+
+}
+
+
+.qrmo-allergen-card {
+
+  position: relative;
+
+  min-width: 0;
+
+  min-height: 58px;
+
+  padding:
+    7px 4px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  border:
+    1px solid
+    #292B29;
+
+  border-radius: 9px;
+
+  background:
+    #101110;
+
+  font-family:
+    inherit;
+
+  cursor:
+    pointer;
+
+  transition:
+    border-color .18s ease,
+    background .18s ease,
+    box-shadow .18s ease,
+    transform .12s ease;
+
+}
+
+
+.qrmo-allergen-card strong {
+
+  width: 100%;
+
+  color:
+    #898989;
+
+  font-size: 8px;
+
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  text-align:
+    center;
+
+}
+
+
+.qrmo-allergen-icon {
+
+  font-size:
+    13px;
+
+  line-height:
+    1;
+
+  font-weight:
+    700;
+
+}
+
+
+.qrmo-a-green {
+  color: #3D8C57;
+}
+
+.qrmo-a-blue {
+  color: #438AB2;
+}
+
+.qrmo-a-yellow {
+  color: #D3B04B;
+}
+
+.qrmo-a-brown {
+  color: #855632;
+}
+
+.qrmo-a-orange {
+  color: #A85D24;
+}
+
+.qrmo-a-lime {
+  color: #74A341;
+}
+
+.qrmo-a-red {
+  color: #B74842;
+}
+
+.qrmo-a-beige {
+  color: #958A75;
+}
+
+.qrmo-a-purple {
+  color: #94547A;
+}
+
+.qrmo-a-darkblue {
+  color: #46658E;
+}
+
+
+.qrmo-allergen-card.is-selected {
+
+  border-color:
+    #D3B24C;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(211,178,76,.14),
+      rgba(211,178,76,.025)
+    );
+
+  box-shadow:
+    0 0 15px
+    rgba(211,178,76,.07);
+
+}
+
+
+.qrmo-allergen-card.is-selected strong {
+
+  color:
+    #D9C275;
+
+}
+
+
+/* =========================================================
+   RANGE
+========================================================= */
+
+.qrmo-range-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    13px
+    minmax(0,1fr);
+
+  column-gap:
+    6px;
+
+  align-items:
+    end;
+
+}
+
+
+.qrmo-range-grid label {
+
+  min-width:
+    0;
+
+}
+
+
+.qrmo-range-grid label > span {
+
+  display: block;
+
+  margin-bottom:
+    6px;
+
+  color:
+    #858585;
+
+  font-size:
+    9px;
+
+  font-weight:
+    600;
+
+}
+
+
+.qrmo-fake-input {
+
+  width: 100%;
+
+  height: 39px;
+
+  padding:
+    0 12px;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  border:
+    1px solid
+    #505150;
+
+  border-radius:
+    3px;
+
+  background:
+    #101110;
+
+  color:
+    #8C8C8C;
+
+  font-size:
+    12px;
+
+}
+
+
+.qrmo-range-separator {
+
+  height:
+    39px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  color:
+    #777;
+
+  font-size:
+    10px;
+
+}
+
+
+/* =========================================================
+   PRODUCT FEATURES
+========================================================= */
+
+.qrmo-product-feature-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:
+    7px;
+
+}
+
+
+.qrmo-product-feature-card {
+
+  position:
+    relative;
+
+  min-height:
+    57px;
+
+  padding:
+    7px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    5px;
+
+  border:
+    1px solid
+    #292B29;
+
+  border-radius:
+    9px;
+
+  background:
+    #101110;
+
+  font-family:
+    inherit;
+
+  cursor:
+    pointer;
+
+}
+
+
+.qrmo-product-feature-card strong {
+
+  color:
+    #888;
+
+  font-size:
+    8px;
+
+  font-weight:
+    700;
+
+}
+
+
+.qrmo-product-icon {
+
+  font-size:
+    14px;
+
+  line-height:
+    1;
+
+}
+
+
+.qrmo-p-orange {
+  color: #D28D19;
+}
+
+.qrmo-p-green {
+  color: #20A15B;
+}
+
+.qrmo-p-purple {
+  color: #7451C4;
+}
+
+.qrmo-p-red {
+  color: #C15A3E;
+}
+
+
+.qrmo-product-feature-card.is-selected {
+
+  border-color:
+    #D3B24C;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(211,178,76,.15),
+      rgba(211,178,76,.025)
+    );
+
+  box-shadow:
+    0 0 15px
+    rgba(211,178,76,.07);
+
+}
+
+
+.qrmo-product-feature-card.is-selected strong {
+
+  color:
+    #D8C176;
+
+}
+
+
+.qrmo-scroll-bottom-space {
+
+  height:
+    8px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.qrmo-real-filter-footer {
+
+  position:
+    relative;
+
+  z-index:
+    20;
+
+  flex:
+    0 0 57px;
+
+  height:
+    57px;
+
+  padding:
+    7px 14px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    100px
+    minmax(0,1fr);
+
+  gap:
+    8px;
+
+  background:
+    rgba(8,9,8,.98);
+
+  border-top:
+    1px solid
+    #252623;
+
+  box-shadow:
+    0 -7px 20px
+    rgba(0,0,0,.28);
+
+}
+
+
+.qrmo-real-reset,
+.qrmo-real-apply {
+
+  height:
+    43px;
+
+  border-radius:
+    10px;
+
+  font-family:
+    inherit;
+
+  font-size:
+    12px;
+
+  font-weight:
+    600;
+
+}
+
+
+.qrmo-real-reset {
+
+  border:
+    1px solid
+    #343633;
+
+  background:
+    #0B0C0B;
+
+  color:
+    #888;
+
+}
+
+
+.qrmo-real-apply {
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  border:
+    0;
+
+  background:
+    linear-gradient(
+      110deg,
+      #D0AC42,
+      #E4CA74
+    );
+
+  color:
+    #080908;
+
+  box-shadow:
+    0 0 20px
+    rgba(218,184,78,.18);
+
+}
+
+
+.qrmo-real-apply::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  top:
+    -100%;
+
+  left:
+    -35%;
+
+  width:
+    30%;
+
+  height:
+    300%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.28),
+      transparent
+    );
+
+  transform:
+    rotate(20deg);
+
+  opacity:
+    0;
+
+}
+
+
+.qrmo-real-apply.qrmo-applying::after {
+
+  animation:
+    qrmoApplyShine
+    .55s
+    ease;
+
+}
+
+
+@keyframes qrmoApplyShine {
+
+  0% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   POINTER
+========================================================= */
+
+.qrmo-demo-pointer {
+
+  position:
+    absolute;
+
+  left:
+    0;
+
+  top:
+    0;
+
+  z-index:
+    100;
+
+  width:
+    20px;
+
+  height:
+    25px;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0;
+
+  transform:
+    translate3d(
+      300px,
+      560px,
+      0
+    );
+
+  transition:
+    transform
+    .46s
+    cubic-bezier(.22,.72,.28,1),
+
+    opacity
+    .22s
+    ease;
+
+}
+
+
+.qrmo-demo-pointer.is-visible {
+
+  opacity:
+    1;
+
+}
+
+
+.qrmo-demo-pointer svg {
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  display:
+    block;
+
+}
+
+
+.qrmo-demo-pointer path {
+
+  fill:
+    #F4F1E8;
+
+  stroke:
+    #111;
+
+  stroke-width:
+    1.3;
+
+}
+
+
+.qrmo-demo-click {
+
+  transform:
+    scale(.965)
+    !important;
+
+}
+
+
+/* =========================================================
+   APPLY FEEDBACK
+========================================================= */
+
+.qrmo-apply-feedback {
+
+  position:
+    absolute;
+
+  z-index:
+    80;
+
+  left:
+    50%;
+
+  top:
+    50%;
+
+  width:
+    205px;
+
+  padding:
+    19px 16px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  border:
+    1px solid
+    rgba(216,184,76,.30);
+
+  border-radius:
+    14px;
+
+  background:
+    rgba(16,17,16,.97);
+
+  box-shadow:
+    0 18px 42px
+    rgba(0,0,0,.55);
+
+  opacity:
+    0;
+
+  pointer-events:
+    none;
+
+  transform:
+    translate(-50%,-43%)
+    scale(.94);
+
+  transition:
+    opacity .23s ease,
+    transform .28s ease;
+
+}
+
+
+.qrmo-apply-feedback.is-visible {
+
+  opacity:
+    1;
+
+  transform:
+    translate(-50%,-50%)
+    scale(1);
+
+}
+
+
+.qrmo-feedback-check {
+
+  width:
+    34px;
+
+  height:
+    34px;
+
+  margin-bottom:
+    10px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  border-radius:
+    50%;
+
+  background:
+    #D5B64E;
+
+  color:
+    #090A09;
+
+  font-size:
+    17px;
+
+  font-weight:
+    900;
+
+}
+
+
+.qrmo-apply-feedback strong {
+
+  color:
+    #F1F0EB;
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+}
+
+
+.qrmo-apply-feedback small {
+
+  margin-top:
+    4px;
+
+  color:
+    #858585;
+
+  font-size:
+    9px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 980px) {
+
+  .qrmo-smart-filter-showcase {
+
+    min-height:
+      auto;
+
+    padding:
+      60px 0;
+
+  }
+
+
+  .qrmo-smart-filter-layout {
+
+    min-height:
+      auto;
+
+    grid-template-columns:
+      1fr;
+
+    row-gap:
+      45px;
+
+  }
+
+
+  .qrmo-smart-filter-copy {
+
+    max-width:
+      700px;
+
+  }
+
+
+  .qrmo-real-filter-stage {
+
+    width:
+      100%;
+
+    justify-content:
+      center;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .qrmo-smart-filter-showcase {
+
+    padding:
+      45px 0 50px;
+
+  }
+
+
+  .qrmo-smart-filter-layout {
+
+    width:
+      90%;
+
+    margin:
+      0 5%;
+
+    row-gap:
+      38px;
+
+  }
+
+
+  .qrmo-smart-filter-copy > h2 {
+
+    font-size:
+      34px;
+
+    letter-spacing:
+      -1.1px;
+
+  }
+
+
+  .qrmo-smart-filter-lead {
+
+    font-size:
+      14px;
+
+    line-height:
+      1.55;
+
+  }
+
+
+  .qrmo-smart-filter-benefit strong {
+
+    font-size:
+      14px;
+
+  }
+
+
+  .qrmo-smart-filter-benefit p {
+
+    font-size:
+      12px;
+
+  }
+
+
+  .qrmo-smart-filter-cta {
+
+    width:
+      100%;
+
+    max-width:
+      270px;
+
+  }
+
+
+  .qrmo-real-filter-stage {
+
+    width:
+      100%;
+
+  }
+
+
+  .qrmo-real-filter-phone {
+
+    width:
+      100%;
+
+    max-width:
+      340px;
+
+    height:
+      620px;
+
+  }
+
+}
+
+
+/* =========================================================
+   UX / RESPONSIVE QA (entegrasyon)
+========================================================= */
+
+/* ≤900: Hero / Section 2–4 ile aynı 20px hat (önce %5 → 38–45px) */
+@media (max-width: 900px) {
+
+  .qrmo-smart-filter-layout {
+
+    width:
+      calc(100% - 40px);
+
+    margin-left:
+      20px;
+
+    margin-right:
+      20px;
+
+  }
+
+}
+
+
+/* ≤480: Hero / Section 2–4 ile aynı 16px gutter (önce %5 → 16–24px) */
+@media (max-width: 480px) {
+
+  .qrmo-smart-filter-layout {
+
+    width:
+      calc(100% - 32px);
+
+    margin-left:
+      16px;
+
+    margin-right:
+      16px;
+
+  }
+
+}
+
+
+/* Scroll: dikey sürükleme / wheel ana sayfaya geçer.
+   Liste kullanıcı scroll'una kapalı; programatik scrollTo() çalışır. */
+.qrmo-real-filter-phone,
+.qrmo-real-filter-scroll {
+
+  touch-action:
+    pan-y;
+
+  overscroll-behavior:
+    auto;
+
+}
+
+
+.qrmo-real-filter-scroll {
+
+  overflow-y:
+    hidden;
+
+}
+
+
+/* Reduced motion: demo yok → liste elle kaydırılabilir
+   (Kalori / Fiyat / Ürün Özellikleri erişilebilir; sonunda sayfaya zincirlenir) */
+@media (prefers-reduced-motion: reduce) {
+
+  .qrmo-real-filter-scroll {
+
+    overflow-y:
+      auto;
+
+    scroll-behavior:
+      auto;
+
+  }
+
+}
+
+
+/* Mobil: başlık bloğu Hero / Section 2–4 gibi ortalı; benefits ve CTA sola */
+@media (max-width: 767px) {
+
+  .qrmo-smart-filter-kicker {
+
+    justify-content:
+      center;
+
+  }
+
+
+  .qrmo-smart-filter-copy > h2,
+  .qrmo-smart-filter-lead {
+
+    margin-left:
+      auto;
+
+    margin-right:
+      auto;
+
+    text-align:
+      center;
+
+  }
+
+}
+
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qrmo-demo-pointer,
+  .qrmo-real-sort-card,
+  .qrmo-allergen-card,
+  .qrmo-product-feature-card,
+  .qrmo-selection-mark,
+  .qrmo-apply-feedback {
+
+    transition:
+      none !important;
+
+  }
+
+
+  .qrmo-real-apply::after {
+
+    animation:
+      none !important;
+
+  }
+
+}
+
+</style>
+
+
+<script>
+
+(function () {
+
+  "use strict";
+
+
+  /* =======================================================
+     ROOT
+  ======================================================== */
+
+  const root =
+    document.querySelector(
+      ".qrmo-smart-filter-showcase"
+    );
+
+
+  if (!root) return;
+
+
+  const panel =
+    root.querySelector(
+      ".qrmo-real-filter-phone"
+    );
+
+
+  const scrollArea =
+    root.querySelector(
+      ".qrmo-real-filter-scroll"
+    );
+
+
+  const pointer =
+    root.querySelector(
+      ".qrmo-demo-pointer"
+    );
+
+
+  const applyButton =
+    root.querySelector(
+      ".qrmo-real-apply"
+    );
+
+
+  const resetButton =
+    root.querySelector(
+      ".qrmo-real-reset"
+    );
+
+
+  const feedback =
+    root.querySelector(
+      ".qrmo-apply-feedback"
+    );
+
+
+  const sortCards =
+    Array.from(
+      root.querySelectorAll(
+        ".qrmo-real-sort-card"
+      )
+    );
+
+
+  const selectableCards =
+    Array.from(
+      root.querySelectorAll(
+        ".qrmo-allergen-card, .qrmo-product-feature-card"
+      )
+    );
+
+
+  let animationRunning =
+    false;
+
+
+  let userInteracted =
+    false;
+
+
+  /* =======================================================
+     SLEEP
+  ======================================================== */
+
+  /*
+   * Lifecycle: her bekleme sonrası demonun hâlâ geçerli olup
+   * olmadığı kontrol edilir. Kullanıcı etkileşimi, ekran dışı veya
+   * gizli sekme runToken'ı artırır; bekleyen adımlar iptal olur
+   * ve sonraki seçim / scroll / feedback çalışmaz.
+   */
+
+  const DEMO_CANCELLED = {};
+
+  let runToken = 0;
+
+  let inView = false;
+
+  let startTimer = null;
+
+
+  function sleep(ms) {
+
+    const token = runToken;
+
+    return new Promise(
+      (resolve, reject) =>
+        setTimeout(
+          function () {
+
+            if (
+              token !== runToken ||
+              userInteracted
+            ) {
+
+              reject(DEMO_CANCELLED);
+
+            } else {
+
+              resolve();
+
+            }
+
+          },
+          ms
+        )
+    );
+
+  }
+
+
+  function haltDemo() {
+
+    runToken++;
+
+    animationRunning = false;
+
+    clearTimeout(startTimer);
+
+    startTimer = null;
+
+    pointer.classList.remove("is-visible");
+
+    root.querySelectorAll(".qrmo-demo-click").forEach(
+      el => el.classList.remove("qrmo-demo-click")
+    );
+
+    applyButton.classList.remove("qrmo-applying");
+
+    feedback.classList.remove("is-visible");
+
+  }
+
+
+  /* =======================================================
+     USER SCROLL
+     Liste CSS ile kullanıcı scroll'una kapalı (overflow-y:hidden).
+     wheel / touch / klavye olayları engellenmez → ana sayfa kayar.
+  ======================================================== */
+
+
+  /* =======================================================
+     POINTER POSITION
+  ======================================================== */
+
+  function movePointerTo(
+    element,
+    xBias = .55,
+    yBias = .55
+  ) {
+
+    if (
+      !element ||
+      !panel ||
+      !pointer
+    ) {
+
+      return;
+
+    }
+
+
+    const panelRect =
+      panel.getBoundingClientRect();
+
+
+    const targetRect =
+      element.getBoundingClientRect();
+
+
+    const x =
+      targetRect.left
+      -
+      panelRect.left
+      +
+      targetRect.width * xBias;
+
+
+    const y =
+      targetRect.top
+      -
+      panelRect.top
+      +
+      targetRect.height * yBias;
+
+
+    pointer.style.transform =
+      `translate3d(${x}px,${y}px,0)`;
+
+  }
+
+
+  /* =======================================================
+     PROGRAMMATIC SCROLL
+  ======================================================== */
+
+  async function revealTarget(
+    element,
+    preferredPosition = .42
+  ) {
+
+    if (
+      !element ||
+      !scrollArea
+    ) {
+
+      return;
+
+    }
+
+
+    const areaRect =
+      scrollArea.getBoundingClientRect();
+
+
+    const targetRect =
+      element.getBoundingClientRect();
+
+
+    const topLimit =
+      areaRect.top + 15;
+
+
+    const bottomLimit =
+      areaRect.bottom - 15;
+
+
+    const visible =
+      targetRect.top >= topLimit &&
+      targetRect.bottom <= bottomLimit;
+
+
+    if (visible) {
+
+      return;
+
+    }
+
+
+    const targetTop =
+      element.offsetTop;
+
+
+    const targetScroll =
+      targetTop
+      -
+      scrollArea.clientHeight
+      *
+      preferredPosition;
+
+
+    scrollArea.scrollTo({
+
+      top:
+        Math.max(
+          0,
+          targetScroll
+        ),
+
+      behavior:
+        "smooth"
+
+    });
+
+
+    await sleep(
+      560
+    );
+
+  }
+
+
+  /* =======================================================
+     SORT SELECTION
+  ======================================================== */
+
+  function selectSort(target) {
+
+    sortCards.forEach(
+      card => {
+
+        card.classList.remove(
+          "is-selected"
+        );
+
+      }
+    );
+
+
+    if (target) {
+
+      target.classList.add(
+        "is-selected"
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+     TOGGLE
+  ======================================================== */
+
+  function toggleCard(target) {
+
+    if (!target) return;
+
+
+    target.classList.toggle(
+      "is-selected"
+    );
+
+  }
+
+
+  /* =======================================================
+     RESET DEMO
+  ======================================================== */
+
+  function resetDemoState() {
+
+    sortCards.forEach(
+      card =>
+        card.classList.remove(
+          "is-selected"
+        )
+    );
+
+
+    selectableCards.forEach(
+      card =>
+        card.classList.remove(
+          "is-selected"
+        )
+    );
+
+
+    const recommended =
+      root.querySelector(
+        '[data-demo="recommended"].qrmo-real-sort-card'
+      );
+
+
+    if (recommended) {
+
+      recommended.classList.add(
+        "is-selected"
+      );
+
+    }
+
+
+    feedback.classList.remove(
+      "is-visible"
+    );
+
+
+    applyButton.classList.remove(
+      "qrmo-applying"
+    );
+
+  }
+
+
+  /* =======================================================
+     ANIMATED CLICK
+  ======================================================== */
+
+  async function animatedClick(
+    target,
+    type = "toggle"
+  ) {
+
+    if (
+      !target ||
+      userInteracted
+    ) {
+
+      return;
+
+    }
+
+
+    await revealTarget(
+      target
+    );
+
+
+    if (userInteracted) return;
+
+
+    movePointerTo(
+      target
+    );
+
+
+    await sleep(
+      470
+    );
+
+
+    target.classList.add(
+      "qrmo-demo-click"
+    );
+
+
+    await sleep(
+      100
+    );
+
+
+    if (
+      type === "sort"
+    ) {
+
+      selectSort(
+        target
+      );
+
+    } else {
+
+      toggleCard(
+        target
+      );
+
+    }
+
+
+    await sleep(
+      130
+    );
+
+
+    target.classList.remove(
+      "qrmo-demo-click"
+    );
+
+
+    await sleep(
+      240
+    );
+
+  }
+
+
+  /* =======================================================
+     APPLY ANIMATION
+  ======================================================== */
+
+  async function animatedApply() {
+
+    if (userInteracted) return;
+
+
+    movePointerTo(
+      applyButton,
+      .55,
+      .5
+    );
+
+
+    await sleep(
+      500
+    );
+
+
+    applyButton.classList.add(
+      "qrmo-demo-click"
+    );
+
+
+    await sleep(
+      100
+    );
+
+
+    applyButton.classList.add(
+      "qrmo-applying"
+    );
+
+
+    await sleep(
+      150
+    );
+
+
+    applyButton.classList.remove(
+      "qrmo-demo-click"
+    );
+
+
+    await sleep(
+      350
+    );
+
+
+    feedback.classList.add(
+      "is-visible"
+    );
+
+
+    pointer.classList.remove(
+      "is-visible"
+    );
+
+
+    await sleep(
+      1500
+    );
+
+
+    feedback.classList.remove(
+      "is-visible"
+    );
+
+
+    await sleep(
+      300
+    );
+
+  }
+
+
+  /* =======================================================
+     MAIN DEMO
+  ======================================================== */
+
+  async function runDemoSteps() {
+
+    if (
+      animationRunning ||
+      userInteracted
+    ) {
+
+      return;
+
+    }
+
+
+    animationRunning =
+      true;
+
+
+    resetDemoState();
+
+
+    /*
+     * Her tur başlangıçta.
+     */
+
+    scrollArea.scrollTop =
+      0;
+
+
+    await sleep(
+      700
+    );
+
+
+    pointer.classList.add(
+      "is-visible"
+    );
+
+
+    /* -----------------------------------------------
+       1. EN PROTEİNLİ
+    ------------------------------------------------ */
+
+    const protein =
+      root.querySelector(
+        '[data-demo="protein"]'
+      );
+
+
+    await animatedClick(
+      protein,
+      "sort"
+    );
+
+
+    if (userInteracted) {
+
+      animationRunning =
+        false;
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       2. GLUTEN
+    ------------------------------------------------ */
+
+    const gluten =
+      root.querySelector(
+        '[data-demo="gluten"]'
+      );
+
+
+    await animatedClick(
+      gluten
+    );
+
+
+    /* -----------------------------------------------
+       3. SÜT / LAKTOZ
+    ------------------------------------------------ */
+
+    const milk =
+      root.querySelector(
+        '[data-demo="milk"]'
+      );
+
+
+    await animatedClick(
+      milk
+    );
+
+
+    /* -----------------------------------------------
+       4. POPÜLER
+    ------------------------------------------------ */
+
+    const popular =
+      root.querySelector(
+        '[data-demo="popular"]'
+      );
+
+
+    await revealTarget(
+      popular,
+      .40
+    );
+
+
+    await sleep(
+      220
+    );
+
+
+    await animatedClick(
+      popular
+    );
+
+
+    /* -----------------------------------------------
+       5. UYGULA
+    ------------------------------------------------ */
+
+    await sleep(
+      300
+    );
+
+
+    await animatedApply();
+
+
+    if (userInteracted) {
+
+      animationRunning =
+        false;
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       6. BAŞA DÖN
+    ------------------------------------------------ */
+
+    scrollArea.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+
+    await sleep(
+      650
+    );
+
+
+    resetDemoState();
+
+
+    pointer.style.transform =
+      "translate3d(310px,560px,0)";
+
+
+    await sleep(
+      400
+    );
+
+
+    pointer.classList.remove(
+      "is-visible"
+    );
+
+
+    await sleep(
+      1400
+    );
+
+
+    animationRunning =
+      false;
+
+
+    /*
+     * Döngüyü tekrar başlat.
+     */
+
+    if (
+      !userInteracted
+    ) {
+
+      runDemo();
+
+    }
+
+  }
+
+
+  async function runDemo() {
+
+    try {
+
+      await runDemoSteps();
+
+    } catch (error) {
+
+      if (error !== DEMO_CANCELLED) {
+
+        throw error;
+
+      }
+
+    }
+
+  }
+
+
+  /* =======================================================
+     MANUAL SORT
+  ======================================================== */
+
+  sortCards.forEach(
+    card => {
+
+      card.addEventListener(
+        "click",
+        function () {
+
+          userInteracted =
+            true;
+
+
+          haltDemo();
+
+
+          pointer.classList.remove(
+            "is-visible"
+          );
+
+
+          selectSort(
+            this
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     MANUAL FILTER CARDS
+  ======================================================== */
+
+  selectableCards.forEach(
+    card => {
+
+      card.addEventListener(
+        "click",
+        function () {
+
+          userInteracted =
+            true;
+
+
+          haltDemo();
+
+
+          pointer.classList.remove(
+            "is-visible"
+          );
+
+
+          toggleCard(
+            this
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     RESET
+  ======================================================== */
+
+  resetButton.addEventListener(
+    "click",
+    function () {
+
+      userInteracted =
+        true;
+
+
+      haltDemo();
+
+
+      resetDemoState();
+
+
+      scrollArea.scrollTo({
+
+        top:
+          0,
+
+        behavior:
+          "smooth"
+
+      });
+
+    }
+  );
+
+
+  /* =======================================================
+     APPLY
+  ======================================================== */
+
+  applyButton.addEventListener(
+    "click",
+    function () {
+
+      userInteracted =
+        true;
+
+
+      haltDemo();
+
+
+      feedback.classList.add(
+        "is-visible"
+      );
+
+
+      setTimeout(
+        function () {
+
+          feedback.classList.remove(
+            "is-visible"
+          );
+
+        },
+        1400
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     CLOSE
+  ======================================================== */
+
+  const closeButton =
+    root.querySelector(
+      ".qrmo-real-filter-close"
+    );
+
+
+  closeButton.addEventListener(
+    "click",
+    function () {
+
+      userInteracted =
+        true;
+
+
+      haltDemo();
+
+
+      pointer.classList.remove(
+        "is-visible"
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     REDUCED MOTION
+  ======================================================== */
+
+  const reduceMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+  /* =======================================================
+     START ONLY WHEN VISIBLE
+  ======================================================== */
+
+  function syncDemo() {
+
+    if (
+      reduceMotion ||
+      userInteracted
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      inView &&
+      !document.hidden
+    ) {
+
+      if (
+        !animationRunning &&
+        !startTimer
+      ) {
+
+        startTimer =
+          setTimeout(
+            function () {
+
+              startTimer = null;
+
+              if (
+                inView &&
+                !document.hidden &&
+                !userInteracted
+              ) {
+
+                runDemo();
+
+              }
+
+            },
+            500
+          );
+
+      }
+
+    } else if (
+      animationRunning ||
+      startTimer
+    ) {
+
+      haltDemo();
+
+    }
+
+  }
+
+
+  if (!reduceMotion) {
+
+    const observer =
+      new IntersectionObserver(
+
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              inView =
+                entry.isIntersecting &&
+                entry.intersectionRatio > .35;
+
+            }
+          );
+
+
+          syncDemo();
+
+        },
+
+        {
+          threshold:
+            [
+              0,
+              .35,
+              .55
+            ]
+        }
+
+      );
+
+
+    observer.observe(
+      panel
+    );
+
+
+    document.addEventListener(
+      "visibilitychange",
+      syncDemo
+    );
+
+  }
+
+})();
+
+</script>
 </body>
 </html>

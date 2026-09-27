@@ -1,0 +1,458 @@
+/* =========================================================
+   QR MENU OFFICIAL
+   GLOBAL ANA SAYFA ARKA PLANI
+   ========================================================= */
+
+/* ANA SAYFA ZEMİNİ */
+html {
+  background: #fdfbf5 !important;
+}
+
+body {
+  position: relative !important;
+  min-width: 0 !important;
+
+  /* Teknik: tarayıcı varsayılan 8px margin'i zeminde çerçeve
+     bırakıyordu (WP/Elementor temaları zaten 0 yapar). */
+  margin: 0;
+
+  /* Teknik: body kendi stacking context'ini kurar; böylece
+     z-index:-1 dekor katmanı body zemininin üstünde,
+     tüm içeriğin altında kalır. */
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      120% 75% at 50% -10%,
+      rgba(201,168,76,.10) 0%,
+      rgba(201,168,76,.035) 35%,
+      rgba(201,168,76,0) 70%
+    ),
+    linear-gradient(
+      165deg,
+      #fdfbf5 0%,
+      #f7f1e5 52%,
+      #f0e8d7 100%
+    ) !important;
+}
+
+
+/* =========================================================
+   GLOBAL DEKORATİF BALONCUK KATMANI
+   ========================================================= */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+
+  top: -10vh;
+  right: -8vw;
+  bottom: -10vh;
+  left: -8vw;
+
+  width: auto;
+  height: auto;
+
+  pointer-events: none;
+
+  /* Teknik: 0 iken body::after DOM'da en sonda olduğu için
+     position'lı içeriklerin ÜSTÜNE boyanıyordu. */
+  z-index: -1;
+
+  background-repeat: no-repeat;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transform: translateZ(0);
+
+  will-change: background-position;
+}
+
+
+/* =========================================================
+   BÜYÜK / ORTA BALONCUKLAR
+   ========================================================= */
+
+body::before {
+
+  background-image:
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.50) 0%,
+      rgba(255,255,255,.20) 22%,
+      rgba(201,168,76,.075) 45%,
+      rgba(184,148,58,.22) 66%,
+      rgba(201,168,76,.06) 73%,
+      transparent 77%
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.45) 0%,
+      rgba(255,255,255,.16) 22%,
+      rgba(201,168,76,.06) 45%,
+      rgba(184,148,58,.18) 65%,
+      rgba(201,168,76,.05) 73%,
+      transparent 77%
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.44) 0%,
+      rgba(255,255,255,.14) 22%,
+      rgba(201,168,76,.05) 45%,
+      rgba(184,148,58,.16) 65%,
+      rgba(201,168,76,.04) 73%,
+      transparent 77%
+    );
+
+  background-size:
+    95px 95px,
+    72px 72px,
+    54px 54px;
+
+  background-position:
+    14% 8%,
+    82% 38%,
+    30% 84%;
+
+  opacity: .72;
+
+  animation:
+    qrmoGlobalBubbleLarge
+    28s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* =========================================================
+   KÜÇÜK BALONCUKLAR
+   ========================================================= */
+
+body::after {
+
+  background-image:
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.40) 0%,
+      rgba(255,255,255,.12) 22%,
+      rgba(201,168,76,.045) 44%,
+      rgba(184,148,58,.16) 64%,
+      transparent 76%
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.38) 0%,
+      rgba(255,255,255,.11) 22%,
+      rgba(201,168,76,.04) 44%,
+      rgba(160,126,42,.14) 64%,
+      transparent 76%
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.36) 0%,
+      rgba(255,255,255,.10) 22%,
+      rgba(201,168,76,.035) 44%,
+      rgba(184,148,58,.12) 64%,
+      transparent 76%
+    ),
+
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.34) 0%,
+      rgba(255,255,255,.08) 22%,
+      rgba(201,168,76,.03) 44%,
+      rgba(184,148,58,.10) 64%,
+      transparent 76%
+    );
+
+  background-size:
+    30px 30px,
+    24px 24px,
+    39px 39px,
+    18px 18px;
+
+  background-position:
+    88% 14%,
+    8% 48%,
+    91% 78%,
+    47% 93%;
+
+  opacity: .52;
+
+  animation:
+    qrmoGlobalBubbleSmall
+    20s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+
+/* =========================================================
+   ANİMASYON
+   ========================================================= */
+
+@keyframes qrmoGlobalBubbleLarge {
+
+  0% {
+    background-position:
+      14% 8%,
+      82% 38%,
+      30% 84%;
+  }
+
+  50% {
+    background-position:
+      17% 5%,
+      79% 41%,
+      33% 81%;
+  }
+
+  100% {
+    background-position:
+      12% 11%,
+      85% 35%,
+      27% 87%;
+  }
+}
+
+
+@keyframes qrmoGlobalBubbleSmall {
+
+  0% {
+    background-position:
+      88% 14%,
+      8% 48%,
+      91% 78%,
+      47% 93%;
+  }
+
+  50% {
+    background-position:
+      86% 17%,
+      11% 45%,
+      89% 81%,
+      50% 90%;
+  }
+
+  100% {
+    background-position:
+      91% 11%,
+      6% 51%,
+      94% 75%,
+      45% 95%;
+  }
+}
+
+
+/* =========================================================
+   ELEMENTOR İÇERİKLERİ
+   Dekoratif katmanın üzerinde kalır
+   ========================================================= */
+
+.elementor,
+.elementor-section,
+.elementor-container,
+.elementor-widget {
+  position: relative;
+}
+
+
+/* =========================================================
+   MASAÜSTÜ
+   ========================================================= */
+
+@media (min-width: 1100px) {
+
+  body::before {
+    opacity: .74;
+  }
+
+  body::after {
+    opacity: .54;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1099px) {
+
+  body::before {
+    top: -8vh;
+    right: -6vw;
+    bottom: -8vh;
+    left: -6vw;
+
+    background-size:
+      78px 78px,
+      61px 61px,
+      47px 47px;
+
+    opacity: .62;
+  }
+
+  body::after {
+
+    top: -8vh;
+    right: -6vw;
+    bottom: -8vh;
+    left: -6vw;
+
+    background-size:
+      27px 27px,
+      21px 21px,
+      34px 34px,
+      17px 17px;
+
+    opacity: .44;
+  }
+}
+
+
+/* =========================================================
+   MOBİL
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  body {
+
+    background:
+      radial-gradient(
+        125% 60% at 50% -5%,
+        rgba(201,168,76,.07) 0%,
+        rgba(201,168,76,.025) 36%,
+        rgba(201,168,76,0) 70%
+      ),
+      linear-gradient(
+        165deg,
+        #fdfbf5 0%,
+        #f7f1e5 55%,
+        #f0e8d7 100%
+      ) !important;
+  }
+
+
+  body::before {
+
+    top: -6vh;
+    right: -5vw;
+    bottom: -6vh;
+    left: -5vw;
+
+    background-size:
+      56px 56px,
+      47px 47px,
+      37px 37px;
+
+    opacity: .44;
+
+    animation-duration: 32s;
+  }
+
+
+  body::after {
+
+    top: -6vh;
+    right: -5vw;
+    bottom: -6vh;
+    left: -5vw;
+
+    background-size:
+      21px 21px,
+      18px 18px,
+      27px 27px,
+      14px 14px;
+
+    opacity: .30;
+
+    animation-duration: 25s;
+  }
+}
+
+
+/* =========================================================
+   KÜÇÜK TELEFON
+   ========================================================= */
+
+@media (max-width: 479px) {
+
+  body::before {
+
+    background-size:
+      47px 47px,
+      39px 39px,
+      31px 31px;
+
+    opacity: .36;
+  }
+
+
+  body::after {
+
+    background-size:
+      18px 18px,
+      15px 15px,
+      23px 23px,
+      12px 12px;
+
+    opacity: .25;
+  }
+}
+
+
+/* =========================================================
+   ÇOK KÜÇÜK EKRAN
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  body::before {
+    opacity: .30;
+  }
+
+  body::after {
+    opacity: .20;
+  }
+}
+
+
+/* =========================================================
+   DOKUNMATİK CİHAZLAR
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+  body::before {
+    animation-duration: 36s;
+  }
+
+  body::after {
+    animation-duration: 27s;
+  }
+}
+
+
+/* =========================================================
+   HAREKET AZALTMA
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+}
