@@ -7073,6 +7073,31 @@
 
 }
 
+/* ≥768: S4 → S5 içerik arası 120px. Demo alt padding'i gölge için
+   gerekli değil (section/inner/demo overflow:visible); sütun
+   yüksekliğine göre kayan boşluk üretmesin diye sıfırlanır.
+   S5 >980'de 760px min-height içinde ortalı → içerik 70px içeride
+   (120 − 70 = 50); ≤980'de 60px üst padding (120 − 60 = 60). */
+@media (min-width:768px){
+
+  .qrmo-tables-v5__demo{
+    padding-bottom:0;
+  }
+
+  .qrmo-tables-v5{
+    padding-bottom:50px;
+  }
+
+}
+
+@media (min-width:768px) and (max-width:980px){
+
+  .qrmo-tables-v5{
+    padding-bottom:60px;
+  }
+
+}
+
 /* 768–900: Hero / Section 2 / Section 3 ile aynı 20px hat */
 @media (min-width:768px) and (max-width:900px){
 
