@@ -31,11 +31,12 @@ Kaynak tespiti, `mamibeyinizz/qr-menu-suite` (public) reposunun bu oturumda salt
 
 ## Referans (Zorunlu Değil, Klasör Altyapısı Hazır)
 
-`HOMEPAGE_BLUEPRINT.md`'de bu iki ekran **opsiyonel** (zorunlu değil) olarak işaretlenmişti; yine de istenen klasör yapısında (`security/`, `feedback/`) yer aldıkları için kaynakları burada referans olarak not edilmiştir:
+`HOMEPAGE_BLUEPRINT.md`'de bu ekranlar **opsiyonel** (zorunlu değil) olarak işaretlenmişti; yine de istenen klasör yapısında (`security/`, `feedback/`) yer aldıkları için kaynakları burada referans olarak not edilmiştir:
 
 | Section | Gerekli ekran | Repo'daki gerçek kaynak | Route/Component | Asset durumu | Not |
 |---|---|---|---|---|---|
-| 9 — Güvenlik | Masa oturumu güvenlik davranışı | `qr-menu-suite/modules/qr-masa-oturum-guvenligi/masa-dogrulama.php`, `oturum-ayarlari.php`, `firebase-ayarlari-sayfasi.php` — **[Kesin]** (mekanizma kodu) | Arka plan doğrulama mantığı + WP admin ayar sayfası | **[TBD]** | Bu mekanizmanın kullanıcıya görünen ayrı bir "ekranı" yok (arka planda çalışır); homepage için gösterilebilir bir görsel olup olmadığı netleşmedi. |
+| 9 — Güvenlik | Müşteri tarafı "Oturum Gerekli" ekranı (masa oturumu kilit ekranı) | `qr-menu-suite/modules/qr-masa-oturum-guvenligi/masa-dogrulama.php` (`qmo_kilit_ekrani()`), `assets/css/kilit.css` — **[Kesin]** | Frontend: kayıtlı olmayan masa adresi, çok fazla deneme veya korunan sayfada süresi dolmuş oturum durumunda gösterilir (403) | **[SCREENSHOT_NEEDED]** | Ekran görüntüsü henüz alınmadı; repoda asset yok. Sayfa bazlı koruma varsayılan olarak kapalıdır; ekran genel bir erişim engeli olarak sunulmamalıdır. |
+| 9 — Güvenlik | Yönetim tarafı "Oturum Limitleri" ekranı | `qr-menu-suite/modules/qr-masa-oturum-guvenligi/oturum-ayarlari.php` — **[Kesin]** | WP admin: Oturum Limitleri (maksimum oturum süresi, hareketsizlik limiti, oturum başına chatbot mesajı) | **[SCREENSHOT_NEEDED]** | Ekran görüntüsü henüz alınmadı; repoda asset yok. `manage_options` yetkisi gerektirir. |
 | 10 — Yorum/Feedback | Feedback/yorum formu | `qr-menu-suite/modules/yorum-feedback/includes/frontend/form-render.php`, `shortcode-form.php`, `forms/review-form.php` — **[Kesin]** | Frontend shortcode (yorum/feedback formu) | **[SCREENSHOT_NEEDED]** | Blueprint'te zorunlu değildi; ihtiyaç halinde alınabilir. |
 
 ---

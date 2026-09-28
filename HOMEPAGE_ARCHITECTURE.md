@@ -180,8 +180,8 @@ Bu section **iki parçadan** oluşur. Tek section olarak kalır; Menü Mühendis
 1. **Section adı**: Güvenlik (QR Masa Güvenliği)
 2. **Section amacı**: Müşterinin masa oturumunun teknik olarak nasıl korunduğunu, işletmeye ve müşteriye güven vermek amacıyla açıklamak.
 3. **Hangi problemi ele alıyor**: Doğrudan bir "günlük operasyon" problemi değil, güven/itiraz gidermeye yöneliktir (CONTENT_STRATEGY.md madde 10 — "masa linkim başkası tarafından kullanılabilir mi?" itirazı).
-4. **Kullanılacak gerçek ürün özelliği**: İmzalı masa oturumu / kilit mekanizması (madde 1.10) — **[Kesin]**.
-5. **Ana mesaj / copy açısı**: Mekanizma açıklanır (imzalı oturum/kilit); "hacklenemez", "%100 güvenli" gibi mutlak ifadeler kullanılmaz (madde 6.4).
+4. **Kullanılacak gerçek ürün özelliği**: İmzalı masa oturumu (dışarıdan değiştirilemez, yalnızca kayıtlı masalar için açılır), süre sınırı (varsayılan 90 dakika toplam / 30 dakika hareketsizlik, ayarlanabilir), hesap tamamlandığında oturumun sona ermesi, talep korumaları ve yönetim tarafı yetki/doğrulama kontrolleri (madde 1.10) — **[Kesin]**. Kayıtlı olmayan/geçersiz masa adresinde gösterilen "Oturum Gerekli" kilit ekranı bir müşteri ekranıdır; genel bir erişim koruması olarak anlatılmaz.
+5. **Ana mesaj / copy açısı**: Mekanizma açıklanır (imzalı ve süresi sınırlı oturum); gerçek QR bağlantısına sahip birinin erişiminin engellendiği iddia edilmez; "hacklenemez", "%100 güvenli" gibi mutlak ifadeler kullanılmaz (madde 6.4).
 6. **Görsel/UI gösterimi**: Opsiyonel/hafif — teknik bir diyagram yerine sade bir güven rozeti/ikon + kısa açıklama yeterli olabilir (DESIGN_SYSTEM.md madde 1: dekoratif abartı yasağı). **[Tahmin]** (görsel biçimi netleşmedi).
 7. **CTA gerekiyor mu**: Hayır.
 8. **Sonraki section'a bağlanışı**: Güvenden sonra, işletmenin müşteri memnuniyetsizliğini nasıl erken yakaladığı (Section 10 — Yorum/Feedback) doğal bir "güven + şeffaflık" temasının devamıdır.

@@ -286,34 +286,40 @@ Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühend
 
 ## SECTION 9 — Güvenlik
 
-**1. Satış amacı**: "Masa bağlantım/oturumum güvende, başkası tarafından kötüye kullanılamaz" düşüncesi.
+**Uygulama**: `sections/section-9-security.html` — statik bölüm (JS/animasyon yok). Aşağıdaki çerçeve bu uygulamanın copy'siyle birebir aynıdır.
+
+**1. Satış amacı**: "Masa talepleri, süresi sınırlı ve dışarıdan değiştirilemeyen bir masa oturumu üzerinden işleniyor" düşüncesi. Gerçek QR bağlantısına sahip bir kişinin erişimini tamamen engellediği iddia edilmez.
 
 **2. Problem**: Doğrudan bir günlük operasyon problemi değil; güven/itiraz giderme amaçlıdır (CONTENT_STRATEGY.md madde 10 — "masa linkim başkası tarafından kullanılabilir mi?").
 
-**3. Ürün gerçeği**: İmzalı masa oturumu / kilit mekanizması (madde 1.10) — **[Kesin]**.
+**3. Ürün gerçeği** — **[Kesin]** (`qr-menu-suite`):
+- **İmzalı masa oturumu**: oturum imzalıdır, dışarıdan değiştirilemez; yalnızca işletmede kayıtlı masalar için açılır (`_qmo-ortak/class-qmo-oturum.php`, `qmo_masa_gecerli_mi`).
+- **Süreli oturum**: varsayılan 90 dakika toplam süre ve 30 dakika hareketsizlik süresi; işletme tarafından ayarlanabilir ("Oturum Limitleri" ekranı). Hesap talebi tamamlandığında o masanın oturumu sona erer (`qr-servis-paneli/includes/class-qrms-sp-veri.php`).
+- **Talep koruması**: garson ve hesap çağrılarında bekleme süresi; siparişlerde adet ve kalem sınırı; aynı siparişin tekrar gönderilerek ikinci kez oluşması idempotency ile engellenir (`qr-chatbot/ajax-waiter-bill.php`, `qr-chatbot/rest-order.php`).
+- **Yönetim tarafı**: yönetim ve personel işlemleri yetki ve doğrulama kontrollerinden geçer.
 
-**4. Ana mesaj**: Mekanizma (imzalı oturum/kilit) açıklanır; mutlak güvenlik iddiası kurulmaz.
+**4. Ana mesaj**: Mekanizma sade dille açıklanır: imzalı, kayıtlı masaya bağlı, süresi sınırlı oturum ve talep korumaları. Mutlak güvenlik iddiası kurulmaz.
 
 **5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: "Güvenlik" düzeyinde bir etiket.
-- **H2**: Mekanizma temelli, sakin bir başlık.
-- **Kısa açıklama**: İmzalı oturum/kilit mekanizmasının kısa, teknik ama anlaşılır tarifi.
-- **1–2 destekleyici nokta**: Bu section bilerek kısa tutulur; fazla madde eklenmez.
+- **Kicker/eyebrow**: `QR MENU OFFICIAL • GÜVENLİK`.
+- **H2**: Mekanizma temelli, sakin bir başlık ("Masa Oturumu Kontrol Altında").
+- **Kısa açıklama**: Sipariş, garson ve hesap taleplerinin masaya bağlı, süresi sınırlı bir oturum üzerinden iletildiği.
+- **4 destekleyici nokta**: (a) imzalı masa oturumu, (b) süreli oturum, (c) talep koruması, (d) yönetim tarafı — madde 3'teki kapsamın dışına çıkılmaz.
 - **CTA amacı**: Yok.
 
-**6. Görsel/UI**: Mümkünse gerçek "masa oturumu davranışı" gösterimi (ör. QR okutma → oturum kilidi akışının basitleştirilmiş gösterimi) tercih edilir; **zorunlu değildir**. Bu görsel bu repoda mevcut değil → **[TBD]**. Yoksa sade bir güven rozeti/ikon + kısa metin yeterlidir (DESIGN_SYSTEM.md madde 10 ikon kurallarına uygun).
+**6. Görsel/UI**: Görsel **zorunlu değildir**; uygulamada madde başına ikon + metin kullanılır. Güvenlik dashboard'u veya sahte ekran üretilmez. Gerçek ürün ekranları vardır ancak ekran görüntüleri henüz alınmamıştır (bkz. PRODUCT_SCREEN_ASSETS.md): müşteri tarafı "Oturum Gerekli" ekranı ve yönetim tarafı "Oturum Limitleri" ekranı.
 
-**7. Layout**: Kompakt/küçük section — tam genişlik görsel odağı yerine ikon+metin ikilisi, dar ölçülü (narrow measure) metin bloğu.
+**7. Layout**: Kompakt section — ikon+metin maddeleri, dar ölçülü metin bloğu; desktop'ta başlık + 2×2 madde, ≤767'de tek kolon.
 
 **8. CTA**: Gerekmiyor.
 
-**9. Güven/kanıt**: Kanıt = mekanizmanın kendisinin açıklanması (imzalı oturum/kilit). "Hacklenemez", "%100 güvenli" gibi mutlak ifadeler **kesin yasak** (madde 6.4).
+**9. Güven/kanıt**: Kanıt = mekanizmanın kendisinin açıklanması (madde 3). Mutlak veya doğrulanmamış ifadeler **kesin yasak** (madde 6.4): "hacklenemez", "%100 güvenli", "sıfır risk", "başkası kullanamaz", "verileriniz güvende", "şifreli", "KVKK uyumlu", "SSL", "güvenli ödeme".
 
 **10. Bir sonraki section bağlantısı**: Güven ve şeffaflık teması, doğal olarak Section 10'daki (Yorum/Feedback) "işletme müşteri memnuniyetsizliğini erken duyar" şeffaflığına bağlanır.
 
-**11. Riskler**: "Hacklenemez", "sıfır risk", "%100 güvenli" gibi mutlak iddialar.
+**11. Riskler**: Madde 9'daki mutlak/doğrulanmamış ifadeler; QR bağlantısına sahip birinin erişiminin tamamen engellendiğini ima etmek; sayfa kilidini (varsayılan olarak kapalı) genel bir erişim koruması gibi anlatmak; varsayılan süreleri (90/30 dakika) değiştirilemez sabitler gibi sunmak.
 
-**Durum: [Kesin]** (özellik) / **[Tahmin]/[TBD]** (görsel sunum biçimi ve asset'i)
+**Durum: [Kesin]** (özellikler ve uygulama) / **[SCREENSHOT_NEEDED]** (gerçek ekranlar, opsiyonel)
 
 ---
 

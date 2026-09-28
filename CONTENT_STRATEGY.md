@@ -21,7 +21,7 @@ Aşağıdaki maddeler, ürünün gerçekte yaptığı ile sınırlıdır. Bu sı
 7. **Personel gerektiğinde chatbot görüşmesini devralabilir.** Bu bir insan+bot hibrit modelidir, tam otomasyon değildir.
 8. **Garson/hesap çağrıları Servis Paneli'ne düşer.** Bu, işletme tarafının operasyonel iş akışıdır; müşteri tarafında "anında otomatik servis" garantisi olarak sunulmaz.
 9. **Servis Paneli sesli uyarı ve masaüstü bildirimleri sağlayabilir.** Bu doğrulanmış bir özelliktir ve olduğu gibi anlatılabilir.
-10. **QR masa güvenliği, imzalı masa oturumu/kilit mekanizmasına dayanır.** Güvenlik anlatılırken bu teknik mekanizma (oturum imzalama/kilit) temel alınır; "hacklenemez" gibi mutlak güvenlik iddiaları kurulmaz.
+10. **QR masa güvenliği, imzalı ve süresi sınırlı masa oturumuna dayanır.** Oturum imzalıdır, dışarıdan değiştirilemez ve yalnızca kayıtlı masalar için açılır; süresi sınırlıdır (varsayılan 90 dakika toplam, 30 dakika hareketsizlik; işletme ayarlayabilir) ve hesap tamamlandığında sona erer. Kayıtlı olmayan/geçersiz masa adresinde müşteriye "Oturum Gerekli" kilit ekranı gösterilir; bu ekran genel bir erişim koruması olarak anlatılmaz ve gerçek QR bağlantısına sahip birinin erişimini engellediği iddia edilmez. "Hacklenemez" gibi mutlak güvenlik iddiaları kurulmaz.
 11. **Kanıtsız gelir, satış, müşteri artışı veya dönüşüm yüzdesi kullanılmaz.** Elde doğrulanmış/ölçülmüş veri yoksa hiçbir yüzde, oran veya "X kat artış" ifadesi yazılmaz.
 
 Bu liste, ürün gerçekliğinin **tavanını** değil **sınırını** tanımlar: burada yazılmayan bir yetenek de var sayılıp iddia edilemez; yeni bir iddia gerekiyorsa önce ürün doğrulaması yapılır, sonra bu dosyaya eklenir.
@@ -146,9 +146,9 @@ Kural: Çeviri özelliği anlatılırken fiil her zaman işletmenin eylemine ba�
 
 | Ürün Gerçeği | Satış Faydası | Kullanılmayacak İddia |
 |---|---|---|
-| İmzalı masa oturumu / kilit mekanizması (madde 1.10) | Masa bağlantısı sahtecilik/karışmaya karşı teknik olarak korunur | "Hacklenemez", "%100 güvenli", "sıfır risk" |
+| İmzalı, süresi sınırlı masa oturumu; hesap tamamlandığında sona erer (madde 1.10) | Masa oturumu dışarıdan değiştirilemez ve kayıtlı olmayan bir masa adına açılamaz; oturum süresiyle sınırlıdır | "Hacklenemez", "%100 güvenli", "sıfır risk", "başkası kullanamaz" |
 
-Kural: Güvenlik anlatısı mekanizmayı (imzalı oturum/kilit) açıklar, mutlak/garanti dili kullanmaz.
+Kural: Güvenlik anlatısı mekanizmayı (imzalı ve süresi sınırlı oturum) açıklar, mutlak/garanti dili kullanmaz. "Kilit" ifadesi yalnızca kayıtlı olmayan/geçersiz masa oturumlarında gösterilen müşteri ekranı bağlamında kullanılır.
 
 ### 6.5 Yorum / Feedback
 
@@ -229,7 +229,7 @@ Bu bölüm, SSS section'ında **hangi itirazların** ele alınacağını tanıml
 | "Chatbot her soruyu cevaplayabilir mi?" | 6, 7 | Yaygın soruları yanıtlar; bilmediğini raporlar ve gerekirse personel devralır. |
 | "Filtreler otomatik mi çalışıyor?" | 5 | Filtrelerin çalışması, o ürün bilgisinin (alerjen/vegan vb.) sizin tarafınızdan girilmiş olmasına bağlıdır. |
 | "Kârlılık analizini otomatik mi yapıyor?" | 4 | Hayır; kendi maliyet verinizi girdiğinizde anlamlı hale gelir. |
-| "Bu sistem güvenli mi, masa linkim başkası tarafından kullanılabilir mi?" | 10 | Masa oturumu imzalı/kilit mekanizmasıyla korunur (mutlak güvenlik garantisi verilmez). |
+| "Bu sistem güvenli mi, masa linkim başkası tarafından kullanılabilir mi?" | 10 | Masa oturumu imzalıdır, dışarıdan değiştirilemez ve yalnızca kayıtlı masalar için açılır. Oturumun süresi sınırlıdır (varsayılan 90 dakika toplam, 30 dakika hareketsizlik; işletme ayarlayabilir) ve hesap tamamlandığında sona erer. Gerçek QR bağlantısına sahip birinin erişiminin tamamen engellendiği söylenmez; mutlak güvenlik garantisi verilmez. |
 | "Olumsuz yorumları gizliyor musunuz?" | (madde 8) | Hayır; amaç, şikâyeti müşteri Google'a yazmadan önce işletmenin duyabilmesidir. |
 | "Kurulumu ne kadar sürer / teknik bilgi gerekir mi?" | TBD (madde 6.6) | Bu bilgi doğrulanana kadar SSS'de bir süre/kolaylık iddiası **yazılmaz**; gerekiyorsa "ekibimizle görüşün" çerçevesine yönlendirilir. |
 
