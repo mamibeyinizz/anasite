@@ -1,6 +1,6 @@
 # Homepage Content + Visual Blueprint — QR Menu Official
 
-Bu doküman, `HOMEPAGE_ARCHITECTURE.md`'deki 12 section'lık gerçek/planlı homepage akışını (Section 1–10 uygulanmış, 11–12 planlı) temel alarak her section için **içerik yapısı** ve **görsel/UI blueprint**'i tanımlar.
+Bu doküman, `HOMEPAGE_ARCHITECTURE.md`'deki 12 section'lık gerçek homepage akışını (Section 1–12 uygulanmış) temel alarak her section için **içerik yapısı** ve **görsel/UI blueprint**'i tanımlar.
 
 Bu dosya:
 - Nihai pazarlama metni **değildir** — yalnızca içerik hiyerarşisi (kicker/H2/açıklama/destekleyici nokta/CTA amacı) tanımlar.
@@ -8,9 +8,9 @@ Bu dosya:
 - `DESIGN_SYSTEM.md`, `CONTENT_STRATEGY.md`, `HOMEPAGE_ARCHITECTURE.md` dosyalarını değiştirmez; onlara aykırı hiçbir karar içermez.
 - Etiket sistemi: **[Kesin]**, **[Muhtemel]**, **[Tahmin]**, **TBD**.
 
-**Section sırası notu**: Section 1–10 homepage'de uygulanmıştır (kod: `dcaeec9`, branch `claude/qr-menu-section-9-strategy-eircho`); `main` eski Hero-only durumdadır (`aabf2f0`). Section 11 (FAQ) ve Section 12 (Son CTA) **planlıdır, uygulanmamıştır**. **Yorum / Feedback** akış sırasına zorlanmamıştır: planlı, mevcut akıştaki yeri henüz belirlenmemiştir (dosya sonundaki "Planlı — Yorum / Feedback" notu). **Güvenlik** artık homepage section'ı değildir; eski blueprint'i dosya sonunda arşiv notu olarak tutulur (`sections/section-9-security.html` arşiv kaynaktır). Önceki sürümlerdeki Problem ve Çözüm section'ları mevcut homepage akışında yer almaz (bkz. HOMEPAGE_ARCHITECTURE.md madde 0.1, 0.2).
+**Section sırası notu**: Section 1–12 homepage'de uygulanmıştır (branch `claude/qr-menu-section-9-strategy-eircho`; Section 1–10 `dcaeec9`'a kadar, Section 11 FAQ ve Section 12 Son CTA aynı iş paketinde, ikisi de kilitli); `main` eski Hero-only durumdadır (`aabf2f0`). Son dört section'ın sırası: Section 9 Geçiş Kararı → Section 10 Kurulum → Section 11 FAQ → Section 12 Son CTA. **Yorum / Feedback** akış sırasına zorlanmamıştır: planlı, mevcut akıştaki yeri henüz belirlenmemiştir (dosya sonundaki "Planlı — Yorum / Feedback" notu). **Güvenlik** artık homepage section'ı değildir; eski blueprint'i dosya sonunda arşiv notu olarak tutulur (`sections/section-9-security.html` arşiv kaynaktır). Önceki sürümlerdeki Problem ve Çözüm section'ları mevcut homepage akışında yer almaz (bkz. HOMEPAGE_ARCHITECTURE.md madde 0.1, 0.2).
 
-**Genel not — gerçek ürün ekranı asset durumu**: Bu repodaki `assets/product/` klasörlerinde henüz section'lara eşlenmiş gerçek ekran görüntüsü yoktur (yalnızca `.gitkeep` ve `menu/` altında eşlenmemiş tek bir `.webp` dosyası). Section 9 (Geçiş Kararı) ve Section 10 (Kurulum) bilinçli olarak ekransız, statik bölümlerdir. Aşağıda "gerçek ürün ekranı zorunlu" denen her yerde, özelliğin kendisi ürün gerçeği olarak **[Kesin]** olsa bile, o ekranın **görsel asset'i bu repoda henüz mevcut değildir** — bu, ilgili section'ın görsel kısmı için ayrıca **[TBD]** olarak işaretlenmiştir. Gerçek ekran görüntüsü sağlanmadan hayali/sahte bir dashboard **üretilmeyecektir**.
+**Genel not — gerçek ürün ekranı asset durumu**: Bu repodaki `assets/product/` klasörlerinde henüz section'lara eşlenmiş gerçek ekran görüntüsü yoktur (yalnızca `.gitkeep` ve `menu/` altında eşlenmemiş tek bir `.webp` dosyası). Section 9 (Geçiş Kararı), Section 10 (Kurulum), Section 11 (FAQ) ve Section 12 (Son CTA) bilinçli olarak ekransız bölümlerdir. Aşağıda "gerçek ürün ekranı zorunlu" denen her yerde, özelliğin kendisi ürün gerçeği olarak **[Kesin]** olsa bile, o ekranın **görsel asset'i bu repoda henüz mevcut değildir** — bu, ilgili section'ın görsel kısmı için ayrıca **[TBD]** olarak işaretlenmiştir. Gerçek ekran görüntüsü sağlanmadan hayali/sahte bir dashboard **üretilmeyecektir**.
 
 ---
 
@@ -136,7 +136,7 @@ Bu dosya:
 
 **8. CTA**: Birincil CTA değildir.
 
-**9. Güven/kanıt**: Masa oturumu güvenliği bu section'da ele alınmaz; güvenlik konusu FAQ'de (Section 11, planlı) cevaplanır.
+**9. Güven/kanıt**: Masa oturumu güvenliği bu section'da ele alınmaz; güvenlik konusu FAQ'de (Section 11) cevaplanır.
 
 **10. Bir sonraki section bağlantısı**: Müşteri QR'ı okutup menüye geldiğinde aradığını bulma ihtiyacı — Section 5 (Akıllı Filtre).
 
@@ -349,13 +349,13 @@ Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühend
 
 **6. Görsel/UI**: Yatay adım rayı: adımları birbirine bağlayan ince gold süreç çizgisi ve noktalar; kart, kutu, gölge, mockup, dashboard, sahte ekran yoktur. Renkler: `#0D2B22` / `#C9A84C` / `#E8C766` / `#303933`.
 
-**7. Layout**: ≥1101px 4 kolon; ≤1100px 2×2; ≤767px tek kolon (çizgi dikey bağlayıcıya döner). Spacing: padding desktop 70/50, ≤900 60/60, ≤767 45/55 (≤480 aynı); gutter %5 / 20px / 16px; S9→S10 boşluğu 120 / 120 / 100px. S10→S11 boşluğu **varsayımdır** (S11 kodlanmadı): S11'in üst padding'i S10'un alt padding'iyle aynı kalıbı izlerse 120 / 120 / 100px.
+**7. Layout**: ≥1101px 4 kolon; ≤1100px 2×2; ≤767px tek kolon (çizgi dikey bağlayıcıya döner). Spacing: padding desktop 70/50, ≤900 60/60, ≤767 45/55 (≤480 aynı); gutter %5 / 20px / 16px; S9→S10 boşluğu 120 / 120 / 100px. S10→S11 boşluğu 120 / 120 / 100px (S10 alt + S11 üst padding; QA ile doğrulandı).
 
-**8. CTA**: Gerekmiyor — birincil CTA Section 9'da ve (planlı) Section 12'dedir.
+**8. CTA**: Gerekmiyor — birincil CTA Section 9'da ve Section 12'dedir.
 
 **9. Güven/kanıt**: Kanıt = adımların ve çıktıların kendisi. Sosyal kanıt, rakam, ROI, rakip kıyası yoktur. Animasyon yoktur (statik); "progress bar" gibi süre vaadi çağrıştıran öğeler yasak.
 
-**10. Bir sonraki section bağlantısı**: Kalan tereddütler Section 11'de (FAQ, planlı) ele alınır.
+**10. Bir sonraki section bağlantısı**: Kalan tereddütler Section 11'de (FAQ) ele alınır.
 
 **11. Riskler**: Süre/kolaylık/otomasyon iddiası (CONTENT_STRATEGY.md madde 6.6); S9'daki üç "gerekenler" cümlesini tekrar etmek; 03. adımdaki [Muhtemel] ayrıntıları kesin gerçekmiş gibi genişletmek; "Başlamadan önce" bloğunu doğrulanmadan eklemek.
 
@@ -363,73 +363,80 @@ Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühend
 
 ---
 
-## SECTION 11 — FAQ / İtirazlar (planlı)
+## SECTION 11 — FAQ / İtirazlar
 
-**1. Satış amacı**: CTA'ya gitmeden önce kalan itirazları dürüstçe gidermek.
+**Uygulama — kilitli**: `qrmo-faq-v1` — `sections/section-11-faq.html`. Aşağıdaki çerçeve uygulanan copy ve yapı ile birebir uyumludur; cevaplar qr-menu-suite ürün kodundan (`ed14cb3`) doğrulanmıştır.
 
-**2. Problem**: Önceki tüm section'lara dair kalan şüpheler (çeviri, ödeme, chatbot kapsamı, filtreler, kârlılık analizi, güvenlik, yorum gizleme, kurulum).
+**1. Satış amacı**: CTA'ya gitmeden önce kalan itirazları dürüstçe kapatmak; klasik bilgi bankası değil.
 
-**3. Ürün gerçeği**: CONTENT_STRATEGY.md madde 10'daki 8 itiraz kalıbının tamamı — **[Kesin]** (kurulum itirazı hariç, o **TBD**).
+**2. Problem**: Önceki section'lara dair kalan şüpheler: ne olduğu, kurulum, sipariş/ödeme, dil, asistanın sınırı, filtreler, masa oturumu güvenliği, olumsuz geri bildirim.
 
-**4. Ana mesaj**: Her soru, madde 1'deki gerçeğe dürüstçe bağlanır; gerçeği yumuşatan belirsiz cevaplar verilmez.
+**3. Ürün gerçeği** — **[Kesin]** (qr-menu-suite `ed14cb3`):
+- WordPress üzerinde çalışan bir eklenti; lisans anahtarıyla etkinleştirilir; modüller lisansa göre açılır.
+- Sepetle sipariş yönetim panelinden açılıp kapatılır (varsayılan kapalı); sipariş masa bilgisiyle servis paneline düşer; ödeme alınmaz.
+- Çeviri CSV ya da elle; çeviri API'si yok.
+- Menü Asistanı cevaplayamadığı soruları ayrı listeler; personel sohbeti devralabilir.
+- Filtreler girilen ürün bilgisiyle çalışır (fiyat, kalori, acılık, alerjen, vegan/vejetaryen).
+- Masa oturumu HMAC imzalı, yalnızca kayıtlı masalar; varsayılan 90 dk / 30 dk hareketsizlik, ayarlanabilir.
+- Yorumlar yönetim panelinde toplanır; olumlu/olumsuz ayrı listelenir.
 
-**5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: "Sıkça Sorulanlar" düzeyinde bir etiket.
-- **H2**: Basit, iddiasız bir başlık.
-- **Kısa açıklama**: Yok/gerekmiyor.
-- **Destekleyici içerik**: Madde 10'daki 8 soru-cevap çiftinin accordion yapısı (bu "destekleyici nokta" değil, section'ın kendisidir).
-- **CTA amacı**: Yok (accordion içindeki mikro-yönlendirmeler section'ın birincil CTA'sı sayılmaz).
+**4. Ana mesaj**: Her soru ürün gerçeğine dürüstçe bağlanır; sistemin ne yapmadığı da söylenir.
 
-**6. Görsel/UI**: Yok; standart liste/accordion yeterlidir, görsel gerekmez.
+**5. Copy hiyerarşisi (uygulanan)**
+- **Kicker/eyebrow**: `QR MENU OFFICIAL • SIK SORULANLAR`.
+- **H2**: "Karar vermeden önce sorulanlar."
+- **Kısa açıklama**: "Sistemin ne yaptığını ve ne yapmadığını kısa cevaplarla topladık."
+- **8 soru (sırayla)**: QR Menu Official tam olarak nedir? · Kurulum nasıl gerçekleşir? · QR menüden sipariş verilebiliyor mu? · Yabancı dil desteği nasıl çalışır? · Menü Asistanı her soruya cevap verebilir mi? · Filtreler nasıl çalışır? · Masa oturumu ve güvenlik nasıl çalışır? · Olumsuz müşteri geri bildirimleri nasıl ele alınır?
+- **CTA amacı**: Yok.
 
-**7. Layout**: Tek sütun, dar ölçülü (narrow measure), yüksek okunabilirlik; büyük görsel/mockup yok.
+**6. Görsel/UI**: Görsel yok (ekransız, statik içerik). Accordion: `<h3><button aria-expanded aria-controls>` + `role="region"` cevap panelleri; JS yoksa tüm cevaplar açık, JS ile ilk soru açık başlar; animasyon yok.
 
-**8. CTA**: Gerekmiyor.
+**7. Layout**: Desktop'ta başlık (sol) + accordion (sağ); ≤767 tek kolon, başlık ortalı; dokunma hedefi ≥56px. Spacing S9/S10 ile aynı sistem: padding 70/50, ≤900 60/60, ≤767 45/55; gutter %5 / 20px / 16px; S10→S11 boşluğu 120 / 120 / 100px.
 
-**9. Güven/kanıt**: Her cevabın kendisi dürüstlük/şeffaflık kanıtıdır.
+**8. CTA**: Gerekmiyor — birincil final CTA Section 12'dedir.
+
+**9. Güven/kanıt**: Her cevabın kendisi. Yasak ifadeler: "%100 doğru", "asla", "garantili", "hacklenemez", "KVKK uyumlu", "güvenli ödeme", "verileriniz güvende", "başkası erişemez". Güvenlik section'ı akıştan çıktığı için masa oturumu güvenliği itirazı **yalnızca burada** cevaplanır; QR'ı okutan herkesin oturum açabileceği açıkça belirtilir. Olumsuz geri bildirim cevabında "gizlemiyoruz" türü bir güvence **verilmez** (Yorum/Feedback modülündeki review gating nedeniyle; bkz. CONTENT_STRATEGY.md madde 8).
 
 **10. Bir sonraki section bağlantısı**: Tüm tereddütler giderildikten sonra tek kalan adım Section 12'deki (Son CTA) nihai eylemdir.
 
-**11. Riskler**: Belirsiz/kaçamak cevaplar vermek; kurulum sorusuna doğrulanmamış bir süre/kolaylık cevabı uydurmak (madde 6.6'ya aykırı olur).
+**11. Riskler**: Kurulumu kimin yaptığı, süre, paket içerikleri gibi doğrulanmamış bilgileri cevaplara eklemek; güvenlik cevabını mutlak güvenceye dönüştürmek.
 
-**Not — [Kesin]**: Güvenlik section'ı akıştan çıktığı için "masa linkim başkası tarafından kullanılabilir mi?" itirazı (CONTENT_STRATEGY.md madde 10) artık yalnızca bu section'da cevaplanır; cevap madde 1.10'daki gerçeğe bağlıdır (arşiv notundaki mekanizma listesi kaynak olarak kullanılabilir). Section 10'da doğrulanmamış bırakılan kurulum konuları (kimin kurduğu, süre, WordPress ön koşulu, hesap/lisans/paket, API anahtarı, toplu ürün içe aktarma, personel erişimi) doğrulanana kadar burada da cevaplanmaz.
-
-**Durum: Planlı — uygulanmadı.** **[Kesin]** (çerçeve) / **TBD** (kurulum itirazının cevabı)
+**Durum: [Kesin]** (uygulama — kilitli; 8 cevabın ürün dayanağı) / **TBD** (kurulumu kimin yaptığı, süre, paket içerikleri — cevaplarda yer almaz)
 
 ---
 
-## SECTION 12 — Son CTA (planlı)
+## SECTION 12 — Son CTA
 
-**1. Satış amacı**: Sayfa boyunca kurulan güveni tek, net bir sonraki adıma yönlendirmek.
+**Uygulama — kilitli**: `qrmo-final-cta-v1` — `sections/section-12-final-cta.html`. Statik HTML + CSS; JS ve animasyon yoktur.
 
-**2. Problem**: Yok — bu bir aksiyon/karar anıdır, kararsızlığı gidermeye yöneliktir.
+**1. Satış amacı**: Sayfa boyunca kurulan güveni tek, net bir sonraki adıma yönlendirmek; yeni bir özellik anlatmamak.
 
-**3. Ürün gerçeği**: Yok — bu bir özellik section'ı değildir.
+**2. Problem**: Yok — bu bir aksiyon/karar anıdır.
 
-**4. Ana mesaj**: Net, dürüst, tek eylem; sahte aciliyet yok. Hedef **TBD**.
+**3. Ürün gerçeği**: Yeni özellik yok; yalnızca S3–S7'de doğrulanmış akışın kısa özeti — **[Kesin]**.
 
-**5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: Opsiyonel, kısa bir kapanış etiketi.
-- **H2**: Kapanış cümlesi (yer tutucu, nihai değil).
-- **Kısa açıklama**: Kısa bir güven hatırlatması (ör. akışın/gerçek ürünün bir kez daha kısaca anılması).
-- **Destekleyici nokta**: Yok / en fazla 1.
-- **CTA amacı**: Ziyaretçiyi tek, net bir sonraki adıma (demo talebi / canlı örnek / satış görüşmesi) yönlendirmek; kesin hedef **TBD**.
+**4. Ana mesaj**: Menü, müşteri etkileşimi ve servis akışının tek sistemde toplandığı; sahte aciliyet, rakam, sosyal kanıt yok.
 
-**6. Görsel/UI**: Opsiyonel, hafif bir kapanış görseli veya salt tipografik kapanış; Hero'nun tekrarı değildir ama aynı marka dilini (DESIGN_SYSTEM.md madde 1) taşır.
+**5. Copy hiyerarşisi (uygulanan)**
+- **Kicker/eyebrow**: `QR MENU OFFICIAL`.
+- **H2**: "Menü, masa ve servis tek akışta."
+- **Kısa açıklama**: "Müşteri menüyü kendi dilinde inceler, sorar, garsonu ya da hesabı çağırır; talep masa bilgisiyle servis paneline düşer. Hepsi tek sistemin parçası."
+- **CTA**: "Geçiş İçin Bilgi Alın" (Section 9 ile aynı metin; yeni vaat üretmez).
+- **CTA alt açıklaması**: Yok — hedef belli olunca yazılır.
 
-**7. Layout**: Kompakt, ortalanmış, güçlü kontrast; büyük bir grid'e ihtiyaç duymaz.
+**6. Görsel/UI**: Tek koyu yeşil panel (`#0D2B22` → `#173226` → `#1E3D2F`), krem metin (`#F4F1E8`), altın CTA (`#C9A84C`); ortalı. Ekransız: mockup, sahte form, kayıt/demo/ödeme akışı yoktur.
 
-**8. CTA**: Gerekiyor — sayfanın birincil, tek CTA'sı burada en güçlü haliyle tekrarlanır (DESIGN_SYSTEM.md madde 8: section başına 1 primary buton). Kesin hedef/buton metni **TBD** (CONTENT_STRATEGY.md madde 9) — bu netleşmeden final metin yazılmaz.
+**7. Layout**: Gutter %5 / 20px / 16px; S11→S12 boşluğu 120 / 120 / 100px; sayfanın son content section'ı olduğu için alt boşluk ölçülü (desktop 60px, ≤900 56px, ≤767 48px). ≤520'de başlıktaki zorunlu satır sonu kaldırılır.
 
-**9. Güven/kanıt**: Gerekmiyor; kanıtlar önceki section'larda zaten sunuldu.
+**8. CTA**: Gerekiyor — sayfanın tek birincil final CTA'sı. **Hedef TBD**: kodda `href` yoktur (`data-cta-target="TBD"`); `href="#"` bilinçli olarak kullanılmamıştır. Hedef URL/WhatsApp/form/demo uydurulmaz. **Section 9 ve Section 12 CTA'ları bağlanmadan yayına alınmamalıdır.** `href` bağlandığında hover geçişi devreye girer (reduced-motion'da kapalı).
 
-**10. Bir sonraki section bağlantısı**: Yok — sayfanın son section'ıdır (footer bu dosyanın kapsamı dışındadır).
+**9. Güven/kanıt**: Gerekmiyor; kanıtlar önceki section'larda sunuldu.
 
-**11. Riskler**: Sahte aciliyet ("sınırlı süre", "bugün kaydolun" gibi); CTA hedefi netleşmeden kesin bir self-servis akış varsayımıyla buton metni yazmak.
+**10. Bir sonraki section bağlantısı**: Yok — sayfanın son content section'ıdır (footer bu dosyanın kapsamı dışındadır).
 
-**Not**: Section 9'un CTA'sıyla ("Geçiş İçin Bilgi Alın", hedef TBD) aynı hedefe bağlanması **[Muhtemel]** beklenir; hedef doğrulanmadan bağlanmaz.
+**11. Riskler**: Sahte aciliyet; CTA hedefi netleşmeden bir self-servis/kayıt/demo akışı ima etmek; hedef bağlanmadan yayın.
 
-**Durum: Planlı — uygulanmadı.** **[Muhtemel]** (section'ın varlığı ve tekilliği) / **TBD** (CTA'nın kesin hedefi)
+**Durum: [Kesin]** (uygulama — kilitli) / **TBD** (CTA hedefi ve alt açıklaması)
 
 ---
 
@@ -470,7 +477,7 @@ Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühend
 
 ## Arşiv — Güvenlik (eski Section 9 blueprint'i; homepage section'ı değil)
 
-**Uygulama (arşiv)**: `sections/section-9-security.html` — statik bölüm (JS/animasyon yok). **Aktif homepage section'ı değildir:** `1f87b17` ile eklenmiş, `3fc368e` ile `index.html`'de yerine Geçiş Kararı konmuştur; dosya yetim/arşiv kaynak olarak durur ve `index.html` onu kullanmaz. Çıkarma proje sahibinin kararıdır (satış açısından gerekli görülmedi); commit mesajlarında gerekçe yazılı değildir. Aşağıdaki çerçeve arşiv kaydıdır; aktif blueprint olarak kullanılmaz. Ürün gerçeği (madde 1.10) ve madde 6.4 iddia sınırları geçerliliğini korur; içerik Section 11'de (FAQ, planlı) cevap kaynağıdır.
+**Uygulama (arşiv)**: `sections/section-9-security.html` — statik bölüm (JS/animasyon yok). **Aktif homepage section'ı değildir:** `1f87b17` ile eklenmiş, `3fc368e` ile `index.html`'de yerine Geçiş Kararı konmuştur; dosya yetim/arşiv kaynak olarak durur ve `index.html` onu kullanmaz. Çıkarma proje sahibinin kararıdır (satış açısından gerekli görülmedi); commit mesajlarında gerekçe yazılı değildir. Aşağıdaki çerçeve arşiv kaydıdır; aktif blueprint olarak kullanılmaz. Ürün gerçeği (madde 1.10) ve madde 6.4 iddia sınırları geçerliliğini korur; içerik Section 11'de (FAQ) cevap kaynağıdır.
 
 **1. Satış amacı**: "Masa talepleri, süresi sınırlı ve dışarıdan değiştirilemeyen bir masa oturumu üzerinden işleniyor" düşüncesi. Gerçek QR bağlantısına sahip bir kişinin erişimini tamamen engellediği iddia edilmez.
 
@@ -509,4 +516,4 @@ Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühend
 
 ## Genel Uygulama Notu
 
-Bu 12 section'lık blueprint (Section 1–10 uygulanmış, 11–12 planlı), HTML/CSS/JS üretimine geçildiğinde şu sırayla kontrol edilir: önce bu dosyadaki içerik hiyerarşisi ve görsel gereksinim, sonra `CONTENT_STRATEGY.md`'deki ilgili madde (gerçeklik/copy sınırı), sonra `DESIGN_SYSTEM.md`'deki ilgili görsel token/kural. **[TBD]** olarak işaretli gerçek ürün ekranı asset'leri sağlanmadan ilgili section'ların görsel kısmı kodlanmaz; yerine geçici/sahte bir ekran görüntüsü üretilmez.
+Bu 12 section'lık blueprint (Section 1–12 uygulanmış), HTML/CSS/JS üretimine geçildiğinde şu sırayla kontrol edilir: önce bu dosyadaki içerik hiyerarşisi ve görsel gereksinim, sonra `CONTENT_STRATEGY.md`'deki ilgili madde (gerçeklik/copy sınırı), sonra `DESIGN_SYSTEM.md`'deki ilgili görsel token/kural. **[TBD]** olarak işaretli gerçek ürün ekranı asset'leri sağlanmadan ilgili section'ların görsel kısmı kodlanmaz; yerine geçici/sahte bir ekran görüntüsü üretilmez.

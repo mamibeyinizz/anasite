@@ -150,7 +150,7 @@ Kural: Çeviri özelliği anlatılırken fiil her zaman işletmenin eylemine ba�
 
 Kural: Güvenlik anlatısı mekanizmayı (imzalı ve süresi sınırlı oturum) açıklar, mutlak/garanti dili kullanmaz. "Kilit" ifadesi yalnızca kayıtlı olmayan/geçersiz masa oturumlarında gösterilen müşteri ekranı bağlamında kullanılır.
 
-**Not (bağlam)**: Güvenlik artık ayrı bir homepage section'ı değildir (akıştan çıkarılmış/arşivlenmiştir; `sections/section-9-security.html` arşiv kaynaktır). Yukarıdaki ürün gerçeği ve iddia sınırları aynen geçerlidir; masa oturumu güvenliği itirazı FAQ'de (planlı Section 11) cevaplanır.
+**Not (bağlam)**: Güvenlik artık ayrı bir homepage section'ı değildir (akıştan çıkarılmış/arşivlenmiştir; `sections/section-9-security.html` arşiv kaynaktır). Yukarıdaki ürün gerçeği ve iddia sınırları aynen geçerlidir; masa oturumu güvenliği itirazı FAQ'de (Section 11) cevaplanır.
 
 ### 6.5 Yorum / Feedback
 
@@ -168,7 +168,8 @@ ZIP analizinde kurulum süresi, teknik ön koşullar, onboarding akışı (self-
 **Güncelleme — Section 10 (Kurulum) uygulanmıştır** (`qrmo-setup-v1`, `sections/section-10-installation.html`). Yukarıdaki yasaklar değişmemiştir; uygulanan section süre/kolaylık/otomasyon iddiası içermez ve 4 adımı (Menü; Ürün bilgileri ve diller; Masalar ve QR; Servis ekranı ve deneme) **İşlem → Çıktı** olarak, öznesiz anlatır.
 - **[Kesin]**: adım 01 (ürünler ürün düzenleme ekranında eklenir), adım 02 (CSV/elle dil girişi; filtreler girilen bilgiye bağlı — madde 1.1, 1.5), adım 04 (Servis Paneli, sesli uyarı ve masaüstü bildirimi — madde 1.8, 1.9).
 - **[Muhtemel]**: adım 03 (tek tek/numaralı toplu masa oluşturma, masa başına QR hedefi, PNG ve tek PDF çıktısı) — S4 metninden alınmıştır, ürün kodunda birebir doğrulanmamıştır ve genişletilmez.
-- **TBD (hâlâ doğrulanmadı)**: kurulumu kimin yaptığı, süre, WordPress ön koşulu, hesap/lisans/paket aktivasyonu, Menü Asistanı için API anahtarı, toplu ürün içe aktarma, personelin panele erişim yolu. Bu nedenle S10'da "Başlamadan önce" bloğu yoktur.
+- **Sonradan ürün kodundan doğrulanan — [Kesin]** (qr-menu-suite `ed14cb3`): WordPress eklentisi (WP 6.0+, PHP 7.4+), alan adına bağlı lisans anahtarıyla etkinleştirme, modüllerin lisansa göre açılması, Menü Asistanı için Gemini API anahtarı alanı, Servis Paneli için Firebase ayarları. Bu bilgiler S10 copy'sine eklenmemiştir; WordPress + lisans bilgisi yalnızca Section 11 (FAQ) "Kurulum nasıl gerçekleşir?" cevabında kullanılır.
+- **TBD (hâlâ doğrulanmadı)**: kurulumu kimin yaptığı, süre, paket/lisans içerikleri, API anahtarını kimin sağladığı, toplu ürün içe aktarma, personelin panele erişim yolu. Bu nedenle S10'da "Başlamadan önce" bloğu yoktur ve Section 11 bunları cevaplamaz.
 - Hero'daki "Teknik bilgi gerekmez" satırı bu bölümün kuralıyla çelişir; S10 kapsamı dışında, ayrı bir copy audit maddesidir.
 
 ---
@@ -217,6 +218,17 @@ Yorum/feedback özelliği anlatılacaksa merkezi mesaj şudur:
 
 Bu çerçeve, özelliğin puan manipülasyonu değil, **işletmenin geri bildirimi erken ve doğrudan alması** olduğunu vurgular. Anlatı her zaman "işletme müşteri memnuniyetsizliğini halka açık olmadan önce öğrenir ve çözer" mantığı üzerine kurulur.
 
+### 8.1 Ürün davranışı risk notu — review gating ve teşvikli yorum — [Kesin] (kod) / [Muhtemel] (politika riski)
+
+qr-menu-suite `yorum-feedback` modülünün kodunda (`ed14cb3`, `includes/settings.php`) şunlar bulunur:
+- **Google yorum yönlendirmesi (review gating) varsayılan olarak AÇIKTIR**: `google_review_enabled = 1`, `google_review_threshold = 3.5`. Yalnızca 3.5 ve üstü puan veren müşterilere Google'da değerlendirme önerilir; daha düşük puanlar işletmenin panelinde kalır.
+- **Google yorumu karşılığı indirim kodu (teşvikli yorum) sistemi vardır**, varsayılan olarak **KAPALIDIR**: `qrm_reward_enabled = 0`; açıldığında varsayılan metin "Bizi Google üzerinden puanlayın ve bir sonraki siparişinizde %10 indirim kazanın!" şeklindedir.
+
+Sonuçları:
+- Bu davranış, bu bölümdeki "şikâyeti Google'dan önce siz duyun" çerçevesinin ötesine geçer ve madde 10'daki "Olumsuz yorumları gizliyor musunuz? → Hayır" cevabıyla **çelişir**. Uygulanan Section 11 (FAQ) bu nedenle "gizlemiyoruz" türü bir güvence **vermez**; yalnızca yorumların panelde toplandığını ve olumsuzların ayrı listelendiğini söyler.
+- Seçici yorum yönlendirmesi ve teşvikli yorumun Google'ın yorum politikalarıyla çelişme riski **[Muhtemel]** düzeyindedir; risk ürünü kullanan işletmeye geçer.
+- Varsayılan ayarların ve satış anlatısının nasıl ele alınacağı ürün/pazarlama kararıdır: **TBD**. Karar verilene kadar homepage copy'sinde review gating ya da indirim karşılığı yorum bir fayda olarak **anılmaz**.
+
 ---
 
 ## 9. CTA Stratejisi — [Muhtemel] (genel ilke) / TBD (spesifik akış)
@@ -230,7 +242,7 @@ Bu çerçeve, özelliğin puan manipülasyonu değil, **işletmenin geri bildiri
 
 ## 10. FAQ / İtiraz Giderme Çerçevesi
 
-Not: Güvenlik section'ı homepage akışından çıktığı için güvenlik itirazı yalnızca FAQ'de (planlı Section 11) cevaplanır; aşağıdaki cevap çerçeveleri değişmemiştir.
+Not: Güvenlik section'ı homepage akışından çıktığı için güvenlik itirazı yalnızca FAQ'de (Section 11) cevaplanır. **Section 11 (FAQ) uygulanmış ve kilitlidir** (`qrmo-faq-v1`, `sections/section-11-faq.html`); 8 cevabı qr-menu-suite ürün kodundan (`ed14cb3`) doğrulanmıştır. Aşağıdaki çerçeve itiraz envanteridir; uygulanan FAQ bu çerçeveyle uyumludur, tek istisnası aşağıdaki "Olumsuz yorumları gizliyor musunuz?" satırıdır (bkz. madde 8 risk notu).
 
 Bu bölüm, SSS section'ında **hangi itirazların** ele alınacağını tanımlar; nihai SSS metinlerini yazmaz. Her itiraz, madde 1'deki gerçekle dürüstçe cevaplanacak şekilde kurgulanır — cevap, gerçeği yumuşatmak için belirsizleştirilmez.
 
@@ -249,7 +261,7 @@ Bu bölüm, SSS section'ında **hangi itirazların** ele alınacağını tanıml
 
 ## 11. Ana Sayfa Satış Akışı (Referans Sıra)
 
-**Bu 10 adımlı akış genel bir içerik/satış anlatı çerçevesidir; mevcut homepage section sırası değildir.** Gerçek homepage akışı `HOMEPAGE_ARCHITECTURE.md` madde 0'dadır (Hero → Neler Sunuyoruz → Dil Çeviri → QR Masa → Akıllı Filtre → Chatbot → Servis → Analytics → Geçiş Kararı → Kurulum; FAQ ve Son CTA planlı). Bu çerçevedeki adımlar homepage section'larıyla birebir eşleşmez: Problem ve Çözüm bölümleri homepage'de **şu anda bulunmamaktadır** ve "08 — Güven" adımı aktif bir homepage section'ı değildir (Güvenlik section'ı akıştan çıkarılmıştır).
+**Bu 10 adımlı akış genel bir içerik/satış anlatı çerçevesidir; mevcut homepage section sırası değildir.** Gerçek homepage akışı `HOMEPAGE_ARCHITECTURE.md` madde 0'dadır (Hero → Neler Sunuyoruz → Dil Çeviri → QR Masa → Akıllı Filtre → Chatbot → Servis → Analytics → Geçiş Kararı → Kurulum → FAQ → Son CTA; 12 section'ın tamamı uygulanmıştır). Bu çerçevedeki adımlar homepage section'larıyla birebir eşleşmez: Problem ve Çözüm bölümleri homepage'de **şu anda bulunmamaktadır** ve "08 — Güven" adımı aktif bir homepage section'ı değildir (Güvenlik section'ı akıştan çıkarılmıştır).
 
 İçerik yazılırken başvurulacak çerçeve (bu doküman sadece sırayı ve amacı tanımlar, section içeriğini tanımlamaz):
 

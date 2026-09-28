@@ -7,7 +7,7 @@ Kaynak tespiti, `mamibeyinizz/qr-menu-suite` (public) reposunun bu oturumda salt
 - `qr-menu-suite` koduna dokunmaz (yalnızca okunmuştur).
 - `DESIGN_SYSTEM.md`, `CONTENT_STRATEGY.md`, `HOMEPAGE_ARCHITECTURE.md`, `HOMEPAGE_BLUEPRINT.md` dosyalarını değiştirmez.
 
-**Section numaraları** güncel 12 section'lık homepage akışına göredir: Section 1–10 uygulanmıştır, Section 11 (FAQ) ve 12 (Son CTA) planlıdır (HOMEPAGE_ARCHITECTURE.md madde 0). Önceki sürümlerde kullanılan eşlemeler (Menü Yönetimi → 4, Chatbot → 5, Servis → 6, İstatistik+Menü Mühendisliği → 7, Güvenlik → 8 ya da 9, Yorum/Feedback → 9 ya da 10) artık geçerli değildir. **Güvenlik** aktif homepage section'ı değildir (`sections/section-9-security.html` arşiv kaynaktır); **Yorum/Feedback** planlıdır ve mevcut akıştaki yeri henüz belirlenmemiştir. **Section 9 (Geçiş Kararı) ve Section 10 (Kurulum)** bilinçli olarak ekransız, statik bölümlerdir ve gerçek ürün ekranı asset'i gerektirmez.
+**Section numaraları** güncel 12 section'lık homepage akışına göredir: Section 1–12 uygulanmıştır; son dört section Section 9 Geçiş Kararı → Section 10 Kurulum → Section 11 FAQ → Section 12 Son CTA sırasıyla gelir (HOMEPAGE_ARCHITECTURE.md madde 0). Önceki sürümlerde kullanılan eşlemeler (Menü Yönetimi → 4, Chatbot → 5, Servis → 6, İstatistik+Menü Mühendisliği → 7, Güvenlik → 8 ya da 9, Yorum/Feedback → 9 ya da 10) artık geçerli değildir. **Güvenlik** aktif homepage section'ı değildir (`sections/section-9-security.html` arşiv kaynaktır); **Yorum/Feedback** planlıdır ve mevcut akıştaki yeri henüz belirlenmemiştir. **Section 9 (Geçiş Kararı), Section 10 (Kurulum), Section 11 (FAQ) ve Section 12 (Son CTA)** bilinçli olarak ekransız bölümlerdir ve gerçek ürün ekranı asset'i gerektirmez: S10 ve S12 tamamen statik (HTML + CSS), S9'da yalnızca tek seferlik scroll reveal, S11'de yalnızca erişilebilir accordion JS'i vardır; hiçbirinde mockup, ürün ekranı veya sahte ekran yoktur.
 
 **Asset durumu tanımları:**
 - **[SCREENSHOT_NEEDED]** — Ekranın gerçek kod kaynağı (route/component) tespit edildi, ancak bu bir sunucu tarafında render edilen canlı WordPress admin/frontend ekranıdır; statik kod incelemesinden görsel üretilemez. Ekran görüntüsü, çalışan bir kurulum üzerinden **elle alınmalıdır**.
@@ -31,7 +31,7 @@ Kaynak tespiti, `mamibeyinizz/qr-menu-suite` (public) reposunun bu oturumda salt
 
 ## Referans — Aktif Section Olmayan Kayıtlar (Zorunlu Değil, Klasör Altyapısı Hazır)
 
-Aşağıdaki kayıtlar **aktif homepage section'ı değildir**: Güvenlik akıştan çıkarılmış/arşivlenmiştir, Yorum/Feedback planlıdır ve mevcut akıştaki yeri henüz belirlenmemiştir. `HOMEPAGE_BLUEPRINT.md`'de bu ekranlar **opsiyonel** (zorunlu değil) olarak işaretlenmişti; yine de istenen klasör yapısında (`security/`, `feedback/`) yer aldıkları için kaynakları burada referans olarak not edilmiştir. Güvenlik ekranları ürün kaynakları olarak korunur ve ileride FAQ (Section 11, planlı) için kaynak olabilir:
+Aşağıdaki kayıtlar **aktif homepage section'ı değildir**: Güvenlik akıştan çıkarılmış/arşivlenmiştir, Yorum/Feedback planlıdır ve mevcut akıştaki yeri henüz belirlenmemiştir. `HOMEPAGE_BLUEPRINT.md`'de bu ekranlar **opsiyonel** (zorunlu değil) olarak işaretlenmişti; yine de istenen klasör yapısında (`security/`, `feedback/`) yer aldıkları için kaynakları burada referans olarak not edilmiştir. Güvenlik ekranları ürün kaynakları olarak korunur; masa oturumu güvenliği itirazı artık metin olarak FAQ'de (Section 11) cevaplanır, ekran görüntüsü kullanılmaz:
 
 | Section | Gerekli ekran | Repo'daki gerçek kaynak | Route/Component | Asset durumu | Not |
 |---|---|---|---|---|---|
@@ -57,7 +57,7 @@ assets/
     feedback/
 ```
 
-Her klasör, ilgili section'ın gerçek ekran görüntüleri sağlandığında doğrudan oraya konulacak şekilde hazırlanmıştır (`menu/` → Section 3 ve 5, `chatbot/` → Section 6, `service/` → Section 7, `analytics/` + `menu-engineering/` → Section 8; `security/` → arşivlenmiş Güvenlik kaydı, aktif section değil; `feedback/` → planlı Yorum/Feedback kaydı, akıştaki yeri belirlenmedi). Section 2 (Ürün Haritası), Section 9 (Geçiş Kararı) ve Section 10 (Kurulum) gerçek ürün ekranı gerektirmez (statik/ekransız bölümler); Section 4 (QR Masa) için asset satırı ve klasörü henüz tanımlı değildir. Klasörlerde şu an yalnızca `.gitkeep` bulunur; tek istisna `menu/` altındaki, herhangi bir section'a eşlenmemiş bir `.webp` dosyasıdır.
+Her klasör, ilgili section'ın gerçek ekran görüntüleri sağlandığında doğrudan oraya konulacak şekilde hazırlanmıştır (`menu/` → Section 3 ve 5, `chatbot/` → Section 6, `service/` → Section 7, `analytics/` + `menu-engineering/` → Section 8; `security/` → arşivlenmiş Güvenlik kaydı, aktif section değil; `feedback/` → planlı Yorum/Feedback kaydı, akıştaki yeri belirlenmedi). Section 2 (Ürün Haritası), Section 9 (Geçiş Kararı), Section 10 (Kurulum), Section 11 (FAQ) ve Section 12 (Son CTA) gerçek ürün ekranı gerektirmez (ekransız bölümler); Section 4 (QR Masa) için asset satırı ve klasörü henüz tanımlı değildir. Klasörlerde şu an yalnızca `.gitkeep` bulunur; tek istisna `menu/` altındaki, herhangi bir section'a eşlenmemiş bir `.webp` dosyasıdır.
 
 ---
 

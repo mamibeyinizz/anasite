@@ -1,0 +1,365 @@
+<section class="qrmo-final-cta-v1" aria-labelledby="qrmo-final-cta-v1-title">
+
+  <div class="qrmo-final-cta-v1__inner">
+
+    <div class="qrmo-final-cta-v1__panel">
+
+      <div class="qrmo-final-cta-v1__eyebrow">
+        <span aria-hidden="true"></span>
+        <strong>QR MENU OFFICIAL</strong>
+      </div>
+
+      <h2 id="qrmo-final-cta-v1-title" class="qrmo-final-cta-v1__title">
+        Menü, masa ve servis<br class="qrmo-final-cta-v1__br">
+        tek akışta.
+      </h2>
+
+      <p class="qrmo-final-cta-v1__lead">
+        Müşteri menüyü kendi dilinde inceler, sorar, garsonu ya da hesabı çağırır;
+        talep masa bilgisiyle servis paneline düşer. Hepsi tek sistemin parçası.
+      </p>
+
+      <!-- =====================================================
+           CTA — HEDEF TBD
+           Section 9 CTA'sıyla aynı hedefe bağlanması beklenir.
+           Hedef doğrulandığında yalnızca bu elemana href eklenir.
+           href yokken link değildir; sahte hedefe gitmez.
+      ====================================================== -->
+
+      <div class="qrmo-final-cta-v1__action">
+        <a class="qrmo-final-cta-v1__cta" data-cta-target="TBD">
+          <span>Geçiş İçin Bilgi Alın</span>
+          <b aria-hidden="true">→</b>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* =========================================================
+   QR MENU OFFICIAL — SON CTA V1 (SECTION 12)
+
+   Sayfanın son content section'ı. Statik: JS / animasyon yok.
+   Tek panel (koyu yeşil), tek birincil CTA. CTA hedefi TBD:
+   href yok. Dış section arka plansız.
+========================================================= */
+
+.qrmo-final-cta-v1 {
+  --qc-green: #0D2B22;
+  --qc-green-2: #173226;
+  --qc-green-3: #1E3D2F;
+  --qc-gold: #C9A84C;
+  --qc-gold-light: #E8C766;
+  --qc-cream: #F4F1E8;
+
+  width: 100%;
+  margin: 0;
+  /* S11 içerik altı → S12 içerik üstü: 50 + 70 = 120px.
+     Sayfanın son section'ı: alt boşluk ölçülü tutulur. */
+  padding: 70px 0 60px;
+  background: transparent !important;
+  position: relative;
+  font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.qrmo-final-cta-v1 *,
+.qrmo-final-cta-v1 *::before,
+.qrmo-final-cta-v1 *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LAYOUT — desktop 5vw gutter (Section 2–11 hattı)
+========================================================= */
+
+.qrmo-final-cta-v1__inner {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.qrmo-final-cta-v1__panel {
+  position: relative;
+  padding: clamp(48px, 5.5vw, 84px) clamp(28px, 6vw, 96px);
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,.18);
+  border-radius: 21px;
+  background:
+    radial-gradient(
+      90% 120% at 100% 0%,
+      rgba(201,168,76,.10) 0%,
+      rgba(201,168,76,0) 60%
+    ),
+    linear-gradient(
+      160deg,
+      var(--qc-green) 0%,
+      var(--qc-green-2) 62%,
+      var(--qc-green-3) 100%
+    );
+  color: var(--qc-cream);
+  text-align: center;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.qrmo-final-cta-v1__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 19px;
+}
+
+.qrmo-final-cta-v1__eyebrow > span {
+  width: 30px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: var(--qc-gold);
+}
+
+.qrmo-final-cta-v1__eyebrow strong {
+  color: var(--qc-gold-light);
+  font-size: 11px;
+  letter-spacing: 1.35px;
+  line-height: 1;
+  font-weight: 750;
+}
+
+.qrmo-final-cta-v1__title {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 820px;
+  color: var(--qc-cream);
+  font-size: clamp(40px, 4.3vw, 59px);
+  line-height: .98;
+  letter-spacing: -2.15px;
+  font-weight: 800;
+}
+
+.qrmo-final-cta-v1__lead {
+  max-width: 600px;
+  margin: 24px auto 0;
+  color: rgba(244,241,232,.78);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.qrmo-final-cta-v1__action {
+  margin-top: 34px;
+}
+
+/* CTA — hedef TBD. href yokken hover/pointer yok. */
+.qrmo-final-cta-v1__cta {
+  min-width: 245px;
+  min-height: 52px;
+  padding: 0 18px 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--qc-gold);
+  color: var(--qc-green) !important;
+  text-decoration: none !important;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 750;
+  cursor: default;
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.qrmo-final-cta-v1__cta[href] {
+  cursor: pointer;
+}
+
+.qrmo-final-cta-v1__cta[href]:hover {
+  color: var(--qc-green) !important;
+  text-decoration: none !important;
+  background: var(--qc-gold-light);
+  transform: translateY(-2px);
+}
+
+.qrmo-final-cta-v1__cta:focus-visible {
+  outline: 2px solid var(--qc-gold-light);
+  outline-offset: 4px;
+}
+
+.qrmo-final-cta-v1__cta b {
+  color: var(--qc-green);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .qrmo-final-cta-v1__cta {
+    transition: none;
+  }
+
+  .qrmo-final-cta-v1__cta[href]:hover {
+    transform: none;
+  }
+
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .qrmo-final-cta-v1__title {
+    font-size: clamp(38px, 4.3vw, 53px);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET — ≤900: 20px gutter
+========================================================= */
+
+@media (max-width: 900px) {
+
+  /* S11 ≤900'de 60px alt padding: 60 + 60 = 120px */
+  .qrmo-final-cta-v1 {
+    padding: 60px 0 56px;
+  }
+
+  .qrmo-final-cta-v1__inner {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .qrmo-final-cta-v1__title {
+    font-size: 39px;
+    letter-spacing: -1.5px;
+  }
+
+  .qrmo-final-cta-v1__lead {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE — ≤767
+========================================================= */
+
+@media (max-width: 767px) {
+
+  /* S11 ≤767'de 55px alt padding: 55 + 45 = 100px */
+  .qrmo-final-cta-v1 {
+    padding: 45px 0 48px;
+  }
+
+  .qrmo-final-cta-v1__panel {
+    padding: 44px 22px 40px;
+    border-radius: 18px;
+  }
+
+  .qrmo-final-cta-v1__title {
+    font-size: 37px;
+    line-height: .99;
+    letter-spacing: -1.4px;
+  }
+
+  .qrmo-final-cta-v1__lead {
+    margin-top: 20px;
+  }
+
+  .qrmo-final-cta-v1__action {
+    margin-top: 28px;
+  }
+
+  .qrmo-final-cta-v1__cta {
+    width: 100%;
+    min-width: 0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE SMALL
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .qrmo-final-cta-v1__eyebrow {
+    margin-bottom: 16px;
+  }
+
+  .qrmo-final-cta-v1__eyebrow > span {
+    width: 24px;
+  }
+
+  .qrmo-final-cta-v1__eyebrow strong {
+    font-size: 8.5px;
+    letter-spacing: .9px;
+  }
+
+  .qrmo-final-cta-v1__title {
+    font-size: 33px;
+    line-height: .98;
+    letter-spacing: -1.25px;
+  }
+
+  /* Dar ekranda zorunlu satır kırılması "servis"i tek başına bırakıyordu */
+  .qrmo-final-cta-v1__br {
+    display: none;
+  }
+
+  .qrmo-final-cta-v1__lead {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.52;
+  }
+
+}
+
+
+/* ≤480: Hero / Section 2–11 ile aynı 16px gutter */
+@media (max-width: 480px) {
+
+  .qrmo-final-cta-v1__inner {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .qrmo-final-cta-v1__panel {
+    padding: 40px 18px 36px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 370px) {
+
+  .qrmo-final-cta-v1__title {
+    font-size: 30px;
+  }
+
+}
+
+</style>
