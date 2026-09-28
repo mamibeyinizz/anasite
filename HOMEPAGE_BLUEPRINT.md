@@ -1,6 +1,6 @@
 # Homepage Content + Visual Blueprint — QR Menu Official
 
-Bu doküman, `HOMEPAGE_ARCHITECTURE.md`'deki 12 section'ı temel alarak her section için **içerik yapısı** ve **görsel/UI blueprint**'i tanımlar.
+Bu doküman, `HOMEPAGE_ARCHITECTURE.md`'deki 13 section'ı (güncel homepage akışı) temel alarak her section için **içerik yapısı** ve **görsel/UI blueprint**'i tanımlar.
 
 Bu dosya:
 - Nihai pazarlama metni **değildir** — yalnızca içerik hiyerarşisi (kicker/H2/açıklama/destekleyici nokta/CTA amacı) tanımlar.
@@ -8,7 +8,9 @@ Bu dosya:
 - `DESIGN_SYSTEM.md`, `CONTENT_STRATEGY.md`, `HOMEPAGE_ARCHITECTURE.md` dosyalarını değiştirmez; onlara aykırı hiçbir karar içermez.
 - Etiket sistemi: **[Kesin]**, **[Muhtemel]**, **[Tahmin]**, **TBD**.
 
-**Genel not — gerçek ürün ekranı asset durumu**: Bu repodaki `assets/` klasörü şu an boştur (yalnızca `.gitkeep`). Aşağıda "gerçek ürün ekranı zorunlu" denen her yerde, özelliğin kendisi ürün gerçeği olarak **[Kesin]** olsa bile, o ekranın **görsel asset'i bu repoda henüz mevcut değildir** — bu, ilgili section'ın görsel kısmı için ayrıca **[TBD]** olarak işaretlenmiştir. Gerçek ekran görüntüsü sağlanmadan hayali/sahte bir dashboard **üretilmeyecektir**.
+**Section sırası notu**: Section 1–7 homepage'de uygulanmıştır (entegre hâli `claude/section-6-chatbot-audit-5aah0t` branch'indedir; `main`'de yalnızca Hero vardır). Section 8–13 henüz uygulanmamıştır. Önceki 12 section'lık sürümdeki Problem ve Çözüm section'ları mevcut homepage akışında yer almaz (bkz. HOMEPAGE_ARCHITECTURE.md madde 0.1, 0.2).
+
+**Genel not — gerçek ürün ekranı asset durumu**: Bu repodaki `assets/product/` klasörlerinde henüz section'lara eşlenmiş gerçek ekran görüntüsü yoktur (yalnızca `.gitkeep` ve `menu/` altında eşlenmemiş tek bir `.webp` dosyası). Aşağıda "gerçek ürün ekranı zorunlu" denen her yerde, özelliğin kendisi ürün gerçeği olarak **[Kesin]** olsa bile, o ekranın **görsel asset'i bu repoda henüz mevcut değildir** — bu, ilgili section'ın görsel kısmı için ayrıca **[TBD]** olarak işaretlenmiştir. Gerçek ekran görüntüsü sağlanmadan hayali/sahte bir dashboard **üretilmeyecektir**.
 
 ---
 
@@ -16,7 +18,7 @@ Bu dosya:
 
 **1. Satış amacı**: Ziyaretçi "bu sadece bir QR kod menüsü değil, restoranımın müşteri etkileşimini ve operasyonunu tek yerde toplayan bir sistem" düşüncesine ulaşmalı.
 
-**2. Problem**: Doğrudan işlenmez; Hero bir problem sahnesi değil, konumlandırma anıdır. Problem Section 2'ye bırakılır.
+**2. Problem**: Doğrudan işlenmez; Hero bir problem sahnesi değil, konumlandırma anıdır. Problemler ilgili modül section'larında (3–10) ele alınır.
 
 **3. Ürün gerçeği**: QR ile menüye anında erişim; ürünün QR→MENÜ→SEÇ→SOR→ÇAĞIR→SERVİS→ÖĞREN akışının giriş noktası olduğu (CONTENT_STRATEGY.md madde 3) — **[Kesin]**.
 
@@ -37,7 +39,7 @@ Bu dosya:
 
 **9. Güven/kanıt**: Gerekmez; Hero bir konumlandırma anıdır, kanıt sonraki section'larda (gerçek ekranlar, mekanizma açıklamaları) gelir.
 
-**10. Bir sonraki section bağlantısı**: Hero "ne olduğunu" anlatır ama "neden ihtiyacım var" sorusunu açık bırakır; bu soru Section 2'deki somut problem sahnesiyle kapanır.
+**10. Bir sonraki section bağlantısı**: Hero "ne olduğunu" genel olarak anlatır; Section 2 (Ürün Haritası) bunu ürün alanlarına ayırır.
 
 **11. Riskler**: Abartı dili ("devrim", "kusursuz"); feature-row'un 4'ten fazla öğeye çıkıp feature-card kalabalığına dönüşmesi (DESIGN_SYSTEM.md madde 1 yasağı); genel SaaS/ajans tonuna kayma.
 
@@ -45,106 +47,139 @@ Bu dosya:
 
 ---
 
-## SECTION 2 — Problem: Restoranın Günlük Sorunu
+## SECTION 2 — Ürün Haritası / Neler Sunuyoruz
 
-**1. Satış amacı**: Ziyaretçi "bu tam olarak benim işletmemde yaşadığım bir gün" demeli.
+**1. Satış amacı**: Ziyaretçi "bu sistem restoranımın hangi alanlarını kapsıyor" sorusuna tek bakışta cevap bulmalı.
 
-**2. Problem**: CONTENT_STRATEGY.md madde 2'deki envanterden öncelikli 2-3 tanesi: personel meşguliyeti (soru trafiği), kaçan/geç fark edilen çağrılar, menü güncelleme yükü.
+**2. Problem**: Doğrudan tek bir problem işlenmez; ürün kapsamının dağınık algılanması önlenir.
 
-**3. Ürün gerçeği**: Bu section'da özellik tanıtılmaz; yalnızca problem sahnesi kurulur. Dayanak: madde 1.6, 1.7 (chatbot/personel), 1.8 (çağrılar), 1.3 (menü/kampanya güncelleme).
+**3. Ürün gerçeği**: Uygulanan içerik 4 alan altında 8 özellik gruplar (Menü Yönetimi, Akıllı Deneyim, Sipariş & Servis, Müşteri Deneyimi) — **[Kesin]** (entegre kod, commit `63b1d97`). Her özellik iddiası CONTENT_STRATEGY.md madde 1 sınırlarına bağlıdır.
 
-**4. Ana mesaj**: Somut, tanınabilir, günlük bir operasyonel an; dramatize edilmemiş, rakamsız.
-
-**5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: Sahneyi çerçeveleyen kısa bir etiket (ör. "tanıdık bir an" düzeyinde bir çerçeve; nihai değil).
-- **H2**: Problemi tek cümlede özetleyen başlık (yer tutucu, final değil).
-- **Kısa açıklama**: Sahneyi somutlaştıran 1-2 cümlelik anlatım.
-- **2–3 destekleyici nokta**: Madde 2 tablosundan seçilen 2-3 problem satırının kısa ifadeleri.
-- **CTA amacı**: Yok — bu section'da CTA erken karar baskısı yaratır.
-
-**6. Görsel/UI**: Gerçek ürün ekranı **zorunlu değildir** — bu bir "önce" sahnesidir, ürün henüz gösterilmez. Sade/editorial bir görsel (ör. soyutlanmış, aşırı detaylandırılmamış bir sahne) veya salt tipografik bir yaklaşım tercih edilebilir. Sahte "kaotik/panik restoran" illüstrasyonu SaaS klişesi sayılır ve kullanılmaz (DESIGN_SYSTEM.md madde 1).
-
-**7. Layout**: Hero'nun koyu/geniş grid yapısının aksine, burada dar ölçülü (narrow measure), tek sütun bir metin bloğu ve bol whitespace uygundur. Zemin tonu Hero'nun koyu (deep forest) zemininden görsel olarak ayrışan, daha sakin/nötr bir yüzey önerilir — kesin renk DESIGN_SYSTEM.md'de TBD olduğundan burada da netleştirilemez, yalnızca kontrast önerisi.
-
-**8. CTA**: Gerekmiyor.
-
-**9. Güven/kanıt**: Gerekmiyor — bu bir empati/tanıma anıdır, henüz kanıt sunulmaz.
-
-**10. Bir sonraki section bağlantısı**: Problemin işletmeye etkisi ima edilerek, "bunların hepsi tek bir sistemde toplanıyor" çözüm özetine (Section 3) geçilir.
-
-**11. Riskler**: Korku pazarlaması / abartılı dramatizasyon; rakamsal iddia ("işletmelerin %60'ı..." gibi) kullanmak — kesinlikle yasak.
-
-**Durum: [Muhtemel]** (problem envanteri madde 1'den türetilmiştir, doğrudan anketle doğrulanmamıştır)
-
----
-
-## SECTION 3 — Çözüm: Akış Özeti
-
-**1. Satış amacı**: "Bu dağınık araçlar değil, tek bir uçtan uca sistem" düşüncesi.
-
-**2. Problem**: Section 2'deki dağınıklık/kontrolsüzlük hissine karşılık verir.
-
-**3. Ürün gerçeği**: CONTENT_STRATEGY.md madde 3'teki 7 adımlı akışın tamamı: QR → MENÜ → SEÇ → SOR → ÇAĞIR → SERVİS → ÖĞREN — **[Kesin]**.
-
-**4. Ana mesaj**: "Bir kere kurulur, uçtan uca işler" çerçevesi; akışın bütünlüğü vurgulanır, tek tek özellik satışı yapılmaz.
+**4. Ana mesaj**: Özellikler bağlamsız bir liste değil, günlük kullanım alanlarına göre gruplanmış bir haritadır.
 
 **5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: "Nasıl işler" düzeyinde bir çerçeve etiketi.
-- **H2**: Akışın bütünlüğünü vurgulayan tek cümlelik başlık.
-- **Kısa açıklama**: 7 adımı tek cümlede özetleyen bağlayıcı ifade.
-- **Destekleyici içerik**: Klasik "destekleyici nokta" listesi değil, 7 adımın kendisi (akış diyagramının etiketleri) — madde 3 tablosundaki adlandırma setlerinden biri tutarlı şekilde kullanılır.
+- **Kicker/eyebrow**: "Neler Sunuyoruz" düzeyinde bir etiket.
+- **H2**: Ürün alanlarını özetleyen tek cümlelik başlık.
+- **Kısa açıklama**: Özelliklerin kullanım noktalarına göre gruplandığını söyleyen alt satır.
+- **Destekleyici içerik**: 4 alan × 2 özellik; her özellik kısa başlık + tek cümle.
 - **CTA amacı**: Yok.
 
-**6. Görsel/UI**: Akış diyagramı — bu kavramsal bir süreç görselleştirmesidir, gerçek ürün ekranı zorunlu değildir. Opsiyonel olarak her adımın yanında küçük, gerçek bir UI ipucu (mini ikon/kırpılmış gerçek ekran parçası) kullanılabilir; bu opsiyonel öğeler için de gerçek görsel yoksa uydurulmaz, boş/nötr bırakılır.
+**6. Görsel/UI**: Editorial 2x2 kategori haritası; kart/gölge kullanılmaz — **[Kesin]** (uygulama). Gerçek ürün ekranı gerekmez.
 
-**7. Layout**: Yatay/aşamalı bir stepper (7 durak); mobilde tek sütun dikey akışa döner (DESIGN_SYSTEM.md madde 12 genel mobile-first ilkesi — Hero'nun spesifik grid oranı buraya kopyalanmaz).
+**7. Layout**: Hero V3 ile aynı yatay hat (5vw / 20px / 16px) — **[Kesin]** (uygulama).
 
 **8. CTA**: Gerekmiyor.
 
-**9. Güven/kanıt**: Gerekmiyor; kanıt niteliği akışın kendisinin somutluğundan gelir.
+**9. Güven/kanıt**: Gerekmiyor; kanıt ilgili modül section'larında gelir.
 
-**10. Bir sonraki section bağlantısı**: Akıştaki "MENÜ/SEÇ" adımı vurgulanarak Section 4'e (Menü Yönetimi) doğal geçiş sağlanır.
+**10. Bir sonraki section bağlantısı**: Haritadaki alanlar sonraki modül section'larında (3–8) tek tek açılır; ilk açılan Dil Çeviri'dir (Section 3).
 
-**11. Riskler**: 7 adımı ayrık kartlar halinde dizip klasik feature-grid'e dönüştürmek (DESIGN_SYSTEM.md madde 9 kart yasağı); adım isimlerini (SEÇ/ÇAĞIR/ÖĞREN vs. Keşif/Garson-Hesap/Analiz) aynı section içinde karıştırmak.
+**11. Riskler**: Haritanın kart yığınına dönüşmesi (DESIGN_SYSTEM.md madde 9); haritada ürünün sunmadığı bir özelliğin yer alması. Haritada Section 8'in (Analytics + Menü Mühendisliği) karşılığı şu an yoktur — **[Kesin]**.
 
-**Durum: [Kesin]** (akışın kendisi) / **[Muhtemel]** (bu sunum biçimi)
+**Durum: [Kesin]** (entegre)
 
 ---
 
-## SECTION 4 — Menü Yönetimi & Akıllı Menü Deneyimi
+## SECTION 3 — Dil Çeviri Modülü
 
-**1. Satış amacı**: "Menümü kolayca güncelleyebilirim, müşteri de aradığını kolayca bulabilir" düşüncesi.
+**1. Satış amacı**: "Yabancı müşterim menümü kendi dilinde okuyabilir" düşüncesi.
 
-**2. Problem**: Menü güncelleme yükü, çok dilli müşteriye hizmet, diyet/alerjen kısıtlaması olan müşteriye doğru ürünü gösterme zorluğu (CONTENT_STRATEGY.md madde 2).
+**2. Problem**: Çok dilli müşteriye hizmet vermek manuel çeviri yükü doğurur (CONTENT_STRATEGY.md madde 2).
 
-**3. Ürün gerçeği**: Filtreler ilgili ürün bilgisinin girilmesine bağlıdır (madde 1.5); çoklu dil CSV/veritabanı/manuel çeviri girişiyle çalışır (madde 1.1, madde 6.3) — **[Kesin]**.
+**3. Ürün gerçeği**: Çoklu dil CSV/veritabanı/manuel çeviri girişiyle çalışır (madde 1.1, madde 6.3) — **[Kesin]**.
 
-**4. Ana mesaj**: "Siz girersiniz/tanımlarsınız, sistem düzenli ve erişilebilir şekilde sunar" — hem yönetim (işletme) hem deneyim (müşteri) tarafı aynı çerçevede.
+**4. Ana mesaj**: Dilleri işletme tanımlar, sistem bunları düzenli şekilde sunar; müşteri dilini seçer.
 
 **5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: "Menü Yönetimi" düzeyinde bir etiket.
-- **H2**: Yönetim kolaylığı + müşteri deneyimini birleştiren başlık.
-- **Kısa açıklama**: Filtrelerin ve çoklu dilin veri girişine dayandığını dürüstçe belirten alt satır.
-- **2–4 destekleyici nokta**: (a) fiyat/ürün güncelleme, (b) alerjen/diyet filtreleri, (c) çoklu dil desteği (CSV/manuel), (d) opsiyonel: görsel/menü sunumu.
-- **CTA amacı**: Gerekirse yalnızca ikincil/düşük vurgulu ("örnek menüyü incele" düzeyinde); section'ın birincil CTA'sı değildir.
+- **Kicker/eyebrow**: Modül etiketi.
+- **H2**: Modül adını taşıyan başlık.
+- **Kısa açıklama**: Menünün müşterinin dilinde sunulduğunu anlatan alt satır.
+- **2–3 destekleyici nokta**: Dil seçimi, ürün/kategori bilgisinin seçilen dile uyarlanması.
+- **CTA amacı**: Yalnızca düşük vurgulu keşif eylemi; birincil CTA değildir.
 
-**6. Görsel/UI**: **Gerçek ürün ekranı zorunlu** — (a) gerçek müşteri menü arayüzü (filtre çipleri, dil seçici gibi gerçek UI elemanlarıyla) ve (b) gerçek admin menü düzenleme ekranı. Bu ikisi de bu repoda henüz mevcut değil → **[TBD]** (asset sağlanmalı; sağlanana kadar hayali dashboard/menü ekranı üretilmez).
+**6. Görsel/UI**: Uygulamada kod içi animasyonlu dil seçimi demosu kullanılır — **[Kesin]**. Gerçek müşteri menüsü ekran görüntüsü **[SCREENSHOT_NEEDED]** (PRODUCT_SCREEN_ASSETS.md).
 
-**7. Layout**: İki taraflı (split) bir düzen — bir yanda işletme/admin tarafı, diğer yanda müşteri deneyimi tarafı; DESIGN_SYSTEM.md madde 5'teki "grid anlam ilişkisini yansıtır" ilkesine uygun ama oran/padding bu section için ayrıca belirlenmelidir (Hero'nun 1.08/0.92 oranı otomatik kopyalanmaz).
+**7. Layout**: İçerik + demo iki kolon; mobilde tek kolon — **[Kesin]** (uygulama).
 
-**8. CTA**: Section'ın birincil CTA'sı değil; gerekiyorsa yalnızca düşük vurgulu bir keşif eylemi.
+**8. CTA**: Birincil CTA değildir.
 
-**9. Güven/kanıt**: Kanıt, gerçek ekran görüntüsünün kendisidir; ayrıca sayısal kanıt (ör. "%X daha hızlı güncelleme") kullanılmaz.
+**9. Güven/kanıt**: Sayısal kanıt ("X dil otomatik") kullanılmaz.
 
-**10. Bir sonraki section bağlantısı**: Müşteri menüde gezinirken bir soru sorma ihtiyacı doğar — bu, Section 5'teki (Chatbot) doğal geçiş noktasıdır.
+**10. Bir sonraki section bağlantısı**: Menünün müşteriye ulaştığı fiziksel nokta — Section 4 (QR Masa).
 
-**11. Riskler**: Çeviriyi "otomatik/AI/kusursuz çeviri" olarak sunmak (**kesin yasak**, CONTENT_STRATEGY.md madde 1.1, 7); filtreleri "otomatik algılama" gibi sunmak (madde 1.5); bu section'ı tek başına bir "özellik listesi" haline getirmek — tek ana fikir (menüyü siz yönetirsiniz, sistem sunar) korunmalı.
+**11. Riskler**: Çeviriyi "otomatik/AI/kusursuz çeviri" olarak sunmak (**kesin yasak**, CONTENT_STRATEGY.md madde 1.1, 7).
 
-**Durum: [Kesin]** (özellik) / **[TBD]** (gerçek ekran görseli asset'i)
+**Durum: [Kesin]** (özellik ve uygulama) / **[SCREENSHOT_NEEDED]** (gerçek ekran)
 
 ---
 
-## SECTION 5 — Chatbot
+## SECTION 4 — QR Masa
+
+**1. Satış amacı**: "Masalarımı ve QR kodlarımı kendim kolayca hazırlarım" düşüncesi.
+
+**2. Problem**: Masa bazlı QR hazırlığının işletme için operasyonel bir yük olması.
+
+**3. Ürün gerçeği**: Tekli/toplu masa oluşturma ve masa başına QR kodu uygulanan copy'de yer alır; ürün modülü `qr-menu-suite/modules/qr-masa` — **[Kesin]** (modülün varlığı) / **[Muhtemel]** (copy ayrıntılarının modül davranışıyla birebir doğrulanması bu dosyada yapılmamıştır).
+
+**4. Ana mesaj**: Masa ve QR hazırlığı işletmenin yönettiği bir adımdır.
+
+**5. Copy hiyerarşisi**
+- **Kicker/eyebrow**: Modül etiketi.
+- **H2**: "Sınırsız QR Masa" düzeyinde başlık — **[Kesin]** (uygulama).
+- **Kısa açıklama**: Masa oluşturma ve QR hazırlama akışının kısa tarifi.
+- **2–3 destekleyici nokta**: Tekli/toplu oluşturma ve ilgili adımlar.
+- **CTA amacı**: Birincil CTA değildir.
+
+**6. Görsel/UI**: Uygulamada kod içi animasyonlu demo — **[Kesin]**. Gerçek ekran asset'i PRODUCT_SCREEN_ASSETS.md'de tanımlı değildir.
+
+**7. Layout**: Demo + içerik iki kolon; mobilde tek kolon — **[Kesin]** (uygulama).
+
+**8. CTA**: Birincil CTA değildir.
+
+**9. Güven/kanıt**: Masa oturumu güvenliği bu section'da değil, Section 9'da (Güvenlik) ele alınır.
+
+**10. Bir sonraki section bağlantısı**: Müşteri QR'ı okutup menüye geldiğinde aradığını bulma ihtiyacı — Section 5 (Akıllı Filtre).
+
+**11. Riskler**: Güvenlik veya süre ("saniyeler içinde") iddiası kurmak (CONTENT_STRATEGY.md madde 6.4, madde 7).
+
+**Durum: [Kesin]** (uygulama) / **[Muhtemel]** (ürün davranışıyla ayrıntılı eşleşme)
+
+---
+
+## SECTION 5 — Akıllı Filtre
+
+**1. Satış amacı**: "Müşterim aradığı ürünü kendi tercihine göre hızlıca bulur" düşüncesi.
+
+**2. Problem**: Diyet/alerjen kısıtlaması olan müşteriye doğru ürünü göstermek zordur (CONTENT_STRATEGY.md madde 2).
+
+**3. Ürün gerçeği**: Filtreler ilgili ürün bilgisinin girilmesine bağlıdır (madde 1.5) — **[Kesin]**.
+
+**4. Ana mesaj**: Sıralama ve filtreler işletmenin girdiği ürün bilgileriyle çalışır; müşteri menüyü kendi tercihine göre daraltır.
+
+**5. Copy hiyerarşisi**
+- **Kicker/eyebrow**: Modül etiketi.
+- **H2**: "Aradığına Göre Filtrelenen Menü" düzeyinde başlık — **[Kesin]** (uygulama).
+- **Kısa açıklama**: Filtrelerin girilen bilgiye dayandığını açıkça belirten alt satır — **[Kesin]** (uygulama).
+- **2–3 destekleyici nokta**: Sıralama, alerjen hariç tutma, tek panelde filtre.
+- **CTA amacı**: Birincil CTA değildir.
+
+**6. Görsel/UI**: Uygulamada kod içi animasyonlu filtre demosu — **[Kesin]**. Gerçek müşteri menüsü ekran görüntüsü **[SCREENSHOT_NEEDED]**.
+
+**7. Layout**: İçerik + demo iki kolon; mobilde tek kolon — **[Kesin]** (uygulama).
+
+**8. CTA**: Birincil CTA değildir.
+
+**9. Güven/kanıt**: Kanıt, filtrelerin veri girişine bağlı olduğunun dürüstçe söylenmesidir.
+
+**10. Bir sonraki section bağlantısı**: Müşteri menüde gezinirken soru sorma ihtiyacı doğar — Section 6 (Chatbot).
+
+**11. Riskler**: Filtreleri "otomatik algılama" gibi sunmak (madde 1.5).
+
+**Durum: [Kesin]** (özellik ve uygulama) / **[SCREENSHOT_NEEDED]** (gerçek ekran)
+
+---
+
+## SECTION 6 — Chatbot / Menü Asistanı
 
 **1. Satış amacı**: "Müşterimin sorusu cevapsız kalmaz, personelim de her soruya tekrar tekrar cevap vermek zorunda kalmaz" düşüncesi.
 
@@ -161,7 +196,7 @@ Bu dosya:
 - **2–3 destekleyici nokta**: (a) yaygın soruları yanıtlama, (b) cevaplanamayan soruları raporlama, (c) personelin görüşmeyi devralması.
 - **CTA amacı**: Yok.
 
-**6. Görsel/UI**: **Gerçek ürün ekranı zorunlu** — gerçek chatbot konuşma arayüzü (soru + cevap + "personel devraldı" durumu). Bu repoda mevcut değil → **[TBD]**.
+**6. Görsel/UI**: **Gerçek ürün ekranı hedeflenir** — gerçek chatbot konuşma arayüzü (soru + cevap + "personel devraldı" durumu). Bu repoda mevcut değil → **[TBD]**. Uygulamada kod içi animasyonlu sohbet demosu kullanılmaktadır — **[Kesin]**.
 
 **7. Layout**: Tek odaklı, dikey sohbet balonu görünümü; metin/görsel yan yana (split) düzen önerilir, Hero'nun grid oranı buraya kopyalanmaz.
 
@@ -169,7 +204,7 @@ Bu dosya:
 
 **9. Güven/kanıt**: Kanıt = gerçek konuşma ekran görüntüsü (sağlandığında). "Sorularınızın %X'ini çözer" gibi sayısal kanıt kullanılmaz (doğrulanmadı).
 
-**10. Bir sonraki section bağlantısı**: Chatbot'un devredemediği veya müşterinin doğrudan istediği bir aksiyon (garson çağırma, hesap isteme) — Section 6'ya (Garson+Hesap+Servis) doğal geçiştir; akışta SOR'dan sonra ÇAĞIR gelir (madde 3).
+**10. Bir sonraki section bağlantısı**: Chatbot'un devredemediği veya müşterinin doğrudan istediği bir aksiyon (garson çağırma, hesap isteme) — Section 7'ye (Garson+Hesap+Servis) doğal geçiştir; akışta SOR'dan sonra ÇAĞIR gelir (madde 3).
 
 **11. Riskler**: "Her soruyu bilir", "%100 doğru cevap", "personelsiz çalışır" iddiaları (**kesin yasak**, CONTENT_STRATEGY.md madde 6.1).
 
@@ -177,7 +212,7 @@ Bu dosya:
 
 ---
 
-## SECTION 6 — Garson + Hesap + Servis Paneli
+## SECTION 7 — Garson + Hesap + Servis Paneli
 
 **1. Satış amacı**: "Çağrılar kaybolmaz, hepsini tek ekrandan takip ederim" düşüncesi.
 
@@ -194,7 +229,7 @@ Bu dosya:
 - **2–3 destekleyici nokta**: (a) garson çağrısı, (b) hesap isteği, (c) sesli/masaüstü bildirim.
 - **CTA amacı**: Yok.
 
-**6. Görsel/UI**: **Gerçek ürün ekranı zorunlu** — müşteri tarafı (çağrı butonuna basma anı) + işletme tarafı (gerçek Servis Paneli ekranı, bildirim göstergesi). Bu repoda mevcut değil → **[TBD]**.
+**6. Görsel/UI**: **Gerçek ürün ekranı hedeflenir** — müşteri tarafı (çağrı butonuna basma anı) + işletme tarafı (gerçek Servis Paneli ekranı, bildirim göstergesi). Bu repoda mevcut değil → **[TBD]**. Uygulamada kod içi animasyonlu servis akışı demosu kullanılmaktadır — **[Kesin]**.
 
 **7. Layout**: İki-panel karşılaştırma (müşteri eylemi → işletme ekranı), aralarında nedensellik hissi veren ince bir bağlantı/ok öğesi; ayrık kart yığını değil.
 
@@ -202,7 +237,7 @@ Bu dosya:
 
 **9. Güven/kanıt**: Kanıt = gerçek panel ekran görüntüsü. Yanıt süresi/oranı gibi sayısal kanıt kullanılmaz (doğrulanmadı, madde 1.8).
 
-**10. Bir sonraki section bağlantısı**: Servis Paneli'nin ürettiği kullanım verisi (çağrı sayısı, süreç) doğal olarak Section 7'deki (İstatistikler) veri temasına bağlanır.
+**10. Bir sonraki section bağlantısı**: Bu etkileşimlerin ürettiği kullanım verisi doğal olarak Section 8'deki (Analytics) veri temasına bağlanır.
 
 **11. Riskler**: "Anında servis garantisi", "asla kaçırmazsınız" gibi mutlak ifadeler (madde 1.8'e aykırı, çünkü yanıt hızı işletmeye bağlıdır).
 
@@ -210,40 +245,46 @@ Bu dosya:
 
 ---
 
-## SECTION 7 — İstatistikler + Menü Mühendisliği
+## SECTION 8 — Analytics + Menü Mühendisliği
 
-**1. Satış amacı**: "Kendi verimle hangi ürünün gerçekten kazandırdığını görebilirim" düşüncesi.
+Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühendisliği için ayrı section açılmaz.
+- **8A — Analytics (İstatistikler)**: Kod taslağı mevcuttur (`qrmo-analytics-v3`), henüz `index.html`'e entegre edilmemiştir.
+- **8B — Menü Mühendisliği**: **Henüz uygulanmamıştır.** Gerçek ürün kanıtı olmadan dashboard/mockup üretilmez.
 
-**2. Problem**: İşletme ürün kârlılığını net göremiyor (CONTENT_STRATEGY.md madde 2).
+**1. Satış amacı**: "Kendi verimle menümde neyin ilgi gördüğünü ve hangi ürünün gerçekten kazandırdığını görebilirim" düşüncesi.
 
-**3. Ürün gerçeği**: Menü Mühendisliği işletmenin girdiği maliyet verisine dayanır (madde 1.4) — **[Kesin]**; istatistikler kullanım verisine dayanır — **[Kesin]** (varlığı) / tam metrik seti **[Tahmin]** (madde 6.2 notu).
+**2. Problem**: İşletme ürün kârlılığını ve menüdeki ilgiyi net göremiyor (CONTENT_STRATEGY.md madde 2).
+
+**3. Ürün gerçeği**:
+- **8A**: `qr-menu-suite/modules/qr-analiz` — **[Kesin]**: menü görüntüleme, ürün tıklama, tekil ziyaretçi (IP bazlı), aktif masa sayısı (seçili aralıkta hareket görmüş masa), önceki döneme göre değişim, en çok / en az tıklanan ürünler (hiç tıklanmayanlar dahil), kategori dağılımı, masa bazlı kırılım. Dönem filtresi: Bugün (varsayılan) / Son 7 gün / Bu ay / Özel (en fazla 31 gün). Grafik kırılımı aralığa bağlıdır (saatlik yalnızca tek günlük aralıkta). Sepet & Sipariş verisi chatbot modülüne bağlıdır. Panel sayfa açılışında yüklenir; canlı/otomatik yenilenen bir ekran değildir. Otomatik içgörü/"sinyal" üretmez; tepe saat etiketi hesaplamaz.
+- **8B**: Menü Mühendisliği işletmenin girdiği maliyet verisine dayanır (madde 1.4) — **[Kesin]**; ürün modülü `qr-menu-suite/modules/qr-menu-muhendisligi`.
 
 **4. Ana mesaj**: "Kendi verinizle görün" — veri girişi gerektirir, veri girmeden otomatik bir sihir değildir.
 
 **5. Copy hiyerarşisi**
-- **Kicker/eyebrow**: "Veriyle Karar Verin" düzeyinde bir etiket.
+- **Kicker/eyebrow**: "Analitik" / "Veriyle Karar Verin" düzeyinde bir etiket.
 - **H2**: Kendi veri + görünürlük başlığı.
-- **Kısa açıklama**: Maliyet verisi girişi şartının dürüstçe belirtildiği alt satır.
-- **2–3 destekleyici nokta**: (a) kullanım istatistikleri, (b) menü mühendisliği görünümü/matrisi, (c) veri girişi gerekliliği.
-- **CTA amacı**: Yok.
+- **Kısa açıklama**: Yalnızca 8A'nın doğrulanmış metriklerine dayanan alt satır; 8B uygulandığında maliyet verisi girişi şartı dürüstçe belirtilir.
+- **2–3 destekleyici nokta**: (a) kullanım istatistikleri (8A), (b) ürün ve kategori ilgisi (8A), (c) menü mühendisliği görünümü ve veri girişi gerekliliği (8B — uygulanana kadar copy'de yer almaz).
+- **CTA amacı**: Birincil CTA değildir.
 
-**6. Görsel/UI**: **Gerçek ürün ekranı zorunlu** — gerçek istatistik ekranı ve gerçek menü mühendisliği ekranı. Bu repoda mevcut değil → **[TBD]**. Ayrıca gösterilecek metriklerin hangileri olduğu (görüntülenme/tıklama/vb.) da ayrıca **[Tahmin]/TBD**'dir; yalnızca ZIP analizinde doğrulanmış metrikler gösterilecektir, doğrulanmamış bir metrik ("en çok sipariş edilen ürün" gibi, sipariş verisi tutulmuyorsa) uydurulmaz.
+**6. Görsel/UI**: Gerçek istatistik ekranı ve gerçek menü mühendisliği ekranı hedeflenir; bu repoda mevcut değil → **[SCREENSHOT_NEEDED]**. Yalnızca 8A'da doğrulanmış metrikler gösterilir; ürünün üretmediği metrik, içgörü veya "canlı" davranış gösterilmez. 8B için gerçek ürün kanıtı olmadan görsel üretilmez.
 
-**7. Layout**: Tek, baskın bir gerçek ekran görüntüsü + yanında kısa açıklama sütunu. Bu section, DESIGN_SYSTEM.md madde 1'deki "WordPress admin görünümüne benzememe" kuralı açısından **en riskli section**dır; ekran görüntüsü seçilirken/kadrajlanırken bu özellikle gözetilmelidir.
+**7. Layout**: Tek, baskın görsel + yanında açıklama sütunu. Bu section, DESIGN_SYSTEM.md madde 1'deki "WordPress admin görünümüne benzememe" kuralı açısından **en riskli section**dır.
 
-**8. CTA**: Gerekmiyor.
+**8. CTA**: Birincil CTA değildir.
 
 **9. Güven/kanıt**: Kanıt = gerçek ekran görüntüsü. Gelir/satış artışı yüzdesi **kesinlikle kullanılmaz** (madde 1.11).
 
-**10. Bir sonraki section bağlantısı**: Veri/görünürlük teması, doğal olarak Section 8'deki (Güvenlik) "bu verinin/oturumun nasıl korunduğu" sorusuna bağlanır.
+**10. Bir sonraki section bağlantısı**: Veri/görünürlük teması, doğal olarak Section 9'daki (Güvenlik) "bu verinin/oturumun nasıl korunduğu" sorusuna bağlanır.
 
-**11. Riskler**: "Otomatik kârlılık analizi" iddiası (madde 1.4'e aykırı); doğrulanmamış metrik göstermek; ekran görüntüsünün WP-admin/tablo yığını hissi vermesi.
+**11. Riskler**: "Otomatik kârlılık analizi" iddiası (madde 1.4'e aykırı); doğrulanmamış metrik, sahte içgörü veya "canlı veri" iddiası; 8B uygulanmadan Menü Mühendisliği'ni copy'de vaat etmek; ekran görüntüsünün WP-admin/tablo yığını hissi vermesi.
 
-**Durum: [Kesin]** (özelliklerin varlığı) / **[Tahmin]** (gösterilecek metrikler) / **[TBD]** (gerçek ekran görseli)
+**Durum: [Kesin]** (8A metrik seti, `qr-analiz` kodundan doğrulandı) / **[Kesin]** (8B uygulanmadı) / **[SCREENSHOT_NEEDED]** (gerçek ekranlar) / **TBD** (8B sunum biçimi)
 
 ---
 
-## SECTION 8 — Güvenlik
+## SECTION 9 — Güvenlik
 
 **1. Satış amacı**: "Masa bağlantım/oturumum güvende, başkası tarafından kötüye kullanılamaz" düşüncesi.
 
@@ -268,7 +309,7 @@ Bu dosya:
 
 **9. Güven/kanıt**: Kanıt = mekanizmanın kendisinin açıklanması (imzalı oturum/kilit). "Hacklenemez", "%100 güvenli" gibi mutlak ifadeler **kesin yasak** (madde 6.4).
 
-**10. Bir sonraki section bağlantısı**: Güven ve şeffaflık teması, doğal olarak Section 9'daki (Yorum/Feedback) "işletme müşteri memnuniyetsizliğini erken duyar" şeffaflığına bağlanır.
+**10. Bir sonraki section bağlantısı**: Güven ve şeffaflık teması, doğal olarak Section 10'daki (Yorum/Feedback) "işletme müşteri memnuniyetsizliğini erken duyar" şeffaflığına bağlanır.
 
 **11. Riskler**: "Hacklenemez", "sıfır risk", "%100 güvenli" gibi mutlak iddialar.
 
@@ -276,7 +317,7 @@ Bu dosya:
 
 ---
 
-## SECTION 9 — Yorum / Feedback
+## SECTION 10 — Yorum / Feedback
 
 **1. Satış amacı**: "Bir sorun olursa bunu müşteri Google'a yazmadan önce ben duyarım" düşüncesi.
 
@@ -301,7 +342,7 @@ Bu dosya:
 
 **9. Güven/kanıt**: Yıldız/puan sayısı, "X işletme kullanıyor" gibi sayısal kanıt **kullanılmaz** (doğrulanmamış).
 
-**10. Bir sonraki section bağlantısı**: Güven teması tamamlandıktan sonra, "peki bu sisteme nasıl geçerim" sorusuna — Section 10 (Kurulum).
+**10. Bir sonraki section bağlantısı**: Güven teması tamamlandıktan sonra, "peki bu sisteme nasıl geçerim" sorusuna — Section 11 (Kurulum).
 
 **11. Riskler**: "Google puanınızı yükseltin", "olumsuz yorumları engelleyin", "yalnızca mutlu müşterileri gönderin" (**kesin yasak**, madde 8).
 
@@ -309,7 +350,7 @@ Bu dosya:
 
 ---
 
-## SECTION 10 — Kurulum / Kullanım Kolaylığı
+## SECTION 11 — Kurulum / Kullanım Kolaylığı
 
 **1. Satış amacı**: Minimal ve dürüst bir güvence — "bu sisteme geçiş karmaşık görünmüyor" (abartısız, ölçülü).
 
@@ -328,13 +369,13 @@ Bu dosya:
 
 **6. Görsel/UI**: Yok, veya en fazla çok küçük bir ikon. Doğrulanmamış içerik üzerine görsel yatırımı yapılmaz.
 
-**7. Layout**: Minimal, kısa/tek bloklu; tam section ağırlığında **değildir** (HOMEPAGE_ARCHITECTURE.md madde 10 ile uyumlu).
+**7. Layout**: Minimal, kısa/tek bloklu; tam section ağırlığında **değildir** (HOMEPAGE_ARCHITECTURE.md madde 11 ile uyumlu).
 
 **8. CTA**: Amacı, kuruluma nasıl başlanacağı bilgisine yönlendirmektir; kesin hedef ve buton metni **TBD** olduğundan burada kilitlenmez/uydurulmaz.
 
 **9. Güven/kanıt**: Yok.
 
-**10. Bir sonraki section bağlantısı**: Kalan tereddütlerle birlikte FAQ section'ına (Section 11) geçilir.
+**10. Bir sonraki section bağlantısı**: Kalan tereddütlerle birlikte FAQ section'ına (Section 12) geçilir.
 
 **11. Riskler**: Herhangi bir süre/kolaylık/otomasyon iddiası (**kesin yasak**, madde 6.6); section'ı doldurmak için doğrulanmamış bir "3 adımda kurulum" gibi akış uydurmak.
 
@@ -342,7 +383,7 @@ Bu dosya:
 
 ---
 
-## SECTION 11 — FAQ / İtirazlar
+## SECTION 12 — FAQ / İtirazlar
 
 **1. Satış amacı**: CTA'ya gitmeden önce kalan itirazları dürüstçe gidermek.
 
@@ -367,7 +408,7 @@ Bu dosya:
 
 **9. Güven/kanıt**: Her cevabın kendisi dürüstlük/şeffaflık kanıtıdır.
 
-**10. Bir sonraki section bağlantısı**: Tüm tereddütler giderildikten sonra tek kalan adım Section 12'deki (Son CTA) nihai eylemdir.
+**10. Bir sonraki section bağlantısı**: Tüm tereddütler giderildikten sonra tek kalan adım Section 13'teki (Son CTA) nihai eylemdir.
 
 **11. Riskler**: Belirsiz/kaçamak cevaplar vermek; kurulum sorusuna doğrulanmamış bir süre/kolaylık cevabı uydurmak (madde 6.6'ya aykırı olur).
 
@@ -375,7 +416,7 @@ Bu dosya:
 
 ---
 
-## SECTION 12 — Son CTA
+## SECTION 13 — Son CTA
 
 **1. Satış amacı**: Sayfa boyunca kurulan güveni tek, net bir sonraki adıma yönlendirmek.
 
@@ -410,4 +451,4 @@ Bu dosya:
 
 ## Genel Uygulama Notu
 
-Bu 12 section blueprint'i, HTML/CSS/JS üretimine geçildiğinde şu sırayla kontrol edilir: önce bu dosyadaki içerik hiyerarşisi ve görsel gereksinim, sonra `CONTENT_STRATEGY.md`'deki ilgili madde (gerçeklik/copy sınırı), sonra `DESIGN_SYSTEM.md`'deki ilgili görsel token/kural. **[TBD]** olarak işaretli gerçek ürün ekranı asset'leri sağlanmadan ilgili section'ların görsel kısmı kodlanmaz; yerine geçici/sahte bir ekran görüntüsü üretilmez.
+Bu 13 section blueprint'i, HTML/CSS/JS üretimine geçildiğinde şu sırayla kontrol edilir: önce bu dosyadaki içerik hiyerarşisi ve görsel gereksinim, sonra `CONTENT_STRATEGY.md`'deki ilgili madde (gerçeklik/copy sınırı), sonra `DESIGN_SYSTEM.md`'deki ilgili görsel token/kural. **[TBD]** olarak işaretli gerçek ürün ekranı asset'leri sağlanmadan ilgili section'ların görsel kısmı kodlanmaz; yerine geçici/sahte bir ekran görüntüsü üretilmez.
