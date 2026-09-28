@@ -62,7 +62,8 @@ QR Menu Official'ın ana satış sitesi için çalışma alanı.
 - Section 8B (Menü Mühendisliği) uygulanmamıştır.
 - Yorum/Feedback modülünde Google yorum yönlendirmesi (review gating, varsayılan açık, eşik 3.5) ve Google yorumu karşılığı indirim (varsayılan kapalı) bulunur; bu davranış CONTENT_STRATEGY.md madde 8/10 ile çelişir ve ayrı bir karar konusudur.
 - Kurulum: ürün kodundan (qr-menu-suite `ed14cb3`) doğrulanan — WordPress eklentisi (WP 6.0+, PHP 7.4+), alan adına bağlı lisans anahtarıyla etkinleştirme, modüllerin lisansa göre açılması, Menü Asistanı için Gemini API anahtarı alanı, Servis Paneli için Firebase ayarları. Hâlâ **TBD**: kurulumu kimin yaptığı, süre, paket/lisans içerikleri, API anahtarını kimin sağladığı, toplu ürün içe aktarma, personelin panele erişim yolu.
-- Section 3–8 "… İncele" CTA'ları `href="#"` durumundadır (ayrı iş).
-- Hero'daki "Teknik bilgi gerekmez" satırı `CONTENT_STRATEGY.md` madde 6.6 ile çelişir (ayrı copy audit maddesi).
+- Section 3–8'deki "… İncele" bağlantıları (hepsi `href="#"` idi) kaldırılmıştır; repo içinde gerçek bir hedefleri yoktu. Bu bölümlerde bölüm içi CTA bulunmaz.
+- Hero CTA'sı: metin "Paketleri İnceleyin", hedef `https://qrmenuofficial.com/paketler/` (repo geçmişinde Hero'nun orijinal production kodu bu adresi "paketler sayfası" olarak tanımlar; sayfanın içeriği bu ortamdan doğrulanamamıştır). Hero'daki "Teknik bilgi gerekmez" satırı kaldırılmış, yerine doğrulanmış "Müşteri menüyü uygulama indirmeden, tarayıcıdan açar" yazılmıştır.
+- Section 3'teki doğrulanmamış "+150% Gelir potansiyeli" / "86% Tekrar ziyaret potansiyeli" istatistikleri kaldırılmış, yerine rakamsız ve doğrulanmış bir not konmuştur.
 
 Ayrıntılar: `HOMEPAGE_ARCHITECTURE.md` madde 13.

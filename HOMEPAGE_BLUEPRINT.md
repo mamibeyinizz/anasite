@@ -29,13 +29,13 @@ Bu dosya:
 - **H2 (display)**: Ürünün "sadece QR menü değil" konumlandırmasını taşıyan tek cümlelik ana başlık.
 - **Kısa açıklama**: 7 adımlı akışın (QR→MENÜ→...→ÖĞREN) özünü tek cümlede özetleyen alt satır.
 - **2–4 destekleyici nokta**: Hero V3'te zaten var olan feature-row yapısı (kısa etiket + ikon) — chatbot, çoklu dil, servis paneli gibi 3-4 kısa başlık; bunlar tam cümle açıklama değil, kısa etiketlerdir (DESIGN_SYSTEM.md madde 10'daki feature-icon yapısıyla uyumlu).
-- **CTA amacı**: Ziyaretçiyi sayfanın geri kalanını okumaya veya doğrudan bir sonraki adıma (talep/inceleme) yönlendirmek; kesin hedef TBD (bkz. madde 8).
+- **CTA amacı**: Paket sayfasına yönlendirmek. Uygulanan CTA: "Paketleri İnceleyin" → `https://qrmenuofficial.com/paketler/` (bkz. madde 8). CTA altındaki satır: "Müşteri menüyü uygulama indirmeden, tarayıcıdan açar."
 
 **6. Görsel/UI**: Hero V3 production kodu zaten gerçek bir ürün mockup'ı içeriyor (DESIGN_SYSTEM.md madde 11: max-width 480px, radius 20px, gold outline). Bu section'da **yeni bir görsel üretilmez**; mevcut Hero V3 görsel yapısı referans alınır. Görselin hangi spesifik ekranı (menü mü, genel arayüz mü) gösterdiği bu dosyanın kapsamı dışındadır — mevcut production kodundaki görsel aynen kullanılır.
 
 **7. Layout**: Hero V3'ün kendi doğrulanmış grid'i (1.08fr/0.92fr, sol/sağ padding 5vw, gap `clamp(24px,4vw,56px)` — DESIGN_SYSTEM.md madde 5) bağlayıcıdır; bu section yeniden tasarlanmaz, yalnızca içerik/metin bu yapıya oturtulur.
 
-**8. CTA**: Gerekiyor. Amacı: ziyaretçiyi net, dürüst bir sonraki adıma yönlendirmek. Hedef (demo talebi / canlı örnek / satış görüşmesi) **TBD** (CONTENT_STRATEGY.md madde 9) — buton metni bu aşamada kilitlenmez.
+**8. CTA**: Gerekiyor. Uygulanan: **"Paketleri İnceleyin"** → `https://qrmenuofficial.com/paketler/`; metin hedefi birebir tarif eder (CONTENT_STRATEGY.md madde 9). Önceki "Canlı Menüyü Deneyin" metni hedefle uyumsuz olduğu için değiştirilmiştir; repo geçmişi (`c968de5`) bu adresi paketler sayfası olarak tanımlar, canlı demo kanıtı yoktur. `/paketler/` içeriği bu ortamdan doğrulanamamıştır (**TBD**). Önceki "Teknik bilgi gerekmez" satırı ürün gerçeğiyle çeliştiği için kaldırılmıştır.
 
 **9. Güven/kanıt**: Gerekmez; Hero bir konumlandırma anıdır, kanıt sonraki section'larda (gerçek ekranlar, mekanizma açıklamaları) gelir.
 
@@ -95,13 +95,13 @@ Bu dosya:
 - **H2**: Modül adını taşıyan başlık.
 - **Kısa açıklama**: Menünün müşterinin dilinde sunulduğunu anlatan alt satır.
 - **2–3 destekleyici nokta**: Dil seçimi, ürün/kategori bilgisinin seçilen dile uyarlanması.
-- **CTA amacı**: Yalnızca düşük vurgulu keşif eylemi; birincil CTA değildir.
+- **CTA amacı**: Yok. Önceki "Çeviri Modülünü İncele" bağlantısı (`href="#"`) kaldırılmıştır. Doğrulanmamış "+150% / 86%" istatistikleri kaldırılmış; yerine rakamsız, doğrulanmış not: "Çeviriler CSV dosyasıyla ya da elle girilir; menü yalnızca eklediğiniz dillerde görüntülenir." (CONTENT_STRATEGY.md madde 1.11, 7).
 
 **6. Görsel/UI**: Uygulamada kod içi animasyonlu dil seçimi demosu kullanılır — **[Kesin]**. Gerçek müşteri menüsü ekran görüntüsü **[SCREENSHOT_NEEDED]** (PRODUCT_SCREEN_ASSETS.md).
 
 **7. Layout**: İçerik + demo iki kolon; mobilde tek kolon — **[Kesin]** (uygulama).
 
-**8. CTA**: Birincil CTA değildir.
+**8. CTA**: Yok — bölüm içi "… İncele" bağlantısı kaldırılmıştır (gerçek hedefi yoktu).
 
 **9. Güven/kanıt**: Sayısal kanıt ("X dil otomatik") kullanılmaz.
 
@@ -128,13 +128,13 @@ Bu dosya:
 - **H2**: "Sınırsız QR Masa" düzeyinde başlık — **[Kesin]** (uygulama).
 - **Kısa açıklama**: Masa oluşturma ve QR hazırlama akışının kısa tarifi.
 - **2–3 destekleyici nokta**: Tekli/toplu oluşturma ve ilgili adımlar.
-- **CTA amacı**: Birincil CTA değildir.
+- **CTA amacı**: Yok. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 
 **6. Görsel/UI**: Uygulamada kod içi animasyonlu demo — **[Kesin]**. Gerçek ekran asset'i PRODUCT_SCREEN_ASSETS.md'de tanımlı değildir.
 
 **7. Layout**: Demo + içerik iki kolon; mobilde tek kolon — **[Kesin]** (uygulama).
 
-**8. CTA**: Birincil CTA değildir.
+**8. CTA**: Yok — bölüm içi "… İncele" bağlantısı kaldırılmıştır (gerçek hedefi yoktu).
 
 **9. Güven/kanıt**: Masa oturumu güvenliği bu section'da ele alınmaz; güvenlik konusu FAQ'de (Section 11) cevaplanır.
 
@@ -161,13 +161,13 @@ Bu dosya:
 - **H2**: "Aradığına Göre Filtrelenen Menü" düzeyinde başlık — **[Kesin]** (uygulama).
 - **Kısa açıklama**: Filtrelerin girilen bilgiye dayandığını açıkça belirten alt satır — **[Kesin]** (uygulama).
 - **2–3 destekleyici nokta**: Sıralama, alerjen hariç tutma, tek panelde filtre.
-- **CTA amacı**: Birincil CTA değildir.
+- **CTA amacı**: Yok. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 
 **6. Görsel/UI**: Uygulamada kod içi animasyonlu filtre demosu — **[Kesin]**. Gerçek müşteri menüsü ekran görüntüsü **[SCREENSHOT_NEEDED]**.
 
 **7. Layout**: İçerik + demo iki kolon; mobilde tek kolon — **[Kesin]** (uygulama).
 
-**8. CTA**: Birincil CTA değildir.
+**8. CTA**: Yok — bölüm içi "… İncele" bağlantısı kaldırılmıştır (gerçek hedefi yoktu).
 
 **9. Güven/kanıt**: Kanıt, filtrelerin veri girişine bağlı olduğunun dürüstçe söylenmesidir.
 
@@ -268,13 +268,13 @@ Bu section **iki parçadan** oluşur ve tek section olarak kalır; Menü Mühend
 - **H2**: Kendi veri + görünürlük başlığı.
 - **Kısa açıklama**: Yalnızca 8A'nın doğrulanmış metriklerine dayanan alt satır; 8B uygulandığında maliyet verisi girişi şartı dürüstçe belirtilir.
 - **2–3 destekleyici nokta**: (a) kullanım istatistikleri (8A), (b) ürün ve kategori ilgisi (8A), (c) menü mühendisliği görünümü ve veri girişi gerekliliği (8B — uygulanana kadar copy'de yer almaz).
-- **CTA amacı**: Birincil CTA değildir.
+- **CTA amacı**: Yok. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 
 **6. Görsel/UI**: Uygulamada dekoratif, "Örnek veri" etiketli kod içi dashboard demosu vardır. Gerçek istatistik ekranı ve gerçek menü mühendisliği ekranı hedeflenir; bu repoda mevcut değil → **[SCREENSHOT_NEEDED]**. Yalnızca 8A'da doğrulanmış metrikler gösterilir; ürünün üretmediği metrik, içgörü veya "canlı" davranış gösterilmez. 8B için gerçek ürün kanıtı olmadan görsel üretilmez.
 
 **7. Layout**: Tek, baskın görsel + yanında açıklama sütunu. Bu section, DESIGN_SYSTEM.md madde 1'deki "WordPress admin görünümüne benzememe" kuralı açısından **en riskli section**dır.
 
-**8. CTA**: Birincil CTA değildir.
+**8. CTA**: Yok — bölüm içi "… İncele" bağlantısı kaldırılmıştır (gerçek hedefi yoktu).
 
 **9. Güven/kanıt**: Kanıt = gerçek ekran görüntüsü. Gelir/satış artışı yüzdesi **kesinlikle kullanılmaz** (madde 1.11).
 

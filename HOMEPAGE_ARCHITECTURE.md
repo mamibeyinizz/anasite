@@ -78,7 +78,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 4. **Kullanılacak gerçek ürün özelliği**: QR ile menüye erişim + genel akış (madde 3, adım 1–2: QR, MENÜ) — **[Kesin]**.
 5. **Ana mesaj / copy açısı**: Konumlandırma "yalnızca QR menü" değil, restoranın uçtan uca müşteri etkileşim/operasyon katmanı olarak kurulur (CONTENT_STRATEGY.md madde 3). Rakamsız, iddiasız, net bir konumlandırma cümlesi + kısa alt başlık.
 6. **Görsel/UI gösterimi**: Evet — Hero V3 production görseliyle uyumlu, tek ana görsel/mockup odağı (DESIGN_SYSTEM.md madde 11: max-width 480px, radius 20px, gold outline). Feature-icon satırı (DESIGN_SYSTEM.md madde 10) kısa/öz tutulur, kalabalıklaştırılmaz. **[Kesin]** (Hero V3 bu yapıda mevcut).
-7. **CTA gerekiyor mu**: Evet, tek birincil CTA. Hedefi CONTENT_STRATEGY.md madde 9 gereği **TBD** olduğundan yalnızca "demo iste / canlı örneği incele" türü güvenli bir eylem çerçevesi kullanılabilir; kesin bir self-servis akış varsayılmaz.
+7. **CTA gerekiyor mu**: Evet, tek CTA: **"Paketleri İnceleyin"** → `https://qrmenuofficial.com/paketler/` (aria-label görünür metinle aynı). Metin hedefle hizalandı: repo geçmişinde Hero'nun orijinal production kodu (`c968de5`) bu adresi "paketler sayfası" olarak tanımlar; canlı demo olduğuna dair kanıt yoktur. `/paketler/` içeriği bu ortamdan doğrulanamamıştır (**TBD**). CTA altındaki satır: "Müşteri menüyü uygulama indirmeden, tarayıcıdan açar" (menü, QR ile açılan bir web sayfasıdır — **[Kesin]**); önceki "Teknik bilgi gerekmez" satırı ürün gerçeğiyle çeliştiği için kaldırılmıştır.
 8. **Sonraki section'a bağlanışı**: Hero "bu ürün ne yapıyor" sorusuna genel cevap verir; Section 2 (Ürün Haritası) bu cevabı ürün alanlarına ayırır.
 9. **Etiket**: **[Kesin]** (Hero entegre ve madde 3'teki akışla uyumlu).
 
@@ -106,7 +106,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 4. **Kullanılacak gerçek ürün özelliği**: Çoklu dil — CSV/veritabanı/manuel çeviri girişi (madde 1.1, madde 6.3) — **[Kesin]**.
 5. **Ana mesaj / copy açısı**: Çeviri kesinlikle "otomatik/AI/kusursuz çeviri" olarak sunulmaz (CONTENT_STRATEGY.md madde 1.1, madde 7 yasak listesi); dil ekleme/tanımlama işletmenin eylemi olarak anlatılır.
 6. **Görsel/UI gösterimi**: Uygulamada kod içi animasyonlu dil seçimi demosu kullanılır — **[Kesin]**. Gerçek menü ekran görüntüsü asset'i henüz yoktur (PRODUCT_SCREEN_ASSETS.md).
-7. **CTA gerekiyor mu**: Section'ın birincil CTA'sı değildir; yalnızca düşük vurgulu keşif eylemi.
+7. **CTA gerekiyor mu**: Hayır. Önceki "Çeviri Modülünü İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır. Doğrulanmamış "+150% Gelir potansiyeli" / "86% Tekrar ziyaret potansiyeli" istatistikleri de kaldırılmış; yerine rakamsız, doğrulanmış not: "Çeviriler CSV dosyasıyla ya da elle girilir; menü yalnızca eklediğiniz dillerde görüntülenir."
 8. **Sonraki section'a bağlanışı**: Menünün müşteriye ulaştığı fiziksel nokta olan masaya (Section 4 — QR Masa) geçilir.
 9. **Etiket**: **[Kesin]** (özellik ve uygulama).
 
@@ -120,7 +120,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 4. **Kullanılacak gerçek ürün özelliği**: Tekli veya toplu masa oluşturma ve masa başına QR kodu — uygulanan copy'de yer alır; ürün modülü `qr-menu-suite/modules/qr-masa` — **[Kesin]** (modülün varlığı) / **[Muhtemel]** (copy'deki her ayrıntının modül davranışıyla birebir doğrulanması bu dosyada yapılmamıştır).
 5. **Ana mesaj / copy açısı**: Masa ve QR hazırlığının işletme tarafından yönetilen bir adım olduğu; güvenlik iddiası bu section'da kurulmaz; masa oturumu güvenliği konusu FAQ'de (Section 11) ele alınır.
 6. **Görsel/UI gösterimi**: Uygulamada kod içi animasyonlu demo — **[Kesin]**. Gerçek ekran asset'i tanımlı değildir.
-7. **CTA gerekiyor mu**: Birincil CTA değildir.
+7. **CTA gerekiyor mu**: Hayır. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 8. **Sonraki section'a bağlanışı**: Müşteri QR'ı okutup menüye geldiğinde aradığını bulma ihtiyacı — Section 5 (Akıllı Filtre).
 9. **Etiket**: **[Kesin]** (uygulama) / **[Muhtemel]** (ürün davranışıyla ayrıntılı eşleşme).
 
@@ -134,7 +134,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 4. **Kullanılacak gerçek ürün özelliği**: Filtreler ilgili ürün bilgisinin girilmesine bağlı çalışır (madde 1.5) — **[Kesin]**.
 5. **Ana mesaj / copy açısı**: Filtreler "otomatik algılama" değil, işletmenin girdiği bilgiye dayalı olarak anlatılır (madde 1.5). Uygulanan copy bu çerçeveyi açıkça belirtir.
 6. **Görsel/UI gösterimi**: Uygulamada kod içi animasyonlu filtre demosu — **[Kesin]**. Gerçek müşteri menüsü ekran görüntüsü **[SCREENSHOT_NEEDED]**.
-7. **CTA gerekiyor mu**: Birincil CTA değildir.
+7. **CTA gerekiyor mu**: Hayır. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 8. **Sonraki section'a bağlanışı**: Müşteri menüde gezinirken soru sorma ihtiyacı doğar — Section 6 (Chatbot/SOR).
 9. **Etiket**: **[Kesin]**.
 
@@ -148,7 +148,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 4. **Kullanılacak gerçek ürün özelliği**: Chatbot yaygın soruları yanıtlar, cevaplayamadığını raporlar (madde 1.6); personel gerektiğinde görüşmeyi devralabilir (madde 1.7) — **[Kesin]**.
 5. **Ana mesaj / copy açısı**: "Her soruyu bot bilir" değil, "bot bilmediğini söyler, personel gerektiğinde devralır" — dürüst hibrit model çerçevesi (CONTENT_STRATEGY.md madde 6.1). "%100 doğru cevap" veya "personelsiz çalışır" gibi ifadeler kullanılmaz.
 6. **Görsel/UI gösterimi**: Uygulamada kod içi animasyonlu sohbet demosu — **[Kesin]**. Gerçek chatbot ekran görüntüsü **[SCREENSHOT_NEEDED]**.
-7. **CTA gerekiyor mu**: Birincil CTA değildir.
+7. **CTA gerekiyor mu**: Hayır. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 8. **Sonraki section'a bağlanışı**: Müşterinin doğrudan istediği bir aksiyon (sipariş, garson çağırma, hesap isteme) — Section 7; akışta SOR'dan sonra ÇAĞIR gelir (madde 3).
 9. **Etiket**: **[Kesin]**.
 
@@ -162,7 +162,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 4. **Kullanılacak gerçek ürün özelliği**: Garson/hesap çağrıları Servis Paneli'ne düşer (madde 1.8); Servis Paneli sesli uyarı + masaüstü bildirim sağlar (madde 1.9) — **[Kesin]**.
 5. **Ana mesaj / copy açısı**: "Talepler tek bir ekranda toplanır" (CONTENT_STRATEGY.md madde 6.1). "Anında servis garantisi" gibi bir vaat kurulmaz — yanıt hızı işletmenin kendi operasyonuna bağlıdır (madde 1.8).
 6. **Görsel/UI gösterimi**: Uygulamada kod içi animasyonlu servis akışı demosu — **[Kesin]**. Gerçek Servis Paneli ekran görüntüsü **[SCREENSHOT_NEEDED]**.
-7. **CTA gerekiyor mu**: Birincil CTA değildir.
+7. **CTA gerekiyor mu**: Hayır. Bölüm içindeki "… İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 8. **Sonraki section'a bağlanışı**: Bu etkileşimlerin ürettiği kullanım verisi, Section 8'deki (Analytics) veri temasına bağlanır.
 9. **Etiket**: **[Kesin]**.
 
@@ -183,7 +183,7 @@ Bu section **iki parçalı** tanımlanmıştır ve tek section olarak kalır; Me
    - **8B — Menü Mühendisliği**: işletmenin girdiği maliyet verisine dayanır (madde 1.4) — **[Kesin]** (özelliğin varlığı ve veri girişi şartı); ürün modülü `qr-menu-suite/modules/qr-menu-muhendisligi`. Homepage'de uygulanmamıştır.
 5. **Ana mesaj / copy açısı**: "Kendi verinizle görün" çerçevesi — "otomatik kârlılık analizi" veya veri girişi gerektirmeyen bir sihir olarak sunulmaz (madde 1.4). Gelir/satış artış yüzdesi **kesinlikle** kullanılmaz (madde 1.11, madde 7). Ürünün üretmediği metrik, içgörü veya "canlı" davranış iddia edilmez.
 6. **Görsel/UI gösterimi**: Uygulamada dekoratif, "Örnek veri" etiketli kod içi dashboard demosu. Gerçek istatistik ekranı görseli ve 8B için gerçek menü mühendisliği ekranı hedeflenir; 8B için gerçek ürün kanıtı olmadan görsel üretilmez.
-7. **CTA gerekiyor mu**: Birincil CTA değildir. Bölüm içindeki "Analitik Modülünü İncele" bağlantısı `href="#"` durumundadır (bkz. madde 13).
+7. **CTA gerekiyor mu**: Hayır. Önceki "Analitik Modülünü İncele" bağlantısı (`href="#"`, gerçek hedefi yoktu) kaldırılmıştır.
 8. **Sonraki section'a bağlanışı**: Veri teması, Section 9'daki (Geçiş Kararı) "kendi işletmemde ne değişir" sorusuna bağlanır.
 9. **Etiket**: **[Kesin]** (8A uygulanmış; metrik seti `qr-analiz` kodundan doğrulandı) / **[Kesin]** (8B uygulanmadı) / **TBD** (8B'nin section içindeki sunum biçimi).
 
@@ -275,8 +275,8 @@ Bu section **iki parçalı** tanımlanmıştır ve tek section olarak kalır; Me
 3. **Menü Mühendisliği (8B) — [Kesin]**: Uygulanmadı; sunum biçimi ve gösterilecek gerçek ekran **TBD**.
 4. **Problem/Çözüm — [Kesin]**: Mevcut akışta yok; ileride eklenip eklenmeyeceğine dair karar yok.
 5. **Yorum / Feedback — [Kesin]**: Planlı; mevcut akıştaki yeri henüz belirlenmedi (bkz. Ek A). Ayrıca Section 2'de "Geri Bildirim Yönetimi" adlı bir ürün özelliği kartı vardır (ayrı bir section değildir).
-6. **CTA hedefleri — TBD**: Section 9 ve Section 12 CTA'larının (ikisi de "Geçiş İçin Bilgi Alın") hedefi belirlenmemiştir; kodda `href` yoktur (`data-cta-target="TBD"`) ve yayından önce bağlanmalıdır. Section 3–8'deki "… İncele" CTA'ları `href="#"` durumundadır (ayrı iş). Hero CTA'sının metni "Canlı Menüyü Deneyin"dir, `href`'i `https://qrmenuofficial.com/paketler/`'dir; metin ile hedef uyumsuzdur (canlı sayfa içeriği bu repoda doğrulanamamıştır).
-7. **Hero copy audit — [Kesin]**: Hero'daki "Teknik bilgi gerekmez" satırı CONTENT_STRATEGY.md madde 6.6 ile çelişir; ayrı bir copy audit maddesidir.
+6. **CTA hedefleri — TBD**: Section 9 ve Section 12 CTA'larının (ikisi de "Geçiş İçin Bilgi Alın") hedefi belirlenmemiştir; kodda `href` yoktur (`data-cta-target="TBD"`) ve yayından önce bağlanmalıdır. Section 3–8'deki "… İncele" bağlantıları (`href="#"`) repo içinde gerçek hedefleri olmadığı için kaldırılmıştır. Hero CTA'sı "Paketleri İnceleyin" → `https://qrmenuofficial.com/paketler/`; metin artık hedefle uyumludur, `/paketler/` sayfasının içeriği bu ortamdan doğrulanamamıştır (**TBD**).
+7. **Hero copy audit — [Kesin] (çözüldü)**: Hero'daki "Teknik bilgi gerekmez" satırı ürün gerçeğiyle (WordPress eklentisi, lisans anahtarı, Gemini API anahtarı, Firebase ayarları) ve CONTENT_STRATEGY.md madde 6.6 ile çeliştiği için kaldırılmış; yerine "Müşteri menüyü uygulama indirmeden, tarayıcıdan açar" yazılmıştır.
 8. **Kurulum doğrulanmamış konular — TBD**: kurulumu kimin yaptığı, süre, paket/lisans içerikleri, Menü Asistanı API anahtarını kimin sağladığı, toplu ürün içe aktarma, personelin panele erişim yolu. (WordPress eklentisi + lisans anahtarı ürün kodundan doğrulanmıştır — bkz. madde 10.)
 9. **Güvenlik arşivi — [Kesin]**: `sections/section-9-security.html` arşiv/yetim kaynaktır (bkz. Ek B). Silinip silinmeyeceği kararı **TBD**.
 10. **Yorum/Feedback ürün davranışı — [Kesin]**: `yorum-feedback` modülünde Google yorum yönlendirmesi (review gating) varsayılan **açık**tır (`google_review_enabled = 1`, eşik 3.5: yalnızca 3.5 ve üstü puan verenlere Google önerilir); Google yorumu karşılığı indirim kodu sistemi varsayılan **kapalı**dır (`qrm_reward_enabled = 0`). Bu, CONTENT_STRATEGY.md madde 8/10'daki "olumsuz yorumları gizlemiyoruz" çerçevesiyle çelişir; Section 11 bu nedenle böyle bir güvence vermez. Google'ın yorum politikalarıyla uyum riski **[Muhtemel]**; ürün/pazarlama kararı **TBD**.

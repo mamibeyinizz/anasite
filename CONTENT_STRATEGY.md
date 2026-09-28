@@ -170,7 +170,7 @@ ZIP analizinde kurulum süresi, teknik ön koşullar, onboarding akışı (self-
 - **[Muhtemel]**: adım 03 (tek tek/numaralı toplu masa oluşturma, masa başına QR hedefi, PNG ve tek PDF çıktısı) — S4 metninden alınmıştır, ürün kodunda birebir doğrulanmamıştır ve genişletilmez.
 - **Sonradan ürün kodundan doğrulanan — [Kesin]** (qr-menu-suite `ed14cb3`): WordPress eklentisi (WP 6.0+, PHP 7.4+), alan adına bağlı lisans anahtarıyla etkinleştirme, modüllerin lisansa göre açılması, Menü Asistanı için Gemini API anahtarı alanı, Servis Paneli için Firebase ayarları. Bu bilgiler S10 copy'sine eklenmemiştir; WordPress + lisans bilgisi yalnızca Section 11 (FAQ) "Kurulum nasıl gerçekleşir?" cevabında kullanılır.
 - **TBD (hâlâ doğrulanmadı)**: kurulumu kimin yaptığı, süre, paket/lisans içerikleri, API anahtarını kimin sağladığı, toplu ürün içe aktarma, personelin panele erişim yolu. Bu nedenle S10'da "Başlamadan önce" bloğu yoktur ve Section 11 bunları cevaplamaz.
-- Hero'daki "Teknik bilgi gerekmez" satırı bu bölümün kuralıyla çelişir; S10 kapsamı dışında, ayrı bir copy audit maddesidir.
+- Hero'daki "Teknik bilgi gerekmez" satırı bu bölümün kuralıyla ve ürün gerçeğiyle çeliştiği için kaldırılmıştır; yerine doğrulanmış "Müşteri menüyü uygulama indirmeden, tarayıcıdan açar" kullanılır.
 
 ---
 
