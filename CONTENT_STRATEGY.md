@@ -150,9 +150,13 @@ Kural: Çeviri özelliği anlatılırken fiil her zaman işletmenin eylemine ba�
 
 Kural: Güvenlik anlatısı mekanizmayı (imzalı ve süresi sınırlı oturum) açıklar, mutlak/garanti dili kullanmaz. "Kilit" ifadesi yalnızca kayıtlı olmayan/geçersiz masa oturumlarında gösterilen müşteri ekranı bağlamında kullanılır.
 
+**Not (bağlam)**: Güvenlik artık ayrı bir homepage section'ı değildir (akıştan çıkarılmış/arşivlenmiştir; `sections/section-9-security.html` arşiv kaynaktır). Yukarıdaki ürün gerçeği ve iddia sınırları aynen geçerlidir; masa oturumu güvenliği itirazı FAQ'de (planlı Section 11) cevaplanır.
+
 ### 6.5 Yorum / Feedback
 
 Bu konu madde 8'de ayrıntılı ele alınmıştır; özet: feedback özelliği "erken haberdar olma" faydası üzerinden anlatılır, review-gating/puan manipülasyonu çerçevesi kullanılmaz.
+
+**Durum notu**: Ayrı bir Yorum / Feedback section'ı **planlıdır ve mevcut homepage akışındaki yeri henüz belirlenmemiştir** (bkz. `HOMEPAGE_ARCHITECTURE.md` Ek A); "çıkarıldı" olarak işaretlenmemiştir. Section 2'deki "Geri Bildirim Yönetimi" ürün özelliği metni bu durumdan bağımsızdır ve değiştirilmemiştir.
 
 ### 6.6 Kurulum ve Kullanım Kolaylığı — TBD / [Tahmin]
 
@@ -160,6 +164,12 @@ ZIP analizinde kurulum süresi, teknik ön koşullar, onboarding akışı (self-
 
 - Bu konuda ana sayfada **hiçbir süre/kolaylık iddiası** ("5 dakikada kurulum", "kod yazmadan", "aynı gün canlıya alın" vb.) kullanılamaz, ürün/kurulum akışı gerçek olarak doğrulanana kadar.
 - Kurulum/onboarding gerçek akışı doğrulandığında bu alt bölüm güncellenip [Kesin] hale getirilecektir.
+
+**Güncelleme — Section 10 (Kurulum) uygulanmıştır** (`qrmo-setup-v1`, `sections/section-10-installation.html`). Yukarıdaki yasaklar değişmemiştir; uygulanan section süre/kolaylık/otomasyon iddiası içermez ve 4 adımı (Menü; Ürün bilgileri ve diller; Masalar ve QR; Servis ekranı ve deneme) **İşlem → Çıktı** olarak, öznesiz anlatır.
+- **[Kesin]**: adım 01 (ürünler ürün düzenleme ekranında eklenir), adım 02 (CSV/elle dil girişi; filtreler girilen bilgiye bağlı — madde 1.1, 1.5), adım 04 (Servis Paneli, sesli uyarı ve masaüstü bildirimi — madde 1.8, 1.9).
+- **[Muhtemel]**: adım 03 (tek tek/numaralı toplu masa oluşturma, masa başına QR hedefi, PNG ve tek PDF çıktısı) — S4 metninden alınmıştır, ürün kodunda birebir doğrulanmamıştır ve genişletilmez.
+- **TBD (hâlâ doğrulanmadı)**: kurulumu kimin yaptığı, süre, WordPress ön koşulu, hesap/lisans/paket aktivasyonu, Menü Asistanı için API anahtarı, toplu ürün içe aktarma, personelin panele erişim yolu. Bu nedenle S10'da "Başlamadan önce" bloğu yoktur.
+- Hero'daki "Teknik bilgi gerekmez" satırı bu bölümün kuralıyla çelişir; S10 kapsamı dışında, ayrı bir copy audit maddesidir.
 
 ---
 
@@ -220,6 +230,8 @@ Bu çerçeve, özelliğin puan manipülasyonu değil, **işletmenin geri bildiri
 
 ## 10. FAQ / İtiraz Giderme Çerçevesi
 
+Not: Güvenlik section'ı homepage akışından çıktığı için güvenlik itirazı yalnızca FAQ'de (planlı Section 11) cevaplanır; aşağıdaki cevap çerçeveleri değişmemiştir.
+
 Bu bölüm, SSS section'ında **hangi itirazların** ele alınacağını tanımlar; nihai SSS metinlerini yazmaz. Her itiraz, madde 1'deki gerçekle dürüstçe cevaplanacak şekilde kurgulanır — cevap, gerçeği yumuşatmak için belirsizleştirilmez.
 
 | Olası müşteri itirazı/sorusu | Dayanacağı gerçek (madde 1) | Cevap çerçevesi |
@@ -237,7 +249,9 @@ Bu bölüm, SSS section'ında **hangi itirazların** ele alınacağını tanıml
 
 ## 11. Ana Sayfa Satış Akışı (Referans Sıra)
 
-Ana sayfanın section sırası, ileride tasarlanacağında şu 10 adımlı akışa sadık kalır (bu doküman sadece sırayı ve amacı tanımlar, section içeriğini tanımlamaz):
+**Bu 10 adımlı akış genel bir içerik/satış anlatı çerçevesidir; mevcut homepage section sırası değildir.** Gerçek homepage akışı `HOMEPAGE_ARCHITECTURE.md` madde 0'dadır (Hero → Neler Sunuyoruz → Dil Çeviri → QR Masa → Akıllı Filtre → Chatbot → Servis → Analytics → Geçiş Kararı → Kurulum; FAQ ve Son CTA planlı). Bu çerçevedeki adımlar homepage section'larıyla birebir eşleşmez: Problem ve Çözüm bölümleri homepage'de **şu anda bulunmamaktadır** ve "08 — Güven" adımı aktif bir homepage section'ı değildir (Güvenlik section'ı akıştan çıkarılmıştır).
+
+İçerik yazılırken başvurulacak çerçeve (bu doküman sadece sırayı ve amacı tanımlar, section içeriğini tanımlamaz):
 
 1. **01 — Dikkat**: Ziyaretçinin dikkatini net bir konumlandırma ile çeker (bkz. madde 3 — akış, "sadece QR menü" değil).
 2. **02 — Tanıdık problem**: Hedef kitlenin günlük yaşadığı, tanıdık bir operasyonel problemi gösterir (bkz. madde 2).
@@ -246,7 +260,7 @@ Ana sayfanın section sırası, ileride tasarlanacağında şu 10 adımlı akı�
 5. **05 — Ürün deneyimi**: Ürünün gerçek kullanım anını (arayüz/akış) gösterir.
 6. **06 — Özellikler / gerçek kullanım**: Özellikleri liste olarak değil, gerçek kullanım senaryoları içinde anlatır (bkz. madde 6).
 7. **07 — Ayrıştırıcı özellikler**: Ürünü benzerlerinden ayıran, gerçek ve doğrulanmış farkları vurgular.
-8. **08 — Güven**: Gerçek/doğrulanabilir güven unsurları (varsa gerçek kullanım örnekleri, şeffaflık, güvenlik mekanizması açıklaması — bkz. madde 6.4).
+8. **08 — Güven**: Gerçek/doğrulanabilir güven unsurları (varsa gerçek kullanım örnekleri, şeffaflık, güvenlik mekanizması açıklaması — bkz. madde 6.4). *Genel çerçeve adımıdır; homepage'de ayrı bir section olarak uygulanmamıştır.*
 9. **09 — İtirazlar / SSS**: Potansiyel müşterinin gerçek tereddütlerine dürüst cevaplar (bkz. madde 10).
 10. **10 — CTA**: Net, dürüst bir sonraki adım (bkz. madde 9).
 
