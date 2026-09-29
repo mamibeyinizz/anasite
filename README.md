@@ -61,7 +61,7 @@ QR Menu Official'ın ana satış sitesi için çalışma alanı.
 
 ## Bilinçli olarak açık kalan konular
 
-- Section 9 ve Section 12 CTA'larının (ikisi de "Geçiş İçin Bilgi Alın") hedefi **TBD**; kodda `href` yoktur (`data-cta-target="TBD"`). Hedef bağlanmadan yayına alınmamalıdır.
+- Section 9 ve Section 12 CTA'larının (ikisi de "Geçiş İçin Bilgi Alın") hedefi **TBD**. Repoda gerçek bir iletişim/demo/WhatsApp/checkout hedefi yoktur, bu yüzden bağlanmamıştır. CTA'lar klavyeyle erişilebilsin diye `href`'siz `<a>` yerine gerçek `<button type="button" data-cta-target="TBD">`'dır; tıklanınca "henüz etkin değil" bilgisi gösterir. Hedef gelince elemanı `<a href="…">` yapmak yeterlidir (CSS `[href]` durumunu zaten tanır). Hedef bağlanmadan yayına alınmamalıdır. `/paketler/` "… paketi seç" düğmeleri aynı mantıkla `paketler/packages-data.js` içindeki `cta.href` alanına bağlıdır.
 - Section 8B (Menü Mühendisliği) uygulanmamıştır.
 - Yorum/Feedback modülünde Google yorum yönlendirmesi (review gating, varsayılan açık, eşik 3.5) ve Google yorumu karşılığı indirim (varsayılan kapalı) bulunur; bu davranış CONTENT_STRATEGY.md madde 8/10 ile çelişir ve ayrı bir karar konusudur.
 - Kurulum: ürün kodundan (qr-menu-suite `ed14cb3`) doğrulanan — WordPress eklentisi (WP 6.0+, PHP 7.4+), alan adına bağlı lisans anahtarıyla etkinleştirme, modüllerin lisansa göre açılması, Menü Asistanı için Gemini API anahtarı alanı, Servis Paneli için Firebase ayarları. Hâlâ **TBD**: kurulumu kimin yaptığı, süre, paket/lisans içerikleri, API anahtarını kimin sağladığı, toplu ürün içe aktarma, personelin panele erişim yolu.

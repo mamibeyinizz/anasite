@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Menu Official</title>
+  <title>QR Menu Official — Restoranlar İçin Dijital QR Menü ve Servis Sistemi</title>
+  <meta name="description" content="Menü, garson çağrısı ve servis paneli tek sistemde. Müşteri menüyü kendi dilinde okur, filtreler, sorar; garsonu ya da hesabı telefondan çağırır.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://qrmenuofficial.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="QR Menu Official">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="QR Menu Official — Restoranlar İçin Dijital QR Menü ve Servis Sistemi">
+  <meta property="og:description" content="Menü, garson çağrısı ve servis paneli tek sistemde. Müşteri menüyü kendi dilinde okur, filtreler, sorar; garsonu ya da hesabı telefondan çağırır.">
+  <meta property="og:url" content="https://qrmenuofficial.com/">
   <link rel="stylesheet" href="css/global.css">
 </head>
 <body>
@@ -20048,8 +20057,8 @@
       <div class="qrmo-transition-v1__block">
         <h3>Geçiş için gerekenler</h3>
         <ol class="qrmo-transition-v1__needs">
-          <li><strong>Menünüz sisteme aktarılır.</strong> Ürünler, fiyatlar ve varsa diller ile alerjen bilgileri.</li>
-          <li><strong>Masalarınıza QR kodları yerleştirilir.</strong></li>
+          <li><strong>Menünüzü sisteme girersiniz.</strong> Ürünleri panelden tek tek eklersiniz ya da CSV dosyasıyla toplu aktarırsınız; fiyat, dil ve alerjen bilgisi de bu adımda girilir.</li>
+          <li><strong>Masalarınıza QR kodlarını yerleştirirsiniz.</strong></li>
           <li><strong>Ekibiniz talepleri servis panelinden takip eder.</strong></li>
         </ol>
       </div>
@@ -20065,11 +20074,28 @@
     ====================================================== -->
 
     <div class="qrmo-transition-v1__action">
-      <a class="qrmo-transition-v1__cta" data-cta-target="TBD">
+      <button type="button" class="qrmo-transition-v1__cta" data-cta-target="TBD">
         <span>Geçiş İçin Bilgi Alın</span>
         <b aria-hidden="true">→</b>
-      </a>
+      </button>
     </div>
+    <script>
+    (function () {
+      var b = document.querySelector('.qrmo-transition-v1 [data-cta-target="TBD"]');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        var n = b.parentNode.querySelector('.qrmo-cta-note');
+        if (!n) {
+          n = document.createElement('p');
+          n.className = 'qrmo-cta-note';
+          n.setAttribute('role', 'status');
+          b.parentNode.appendChild(n);
+        }
+        n.textContent = 'Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek.';
+      });
+    })();
+    </script>
+
 
   </div>
 
@@ -20403,8 +20429,19 @@
   font-size: 13px;
   line-height: 1;
   font-weight: 700;
+  font-family: inherit;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: default;
   transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.qrmo-transition-v1__action .qrmo-cta-note {
+  margin: 12px 0 0;
+  color: rgba(13, 43, 34, .68);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .qrmo-transition-v1__cta[href] {
@@ -21957,11 +21994,28 @@
       ====================================================== -->
 
       <div class="qrmo-final-cta-v1__action">
-        <a class="qrmo-final-cta-v1__cta" data-cta-target="TBD">
+        <button type="button" class="qrmo-final-cta-v1__cta" data-cta-target="TBD">
           <span>Geçiş İçin Bilgi Alın</span>
           <b aria-hidden="true">→</b>
-        </a>
+        </button>
       </div>
+    <script>
+    (function () {
+      var b = document.querySelector('.qrmo-final-cta-v1 [data-cta-target="TBD"]');
+      if (!b) return;
+      b.addEventListener('click', function () {
+        var n = b.parentNode.querySelector('.qrmo-cta-note');
+        if (!n) {
+          n = document.createElement('p');
+          n.className = 'qrmo-cta-note';
+          n.setAttribute('role', 'status');
+          b.parentNode.appendChild(n);
+        }
+        n.textContent = 'Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek.';
+      });
+    })();
+    </script>
+
 
     </div>
 
@@ -22106,8 +22160,19 @@
   font-size: 14px;
   line-height: 1;
   font-weight: 750;
+  font-family: inherit;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: default;
   transition: transform .2s ease, background-color .2s ease;
+}
+
+.qrmo-final-cta-v1__action .qrmo-cta-note {
+  margin: 12px 0 0;
+  color: rgba(244, 241, 232, .8);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .qrmo-final-cta-v1__cta[href] {

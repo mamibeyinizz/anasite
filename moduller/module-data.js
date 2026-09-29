@@ -662,7 +662,7 @@
           {
             title: "Menü ve ürün", open: true,
             items: [
-              { t: "Genel bakış", d: "Menü görüntüleme, ürün tıklama ve tekil ziyaretçi; günlük, haftalık, aylık ve saatlik grafikle izlenir. Göstergeler önceki eşit uzunluktaki dönemle karşılaştırılır.", src: "genel-sayfasi.php, analitik-genel.js (değişim rozeti)" },
+              { t: "Genel bakış", d: "Menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa sayısı gösterilir; günlük, haftalık, aylık ve saatlik grafikle izlenir. Aktif masa sayısı, seçili tarih aralığında en az bir hareket kaydeden masaların sayısıdır (şu anki anlık durum değildir). Göstergeler önceki eşit uzunluktaki dönemle karşılaştırılır.", src: "genel-sayfasi.php, analitik-genel.js (cardTables: seçili aralıkta en az bir hareket olan masa sayısı; değişim rozeti)" },
               { t: "Ürünler", d: "En çok ve en az tıklanan ürünler, kategori dağılımı, ürün detayının açılma oranı ve filtre kullanımı gösterilir.", src: "urunler-sayfasi.php" }
             ]
           },
