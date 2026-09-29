@@ -97,8 +97,19 @@
       return a;
     }
     var b = el("button", { class: cls, type: "button", "data-cta-pending": "", "data-cta-target": "TBD" });
+    b.addEventListener("click", function () { showPending(b); });
     kids.forEach(function (k) { b.appendChild(k); });
     return b;
+  }
+
+  /* Hedef TBD iken tıklama: kullanıcıya dürüst bir bilgi gösterir. */
+  function showPending(btn) {
+    var n = btn.nextElementSibling;
+    if (!n || !n.classList.contains("qrmo-pricing-cta-note")) {
+      n = el("p", { class: "qrmo-pricing-cta-note", role: "status" });
+      btn.parentNode.insertBefore(n, btn.nextSibling);
+    }
+    n.textContent = D.cta.pendingNotice || "";
   }
 
   function mount(name) { return root.querySelector('[data-qp-mount="' + name + '"]'); }

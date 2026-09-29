@@ -189,7 +189,7 @@
               { t: "Tek masa oluşturma", d: "Masa adını yazarsınız; adres otomatik üretilir (“Masa 31” → masa-31, “VIP Salon” → vip-salon).", src: "masalar-sayfasi.php" },
               { t: "Toplu oluşturma", d: "Bir ön ek ve numara aralığı girersiniz (örneğin ic-masa, 1–10); ic-masa-1 … ic-masa-10 tek seferde açılır. Var olan masalar atlanır; tek seferde en fazla 200 masa açılır.", src: "class-qmo-masalar.php TOPLU_AZAMI" },
               { t: "Gruba göre listeleme", d: "Ortak ön eke sahip masalar (ic-masa, bahce gibi) grup olarak listelenir; listeyi gruba göre süzebilirsiniz.", src: "class-qmo-masalar.php grup_adi()" },
-              { t: "Düzenleme ve silme", d: "Masa adı düzenlenir, masa silinir. Silinen masadaki açık oturumlar da kapanır.", src: "masalar-sayfasi.php" }
+              { t: "Düzenleme ve silme", d: "Masa adını değiştirmek QR kodun hedef adresini değiştirmez; basılıp masaya konmuş QR kod aynı masayı göstermeye devam eder. Masa silinirse o masadaki açık oturumlar da kapanır.", src: "class-qmo-masalar.php guncelle() (slug’a dokunulmaz), masalar-sayfasi.php" }
             ]
           },
           {
@@ -662,7 +662,7 @@
           {
             title: "Menü ve ürün", open: true,
             items: [
-              { t: "Genel bakış", d: "Menü görüntüleme, ürün tıklama ve tekil ziyaretçi; günlük, haftalık, aylık ve saatlik grafikle izlenir.", src: "genel-sayfasi.php, hub-sayfasi.php" },
+              { t: "Genel bakış", d: "Menü görüntüleme, ürün tıklama ve tekil ziyaretçi; günlük, haftalık, aylık ve saatlik grafikle izlenir. Göstergeler önceki eşit uzunluktaki dönemle karşılaştırılır.", src: "genel-sayfasi.php, analitik-genel.js (değişim rozeti)" },
               { t: "Ürünler", d: "En çok ve en az tıklanan ürünler, kategori dağılımı, ürün detayının açılma oranı ve filtre kullanımı gösterilir.", src: "urunler-sayfasi.php" }
             ]
           },
@@ -698,6 +698,7 @@
           "Bu bir geçmiş kullanım raporudur; tahmin veya yapay zekâ analizi içermez.",
           "Sepet ve sipariş verisi, sipariş özelliklerinin (Pro) kullanılmasına; etkileşim verisi ilgili modüllerin açık olmasına bağlıdır. Paketinizde olmayan bir modülün kategorisi raporda kapalı görünür.",
           "Tekil ziyaretçi sayısı IP adresinin özetine göre hesaplanır; aynı ağdan bağlanan farklı kişiler tek sayılabilir.",
+          "Özel tarih aralığı en fazla 31 gün olabilir.",
           "Az ziyaret alan bir menüde raporlar da az veri gösterir."
         ],
         steps: [

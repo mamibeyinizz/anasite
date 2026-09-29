@@ -171,6 +171,12 @@ body.qrmo-pricing-page {
 
 .qrmo-pricing-btn:active { transform: translateY(0); }
 
+.qrmo-pricing-cta-note { margin-top: 10px !important; color: rgba(13, 43, 34, .68); font-size: 13px; line-height: 1.45; }
+.qrmo-pricing-card--dark .qrmo-pricing-cta-note,
+.qrmo-pricing-final .qrmo-pricing-cta-note { color: rgba(244, 241, 232, .8); }
+.qrmo-pricing-final-action { flex-direction: column; align-items: flex-end; }
+.qrmo-pricing-foot-cell .qrmo-pricing-cta-note { text-align: center; }
+
 /* =========================================================
    HERO
 ========================================================= */
@@ -483,7 +489,7 @@ body.qrmo-pricing-page {
   .qrmo-pricing-which-body { gap: 12px; }
 
   .qrmo-pricing-final { grid-template-columns: 1fr; }
-  .qrmo-pricing-final-action { justify-content: flex-start; }
+  .qrmo-pricing-final-action { justify-content: flex-start; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {

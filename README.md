@@ -43,7 +43,7 @@ QR Menu Official'ın ana satış sitesi için çalışma alanı.
 |---|---|---|
 | 1 | Hero | Uygulanmış |
 | 2 | Ürün Haritası / Neler Sunuyoruz | Uygulanmış |
-| 3 | Dil Çeviri Modülü | Uygulanmış |
+| 3 | Çoklu Dil (eski ad: Dil Çeviri Modülü) | Uygulanmış |
 | 4 | QR Masa | Uygulanmış |
 | 5 | Akıllı Filtre | Uygulanmış |
 | 6 | Chatbot / Menü Asistanı | Uygulanmış |

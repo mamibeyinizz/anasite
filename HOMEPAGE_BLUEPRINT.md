@@ -80,7 +80,7 @@ Bu dosya:
 
 ---
 
-## SECTION 3 — Dil Çeviri Modülü
+## SECTION 3 — Çoklu Dil (eski ad: Dil Çeviri Modülü)
 
 **1. Satış amacı**: "Yabancı müşterim menümü kendi dilinde okuyabilir" düşüncesi.
 

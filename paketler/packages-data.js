@@ -36,7 +36,9 @@ window.QRMO_PRICING = {
   cta: {
     href: "",
     finalHref: "",               // boşsa href kullanılır; o da boşsa pasif <button>
-    finalLabel: "Paket seçimi için görüşün"
+    finalLabel: "Paket seçimi için görüşün",
+    /* href boşken düğmeye basılınca gösterilen dürüst bilgi (sahte yönlendirme yok). */
+    pendingNotice: "Bu adım henüz etkin değil; başvuru kanalı yakında eklenecek."
   },
 
   /* Modül sayfalarının kök yolu (bu sayfaya göre). */

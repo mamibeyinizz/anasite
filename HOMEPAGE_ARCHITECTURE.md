@@ -17,7 +17,7 @@ Bu sıra, `index.html`'deki **gerçek homepage akışı** kaynak kabul edilerek 
 |---|---|---|---|
 | 1 | Hero | Entegre | `qrmo-hero-v3-wrap` |
 | 2 | Ürün Haritası / Neler Sunuyoruz | Entegre | `qrmo-features-v3-wrap` |
-| 3 | Dil Çeviri Modülü | Entegre | `qrmo-translation-v3-wrap` |
+| 3 | Çoklu Dil (eski ad: Dil Çeviri Modülü) | Entegre | `qrmo-translation-v3-wrap` |
 | 4 | QR Masa | Entegre | `qrmo-tables-v5` |
 | 5 | Akıllı Filtre | Entegre | `qrmo-smart-filter-showcase` |
 | 6 | Chatbot / Menü Asistanı | Entegre | `qrmo-chatbot-feature` — `sections/section-6-chatbot.html` |
@@ -100,7 +100,7 @@ Aşağıdaki kayıtlar tarihsel bilgi olarak korunur; güncel sırayı belirleme
 
 ## 3. DİL ÇEVİRİ MODÜLÜ
 
-1. **Section adı**: Dil Çeviri Modülü
+1. **Section adı**: Çoklu Dil (eski ad: Dil Çeviri Modülü)
 2. **Section amacı**: Menünün farklı dillerde sunulabildiğini ve müşterinin dili nasıl seçtiğini göstermek.
 3. **Hangi problemi ele alıyor**: "Çok dilli müşteriye hizmet vermek manuel çeviri yükü doğurur" (CONTENT_STRATEGY.md madde 2).
 4. **Kullanılacak gerçek ürün özelliği**: Çoklu dil — CSV/veritabanı/manuel çeviri girişi (madde 1.1, madde 6.3) — **[Kesin]**.
