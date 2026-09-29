@@ -4,9 +4,10 @@ QR Menu Official'ın ana satış sitesi için çalışma alanı.
 
 ## Branch ve kod durumu
 
-- **Güncel çalışma branch'i:** `claude/qr-menu-section-9-strategy-eircho`. Homepage'in 12 section'ının tamamı (Section 1–12) bu branch'te uygulanmıştır: Section 1–10 `dcaeec9` commit'ine kadar, Section 11 (FAQ) ve Section 12 (Son CTA) bu güncellemeyle aynı iş paketinde.
-- **`main`:** Eski, Hero-only durumdadır (`aabf2f0`). `main`'de yalnızca Section 1 (Hero) vardır; Section 2–12 `main`'e merge **edilmemiştir**. Merge planı **TBD**.
-- Section 2–8'i getiren geçmiş, `claude/section-6-chatbot-audit-5aah0t` branch'inden gelir (`a622f08`); güncel branch bu geçmişin üzerine kurulmuştur.
+- **`main`:** Homepage Section 1–12, `/paketler/` ve `/moduller/` birleşik durumdadır (`086f81b` — `claude/paketler-pricing-page-xtgd41` merge).
+- Birleştirme kaynağı: `claude/paketler-pricing-page-xtgd41` (içinde `claude/qr-menu-section-9-strategy-eircho` geçmişi, `/paketler/`, `/moduller/` ve doküman senkronu).
+- Yedek referans (merge öncesi Hero-only `main`): `backup/main-before-active-branch-merge` → `7708e45`.
+- Paralel branch'ler (`claude/section-6-chatbot-qa-wzuiu1`, `claude/qr-menu-site-structure-0oxcst`) ayrı geçmişte kaldı; ayrıntılar merge raporunda.
 
 ## Yapı
 
