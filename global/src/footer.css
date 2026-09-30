@@ -1,0 +1,55 @@
+/* =========================================================
+   QR MENU OFFICIAL — GLOBAL FOOTER (.qrmo-gf-*)
+   Token'lar header.css ile paylaşılır. <600: kolonlar akordeon.
+========================================================= */
+
+.qrmo-gf {
+  background: var(--qg-bg);
+  border-top: 1px solid var(--qg-line);
+  color: var(--qg-text);
+}
+.qrmo-gf-in {
+  width: 100%; max-width: calc(var(--qg-max) + 2 * var(--qg-gutter));
+  margin-inline: auto; padding: 48px var(--qg-gutter) calc(28px + env(safe-area-inset-bottom));
+}
+.qrmo-gf-top { display: grid; gap: 36px; }
+
+.qrmo-gf-brand { display: grid; align-content: start; align-self: start; justify-items: start; gap: 14px; max-width: 34ch; }
+.qrmo-gf-brand p { color: var(--qg-muted); font-size: 15.5px; line-height: 1.6; }
+.qrmo-gf-brand .qrmo-gh-cta { margin-top: 4px; }
+
+.qrmo-gf-cols { display: grid; gap: 0; }
+.qrmo-gf-col { border-top: 1px solid var(--qg-line); }
+.qrmo-gf-col:last-child { border-bottom: 1px solid var(--qg-line); }
+.qrmo-gf-col > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 56px; cursor: pointer; list-style: none;
+}
+.qrmo-gf-col > summary::-webkit-details-marker { display: none; }
+.qrmo-gf-col > summary svg { width: 18px; height: 18px; color: var(--qg-green-dark); }
+.qrmo-gf-col[open] > summary svg { transform: rotate(180deg); }
+.qrmo-gf-h { color: var(--qg-green-dark); font-size: 13px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.qrmo-gf-col ul { padding-bottom: 14px; }
+.qrmo-gf-col a { display: flex; align-items: center; min-height: 44px; color: var(--qg-text); font-size: 15px; }
+.qrmo-gf-col a[aria-current] { color: var(--qg-green-dark); font-weight: 800; }
+
+.qrmo-gf-bottom { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--qg-line); }
+.qrmo-gf-bottom p { color: var(--qg-muted); font-size: 14px; }
+
+/* JS yoksa tüm kolonlar açık kalır (HTML'de `open`) — akordeon yalnızca <600'de anlamlı */
+@media (min-width: 600px) {
+  .qrmo-gf-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  .qrmo-gf-col, .qrmo-gf-col:last-child { border: 0; }
+  .qrmo-gf-col > summary { min-height: 0; margin-bottom: 8px; cursor: default; pointer-events: none; }
+  .qrmo-gf-col > summary svg { display: none; }
+  .qrmo-gf-col ul { padding-bottom: 0; }
+}
+@media (min-width: 900px) {
+  .qrmo-gf-in { padding-top: 64px; }
+  .qrmo-gf-top { grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); gap: 56px; }
+  .qrmo-gf-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 24px; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .qrmo-gf-col a:hover { color: var(--qg-green-dark); text-decoration: underline; text-decoration-color: var(--qg-gold); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+}

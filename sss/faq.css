@@ -21,7 +21,7 @@ body.qrmo-faq-page {
   --qf-gutter: clamp(16px, 5vw, 56px);
   --qf-max: 1180px;
   --qf-nav-w: min(280px, 32vw);
-  --qf-topbar-h: 56px;
+  --qf-topbar-h: var(--qrmo-gh-h, 76px);
 
   color: var(--qf-text);
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
