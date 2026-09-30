@@ -229,7 +229,7 @@ function cue(key) {
    ORTAK SAYFA PARÇALARI
 ========================================================= */
 
-function head({ title, description, url, breadcrumb, cssPath }) {
+function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) {
   const ld = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: breadcrumb.map((b, i) => ({ "@type": "ListItem", position: i + 1, name: b[0], item: b[1] }))
@@ -252,7 +252,7 @@ function head({ title, description, url, breadcrumb, cssPath }) {
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
 <link rel="stylesheet" href="${cssPath}">
-<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>
+${extraHead ? extraHead + "\n" : ""}<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>
 </head>`;
 }
 
@@ -305,6 +305,55 @@ function v2InnerClose(m, sectionKey) {
 
 function v2SecClass(m, sectionKey) {
   return m.designV2 && V2_MARKER_LABEL[sectionKey] ? " qrmo-mod-v2-sec" : "";
+}
+
+/* Modül context nav — V2 işaretçileriyle aynı etiket kaynağı. */
+const CTX_NAV_SKIP = new Set(["hero", "related", "closing"]);
+
+function ctxNavSectionLabel(m, sectionKey) {
+  if (sectionKey === "details") return "AYRINTILAR";
+  if (m.designV2 && V2_MARKER_LABEL[sectionKey]) {
+    const src = V2_MARKER_LABEL[sectionKey];
+    if (src === "AYRINTILAR") return src;
+    const sec = m[src];
+    return sec && sec.kicker ? sec.kicker : "";
+  }
+  const sec = m[sectionKey];
+  return sec && sec.kicker ? sec.kicker : "";
+}
+
+function ctxNavSectionHash(sectionKey) {
+  if (sectionKey === "details") return "ayrintilar";
+  if (sectionKey === "capabilities") return "qrmo-mod-caps-h";
+  return `qrmo-mod-${sectionKey}-h`;
+}
+
+function ctxNavSections(m) {
+  return m.order
+    .filter((key) => !CTX_NAV_SKIP.has(key) && (key === "details" || m[key]))
+    .map((key) => {
+      const label = ctxNavSectionLabel(m, key);
+      if (!label) return null;
+      return { key, label, hash: ctxNavSectionHash(key) };
+    })
+    .filter(Boolean);
+}
+
+function moduleContextNav(m) {
+  const items = ctxNavSections(m);
+  if (!items.length) return "";
+  const links = join(items, (it) => `
+      <li><a class="qrmo-mod-ctx-link" href="#${esc(it.hash)}" data-qrmo-mod-ctx-link="${esc(it.key)}"><span class="qrmo-mod-ctx-link-t">${esc(it.label)}</span></a></li>`);
+  return `
+  <nav class="qrmo-mod-ctx" data-qrmo-mod-ctx aria-label="${esc(m.name)} — bölüm gezintisi">
+    <div class="qrmo-mod-ctx-inner qrmo-mod-inner">
+      <p class="qrmo-mod-ctx-mod">${esc(up(m.name))}</p>
+      <div class="qrmo-mod-ctx-scroll">
+        <ul class="qrmo-mod-ctx-links">${links}
+        </ul>
+      </div>
+    </div>
+  </nav>`;
 }
 
 /* =========================================================
@@ -569,10 +618,12 @@ function renderModule(m, faqById) {
   return head({
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
-    cssPath: "../module-page.css"
+    cssPath: "../module-page.css",
+    extraHead: '<script defer src="../module-page.js"></script>'
   }) + `
-<body class="qrmo-mod-page"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
+<body class="qrmo-mod-page qrmo-mod-page--detail"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">
+${moduleContextNav(m)}
   ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
 ${body}
 </main>
