@@ -1,4 +1,4 @@
-/* Modül detay sayfaları — context nav aktif bölüm (yalnızca [data-qrmo-mod-ctx] varsa). */
+/* Context nav — modül detay + anasayfa ([data-qrmo-mod-ctx]). */
 (function () {
   var nav = document.querySelector("[data-qrmo-mod-ctx]");
   if (!nav) return;
@@ -6,7 +6,9 @@
   var links = Array.prototype.slice.call(nav.querySelectorAll("[data-qrmo-mod-ctx-link]"));
   if (!links.length) return;
 
-  var hero = document.querySelector(".qrmo-mod-hero");
+  var hero =
+    document.querySelector(".qrmo-mod-hero") ||
+    document.getElementById("icerik");
 
   var pairs = links
     .map(function (a) {
@@ -23,7 +25,8 @@
   function offsetTop() {
     var root = document.documentElement;
     var gh = parseFloat(getComputedStyle(root).getPropertyValue("--qrmo-gh-h")) || 76;
-    var ctx = parseFloat(getComputedStyle(document.body).getPropertyValue("--qrmo-mod-ctx-h")) || 48;
+    var ctxHost = document.body;
+    var ctx = parseFloat(getComputedStyle(ctxHost).getPropertyValue("--qrmo-mod-ctx-h")) || 48;
     return gh + ctx + 10;
   }
 
@@ -66,6 +69,27 @@
     }
     setActive(best ? best.key : null);
   }
+
+  function scrollToTarget(el) {
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }
+
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var href = a.getAttribute("href") || "";
+      if (href.charAt(0) !== "#") return;
+      var el = document.getElementById(href.slice(1));
+      if (!el) return;
+      e.preventDefault();
+      scrollToTarget(el);
+      if (typeof history !== "undefined" && history.pushState) {
+        history.pushState(null, "", href);
+      } else {
+        location.hash = href.slice(1);
+      }
+    });
+  });
 
   if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(

@@ -16,10 +16,12 @@
   <link rel="stylesheet" href="css/global.css">
 <!-- QRMO:HEAD:START -->
 <link rel="stylesheet" href="global/dist/qrmo-global.css">
+<link rel="stylesheet" href="moduller/module-page.css">
 <script defer src="global/dist/qrmo-global.js"></script>
+<script defer src="moduller/module-page.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body>
+<body class="qrmo-home-ctx">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -169,6 +171,22 @@
   </div>
 </header>
 <!-- QRMO:HEADER:END -->
+<nav class="qrmo-mod-ctx" data-qrmo-mod-ctx aria-label="Ana sayfa — bölüm gezintisi">
+  <div class="qrmo-mod-ctx-inner qrmo-mod-inner">
+    <p class="qrmo-mod-ctx-mod">ANA SAYFA</p>
+    <div class="qrmo-mod-ctx-scroll">
+      <ul class="qrmo-mod-ctx-links">
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-product-map-v1" data-qrmo-mod-ctx-link="product-map"><span class="qrmo-mod-ctx-link-t">ÜRÜN HARİTASI</span></a></li>
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-translation-v3-root" data-qrmo-mod-ctx-link="translation"><span class="qrmo-mod-ctx-link-t">ÇOKLU DİL</span></a></li>
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-filtre" data-qrmo-mod-ctx-link="filter"><span class="qrmo-mod-ctx-link-t">AKILLI FİLTRE</span></a></li>
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-asistan" data-qrmo-mod-ctx-link="chatbot"><span class="qrmo-mod-ctx-link-t">CHATBOT</span></a></li>
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-masa" data-qrmo-mod-ctx-link="tables"><span class="qrmo-mod-ctx-link-t">QR MASALAR</span></a></li>
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-servis" data-qrmo-mod-ctx-link="service"><span class="qrmo-mod-ctx-link-t">SERVİS</span></a></li>
+        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-icgoru" data-qrmo-mod-ctx-link="analytics"><span class="qrmo-mod-ctx-link-t">ANALİTİK</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <section class="qrmo-hero-v3-wrap" id="icerik" aria-label="QR Menu Official tanıtım alanı">    <div class="qrmo-hero-v3-inner">  <!-- =====================================================
      SOL İÇERİK
 ====================================================== -->
@@ -1306,7 +1324,7 @@
 
 </style>
 
-<section class="qrmo-product-map-v1-wrap" id="qrmo-product-map-v1" aria-labelledby="qrmo-product-map-v1-title">
+<section class="qrmo-product-map-v1-wrap qrmo-home-anchor" id="qrmo-product-map-v1" aria-labelledby="qrmo-product-map-v1-title">
 
   <header class="qrmo-product-map-v1-header">
     <p class="qrmo-product-map-v1-kicker">ÜRÜNÜN YAPISI</p>
@@ -2010,7 +2028,7 @@
 }
 
 .qrmo-home-anchor {
-  scroll-margin-top: calc(var(--qrmo-gh-h, 88px) + 16px);
+  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 48px) + 8px);
 }
 
 @media (max-width: 900px) {
@@ -12063,7 +12081,7 @@
   color:rgba(13,43,34,.72);
 }
 .qrmo-home-anchor{
-  scroll-margin-top:calc(var(--qrmo-gh-h, 88px) + 16px);
+  scroll-margin-top:calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 48px) + 8px);
 }
 
 .qrmo-tables-v5{

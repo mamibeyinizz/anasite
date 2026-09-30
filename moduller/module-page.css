@@ -81,10 +81,16 @@ body.qrmo-mod-page {
 main.qrmo-mod { display: block; outline: none; }
 .qrmo-mod [id] { scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 8px); }
 
-body.qrmo-mod-page--detail {
+body.qrmo-mod-page--detail,
+body.qrmo-home-ctx {
   --qrmo-mod-ctx-h: 48px;
 }
 body.qrmo-mod-page--detail .qrmo-mod [id] {
+  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h) + 8px);
+}
+
+body.qrmo-home-ctx .qrmo-home-anchor,
+body.qrmo-home-ctx #qrmo-product-map-v1 {
   scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h) + 8px);
 }
 
