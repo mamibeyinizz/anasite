@@ -6,6 +6,8 @@
   var links = Array.prototype.slice.call(nav.querySelectorAll("[data-qrmo-mod-ctx-link]"));
   if (!links.length) return;
 
+  var hero = document.querySelector(".qrmo-mod-hero");
+
   var pairs = links
     .map(function (a) {
       var href = a.getAttribute("href") || "";
@@ -21,20 +23,31 @@
   function offsetTop() {
     var root = document.documentElement;
     var gh = parseFloat(getComputedStyle(root).getPropertyValue("--qrmo-gh-h")) || 76;
-    var ctx = parseFloat(getComputedStyle(document.body).getPropertyValue("--qrmo-mod-ctx-h")) || 44;
+    var ctx = parseFloat(getComputedStyle(document.body).getPropertyValue("--qrmo-mod-ctx-h")) || 48;
     return gh + ctx + 10;
   }
 
   function setActive(key) {
     links.forEach(function (a) {
-      var on = a.getAttribute("data-qrmo-mod-ctx-link") === key;
+      var on = Boolean(key) && a.getAttribute("data-qrmo-mod-ctx-link") === key;
       a.classList.toggle("is-active", on);
       if (on) a.setAttribute("aria-current", "location");
       else a.removeAttribute("aria-current");
     });
   }
 
+  function heroCoversNavZone() {
+    if (!hero) return false;
+    var line = offsetTop();
+    var r = hero.getBoundingClientRect();
+    return r.bottom > line + 8;
+  }
+
   function pickActive() {
+    if (heroCoversNavZone()) {
+      setActive(null);
+      return;
+    }
     var line = offsetTop();
     var best = null;
     var bestTop = -Infinity;
@@ -46,13 +59,12 @@
       }
     });
     if (!best) {
-      var firstVisible = pairs.find(function (p) {
+      best = pairs.find(function (p) {
         var r = p.el.getBoundingClientRect();
         return r.bottom > line && r.top < window.innerHeight;
       });
-      best = firstVisible || pairs[0];
     }
-    if (best) setActive(best.key);
+    setActive(best ? best.key : null);
   }
 
   if ("IntersectionObserver" in window) {
@@ -65,6 +77,7 @@
     pairs.forEach(function (p) {
       observer.observe(p.el);
     });
+    if (hero) observer.observe(hero);
     window.addEventListener(
       "resize",
       function () {
@@ -72,6 +85,7 @@
         pairs.forEach(function (p) {
           observer.observe(p.el);
         });
+        if (hero) observer.observe(hero);
         pickActive();
       },
       { passive: true }

@@ -82,7 +82,7 @@ main.qrmo-mod { display: block; outline: none; }
 .qrmo-mod [id] { scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 8px); }
 
 body.qrmo-mod-page--detail {
-  --qrmo-mod-ctx-h: 44px;
+  --qrmo-mod-ctx-h: 48px;
 }
 body.qrmo-mod-page--detail .qrmo-mod [id] {
   scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h) + 8px);
@@ -92,15 +92,11 @@ body.qrmo-mod-page--detail .qrmo-mod [id] {
 
 .qrmo-mod-ctx {
   display: block;
-  min-width: 0;
-  max-width: 100%;
-}
-
-.qrmo-mod-ctx-bar {
   position: sticky;
   top: var(--qrmo-gh-h, 76px);
   z-index: 40;
   min-width: 0;
+  max-width: 100%;
   border-bottom: 1px solid var(--qm-line);
   background: rgba(253, 251, 245, .92);
   backdrop-filter: blur(10px);
@@ -111,10 +107,10 @@ body.qrmo-mod-page--detail .qrmo-mod [id] {
 .qrmo-mod-ctx-inner {
   display: flex;
   align-items: center;
-  gap: 16px 24px;
+  gap: 12px 24px;
   min-width: 0;
   min-height: var(--qrmo-mod-ctx-h);
-  padding-block: 6px;
+  padding-block: 2px;
 }
 
 .qrmo-mod-ctx-mod {
@@ -159,7 +155,7 @@ body.qrmo-mod-page--detail .qrmo-mod [id] {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  padding: 4px 2px;
+  padding: 0 2px;
   color: var(--qm-muted);
   font-size: 11.5px;
   font-weight: 600;
@@ -186,8 +182,7 @@ body.qrmo-mod-page--detail .qrmo-mod [id] {
 }
 
 @media (min-width: 1024px) {
-  body.qrmo-mod-page--detail { --qrmo-mod-ctx-h: 48px; }
-  .qrmo-mod-ctx-inner { padding-block: 8px; }
+  .qrmo-mod-ctx-inner { padding-block: 2px; }
   .qrmo-mod-ctx-scroll { overflow-x: visible; }
   .qrmo-mod-ctx-links { flex-wrap: wrap; min-width: 0; justify-content: flex-end; }
 }

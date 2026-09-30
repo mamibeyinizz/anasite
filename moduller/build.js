@@ -345,8 +345,7 @@ function moduleContextNav(m) {
   const links = join(items, (it) => `
       <li><a class="qrmo-mod-ctx-link" href="#${esc(it.hash)}" data-qrmo-mod-ctx-link="${esc(it.key)}"><span class="qrmo-mod-ctx-link-t">${esc(it.label)}</span></a></li>`);
   return `
-<nav class="qrmo-mod-ctx" data-qrmo-mod-ctx aria-label="${esc(m.name)} — bölüm gezintisi">
-  <div class="qrmo-mod-ctx-bar">
+  <nav class="qrmo-mod-ctx" data-qrmo-mod-ctx aria-label="${esc(m.name)} — bölüm gezintisi">
     <div class="qrmo-mod-ctx-inner qrmo-mod-inner">
       <p class="qrmo-mod-ctx-mod">${esc(up(m.name))}</p>
       <div class="qrmo-mod-ctx-scroll">
@@ -354,8 +353,7 @@ function moduleContextNav(m) {
         </ul>
       </div>
     </div>
-  </div>
-</nav>`;
+  </nav>`;
 }
 
 /* =========================================================
@@ -624,8 +622,8 @@ function renderModule(m, faqById) {
     extraHead: '<script defer src="../module-page.js"></script>'
   }) + `
 <body class="qrmo-mod-page qrmo-mod-page--detail"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
-${moduleContextNav(m)}
 <main id="icerik" class="qrmo-mod" tabindex="-1">
+${moduleContextNav(m)}
   ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
 ${body}
 </main>
