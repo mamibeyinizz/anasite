@@ -339,21 +339,9 @@ function ctxNavSections(m) {
     .filter(Boolean);
 }
 
-function moduleContextNav(m) {
-  const items = ctxNavSections(m);
-  if (!items.length) return "";
-  const links = join(items, (it) => `
-      <li><a class="qrmo-mod-ctx-link" href="#${esc(it.hash)}" data-qrmo-mod-ctx-link="${esc(it.key)}"><span class="qrmo-mod-ctx-link-t">${esc(it.label)}</span></a></li>`);
-  return `
-  <nav class="qrmo-mod-ctx" data-qrmo-mod-ctx aria-label="${esc(m.name)} — bölüm gezintisi">
-    <div class="qrmo-mod-ctx-inner qrmo-mod-inner">
-      <p class="qrmo-mod-ctx-mod">${esc(up(m.name))}</p>
-      <div class="qrmo-mod-ctx-scroll">
-        <ul class="qrmo-mod-ctx-links">${links}
-        </ul>
-      </div>
-    </div>
-  </nav>`;
+function moduleContextNav(_m) {
+  /* Context nav yalnızca anasayfa modül bölgesinde; detay sayfalarında yok. */
+  return "";
 }
 
 /* =========================================================

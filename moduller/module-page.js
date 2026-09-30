@@ -1,14 +1,14 @@
-/* Context nav — modül detay + anasayfa ([data-qrmo-mod-ctx]). */
+/* Context nav — yalnızca anasayfa modül bölgesi ([data-qrmo-home-mod-zone]). */
 (function () {
   var nav = document.querySelector("[data-qrmo-mod-ctx]");
-  if (!nav) return;
+  if (!nav || !document.body.classList.contains("qrmo-home-ctx")) return;
 
+  var zone = document.querySelector("[data-qrmo-home-mod-zone]");
+  if (!zone) return;
+
+  var scroller = nav.querySelector("[data-qrmo-mod-ctx-scroll]");
   var links = Array.prototype.slice.call(nav.querySelectorAll("[data-qrmo-mod-ctx-link]"));
   if (!links.length) return;
-
-  var hero =
-    document.querySelector(".qrmo-mod-hero") ||
-    document.getElementById("icerik");
 
   var pairs = links
     .map(function (a) {
@@ -22,12 +22,41 @@
 
   if (!pairs.length) return;
 
+  function ghHeight() {
+    return parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 76;
+  }
+
+  function ctxHeight() {
+    return parseFloat(getComputedStyle(document.body).getPropertyValue("--qrmo-mod-ctx-h")) || 42;
+  }
+
   function offsetTop() {
-    var root = document.documentElement;
-    var gh = parseFloat(getComputedStyle(root).getPropertyValue("--qrmo-gh-h")) || 76;
-    var ctxHost = document.body;
-    var ctx = parseFloat(getComputedStyle(ctxHost).getPropertyValue("--qrmo-mod-ctx-h")) || 48;
-    return gh + ctx + 10;
+    return ghHeight() + ctxHeight() + 10;
+  }
+
+  function setZoneLive(on) {
+    nav.hidden = !on;
+    nav.classList.toggle("is-zone-live", on);
+  }
+
+  function scrollActiveIntoView() {
+    var active = nav.querySelector(".qrmo-mod-ctx-link.is-active");
+    if (!active || !scroller) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var scrollerRect = scroller.getBoundingClientRect();
+    var linkRect = active.getBoundingClientRect();
+    var pad = 12;
+    if (linkRect.left < scrollerRect.left + pad) {
+      scroller.scrollLeft -= scrollerRect.left + pad - linkRect.left;
+    } else if (linkRect.right > scrollerRect.right - pad) {
+      scroller.scrollLeft += linkRect.right - (scrollerRect.right - pad);
+    } else if (typeof active.scrollIntoView === "function") {
+      active.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        inline: "center",
+        block: "nearest"
+      });
+    }
   }
 
   function setActive(key) {
@@ -37,17 +66,11 @@
       if (on) a.setAttribute("aria-current", "location");
       else a.removeAttribute("aria-current");
     });
-  }
-
-  function heroCoversNavZone() {
-    if (!hero) return false;
-    var line = offsetTop();
-    var r = hero.getBoundingClientRect();
-    return r.bottom > line + 8;
+    if (key) scrollActiveIntoView();
   }
 
   function pickActive() {
-    if (heroCoversNavZone()) {
+    if (nav.hidden) {
       setActive(null);
       return;
     }
@@ -92,24 +115,38 @@
   });
 
   if ("IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(
+    var zoneObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          setZoneLive(entry.isIntersecting);
+          pickActive();
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-" + ghHeight() + "px 0px 0px 0px",
+        threshold: [0, 0.01]
+      }
+    );
+    zoneObserver.observe(zone);
+
+    var sectionObserver = new IntersectionObserver(
       function () {
         pickActive();
       },
-      { root: null, rootMargin: "-" + offsetTop() + "px 0px -58% 0px", threshold: [0, 0.12, 0.35] }
+      { root: null, rootMargin: "-" + offsetTop() + "px 0px -55% 0px", threshold: [0, 0.12, 0.35] }
     );
     pairs.forEach(function (p) {
-      observer.observe(p.el);
+      sectionObserver.observe(p.el);
     });
-    if (hero) observer.observe(hero);
+
     window.addEventListener(
       "resize",
       function () {
-        observer.disconnect();
+        sectionObserver.disconnect();
         pairs.forEach(function (p) {
-          observer.observe(p.el);
+          sectionObserver.observe(p.el);
         });
-        if (hero) observer.observe(hero);
         pickActive();
       },
       { passive: true }
