@@ -109,22 +109,11 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   overflow-x: clip;
 }
 
-.qrmo-home-mod-ctx-slot {
-  display: block;
-  height: var(--qrmo-mod-ctx-h);
-  min-height: var(--qrmo-mod-ctx-h);
-  max-height: var(--qrmo-mod-ctx-h);
-  margin: 0;
-  padding: 0;
-  position: relative;
-  z-index: 40;
-}
-
 .qrmo-mod-ctx--home {
   display: block;
   position: sticky;
   top: var(--qrmo-mod-ctx-sticky-top, var(--qrmo-gh-h, 76px));
-  z-index: 1;
+  z-index: 40;
   min-width: 0;
   max-width: 100%;
   height: var(--qrmo-mod-ctx-h);

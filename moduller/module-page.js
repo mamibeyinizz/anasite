@@ -48,12 +48,9 @@
     document.documentElement.style.setProperty("--qrmo-mod-ctx-sticky-top", ghHeight() + "px");
   }
 
-  var slot = document.querySelector("[data-qrmo-mod-ctx-slot]");
-
   function setZoneLive(on) {
     nav.classList.toggle("is-zone-live", on);
     nav.setAttribute("aria-hidden", on ? "false" : "true");
-    if (slot) slot.setAttribute("aria-hidden", on ? "false" : "true");
   }
 
   function resolveActiveKey() {
