@@ -109,11 +109,22 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   overflow-x: clip;
 }
 
+.qrmo-home-mod-ctx-slot {
+  display: block;
+  height: var(--qrmo-mod-ctx-h);
+  min-height: var(--qrmo-mod-ctx-h);
+  max-height: var(--qrmo-mod-ctx-h);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 40;
+}
+
 .qrmo-mod-ctx--home {
   display: block;
   position: sticky;
-  top: var(--qrmo-gh-h, 76px);
-  z-index: 40;
+  top: var(--qrmo-mod-ctx-sticky-top, var(--qrmo-gh-h, 76px));
+  z-index: 1;
   min-width: 0;
   max-width: 100%;
   height: var(--qrmo-mod-ctx-h);
@@ -121,23 +132,33 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   padding: 0;
   border: 0;
   border-bottom: 1px solid rgba(13, 43, 34, .07);
-  background: rgba(251, 247, 238, .82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  background: rgba(251, 247, 238, .96);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 1px 0 rgba(201, 168, 76, .06);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .14s var(--qm-ease), visibility .14s var(--qm-ease);
 }
 
-.qrmo-mod-ctx--home[hidden] {
-  display: none !important;
+.qrmo-mod-ctx--home.is-zone-live {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .qrmo-mod-ctx--home .qrmo-mod-ctx-scroll {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   width: 100%;
   max-width: 100%;
-  height: 100%;
+  height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  min-height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  max-height: calc(var(--qrmo-mod-ctx-h) - 1px);
   min-width: 0;
+  box-sizing: border-box;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
@@ -156,8 +177,14 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   gap: 0;
   min-width: min-content;
   margin: 0;
-  padding: 0 clamp(16px, 4vw, 28px);
+  padding: 0 5vw;
   list-style: none;
+}
+
+@media (max-width: 560px) {
+  .qrmo-mod-ctx--home .qrmo-mod-ctx-links {
+    padding-inline: 15px;
+  }
 }
 
 .qrmo-mod-ctx--home .qrmo-mod-ctx-links > li {
@@ -179,8 +206,10 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
 .qrmo-mod-ctx--home .qrmo-mod-ctx-link {
   display: inline-flex;
   align-items: center;
-  min-height: var(--qrmo-mod-ctx-h);
-  padding: 0 1px;
+  box-sizing: border-box;
+  height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  max-height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  padding: 0 1px 1px;
   color: var(--qm-muted);
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 10.5px;
@@ -190,8 +219,9 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  border-bottom: 1.5px solid transparent;
-  transition: color .16s var(--qm-ease), border-color .16s var(--qm-ease);
+  border-bottom: 0;
+  box-shadow: inset 0 -2px 0 transparent;
+  transition: color .16s var(--qm-ease), box-shadow .16s var(--qm-ease);
 }
 
 .qrmo-mod-ctx--home .qrmo-mod-ctx-link-t {
@@ -205,7 +235,7 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
 .qrmo-mod-ctx--home .qrmo-mod-ctx-link.is-active,
 .qrmo-mod-ctx--home .qrmo-mod-ctx-link[aria-current="location"] {
   color: var(--qm-gold-ink);
-  border-bottom-color: var(--qm-gold);
+  box-shadow: inset 0 -2px 0 var(--qm-gold);
   font-weight: 700;
 }
 
@@ -221,6 +251,10 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .qrmo-mod-ctx--home {
+    transition: none;
+  }
+
   .qrmo-mod-ctx--home .qrmo-mod-ctx-link {
     transition: none;
   }
