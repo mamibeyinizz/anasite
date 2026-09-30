@@ -22,7 +22,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page">
+<body class="qrmo-mod-page" id="mod-v2-prototype">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -175,7 +175,7 @@
 <main id="icerik" class="qrmo-mod" tabindex="-1">
   <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">Çoklu Dil</li></ol></nav>
 
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--split" aria-labelledby="qrmo-mod-h1">
+  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--split qrmo-mod-hero--v2" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-mod-inner qrmo-mod-hero-grid">
       <div class="qrmo-mod-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MENÜ</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
@@ -196,10 +196,10 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--compare" aria-labelledby="qrmo-mod-story-h">
-    <div class="qrmo-mod-inner">
+  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--compare qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-story-h">
+    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">01 — AYNI ÜRÜN</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main">
       <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">AYNI ÜRÜN</p>
+        
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">Misafir, ürünü kendi dilinde okur.</h2>
         <p class="qrmo-mod-text">Çevirisi girilmiş her alan seçilen dilde görünür. Fiyat aynı kalır; sayı ayracı dile göre değişir.</p>
       </header>
@@ -217,14 +217,14 @@
         </div>
         <figcaption class="qrmo-mod-cap">Örnek çeviriler. Çevirileri siz ya da çevirmeniniz girersiniz.</figcaption>
       </figure>
-    </div>
+    </div></div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
-    <div class="qrmo-mod-inner">
+  <section class="qrmo-mod-sec qrmo-mod-stage-sec qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-stage-h">
+    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">02 — ÇEVİRİ TABLOSU</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main">
       <div class="qrmo-mod-stage qrmo-mod-stage--light qrmo-mod-stage--split">
         <header class="qrmo-mod-stage-head">
-          <p class="qrmo-mod-kicker">ÇEVİRİ TABLOSU</p>
+          
           <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Çeviriler tek dosyada, kontrol sizde.</h2>
           <p class="qrmo-mod-text">Bu modül makine çevirisi yapmaz. Çeviri dosyasını indirirsiniz; dil sütunlarını siz ya da çevirmeniniz doldurur, CSV ile geri yüklersiniz.</p>
           
@@ -241,13 +241,13 @@
           <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>Sistem durumu</h3><p>Her dil için kaç çeviri yazıldığını, hangilerinin eskidiğini görürsünüz.</p></li>
         </ol>
       </div>
-    </div>
+    </div></div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-caps" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-caps-grid">
+  <section class="qrmo-mod-sec qrmo-mod-caps qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-caps-h">
+    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">03 — MENÜNÜN ÖTESİ</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-caps-grid">
       <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">MENÜNÜN ÖTESİ</p>
+        
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">Menüyle birlikte arayüz de çevrilir.</h2>
       </header>
       <ul class="qrmo-mod-caps-list">
@@ -255,11 +255,11 @@
         <li><span class="qrmo-mod-caps-i" aria-hidden="true">02</span><h3>Dil seçici</h3><p>Yalnızca bayrak ya da bayrak ve dil adı gösteren iki seçici; buton renklerini siz ayarlarsınız.</p></li>
         <li><span class="qrmo-mod-caps-i" aria-hidden="true">03</span><h3>Arama motorları</h3><p>Seçilen dil adreste görünür (?lang=en) ve alternatif dil etiketleri (hreflang) yayınlanır.</p></li>
       </ul>
-    </div>
+    </div></div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-details-grid">
+  <section class="qrmo-mod-sec qrmo-mod-details qrmo-mod-v2-sec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">04 — AYRINTILAR</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-details-grid">
       <div class="qrmo-mod-details-side">
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
         <div class="qrmo-mod-know">
@@ -305,7 +305,7 @@
           </ul>
         </details>
       </div>
-    </div>
+    </div></div></div>
   </section>
 
   <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">

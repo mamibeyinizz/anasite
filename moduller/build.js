@@ -275,6 +275,38 @@ function ctaRow(rel, back, { dark = false } = {}) {
         </div>`;
 }
 
+/* Modül Design V2: numaralı bölüm işaretçileri (yalnızca designV2 modüllerde). */
+const V2_MARKER_LABEL = { story: "story", stage: "stage", capabilities: "capabilities", details: "AYRINTILAR" };
+
+function v2Marker(m, ctx, sectionKey) {
+  if (!m.designV2) return "";
+  const src = V2_MARKER_LABEL[sectionKey];
+  const label = src === "AYRINTILAR" ? src : (m[src] && m[src].kicker);
+  if (!label) return "";
+  ctx.v2MarkerN = (ctx.v2MarkerN || 0) + 1;
+  return `<div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">${pad(ctx.v2MarkerN)} — ${esc(up(label))}</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div>`;
+}
+
+function v2SkipKicker(m, sectionKey) {
+  return Boolean(m.designV2 && V2_MARKER_LABEL[sectionKey]);
+}
+
+function v2InnerOpen(m, ctx, sectionKey, extraInnerClass = "", mainClass = "") {
+  const extra = extraInnerClass ? ` ${extraInnerClass}` : "";
+  const main = mainClass ? ` qrmo-mod-v2-main ${mainClass}` : " qrmo-mod-v2-main";
+  if (!m.designV2 || !V2_MARKER_LABEL[sectionKey]) return `<div class="qrmo-mod-inner${extra}">`;
+  return `<div class="qrmo-mod-inner qrmo-mod-v2-inner${extra}">${v2Marker(m, ctx, sectionKey)}<div class="${main.trim()}">`;
+}
+
+function v2InnerClose(m, sectionKey) {
+  if (!m.designV2 || !V2_MARKER_LABEL[sectionKey]) return "</div>";
+  return "</div></div>";
+}
+
+function v2SecClass(m, sectionKey) {
+  return m.designV2 && V2_MARKER_LABEL[sectionKey] ? " qrmo-mod-v2-sec" : "";
+}
+
 /* =========================================================
    MODÜL SAYFASI BÖLÜMLERİ
 ========================================================= */
@@ -284,7 +316,7 @@ const SECTION = {
   hero(m, ctx) {
     const h = m.hero;
     return `
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--${h.layout}" aria-labelledby="qrmo-mod-h1">
+  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--${h.layout}${m.designV2 ? " qrmo-mod-hero--v2" : ""}" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-mod-inner qrmo-mod-hero-grid">
       <div class="qrmo-mod-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
@@ -321,15 +353,15 @@ const SECTION = {
   </section>`;
   },
 
-  stage(m) {
+  stage(m, ctx) {
     const s = m.stage;
     if (s.callouts.length > 3) problems.push(`${m.slug}: stage.callouts 3'ten fazla`);
     return `
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
-    <div class="qrmo-mod-inner">
+  <section class="qrmo-mod-sec qrmo-mod-stage-sec${v2SecClass(m, "stage")}" aria-labelledby="qrmo-mod-stage-h">
+    ${v2InnerOpen(m, ctx, "stage")}
       <div class="qrmo-mod-stage qrmo-mod-stage--${s.theme} qrmo-mod-stage--${s.layout}">
         <header class="qrmo-mod-stage-head">
-          ${kicker(s.kicker)}
+          ${v2SkipKicker(m, "stage") ? "" : kicker(s.kicker)}
           <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">${esc(s.title)}</h2>
           <p class="qrmo-mod-text">${esc(s.text)}</p>
           ${caveat(s.note)}
@@ -341,15 +373,15 @@ const SECTION = {
           <li><span class="qrmo-mod-num" aria-hidden="true">${i + 1}</span><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p></li>`)}
         </ol>
       </div>
-    </div>
+    ${v2InnerClose(m, "stage")}
   </section>`;
   },
 
-  story(m) {
+  story(m, ctx) {
     const s = m.story;
     const headHtml = `
       <header class="qrmo-mod-sechead${s.type === "pipeline" ? " qrmo-mod-sechead--center" : ""}">
-        ${kicker(s.kicker)}
+        ${v2SkipKicker(m, "story") ? "" : kicker(s.kicker)}
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">${esc(s.title)}</h2>
         ${s.text ? `<p class="qrmo-mod-text">${esc(s.text)}</p>` : ""}
       </header>`;
@@ -392,25 +424,33 @@ const SECTION = {
       </div>`;
     } else throw new Error(`[${m.slug}] bilinmeyen story.type: ${s.type}`);
     return `
-  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--${s.type}" aria-labelledby="qrmo-mod-story-h">
-    <div class="qrmo-mod-inner">${headHtml}${body}
-    </div>
+  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--${s.type}${v2SecClass(m, "story")}" aria-labelledby="qrmo-mod-story-h">
+    ${v2InnerOpen(m, ctx, "story")}${headHtml}${body}
+    ${v2InnerClose(m, "story")}
   </section>`;
   },
 
-  capabilities(m) {
+  capabilities(m, ctx) {
     const c = m.capabilities;
     if (c.items.length !== 3) problems.push(`${m.slug}: capabilities 3 madde olmalı`);
-    return `
-  <section class="qrmo-mod-sec qrmo-mod-caps" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-caps-grid">
+    const body = `
       <header class="qrmo-mod-sechead">
-        ${kicker(c.kicker)}
+        ${v2SkipKicker(m, "capabilities") ? "" : kicker(c.kicker)}
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">${esc(c.title)}</h2>
       </header>
       <ul class="qrmo-mod-caps-list">${join(c.items, (it, i) => `
         <li><span class="qrmo-mod-caps-i" aria-hidden="true">${pad(i + 1)}</span><h3>${esc(it.t)}</h3><p>${esc(it.d)}</p></li>`)}
-      </ul>
+      </ul>`;
+    if (m.designV2) {
+      return `
+  <section class="qrmo-mod-sec qrmo-mod-caps${v2SecClass(m, "capabilities")}" aria-labelledby="qrmo-mod-caps-h">
+    ${v2InnerOpen(m, ctx, "capabilities", "", "qrmo-mod-caps-grid")}${body}
+    ${v2InnerClose(m, "capabilities")}
+  </section>`;
+    }
+    return `
+  <section class="qrmo-mod-sec qrmo-mod-caps" aria-labelledby="qrmo-mod-caps-h">
+    <div class="qrmo-mod-inner qrmo-mod-caps-grid">${body}
     </div>
   </section>`;
   },
@@ -440,9 +480,13 @@ const SECTION = {
       if (!q) { problems.push(`${m.slug}: SSS kimliği yok: ${id}`); return ""; }
       return `<li><a href="${ctx.rel}sss/#${esc(id)}">${esc(q.question)}</a></li>`;
     }).join("");
+    const innerOpen = m.designV2
+      ? v2InnerOpen(m, ctx, "details", "", "qrmo-mod-details-grid")
+      : `<div class="qrmo-mod-inner qrmo-mod-details-grid">`;
+    const innerClose = m.designV2 ? `</div>${v2InnerClose(m, "details")}` : "</div>";
     return `
-  <section class="qrmo-mod-sec qrmo-mod-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-details-grid">
+  <section class="qrmo-mod-sec qrmo-mod-details${v2SecClass(m, "details")}" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    ${innerOpen}
       <div class="qrmo-mod-details-side">
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
         <div class="qrmo-mod-know">
@@ -462,7 +506,7 @@ const SECTION = {
           </ul>
         </details>`)}
       </div>
-    </div>
+    ${innerClose}
   </section>`;
   },
 
@@ -527,7 +571,7 @@ function renderModule(m, faqById) {
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css"
   }) + `
-<body class="qrmo-mod-page">
+<body class="qrmo-mod-page"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">
   ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
 ${body}

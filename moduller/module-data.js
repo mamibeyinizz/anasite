@@ -372,6 +372,7 @@
       {
         slug: "coklu-dil",
         name: "Çoklu Dil",
+        designV2: true,
         category: "menu",
         cue: "lang",
         tagline: "Menü misafirin dilinde açılır.",
