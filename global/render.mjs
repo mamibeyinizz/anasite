@@ -5,8 +5,11 @@ import {
   NAV,
   DRAWER,
   DRAWER_SOLUTIONS,
-  SOLUTIONS,
-  HUB
+  HUB,
+  FOOTER,
+  FOOTER_SOCIAL,
+  FOOTER_LEGAL,
+  FOOTER_GROUPS
 } from "./nav-data.mjs";
 
 const esc = (s) =>
@@ -140,35 +143,68 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
 </header>`;
 }
 
+const I_SOCIAL = {
+  instagram: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle></svg>`,
+  facebook: `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3c-3.1 0-5 1.9-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1Z"></path></svg>`
+};
+
 export function renderFooter({ rel = "", current = "" } = {}) {
-  const cols = SOLUTIONS.map(
+  const brand = `<a class="qrmo-gf-brand-link" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} ana sayfa">
+      <img class="qrmo-gf-logo qrmo-gf-logo--full" src="${href(rel, SITE.logo)}" alt="${esc(SITE.brand)}" width="194" height="78" decoding="async" loading="lazy">
+      <img class="qrmo-gf-logo qrmo-gf-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="165" height="44" decoding="async" loading="lazy">
+    </a>`;
+
+  const socials = FOOTER_SOCIAL.length
+    ? `<div class="qrmo-gf-socials" aria-label="Sosyal medya bağlantıları">${FOOTER_SOCIAL
+        .map(
+          (s) =>
+            `<a class="qrmo-gf-social-link" href="${esc(s.url)}" aria-label="${esc(s.label)}">${I_SOCIAL[s.icon] || ""}</a>`
+        )
+        .join("")}</div>`
+    : "";
+
+  const navCols = FOOTER_GROUPS.map(
     (g) => `
-        <details class="qrmo-gf-col" open>
-          <summary><span class="qrmo-gf-h">${esc(g.name)}</span>${I.chev}</summary>
-          <ul>${g.modules.map((m) => `<li><a href="${href(rel, m.path)}">${esc(m.name)}</a></li>`).join("")}</ul>
-        </details>`
+      <details class="qrmo-gf-col" open>
+        <summary><span class="qrmo-gf-h">${esc(g.title)}</span>${I.chev}</summary>
+        <ul class="qrmo-gf-links">${g.links
+          .map(
+            (l) =>
+              `<li><a href="${href(rel, l.path)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`
+          )
+          .join("")}</ul>
+      </details>`
   ).join("");
-  const site = NAV.filter((n) => n.key !== "moduller").map(
-    (n) => `<li><a href="${href(rel, n.path)}"${cur(n.key, current, false)}>${esc(n.label)}</a></li>`
-  ).join("");
-  return `<footer class="qrmo-gf" data-qrmo-gf>
+
+  const legal = FOOTER_LEGAL.length
+    ? `<div class="qrmo-gf-legal-links">${FOOTER_LEGAL
+        .map((l) => `<a href="${href(rel, l.path)}">${esc(l.label)}</a>`)
+        .join("")}</div>`
+    : "";
+
+  return `<footer class="qrmo-gf" data-qrmo-gf aria-labelledby="qrmo-gf-title">
   <div class="qrmo-gf-in">
+    <h2 class="qrmo-gf-sr-only" id="qrmo-gf-title">${esc(SITE.brand)} Footer</h2>
     <div class="qrmo-gf-top">
-      <div class="qrmo-gf-brand">
-        <a class="qrmo-gh-brand" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} — ana sayfa">${esc(SITE.wordmark)}</a>
-        <p>${esc(SITE.tagline)}</p>
-        <a class="qrmo-gh-cta" href="${href(rel, CTA.path)}"><span>${esc(CTA.label)}</span>${I.arrow}</a>
-      </div>
-      <div class="qrmo-gf-cols">${cols}
-        <details class="qrmo-gf-col" open>
-          <summary><span class="qrmo-gf-h">Site</span>${I.chev}</summary>
-          <ul><li><a href="${href(rel, "moduller/")}"${cur("moduller", current, false)}>Modüller</a></li>${site}</ul>
-        </details>
-      </div>
+      <section class="qrmo-gf-brand" aria-label="${esc(SITE.brand)}">
+        ${brand}
+        <p class="qrmo-gf-brand-desc">${esc(FOOTER.description)}</p>
+        ${socials}
+      </section>
+      <section class="qrmo-gf-cta" aria-label="QR Menü başlangıç çağrısı">
+        <p class="qrmo-gf-cta-label">${esc(FOOTER.ctaEyebrow)}</p>
+        <h3 class="qrmo-gf-cta-title">${esc(FOOTER.ctaTitle)}</h3>
+        <p class="qrmo-gf-cta-desc">${esc(FOOTER.ctaDescription)}</p>
+        <a class="qrmo-gf-cta-btn" href="${href(rel, CTA.path)}"><span>${esc(FOOTER.ctaButton)}</span>${I.arrow}</a>
+      </section>
     </div>
+    <nav class="qrmo-gf-nav" aria-label="Footer navigasyonu">${navCols}
+    </nav>
     <div class="qrmo-gf-bottom">
-      <p>© ${SITE.year} ${esc(SITE.brand)}. Tüm hakları saklıdır.</p>
+      <p class="qrmo-gf-copy">© ${SITE.year} ${esc(SITE.wordmark)}. Tüm hakları saklıdır.</p>
+      ${legal}
     </div>
+    <div class="qrmo-gf-signature">${esc(FOOTER.signature)}</div>
   </div>
 </footer>`;
 }

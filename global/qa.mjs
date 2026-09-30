@@ -46,7 +46,7 @@ const notes = [];
 for (const pg of PAGES) {
   const html = fs.readFileSync(path.join(root, pg.file), "utf8");
   check(/<header class="qrmo-gh" data-qrmo-gh>/.test(html), `${pg.file} gerçek <header>`);
-  check(/<footer class="qrmo-gf" data-qrmo-gf>/.test(html), `${pg.file} gerçek <footer>`);
+  check(/<footer class="qrmo-gf" data-qrmo-gf[\s>]/.test(html), `${pg.file} gerçek <footer>`);
   check(/<nav class="qrmo-gh-nav" aria-label="Ana menü">/.test(html), `${pg.file} <nav>`);
   check(!/QRMO:(HEADER|FOOTER)"?\s*-->\s*$/.test(html) && html.includes("QRMO:HEADER:END"), `${pg.file} işaretçiler`);
   check(!/href="#"/.test(html), `${pg.file} href="#" yok`);
@@ -121,7 +121,7 @@ else {
             if (el.closest(".qrmo-gh-drawer") && !gh.classList.contains("qrmo-gh--open")) return;
             if (el.classList.contains("qrmo-gh-skip")) return;
             const minH = el.classList.contains("qrmo-gh-burger") ? 42 : 44;
-            if (el.tagName === "SUMMARY" && el.closest(".qrmo-gf") && vw >= 600) return; /* ≥600: başlık, etkileşimsiz */
+            if (el.tagName === "SUMMARY" && el.closest(".qrmo-gf") && vw >= 561) return; /* ≥561: başlık, etkileşimsiz */
             const b = el.getBoundingClientRect();
             if (!b.width) return;
             if (b.height < minH - 0.5) small.push(`${el.textContent.trim().slice(0, 24)} ${Math.round(b.height)}`);
@@ -269,11 +269,11 @@ else {
       const page = await ctx.newPage();
       await page.goto(base + "/paketler/", { waitUntil: "load" });
       const open0 = await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length);
-      check(open0 === 0, "375: footer kolonları kapalı başlar", String(open0));
-      await page.click(".qrmo-gf-col > summary");
-      check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) === 1, "375: footer akordeon tıkla açılır");
+      check(open0 === 1, "375: footer ilk kolon açık başlar (V4)", String(open0));
+      await page.click(".qrmo-gf-col:nth-child(2) > summary");
+      check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) >= 2, "375: footer akordeon tıkla açılır");
       await page.setViewportSize({ width: 700, height: 800 }); await page.waitForTimeout(100);
-      check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) === 4, "700: footer kolonları hep açık");
+      check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) === 6, "700: footer kolonları hep açık");
       await ctx.close();
     }
 
