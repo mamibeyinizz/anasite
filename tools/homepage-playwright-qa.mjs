@@ -79,13 +79,16 @@ try {
 
     const layout = await page.evaluate(() => {
       const vw = document.documentElement.clientWidth;
+      const overflow = document.documentElement.scrollWidth - vw;
       const ghOpen = document.querySelector("[data-qrmo-gh]")?.classList.contains("qrmo-gh--open");
-      let overflow = 0;
+      let boxOverflow = 0;
       document.querySelectorAll("body *").forEach((el) => {
         if (el.closest(".qrmo-gh-drawer") && !ghOpen) return;
+        const style = getComputedStyle(el);
+        if (style.position === "fixed") return;
         const b = el.getBoundingClientRect();
         if (b.width < 2) return;
-        overflow = Math.max(overflow, b.right - vw, -b.left);
+        boxOverflow = Math.max(boxOverflow, b.right - vw, -b.left);
       });
       const ids = [
         "qrmo-product-map-v1",
@@ -106,7 +109,7 @@ try {
         const b = c.getBoundingClientRect();
         if (b.right > vw + 1 || b.left < -1) chipOverflow = true;
       });
-      return { overflow, chipOverflow, tops };
+      return { overflow, boxOverflow, chipOverflow, tops };
     });
 
     const orderOk = layout.tops.every((t) => t !== null);
@@ -115,11 +118,17 @@ try {
       if (layout.tops[i] <= layout.tops[i - 1]) mono = false;
     }
 
-    const ok = layout.overflow <= 0 && !layout.chipOverflow && orderOk && mono;
+    const ok =
+      layout.overflow <= 0 &&
+      layout.boxOverflow <= 0 &&
+      !layout.chipOverflow &&
+      orderOk &&
+      mono;
     if (!ok) fail++;
     rows.push({
       w,
       overflow: layout.overflow,
+      boxOverflow: layout.boxOverflow,
       chipOverflow: layout.chipOverflow,
       sectionOrder: mono,
       ok,

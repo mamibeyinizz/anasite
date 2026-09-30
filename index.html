@@ -6182,6 +6182,7 @@
 .qrmo-real-filter-stage {
 
   width: 340px;
+  max-width: 100%;
 
   display: flex;
 
@@ -6190,6 +6191,8 @@
   align-items: center;
 
   position: relative;
+
+  overflow: hidden;
 
 }
 
@@ -7851,6 +7854,44 @@
     );
 
 
+  function clampPointerHome() {
+
+    if (
+      !panel ||
+      !pointer
+    ) {
+      return;
+    }
+
+    const maxX =
+      Math.max(
+        0,
+        panel.clientWidth - 22
+      );
+
+    const maxY =
+      Math.max(
+        0,
+        panel.clientHeight - 28
+      );
+
+    pointer.style.transform =
+      "translate3d("
+      + Math.min(300, maxX)
+      + "px,"
+      + Math.min(560, maxY)
+      + "px,0)";
+
+  }
+
+  clampPointerHome();
+
+  window.addEventListener(
+    "resize",
+    clampPointerHome
+  );
+
+
   const applyButton =
     root.querySelector(
       ".qrmo-real-apply"
@@ -8002,7 +8043,7 @@
       element.getBoundingClientRect();
 
 
-    const x =
+    const xRaw =
       targetRect.left
       -
       panelRect.left
@@ -8010,12 +8051,17 @@
       targetRect.width * xBias;
 
 
-    const y =
+    const yRaw =
       targetRect.top
       -
       panelRect.top
       +
       targetRect.height * yBias;
+
+    const maxX = Math.max(0, panel.clientWidth - 22);
+    const maxY = Math.max(0, panel.clientHeight - 28);
+    const x = Math.min(Math.max(0, xRaw), maxX);
+    const y = Math.min(Math.max(0, yRaw), maxY);
 
 
     pointer.style.transform =
@@ -11595,51 +11641,44 @@
    ========================================================= */
 
 
-.qrmo-tables-v5__pro-modules{
+.qrmo-tables-v5__layers{
   margin-top:22px;
   padding-top:18px;
   border-top:1px solid rgba(201,168,76,.22);
-}
-.qrmo-tables-v5__pro-modules-title{
-  margin:0 0 10px;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color:rgba(13,43,34,.72);
-}
-.qrmo-tables-v5__pro-modules-list{
-  list-style:none;
-  margin:0 0 10px;
-  padding:0;
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:14px;
 }
-.qrmo-tables-v5__pro-modules-list li{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  font-size:14px;
-  color:#0D2B22;
+.qrmo-tables-v5__layer{
+  margin:0;
 }
-.qrmo-tables-v5__pro-tag{
-  font-style:normal;
+.qrmo-tables-v5__layer-pack{
+  display:inline-block;
+  margin-bottom:6px;
+  padding:2px 7px;
+  border-radius:6px;
   font-size:10px;
   font-weight:700;
   letter-spacing:.06em;
   text-transform:uppercase;
-  padding:2px 7px;
-  border-radius:6px;
   border:1px solid rgba(23,50,38,.18);
   background:rgba(23,50,38,.08);
+  color:#0D2B22;
 }
-.qrmo-tables-v5__pro-modules-note{
+.qrmo-tables-v5__layer-pack.is-pro{
+  border-color:rgba(23,50,38,.18);
+}
+.qrmo-tables-v5__layer-title{
+  margin:0 0 6px;
+  font-size:15px;
+  font-weight:700;
+  color:#0D2B22;
+}
+.qrmo-tables-v5__layer-text{
   margin:0;
-  font-size:12px;
-  line-height:1.5;
-  color:rgba(13,43,34,.68);
+  font-size:13px;
+  line-height:1.52;
+  color:rgba(13,43,34,.72);
 }
 .qrmo-home-anchor{
   scroll-margin-top:calc(var(--qrmo-gh-h, 88px) + 16px);
@@ -14395,7 +14434,8 @@
 
 
     <p class="qrmo-tables-v5__description">
-      Masalarınızı tek tek veya toplu olarak oluşturun; her masa için QR kodunuzu otomatik hazırlayın ve işletmenizde kullanıma hazır hale getirin.
+      Temel pakette masalar ve masa QR kodları burada oluşturulur; Pro katmanında aynı masa oturumu üzerinden sipariş
+      ve imzalı oturum güvenliği devreye girer.
     </p>
 
 
@@ -14503,16 +14543,35 @@
 
     </ul>
 
-    <div class="qrmo-tables-v5__pro-modules">
-      <h3 class="qrmo-tables-v5__pro-modules-title">Pro ile birlikte</h3>
-      <ul class="qrmo-tables-v5__pro-modules-list">
-        <li><span>QR Sipariş</span><em class="qrmo-tables-v5__pro-tag">Pro</em></li>
-        <li><span>Masa Oturum Güvenliği</span><em class="qrmo-tables-v5__pro-tag">Pro</em></li>
-      </ul>
-      <p class="qrmo-tables-v5__pro-modules-note">
-        QR Masa Temel pakette başlar; sipariş ve imzalı oturum Pro katmanında devreye girer.
-        Oturum yalnızca kayıtlı masalarda açılır, süre ve hareketsizlik limiti ayarlanabilir.
-      </p>
+    <div class="qrmo-tables-v5__layers">
+
+      <article class="qrmo-tables-v5__layer">
+        <span class="qrmo-tables-v5__layer-pack">Temel</span>
+        <h3 class="qrmo-tables-v5__layer-title">QR Masa</h3>
+        <p class="qrmo-tables-v5__layer-text">
+          Masa adından otomatik adres üretilir; tekli veya numaralı toplu oluşturma yapılır. Her masa için ayrı QR hedefi
+          ve PNG ya da toplu PDF çıktısı alınır; yukarıdaki demo bu akışı gösterir.
+        </p>
+      </article>
+
+      <article class="qrmo-tables-v5__layer">
+        <span class="qrmo-tables-v5__layer-pack is-pro">Pro</span>
+        <h3 class="qrmo-tables-v5__layer-title">QR Sipariş</h3>
+        <p class="qrmo-tables-v5__layer-text">
+          Sepet ile sipariş panelden açılır; müşteri ürünleri sepete ekleyip gönderdiğinde sipariş, masa bilgisiyle
+          Servis Paneli'ne kart olarak düşer.
+        </p>
+      </article>
+
+      <article class="qrmo-tables-v5__layer">
+        <span class="qrmo-tables-v5__layer-pack is-pro">Pro</span>
+        <h3 class="qrmo-tables-v5__layer-title">Masa Oturum Güvenliği</h3>
+        <p class="qrmo-tables-v5__layer-text">
+          Kayıtlı masada imzalı oturum açılır; garson çağrısı, sipariş ve sohbet bu oturumla çalışır. Toplam oturum süresi
+          ve hareketsizlik limiti ayarlanabilir (varsayılan 90 dk / 30 dk).
+        </p>
+      </article>
+
     </div>
 
 
@@ -18789,10 +18848,10 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Veri</p>
           <h3 class="qrmo-analytics-v3__pillar-title">QR Analytics — Ne oluyor?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Menü görüntüleme, ürün tıklama, tekil ziyaretçi (IP bazlı), seçili aralıkta hareket gören masa sayısı,
-            önceki döneme göre değişim, en çok / en az tıklanan ürünler ve kategori dağılımını Bugün, Son 7 gün,
-            Bu ay veya en fazla 31 günlük özel aralıkta incelersiniz. Sepet ve sipariş metrikleri, sipariş modülü
-            açıkken rapora dahil olur. Panel sayfa açılışında yüklenir; canlı otomatik yenileme yoktur.
+            Menü görüntüleme, ürün tıklama, tekil ziyaretçi (IP özetine göre) ve seçili aralıkta hareket kaydeden masa sayısı
+            raporlanır; göstergeler önceki eşit uzunluktaki dönemle karşılaştırılır. Ürün, masa, sepet hunisi ve etkileşim
+            ekranları ayrı incelenir. Dönem: Bugün, Son 7 gün, Bu ay veya en fazla 31 günlük özel aralık. Sepet ve sipariş
+            verisi sipariş özelliğinin (Pro) kullanılmasına bağlıdır; bu bir geçmiş kullanım raporudur, POS verisi değildir.
           </p>
         </article>
 
@@ -18800,10 +18859,10 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Karar</p>
           <h3 class="qrmo-analytics-v3__pillar-title">Menü Mühendisliği — Ne öne çıkmalı?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Satış verisiyle girdiğiniz birim maliyet birleşir; ürünler popülerlik ve kârlılığa göre Yıldız, Çok Satan,
-            Gizli Fırsat ya da Zayıf Performans grubuna yerleşir. Kasavana–Smith matrisi yalnızca maliyeti girilmiş
-            ürünlerde çalışır; eksik maliyetler ayrı listede görünür. Rapor genel yönlendirme cümleleri üretir;
-            sonuç garantisi vermez.
+            Satış verisi, girdiğiniz birim maliyetle birleşir. Popülerlik (satış payı) ve birim katkı payı (fiyat − maliyet)
+            eksenlerinde ürünler Yıldız, Çok Satan, Gizli Fırsat ya da Zayıf Performans grubuna yerleşir. Maliyeti
+            girilmeyen ürün matrise alınmaz; eksik maliyetler ayrı listede görünür. Rapor genel yönlendirme cümleleri
+            yazar; sonuç garantisi vermez.
           </p>
         </article>
 
@@ -18811,10 +18870,9 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Kâr</p>
           <h3 class="qrmo-analytics-v3__pillar-title">Maliyet &amp; Reçete — Ne kazandırıyor?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Malzeme birim fiyatlarını tanımlarsınız; reçetedeki gramaj ve adetlerden ürün maliyeti hesaplanır.
-            İsterseniz maliyeti doğrudan da yazabilirsiniz. Fire yüzdesi reçeteye eklenebilir; malzeme fiyatı
-            değişince reçeteli ürünlerin maliyeti yeniden hesaplanır. Fiyat–maliyet ilişkisi menü mühendisliği
-            raporunun temelidir.
+            Malzeme birim fiyatlarını tanımlarsınız; reçetedeki gramaj ve adetlerden maliyet hesaplanır veya birim maliyeti
+            doğrudan yazabilirsiniz. Reçete maliyetine %0–50 arası fire eklenebilir. Malzeme fiyatı değişince reçeteli
+            ürünlerin maliyeti yeniden hesaplanır; bu maliyet menü performansı raporunun girdisidir.
           </p>
         </article>
 
@@ -18822,9 +18880,9 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Müşteri sesi</p>
           <h3 class="qrmo-analytics-v3__pillar-title">Geri Bildirim — Müşteri ne diyor?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Müşteri menüden çok kriterli puanlama ve yorum bırakır; kayıtlar panele düşer, olumlu ve olumsuz
-            ayrımıyla listelenir. Hangi yorumun yayında kalacağına siz karar verirsiniz. Kriter, masa ve saat
-            dilimine göre özet rapor alınır; Google yorumları bu modülden bağımsızdır.
+            Müşteri tanımladığınız kriterleri menüden puanlar, yorum yazabilir; kayıtlar panele düşer ve olumlu / olumsuz
+            ayrımıyla listelenir. Yorumu yayınlar, yayından kaldırır ya da silersiniz. Kriter ortalamaları, masa ve saat
+            dilimine göre raporlanır; Google yorumları bu modülden bağımsızdır.
           </p>
         </article>
 
