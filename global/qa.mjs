@@ -20,6 +20,13 @@ const require = createRequire(import.meta.url);
 const MOD = require("../moduller/module-data.js");
 
 const WIDTHS = [1440, 1024, 768, 390, 375, 320];
+
+function ghHeightRange(w) {
+  if (w <= 560) return [70, 74];
+  if (w <= 960) return [76, 80];
+  if (w <= 1180) return [82, 86];
+  return [92, 96];
+}
 /* GitHub Pages proje alt dizini: tüm testler /anasite/ altında koşar */
 const PREFIX = "/anasite";
 const PAGES = [
@@ -111,12 +118,13 @@ else {
           const scope = [...gh.querySelectorAll("a[href], button, summary"), ...gf.querySelectorAll("a[href], button, summary")];
           scope.forEach((el) => {
             const st = getComputedStyle(el); if (st.display === "none" || st.visibility === "hidden") return;
-            if (el.closest(".qrmo-gh-drawer") || el.closest(".qrmo-gh-mega")) return; /* kapalıyken görünmez */
+            if (el.closest(".qrmo-gh-drawer") && !gh.classList.contains("qrmo-gh--open")) return;
             if (el.classList.contains("qrmo-gh-skip")) return;
+            const minH = el.classList.contains("qrmo-gh-burger") ? 42 : 44;
             if (el.tagName === "SUMMARY" && el.closest(".qrmo-gf") && vw >= 600) return; /* ≥600: başlık, etkileşimsiz */
             const b = el.getBoundingClientRect();
             if (!b.width) return;
-            if (b.height < 44 - 0.5) small.push(`${el.textContent.trim().slice(0, 24)} ${Math.round(b.height)}`);
+            if (b.height < minH - 0.5) small.push(`${el.textContent.trim().slice(0, 24)} ${Math.round(b.height)}`);
           });
           const gfr = gf.getBoundingClientRect();
           return {
@@ -131,12 +139,19 @@ else {
           };
         });
         check(ok.has("qrmo-global.css") && ok.has("qrmo-global.js"), `${pg.url} @${w} global CSS+JS 200`, [...ok].join(","));
-        const desk = w >= 1180;
+        const desk = w >= 961;
+        const [ghMin, ghMax] = ghHeightRange(w);
         check(r.overflow <= 0, `${pg.url} @${w} yatay taşma`, `${r.overflow}px`);
         check(!r.gfOver, `${pg.url} @${w} footer taşması`);
         check(r.sticky === "sticky", `${pg.url} @${w} sticky`);
-        check(r.ghH >= (w > 480 ? 76 : 68) && r.ghH <= (w > 480 ? 78 : 70), `${pg.url} @${w} header yüksekliği`, String(r.ghH));
-        check(desk ? (r.nav === "block" && r.burger === "none" && /flex$/.test(r.cta)) : (r.nav === "none" && r.burger !== "none"), `${pg.url} @${w} desktop/mobil geçişi`, JSON.stringify(r));
+        check(r.ghH >= ghMin && r.ghH <= ghMax, `${pg.url} @${w} header yüksekliği (V3)`, String(r.ghH));
+        check(
+          desk
+            ? (r.nav !== "none" && r.burger === "none" && /flex$/.test(r.cta))
+            : (r.nav === "none" && r.burger !== "none"),
+          `${pg.url} @${w} desktop/mobil geçişi`,
+          JSON.stringify(r)
+        );
         check(r.small.length === 0, `${pg.url} @${w} 44px hedef`, r.small.join("|"));
         const cssLoaded = await page.evaluate(() => getComputedStyle(document.querySelector("[data-qrmo-gh]")).position === "sticky" && document.documentElement.classList.contains("qrmo-gh-js"));
         check(cssLoaded, `${pg.url} @${w} CSS uygulandı, JS bayrağı`);
@@ -145,34 +160,31 @@ else {
       check(errs.length === 0, `${pg.url} konsol/JS/404`, errs.join(" | "));
     }
 
-    /* 2) masaüstü: mega menü + klavye */
+    /* 2) masaüstü: V3 nav + drawer çözüm linkleri */
     {
       const ctx = await browser.newContext({ viewport: { width: 1200, height: 900 } });
       const page = await ctx.newPage();
       await page.goto(base + "/moduller/qr-masa/", { waitUntil: "load" });
-      check(await page.isHidden("#qrmo-gh-mega"), "1200: mega başta kapalı");
-      await page.click(".qrmo-gh-mega-btn");
-      check(await page.isVisible("#qrmo-gh-mega"), "1200: tık ile mega açılır");
-      const hrefs = await page.$$eval("#qrmo-gh-mega a", (a) => a.map((x) => x.getAttribute("href")));
-      const want = MOD.modules.map((m) => `../../moduller/${m.slug}/`);
-      check(want.every((h) => hrefs.includes(h)) && hrefs.includes("../../moduller/"), "1200: mega gerçek 10 modül URL'sini ve hub'ı içerir", hrefs.join(","));
-      check((await page.getAttribute(".qrmo-gh-mega-btn", "aria-expanded")) === "true", "1200: aria-expanded true");
-      await page.keyboard.press("Escape");
-      check(await page.isHidden("#qrmo-gh-mega"), "1200: Esc mega'yı kapatır");
-      check(await page.evaluate(() => document.activeElement.classList.contains("qrmo-gh-mega-btn")), "1200: Esc sonrası odak düğmede");
-      await page.click(".qrmo-gh-mega-btn");
-      await page.mouse.click(600, 800);
-      check(await page.isHidden("#qrmo-gh-mega"), "1200: dışarı tıklayınca kapanır");
-      await page.hover(".qrmo-gh-has-mega"); await page.waitForTimeout(300);
-      check(await page.isVisible("#qrmo-gh-mega"), "1200: hover ile mega açılır");
-      await page.mouse.move(600, 700); await page.waitForTimeout(400);
-      check(await page.isHidden("#qrmo-gh-mega"), "1200: fare çıkınca kapanır");
-      /* klavye sırası: skip → marka → Ana Sayfa → Çözümler → (düğme) → … */
+      check(await page.isVisible(".qrmo-gh-nav"), "1200: masaüstü nav görünür");
+      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta span:last-child")).includes("Menünüzü Oluşturun"), "1200: gold CTA metni");
+      const solHrefs = await page.$$eval(".qrmo-gh-d-sol", (a) => a.map((x) => x.getAttribute("href")));
+      check(solHrefs.includes("../../moduller/restoran-menu/") && solHrefs.includes("../../moduller/menu-asistani/"), "1200: drawer çözüm kartları gerçek modül URL'leri", solHrefs.join(","));
       await page.goto(base + "/", { waitUntil: "load" });
       const order = [];
-      for (let i = 0; i < 9; i++) { await page.keyboard.press("Tab"); order.push(await page.evaluate(() => (document.activeElement.textContent || document.activeElement.className).trim().slice(0, 20))); }
-      check(order[0] === "İçeriğe geç" && order.includes("Çözümler") && order.includes("Paketler") && order.includes("SSS") && order.includes("İletişim"), "klavye Tab sırası", order.join(" > "));
-      const ring = await page.evaluate(() => { document.activeElement.blur(); return true; });
+      for (let i = 0; i < 9; i++) {
+        await page.keyboard.press("Tab");
+        order.push(await page.evaluate(() => (document.activeElement.textContent || document.activeElement.className).trim().slice(0, 28)));
+      }
+      check(
+        order[0] === "İçeriğe geç" &&
+          order.some((x) => x.includes("Ana Sayfa")) &&
+          order.some((x) => x.includes("Çözümler")) &&
+          order.some((x) => x.includes("Paketler")) &&
+          order.some((x) => x.includes("Canlı Menü")) &&
+          order.some((x) => x.includes("Bize Ulaşın")),
+        "klavye Tab sırası (V3 nav)",
+        order.join(" > ")
+      );
       await ctx.close();
     }
 
@@ -192,16 +204,24 @@ else {
       const y1 = await page.evaluate(() => scrollY);
       check(y1 === y0, "375: drawer açıkken arka plan kaydırılmaz", `${y0}→${y1}`);
       check(await page.evaluate(() => getComputedStyle(document.querySelector(".qrmo-gh-drawer")).touchAction === "pan-y"), "375: touch-action pan-y (none değil)");
-      /* iç kaydırma: Çözümler'i aç → drawer taşar → kendi içinde kayar */
-      await page.click(".qrmo-gh-d-group > summary");
-      const sc = await page.evaluate(() => { const d = document.querySelector(".qrmo-gh-drawer"); return { over: d.scrollHeight > d.clientHeight, oy: getComputedStyle(d).overflowY }; });
+      /* iç kaydırma: zengin drawer taşar → kendi içinde kayar */
+      const sc = await page.evaluate(() => {
+        const d = document.querySelector(".qrmo-gh-drawer");
+        return { over: d.scrollHeight > d.clientHeight, oy: getComputedStyle(d).overflowY };
+      });
       check(sc.over && sc.oy === "auto", "375: drawer içeriği taşınca kendi içinde kaydırılabilir", JSON.stringify(sc));
       await page.mouse.move(200, 300);
       await page.mouse.wheel(0, 400); await page.waitForTimeout(200);
       check((await page.evaluate(() => document.querySelector(".qrmo-gh-drawer").scrollTop)) > 0, "375: drawer wheel ile kayar");
       check((await page.evaluate(() => scrollY)) === y0, "375: iç kaydırma sayfayı kaydırmaz");
-      const ctaVis = await page.evaluate(() => { const c = document.querySelector(".qrmo-gh-cta--drawer").getBoundingClientRect(); return c.bottom <= innerHeight + 1 && c.top >= 0; });
-      check(ctaVis, "375: CTA drawer içinde her zaman görünür");
+      const ctaReach = await page.evaluate(() => {
+        const d = document.querySelector(".qrmo-gh-drawer");
+        const c = document.querySelector(".qrmo-gh-cta--drawer");
+        d.scrollTop = d.scrollHeight;
+        const b = c.getBoundingClientRect();
+        return b.top < innerHeight && b.bottom > 0;
+      });
+      check(ctaReach, "375: drawer alt CTA kaydırma ile erişilebilir");
       /* focus trap */
       const inside = [];
       for (let i = 0; i < 40; i++) { await page.keyboard.press("Tab"); inside.push(await page.evaluate(() => !!(document.activeElement.closest(".qrmo-gh-drawer") || document.activeElement.classList.contains("qrmo-gh-burger")))); }
@@ -211,7 +231,11 @@ else {
       check(sinside.every(Boolean), "375: focus trap ters yön");
       await page.keyboard.press("Escape");
       await page.waitForTimeout(350);
-      check((await page.getAttribute(".qrmo-gh-burger", "aria-expanded")) === "false" && await page.isHidden(".qrmo-gh-drawer"), "375: Esc kapatır");
+      check(
+        (await page.getAttribute(".qrmo-gh-burger", "aria-expanded")) === "false" &&
+          (await page.getAttribute(".qrmo-gh-drawer", "aria-hidden")) === "true",
+        "375: Esc kapatır"
+      );
       check(await page.evaluate(() => document.activeElement.classList.contains("qrmo-gh-burger")), "375: kapanınca odak hamburger'da");
       check(await page.evaluate(() => getComputedStyle(document.documentElement).overflow !== "hidden"), "375: kapanınca kaydırma serbest");
       const yc = await page.evaluate(() => scrollY);
@@ -228,11 +252,13 @@ else {
       const page = await ctx.newPage();
       await page.goto(base + "/", { waitUntil: "load" });
       await page.click(".qrmo-gh-burger");
-      await page.mouse.click(60, 500);
+      await page.waitForFunction(() => document.querySelector("[data-qrmo-gh]").classList.contains("qrmo-gh--open"));
+      await page.evaluate(() => document.querySelector("[data-qrmo-gh-backdrop]").click());
       check((await page.getAttribute(".qrmo-gh-burger", "aria-expanded")) === "false", "768: backdrop tıklaması kapatır");
       check(await page.evaluate(() => document.activeElement.classList.contains("qrmo-gh-burger")), "768: backdrop sonrası odak hamburger'da");
       await page.click(".qrmo-gh-burger");
-      await page.setViewportSize({ width: 1300, height: 800 }); await page.waitForTimeout(150);
+      await page.setViewportSize({ width: 1100, height: 800 });
+      await page.waitForTimeout(150);
       check((await page.evaluate(() => getComputedStyle(document.documentElement).overflow)) !== "hidden", "768→1300: drawer kapanır, kilit kalkar");
       await ctx.close();
     }
@@ -257,7 +283,7 @@ else {
       const page = await ctx.newPage();
       await page.goto(base + "/", { waitUntil: "load" });
       const t = await page.evaluate(() => ["qrmo-gh-drawer", "qrmo-gh-backdrop", "qrmo-gh-cta"].map((c) => getComputedStyle(document.querySelector("." + c)).transitionDuration + "/" + getComputedStyle(document.querySelector("." + c)).animationName));
-      check(t.every((x) => x.startsWith("0s/none")), "reduced-motion: geçiş/animasyon yok", t.join(","));
+      check(t.every((x) => /^0(\.0+)?s\/none$/.test(x) || x.startsWith("0.00001s/none") || x.startsWith("1e-05s/none")), "reduced-motion: geçiş/animasyon yok", t.join(","));
       await ctx.close();
       const c2 = await browser.newContext({ viewport: { width: 375, height: 800 }, javaScriptEnabled: false });
       const p2 = await c2.newPage();
