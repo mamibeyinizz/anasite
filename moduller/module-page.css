@@ -1114,3 +1114,218 @@ main.qrmo-mod { display: block; outline: none; }
     animation: none !important; transition: none !important; scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   MODÜL DESIGN V2 PROTOTİP — yalnızca #mod-v2-prototype (Çoklu Dil)
+========================================================= */
+
+#mod-v2-prototype {
+  --qm-r-product: 16px;
+  --qm-r-control: 8px;
+  background:
+    radial-gradient(90% 40rem at 50% -8rem, rgba(201, 168, 76, .07) 0%, rgba(201, 168, 76, 0) 65%),
+    linear-gradient(176deg, #FDFBF5 0%, #F8F2E6 48%, #F3ECDD 100%);
+  background-color: #FBF7EE;
+}
+
+#mod-v2-prototype .qrmo-mod-v2-inner {
+  display: grid;
+  gap: clamp(24px, 4vw, 36px);
+  min-width: 0;
+}
+
+#mod-v2-prototype .qrmo-mod-v2-main { min-width: 0; }
+
+#mod-v2-prototype .qrmo-mod-v2-marker {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  max-width: 22ch;
+}
+
+#mod-v2-prototype .qrmo-mod-v2-marker-t {
+  color: var(--qm-gold-ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+#mod-v2-prototype .qrmo-mod-v2-marker-rule {
+  display: block;
+  width: min(7.5rem, 100%);
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201, 168, 76, .72), rgba(201, 168, 76, .12) 88%, transparent);
+}
+
+#mod-v2-prototype .qrmo-mod-hero--v2 .qrmo-mod-fig--hero .qrmo-mod-shot:has(> .qm-phone)::before {
+  display: none;
+}
+
+#mod-v2-prototype .qrmo-mod-shot .qm-phone,
+#mod-v2-prototype .qrmo-mod-shot .qm-win {
+  border-radius: var(--qm-r-product);
+}
+
+#mod-v2-prototype .qrmo-mod-shot .qm-btn,
+#mod-v2-prototype .qrmo-mod-shot .qm-chip,
+#mod-v2-prototype .qrmo-mod-shot .qm-langs span {
+  border-radius: var(--qm-r-control);
+}
+
+#mod-v2-prototype .qrmo-mod-story--compare .qrmo-mod-sechead { margin-bottom: clamp(28px, 4vw, 44px); }
+
+#mod-v2-prototype .qrmo-mod-compare {
+  gap: 0;
+  border-top: 1px solid var(--qm-line);
+}
+
+#mod-v2-prototype .qm-lcard {
+  padding-block: clamp(20px, 3vw, 28px);
+  border-bottom: 1px solid var(--qm-line);
+}
+
+#mod-v2-prototype .qm-lcard-lbl {
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: .14em;
+}
+
+#mod-v2-prototype .qm-lcard-in {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#mod-v2-prototype .qm-lcard-in .qm-detail-img { border-radius: var(--qm-r-product); }
+
+#mod-v2-prototype .qrmo-mod-stage-sec .qrmo-mod-stage {
+  gap: clamp(32px, 5vw, 48px);
+}
+
+#mod-v2-prototype .qrmo-mod-stage-sec .qrmo-mod-callouts {
+  gap: 0;
+  counter-reset: v2call;
+}
+
+#mod-v2-prototype .qrmo-mod-stage-sec .qrmo-mod-callouts li {
+  grid-template-columns: minmax(0, 1fr);
+  padding: 22px 0;
+  border-top: 1px solid var(--qm-gold-line);
+}
+
+#mod-v2-prototype .qrmo-mod-stage-sec .qrmo-mod-num { display: none; }
+
+#mod-v2-prototype .qrmo-mod-stage-sec .qrmo-mod-callouts h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 18px;
+}
+
+#mod-v2-prototype .qrmo-mod-stage-sec .qrmo-mod-callouts h3::before {
+  counter-increment: v2call;
+  content: counter(v2call, decimal-leading-zero);
+  flex: 0 0 auto;
+  color: var(--qm-gold-ink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+#mod-v2-prototype .qrmo-mod-caps-list {
+  gap: 0;
+  border-top: 1px solid var(--qm-gold-line);
+}
+
+#mod-v2-prototype .qrmo-mod-caps-list li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 6px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--qm-line);
+}
+
+#mod-v2-prototype .qrmo-mod-caps-list .qrmo-mod-caps-i {
+  grid-row: 1 / span 2;
+  align-self: start;
+  padding-top: 2px;
+}
+
+#mod-v2-prototype .qrmo-mod-caps-list h3 { font-size: 19px; }
+
+#mod-v2-prototype .qrmo-mod-details .qrmo-mod-know,
+#mod-v2-prototype .qrmo-mod-details .qrmo-mod-faqlinks {
+  margin-top: 24px;
+  padding-top: 0;
+  border: none;
+  background: none;
+}
+
+#mod-v2-prototype .qrmo-mod-related .qrmo-mod-tile {
+  border-radius: var(--qm-r-s);
+  background: transparent;
+  box-shadow: none;
+}
+
+#mod-v2-prototype .qrmo-mod-related .qrmo-mod-tile:hover {
+  background: rgba(255, 255, 255, .45);
+}
+
+@media (min-width: 768px) {
+  #mod-v2-prototype .qrmo-mod-compare { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(20px, 3vw, 32px); }
+  #mod-v2-prototype .qrmo-mod-compare .qm-lcard { border-bottom: none; padding-block: 0; }
+  #mod-v2-prototype .qrmo-mod-compare { border-top: none; padding-top: 4px; }
+  #mod-v2-prototype .qrmo-mod-compare .qm-lcard + .qm-lcard { border-left: 1px solid var(--qm-line); padding-left: clamp(16px, 2.5vw, 24px); }
+}
+
+@media (min-width: 1024px) {
+  #mod-v2-prototype .qrmo-mod-v2-inner {
+    grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr);
+    column-gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+  }
+
+  #mod-v2-prototype .qrmo-mod-v2-marker {
+    position: sticky;
+    top: calc(var(--qrmo-gh-h, 76px) + 20px);
+    align-self: start;
+  }
+
+  #mod-v2-prototype .qrmo-mod-v2-inner.qrmo-mod-caps-grid,
+  #mod-v2-prototype .qrmo-mod-v2-main.qrmo-mod-caps-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 2fr);
+    column-gap: clamp(40px, 5vw, 80px);
+    align-items: start;
+  }
+
+  #mod-v2-prototype .qrmo-mod-v2-inner.qrmo-mod-caps-grid {
+    grid-template-columns: minmax(0, 9.5rem) minmax(0, 1fr);
+  }
+
+  #mod-v2-prototype .qrmo-mod-v2-inner.qrmo-mod-caps-grid > .qrmo-mod-v2-main {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 2fr);
+    column-gap: clamp(40px, 5vw, 80px);
+    grid-column: 2;
+  }
+
+  #mod-v2-prototype .qrmo-mod-v2-inner.qrmo-mod-caps-grid > .qrmo-mod-v2-marker { grid-column: 1; }
+
+  #mod-v2-prototype .qrmo-mod-v2-inner > .qrmo-mod-v2-main.qrmo-mod-details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr);
+    column-gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #mod-v2-prototype .qrmo-mod-hero-copy { animation: qrmoModRise .5s var(--qm-ease) backwards; }
+  #mod-v2-prototype .qrmo-mod-hero-visual { animation: qrmoModIn .6s var(--qm-ease) .08s backwards; }
+}
