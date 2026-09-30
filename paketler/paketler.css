@@ -342,7 +342,7 @@ body.qrmo-pricing-page {
 
 /* --- mobil: paket seçici --- */
 .qrmo-pricing-switcher {
-  position: sticky; top: 0; z-index: 20;
+  position: sticky; top: var(--qrmo-gh-h, 0px); z-index: 20;
   margin-inline: calc(-1 * var(--qp-gutter)); padding: 10px var(--qp-gutter);
   background: var(--qp-bg); border-bottom: 1px solid var(--qp-line);
 }
@@ -394,7 +394,7 @@ body.qrmo-pricing-page {
   .qrmo-pricing-col-label { width: 34%; }
 
   .qrmo-pricing-table thead th {
-    position: sticky; top: 0; z-index: 10;
+    position: sticky; top: var(--qrmo-gh-h, 0px); z-index: 10;
     padding: 20px 12px 16px; background: var(--qp-bg);
     border-bottom: 1px solid var(--qp-green-dark); text-align: center; vertical-align: bottom;
   }

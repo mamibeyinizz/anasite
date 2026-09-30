@@ -5,6 +5,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { applyGlobal } from "../global/inject.mjs";
 import {
   SITE,
   FAQ_CATEGORIES,
@@ -14,7 +15,16 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const outFile = path.join(root, "sss.html");
+/* Aynı içerik iki adrese yazılır: asıl adres /sss/ (sss/index.html) ve eski
+   /sss.html. Bağlantılar sayfanın derinliğine göre göreli üretilir; böylece
+   site kökte de GitHub Pages alt dizininde (/anasite/) de çalışır. */
+const OUTPUTS = [
+  { file: path.join(root, "sss", "index.html"), rel: "../", assets: "" },
+  { file: path.join(root, "sss.html"), rel: "", assets: "sss/" },
+];
+let REL = "";
+/* "/" → ana sayfa, "/x/" → rel + "x/" */
+const link = (h) => (h === "/" ? REL || "./" : REL + h.replace(/^\//, ""));
 
 assertFaqData();
 
@@ -31,7 +41,7 @@ function partsToHtml(parts) {
     .map((p) => {
       if (p.type === "text") return escapeHtml(p.value);
       if (p.type === "link") {
-        return `<a href="${escapeHtml(p.href)}">${escapeHtml(p.label)}</a>`;
+        return `<a href="${escapeHtml(link(p.href))}">${escapeHtml(p.label)}</a>`;
       }
       return "";
     })
@@ -117,7 +127,9 @@ const ogImageTags = SITE.ogImage
 
 const jsonLd = JSON.stringify(buildJsonLd()).replace(/</g, "\\u003c");
 
-const html = `<!DOCTYPE html>
+function renderPage(rel, assets) {
+  REL = rel;
+  return `<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -133,23 +145,11 @@ const html = `<!DOCTYPE html>
   <meta property="og:title" content="${escapeHtml(SITE.title)}">
   <meta property="og:description" content="${escapeHtml(SITE.description)}">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">${ogImageTags}
-  <link rel="stylesheet" href="sss/faq.css">
+  <link rel="stylesheet" href="${assets}faq.css">
   <script type="application/ld+json">${jsonLd}</script>
-  <script defer src="sss/faq.js"></script>
+  <script defer src="${assets}faq.js"></script>
 </head>
 <body class="qrmo-faq-page" data-qrmo-faq-root>
-
-<a class="qrmo-faq-skip" href="#qrmo-faq-main">SSS içeriğine geç</a>
-
-<header class="qrmo-faq-topbar">
-  <div class="qrmo-faq-inner qrmo-faq-topbar-in">
-    <a class="qrmo-faq-topback" href="/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg>
-      <span>Ana sayfa</span>
-    </a>
-    <a class="qrmo-faq-toplink" href="/paketler/">Paketler</a>
-  </div>
-</header>
 
 <main class="qrmo-faq" id="qrmo-faq-main">
   <header class="qrmo-faq-hero">
@@ -186,13 +186,16 @@ const html = `<!DOCTYPE html>
   </div>
 
   <footer class="qrmo-faq-foot qrmo-faq-inner">
-    <p>Cevabını bulamadınız mı? <a href="/paketler/">Paketleri inceleyin</a> veya satış ekibinizle iletişime geçin.</p>
+    <p>Cevabını bulamadınız mı? <a href="${link("/paketler/")}">Paketleri inceleyin</a> veya satış ekibinizle iletişime geçin.</p>
   </footer>
 </main>
 
 </body>
 </html>
 `;
+}
 
-fs.writeFileSync(outFile, html, "utf8");
-console.log(`Wrote ${outFile} (${FAQ_ITEMS.length} FAQ items)`);
+for (const o of OUTPUTS) {
+  fs.writeFileSync(o.file, applyGlobal(renderPage(o.rel, o.assets), { rel: o.rel, current: "sss", skip: "qrmo-faq-main" }), "utf8");
+  console.log(`Wrote ${o.file} (${FAQ_ITEMS.length} FAQ items)`);
+}

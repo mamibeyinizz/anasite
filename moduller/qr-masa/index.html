@@ -6,7 +6,8 @@
 <title>QR Masa — Masa Bazlı QR Kod Oluşturma | QR Menu Official</title>
 <meta name="description" content="Masalarınızı tanımlayın, her biri için yazdırılabilir QR kod üretin. Müşteri hangi masadan okuttuğu bilgisiyle menüye girer.">
 <meta name="robots" content="index,follow">
-<meta name="theme-color" content="#0D2B22">
+<meta name="theme-color" content="#FDFBF5">
+<meta name="color-scheme" content="light">
 <link rel="canonical" href="https://qrmenuofficial.com/moduller/qr-masa/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="QR Menu Official">
@@ -16,223 +17,286 @@
 <meta property="og:url" content="https://qrmenuofficial.com/moduller/qr-masa/">
 <link rel="stylesheet" href="../module-page.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"QR Masa","item":"https://qrmenuofficial.com/moduller/qr-masa/"}]}</script>
-<script defer src="../module-page.js"></script>
+<!-- QRMO:HEAD:START -->
+<link rel="stylesheet" href="../../global/dist/qrmo-global.css">
+<script defer src="../../global/dist/qrmo-global.js"></script>
+<!-- QRMO:HEAD:END -->
 </head>
 <body class="qrmo-mod-page">
-<a class="qrmo-mod-skip" href="#icerik">İçeriğe geç</a>
-<header class="qrmo-mod-topbar">
-  <div class="qrmo-mod-inner qrmo-mod-topbar-in">
-    <a class="qrmo-mod-back" href="../"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg><span>Tüm modüller</span></a>
-    <a class="qrmo-mod-toplink" href="../../paketler/">Paketleri İncele</a>
+<!-- QRMO:HEADER:START -->
+<script>document.documentElement.classList.add("qrmo-gh-js")</script>
+<a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
+<header class="qrmo-gh" data-qrmo-gh>
+  <div class="qrmo-gh-in">
+    <a class="qrmo-gh-brand" href="../../" aria-label="QR Menu Official — ana sayfa">QR MENU OFFICIAL</a>
+    <nav class="qrmo-gh-nav" aria-label="Ana menü">
+      <ul>
+        <li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../">Ana Sayfa</a></li>
+        <li class="qrmo-gh-item qrmo-gh-has-mega">
+          <a class="qrmo-gh-link" href="../../moduller/" aria-current="true">Çözümler</a><button class="qrmo-gh-mega-btn" type="button" aria-expanded="false" aria-controls="qrmo-gh-mega" aria-label="Çözümler alt menüsünü aç veya kapat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="qrmo-gh-mega" id="qrmo-gh-mega" hidden>
+          <div class="qrmo-gh-mega-in">
+            <div class="qrmo-gh-mega-col">
+              <p class="qrmo-gh-mega-h">Menü</p>
+              <ul>
+                <li><a href="../../moduller/restoran-menu/"><span class="qrmo-gh-mega-t">Restoran Menü</span><span class="qrmo-gh-mega-d">Menü, fiyat ve stok tek panelde.</span></a></li>
+                <li><a href="../../moduller/coklu-dil/"><span class="qrmo-gh-mega-t">Çoklu Dil</span><span class="qrmo-gh-mega-d">Menü misafirin dilinde açılır.</span></a></li>
+                <li><a href="../../moduller/akilli-filtreleme/"><span class="qrmo-gh-mega-t">Akıllı Filtreleme</span><span class="qrmo-gh-mega-d">Müşteri aradığı ürünü daha hızlı bulur.</span></a></li>
+              </ul>
+            </div>
+            <div class="qrmo-gh-mega-col">
+              <p class="qrmo-gh-mega-h">Masa &amp; Servis</p>
+              <ul>
+                <li><a href="../../moduller/qr-masa/"><span class="qrmo-gh-mega-t">QR Masa</span><span class="qrmo-gh-mega-d">Her masaya kendi QR kodu.</span></a></li>
+                <li><a href="../../moduller/servis-paneli/"><span class="qrmo-gh-mega-t">Servis Paneli</span><span class="qrmo-gh-mega-d">Masadan gelen talepler tek ekranda.</span></a></li>
+                <li><a href="../../moduller/masa-oturum-guvenligi/"><span class="qrmo-gh-mega-t">Masa Oturum Güvenliği</span><span class="qrmo-gh-mega-d">Masa oturumu doğrulanmış ve süreli.</span></a></li>
+              </ul>
+            </div>
+            <div class="qrmo-gh-mega-col">
+              <p class="qrmo-gh-mega-h">Akıllı İşletme</p>
+              <ul>
+                <li><a href="../../moduller/menu-asistani/"><span class="qrmo-gh-mega-t">Menü Asistanı</span><span class="qrmo-gh-mega-d">Menü sorularını sohbette yanıtlar.</span></a></li>
+                <li><a href="../../moduller/qr-analytics/"><span class="qrmo-gh-mega-t">QR Analytics</span><span class="qrmo-gh-mega-d">Menünüzün nasıl kullanıldığını görün.</span></a></li>
+                <li><a href="../../moduller/yorum-geri-bildirim/"><span class="qrmo-gh-mega-t">Yorum &amp; Geri Bildirim</span><span class="qrmo-gh-mega-d">Müşterinin görüşü size ulaşsın.</span></a></li>
+                <li><a href="../../moduller/menu-muhendisligi/"><span class="qrmo-gh-mega-t">Menü Mühendisliği</span><span class="qrmo-gh-mega-d">Menünün performansını popülerlik ve kârlılıkla görün.</span></a></li>
+              </ul>
+            </div>
+            <div class="qrmo-gh-mega-side">
+              <p class="qrmo-gh-mega-h">Çözümler</p>
+              <p class="qrmo-gh-mega-p">10 modül, tek sistem: menü, masa ve servis, işletme.</p>
+              <a class="qrmo-gh-mega-all" href="../../moduller/">Tüm modülleri görün<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            </div>
+          </div>
+        </div>
+        </li>
+        <li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../paketler/">Paketler</a></li>
+        <li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../sss/">SSS</a></li>
+        <li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../paketler/">İletişim</a></li>
+      </ul>
+    </nav>
+    <a class="qrmo-gh-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç"><span class="qrmo-gh-burger-i qrmo-gh-i-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></span><span class="qrmo-gh-burger-i qrmo-gh-i-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg></span></button>
+  </div>
+  <div class="qrmo-gh-backdrop" data-qrmo-gh-backdrop></div>
+  <div class="qrmo-gh-drawer" id="qrmo-gh-drawer" role="dialog" aria-modal="true" aria-label="Menü">
+    <div class="qrmo-gh-drawer-in">
+      <nav aria-label="Mobil menü">
+        <ul class="qrmo-gh-d-list">
+          <li class="qrmo-gh-d-item"><a class="qrmo-gh-d-link" href="../../">Ana Sayfa</a></li>
+          <li class="qrmo-gh-d-item">
+            <details class="qrmo-gh-d-group">
+              <summary><span>Çözümler</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+              <div class="qrmo-gh-d-sub">
+                <p class="qrmo-gh-d-h">Menü</p>
+                <ul><li><a href="../../moduller/restoran-menu/">Restoran Menü</a></li><li><a href="../../moduller/coklu-dil/">Çoklu Dil</a></li><li><a href="../../moduller/akilli-filtreleme/">Akıllı Filtreleme</a></li></ul>
+                <p class="qrmo-gh-d-h">Masa &amp; Servis</p>
+                <ul><li><a href="../../moduller/qr-masa/">QR Masa</a></li><li><a href="../../moduller/servis-paneli/">Servis Paneli</a></li><li><a href="../../moduller/masa-oturum-guvenligi/">Masa Oturum Güvenliği</a></li></ul>
+                <p class="qrmo-gh-d-h">Akıllı İşletme</p>
+                <ul><li><a href="../../moduller/menu-asistani/">Menü Asistanı</a></li><li><a href="../../moduller/qr-analytics/">QR Analytics</a></li><li><a href="../../moduller/yorum-geri-bildirim/">Yorum &amp; Geri Bildirim</a></li><li><a href="../../moduller/menu-muhendisligi/">Menü Mühendisliği</a></li></ul>
+                <a class="qrmo-gh-d-all" href="../../moduller/">Tüm modülleri görün<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+              </div>
+            </details>
+          </li>
+          <li class="qrmo-gh-d-item"><a class="qrmo-gh-d-link" href="../../paketler/">Paketler</a></li>
+          <li class="qrmo-gh-d-item"><a class="qrmo-gh-d-link" href="../../sss/">SSS</a></li>
+          <li class="qrmo-gh-d-item"><a class="qrmo-gh-d-link" href="../../paketler/">İletişim</a></li>
+        </ul>
+      </nav>
+      <a class="qrmo-gh-cta qrmo-gh-cta--drawer" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    </div>
   </div>
 </header>
-<main id="icerik" class="qrmo-mod">
+<!-- QRMO:HEADER:END -->
+<main id="icerik" class="qrmo-mod" tabindex="-1">
+  <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">QR Masa</li></ol></nav>
 
-  <!-- 1. HERO -->
-  <section class="qrmo-mod-hero" aria-labelledby="qrmo-mod-h1">
+  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--split" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-mod-inner qrmo-mod-hero-grid">
       <div class="qrmo-mod-hero-copy">
-        <p class="qrmo-mod-eyebrow">MODÜLLER • QR MASA</p>
-        <h1 class="qrmo-mod-title" id="qrmo-mod-h1">Her masaya kendi QR kodu.</h1>
-        <p class="qrmo-mod-lead">Masaları panelde tanımlayın; her biri için yazdırılabilir bir QR kod üretilsin. Müşteri, hangi masadan okuttuğu bilgisiyle menüye girer.</p>
-        <ul class="qrmo-mod-points">
-          <li><span class="qrmo-mod-point-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="qrmo-mod-point-txt"><strong>Masa başına ayrı adres</strong><small>Her masa /?masa=… biçiminde kendi adresine sahiptir.</small></span></li>
-          <li><span class="qrmo-mod-point-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="qrmo-mod-point-txt"><strong>Toplu oluşturma</strong><small>Ön ek ve aralıkla tek seferde en fazla 200 masa.</small></span></li>
-          <li><span class="qrmo-mod-point-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="qrmo-mod-point-txt"><strong>PNG ve PDF çıktı</strong><small>Tek tek ya da tüm masalar için tek PDF olarak indirilir.</small></span></li>
-        </ul>
-        <p class="qrmo-mod-hero-pkg"><span class="qrmo-mod-chip">Temel paket</span><span>Dijital QR Menü</span></p>
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MASA &amp; SERVİS</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Her masanın kendi QR’ı.</h1>
+        <p class="qrmo-mod-lead">Masaları panelde tanımlayın, QR kodlarını PNG ya da PDF olarak indirin. Müşteri menüyü hangi masada olduğu bilgisiyle açar.</p>
+        <ul class="qrmo-mod-proof"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Tek tek ya da toplu oluşturma</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>PNG, PDF ve tek dosyada tüm masalar</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masa bilgisi servis akışına taşınır</span></li></ul>
         <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İncele</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink" href="../">Tüm modüller</a>
+          <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-textlink" href="../">Diğer modülleri görün</a>
         </div>
       </div>
-      <div class="qrmo-mod-hero-visual"><figure class="qrmo-mod-figure">
-    <div class="qrmo-mod-mock" role="img" aria-label="Temsili arayüz çizimi: QR Masa"><div class="qrmo-mod-panel"><div class="qrmo-mod-panel-head"><strong>QR Kodlar</strong></div>
-      <div class="qrmo-mod-table has-qr" style="--cols:3">
-        <div class="qrmo-mod-tr is-head"><span>Masa adı</span><span>Adres</span><span>İndir</span></div>
-        <div class="qrmo-mod-tr"><span>Masa 1</span><span>/?masa=masa-1</span><span>PNG · PDF</span></div><div class="qrmo-mod-tr"><span>ic-masa-2</span><span>/?masa=ic-masa-2</span><span>PNG · PDF</span></div><div class="qrmo-mod-tr"><span>VIP Salon</span><span>/?masa=vip-salon</span><span>PNG · PDF</span></div>
-      </div><div class="qrmo-mod-qrrow"><span class="qrmo-mod-qr"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i><i></i><i></i><i class="on"></i></span><small>QR önizleme (desen temsilidir, taranmaz)</small></div></div></div>
-    <figcaption>Temsili arayüz çizimi — gerçek ekran görüntüsü değildir; örnek içerik kullanılmıştır.</figcaption></figure></div>
+      <div class="qrmo-mod-hero-visual">
+      <figure class="qrmo-mod-fig qrmo-mod-fig--hero">
+        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: “Masa 12” yazan, QR kodlu yazdırılabilir masa kartı ve arkasında masa adı, adresi ve PNG/PDF indirme seçenekleri olan QR kod listesi."><div class="qm-scene qm-scene--print"><div class="qm-si qm-si1"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › QR Kodlar</span></div><div class="qm-win-body"><div class="qm-head"><strong>QR Kodlar</strong><em class="qm-pill">24 masa</em></div><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span><span>İndir</span></div><div class="qm-tr hl"><span>Masa 12</span><span>/?masa=masa-12</span><span>PNG · PDF</span></div><div class="qm-tr"><span>ic-masa-3</span><span>/?masa=ic-masa-3</span><span>PNG · PDF</span></div><div class="qm-tr"><span>VIP Salon</span><span>/?masa=vip-salon</span><span>PNG · PDF</span></div><div class="qm-tr"><span>bahce-2</span><span>/?masa=bahce-2</span><span>PNG · PDF</span></div></div><div class="qm-btns"><span class="qm-btn solid">Tümünü yazdır (PDF)</span></div></div></div></div><div class="qm-si qm-si2"><div class="qm-card"><div class="qm-qrcard"><span class="qm-qrcard-n">Masa 12</span><svg class="qm-qr" viewBox="-1 -1 23 23" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect x="-1" y="-1" width="23" height="23" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM12 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM16 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM14 1h1v1h-1zM20 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h1v1h-1zM14 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM16 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM20 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM19 8h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM1 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM13 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM18 10h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM1 12h1v1h-1zM3 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM8 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM0 15h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM0 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM0 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM6 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM11 18h1v1h-1zM13 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM0 20h1v1h-1zM1 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1z" fill="currentColor"/></svg></div></div></div></div></div>
+        <figcaption class="qrmo-mod-cap">Temsili arayüz çizimi; örnek içerik kullanılmıştır, gerçek ekran görüntüsü değildir.</figcaption>
+      </figure>
+      </div>
     </div>
   </section>
 
-  <!-- 2. PROBLEM → ÇÖZÜM -->
-  <section class="qrmo-mod-ps" aria-labelledby="qrmo-mod-ps-h">
+  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--pipeline" aria-labelledby="qrmo-mod-story-h">
     <div class="qrmo-mod-inner">
-      <h2 class="qrmo-mod-sr" id="qrmo-mod-ps-h">Sorun ve çözüm</h2>
-      <div class="qrmo-mod-ps-grid">
-        <div class="qrmo-mod-ps-col">
-          <p class="qrmo-mod-label">SORUN</p>
-          <p class="qrmo-mod-statement">Tek bir genel QR kodu, hangi masadan geldiğini bilmez.</p>
-          <p class="qrmo-mod-body">Aynı kodu her masaya koyduğunuzda menü açılır ama işletme masa bilgisini kaybeder. Garson çağrısı, hesap isteği ve sipariş için masanın bilinmesi gerekir.</p>
-          <p class="qrmo-mod-scene"><span>Örnek bir an</span>Bir çağrı geldi ama hangi masadan olduğu belli değil. Ekip salonu dolaşıp masa masa soruyor.</p>
+      <header class="qrmo-mod-sechead qrmo-mod-sechead--center">
+        <p class="qrmo-mod-kicker">AKIŞ</p>
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">Masa, QR, menü.</h2>
+        <p class="qrmo-mod-text">Kurulum bir kez yapılır; sonrası müşterinin okutmasıdır.</p>
+      </header>
+      <ol class="qrmo-mod-pipe qrmo-mod-pipe--3">
+        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">01</span><h3>Masa</h3><p>“Masa 31” yazarsınız; adresi kendiliğinden üretilir: /?masa=masa-31.</p></li>
+        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">02</span><h3>QR</h3><p>Kodu PNG ya da PDF olarak indirir, tüm masaları tek PDF’te yazdırırsınız.</p></li>
+        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">03</span><h3>Menü</h3><p>Müşteri okutur; menü hangi masada olduğu bilgisiyle açılır.</p></li>
+      </ol><div class="qrmo-mod-pipe-note"><p class="qrmo-mod-caveat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg><span>Garson çağrısı, hesap isteği ve sipariş (Pro) aynı masa bilgisiyle Servis Paneli’ne gelir.</span></p></div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-mod-stage qrmo-mod-stage--light qrmo-mod-stage--split">
+        <header class="qrmo-mod-stage-head">
+          <p class="qrmo-mod-kicker">TOPLU OLUŞTURMA</p>
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Onlarca masayı tek seferde açın.</h2>
+          <p class="qrmo-mod-text">Bir ön ek ve numara aralığı girersiniz; masalar QR adresleriyle birlikte oluşur. Ortak ön eke sahip masalar grup olarak listelenir.</p>
+          
+        </header>
+        <div class="qrmo-mod-stage-visual">
+        <figure class="qrmo-mod-fig">
+        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: ön ek ic-masa, başlangıç 1, bitiş 10 girilmiş toplu masa oluşturma formu; sonuçta ic-masa-1 ile ic-masa-10 arası masalar ve gruplara göre süzülen masa listesi."><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masalar</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Toplu oluştur</span><span>Tek masa</span></div><div class="qm-h" data-hot="1"><div class="qm-fields qm-fields--3"><span class="qm-field"><small>Ön ek</small><b>ic-masa</b></span><span class="qm-field"><small>Başlangıç</small><b>1</b></span><span class="qm-field"><small>Bitiş</small><b>10</b></span></div></div><p class="qm-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>ic-masa-1 … ic-masa-10 · 10 masa oluşturulur</span></p><div class="qm-h" data-hot="2"><div class="qm-chips"><span class="qm-lbl">Gruplar</span><div class="qm-chip-row"><span class="qm-chip">Tümü</span><span class="qm-chip on">ic-masa</span><span class="qm-chip">bahce</span><span class="qm-chip">vip</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-table qm-c2"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span></div><div class="qm-tr"><span>ic-masa-1</span><span>/?masa=ic-masa-1</span></div><div class="qm-tr"><span>ic-masa-2</span><span>/?masa=ic-masa-2</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>/?masa=vip-salon</span></div></div></div></div></div></div>
+        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
+      </figure>
         </div>
-        <div class="qrmo-mod-ps-col is-solution">
-          <p class="qrmo-mod-label">ÇÖZÜM</p>
-          <p class="qrmo-mod-statement">Her masanın kendi adresi vardır.</p>
-          <p class="qrmo-mod-body">Masa adı yazıldığında bir adres üretilir (örneğin “Masa 31” için /?masa=masa-31). QR kod bu adrese gider; menü masa bilgisiyle açılır.</p>
-        </div>
+        <ol class="qrmo-mod-callouts">
+          <li><span class="qrmo-mod-num" aria-hidden="true">1</span><h3>Ön ek ve aralık</h3><p>Tek seferde en fazla 200 masa açılır; var olan masalar atlanır.</p></li>
+          <li><span class="qrmo-mod-num" aria-hidden="true">2</span><h3>Gruplar</h3><p>ic-masa, bahce gibi ortak ön ekler grup olur; listeyi gruba göre süzersiniz.</p></li>
+          <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>Addan adres</h3><p>“VIP Salon” yazdığınızda adres vip-salon olarak üretilir.</p></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- 3. ÖZELLİKLER -->
-  <section class="qrmo-mod-features" id="ozellikler" aria-labelledby="qrmo-mod-f-h">
-    <div class="qrmo-mod-inner qrmo-mod-split">
-      <div class="qrmo-mod-head">
-        <p class="qrmo-mod-eyebrow">ÖZELLİKLER</p>
-        <h2 class="qrmo-mod-h2" id="qrmo-mod-f-h">QR Masa neler sunar?</h2>
-        <p class="qrmo-mod-body">Aşağıdaki başlıklar ürünün mevcut davranışını anlatır.</p>
+  <section class="qrmo-mod-sec qrmo-mod-proofsec" aria-labelledby="qrmo-mod-proof-h">
+    <div class="qrmo-mod-inner qrmo-mod-proofgrid has-visual">
+      <div class="qrmo-mod-proof-copy">
+        <p class="qrmo-mod-kicker">BASILI QR</p>
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-proof-h">Masanın adı değişir, basılı QR aynı kalır.</h2>
+        <p class="qrmo-mod-text">Adres masa oluşturulurken üretilir. Adı değiştirmek QR kodun hedefini değiştirmez; masaya konmuş kod aynı masayı göstermeye devam eder.</p>
       </div>
-      <div class="qrmo-mod-groups" data-qrmo-groups>
-      <details class="qrmo-mod-group" open>
-        <summary><h3>Masa tanımı</h3><span class="qrmo-mod-count">4</span><span class="qrmo-mod-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <ul class="qrmo-mod-items">
-          <li><h4>Tek masa oluşturma</h4><p>Masa adını yazarsınız; adres otomatik üretilir (“Masa 31” → masa-31, “VIP Salon” → vip-salon).</p></li>
-          <li><h4>Toplu oluşturma</h4><p>Bir ön ek ve numara aralığı girersiniz (örneğin ic-masa, 1–10); ic-masa-1 … ic-masa-10 tek seferde açılır. Var olan masalar atlanır; tek seferde en fazla 200 masa açılır.</p></li>
-          <li><h4>Gruba göre listeleme</h4><p>Ortak ön eke sahip masalar (ic-masa, bahce gibi) grup olarak listelenir; listeyi gruba göre süzebilirsiniz.</p></li>
-          <li><h4>Düzenleme ve silme</h4><p>Masa adını değiştirmek QR kodun hedef adresini değiştirmez; basılıp masaya konmuş QR kod aynı masayı göstermeye devam eder. Masa silinirse o masadaki açık oturumlar da kapanır.</p></li>
-        </ul>
-      </details>
-      <details class="qrmo-mod-group">
-        <summary><h3>QR kod çıktısı</h3><span class="qrmo-mod-count">2</span><span class="qrmo-mod-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <ul class="qrmo-mod-items">
-          <li><h4>PNG ve PDF indirme</h4><p>Her masa için QR kodu PNG veya PDF olarak indirirsiniz. QR üretimi tarayıcıda yapılır.</p></li>
-          <li><h4>Tümünü yazdır</h4><p>Listedeki her masa için masa adı ve QR kod içeren, masa başına bir sayfalık tek bir PDF indirilir.</p></li>
-        </ul>
-      </details>
-      <details class="qrmo-mod-group">
-        <summary><h3>Masa bilgisinin kullanımı</h3><span class="qrmo-mod-count">2</span><span class="qrmo-mod-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-        <ul class="qrmo-mod-items">
-          <li><h4>Aktif masa bilgisi</h4><p>Kısa kod, müşteriye hangi masada olduğunu gösterir (“Masa 7”). Masa bilgisi doğrulanmış oturumdan okunur, adresten değil.</p></li>
-          <li><h4>Masaya bağlı özellikler</h4><p>Garson çağırma, hesap isteme ve sipariş (Pro) ile masa bazlı raporlar (Plus) bu masa bilgisiyle çalışır.</p></li>
-        </ul>
-      </details>
-      
-        <aside class="qrmo-mod-notes" aria-labelledby="qrmo-mod-n-h">
-          <h3 id="qrmo-mod-n-h">Bilmeniz gerekenler</h3>
+      <div class="qrmo-mod-proof-visual"><figure class="qrmo-mod-fig">
+        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: masa adı “Teras 1” olarak değiştirilmiş, adres alanı /?masa=masa-31 olarak aynı kalmış masa düzenleme formu."><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masa düzenle</span></div><div class="qm-win-body"><div class="qm-fields"><span class="qm-field"><small>Masa adı</small><b>Teras 1</b></span><span class="qm-field"><small>Adres (değişmez)</small><b>/?masa=masa-31</b></span></div><p class="qm-note">Önceki ad: Masa 31</p><div class="qm-btns"><span class="qm-btn solid">Kaydet</span></div></div></div></div>
+        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
+      </figure></div>
+      <dl class="qrmo-mod-facts">
+        <div><dt>200</dt><dd>masaya kadar tek seferde oluşturma</dd></div>
+        <div><dt>PNG · PDF</dt><dd>tek masa için ya da tüm masalar için</dd></div>
+        <div><dt>1 sayfa</dt><dd>her masaya, tek PDF dosyasında</dd></div>
+      </dl>
+      <div class="qrmo-mod-proof-note"><p class="qrmo-mod-caveat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg><span>Masa silinirse o masadaki açık oturumlar da kapanır.</span></p></div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-mod-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner qrmo-mod-details-grid">
+      <div class="qrmo-mod-details-side">
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
+        <div class="qrmo-mod-know">
+          <h3>Bilmeniz gerekenler</h3>
           <ul><li>QR kod menü sayfanıza yönlenir; kodun çalışması için menü sayfanızın yayında olması gerekir.</li><li>Masanın QR’ı okutan kişiye bağlanması ve oturum süreleri ayrı bir modülün (Masa Oturum Güvenliği, Pro) konusudur.</li></ul>
-        </aside>
+        </div>
+        <div class="qrmo-mod-faqlinks">
+          <h3>Sık sorulanlar</h3>
+          <ul><li><a href="../../sss/#qrmo-faq-q-her-masa-ayri-qr">Her masa için ayrı QR kod oluşturulabilir mi?</a></li><li><a href="../../sss/#qrmo-faq-q-masa-ad-degisince">Masa adını değiştirince QR kod bozulur mu?</a></li><li><a href="../../sss/#qrmo-faq-q-qr-hangi-adres">QR kod hangi adrese yönlendirir?</a></li></ul>
+        </div>
+      </div>
+      <div class="qrmo-mod-acc">
+        <details class="qrmo-mod-acc-item">
+          <summary><h3>Masa tanımı</h3><span class="qrmo-mod-acc-count">4<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <ul>
+            <li><h4>Tek masa oluşturma</h4><p>Masa adını yazarsınız; adres otomatik üretilir (“Masa 31” → masa-31, “VIP Salon” → vip-salon).</p></li>
+            <li><h4>Toplu oluşturma</h4><p>Bir ön ek ve numara aralığı girersiniz (örneğin ic-masa, 1–10); ic-masa-1 … ic-masa-10 tek seferde açılır. Var olan masalar atlanır; tek seferde en fazla 200 masa açılır.</p></li>
+            <li><h4>Gruba göre listeleme</h4><p>Ortak ön eke sahip masalar (ic-masa, bahce gibi) grup olarak listelenir; listeyi gruba göre süzebilirsiniz.</p></li>
+            <li><h4>Düzenleme ve silme</h4><p>Masa adını değiştirmek QR kodun hedef adresini değiştirmez; basılıp masaya konmuş QR kod aynı masayı göstermeye devam eder. Masa silinirse o masadaki açık oturumlar da kapanır.</p></li>
+          </ul>
+        </details>
+        <details class="qrmo-mod-acc-item">
+          <summary><h3>QR kod çıktısı</h3><span class="qrmo-mod-acc-count">2<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <ul>
+            <li><h4>PNG ve PDF indirme</h4><p>Her masa için QR kodu PNG veya PDF olarak indirirsiniz. QR üretimi tarayıcıda yapılır.</p></li>
+            <li><h4>Tümünü yazdır</h4><p>Listedeki her masa için masa adı ve QR kod içeren, masa başına bir sayfalık tek bir PDF indirilir.</p></li>
+          </ul>
+        </details>
+        <details class="qrmo-mod-acc-item">
+          <summary><h3>Masa bilgisinin kullanımı</h3><span class="qrmo-mod-acc-count">2<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <ul>
+            <li><h4>Aktif masa bilgisi</h4><p>Kısa kod, müşteriye hangi masada olduğunu gösterir (“Masa 7”). Masa bilgisi doğrulanmış oturumdan okunur, adresten değil.</p></li>
+            <li><h4>Masaya bağlı özellikler</h4><p>Garson çağırma, hesap isteme ve sipariş (Pro) ile masa bazlı raporlar (Plus) bu masa bilgisiyle çalışır.</p></li>
+          </ul>
+        </details>
       </div>
     </div>
   </section>
 
-  <!-- 4. NASIL ÇALIŞIR? -->
-  <section class="qrmo-mod-steps" aria-labelledby="qrmo-mod-s-h">
+  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-head">
-        <p class="qrmo-mod-eyebrow">NASIL ÇALIŞIR?</p>
-        <h2 class="qrmo-mod-h2" id="qrmo-mod-s-h">4 adımda QR Masa.</h2>
-      </div>
-      <ol class="qrmo-mod-steplist">
-        <li><span class="qrmo-mod-stepno" aria-hidden="true">01</span><h3>Masaları tanımlayın</h3><p>Tek tek ya da ön ek ve aralıkla toplu olarak oluşturun.</p></li>
-        <li><span class="qrmo-mod-stepno" aria-hidden="true">02</span><h3>QR kodları indirin</h3><p>PNG, PDF ya da tüm masalar için tek PDF olarak alın.</p></li>
-        <li><span class="qrmo-mod-stepno" aria-hidden="true">03</span><h3>Masalara yerleştirin</h3><p>Çıktıları ilgili masaya koyun.</p></li>
-        <li><span class="qrmo-mod-stepno" aria-hidden="true">04</span><h3>Müşteri okutur</h3><p>Menü, masa bilgisiyle açılır.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 5. ARAYÜZ -->
-  <section class="qrmo-mod-view is-flip" aria-labelledby="qrmo-mod-v-h">
-    <div class="qrmo-mod-inner qrmo-mod-view-grid">
-      <div class="qrmo-mod-head">
-        <p class="qrmo-mod-eyebrow">ARAYÜZ</p>
-        <h2 class="qrmo-mod-h2" id="qrmo-mod-v-h">İşletme tarafında nasıl görünür?</h2>
-        <p class="qrmo-mod-body">Masa listesi ve toplu oluşturma formu.</p>
-      </div>
-      <div class="qrmo-mod-view-visual"><figure class="qrmo-mod-figure">
-    <div class="qrmo-mod-mock" role="img" aria-label="Temsili arayüz çizimi: QR Masa yönetim ekranı"><div class="qrmo-mod-panel">
-      <div class="qrmo-mod-panel-head"><strong>Toplu oluştur</strong></div>
-      <div class="qrmo-mod-field"><span>Slug öneki</span><b>ic-masa</b></div><div class="qrmo-mod-field"><span>Başlangıç</span><b>1</b></div><div class="qrmo-mod-field"><span>Bitiş</span><b>10</b></div>
-      
-      <p class="qrmo-mod-result">ic-masa-1 … ic-masa-10 oluşturulur</p>
-      
-    </div></div>
-    <figcaption>Temsili arayüz çizimi — gerçek ekran görüntüsü değildir; örnek içerik kullanılmıştır.</figcaption></figure></div>
-    </div>
-  </section>
-
-  <!-- 6. KİMLER İÇİN? -->
-  <section class="qrmo-mod-audience" aria-labelledby="qrmo-mod-a-h">
-    <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-head">
-        <p class="qrmo-mod-eyebrow">KİMLER İÇİN?</p>
-        <h2 class="qrmo-mod-h2" id="qrmo-mod-a-h">Bu modül kimin işine yarar?</h2>
-      </div>
-      <ul class="qrmo-mod-who">
-        <li><h3>Restoranlar</h3><p>Salon ve bahçe gibi bölümleri numaralı masalara ayrılmış işletmeler.</p></li>
-        <li><h3>Kafeler</h3><p>Masa bazlı servis yapan, masa numarası olan kafeler.</p></li>
-        <li><h3>Oteller</h3><p>Havuz başı, restoran ve teras gibi alanlarda ayrı masa grupları olanlar.</p></li>
-        <li><h3>İşletme yöneticileri</h3><p>Masa listesini ve QR çıktılarını tek yerden yönetmek isteyenler.</p></li>
+      <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
+      </header>
+      <ul class="qrmo-mod-rel">
+        <li><a class="qrmo-mod-tile" href="../restoran-menu/"><span class="qrmo-mod-cue qrmo-mod-cue--menu" aria-hidden="true"><i></i><i></i><i class="off"></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">Restoran Menü</span><span class="qrmo-mod-tile-d">QR kodun açtığı menü.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
+        <li><a class="qrmo-mod-tile" href="../masa-oturum-guvenligi/"><span class="qrmo-mod-cue qrmo-mod-cue--shield" aria-hidden="true"><i></i><u></u></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">Masa Oturum Güvenliği</span><span class="qrmo-mod-tile-d">Masa oturumunu imzalar ve süreyle sınırlar.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
+        <li><a class="qrmo-mod-tile" href="../servis-paneli/"><span class="qrmo-mod-cue qrmo-mod-cue--kanban" aria-hidden="true"><i><b class="late"></b><b></b></i><i><b></b></i><i><b></b><b class="done"></b></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">Servis Paneli</span><span class="qrmo-mod-tile-d">Masa bilgisiyle gelen çağrılar burada görünür.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
       </ul>
     </div>
   </section>
 
-  <!-- 7. PAKET BİLGİSİ -->
-  <section class="qrmo-mod-package" aria-labelledby="qrmo-mod-p-h">
-    <div class="qrmo-mod-inner qrmo-mod-split">
-      <div class="qrmo-mod-head">
-        <p class="qrmo-mod-eyebrow">PAKET BİLGİSİ</p>
-        <h2 class="qrmo-mod-h2" id="qrmo-mod-p-h">Temel pakette yer alır.</h2>
-        <p class="qrmo-mod-body">QR Masa, <strong>Temel</strong> paketinde ve üzerindeki paketlerde kullanılabilir. Kapsadığı paket özellikleri: QR Masa.</p>
-      </div>
-      <ol class="qrmo-mod-tiers"><li class="is-in is-min">
-        <span class="qrmo-mod-tier-name">Temel</span>
-        <span class="qrmo-mod-tier-tag">Dijital QR Menü</span>
-        <span class="qrmo-mod-tier-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li><li class="is-in">
-        <span class="qrmo-mod-tier-name">Pro</span>
-        <span class="qrmo-mod-tier-tag">Dijital Menü + Restoran Servis Sistemi</span>
-        <span class="qrmo-mod-tier-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li><li class="is-in">
-        <span class="qrmo-mod-tier-name">Plus</span>
-        <span class="qrmo-mod-tier-tag">Dijital Menü + Servis + İşletme Zekâsı</span>
-        <span class="qrmo-mod-tier-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li></ol>
-    </div>
-  </section>
-
-  <!-- 8. İLGİLİ MODÜLLER -->
-  <section class="qrmo-mod-related" aria-labelledby="qrmo-mod-r-h">
+  <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-head">
-        <p class="qrmo-mod-eyebrow">İLGİLİ MODÜLLER</p>
-        <h2 class="qrmo-mod-h2" id="qrmo-mod-r-h">Birlikte çalıştığı modüller.</h2>
-      </div>
-      <ul class="qrmo-mod-rel"><li><a href="../restoran-menu/">
-        <span class="qrmo-mod-rel-top"><strong>Restoran Menü</strong><span class="qrmo-mod-chip">Temel paket</span></span>
-        <span class="qrmo-mod-rel-why">QR kodun açtığı menü.</span>
-        <span class="qrmo-mod-rel-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li><li><a href="../masa-oturum-guvenligi/">
-        <span class="qrmo-mod-rel-top"><strong>Masa Oturum Güvenliği</strong><span class="qrmo-mod-chip">Pro paket</span></span>
-        <span class="qrmo-mod-rel-why">Masa oturumunu imzalar ve süre ile sınırlar.</span>
-        <span class="qrmo-mod-rel-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li><li><a href="../servis-paneli/">
-        <span class="qrmo-mod-rel-top"><strong>Servis Paneli</strong><span class="qrmo-mod-chip">Pro paket</span></span>
-        <span class="qrmo-mod-rel-why">Masa bilgisiyle gelen çağrılar burada görünür.</span>
-        <span class="qrmo-mod-rel-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li></ul>
-    </div>
-  </section>
-
-  <!-- 9. CTA -->
-  <section class="qrmo-mod-final-wrap" aria-labelledby="qrmo-mod-c-h">
-    <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-final">
-        <div>
-          <h2 class="qrmo-mod-h2" id="qrmo-mod-c-h">Hangi paketle kullanabileceğinizi görün.</h2>
-          <p class="qrmo-mod-lead">Üç paketi ve paketlerdeki özellikleri karşılaştırın.</p>
+      <div class="qrmo-mod-close">
+        <div class="qrmo-mod-close-copy">
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">QR Masa tüm paketlerde.</h2>
+          <p class="qrmo-mod-text">Paketleri ve içerdikleri modülleri yan yana karşılaştırın.</p>
         </div>
-        <a class="qrmo-mod-cta is-on-dark" href="../../paketler/"><span>Paketleri İncele</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <ol class="qrmo-mod-tiers" aria-label="Paketlere göre QR Masa">
+            <li class="is-in"><span class="qrmo-mod-tier-n">Temel</span><span class="qrmo-mod-tier-t">Dijital QR Menü</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
+            <li class="is-in"><span class="qrmo-mod-tier-n">Pro</span><span class="qrmo-mod-tier-t">Dijital Menü + Restoran Servis Sistemi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
+            <li class="is-in"><span class="qrmo-mod-tier-n">Plus</span><span class="qrmo-mod-tier-t">Dijital Menü + Servis + İşletme Zekâsı</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
+        </ol>
+        <div class="qrmo-mod-actions">
+          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-textlink qrmo-mod-textlink--ondark" href="../">Diğer modülleri görün</a>
+        </div>
       </div>
     </div>
   </section>
-
 </main>
-<footer class="qrmo-mod-footer">
-  <div class="qrmo-mod-inner qrmo-mod-footer-in">
-    <p><strong>QR Menu Official</strong></p>
-    <nav aria-label="Alt bağlantılar">
-      <a href="../../">Ana sayfa</a>
-      <a href="../../moduller/">Modüller</a>
-      <a href="../../paketler/">Paketler</a>
-    </nav>
+<!-- QRMO:FOOTER:START -->
+<footer class="qrmo-gf" data-qrmo-gf>
+  <div class="qrmo-gf-in">
+    <div class="qrmo-gf-top">
+      <div class="qrmo-gf-brand">
+        <a class="qrmo-gh-brand" href="../../" aria-label="QR Menu Official — ana sayfa">QR MENU OFFICIAL</a>
+        <p>Menü, garson çağrısı ve servis paneli tek sistemde.</p>
+        <a class="qrmo-gh-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </div>
+      <div class="qrmo-gf-cols">
+        <details class="qrmo-gf-col" open>
+          <summary><span class="qrmo-gf-h">Menü</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul><li><a href="../../moduller/restoran-menu/">Restoran Menü</a></li><li><a href="../../moduller/coklu-dil/">Çoklu Dil</a></li><li><a href="../../moduller/akilli-filtreleme/">Akıllı Filtreleme</a></li></ul>
+        </details>
+        <details class="qrmo-gf-col" open>
+          <summary><span class="qrmo-gf-h">Masa &amp; Servis</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul><li><a href="../../moduller/qr-masa/">QR Masa</a></li><li><a href="../../moduller/servis-paneli/">Servis Paneli</a></li><li><a href="../../moduller/masa-oturum-guvenligi/">Masa Oturum Güvenliği</a></li></ul>
+        </details>
+        <details class="qrmo-gf-col" open>
+          <summary><span class="qrmo-gf-h">Akıllı İşletme</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul><li><a href="../../moduller/menu-asistani/">Menü Asistanı</a></li><li><a href="../../moduller/qr-analytics/">QR Analytics</a></li><li><a href="../../moduller/yorum-geri-bildirim/">Yorum &amp; Geri Bildirim</a></li><li><a href="../../moduller/menu-muhendisligi/">Menü Mühendisliği</a></li></ul>
+        </details>
+        <details class="qrmo-gf-col" open>
+          <summary><span class="qrmo-gf-h">Site</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <ul><li><a href="../../moduller/" aria-current="true">Modüller</a></li><li><a href="../../">Ana Sayfa</a></li><li><a href="../../paketler/">Paketler</a></li><li><a href="../../sss/">SSS</a></li><li><a href="../../paketler/">İletişim</a></li></ul>
+        </details>
+      </div>
+    </div>
+    <div class="qrmo-gf-bottom">
+      <p>© 2026 QR Menu Official. Tüm hakları saklıdır.</p>
+    </div>
   </div>
 </footer>
+<!-- QRMO:FOOTER:END -->
 </body>
 </html>

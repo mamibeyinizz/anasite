@@ -94,8 +94,8 @@
     activateCategory(catId);
     var panel = document.getElementById("qrmo-faq-panel-" + catId);
     if (panel && panelsWrap) {
-      var topbar = document.querySelector(".qrmo-faq-topbar");
-      var offset = (topbar ? topbar.offsetHeight : 56) + 12;
+      var topbar = document.querySelector("[data-qrmo-gh]");
+      var offset = (topbar ? topbar.offsetHeight : 76) + 12;
       var y = panel.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     }
@@ -185,8 +185,8 @@
     el.setAttribute("open", "");
     closeOthersInPanel(el);
     requestAnimationFrame(function () {
-      var topbar = document.querySelector(".qrmo-faq-topbar");
-      var offset = (topbar ? topbar.offsetHeight : 56) + 16;
+      var topbar = document.querySelector("[data-qrmo-gh]");
+      var offset = (topbar ? topbar.offsetHeight : 76) + 16;
       var y = el.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top: y, behavior: "auto" });
     });

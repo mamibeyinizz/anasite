@@ -379,3 +379,23 @@ Yeni bir section, sayfa veya component üretilirken:
 3. Tasarım, editorial/premium sadeliği bozacak şekilde genişlemez; "daha fazla eleman ekleyerek zenginleştirme" refleksi reddedilir.
 
 Bu doküman yaşayan bir referanstır; güncellenmesi gerektiğinde yalnızca bu dosya üzerinden, açık gerekçeyle güncellenir.
+
+---
+
+## 21. `/moduller/` Sayfa Sistemi — Uygulanmış Ek Değerler
+
+Aşağıdaki değerler yalnızca `moduller/module-page.css` içinde kullanılır; ana sayfaya ve `/paketler/`e taşınmamıştır. Marka renkleri, font stack'i, CTA (gradient + 1.5px gold border + 12px radius) ve 20px görsel radius'u Hero V3 token'larının aynısıdır.
+
+| Değer | Kullanım | Gerekçe |
+|---|---|---|
+| `#7F6419` (`--qm-gold-ink`) | Krem zeminde küçük altın vurgu metni (kicker, numara) | `#C9A84C` krem zeminde ~2,2:1 kontrast verir; bu ton aynı ailede kalıp WCAG AA (≥4,5:1) sağlar |
+| `34px` / `27px` | Temsili telefon çizimi dış / ekran radius'u | Cihaz illüstrasyonu; bileşen radius'u değildir |
+| `clamp(72px, 10vw, 136px)` | Bölüm arası dikey ritim | Madde 6 aralığıyla uyumlu tek değer |
+| `480 · 600 · 768 · 900 · 1024 · 1200` | `min-width` kırılımları | 900 Hero V3 kırılımıdır; diğerleri modül bileşenleri için |
+
+Kurallar:
+- **Zemin sayfaya aittir.** Bölümlerin kendi zemini yoktur; ışık odakları `body` arka planında belge yüksekliğine yayılır (sabit katman ve animasyon yok). Koyu ürün sahnesi ve kapanış paneli, zemini kesen tam genişlik bant değil, kenar boşluğu içinde duran 20px radius'lu panellerdir.
+- **Hareket:** JS animasyonu, kaydırma dinleyicisi ve IntersectionObserver yoktur. Yalnızca hero'da kısa giriş (metinde yalnızca transform) ve akış adımlarında, destekleyen tarayıcılarda kaydırmaya bağlı opacity/transform (`animation-timeline: view()`). `prefers-reduced-motion: reduce` → hiçbiri. `scroll-behavior: smooth`, scroll-snap ve gövde kilitleme kullanılmaz.
+- **Temsili arayüzler** tek `role="img"` kapsayıcısında çizilir; ekran okuyucu yalnızca veri dosyasındaki açıklamayı duyar. Örnek sayılar "Örnek veri" rozeti taşır; her görselin altında "temsili arayüz / örnek içerik" notu bulunur.
+- **Etiket tasarrufu:** Küçük büyük harfli altın etiket (kicker) yalnızca anlatı bölümlerinde kullanılır; ayrıntılar, ilgili modüller ve kapanış bölümleri etiketsizdir.
+
