@@ -424,13 +424,19 @@ html = html.slice(0, aOld.start) + analyticsSection[0] + html.slice(aOld.end);
 
 /* Sync analytics CSS block in index from section file */
 const analyticsStyle = analyticsSrc.match(/<style>\s*\/\* =+[\s\S]*?QR MENU OFFICIAL — ANALYTICS V3[\s\S]*?<\/style>/);
+const analyticsMarker = "QR MENU OFFICIAL — ANALYTICS V3 (SECTION 8A)";
+const transitionStart = '<section class="qrmo-transition-v1"';
+
 if (analyticsStyle) {
-  const marker = "QR MENU OFFICIAL — ANALYTICS V3 (SECTION 8A)";
-  const styleMarkerIdx = html.indexOf(marker);
+  const styleMarkerIdx = html.indexOf(analyticsMarker);
   if (styleMarkerIdx !== -1) {
     const styleOpen = html.lastIndexOf("<style>", styleMarkerIdx);
     const styleClose = html.indexOf("</style>", styleMarkerIdx) + "</style>".length;
     html = html.slice(0, styleOpen) + analyticsStyle[0] + html.slice(styleClose);
+  } else {
+    const insertAt = html.indexOf(transitionStart);
+    if (insertAt === -1) throw new Error("Analytics CSS insert point not found (transition section)");
+    html = html.slice(0, insertAt) + analyticsStyle[0] + "\n\n" + html.slice(insertAt);
   }
 }
 
@@ -443,6 +449,11 @@ if (analyticsScript) {
     const scriptStart = html.lastIndexOf("<script>", idx);
     const scriptEnd = html.indexOf("</script>", idx) + "</script>".length;
     html = html.slice(0, scriptStart) + analyticsScript[0] + html.slice(scriptEnd);
+  } else {
+    const styleMarkerIdx = html.indexOf(analyticsMarker);
+    if (styleMarkerIdx === -1) throw new Error("Analytics script insert: CSS marker missing");
+    const styleClose = html.indexOf("</style>", styleMarkerIdx) + "</style>".length;
+    html = html.slice(0, styleClose) + "\n\n" + analyticsScript[0] + "\n\n" + html.slice(styleClose);
   }
 }
 
