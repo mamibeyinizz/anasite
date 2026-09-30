@@ -81,120 +81,172 @@ body.qrmo-mod-page {
 main.qrmo-mod { display: block; outline: none; }
 .qrmo-mod [id] { scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 8px); }
 
-body.qrmo-mod-page--detail,
 body.qrmo-home-ctx {
-  --qrmo-mod-ctx-h: 48px;
+  --qrmo-mod-ctx-h: 42px;
+  --qm-green-dark: #0D2B22;
+  --qm-gold: #C9A84C;
+  --qm-gold-ink: #7F6419;
+  --qm-muted: #56625B;
+  --qm-ink: #0D2B22;
+  --qm-line: rgba(13, 43, 34, .1);
+  --qm-ease: cubic-bezier(.2, .7, .2, 1);
 }
+
 body.qrmo-mod-page--detail .qrmo-mod [id] {
+  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 8px);
+}
+
+body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h) + 8px);
 }
 
-body.qrmo-home-ctx .qrmo-home-anchor,
-body.qrmo-home-ctx #qrmo-product-map-v1 {
-  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h) + 8px);
+/* ---------- anasayfa modül context nav (yalnızca .qrmo-home-mod-zone) ---------- */
+
+.qrmo-home-mod-zone {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
-/* ---------- modül context nav (yalnızca detay sayfaları) ---------- */
-
-.qrmo-mod-ctx {
+.qrmo-mod-ctx--home {
   display: block;
   position: sticky;
-  top: var(--qrmo-gh-h, 76px);
+  top: var(--qrmo-mod-ctx-sticky-top, var(--qrmo-gh-h, 76px));
   z-index: 40;
   min-width: 0;
   max-width: 100%;
-  border-bottom: 1px solid var(--qm-line);
-  background: rgba(253, 251, 245, .92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 rgba(13, 43, 34, .04);
+  height: var(--qrmo-mod-ctx-h);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(13, 43, 34, .07);
+  box-sizing: border-box;
+  background: rgba(251, 247, 238, .96);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 1px 0 rgba(201, 168, 76, .06);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .14s var(--qm-ease), visibility .14s var(--qm-ease);
 }
 
-.qrmo-mod-ctx-inner {
+.qrmo-mod-ctx--home.is-zone-live {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.qrmo-mod-ctx--home .qrmo-mod-ctx-scroll {
   display: flex;
   align-items: center;
-  gap: 12px 24px;
+  width: 100%;
+  max-width: 100%;
+  height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  min-height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  max-height: calc(var(--qrmo-mod-ctx-h) - 1px);
   min-width: 0;
-  min-height: var(--qrmo-mod-ctx-h);
-  padding-block: 2px;
-}
-
-.qrmo-mod-ctx-mod {
-  flex: 0 0 auto;
-  margin: 0;
-  color: var(--qm-ink);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  line-height: 1.3;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.qrmo-mod-ctx-scroll {
-  flex: 1 1 auto;
-  min-width: 0;
+  box-sizing: border-box;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(13, 43, 34, .22) transparent;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
 }
 
-.qrmo-mod-ctx-scroll::-webkit-scrollbar { height: 4px; }
-.qrmo-mod-ctx-scroll::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(13, 43, 34, .2);
+.qrmo-mod-ctx--home .qrmo-mod-ctx-scroll::-webkit-scrollbar {
+  display: none;
 }
-.qrmo-mod-ctx-scroll::-webkit-scrollbar-track { background: transparent; }
 
-.qrmo-mod-ctx-links {
+.qrmo-mod-ctx--home .qrmo-mod-ctx-links {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 4px 20px;
+  gap: 0;
   min-width: min-content;
-  padding-inline-end: 4px;
+  margin: 0;
+  padding: 0 5vw;
+  list-style: none;
 }
 
-.qrmo-mod-ctx-link {
+@media (max-width: 560px) {
+  .qrmo-mod-ctx--home .qrmo-mod-ctx-links {
+    padding-inline: 15px;
+  }
+}
+
+.qrmo-mod-ctx--home .qrmo-mod-ctx-links > li {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.qrmo-mod-ctx--home .qrmo-mod-ctx-links > li + li::before {
+  content: "•";
+  margin: 0 .65rem;
+  color: rgba(201, 168, 76, .45);
+  font-size: 9px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.qrmo-mod-ctx--home .qrmo-mod-ctx-link {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 2px;
+  box-sizing: border-box;
+  height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  max-height: calc(var(--qrmo-mod-ctx-h) - 1px);
+  padding: 0 1px 1px;
   color: var(--qm-muted);
-  font-size: 11.5px;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: .06em;
-  line-height: 1.25;
+  letter-spacing: .1em;
+  line-height: 1.2;
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color .16s var(--qm-ease), border-color .16s var(--qm-ease);
+  border-bottom: 0;
+  box-shadow: inset 0 -2px 0 transparent;
+  transition: color .16s var(--qm-ease), box-shadow .16s var(--qm-ease);
 }
 
-.qrmo-mod-ctx-link-t { display: inline-block; }
+.qrmo-mod-ctx--home .qrmo-mod-ctx-link-t {
+  display: inline-block;
+}
 
-.qrmo-mod-ctx-link:hover {
+.qrmo-mod-ctx--home .qrmo-mod-ctx-link:hover {
   color: var(--qm-ink);
 }
 
-.qrmo-mod-ctx-link.is-active,
-.qrmo-mod-ctx-link[aria-current="location"] {
+.qrmo-mod-ctx--home .qrmo-mod-ctx-link.is-active,
+.qrmo-mod-ctx--home .qrmo-mod-ctx-link[aria-current="location"] {
   color: var(--qm-gold-ink);
-  border-bottom-color: var(--qm-gold);
+  box-shadow: inset 0 -2px 0 var(--qm-gold);
   font-weight: 700;
 }
 
-@media (min-width: 1024px) {
-  .qrmo-mod-ctx-inner { padding-block: 2px; }
-  .qrmo-mod-ctx-scroll { overflow-x: visible; }
-  .qrmo-mod-ctx-links { flex-wrap: wrap; min-width: 0; justify-content: flex-end; }
+@media (max-width: 390px) {
+  .qrmo-mod-ctx--home .qrmo-mod-ctx-link {
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+
+  .qrmo-mod-ctx--home .qrmo-mod-ctx-links > li + li::before {
+    margin: 0 .45rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .qrmo-mod-ctx-link { transition: none; }
+  .qrmo-mod-ctx--home {
+    transition: none;
+  }
+
+  .qrmo-mod-ctx--home .qrmo-mod-ctx-link {
+    transition: none;
+  }
 }
 
 /* ---------- konum (breadcrumb) ---------- */
@@ -1408,7 +1460,7 @@ body.qrmo-home-ctx #qrmo-product-map-v1 {
 
   #mod-v2-prototype .qrmo-mod-v2-marker {
     position: sticky;
-    top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 0px) + 12px);
+    top: calc(var(--qrmo-gh-h, 76px) + 12px);
     align-self: start;
   }
 

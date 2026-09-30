@@ -171,22 +171,6 @@
   </div>
 </header>
 <!-- QRMO:HEADER:END -->
-<nav class="qrmo-mod-ctx" data-qrmo-mod-ctx aria-label="Ana sayfa — bölüm gezintisi">
-  <div class="qrmo-mod-ctx-inner qrmo-mod-inner">
-    <p class="qrmo-mod-ctx-mod">ANA SAYFA</p>
-    <div class="qrmo-mod-ctx-scroll">
-      <ul class="qrmo-mod-ctx-links">
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-product-map-v1" data-qrmo-mod-ctx-link="product-map"><span class="qrmo-mod-ctx-link-t">ÜRÜN HARİTASI</span></a></li>
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-translation-v3-root" data-qrmo-mod-ctx-link="translation"><span class="qrmo-mod-ctx-link-t">ÇOKLU DİL</span></a></li>
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-filtre" data-qrmo-mod-ctx-link="filter"><span class="qrmo-mod-ctx-link-t">AKILLI FİLTRE</span></a></li>
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-asistan" data-qrmo-mod-ctx-link="chatbot"><span class="qrmo-mod-ctx-link-t">CHATBOT</span></a></li>
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-masa" data-qrmo-mod-ctx-link="tables"><span class="qrmo-mod-ctx-link-t">QR MASALAR</span></a></li>
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-servis" data-qrmo-mod-ctx-link="service"><span class="qrmo-mod-ctx-link-t">SERVİS</span></a></li>
-        <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-icgoru" data-qrmo-mod-ctx-link="analytics"><span class="qrmo-mod-ctx-link-t">ANALİTİK</span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 <section class="qrmo-hero-v3-wrap" id="icerik" aria-label="QR Menu Official tanıtım alanı">    <div class="qrmo-hero-v3-inner">  <!-- =====================================================
      SOL İÇERİK
 ====================================================== -->
@@ -2028,7 +2012,10 @@
 }
 
 .qrmo-home-anchor {
-  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 48px) + 8px);
+  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 8px);
+}
+.qrmo-home-mod-zone .qrmo-home-anchor {
+  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 42px) + 8px);
 }
 
 @media (max-width: 900px) {
@@ -2123,6 +2110,19 @@
 })();
 </script>
 
+<div class="qrmo-home-mod-zone" data-qrmo-home-mod-zone>
+<nav class="qrmo-mod-ctx qrmo-mod-ctx--home" data-qrmo-mod-ctx aria-label="Modüller — bölüm gezintisi">
+  <div class="qrmo-mod-ctx-scroll" data-qrmo-mod-ctx-scroll tabindex="-1">
+    <ul class="qrmo-mod-ctx-links">
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-translation-v3-root" data-qrmo-mod-ctx-link="translation"><span class="qrmo-mod-ctx-link-t">ÇOKLU DİL</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-filtre" data-qrmo-mod-ctx-link="filter"><span class="qrmo-mod-ctx-link-t">AKILLI FİLTRE</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-asistan" data-qrmo-mod-ctx-link="chatbot"><span class="qrmo-mod-ctx-link-t">CHATBOT</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-masa" data-qrmo-mod-ctx-link="tables"><span class="qrmo-mod-ctx-link-t">QR MASALAR</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-servis" data-qrmo-mod-ctx-link="service"><span class="qrmo-mod-ctx-link-t">SERVİS</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-icgoru" data-qrmo-mod-ctx-link="analytics"><span class="qrmo-mod-ctx-link-t">ANALİTİK</span></a></li>
+    </ul>
+  </div>
+</nav>
 <div class="qrmo-translation-v3-wrap qrmo-home-anchor" id="qrmo-translation-v3-root">
 
 <style>
@@ -12081,7 +12081,10 @@
   color:rgba(13,43,34,.72);
 }
 .qrmo-home-anchor{
-  scroll-margin-top:calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 48px) + 8px);
+  scroll-margin-top:calc(var(--qrmo-gh-h, 76px) + 8px);
+}
+.qrmo-home-mod-zone .qrmo-home-anchor{
+  scroll-margin-top:calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 42px) + 8px);
 }
 
 .qrmo-tables-v5{
@@ -19295,6 +19298,7 @@
   </div>
 
 </section>
+</div><!-- /.qrmo-home-mod-zone -->
 
 
 <style>
