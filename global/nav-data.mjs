@@ -68,3 +68,78 @@ export const SOLUTIONS = MOD.categories.map((c) => ({
 }));
 
 export const HUB = { label: "Tüm modülleri görün", path: "moduller/" };
+
+/* Footer V4 — marka metni, CTA kartı, gezinme (yalnızca gerçek route'lar) */
+export const FOOTER = {
+  description:
+    "Restoran ve kafelerin menülerini kolayca yönetebileceği, müşterilerine modern bir deneyim sunabileceği dijital menü çözümleri.",
+  ctaEyebrow: "Dijital menüye geçiş",
+  ctaTitle: "Menünüzü dijitale taşıyın.",
+  ctaDescription: "İşletmeniz için modern bir QR menü oluşturmak üzere ilk adımı atın.",
+  ctaButton: "QR Menünüzü Oluşturun",
+  signature: "QR Menü Official"
+};
+
+/** Sosyal URL repo'da tanımlı değilse boş dizi (placeholder üretilmez). */
+export const FOOTER_SOCIAL = [];
+
+/** Alt bilgi yasal sayfaları yok; yalnızca telif (sahte # link yok). */
+export const FOOTER_LEGAL = [];
+
+export const FOOTER_GROUPS = [
+  {
+    id: "product",
+    title: "Ürünü Keşfedin",
+    links: [
+      { label: "Ana Sayfa", path: "", key: "home" },
+      { label: "Modüller", path: "moduller/", key: "moduller" },
+      { label: "Canlı Menüyü Gör", path: "moduller/restoran-menu/", key: "canli" },
+      { label: "Sıkça Sorulan Sorular", path: "sss/" }
+    ]
+  },
+  {
+    id: "solutions",
+    title: "QR Menü Çözümleri",
+    links: [
+      { label: "Paketler & Fiyatlar", path: "paketler/", key: "paketler" },
+      { label: "Tüm Modüller", path: "moduller/" },
+      { label: "Restoran Menü", path: "moduller/restoran-menu/" },
+      { label: "Servis Paneli", path: "moduller/servis-paneli/" }
+    ]
+  },
+  {
+    id: "support",
+    title: "Başlangıç ve Destek",
+    links: [
+      { label: "Paketleri İnceleyin", path: "paketler/" },
+      { label: "Sıkça Sorulan Sorular", path: "sss/" },
+      { label: "Bize Ulaşın", path: "paketler/", key: "iletisim" }
+    ]
+  },
+  {
+    id: "corporate",
+    title: "Kurumsal",
+    links: [
+      { label: "Modül Merkezi", path: "moduller/" },
+      { label: "Paket Karşılaştırma", path: "paketler/" },
+      { label: "Menü Asistanı", path: "moduller/menu-asistani/" }
+    ]
+  },
+  {
+    id: "legal",
+    title: "Yasal Bilgiler",
+    links: [
+      { label: "Güvenlik & Teknik (SSS)", path: "sss/" },
+      { label: "Paketler & Fiyatlar (SSS)", path: "sss/" }
+    ]
+  },
+  {
+    id: "contact",
+    title: "Bize Ulaşın",
+    links: [
+      { label: "Paketler & Başvuru", path: "paketler/" },
+      { label: "Sıkça Sorulan Sorular", path: "sss/" },
+      { label: "Canlı Menü Örneği", path: "moduller/restoran-menu/" }
+    ]
+  }
+];
