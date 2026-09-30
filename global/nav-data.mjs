@@ -12,6 +12,8 @@ export const SITE = {
   brand: "QR Menu Official",
   wordmark: "QR MENU OFFICIAL",
   tagline: "Menü, garson çağrısı ve servis paneli tek sistemde.",
+  logo: "assets/brand/qr-menu-official-logo.svg",
+  logoCompact: "assets/brand/qr-menu-official-logo-compact.svg",
   year: new Date().getFullYear()
 };
 

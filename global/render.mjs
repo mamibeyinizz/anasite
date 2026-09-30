@@ -16,7 +16,7 @@ const cur = (key, current) => (key === current ? ` aria-current="${current === "
 
 export function renderHeader({ rel = "", current = "", skip = "icerik", exact = false } = {}) {
   const c = (key) => (key === current ? ` aria-current="${exact ? "page" : "true"}"` : "");
-  const brand = `<a class="qrmo-gh-brand" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} — ana sayfa">${esc(SITE.wordmark)}</a>`;
+  const brand = `<a class="qrmo-gh-brand" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} — ana sayfa"><img class="qrmo-gh-logo qrmo-gh-logo--full" src="${href(rel, SITE.logo)}" alt="" width="223" height="66" decoding="async" fetchpriority="high"><img class="qrmo-gh-logo qrmo-gh-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="" width="165" height="44" decoding="async" fetchpriority="high"></a>`;
 
   const mega = `
         <div class="qrmo-gh-mega" id="qrmo-gh-mega" hidden>
