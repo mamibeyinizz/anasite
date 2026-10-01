@@ -11455,6 +11455,11 @@
   }
 
 
+  if (root.dataset.qrmoInit === "true") {
+    return;
+  }
+
+
   const demo =
     root.querySelector(
       ".qrmo-chatbot-demo"
@@ -11479,17 +11484,34 @@
     );
 
 
+  if (
+    !demo ||
+    !inputText ||
+    !send ||
+    !cartButton
+  ) {
+    return;
+  }
+
+
+  root.dataset.qrmoInit =
+    "true";
+
+
   const prefersReducedMotion =
     window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     );
 
 
-  /* Observer ve sekme dönüşü aynı ölçütü kullanır:
-     demonun en az %35'i viewport'ta. */
+  /* Giriş: demonun ~%35'i viewport'ta; çıkış: ~%15 altı (hysteresis). */
 
-  const VISIBLE_RATIO =
+  const ENTRY_VISIBLE_RATIO =
     .35;
+
+
+  const EXIT_VISIBLE_RATIO =
+    .15;
 
 
   let active =
@@ -11627,7 +11649,10 @@
       Math.min(rect.bottom, window.innerHeight) -
       Math.max(rect.top, 0);
 
-    return visible / rect.height >= VISIBLE_RATIO - .01;
+    return (
+      visible / rect.height >=
+      ENTRY_VISIBLE_RATIO - .01
+    );
 
   }
 
@@ -11909,7 +11934,7 @@
      INTERSECTION OBSERVER — hedef: demo
   ======================================================== */
 
-  const observer =
+  let observer =
     new IntersectionObserver(
       entries => {
 
@@ -11920,18 +11945,24 @@
               return;
             }
 
+            const ratio =
+              entry.intersectionRatio;
+
             if (
+              !active &&
               entry.isIntersecting &&
-              entry.intersectionRatio >= VISIBLE_RATIO - .01
+              ratio >= ENTRY_VISIBLE_RATIO - .01
             ) {
 
-              if (!active || prefersReducedMotion.matches) {
+              start();
 
-                start();
-
-              }
-
-            } else if (active) {
+            } else if (
+              active &&
+              (
+                !entry.isIntersecting ||
+                ratio < EXIT_VISIBLE_RATIO - .01
+              )
+            ) {
 
               stop();
 
@@ -11944,7 +11975,8 @@
       {
         threshold: [
           0,
-          VISIBLE_RATIO
+          EXIT_VISIBLE_RATIO,
+          ENTRY_VISIBLE_RATIO
         ]
       }
     );
@@ -11959,21 +11991,24 @@
      TAB VISIBILITY
   ======================================================== */
 
-  document.addEventListener(
-    "visibilitychange",
-    function () {
+  function onVisibilityChange() {
 
-      if (document.hidden) {
+    if (document.hidden) {
 
-        stop();
+      stop();
 
-      } else if (isDemoVisible()) {
+    } else if (isDemoVisible()) {
 
-        start();
-
-      }
+      start();
 
     }
+
+  }
+
+
+  document.addEventListener(
+    "visibilitychange",
+    onVisibilityChange
   );
 
 
@@ -12022,6 +12057,56 @@
     showStatic();
 
   }
+
+
+  /* =======================================================
+     LIFECYCLE CLEANUP
+  ======================================================== */
+
+  function cleanup() {
+
+    stop();
+
+    if (observer) {
+
+      observer.disconnect();
+
+      observer = null;
+
+    }
+
+    document.removeEventListener(
+      "visibilitychange",
+      onVisibilityChange
+    );
+
+    if (prefersReducedMotion.removeEventListener) {
+
+      prefersReducedMotion.removeEventListener(
+        "change",
+        onMotionChange
+      );
+
+    } else if (prefersReducedMotion.removeListener) {
+
+      prefersReducedMotion.removeListener(
+        onMotionChange
+      );
+
+    }
+
+    window.removeEventListener(
+      "pagehide",
+      cleanup
+    );
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    cleanup
+  );
 
 
 })();
