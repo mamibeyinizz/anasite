@@ -2027,24 +2027,31 @@
 
 @media (max-width: 767px) {
   .qrmo-product-map-v1-spine {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
+    max-width: 100%;
+    margin-bottom: clamp(14px, 4vw, 20px);
+    font-size: clamp(8px, 2.15vw, 10px);
+    letter-spacing: .05em;
+    line-height: 1.35;
+    color: rgba(13, 43, 34, .48);
+  }
+
+  .qrmo-product-map-v1-spine > span:not(.qrmo-product-map-v1-spine-arrow) {
+    white-space: nowrap;
   }
 
   .qrmo-product-map-v1-spine-arrow {
-    width: 1px;
-    height: 12px;
-    margin-left: 6px;
-    background: rgba(201, 168, 76, .45);
+    display: none;
   }
 
-  .qrmo-product-map-v1-spine-arrow::after {
-    top: auto;
-    bottom: 0;
-    right: -3px;
-    border: 3px solid transparent;
-    border-top-color: rgba(201, 168, 76, .75);
-    border-left-color: transparent;
+  .qrmo-product-map-v1-spine > span:nth-child(2n + 1):not(:first-child)::before {
+    content: "·";
+    margin: 0 clamp(3px, 1.1vw, 5px);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: rgba(201, 168, 76, .65);
   }
 
   .qrmo-product-map-v1-card::after {
