@@ -21,7 +21,8 @@ const MOD = require("../moduller/module-data.js");
 
 const WIDTHS = [1440, 1024, 768, 390, 375, 320];
 
-function ghHeightRange(w) {
+function ghHeightRange(w, h) {
+  if (w >= 961 && h <= 800) return [74, 78];
   if (w <= 560) return [70, 74];
   if (w <= 960) return [76, 80];
   if (w <= 1180) return [82, 86];
@@ -140,7 +141,7 @@ else {
         });
         check(ok.has("qrmo-global.css") && ok.has("qrmo-global.js"), `${pg.url} @${w} global CSS+JS 200`, [...ok].join(","));
         const desk = w >= 961;
-        const [ghMin, ghMax] = ghHeightRange(w);
+        const [ghMin, ghMax] = ghHeightRange(w, 900);
         check(r.overflow <= 0, `${pg.url} @${w} yatay taşma`, `${r.overflow}px`);
         check(!r.gfOver, `${pg.url} @${w} footer taşması`);
         check(r.sticky === "sticky", `${pg.url} @${w} sticky`);
@@ -166,7 +167,7 @@ else {
       const page = await ctx.newPage();
       await page.goto(base + "/moduller/qr-masa/", { waitUntil: "load" });
       check(await page.isVisible(".qrmo-gh-nav"), "1200: masaüstü nav görünür");
-      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta span:last-child")).includes("Menünüzü Oluşturun"), "1200: gold CTA metni");
+      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta")).includes("Görüşme Talep Edin"), "1200: gold CTA metni");
       const solHrefs = await page.$$eval(".qrmo-gh-d-sol", (a) => a.map((x) => x.getAttribute("href")));
       check(solHrefs.includes("../../moduller/restoran-menu/") && solHrefs.includes("../../moduller/menu-asistani/"), "1200: drawer çözüm kartları gerçek modül URL'leri", solHrefs.join(","));
       await page.goto(base + "/", { waitUntil: "load" });

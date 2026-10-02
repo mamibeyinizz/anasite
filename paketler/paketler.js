@@ -104,6 +104,7 @@
 
   /* Hedef TBD iken tıklama: kullanıcıya dürüst bir bilgi gösterir. */
   function showPending(btn) {
+    if (!D.cta.pendingNotice) return;
     var n = btn.nextElementSibling;
     if (!n || !n.classList.contains("qrmo-pricing-cta-note")) {
       n = el("p", { class: "qrmo-pricing-cta-note", role: "status" });

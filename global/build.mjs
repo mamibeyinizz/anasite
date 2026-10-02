@@ -20,6 +20,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { renderHeader, renderFooter } from "./render.mjs";
 import { applyGlobal } from "./inject.mjs";
+import { CONVERSION_PENDING } from "./nav-data.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -28,7 +29,14 @@ const write = (p, s) => fs.writeFileSync(path.join(here, p), s);
 
 fs.mkdirSync(path.join(here, "dist"), { recursive: true });
 write("dist/qrmo-global.css", `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.css) */\n${read("src/header.css")}\n${read("src/footer.css")}`);
-write("dist/qrmo-global.js", `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.js) */\n${read("src/header.js")}\n${read("src/footer.js")}`);
+write(
+  "dist/qrmo-conversion-config.js",
+  `/* Üretilmiştir: node global/build.mjs — kaynak: global/nav-data.mjs */\nwindow.QRMO_CONVERSION=${JSON.stringify({ pending: CONVERSION_PENDING })};\n`
+);
+write(
+  "dist/qrmo-global.js",
+  `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.js) */\n${read("src/header.js")}\n${read("src/footer.js")}\n${read("src/conversion.js")}`
+);
 write("dist/qrmo-header.html", renderHeader({ rel: "", current: "home" }) + "\n");
 write("dist/qrmo-footer.html", renderFooter({ rel: "", current: "home" }) + "\n");
 

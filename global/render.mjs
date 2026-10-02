@@ -2,6 +2,7 @@
 import {
   SITE,
   CTA,
+  CONVERSION,
   NAV,
   DRAWER,
   DRAWER_SOLUTIONS,
@@ -45,31 +46,102 @@ const I = {
 
 /* rel: "" | "../" | "../../"; ana sayfa bağlantısı "./" olur. */
 const href = (rel, p) => (p === "" ? rel || "./" : rel + p);
+
 const cur = (key, current, exact) =>
   key === current ? ` aria-current="${exact && current === "home" ? "page" : "true"}"` : "";
+
+function conversionTargetUrl(rel, slot) {
+  const c = CONVERSION[slot];
+  if (!c) return null;
+  if (c.href) return c.href;
+  if (c.path != null && c.path !== "") return href(rel, c.path);
+  return null;
+}
+
+function renderPrimaryCta(rel, { drawer = false } = {}) {
+  const label = CTA.label || CONVERSION.primary.label;
+  const url = CTA.href ? CTA.href : conversionTargetUrl(rel, "primary");
+  const cls = `qrmo-gh-cta${drawer ? " qrmo-gh-cta--drawer" : ""}`;
+  const inner = `<span class="qrmo-gh-qr-icon">${I.qr}</span><span>${esc(label)}</span>${drawer ? '<span aria-hidden="true">→</span>' : ""}`;
+  if (url) return `<a class="${cls}" href="${esc(url)}">${inner}</a>`;
+  return `<button class="${cls} qrmo-gh-cta--pending" type="button" data-qrmo-cta="primary">${inner}</button>`;
+}
+
+function renderFooterCtaBtn(rel) {
+  const label = FOOTER.ctaButton || CONVERSION.primary.label;
+  const url = CTA.href ? CTA.href : conversionTargetUrl(rel, "primary");
+  const inner = `<span>${esc(label)}</span>${I.arrow}`;
+  if (url) return `<a class="qrmo-gf-cta-btn" href="${esc(url)}">${inner}</a>`;
+  return `<button class="qrmo-gf-cta-btn qrmo-gf-cta-btn--pending" type="button" data-qrmo-cta="primary">${inner}</button>`;
+}
+
+function renderNavDesktopItem(rel, n, current, exact) {
+  if (n.ctaPlaceholder) {
+    return `<li class="qrmo-gh-item"><button type="button" class="qrmo-gh-link qrmo-gh-link--pending" data-qrmo-cta="${esc(n.ctaPlaceholder)}">${esc(n.label)}</button></li>`;
+  }
+  if (n.conversionSlot) {
+    const url = conversionTargetUrl(rel, n.conversionSlot);
+    if (url) {
+      return `<li class="qrmo-gh-item"><a class="qrmo-gh-link" href="${esc(url)}"${cur(n.key, current, exact)}>${esc(n.label)}</a></li>`;
+    }
+  }
+  return `<li class="qrmo-gh-item"><a class="qrmo-gh-link" href="${href(rel, n.path)}"${cur(n.key, current, exact)}>${esc(n.label)}</a></li>`;
+}
+
+function renderDrawerNavCard(rel, n, current, exact) {
+  const icon = I.nav[n.key] || I.nav.home;
+  const sub = n.drawerSubtitle
+    ? `<span class="qrmo-gh-d-card-sub">${esc(n.drawerSubtitle)}</span>`
+    : "";
+  const body = `
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon">${icon}</span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">${esc(n.label)}</span>
+          ${sub}
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>`;
+  if (n.ctaPlaceholder) {
+    return `
+      <button class="qrmo-gh-d-card qrmo-gh-d-card--pending" type="button" data-qrmo-cta="${esc(n.ctaPlaceholder)}">
+        ${body}
+      </button>`;
+  }
+  if (n.conversionSlot) {
+    const url = conversionTargetUrl(rel, n.conversionSlot);
+    if (url) {
+      return `
+      <a class="qrmo-gh-d-card" href="${esc(url)}"${cur(n.key, current, exact)}>
+        ${body}
+      </a>`;
+    }
+  }
+  return `
+      <a class="qrmo-gh-d-card" href="${href(rel, n.path)}"${cur(n.key, current, exact)}>
+        ${body}
+      </a>`;
+}
+
+function renderFooterLink(rel, l, current) {
+  if (l.conversionSlot) {
+    const url = conversionTargetUrl(rel, l.conversionSlot);
+    if (url) {
+      return `<li><a href="${esc(url)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
+    }
+  }
+  if (l.ctaPlaceholder || l.path == null) {
+    return `<li><button type="button" class="qrmo-gf-link-pending" data-qrmo-cta="${esc(l.ctaPlaceholder || "secondary")}">${esc(l.label)}</button></li>`;
+  }
+  return `<li><a href="${href(rel, l.path)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
+}
 
 export function renderHeader({ rel = "", current = "", skip = "icerik", exact = false } = {}) {
   const brand = `<a class="qrmo-gh-brand" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} ana sayfa"><img class="qrmo-gh-logo qrmo-gh-logo--full" src="${href(rel, SITE.logo)}" alt="${esc(SITE.brand)}" width="194" height="78" decoding="async" fetchpriority="high"><img class="qrmo-gh-logo qrmo-gh-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="165" height="44" decoding="async" fetchpriority="high"></a>`;
 
-  const desktopItems = NAV.map(
-    (n) =>
-      `<li class="qrmo-gh-item"><a class="qrmo-gh-link" href="${href(rel, n.path)}"${cur(n.key, current, exact)}>${esc(n.label)}</a></li>`
-  ).join("");
+  const desktopItems = NAV.map((n) => renderNavDesktopItem(rel, n, current, exact)).join("");
 
-  const drawerLinks = NAV.map((n) => {
-    const icon = I.nav[n.key] || I.nav.home;
-    return `
-      <a class="qrmo-gh-d-card" href="${href(rel, n.path)}"${cur(n.key, current, exact)}>
-        <span class="qrmo-gh-d-card-left">
-          <span class="qrmo-gh-d-card-icon">${icon}</span>
-          <span class="qrmo-gh-d-card-text">
-            <span class="qrmo-gh-d-card-title">${esc(n.label)}</span>
-            <span class="qrmo-gh-d-card-sub">${esc(n.drawerSubtitle)}</span>
-          </span>
-        </span>
-        <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
-      </a>`;
-  }).join("");
+  const drawerLinks = NAV.map((n) => renderDrawerNavCard(rel, n, current, exact)).join("");
 
   const solutionCards = DRAWER_SOLUTIONS.map(
     (s, i) => `
@@ -90,6 +162,10 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
     )
     .join("");
 
+  const drawerNote = DRAWER.bottomNote
+    ? `<p class="qrmo-gh-drawer-note">${esc(DRAWER.bottomNote)}</p>`
+    : "";
+
   return `<script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#${esc(skip)}">İçeriğe geç</a>
 <header class="qrmo-gh" data-qrmo-gh>
@@ -100,7 +176,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
         <ul>${desktopItems}
         </ul>
       </nav>
-      <a class="qrmo-gh-cta" href="${href(rel, CTA.path)}"><span class="qrmo-gh-qr-icon">${I.qr}</span><span>${esc(CTA.label)}</span></a>
+      ${renderPrimaryCta(rel)}
       <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
         <span class="qrmo-gh-burger-label">MENÜ</span>
         <span class="qrmo-gh-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -136,8 +212,8 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
       </div>
     </div>
     <div class="qrmo-gh-drawer-bottom">
-      <a class="qrmo-gh-cta qrmo-gh-cta--drawer" href="${href(rel, CTA.path)}"><span class="qrmo-gh-qr-icon">${I.qr}</span><span>${esc(CTA.label)}</span><span aria-hidden="true">→</span></a>
-      <p class="qrmo-gh-drawer-note">${esc(DRAWER.bottomNote)}</p>
+      ${renderPrimaryCta(rel, { drawer: true })}
+      ${drawerNote}
     </div>
   </div>
 </header>`;
@@ -155,31 +231,22 @@ export function renderFooter({ rel = "", current = "" } = {}) {
     </a>`;
 
   const socials = FOOTER_SOCIAL.length
-    ? `<div class="qrmo-gf-socials" aria-label="Sosyal medya bağlantıları">${FOOTER_SOCIAL
-        .map(
-          (s) =>
-            `<a class="qrmo-gf-social-link" href="${esc(s.url)}" aria-label="${esc(s.label)}">${I_SOCIAL[s.icon] || ""}</a>`
-        )
-        .join("")}</div>`
+    ? `<div class="qrmo-gf-socials" aria-label="Sosyal medya bağlantıları">${FOOTER_SOCIAL.map(
+        (s) =>
+          `<a class="qrmo-gf-social-link" href="${esc(s.url)}" aria-label="${esc(s.label)}">${I_SOCIAL[s.icon] || ""}</a>`
+      ).join("")}</div>`
     : "";
 
   const navCols = FOOTER_GROUPS.map(
     (g) => `
       <details class="qrmo-gf-col" open>
         <summary><span class="qrmo-gf-h">${esc(g.title)}</span>${I.chev}</summary>
-        <ul class="qrmo-gf-links">${g.links
-          .map(
-            (l) =>
-              `<li><a href="${href(rel, l.path)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`
-          )
-          .join("")}</ul>
+        <ul class="qrmo-gf-links">${g.links.map((l) => renderFooterLink(rel, l, current)).join("")}</ul>
       </details>`
   ).join("");
 
   const legal = FOOTER_LEGAL.length
-    ? `<div class="qrmo-gf-legal-links">${FOOTER_LEGAL
-        .map((l) => `<a href="${href(rel, l.path)}">${esc(l.label)}</a>`)
-        .join("")}</div>`
+    ? `<div class="qrmo-gf-legal-links">${FOOTER_LEGAL.map((l) => `<a href="${href(rel, l.path)}">${esc(l.label)}</a>`).join("")}</div>`
     : "";
 
   return `<footer class="qrmo-gf" data-qrmo-gf aria-labelledby="qrmo-gf-title">
@@ -195,7 +262,7 @@ export function renderFooter({ rel = "", current = "" } = {}) {
         <p class="qrmo-gf-cta-label">${esc(FOOTER.ctaEyebrow)}</p>
         <h3 class="qrmo-gf-cta-title">${esc(FOOTER.ctaTitle)}</h3>
         <p class="qrmo-gf-cta-desc">${esc(FOOTER.ctaDescription)}</p>
-        <a class="qrmo-gf-cta-btn" href="${href(rel, CTA.path)}"><span>${esc(FOOTER.ctaButton)}</span>${I.arrow}</a>
+        ${renderFooterCtaBtn(rel)}
       </section>
     </div>
     <nav class="qrmo-gf-nav" aria-label="Footer navigasyonu">${navCols}

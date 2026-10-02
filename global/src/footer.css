@@ -222,7 +222,8 @@
 }
 
 .qrmo-gf-cta-btn,
-.qrmo-gf-cta-btn:visited {
+.qrmo-gf-cta-btn:visited,
+button.qrmo-gf-cta-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -354,6 +355,35 @@
 .qrmo-gf-links a[aria-current] {
   color: var(--qrmo-gf-gold) !important;
   font-weight: 700;
+}
+
+.qrmo-gf-link-pending {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--qrmo-gf-text-muted) !important;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  text-align: left;
+  overflow-wrap: anywhere;
+  border-radius: 4px;
+  transition: color 180ms ease;
+}
+
+.qrmo-gf-link-pending:hover,
+.qrmo-gf-link-pending:focus-visible {
+  color: var(--qrmo-gf-gold) !important;
+}
+
+button.qrmo-gf-cta-btn {
+  cursor: pointer;
 }
 
 .qrmo-gf-bottom {

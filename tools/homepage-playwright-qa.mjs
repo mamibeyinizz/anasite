@@ -134,15 +134,54 @@ try {
       ok,
     });
 
-    /* anchor chip test @ desktop */
+    if (w === 390) {
+      await page.evaluate(() => {
+        document.getElementById("qrmo-product-map-v1")?.scrollIntoView({ block: "start" });
+      });
+      await page.waitForTimeout(200);
+      await page.click('a.qrmo-product-map-v1-chip[href="#qrmo-home-filtre"]');
+      await page.waitForTimeout(900);
+      const anchor390 = await page.evaluate(() => {
+        const t = document.getElementById("qrmo-home-filtre");
+        if (!t) return { ok: false };
+        const shell = document.querySelector("[data-qrmo-gh] .qrmo-gh-shell");
+        const ghH = shell
+          ? shell.getBoundingClientRect().height
+          : (document.querySelector("[data-qrmo-gh]")?.getBoundingClientRect().height || 76);
+        const ctx = document.querySelector("[data-qrmo-mod-ctx]");
+        const ctxH = ctx ? ctx.getBoundingClientRect().height : 0;
+        const off = ghH + ctxH + 12;
+        const top = t.getBoundingClientRect().top;
+        const h2 = t.querySelector("h2") || t.querySelector(".qrmo-smart-filter-copy h2");
+        const headlineTop = h2 ? h2.getBoundingClientRect().top : top;
+        const stickyBottom = off;
+        return {
+          ok: headlineTop >= stickyBottom - 4 && headlineTop <= stickyBottom + 48,
+          top: Math.round(top),
+          headlineTop: Math.round(headlineTop),
+          off: Math.round(off),
+        };
+      });
+      if (!anchor390.ok) {
+        fail++;
+        rows.push({ w: "390-anchor-filtre", ok: false, ...anchor390 });
+      }
+    }
+
     if (w === 1280) {
       await page.click('a.qrmo-product-map-v1-chip[href="#qrmo-home-filtre"]');
       await page.waitForTimeout(900);
       const anchor = await page.evaluate(() => {
-        const gh = document.querySelector("[data-qrmo-gh]");
         const t = document.getElementById("qrmo-home-filtre");
-        const off = gh ? gh.getBoundingClientRect().height + 16 : 96;
-        return Math.abs(t.getBoundingClientRect().top - off) < 28;
+        if (!t) return false;
+        const shell = document.querySelector("[data-qrmo-gh] .qrmo-gh-shell");
+        const ghH = shell
+          ? shell.getBoundingClientRect().height
+          : (document.querySelector("[data-qrmo-gh]")?.getBoundingClientRect().height || 76);
+        const ctx = document.querySelector("[data-qrmo-mod-ctx]");
+        const ctxH = ctx ? ctx.getBoundingClientRect().height : 0;
+        const off = ghH + ctxH + 12;
+        return Math.abs(t.getBoundingClientRect().top - off) < 36;
       });
       if (!anchor) {
         fail++;

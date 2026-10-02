@@ -1,0 +1,2 @@
+/* Üretilmiştir: node global/build.mjs — kaynak: global/nav-data.mjs */
+window.QRMO_CONVERSION={"pending":{"default":"Bu bağlantı henüz etkin değil.","primary":"Bu bağlantı henüz etkin değil. Görüşme kanalı yakında eklenecek.","secondary":"Canlı menü adresi henüz tanımlanmadı.","transition":"Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek.","final":"Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek."}};

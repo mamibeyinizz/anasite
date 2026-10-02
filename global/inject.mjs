@@ -7,7 +7,10 @@ const block = (name, body) => `<!-- QRMO:${name}:START -->\n${body}\n<!-- QRMO:$
 const re = (name) => new RegExp(`<!-- QRMO:${name}:START -->[\\s\\S]*?<!-- QRMO:${name}:END -->`);
 
 export function applyGlobal(html, { rel = "", current = "", skip = "icerik", exact = false } = {}) {
-  const head = block("HEAD", `<link rel="stylesheet" href="${rel}global/dist/qrmo-global.css">\n<script defer src="${rel}global/dist/qrmo-global.js"></script>`);
+  const head = block(
+    "HEAD",
+    `<link rel="stylesheet" href="${rel}global/dist/qrmo-global.css">\n<script src="${rel}global/dist/qrmo-conversion-config.js"></script>\n<script defer src="${rel}global/dist/qrmo-global.js"></script>`
+  );
   const header = block("HEADER", renderHeader({ rel, current, skip, exact }));
   const footer = block("FOOTER", renderFooter({ rel, current }));
 

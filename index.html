@@ -14,11 +14,11 @@
   <meta property="og:description" content="Menü, garson çağrısı ve servis paneli tek sistemde. Müşteri menüyü kendi dilinde okur, filtreler, sorar; garsonu ya da hesabı telefondan çağırır.">
   <meta property="og:url" content="https://qrmenuofficial.com/">
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/home-cta-foundation.css">
 <!-- QRMO:HEAD:START -->
 <link rel="stylesheet" href="global/dist/qrmo-global.css">
-<link rel="stylesheet" href="moduller/module-page.css">
+<script src="global/dist/qrmo-conversion-config.js"></script>
 <script defer src="global/dist/qrmo-global.js"></script>
-<script defer src="moduller/module-page.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
 <body class="qrmo-home-ctx">
@@ -30,10 +30,10 @@
     <div class="qrmo-gh-in">
       <a class="qrmo-gh-brand" href="./" aria-label="QR Menu Official ana sayfa"><img class="qrmo-gh-logo qrmo-gh-logo--full" src="assets/brand/qr-menu-official-logo.svg" alt="QR Menu Official" width="194" height="78" decoding="async" fetchpriority="high"><img class="qrmo-gh-logo qrmo-gh-logo--compact" src="assets/brand/qr-menu-official-logo-compact.svg" alt="QR Menu Official" width="165" height="44" decoding="async" fetchpriority="high"></a>
       <nav class="qrmo-gh-nav" aria-label="Ana menü">
-        <ul><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="./" aria-current="true">Ana Sayfa</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="moduller/">Çözümler</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="paketler/">Paketler &amp; Fiyatlar</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="moduller/restoran-menu/">Canlı Menüyü Gör</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="paketler/">Bize Ulaşın</a></li>
+        <ul><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="./" aria-current="true">Ana Sayfa</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="moduller/">Çözümler</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="paketler/">Paketler &amp; Fiyatlar</a></li><li class="qrmo-gh-item"><button type="button" class="qrmo-gh-link qrmo-gh-link--pending" data-qrmo-cta="secondary">Canlı Menüyü Gör</button></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="paketler/">Bize Ulaşın</a></li>
         </ul>
       </nav>
-      <a class="qrmo-gh-cta" href="paketler/"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 15H18V18H21V21H15V15ZM18 12V15M12 18H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Menünüzü Oluşturun</span></a>
+      <button class="qrmo-gh-cta qrmo-gh-cta--pending" type="button" data-qrmo-cta="primary"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 15H18V18H21V21H15V15ZM18 12V15M12 18H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Görüşme Talep Edin</span></button>
       <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
         <span class="qrmo-gh-burger-label">MENÜ</span>
         <span class="qrmo-gh-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -55,54 +55,59 @@
     </div>
     <nav class="qrmo-gh-d-cards" aria-label="Mobil menü">
       <a class="qrmo-gh-d-card" href="./" aria-current="true">
-        <span class="qrmo-gh-d-card-left">
-          <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/></svg></span>
-          <span class="qrmo-gh-d-card-text">
-            <span class="qrmo-gh-d-card-title">Ana Sayfa</span>
-            <span class="qrmo-gh-d-card-sub">QR Menu Official dünyasını keşfedin</span>
-          </span>
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Ana Sayfa</span>
+          <span class="qrmo-gh-d-card-sub">QR Menu Official dünyasını keşfedin</span>
         </span>
-        <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="qrmo-gh-d-card" href="moduller/">
-        <span class="qrmo-gh-d-card-left">
-          <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h4v4h3v3h-7v-7ZM18 11v3"/></svg></span>
-          <span class="qrmo-gh-d-card-text">
-            <span class="qrmo-gh-d-card-title">Çözümler</span>
-            <span class="qrmo-gh-d-card-sub">İşletmeniz için akıllı dijital araçlar</span>
-          </span>
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h4v4h3v3h-7v-7ZM18 11v3"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Çözümler</span>
+          <span class="qrmo-gh-d-card-sub">İşletmeniz için akıllı dijital araçlar</span>
         </span>
-        <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
       </a>
       <a class="qrmo-gh-d-card" href="paketler/">
-        <span class="qrmo-gh-d-card-left">
-          <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span>
-          <span class="qrmo-gh-d-card-text">
-            <span class="qrmo-gh-d-card-title">Paketler &amp; Fiyatlar</span>
-            <span class="qrmo-gh-d-card-sub">İşletmenize uygun planı seçin</span>
-          </span>
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Paketler &amp; Fiyatlar</span>
+          <span class="qrmo-gh-d-card-sub">İşletmenize uygun planı seçin</span>
         </span>
-        <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
       </a>
-      <a class="qrmo-gh-d-card" href="moduller/restoran-menu/">
-        <span class="qrmo-gh-d-card-left">
-          <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 5h6M10 18h4"/></svg></span>
-          <span class="qrmo-gh-d-card-text">
-            <span class="qrmo-gh-d-card-title">Canlı Menüyü Gör</span>
-            <span class="qrmo-gh-d-card-sub">Gerçek QR menü deneyimini inceleyin</span>
-          </span>
+      <button class="qrmo-gh-d-card qrmo-gh-d-card--pending" type="button" data-qrmo-cta="secondary">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 5h6M10 18h4"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Canlı Menüyü Gör</span>
+          
         </span>
-        <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
-      </a>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </button>
       <a class="qrmo-gh-d-card" href="paketler/">
-        <span class="qrmo-gh-d-card-left">
-          <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></span>
-          <span class="qrmo-gh-d-card-text">
-            <span class="qrmo-gh-d-card-title">Bize Ulaşın</span>
-            <span class="qrmo-gh-d-card-sub">Sorularınız için bizimle iletişime geçin</span>
-          </span>
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Bize Ulaşın</span>
+          <span class="qrmo-gh-d-card-sub">Sorularınız için bizimle iletişime geçin</span>
         </span>
-        <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
       </a>
     </nav>
     <section class="qrmo-gh-d-section">
@@ -158,15 +163,11 @@
           <span class="qrmo-gh-d-trust-check" aria-hidden="true">✓</span>
           <span>Restoranınıza özel profesyonel dijital deneyim</span>
         </div>
-        <div class="qrmo-gh-d-trust-item">
-          <span class="qrmo-gh-d-trust-check" aria-hidden="true">✓</span>
-          <span>Teknik bilgi gerektirmeyen kullanım</span>
-        </div>
       </div>
     </div>
     <div class="qrmo-gh-drawer-bottom">
-      <a class="qrmo-gh-cta qrmo-gh-cta--drawer" href="paketler/"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 15H18V18H21V21H15V15ZM18 12V15M12 18H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Menünüzü Oluşturun</span><span aria-hidden="true">→</span></a>
-      <p class="qrmo-gh-drawer-note">Dakikalar içinde başlayın · Teknik bilgi gerekmez</p>
+      <button class="qrmo-gh-cta qrmo-gh-cta--drawer qrmo-gh-cta--pending" type="button" data-qrmo-cta="primary"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 15H18V18H21V21H15V15ZM18 12V15M12 18H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Görüşme Talep Edin</span><span aria-hidden="true">→</span></button>
+      
     </div>
   </div>
 </header>
@@ -319,10 +320,13 @@
        CTA
   ================================================== -->
 
-  <a
+  <div class="qrmo-hero-v3-cta-group">
+
+  <button
+    type="button"
     class="qrmo-hero-v3-cta"
-    href="https://qrmenuofficial.com/paketler/"
-    aria-label="Paketleri İnceleyin"
+    data-qrmo-cta="primary"
+    aria-label="Görüşme Talep Edin"
   >
 
     <svg
@@ -344,7 +348,7 @@
     </svg>
 
     <span>
-      Paketleri İnceleyin
+      Görüşme Talep Edin
     </span>
 
     <svg
@@ -363,7 +367,11 @@
       <path d="m13 6 6 6-6 6" />
     </svg>
 
-  </a>
+  </button>
+
+  <a class="qrmo-hero-v3-cta-text" href="paketler/">Paketleri İnceleyin</a>
+
+  </div>
 
 
   <!-- =================================================
@@ -2012,10 +2020,10 @@
 }
 
 .qrmo-home-anchor {
-  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 8px);
+  scroll-margin-top: calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + 8px);
 }
 .qrmo-home-mod-zone .qrmo-home-anchor {
-  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 42px) + 8px);
+  scroll-margin-top: calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + var(--qrmo-home-ctx-scroll, var(--qrmo-mod-ctx-h, 42px)) + 8px);
 }
 
 @media (max-width: 900px) {
@@ -2026,6 +2034,135 @@
 }
 
 @media (max-width: 767px) {
+  .qrmo-product-map-v1-header {
+    margin-bottom: clamp(12px, 3.5vw, 18px);
+  }
+
+  .qrmo-product-map-v1-title {
+    margin-bottom: 6px;
+  }
+
+  .qrmo-product-map-v1-desc {
+    font-size: clamp(13px, 3.6vw, 14.5px);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .qrmo-product-map-v1-layers {
+    gap: 10px;
+  }
+
+  .qrmo-product-map-v1-card {
+    padding: 12px 12px 10px;
+  }
+
+  .qrmo-product-map-v1-card-top {
+    margin-bottom: 6px;
+  }
+
+  /* Mobilde kart açıklaması section tekrarı — kısa tier + chip/row yeterli */
+  .qrmo-product-map-v1-card-desc {
+    display: none;
+  }
+
+  .qrmo-product-map-v1-card-icon {
+    display: none;
+  }
+
+  .qrmo-product-map-v1-card-title {
+    margin-bottom: 6px;
+    font-size: clamp(17px, 4.6vw, 19px);
+  }
+
+  /* Menü kartı: anchor chip'ler yeterli; CSV/kampanya satırları mobilde gizli */
+  .qrmo-product-map-v1-card:nth-child(1) .qrmo-product-map-v1-rows {
+    display: none;
+  }
+
+  /* Servis kartı: panel/rol satırları S7'de anlatılıyor */
+  .qrmo-product-map-v1-card:nth-child(3) .qrmo-product-map-v1-rows {
+    display: none;
+  }
+
+  .qrmo-product-map-v1-divider {
+    display: none;
+  }
+
+  .qrmo-product-map-v1-rows,
+  .qrmo-product-map-v1-rows--link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .qrmo-product-map-v1-row,
+  .qrmo-product-map-v1-row-link {
+    flex: 0 1 auto;
+    width: auto;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    margin: 0;
+    gap: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(13, 43, 34, 0.1);
+    background: rgba(255, 255, 255, 0.72);
+    align-items: center;
+  }
+
+  .qrmo-product-map-v1-card.is-emphasis .qrmo-product-map-v1-row,
+  .qrmo-product-map-v1-card.is-emphasis .qrmo-product-map-v1-row-link {
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .qrmo-product-map-v1-row-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .qrmo-product-map-v1-row-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .qrmo-product-map-v1-row-label {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .qrmo-product-map-v1-row-chevron {
+    display: none;
+  }
+
+  .qrmo-product-map-v1-pack {
+    margin-left: 2px;
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  .qrmo-product-map-v1-chips {
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .qrmo-product-map-v1-chip {
+    min-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .qrmo-product-map-v1-foot {
+    margin-top: 10px;
+    padding-top: 8px;
+  }
+
   .qrmo-product-map-v1-spine {
     flex-wrap: nowrap;
     align-items: center;
@@ -2089,9 +2226,59 @@
   if (!root || root.getAttribute("data-qpm-scroll-ready") === "1") return;
   root.setAttribute("data-qpm-scroll-ready", "1");
 
-  function headerOffset() {
+  function visibleHeaderHeight() {
+    var shell = document.querySelector("[data-qrmo-gh] .qrmo-gh-shell");
+    if (shell) {
+      return Math.ceil(shell.getBoundingClientRect().height);
+    }
     var gh = document.querySelector("[data-qrmo-gh]");
-    return gh ? Math.ceil(gh.getBoundingClientRect().height) + 12 : 96;
+    return gh ? Math.ceil(gh.getBoundingClientRect().height) : 76;
+  }
+
+  function contextNavHeight() {
+    var ctx = document.querySelector("[data-qrmo-mod-ctx]");
+    if (!ctx) {
+      return 0;
+    }
+    return Math.ceil(ctx.getBoundingClientRect().height);
+  }
+
+  function anchorScrollOffset(target) {
+    var pad = 12;
+    var top = visibleHeaderHeight() + pad;
+    if (target && target.closest && target.closest(".qrmo-home-mod-zone")) {
+      top += contextNavHeight();
+    }
+    return top;
+  }
+
+  function syncScrollMarginVars() {
+    document.documentElement.style.setProperty(
+      "--qrmo-home-gh-scroll",
+      visibleHeaderHeight() + "px"
+    );
+    document.documentElement.style.setProperty(
+      "--qrmo-home-ctx-scroll",
+      contextNavHeight() + "px"
+    );
+  }
+
+  syncScrollMarginVars();
+  window.addEventListener("resize", syncScrollMarginVars);
+
+  function headerOffset() {
+    return anchorScrollOffset(null);
+  }
+
+  function scrollTargetElement(target) {
+    if (!target) {
+      return target;
+    }
+    return (
+      target.querySelector(
+        "h2, .qrmo-translation-v3-title, .qrmo-smart-filter-copy > h2"
+      ) || target
+    );
   }
 
   function scrollToAnchor(a, e) {
@@ -2099,7 +2286,8 @@
     var target = document.getElementById(id);
     if (!target) return;
     if (e) e.preventDefault();
-    var y = target.getBoundingClientRect().top + window.scrollY - headerOffset();
+    var el = scrollTargetElement(target);
+    var y = el.getBoundingClientRect().top + window.scrollY - anchorScrollOffset(target);
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     window.scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
     if (history.replaceState) {
@@ -2123,10 +2311,10 @@
     <ul class="qrmo-mod-ctx-links">
       <li><a class="qrmo-mod-ctx-link" href="#qrmo-translation-v3-root" data-qrmo-mod-ctx-link="translation"><span class="qrmo-mod-ctx-link-t">ÇOKLU DİL</span></a></li>
       <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-filtre" data-qrmo-mod-ctx-link="filter"><span class="qrmo-mod-ctx-link-t">AKILLI FİLTRE</span></a></li>
-      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-asistan" data-qrmo-mod-ctx-link="chatbot"><span class="qrmo-mod-ctx-link-t">CHATBOT</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-asistan" data-qrmo-mod-ctx-link="chatbot"><span class="qrmo-mod-ctx-link-t">MENÜ ASİSTANI</span></a></li>
       <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-masa" data-qrmo-mod-ctx-link="tables"><span class="qrmo-mod-ctx-link-t">QR MASALAR</span></a></li>
       <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-servis" data-qrmo-mod-ctx-link="service"><span class="qrmo-mod-ctx-link-t">SERVİS</span></a></li>
-      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-icgoru" data-qrmo-mod-ctx-link="analytics"><span class="qrmo-mod-ctx-link-t">ANALİTİK</span></a></li>
+      <li><a class="qrmo-mod-ctx-link" href="#qrmo-home-icgoru" data-qrmo-mod-ctx-link="analytics"><span class="qrmo-mod-ctx-link-t">İÇGÖRÜ</span></a></li>
     </ul>
   </div>
 </nav>
@@ -3065,16 +3253,32 @@
     margin:0 0 clamp(12px,2.2svh,18px);
   }
 
-  /* 4 özellik */
-  #qrmo-translation-v3-root .qt-features{
+  /* 3 benefit — mobil */
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefits{
     flex:0 0 auto;
-    list-style:none;
-    margin:0 0 clamp(12px,2.2svh,18px);
-    padding:0;
+    margin:0 0 clamp(10px,2svh,14px);
+    gap:clamp(10px,1.8svh,14px);
+  }
 
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:clamp(11px,2svh,17px) 16px;
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
+    font-size:13.5px;
+    line-height:1.22;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc{
+    font-size:11.5px;
+    line-height:1.35;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-content .qrmo-home-module-link{
+    flex:0 0 auto;
+    margin-top:0;
+    min-height:44px;
+  }
+
+  /* legacy qt-features (kaldırıldı) */
+  #qrmo-translation-v3-root .qt-features{
+    display:none;
   }
 
   #qrmo-translation-v3-root .qt-feature{
@@ -3539,19 +3743,14 @@
     </span>
 
     <h2 class="qrmo-translation-v3-title">
-      Çoklu Dil
+      Yabancı Misafir Menünüzü Kendi Dilinde Okur
     </h2>
 
-    <p class="qrmo-translation-v3-description qt-only-desktop">
-      Menünüzü farklı dillerde sunarak yabancı müşterilerinizin ürünleri daha kolay anlamasını ve daha rahat seçim yapmasını sağlayın.
+    <p class="qrmo-translation-v3-description">
+      Eklediğiniz dillerde ürün adları, açıklamalar ve kategoriler müşterinin seçtiği dilde görünür; yabancı misafir ne olduğunu anlamak için yardım istemeden seçim yapabilir.
     </p>
 
-    <p class="qrmo-translation-v3-description qt-only-mobile">
-      Menünüzü müşterilerinizin kendi dilinde sunun. Ürün bilgileri ve kategoriler seçilen dile uyarlanır; yabancı müşterileriniz daha rahat seçim yapar.
-    </p>
-
-    <!-- DESKTOP -->
-    <ul class="qrmo-translation-v3-benefits qt-only-desktop">
+    <ul class="qrmo-translation-v3-benefits">
 
       <li class="qrmo-translation-v3-benefit">
         <span class="qrmo-translation-v3-check" aria-hidden="true">
@@ -3562,11 +3761,11 @@
 
         <span>
           <span class="qrmo-translation-v3-benefit-title">
-            Müşteri dilini seçer
+            Yabancı misafir 'bu ne?' diye sormadan seçer
           </span>
 
           <span class="qrmo-translation-v3-benefit-desc">
-            Menünüzü desteklenen dillerde kolayca görüntüleyebilir.
+            Menüyü kendi dilinde okuyup ürün seçer; garsona çeviri sormak zorunda kalmaz.
           </span>
         </span>
       </li>
@@ -3580,11 +3779,11 @@
 
         <span>
           <span class="qrmo-translation-v3-benefit-title">
-            Ürünleri daha kolay anlar
+            Ürün, açıklama ve kategoriler seçilen dilde
           </span>
 
           <span class="qrmo-translation-v3-benefit-desc">
-            Ürün adları ve açıklamaları seçilen dilde gösterilir.
+            Ürün kartları ve menü bölümleri, misafirin seçtiği dile göre görünür.
           </span>
         </span>
       </li>
@@ -3598,96 +3797,19 @@
 
         <span>
           <span class="qrmo-translation-v3-benefit-title">
-            Daha rahat seçim yapar
+            Dilleri siz eklersiniz
           </span>
 
           <span class="qrmo-translation-v3-benefit-desc">
-            Dil bariyerini azaltarak müşterinin karar vermesini kolaylaştırın.
+            CSV ile toplu veya panelden tek tek ekleyebilirsiniz; yalnızca eklediğiniz diller menüde açılır.
           </span>
         </span>
       </li>
 
     </ul>
 
-    <!-- MOBİL 4 ÖZELLİK -->
-    <ul class="qt-features qt-only-mobile">
-
-      <li class="qt-feature">
-        <span class="qrmo-translation-v3-check" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <polyline points="4 12 10 18 20 6"/>
-          </svg>
-        </span>
-
-        <span>
-          <span class="qt-feature-title">
-            Tek Dokunuşla Dil Değişimi
-          </span>
-
-          <span class="qt-feature-desc">
-            Müşteri menü dilini dil seçiciyle değiştirebilir.
-          </span>
-        </span>
-      </li>
-
-      <li class="qt-feature">
-        <span class="qrmo-translation-v3-check" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <polyline points="4 12 10 18 20 6"/>
-          </svg>
-        </span>
-
-        <span>
-          <span class="qt-feature-title">
-            Ürün Adları ve Açıklamalar
-          </span>
-
-          <span class="qt-feature-desc">
-            Ürün bilgileri seçilen dilde görüntülenir.
-          </span>
-        </span>
-      </li>
-
-      <li class="qt-feature">
-        <span class="qrmo-translation-v3-check" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <polyline points="4 12 10 18 20 6"/>
-          </svg>
-        </span>
-
-        <span>
-          <span class="qt-feature-title">
-            Kategoriler Çevrilir
-          </span>
-
-          <span class="qt-feature-desc">
-            Ana yemek, tatlı ve içecek gibi bölümler dile uyarlanır.
-          </span>
-        </span>
-      </li>
-
-      <li class="qt-feature">
-        <span class="qrmo-translation-v3-check" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <polyline points="4 12 10 18 20 6"/>
-          </svg>
-        </span>
-
-        <span>
-          <span class="qt-feature-title" data-claim-title>
-            Çoklu Dil Desteği
-          </span>
-
-          <span class="qt-feature-desc">
-            Farklı ülkelerden gelen müşterilere daha rahat hizmet verin.
-          </span>
-        </span>
-      </li>
-
-    </ul>
-
-    <p class="qrmo-translation-v3-footnote">
-      Çeviriler CSV dosyasıyla ya da elle girilir; menü yalnızca eklediğiniz dillerde görüntülenir.
+    <p>
+      <a class="qrmo-home-module-link" href="moduller/coklu-dil/">Nasıl çalışır →</a>
     </p>
 
 
@@ -3699,20 +3821,6 @@
        ======================================================== -->
 
   <div class="qrmo-translation-v3-demo">
-
-    <!-- MOBİL ÜST MESAJ -->
-    <div class="qt-m-top qt-only-mobile">
-
-      <h3 class="qt-m-title">
-        Yabancı müşterileriniz menüyü kendi dillerinde görebilsin.
-      </h3>
-
-      <p class="qt-m-text">
-        Tek dokunuşla menü dilini değiştirin.
-      </p>
-
-    </div>
-
 
     <!-- PHONE -->
     <div
@@ -4332,6 +4440,11 @@
     var running=false;
     var inView=false;
     var idx=0;
+
+    var langStepsDone=0;
+
+    var MAX_LANG_STEPS=
+      SEQ.length*2;
     var active='tr';
 
 
@@ -4472,11 +4585,13 @@
         'is-click'
       );
 
-      void cursor.offsetWidth;
-
-      cursor.classList.add(
-        'is-click'
-      );
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          cursor.classList.add(
+            'is-click'
+          );
+        });
+      });
 
     }
 
@@ -4539,6 +4654,13 @@
     function step(){
 
       if(!running){
+        return;
+      }
+
+      langStepsDone++;
+
+      if(langStepsDone>MAX_LANG_STEPS){
+        running=false;
         return;
       }
 
@@ -4660,7 +4782,10 @@
 
       if(
         running ||
-        reduce
+        (
+          reduceMotionMq &&
+          reduceMotionMq.matches
+        )
       ){
         return;
       }
@@ -4696,7 +4821,10 @@
 
     function syncDemo(){
 
-      if(reduce){
+      if(
+        reduceMotionMq &&
+        reduceMotionMq.matches
+      ){
         return;
       }
 
@@ -4711,424 +4839,52 @@
 
     }
 
+    var syncDemoPending = false;
 
-    /*
-     * ========================================================
-     * MOBILE SECTION TRANSITION
-     *
-     * CSS scroll-snap YOK.
-     * Body scroll-lock YOK.
-     * touch-action:none YOK.
-     * preventDefault YOK.
-     * ========================================================
-     */
+    function scheduleSyncDemo() {
+      if (syncDemoPending) {
+        return;
+      }
+      syncDemoPending = true;
+      requestAnimationFrame(function () {
+        syncDemoPending = false;
+        syncDemo();
+      });
+    }
 
-    var mobileQuery=
+
+    var reduceMotionMq=
       window.matchMedia
-        ? window.matchMedia('(max-width:767px)')
+        ? window.matchMedia('(prefers-reduced-motion: reduce)')
         : null;
 
-    var content=
-      root.querySelector(
-        '.qrmo-translation-v3-content'
-      );
-
-    var demo=
-      root.querySelector(
-        '.qrmo-translation-v3-demo'
-      );
-
-    var transitionLock=false;
-
-    var touchStartY=0;
-    var touchStartX=0;
-    var touchActive=false;
-
-
-    function isMobile(){
-
-      return mobileQuery
-        ? mobileQuery.matches
-        : window.innerWidth<=767;
-
-    }
-
-
-    function getPageTop(el){
-
-      return(
-        el.getBoundingClientRect().top+
-        window.pageYOffset
-      );
-
-    }
-
-
-    function easeOutCubic(t){
-
-      return 1-Math.pow(
-        1-t,
-        3
-      );
-
-    }
-
-
-    function animateTo(targetTop){
-
-      if(transitionLock){
-        return;
-      }
-
-      transitionLock=true;
-
-
-      var startTop=
-        window.pageYOffset;
-
-      var distance=
-        targetTop-startTop;
-
-      var duration=390;
-
-      var startTime=null;
-
-
-      function frame(timestamp){
-
-        if(!startTime){
-          startTime=timestamp;
-        }
-
-        var progress=
-          Math.min(
-            1,
-            (timestamp-startTime)/
-            duration
-          );
-
-        var eased=
-          easeOutCubic(progress);
-
-        window.scrollTo(
-          0,
-          startTop+
-          distance*eased
-        );
-
-
-        if(progress<1){
-
-          window.requestAnimationFrame(
-            frame
-          );
-
-        }else{
-
-          window.scrollTo(
-            0,
-            targetTop
-          );
-
-          window.setTimeout(
-            function(){
-              transitionLock=false;
-            },
-            140
-          );
-
-        }
-
-      }
-
-
-      window.requestAnimationFrame(
-        frame
-      );
-
-    }
-
-
-    function sectionAtBoundary(){
-
-      if(!content || !demo){
-        return null;
-      }
-
-      var contentTop=
-        getPageTop(content);
-
-      var demoTop=
-        getPageTop(demo);
-
-      var scrollTop=
-        window.pageYOffset;
-
-      var tolerance=18;
-
-
-      /*
-       * 1. section aktif / üst sınırına yakın
-       */
-      if(
-        Math.abs(
-          scrollTop-contentTop
-        )<=tolerance
-      ){
-        return 'content';
-      }
-
-
-      /*
-       * 2. section üst sınırına yakın
-       */
-      if(
-        Math.abs(
-          scrollTop-demoTop
-        )<=tolerance
-      ){
-        return 'demo';
-      }
-
-
-      return null;
-
-    }
-
-
-    function handleTouchStart(event){
-
-      if(!isMobile()){
-        return;
-      }
+    function onReduceMotionChange(){
 
       if(
-        !event.touches ||
-        !event.touches.length
+        reduceMotionMq &&
+        reduceMotionMq.matches
       ){
-        return;
-      }
-
-      touchActive=true;
-
-      touchStartY=
-        event.touches[0].clientY;
-
-      touchStartX=
-        event.touches[0].clientX;
-
-    }
-
-
-    function handleTouchEnd(event){
-
-      if(
-        !isMobile() ||
-        !touchActive ||
-        transitionLock
-      ){
-        touchActive=false;
-        return;
-      }
-
-      touchActive=false;
-
-
-      if(
-        !event.changedTouches ||
-        !event.changedTouches.length
-      ){
-        return;
-      }
-
-
-      var endY=
-        event.changedTouches[0].clientY;
-
-      var endX=
-        event.changedTouches[0].clientX;
-
-
-      var deltaY=
-        touchStartY-endY;
-
-      var deltaX=
-        touchStartX-endX;
-
-
-      /*
-       * Yatay hareket baskınsa
-       * section transition yapma.
-       */
-      if(
-        Math.abs(deltaX)>
-        Math.abs(deltaY)
-      ){
-        return;
-      }
-
-
-      var threshold=52;
-
-
-      /*
-       * AŞAĞI SWIPE
-       *
-       * 1. konteyner -> 2. konteyner
-       */
-      if(deltaY>threshold){
-
-        var current=
-          sectionAtBoundary();
-
-        if(current==='content'){
-
-          animateTo(
-            getPageTop(demo)
-          );
-
-          return;
-
-        }
-
-      }
-
-
-      /*
-       * YUKARI SWIPE
-       *
-       * 2. konteyner -> 1. konteyner
-       *
-       * Sadece 2. konteynerin
-       * üst sınırındayken.
-       */
-      if(deltaY<-threshold){
-
-        var currentUp=
-          sectionAtBoundary();
-
-        if(currentUp==='demo'){
-
-          animateTo(
-            getPageTop(content)
-          );
-
-          return;
-
-        }
-
+        stop();
+        applyLang('tr');
+      }else{
+        syncDemo();
       }
 
     }
 
+    if(reduceMotionMq){
 
-    /*
-     * TOUCH EVENTS
-     *
-     * passive=true:
-     * browser scroll davranışı korunur.
-     */
-    if(window.PointerEvent){
+      if(typeof reduceMotionMq.addEventListener==='function'){
 
-      root.addEventListener(
-        'pointerdown',
-        function(event){
-
-          if(
-            !isMobile() ||
-            event.pointerType!=='touch'
-          ){
-            return;
-          }
-
-          touchActive=true;
-
-          touchStartY=
-            event.clientY;
-
-          touchStartX=
-            event.clientX;
-
-        },
-        {
-          passive:true
-        }
-      );
-
-
-      root.addEventListener(
-        'pointerup',
-        function(event){
-
-          if(
-            !isMobile() ||
-            event.pointerType!=='touch'
-          ){
-            return;
-          }
-
-          handleTouchEnd({
-            changedTouches:[
-              {
-                clientY:event.clientY,
-                clientX:event.clientX
-              }
-            ]
-          });
-
-        },
-        {
-          passive:true
-        }
-      );
-
-    }else{
-
-      root.addEventListener(
-        'touchstart',
-        handleTouchStart,
-        {
-          passive:true
-        }
-      );
-
-      root.addEventListener(
-        'touchend',
-        handleTouchEnd,
-        {
-          passive:true
-        }
-      );
-
-    }
-
-
-    /*
-     * Browser resize / orientation
-     */
-    if(mobileQuery){
-
-      var onMobileChange=
-        function(){
-
-          if(!mobileQuery.matches){
-            transitionLock=false;
-          }
-
-        };
-
-
-      if(mobileQuery.addEventListener){
-
-        mobileQuery.addEventListener(
+        reduceMotionMq.addEventListener(
           'change',
-          onMobileChange
+          onReduceMotionChange
         );
 
-      }else if(mobileQuery.addListener){
+      }else if(typeof reduceMotionMq.addListener==='function'){
 
-        mobileQuery.addListener(
-          onMobileChange
+        reduceMotionMq.addListener(
+          onReduceMotionChange
         );
 
       }
@@ -5145,7 +4901,10 @@
     markActive();
 
 
-    if(reduce){
+    if(
+      reduceMotionMq &&
+      reduceMotionMq.matches
+    ){
 
       applyLang('tr');
 
@@ -5162,7 +4921,7 @@
               inView=
                 entries[0].isIntersecting;
 
-              syncDemo();
+              scheduleSyncDemo();
 
             },
             {
@@ -5185,7 +4944,7 @@
 
     document.addEventListener(
       'visibilitychange',
-      syncDemo
+      scheduleSyncDemo
     );
 
   }
@@ -5266,6 +5025,10 @@
 
       <p class="qrmo-smart-filter-lead">
         Müşteriniz menüyü alerjen, kalori, fiyat ve ürün etiketlerine göre daraltır, istediği ölçüte göre sıralar. Hepsi ürünlerinize girdiğiniz bilgiyle çalışır.
+      </p>
+
+      <p>
+        <a class="qrmo-home-module-link" href="moduller/akilli-filtreleme/">Nasıl çalışır →</a>
       </p>
 
 
@@ -8358,6 +8121,10 @@
 
   let startTimer = null;
 
+  let demoCycles = 0;
+
+  const MAX_DEMO_CYCLES = 2;
+
 
   function sleep(ms) {
 
@@ -8951,6 +8718,22 @@
     }
 
 
+    demoCycles += 1;
+
+    if (demoCycles >= MAX_DEMO_CYCLES) {
+
+      animationRunning =
+        false;
+
+      pointer.classList.remove(
+        "is-visible"
+      );
+
+      return;
+
+    }
+
+
     /* -----------------------------------------------
        6. BAŞA DÖN
     ------------------------------------------------ */
@@ -9260,8 +9043,24 @@
 
       haltDemo();
 
+      if (!inView) {
+        demoCycles = 0;
+      }
+
     }
 
+  }
+
+  let syncDemoFrame = 0;
+
+  function scheduleSyncDemo() {
+    if (syncDemoFrame) {
+      return;
+    }
+    syncDemoFrame = requestAnimationFrame(function () {
+      syncDemoFrame = 0;
+      syncDemo();
+    });
   }
 
 
@@ -9283,7 +9082,7 @@
           );
 
 
-          syncDemo();
+          scheduleSyncDemo();
 
         },
 
@@ -9306,7 +9105,7 @@
 
     document.addEventListener(
       "visibilitychange",
-      syncDemo
+      scheduleSyncDemo
     );
 
   }
@@ -9569,6 +9368,10 @@
         bilgiyle konuşur. Menüde karşılığı olmayan soruda bilmediğini
         söyler; soru ayrı bir listede toplanır, eksik bilgiyi siz
         tamamlarsınız.
+      </p>
+
+      <p>
+        <a class="qrmo-home-module-link" href="moduller/menu-asistani/">Nasıl çalışır →</a>
       </p>
 
 
@@ -11536,6 +11339,14 @@
     [];
 
 
+  let completedRuns =
+    0;
+
+
+  const MAX_DEMO_RUNS =
+    2;
+
+
   /* =======================================================
      ELEMENTOR EDITOR
   ======================================================== */
@@ -11636,6 +11447,8 @@
     active = false;
 
     running = false;
+
+    completedRuns = 0;
 
     reset();
 
@@ -11920,6 +11733,20 @@
     running = false;
 
 
+    completedRuns += 1;
+
+
+    if (completedRuns >= MAX_DEMO_RUNS) {
+
+      showStatic();
+
+      active = false;
+
+      return;
+
+    }
+
+
     reset();
 
 
@@ -12173,10 +12000,10 @@
   color:rgba(13,43,34,.72);
 }
 .qrmo-home-anchor{
-  scroll-margin-top:calc(var(--qrmo-gh-h, 76px) + 8px);
+  scroll-margin-top:calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + 8px);
 }
 .qrmo-home-mod-zone .qrmo-home-anchor{
-  scroll-margin-top:calc(var(--qrmo-gh-h, 76px) + var(--qrmo-mod-ctx-h, 42px) + 8px);
+  scroll-margin-top:calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + var(--qrmo-home-ctx-scroll, var(--qrmo-mod-ctx-h, 42px)) + 8px);
 }
 
 .qrmo-tables-v5{
@@ -12277,6 +12104,27 @@
     12px
     0
     16px;
+}
+
+.qrmo-tables-v5__flow{
+  width:100%;
+  max-width:540px;
+  margin:
+    16px
+    0
+    0;
+  padding:
+    10px
+    12px;
+  border-radius:10px;
+  border:1px solid rgba(201,168,76,.22);
+  background:rgba(13,43,34,.04);
+  color:rgba(13,43,34,.78);
+  font-size:12.5px;
+  line-height:1.45;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-align:center;
 }
 
 
@@ -13445,6 +13293,17 @@
   align-items:flex-start;
 }
 
+.qrmo-tables-v5__intro{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:flex-start;
+
+  width:100%;
+}
+
 
 /* =========================================================
    EYEBROW
@@ -13977,6 +13836,11 @@
 
   .qrmo-tables-v5__content{
 
+    display:contents;
+  }
+
+  .qrmo-tables-v5__intro{
+
     order:1;
 
     width:100%;
@@ -13988,14 +13852,14 @@
     padding:
       52px
       20px
-      38px;
+      20px;
 
     align-items:flex-start;
   }
 
 
   /* ---------------------------------------------------------
-     MOBILE DEMO BOTTOM
+     MOBILE DEMO (lead'den hemen sonra)
      --------------------------------------------------------- */
 
   .qrmo-tables-v5__demo{
@@ -14005,11 +13869,35 @@
     width:100%;
 
     padding:
-      18px
+      8px
       20px
-      52px;
+      12px;
 
     justify-content:center;
+  }
+
+  .qrmo-tables-v5__flow{
+
+    max-width:390px;
+
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .qrmo-tables-v5__benefits{
+
+    order:3;
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0;
+
+    padding:
+      8px
+      20px
+      52px;
   }
 
 
@@ -14062,7 +13950,7 @@
 
     gap:15px;
 
-    margin-bottom:23px;
+    margin-bottom:0;
   }
 
   .qrmo-tables-v5__benefit{
@@ -14492,8 +14380,9 @@
 /* ≤480: Hero / Section 2 / Section 3 ile aynı 16px gutter */
 @media (max-width:480px){
 
-  .qrmo-tables-v5__content,
-  .qrmo-tables-v5__demo{
+  .qrmo-tables-v5__intro,
+  .qrmo-tables-v5__demo,
+  .qrmo-tables-v5__benefits{
     padding-left:16px;
     padding-right:16px;
   }
@@ -14905,6 +14794,10 @@
 
     </div>
 
+    <p class="qrmo-tables-v5__flow" aria-hidden="true">
+      Masa → QR → Müşteri → Talep → Servis Paneli
+    </p>
+
   </div>
 
 
@@ -14914,8 +14807,10 @@
 
   <div class="qrmo-tables-v5__content">
 
+  <div class="qrmo-tables-v5__intro">
+
     <span class="qrmo-tables-v5__eyebrow">
-      02 · MASA &amp; SİPARİŞ
+      02 · QR MASA
     </span>
 
 
@@ -14923,15 +14818,20 @@
       class="qrmo-tables-v5__title"
       id="qrmo-tables-v5-title"
     >
-      QR Masalarınızı
-      Toplu Oluşturun.
+      Her Masanın Kendi QR'ı, Her Talep Masa Bilgisiyle
     </h2>
 
 
     <p class="qrmo-tables-v5__description">
-      Temel pakette masalar ve masa QR kodları burada oluşturulur; Pro katmanında aynı masa oturumu üzerinden sipariş
-      ve imzalı oturum güvenliği devreye girer.
+      Masaları tek tek veya toplu oluşturun; QR kodlarını PNG veya PDF olarak yazdırın.
+      Müşteri masadaki QR ile menüyü açar, ilettiği talepler kayıtlı masa bilgisiyle eşleşir.
     </p>
+
+    <p>
+      <a class="qrmo-home-module-link" href="moduller/qr-masa/">Nasıl çalışır →</a>
+    </p>
+
+  </div>
 
 
     <ul class="qrmo-tables-v5__benefits">
@@ -14958,11 +14858,11 @@
         <span>
 
           <span class="qrmo-tables-v5__benefit-title">
-            Tekli veya toplu masa oluşturun
+            Her masa ayrı QR
           </span>
 
           <span class="qrmo-tables-v5__benefit-desc">
-            İhtiyacınız kadar masa ekleyin veya numaralı masaları tek işlemde oluşturun.
+            Her masa için ayrı QR hedefi oluşturulur; müşterinin hangi masada olduğu menü oturumunda taşınır.
           </span>
 
         </span>
@@ -14991,11 +14891,11 @@
         <span>
 
           <span class="qrmo-tables-v5__benefit-title">
-            Her masaya özel QR kod
+            Masa adı değişse QR değişmez
           </span>
 
           <span class="qrmo-tables-v5__benefit-desc">
-            Her masa için ayrı QR hedefi oluşturun; masa adını sonradan değiştirseniz bile mevcut QR yapısını koruyun.
+            Masa adını güncellediğinizde QR kodun hedef adresi aynı kalır; basılı QR'ı yeniden basmanız gerekmez.
           </span>
 
         </span>
@@ -15024,11 +14924,11 @@
         <span>
 
           <span class="qrmo-tables-v5__benefit-title">
-            PNG ve PDF olarak hazır
+            Toplu oluştur, PNG/PDF hazır
           </span>
 
           <span class="qrmo-tables-v5__benefit-desc">
-            QR kodlarınızı tek tek indirebilir veya tüm masaları tek PDF içinde yazdırmaya hazırlayabilirsiniz.
+            Numaralı masaları tek işlemde açın; QR kodlarını PNG veya PDF olarak indirip yazdırmaya hazırlayın.
           </span>
 
         </span>
@@ -15037,40 +14937,6 @@
 
 
     </ul>
-
-    <div class="qrmo-tables-v5__layers">
-
-      <article class="qrmo-tables-v5__layer">
-        <span class="qrmo-tables-v5__layer-pack">Temel</span>
-        <h3 class="qrmo-tables-v5__layer-title">QR Masa</h3>
-        <p class="qrmo-tables-v5__layer-text">
-          Masa adından otomatik adres üretilir; tekli veya numaralı toplu oluşturma yapılır. Her masa için ayrı QR hedefi
-          ve PNG ya da toplu PDF çıktısı alınır; yukarıdaki demo bu akışı gösterir.
-        </p>
-      </article>
-
-      <article class="qrmo-tables-v5__layer">
-        <span class="qrmo-tables-v5__layer-pack is-pro">Pro</span>
-        <h3 class="qrmo-tables-v5__layer-title">QR Sipariş</h3>
-        <p class="qrmo-tables-v5__layer-text">
-          Sepet ile sipariş panelden açılır; müşteri ürünleri sepete ekleyip gönderdiğinde sipariş, masa bilgisiyle
-          Servis Paneli'ne kart olarak düşer.
-        </p>
-      </article>
-
-      <article class="qrmo-tables-v5__layer">
-        <span class="qrmo-tables-v5__layer-pack is-pro">Pro</span>
-        <h3 class="qrmo-tables-v5__layer-title">Masa Oturum Güvenliği</h3>
-        <p class="qrmo-tables-v5__layer-text">
-          Kayıtlı masada imzalı oturum açılır; garson çağrısı, sipariş ve sohbet bu oturumla çalışır. Toplam oturum süresi
-          ve hareketsizlik limiti ayarlanabilir (varsayılan 90 dk / 30 dk).
-        </p>
-      </article>
-
-    </div>
-
-
-
 
   </div>
 
@@ -15193,7 +15059,13 @@
 
       var timers=[];
 
+      var playCount=0;
+
+      var MAX_PLAYS=2;
+
       var observer=null;
+
+      var sectionInView=false;
 
 
       /* ====================================================
@@ -15278,11 +15150,13 @@
           'is-clicking'
         );
 
-        void cursor.offsetWidth;
-
-        cursor.classList.add(
-          'is-clicking'
-        );
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            cursor.classList.add(
+              'is-clicking'
+            );
+          });
+        });
       }
 
 
@@ -15555,7 +15429,7 @@
 
 
         /*
-         * Oluşturuluyor
+         * Oluşturuluyor (spinner yok; kısa durum → sonuç)
          */
 
         later(
@@ -15565,7 +15439,23 @@
               return;
             }
 
-            showProcessing();
+            if(count){
+
+              count.textContent=
+                '10 Masa';
+
+            }
+
+            if(status){
+
+              status.innerHTML=
+                '<i class="qrmo-tables-v5__create-status-dot"></i> Oluşturuluyor...';
+
+            }
+
+            createButton.classList.add(
+              'is-processing'
+            );
 
             if(cursor){
 
@@ -15575,26 +15465,10 @@
 
             }
 
-          },
-          1600
-        );
-
-
-        /*
-         * Sonuç
-         */
-
-        later(
-          function(){
-
-            if(!running){
-              return;
-            }
-
             showResult();
 
           },
-          2850
+          1600
         );
 
 
@@ -15606,6 +15480,13 @@
           function(){
 
             if(!running){
+              return;
+            }
+
+            playCount++;
+
+            if(playCount>=MAX_PLAYS){
+              running=false;
               return;
             }
 
@@ -15626,7 +15507,9 @@
 
         if(
           running ||
-          reduceMotion
+          reduceMotion ||
+          document.hidden ||
+          !sectionInView
         ){
           return;
         }
@@ -15649,6 +15532,8 @@
         running=false;
 
         clearTimers();
+
+        playCount=0;
 
         resetUI();
 
@@ -15719,8 +15604,12 @@
                 }
 
 
+                sectionInView =
+                  entries[0].isIntersecting;
+
+
                 if(
-                  entries[0].isIntersecting &&
+                  sectionInView &&
                   !document.hidden
                 ){
 
@@ -15743,7 +15632,11 @@
 
         }else{
 
-          start();
+          sectionInView=true;
+
+          if(!document.hidden){
+            start();
+          }
 
         }
 
@@ -15762,7 +15655,10 @@
 
             stop();
 
-          }else if(!reduceMotion){
+          }else if(
+            sectionInView &&
+            !reduceMotion
+          ){
 
             start();
 
@@ -15873,8 +15769,6 @@
 
       <p class="qrmo-service-v2__description">
         Servis Paneli sesli uyarı ve masaüstü bildirimle yeni talebi duyurur.
-        Personel / servis rolü, ekibin panel erişimini sınırlar; yanıt hızı
-        işletmenizin operasyonuna bağlıdır.
       </p>
 
 
@@ -15900,11 +15794,11 @@
           <div class="qrmo-service-v2__feature-copy">
 
             <strong>
-              Tek Dokunuşla Garson
+              Müşteri masadan kalkmadan çağırır
             </strong>
 
             <p>
-              Müşteri masadan ayrılmadan garson çağrısı oluşturur; talep servis akışına eklenir.
+              Menüden garson çağrısı gönderir; talep masa bilgisiyle servis paneline düşer.
             </p>
 
           </div>
@@ -15931,11 +15825,11 @@
           <div class="qrmo-service-v2__feature-copy">
 
             <strong>
-              Hesap Talebi Servis Panelinde
+              Hesap isteği hangi masadan geldiğiyle gelir
             </strong>
 
             <p>
-              Hesap isteği masa bilgisiyle birlikte servis panelinde görüntülenir.
+              Hesap talebi masa adı ve numarasıyla servis panelinde görünür.
             </p>
 
           </div>
@@ -15949,26 +15843,17 @@
           </div>
 
           <div class="qrmo-service-v2__feature-copy">
-            <strong>Servis Paneli</strong>
-            <p>Garson, hesap ve sipariş talepleri tek akışta listelenir; sesli uyarı ve bildirimle yeni kayıt duyulur.</p>
-          </div>
-
-        </div>
-
-        <div class="qrmo-service-v2__feature">
-
-          <div class="qrmo-service-v2__feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c1-4 3.5-6 7-6s6 2 7 6"/></svg>
-          </div>
-
-          <div class="qrmo-service-v2__feature-copy">
-            <strong>Personel / servis rolü</strong>
-            <p>Servis paneline erişimi rol bazında ayırır; hangi personelin hangi talepleri gördüğünü kontrol edersiniz.</p>
+            <strong>Tüm talepler tek ekranda, sesli uyarıyla.</strong>
+            <p>Garson, hesap ve salon talepleri tek akışta listelenir; yeni kayıt ses ve bildirimle duyulur.</p>
           </div>
 
         </div>
 
       </div>
+
+      <p>
+        <a class="qrmo-home-module-link" href="moduller/servis-paneli/">Nasıl çalışır →</a>
+      </p>
 
 
 
@@ -18684,6 +18569,14 @@
       [];
 
 
+    let completedRuns =
+      0;
+
+
+    const MAX_DEMO_RUNS =
+      2;
+
+
     /* =====================================================
        TIMER
     ====================================================== */
@@ -18794,6 +18687,8 @@
       active = false;
 
       running = false;
+
+      completedRuns = 0;
 
       reset();
 
@@ -18984,6 +18879,17 @@
       await wait(2400);
 
       if (!active) { running = false; return; }
+
+
+      completedRuns += 1;
+
+      if (completedRuns >= MAX_DEMO_RUNS) {
+
+        running = false;
+
+        return;
+
+      }
 
 
       /* 07 — RESET PAUSE */
@@ -19183,7 +19089,6 @@
 
         <div class="qrmo-analytics-v3__kpi-meta">
           <span data-range>21 Eyl – 27 Eyl</span>
-          <span>Değişim: önceki döneme göre</span>
         </div>
 
         <div class="qrmo-analytics-v3__kpis">
@@ -19208,30 +19113,7 @@
               <strong data-kpi="pc">2.1K</strong>
               <em data-delta="pc" class="is-up">+12%</em>
             </div>
-            <p>Dönüşüm: %<span data-kpi="conv">26</span></p>
-          </div>
-
-          <div class="qrmo-analytics-v3__kpi is-green">
-            <span class="qrmo-analytics-v3__kpi-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-4 3-6 7-6s6.2 2 7 6"/></svg>
-            </span>
-            <small>Tekil Ziyaretçi</small>
-            <div class="qrmo-analytics-v3__kpi-value">
-              <strong data-kpi="uv">1.7K</strong>
-              <em data-delta="uv" class="is-up">+9%</em>
-            </div>
-            <p>IP bazlı, gizlilik korumalı</p>
-          </div>
-
-          <div class="qrmo-analytics-v3__kpi is-orange">
-            <span class="qrmo-analytics-v3__kpi-icon">
-              <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8"/><path d="M8 13h3"/><path d="M15 13h1"/></svg>
-            </span>
-            <small>Aktif Masa Sayısı</small>
-            <div class="qrmo-analytics-v3__kpi-value">
-              <strong data-kpi="masa">18</strong>
-            </div>
-            <p>Seçili aralıkta en az bir hareket olan masa sayısı</p>
+            <p>Tıklama oranı: %<span data-kpi="conv">26</span></p>
           </div>
 
         </div>
@@ -19287,17 +19169,6 @@
             <div class="qrmo-analytics-v3__rows" data-products>
             <div class="qrmo-analytics-v3__row"><div><strong>Izgara Tavuk</strong><small>Ana Yemek</small></div><b>457</b></div>
             <div class="qrmo-analytics-v3__row"><div><strong>Serpme Kahvaltı</strong><small>Kahvaltı</small></div><b>331</b></div>
-            <div class="qrmo-analytics-v3__row"><div><strong>Filtre Kahve</strong><small>İçecek</small></div><b>281</b></div>
-            </div>
-          </div>
-
-          <div class="qrmo-analytics-v3__panel">
-            <strong class="qrmo-analytics-v3__panel-title">Kategori dağılımı</strong>
-            <div class="qrmo-analytics-v3__rows" data-categories>
-            <div class="qrmo-analytics-v3__row"><div><strong>Ana Yemek</strong><span class="qrmo-analytics-v3__share"><span style="--w:37.0%"></span></span></div><b>774</b></div>
-            <div class="qrmo-analytics-v3__row"><div><strong>İçecek</strong><span class="qrmo-analytics-v3__share"><span style="--w:28.0%"></span></span></div><b>586</b></div>
-            <div class="qrmo-analytics-v3__row"><div><strong>Kahvaltı</strong><span class="qrmo-analytics-v3__share"><span style="--w:22.0%"></span></span></div><b>460</b></div>
-            <div class="qrmo-analytics-v3__row"><div><strong>Tatlı</strong><span class="qrmo-analytics-v3__share"><span style="--w:13.0%"></span></span></div><b>273</b></div>
             </div>
           </div>
 
@@ -19329,7 +19200,11 @@
       </p>
 
       <p class="qrmo-analytics-v3__description">
-        Aşağıdaki dört yetenek aynı hikâyeyi izler: ne oluyor, ne öne çıkmalı, ne kazandırıyor, müşteri ne diyor.
+        Soldaki örnek, hangi ürünün ne zaman ilgi gördüğünü gösterir. QR menü verisidir; kasa/POS verisi değildir.
+      </p>
+
+      <p>
+        <a class="qrmo-home-module-link" href="moduller/qr-analytics/">Nasıl çalışır →</a>
       </p>
 
 
@@ -19343,10 +19218,8 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Veri</p>
           <h3 class="qrmo-analytics-v3__pillar-title">QR Analytics — Ne oluyor?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Menü görüntüleme, ürün tıklama, tekil ziyaretçi (IP özetine göre) ve seçili aralıkta hareket kaydeden masa sayısı
-            raporlanır; göstergeler önceki eşit uzunluktaki dönemle karşılaştırılır. Ürün, masa, sepet hunisi ve etkileşim
-            ekranları ayrı incelenir. Dönem: Bugün, Son 7 gün, Bu ay veya en fazla 31 günlük özel aralık. Sepet ve sipariş
-            verisi sipariş özelliğinin (Pro) kullanılmasına bağlıdır; bu bir geçmiş kullanım raporudur, POS verisi değildir.
+            Menü görüntüleme ve ürün tıklamalarını izlersiniz; en çok ilgi görenleri ve günün saatlerini görürsünüz.
+            QR menü verisidir, kasa verisi değildir.
           </p>
         </article>
 
@@ -19354,10 +19227,7 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Karar</p>
           <h3 class="qrmo-analytics-v3__pillar-title">Menü Mühendisliği — Ne öne çıkmalı?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Satış verisi, girdiğiniz birim maliyetle birleşir. Popülerlik (satış payı) ve birim katkı payı (fiyat − maliyet)
-            eksenlerinde ürünler Yıldız, Çok Satan, Gizli Fırsat ya da Zayıf Performans grubuna yerleşir. Maliyeti
-            girilmeyen ürün matrise alınmaz; eksik maliyetler ayrı listede görünür. Rapor genel yönlendirme cümleleri
-            yazar; sonuç garantisi vermez.
+            Tıklama ve satış payına göre hangi ürünün öne çıkarılacağını netleştirir; maliyet girilmeyen ürünler matrise alınmaz.
           </p>
         </article>
 
@@ -19365,9 +19235,7 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Kâr</p>
           <h3 class="qrmo-analytics-v3__pillar-title">Maliyet &amp; Reçete — Ne kazandırıyor?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Malzeme birim fiyatlarını tanımlarsınız; reçetedeki gramaj ve adetlerden maliyet hesaplanır veya birim maliyeti
-            doğrudan yazabilirsiniz. Reçete maliyetine %0–50 arası fire eklenebilir. Malzeme fiyatı değişince reçeteli
-            ürünlerin maliyeti yeniden hesaplanır; bu maliyet menü performansı raporunun girdisidir.
+            Reçete maliyetinizi tanımlarsınız; satışlarla birleşince ürün başına kalan tutarı görürsünüz. Maliyet verisini siz girersiniz.
           </p>
         </article>
 
@@ -19375,9 +19243,7 @@
           <p class="qrmo-analytics-v3__pillar-kicker">Müşteri sesi</p>
           <h3 class="qrmo-analytics-v3__pillar-title">Geri Bildirim — Müşteri ne diyor?</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Müşteri tanımladığınız kriterleri menüden puanlar, yorum yazabilir; kayıtlar panele düşer ve olumlu / olumsuz
-            ayrımıyla listelenir. Yorumu yayınlar, yayından kaldırır ya da silersiniz. Kriter ortalamaları, masa ve saat
-            dilimine göre raporlanır; Google yorumları bu modülden bağımsızdır.
+            Müşteri puan ve yorumlarını panelde toplar; olumlu ve olumsuz kayıtları siz yayınlarsınız. Google yorumları burada değildir.
           </p>
         </article>
 
@@ -19415,7 +19281,7 @@
   padding: 70px 0 50px;
   background: transparent !important;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
@@ -19445,6 +19311,7 @@
   min-width: 0;
   display: flex;
   justify-content: flex-start;
+  align-self: start;
 }
 
 
@@ -19455,23 +19322,22 @@
 .qrmo-analytics-v3__dashboard {
   position: relative;
   width: min(100%, 500px);
-  padding: 0 16px 16px;
+  padding: 0 14px 12px;
   overflow: hidden;
   border: 1px solid rgba(201,168,76,.15);
-  border-radius: 21px;
+  border-radius: 18px;
   background: #080A09;
   color: #F4F1E8;
   box-shadow: 0 25px 65px rgba(0,0,0,.18), 0 8px 25px rgba(13,43,34,.09);
   user-select: none;
-  /* Sayfa kaydırması demo üzerinde de çalışır */
   touch-action: pan-y;
   overscroll-behavior: auto;
 }
 
 .qrmo-analytics-v3__dash-header {
-  height: 56px;
-  margin: 0 -16px;
-  padding: 0 16px;
+  height: 48px;
+  margin: 0 -14px;
+  padding: 0 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19531,24 +19397,24 @@
 ========================================================= */
 
 .qrmo-analytics-v3__period {
-  margin-top: 10px;
-  padding: 4px;
+  margin-top: 8px;
+  padding: 3px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4px;
+  gap: 3px;
   border: 1px solid #202420;
   border-radius: 8px;
   background: #0D100E;
 }
 
 .qrmo-analytics-v3__period span {
-  height: 28px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
+  border-radius: 5px;
   color: #8A9088;
-  font-size: 11px;
+  font-size: 9.5px;
   font-weight: 700;
   white-space: nowrap;
   transition: background .2s ease, color .2s ease;
@@ -19565,12 +19431,12 @@
 ========================================================= */
 
 .qrmo-analytics-v3__kpi-meta {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 8px;
   color: #8A9088;
-  font-size: 10px;
+  font-size: 9.5px;
   line-height: 1.2;
 }
 
@@ -19580,15 +19446,15 @@
 }
 
 .qrmo-analytics-v3__kpis {
-  margin-top: 7px;
+  margin-top: 6px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 7px;
+  gap: 6px;
 }
 
 .qrmo-analytics-v3__kpi {
   min-width: 0;
-  padding: 9px 10px;
+  padding: 8px 9px;
   display: grid;
   grid-template-columns: 22px minmax(0, 1fr);
   column-gap: 8px;
@@ -19656,10 +19522,10 @@
 
 .qrmo-analytics-v3__kpi p {
   grid-column: 1 / -1;
-  margin: 6px 0 0;
+  margin: 4px 0 0;
   color: #8A9088;
-  font-size: 10px;
-  line-height: 1.3;
+  font-size: 9px;
+  line-height: 1.25;
 }
 
 
@@ -19668,10 +19534,10 @@
 ========================================================= */
 
 .qrmo-analytics-v3__chart-card {
-  margin-top: 9px;
-  padding: 11px 12px 10px;
+  margin-top: 8px;
+  padding: 9px 10px 8px;
   border: 1px solid #242824;
-  border-radius: 11px;
+  border-radius: 10px;
   background: #0D100E;
 }
 
@@ -19697,8 +19563,8 @@
 }
 
 .qrmo-analytics-v3__chart {
-  height: 128px;
-  margin-top: 10px;
+  height: 96px;
+  margin-top: 8px;
   display: flex;
   align-items: stretch;
   gap: 4px;
@@ -19806,28 +19672,28 @@
 ========================================================= */
 
 .qrmo-analytics-v3__lower {
-  margin-top: 9px;
+  margin-top: 8px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 9px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
 }
 
 .qrmo-analytics-v3__panel {
   min-width: 0;
-  padding: 11px 12px;
+  padding: 9px 10px;
   border: 1px solid #242824;
-  border-radius: 11px;
+  border-radius: 10px;
   background: #0D100E;
 }
 
 .qrmo-analytics-v3__panel-title {
   display: block;
   color: #E1E3DC;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .qrmo-analytics-v3__rows {
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
 .qrmo-analytics-v3__row {
@@ -20145,7 +20011,7 @@
   }
 
   .qrmo-analytics-v3__lower {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 
   /* Başlık bloğu ortalı; gövde metni, liste ve CTA sola */
@@ -20243,7 +20109,7 @@
   }
 
   .qrmo-analytics-v3__chart {
-    height: 112px;
+    height: 96px;
   }
 
 }
@@ -20319,7 +20185,7 @@
    */
   var STATES = [{"key":"bugun","chip":"Bugün","range":"Bugün · 27 Eyl","breakdown":"Saatlik","mv":"1.2K","pc":"328","uv":"286","masa":"14","dmv":6,"dpc":4,"duv":3,"conv":26,"chart":[{"l":"00:00","mv":0,"pc":0},{"l":"01:00","mv":0,"pc":0},{"l":"02:00","mv":0,"pc":0},{"l":"03:00","mv":0,"pc":0},{"l":"04:00","mv":0,"pc":0},{"l":"05:00","mv":0,"pc":0},{"l":"06:00","mv":0,"pc":0},{"l":"07:00","mv":6,"pc":2},{"l":"08:00","mv":29,"pc":8},{"l":"09:00","mv":51,"pc":13},{"l":"10:00","mv":64,"pc":17},{"l":"11:00","mv":70,"pc":19},{"l":"12:00","mv":109,"pc":29},{"l":"13:00","mv":125,"pc":33},{"l":"14:00","mv":83,"pc":22},{"l":"15:00","mv":48,"pc":13},{"l":"16:00","mv":45,"pc":12},{"l":"17:00","mv":58,"pc":15},{"l":"18:00","mv":96,"pc":25},{"l":"19:00","mv":141,"pc":37},{"l":"20:00","mv":137,"pc":36},{"l":"21:00","mv":102,"pc":27},{"l":"22:00","mv":57,"pc":15},{"l":"23:00","mv":19,"pc":5}],"cats":[{"n":"Ana Yemek","v":121,"t":"121"},{"n":"İçecek","v":92,"t":"92"},{"n":"Kahvaltı","v":72,"t":"72"},{"n":"Tatlı","v":43,"t":"43"}],"prods":[{"n":"Izgara Tavuk","c":"Ana Yemek","t":"71"},{"n":"Serpme Kahvaltı","c":"Kahvaltı","t":"52"},{"n":"Filtre Kahve","c":"İçecek","t":"44"}]},{"key":"hafta","chip":"Son 7 gün","range":"21 Eyl – 27 Eyl","breakdown":"Günlük","mv":"8.0K","pc":"2.1K","uv":"1.7K","masa":"18","dmv":18,"dpc":12,"duv":9,"conv":26,"chart":[{"l":"21 Eyl","mv":991,"pc":259},{"l":"22 Eyl","mv":1002,"pc":268},{"l":"23 Eyl","mv":1066,"pc":275},{"l":"24 Eyl","mv":1077,"pc":284},{"l":"25 Eyl","mv":1265,"pc":323},{"l":"26 Eyl","mv":1364,"pc":356},{"l":"27 Eyl","mv":1240,"pc":328}],"cats":[{"n":"Ana Yemek","v":774,"t":"774"},{"n":"İçecek","v":586,"t":"586"},{"n":"Kahvaltı","v":460,"t":"460"},{"n":"Tatlı","v":273,"t":"273"}],"prods":[{"n":"Izgara Tavuk","c":"Ana Yemek","t":"457"},{"n":"Serpme Kahvaltı","c":"Kahvaltı","t":"331"},{"n":"Filtre Kahve","c":"İçecek","t":"281"}]},{"key":"ay","chip":"Bu ay","range":"1 Eyl – 27 Eyl","breakdown":"Haftalık","mv":"31.1K","pc":"8.1K","uv":"6.1K","masa":"22","dmv":7,"dpc":5,"duv":4,"conv":26,"chart":[{"l":"31 Ağu–","l2":"6 Eyl","mv":7039,"pc":1836},{"l":"7 Eyl–","l2":"13 Eyl","mv":8010,"pc":2094},{"l":"14 Eyl–","l2":"20 Eyl","mv":8005,"pc":2086},{"l":"21 Eyl–","l2":"27 Eyl","mv":8005,"pc":2093}],"cats":[{"n":"Ana Yemek","v":3000,"t":"3.000"},{"n":"İçecek","v":2271,"t":"2.271"},{"n":"Kahvaltı","v":1784,"t":"1.784"},{"n":"Tatlı","v":1054,"t":"1.054"}],"prods":[{"n":"Izgara Tavuk","c":"Ana Yemek","t":"1.770"},{"n":"Serpme Kahvaltı","c":"Kahvaltı","t":"1.284"},{"n":"Filtre Kahve","c":"İçecek","t":"1.090"}]},{"key":"ozel","chip":"Özel","range":"10 Eyl – 23 Eyl","breakdown":"Günlük","mv":"16.0K","pc":"4.2K","uv":"3.3K","masa":"21","dmv":3,"dpc":2,"duv":-1,"conv":26,"chart":[{"l":"10 Eyl","mv":1104,"pc":282},{"l":"11 Eyl","mv":1254,"pc":327},{"l":"12 Eyl","mv":1401,"pc":374},{"l":"13 Eyl","mv":1225,"pc":316},{"l":"14 Eyl","mv":989,"pc":261},{"l":"15 Eyl","mv":999,"pc":255},{"l":"16 Eyl","mv":1068,"pc":279},{"l":"17 Eyl","mv":1071,"pc":286},{"l":"18 Eyl","mv":1263,"pc":326},{"l":"19 Eyl","mv":1399,"pc":369},{"l":"20 Eyl","mv":1216,"pc":310},{"l":"21 Eyl","mv":991,"pc":259},{"l":"22 Eyl","mv":1002,"pc":268},{"l":"23 Eyl","mv":1066,"pc":275}],"cats":[{"n":"Ana Yemek","v":1549,"t":"1.549"},{"n":"İçecek","v":1172,"t":"1.172"},{"n":"Kahvaltı","v":921,"t":"921"},{"n":"Tatlı","v":545,"t":"545"}],"prods":[{"n":"Izgara Tavuk","c":"Ana Yemek","t":"914"},{"n":"Serpme Kahvaltı","c":"Kahvaltı","t":"663"},{"n":"Filtre Kahve","c":"İçecek","t":"563"}]}];
 
-  var STATE_MS = 2800;
+  var STATE_MS = 4500;
 
   function initAnalyticsDemo(root) {
 
@@ -20335,7 +20201,6 @@
     var rangeEl = demo.querySelector("[data-range]");
     var breakdownEl = demo.querySelector("[data-breakdown]");
     var productsEl = demo.querySelector("[data-products]");
-    var categoriesEl = demo.querySelector("[data-categories]");
 
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -20348,6 +20213,9 @@
     var cycle = 0;
     var timer = 0;
     var wake = null;
+    var completedLoops = 0;
+    var MAX_LOOPS = 2;
+    var demoFinished = false;
 
 
     /* -----------------------------------------------------
@@ -20367,7 +20235,7 @@
 
     function setText(selector, value) {
       var node = demo.querySelector(selector);
-      if (node) {
+      if (node && node.textContent !== value) {
         node.textContent = value;
       }
     }
@@ -20377,11 +20245,139 @@
       if (!node) {
         return;
       }
-      node.textContent = (value > 0 ? "+" : "") + value + "%";
-      node.className = value > 0 ? "is-up" : (value < 0 ? "is-down" : "");
+      var text = (value > 0 ? "+" : "") + value + "%";
+      if (node.textContent !== text) {
+        node.textContent = text;
+      }
+      var cls = value > 0 ? "is-up" : (value < 0 ? "is-down" : "");
+      if (node.className !== cls) {
+        node.className = cls;
+      }
+    }
+
+    var maxChartPoints = 0;
+    STATES.forEach(function (st) {
+      maxChartPoints = Math.max(maxChartPoints, st.chart.length);
+    });
+
+    var chartSlots = [];
+    var labelSlots = [];
+    var productSlots = [];
+    var chartPoolReady = false;
+
+    function labelPair(labelEl) {
+      var is = labelEl.querySelectorAll("i");
+      if (is.length >= 2) {
+        return { i1: is[0], i2: is[1] };
+      }
+      var i1 = is[0] || el("i", "", "");
+      var i2 = is[1] || el("i", "", "");
+      if (!is[0]) {
+        labelEl.appendChild(i1);
+      }
+      if (!is[1]) {
+        labelEl.appendChild(i2);
+      }
+      return { i1: i1, i2: i2 };
+    }
+
+    function appendChartSlot() {
+      var group = el("div", "qrmo-analytics-v3__group");
+      group.style.display = "none";
+      var pair = el("div", "qrmo-analytics-v3__bars");
+      var barGold = el("span", "qrmo-analytics-v3__bar is-gold");
+      var barBlue = el("span", "qrmo-analytics-v3__bar is-blue");
+      pair.appendChild(barGold);
+      pair.appendChild(barBlue);
+      group.appendChild(pair);
+      chart.appendChild(group);
+      chartSlots.push({ group: group, barGold: barGold, barBlue: barBlue });
+
+      var label = el("span", "is-muted");
+      var lp = labelPair(label);
+      label._i1 = lp.i1;
+      label._i2 = lp.i2;
+      label.style.display = "none";
+      xlabels.appendChild(label);
+      labelSlots.push(label);
+    }
+
+    function ensureChartPool() {
+      if (chartPoolReady) {
+        return;
+      }
+      chartPoolReady = true;
+
+      chart.querySelectorAll(".qrmo-analytics-v3__group").forEach(function (group) {
+        var bars = group.querySelectorAll(".qrmo-analytics-v3__bar");
+        chartSlots.push({
+          group: group,
+          barGold: bars[0],
+          barBlue: bars[1]
+        });
+      });
+
+      xlabels.querySelectorAll(":scope > span").forEach(function (label) {
+        var lp = labelPair(label);
+        label._i1 = lp.i1;
+        label._i2 = lp.i2;
+        labelSlots.push(label);
+      });
+
+      while (chartSlots.length < maxChartPoints) {
+        appendChartSlot();
+      }
+      while (labelSlots.length < maxChartPoints) {
+        appendChartSlot();
+      }
+
+      if (productsEl) {
+        productsEl.querySelectorAll(".qrmo-analytics-v3__row").forEach(function (item) {
+          var text = item.querySelector("div");
+          productSlots.push({
+            item: item,
+            strong: text ? text.querySelector("strong") : null,
+            small: text ? text.querySelector("small") : null,
+            value: item.querySelector("b")
+          });
+        });
+        while (productSlots.length < 2) {
+          var rowItem = el("div", "qrmo-analytics-v3__row");
+          rowItem.style.display = "none";
+          var rowText = el("div");
+          var rowStrong = el("strong", "", "");
+          var rowSmall = el("small", "", "");
+          var rowValue = el("b", "", "");
+          rowText.appendChild(rowStrong);
+          rowText.appendChild(rowSmall);
+          rowItem.appendChild(rowText);
+          rowItem.appendChild(rowValue);
+          productsEl.appendChild(rowItem);
+          productSlots.push({
+            item: rowItem,
+            strong: rowStrong,
+            small: rowSmall,
+            value: rowValue
+          });
+        }
+      }
+    }
+
+    function setBarHeight(bar, value, max, index) {
+      var h = value > 0 ? Math.max((value / max) * 100, 2) : 0;
+      var hStr = h.toFixed(2) + "%";
+      if (bar.style.getPropertyValue("--h") !== hStr) {
+        bar.style.setProperty("--h", hStr);
+      }
+      var iStr = String(index);
+      if (bar.style.getPropertyValue("--i") !== iStr) {
+        bar.style.setProperty("--i", iStr);
+      }
     }
 
     function renderChart(state) {
+      ensureChartPool();
+
       var max = 1;
       var count = state.chart.length;
       var step = count > 12 ? 6 : (count > 8 ? 2 : 1);
@@ -20390,94 +20386,111 @@
         max = Math.max(max, row.mv, row.pc);
       });
 
-      var bars = document.createDocumentFragment();
-      var labels = document.createDocumentFragment();
+      var countStr = String(count);
+      if (chart.getAttribute("data-count") !== countStr) {
+        chart.setAttribute("data-count", countStr);
+      }
 
-      state.chart.forEach(function (row, i) {
-        var group = el("div", "qrmo-analytics-v3__group");
-        var pair = el("div", "qrmo-analytics-v3__bars");
+      for (var si = 0; si < chartSlots.length; si += 1) {
+        var slot = chartSlots[si];
+        var label = labelSlots[si];
 
-        [["mv", "is-gold"], ["pc", "is-blue"]].forEach(function (serie) {
-          var value = row[serie[0]];
-          var bar = el("span", "qrmo-analytics-v3__bar " + serie[1]);
-          var h = value > 0 ? Math.max((value / max) * 100, 2) : 0;
-          bar.style.setProperty("--h", h.toFixed(2) + "%");
-          bar.style.setProperty("--i", i);
-          pair.appendChild(bar);
-        });
-
-        group.appendChild(pair);
-        bars.appendChild(group);
-
-        var label = el("span", i % step === 0 ? "" : "is-muted");
-        label.appendChild(el("i", "", row.l));
-        if (row.l2) {
-          label.appendChild(el("i", "", row.l2));
+        if (si >= count) {
+          slot.group.style.display = "none";
+          label.style.display = "none";
+          continue;
         }
-        labels.appendChild(label);
-      });
 
-      chart.setAttribute("data-count", String(count));
-      chart.replaceChildren(bars);
-      xlabels.replaceChildren(labels);
+        slot.group.style.display = "";
+        label.style.display = "";
+
+        var row = state.chart[si];
+        setBarHeight(slot.barGold, row.mv, max, si);
+        setBarHeight(slot.barBlue, row.pc, max, si);
+
+        var muted = si % step !== 0;
+        var wantClass = muted ? "is-muted" : "";
+        if (label.className !== wantClass) {
+          label.className = wantClass;
+        }
+        if (label._i1.textContent !== row.l) {
+          label._i1.textContent = row.l;
+        }
+        if (row.l2) {
+          if (label._i2.textContent !== row.l2) {
+            label._i2.textContent = row.l2;
+          }
+          label._i2.style.display = "";
+        } else if (label._i2.textContent !== "") {
+          label._i2.textContent = "";
+          label._i2.style.display = "none";
+        }
+      }
     }
 
-    function renderRows(target, rows, withShare, total) {
-      var frag = document.createDocumentFragment();
+    function updateProductRows(rows) {
+      if (!productsEl || !productSlots.length) {
+        return;
+      }
+      ensureChartPool();
 
-      rows.forEach(function (row) {
-        var item = el("div", "qrmo-analytics-v3__row");
-        var text = el("div");
-        text.appendChild(el("strong", "", row.n));
-
-        if (withShare) {
-          var share = el("span", "qrmo-analytics-v3__share");
-          var fill = el("span");
-          fill.style.setProperty("--w", ((row.v / total) * 100).toFixed(1) + "%");
-          share.appendChild(fill);
-          text.appendChild(share);
-        } else {
-          text.appendChild(el("small", "", row.c));
+      for (var pi = 0; pi < 2; pi += 1) {
+        var pslot = productSlots[pi];
+        if (pi >= rows.length) {
+          pslot.item.style.display = "none";
+          continue;
         }
+        pslot.item.style.display = "";
+        var prow = rows[pi];
+        if (pslot.strong && pslot.strong.textContent !== prow.n) {
+          pslot.strong.textContent = prow.n;
+        }
+        if (pslot.small && pslot.small.textContent !== prow.c) {
+          pslot.small.textContent = prow.c;
+        }
+        if (pslot.value && pslot.value.textContent !== prow.t) {
+          pslot.value.textContent = prow.t;
+        }
+      }
+    }
 
-        item.appendChild(text);
-        item.appendChild(el("b", "", row.t));
-        frag.appendChild(item);
+    function restartChartAnimation() {
+      if (chart.classList.contains("is-animating")) {
+        chart.classList.remove("is-animating");
+      }
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          chart.classList.add("is-animating");
+        });
       });
-
-      target.replaceChildren(frag);
     }
 
     function applyState(state, animate) {
       periods.forEach(function (chip) {
-        chip.classList.toggle("is-active", chip.getAttribute("data-period") === state.key);
+        var active = chip.getAttribute("data-period") === state.key;
+        chip.classList.toggle("is-active", active);
       });
 
-      rangeEl.textContent = state.range;
-      breakdownEl.textContent = state.breakdown;
+      if (rangeEl.textContent !== state.range) {
+        rangeEl.textContent = state.range;
+      }
+      if (breakdownEl.textContent !== state.breakdown) {
+        breakdownEl.textContent = state.breakdown;
+      }
 
       setText('[data-kpi="mv"]', state.mv);
       setText('[data-kpi="pc"]', state.pc);
-      setText('[data-kpi="uv"]', state.uv);
-      setText('[data-kpi="masa"]', state.masa);
       setText('[data-kpi="conv"]', String(state.conv));
       setDelta("mv", state.dmv);
       setDelta("pc", state.dpc);
-      setDelta("uv", state.duv);
 
       renderChart(state);
-      renderRows(productsEl, state.prods, false, 0);
-
-      var catTotal = state.cats.reduce(function (sum, row) {
-        return sum + row.v;
-      }, 0);
-      renderRows(categoriesEl, state.cats, true, catTotal);
-
-      chart.classList.remove("is-animating");
+      updateProductRows(state.prods.slice(0, 2));
 
       if (animate) {
-        void chart.offsetWidth;
-        chart.classList.add("is-animating");
+        restartChartAnimation();
+      } else if (chart.classList.contains("is-animating")) {
+        chart.classList.remove("is-animating");
       }
     }
 
@@ -20514,7 +20527,7 @@
     }
 
     function canRun() {
-      return inView && !document.hidden && !reduceMotion.matches;
+      return inView && !document.hidden && !reduceMotion.matches && !demoFinished;
     }
 
     async function loop(token) {
@@ -20528,6 +20541,17 @@
         }
 
         index = (index + 1) % STATES.length;
+
+        if (index === 0) {
+          completedLoops += 1;
+
+          if (completedLoops >= MAX_LOOPS) {
+            demoFinished = true;
+            running = false;
+            applyState(STATES[STATIC_INDEX], false);
+            return;
+          }
+        }
       }
     }
 
@@ -20543,6 +20567,7 @@
 
     function showStatic() {
       halt();
+      demoFinished = true;
       applyState(STATES[STATIC_INDEX], false);
     }
 
@@ -20556,7 +20581,26 @@
         start();
       } else {
         halt();
+        if (!inView || document.hidden) {
+          completedLoops = 0;
+          demoFinished = false;
+          index = 0;
+        }
       }
+    }
+
+
+    var syncScheduled = false;
+
+    function scheduleSync() {
+      if (syncScheduled) {
+        return;
+      }
+      syncScheduled = true;
+      requestAnimationFrame(function () {
+        syncScheduled = false;
+        sync();
+      });
     }
 
 
@@ -20569,16 +20613,16 @@
         entries.forEach(function (entry) {
           inView = entry.isIntersecting && entry.intersectionRatio >= 0.25;
         });
-        sync();
+        scheduleSync();
       }, { threshold: [0, 0.25, 0.5] }).observe(demo);
     }
 
-    document.addEventListener("visibilitychange", sync);
+    document.addEventListener("visibilitychange", scheduleSync);
 
     if (typeof reduceMotion.addEventListener === "function") {
-      reduceMotion.addEventListener("change", sync);
+      reduceMotion.addEventListener("change", scheduleSync);
     } else if (typeof reduceMotion.addListener === "function") {
-      reduceMotion.addListener(sync);
+      reduceMotion.addListener(scheduleSync);
     }
 
     if (reduceMotion.matches) {
@@ -20762,27 +20806,11 @@
     ====================================================== -->
 
     <div class="qrmo-transition-v1__action">
-      <button type="button" class="qrmo-transition-v1__cta" data-cta-target="TBD">
+      <button type="button" class="qrmo-transition-v1__cta" data-qrmo-cta="transition">
         <span>Geçiş İçin Bilgi Alın</span>
         <b aria-hidden="true">→</b>
       </button>
     </div>
-    <script>
-    (function () {
-      var b = document.querySelector('.qrmo-transition-v1 [data-cta-target="TBD"]');
-      if (!b) return;
-      b.addEventListener('click', function () {
-        var n = b.parentNode.querySelector('.qrmo-cta-note');
-        if (!n) {
-          n = document.createElement('p');
-          n.className = 'qrmo-cta-note';
-          n.setAttribute('role', 'status');
-          b.parentNode.appendChild(n);
-        }
-        n.textContent = 'Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek.';
-      });
-    })();
-    </script>
 
 
   </div>
@@ -22682,29 +22710,11 @@
       ====================================================== -->
 
       <div class="qrmo-final-cta-v1__action">
-        <button type="button" class="qrmo-final-cta-v1__cta" data-cta-target="TBD">
+        <button type="button" class="qrmo-final-cta-v1__cta" data-qrmo-cta="final">
           <span>Geçiş İçin Bilgi Alın</span>
           <b aria-hidden="true">→</b>
         </button>
       </div>
-    <script>
-    (function () {
-      var b = document.querySelector('.qrmo-final-cta-v1 [data-cta-target="TBD"]');
-      if (!b) return;
-      b.addEventListener('click', function () {
-        var n = b.parentNode.querySelector('.qrmo-cta-note');
-        if (!n) {
-          n = document.createElement('p');
-          n.className = 'qrmo-cta-note';
-          n.setAttribute('role', 'status');
-          b.parentNode.appendChild(n);
-        }
-        n.textContent = 'Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek.';
-      });
-    })();
-    </script>
-
-
     </div>
 
   </div>
@@ -23046,6 +23056,7 @@
 }
 
 </style>
+<link rel="stylesheet" href="css/home-demo-layout.css">
 <!-- QRMO:FOOTER:START -->
 <footer class="qrmo-gf" data-qrmo-gf aria-labelledby="qrmo-gf-title">
   <div class="qrmo-gf-in">
@@ -23063,13 +23074,13 @@
         <p class="qrmo-gf-cta-label">Dijital menüye geçiş</p>
         <h3 class="qrmo-gf-cta-title">Menünüzü dijitale taşıyın.</h3>
         <p class="qrmo-gf-cta-desc">İşletmeniz için modern bir QR menü oluşturmak üzere ilk adımı atın.</p>
-        <a class="qrmo-gf-cta-btn" href="paketler/"><span>QR Menünüzü Oluşturun</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <button class="qrmo-gf-cta-btn qrmo-gf-cta-btn--pending" type="button" data-qrmo-cta="primary"><span>Görüşme Talep Edin</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
       </section>
     </div>
     <nav class="qrmo-gf-nav" aria-label="Footer navigasyonu">
       <details class="qrmo-gf-col" open>
         <summary><span class="qrmo-gf-h">Ürünü Keşfedin</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <ul class="qrmo-gf-links"><li><a href="./" aria-current="true">Ana Sayfa</a></li><li><a href="moduller/">Modüller</a></li><li><a href="moduller/restoran-menu/">Canlı Menüyü Gör</a></li><li><a href="sss/">Sıkça Sorulan Sorular</a></li></ul>
+        <ul class="qrmo-gf-links"><li><a href="./" aria-current="true">Ana Sayfa</a></li><li><a href="moduller/">Modüller</a></li><li><button type="button" class="qrmo-gf-link-pending" data-qrmo-cta="secondary">Canlı Menüyü Gör</button></li><li><a href="sss/">Sıkça Sorulan Sorular</a></li></ul>
       </details>
       <details class="qrmo-gf-col" open>
         <summary><span class="qrmo-gf-h">QR Menü Çözümleri</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
@@ -23089,7 +23100,7 @@
       </details>
       <details class="qrmo-gf-col" open>
         <summary><span class="qrmo-gf-h">Bize Ulaşın</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
-        <ul class="qrmo-gf-links"><li><a href="paketler/">Paketler &amp; Başvuru</a></li><li><a href="sss/">Sıkça Sorulan Sorular</a></li><li><a href="moduller/restoran-menu/">Canlı Menü Örneği</a></li></ul>
+        <ul class="qrmo-gf-links"><li><a href="paketler/">Paketler &amp; Başvuru</a></li><li><a href="sss/">Sıkça Sorulan Sorular</a></li><li><button type="button" class="qrmo-gf-link-pending" data-qrmo-cta="secondary">Canlı Menüyü Gör</button></li></ul>
       </details>
     </nav>
     <div class="qrmo-gf-bottom">

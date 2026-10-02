@@ -64,6 +64,25 @@
     --qrmo-gh-h: 84px;
   }
 }
+@media (min-width: 961px) and (max-height: 800px) {
+  :root {
+    --qrmo-gh-h: 76px;
+  }
+  .qrmo-gh {
+    --qrmo-h: 76px;
+  }
+  .qrmo-gh-in {
+    gap: clamp(12px, 2vw, 22px);
+  }
+  .qrmo-gh-logo--full {
+    width: clamp(128px, 11vw, 158px);
+  }
+  .qrmo-gh-cta {
+    min-height: 46px;
+    padding: 0 18px;
+    font-size: 11.5px;
+  }
+}
 
 .qrmo-gh *,
 .qrmo-gh *::before,
@@ -861,6 +880,29 @@ html:not(.qrmo-gh-js) .qrmo-gh-in > .qrmo-gh-cta {
   .qrmo-gh-drawer {
     display: none !important;
   }
+}
+
+button.qrmo-gh-cta,
+button.qrmo-gh-d-card,
+button.qrmo-gh-link.qrmo-gh-link--pending {
+  font: inherit;
+  cursor: pointer;
+  text-align: inherit;
+}
+button.qrmo-gh-link.qrmo-gh-link--pending {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+button.qrmo-gh-d-card {
+  width: 100%;
+  text-align: left;
+}
+button.qrmo-gh-cta--pending,
+button.qrmo-gh-link--pending,
+button.qrmo-gh-d-card--pending {
+  opacity: 0.96;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,11 @@
+/* Homepage demo sections — desktop grid: üst hizalama (uzun metin mockup'ı aşağı itmesin) */
+@media (min-width: 961px) {
+  #qrmo-translation-v3-root .qrmo-translation-v3-inner,
+  .qrmo-smart-filter-layout,
+  .qrmo-chatbot-feature__inner,
+  .qrmo-tables-v5__inner,
+  .qrmo-service-v2__inner,
+  .qrmo-analytics-v3__inner {
+    align-items: start;
+  }
+}

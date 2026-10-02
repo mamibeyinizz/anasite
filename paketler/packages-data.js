@@ -27,18 +27,16 @@ window.QRMO_PRICING = {
   defaultPeriod: "monthly", // "monthly" | "annual"
 
   /* -------------------------------------------------------
-     CTA HEDEFİ — TBD
-     href BOŞ olduğu sürece CTA'lar link değil, pasif <button> olarak
-     üretilir (sahte href yok). Hedef netleşince yalnızca href'i doldurun:
-       "{id}" → paket kimliği (temel | pro | plus) ile değiştirilir.
-       örn: "https://qrmenuofficial.com/iletisim/?paket={id}"
+     CTA HEDEFİ — TBD (global/nav-data.mjs CONVERSION.primary ile aynı kanal)
+     href BOŞ olduğu sürece pasif <button> (sahte href yok).
+     Hedef netleşince yalnızca href'i doldurun; {id} paket kimliği ile değiştirilir.
      ------------------------------------------------------- */
   cta: {
     href: "",
-    finalHref: "",               // boşsa href kullanılır; o da boşsa pasif <button>
+    finalHref: "",
     finalLabel: "Paket seçimi için görüşün",
-    /* href boşken düğmeye basılınca gösterilen dürüst bilgi (sahte yönlendirme yok). */
-    pendingNotice: "Bu adım henüz etkin değil; başvuru kanalı yakında eklenecek."
+    pendingNotice:
+      "Bu bağlantı henüz etkin değil. Paket başvurusu / ödeme kanalı yakında eklenecek."
   },
 
   /* Modül sayfalarının kök yolu (bu sayfaya göre). */

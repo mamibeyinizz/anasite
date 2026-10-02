@@ -17,17 +17,62 @@ export const SITE = {
   year: new Date().getFullYear()
 };
 
-/* path: kök dizine göre; "" = ana sayfa */
-export const CTA = { label: "Menünüzü Oluşturun", path: "paketler/" };
+/**
+ * Dönüşüm CTA'ları — href boşken UI görünür kalır, sahte URL üretilmez.
+ * Hedef netleşince yalnızca ilgili `href` alanlarını doldurun.
+ *
+ * Slot → kullanım:
+ *   primary    — Görüşme Talep Edin (header, hero, footer)
+ *   secondary  — Canlı Menüyü Gör
+ *   packagesLink — Paketleri İnceleyin (path)
+ *   contact    — Bize Ulaşın (href yokken `path` geçici hedef)
+ *   transition — Geçiş İçin Bilgi Alın (S9)
+ *   final      — Geçiş İçin Bilgi Alın (S12; ayrı href verilebilir)
+ */
+export const CONVERSION = {
+  primary: { label: "Görüşme Talep Edin", href: "" },
+  secondary: { label: "Canlı Menüyü Gör", href: "" },
+  packagesLink: { label: "Paketleri İnceleyin", path: "paketler/" },
+  contact: {
+    label: "Bize Ulaşın",
+    href: "",
+    path: "paketler/"
+  },
+  transition: { label: "Geçiş İçin Bilgi Alın", href: "" },
+  final: { label: "Geçiş İçin Bilgi Alın", href: "" }
+};
+
+/** Pending CTA tıklanınca gösterilen metinler (frontend; build ile qrmo-conversion-config.js). */
+export const CONVERSION_PENDING = {
+  default: "Bu bağlantı henüz etkin değil.",
+  primary:
+    "Bu bağlantı henüz etkin değil. Görüşme kanalı yakında eklenecek.",
+  secondary: "Canlı menü adresi henüz tanımlanmadı.",
+  transition: "Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek.",
+  final: "Bu adım henüz etkin değil; iletişim kanalı yakında eklenecek."
+};
+
+/* Header çubuk CTA (primary dönüşüm) */
+export const CTA = { label: CONVERSION.primary.label, href: CONVERSION.primary.href };
 
 /* Masaüstü / drawer ana gezinme (HEADER V3 hiyerarşisi, gerçek yollar) */
 export const NAV = [
   { key: "home", label: "Ana Sayfa", path: "", drawerSubtitle: "QR Menu Official dünyasını keşfedin" },
   { key: "moduller", label: "Çözümler", path: "moduller/", drawerSubtitle: "İşletmeniz için akıllı dijital araçlar" },
   { key: "paketler", label: "Paketler & Fiyatlar", path: "paketler/", drawerSubtitle: "İşletmenize uygun planı seçin" },
-  { key: "canli", label: "Canlı Menüyü Gör", path: "moduller/restoran-menu/", drawerSubtitle: "Gerçek QR menü deneyimini inceleyin" },
-  /* Gerçek iletişim sayfası henüz yok; mevcut hedef paketler */
-  { key: "iletisim", label: "Bize Ulaşın", path: "paketler/", drawerSubtitle: "Sorularınız için bizimle iletişime geçin" }
+  {
+    key: "canli",
+    label: CONVERSION.secondary.label,
+    path: null,
+    ctaPlaceholder: "secondary",
+    drawerSubtitle: ""
+  },
+  {
+    key: "iletisim",
+    label: CONVERSION.contact.label,
+    conversionSlot: "contact",
+    drawerSubtitle: "Sorularınız için bizimle iletişime geçin"
+  }
 ];
 
 export const DRAWER = {
@@ -41,10 +86,9 @@ export const DRAWER = {
   trustItems: [
     "Mobil, tablet ve masaüstü uyumlu yapı",
     "Kolay menü yönetimi ve hızlı güncelleme",
-    "Restoranınıza özel profesyonel dijital deneyim",
-    "Teknik bilgi gerektirmeyen kullanım"
+    "Restoranınıza özel profesyonel dijital deneyim"
   ],
-  bottomNote: "Dakikalar içinde başlayın · Teknik bilgi gerekmez"
+  bottomNote: ""
 };
 
 /* Drawer çözümler grid — modül slug'ları gerçek /moduller/<slug>/ yollarına gider */
@@ -76,7 +120,7 @@ export const FOOTER = {
   ctaEyebrow: "Dijital menüye geçiş",
   ctaTitle: "Menünüzü dijitale taşıyın.",
   ctaDescription: "İşletmeniz için modern bir QR menü oluşturmak üzere ilk adımı atın.",
-  ctaButton: "QR Menünüzü Oluşturun",
+  ctaButton: CONVERSION.primary.label,
   signature: "QR Menü Official"
 };
 
@@ -93,7 +137,7 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Ana Sayfa", path: "", key: "home" },
       { label: "Modüller", path: "moduller/", key: "moduller" },
-      { label: "Canlı Menüyü Gör", path: "moduller/restoran-menu/", key: "canli" },
+      { label: CONVERSION.secondary.label, path: null, key: "canli", ctaPlaceholder: "secondary" },
       { label: "Sıkça Sorulan Sorular", path: "sss/" }
     ]
   },
@@ -113,7 +157,7 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Paketleri İnceleyin", path: "paketler/" },
       { label: "Sıkça Sorulan Sorular", path: "sss/" },
-      { label: "Bize Ulaşın", path: "paketler/", key: "iletisim" }
+      { label: CONVERSION.contact.label, conversionSlot: "contact", key: "iletisim" }
     ]
   },
   {
@@ -139,7 +183,7 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Paketler & Başvuru", path: "paketler/" },
       { label: "Sıkça Sorulan Sorular", path: "sss/" },
-      { label: "Canlı Menü Örneği", path: "moduller/restoran-menu/" }
+      { label: CONVERSION.secondary.label, path: null, ctaPlaceholder: "secondary" }
     ]
   }
 ];

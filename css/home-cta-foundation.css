@@ -1,0 +1,67 @@
+/* Hero CTA hiyerarşisi — primary placeholder + paketler metin linki */
+.qrmo-hero-v3-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+  max-width: 100%;
+}
+
+.qrmo-hero-v3-cta-text,
+.qrmo-hero-v3-cta-text:visited {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--qrmo-green-dark);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(14px, 1.5vw, 15.5px);
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 168, 76, 0.55);
+  text-underline-offset: 4px;
+}
+
+.qrmo-hero-v3-cta-text:hover,
+.qrmo-hero-v3-cta-text:focus-visible {
+  color: var(--qrmo-green-hover);
+  text-decoration-color: var(--qrmo-gold);
+}
+
+button.qrmo-hero-v3-cta {
+  border: 1.5px solid var(--qrmo-gold);
+  appearance: none;
+}
+
+.qrmo-hero-v3-cta-group .qrmo-cta-note {
+  flex: 1 1 100%;
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(13, 43, 34, 0.72);
+}
+
+/* Modül detay — secondary bilgi linki (primary CTA değil) */
+.qrmo-home-module-link,
+.qrmo-home-module-link:visited {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 6px;
+  color: var(--qrmo-green-dark, #0d2b22);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(13.5px, 1.45vw, 14.5px);
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: underline;
+  text-decoration-color: rgba(201, 168, 76, 0.45);
+  text-underline-offset: 3px;
+}
+
+.qrmo-home-module-link:hover,
+.qrmo-home-module-link:focus-visible {
+  color: var(--qrmo-green-hover, #134a3a);
+  text-decoration-color: var(--qrmo-gold, #c9a84c);
+  outline: 2px solid rgba(201, 168, 76, 0.55);
+  outline-offset: 3px;
+}
