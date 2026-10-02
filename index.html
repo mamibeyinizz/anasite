@@ -4812,6 +4812,8 @@
 
       idx=0;
 
+      langStepsDone=0;
+
       applyLang('tr');
 
     }
@@ -12412,9 +12414,30 @@
   box-shadow:
     0 8px 20px rgba(13,43,34,.05);
 
+  visibility:visible;
+
+  pointer-events:auto;
+
   transition:
     opacity .35s ease,
-    transform .35s ease;
+    transform .35s ease,
+    visibility 0s linear 0s;
+}
+
+.qrmo-tables-v5__create.is-stage-hidden{
+
+  opacity:0;
+
+  visibility:hidden;
+
+  pointer-events:none;
+
+  transform:translateY(-7px);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease,
+    visibility 0s linear .35s;
 }
 
 .qrmo-tables-v5__create-head{
@@ -12831,7 +12854,7 @@
   transition:
     opacity .42s ease,
     transform .42s cubic-bezier(.22,.61,.36,1),
-    visibility .42s ease;
+    visibility 0s linear .42s;
 }
 
 .qrmo-tables-v5__result.is-visible{
@@ -12843,6 +12866,47 @@
   pointer-events:auto;
 
   transform:translateY(0);
+
+  transition:
+    opacity .42s ease,
+    transform .42s cubic-bezier(.22,.61,.36,1),
+    visibility 0s linear 0s;
+}
+
+.qrmo-tables-v5__screen.is-layer-swap-instant
+.qrmo-tables-v5__result{
+
+  opacity:0 !important;
+
+  visibility:hidden !important;
+
+  pointer-events:none !important;
+
+  transform:translateY(12px) !important;
+
+  transition:none !important;
+}
+
+.qrmo-tables-v5__screen.is-layer-swap-instant
+.qrmo-tables-v5__qr-card{
+
+  opacity:0 !important;
+
+  transform:
+    translateY(10px)
+    scale(.94) !important;
+
+  transition:none !important;
+}
+
+.qrmo-tables-v5__screen.is-layer-swap-instant
+.qrmo-tables-v5__export{
+
+  opacity:0 !important;
+
+  transform:translateY(5px) !important;
+
+  transition:none !important;
 }
 
 .qrmo-tables-v5__result-top{
@@ -15176,12 +15240,23 @@
          RESET
          ==================================================== */
 
-      function resetUI(){
+      function resetUI(instantLayerSwap){
 
-        create.style.opacity='1';
+        if(instantLayerSwap){
 
-        create.style.transform=
-          'translateY(0)';
+          screen.classList.add(
+            'is-layer-swap-instant'
+          );
+
+        }
+
+        create.classList.remove(
+          'is-stage-hidden'
+        );
+
+        create.style.opacity='';
+
+        create.style.transform='';
 
         processing.classList.remove(
           'is-visible'
@@ -15242,6 +15317,26 @@
 
           cursor.classList.remove(
             'is-clicking'
+          );
+
+        }
+
+        if(instantLayerSwap){
+
+          requestAnimationFrame(
+            function(){
+
+              requestAnimationFrame(
+                function(){
+
+                  screen.classList.remove(
+                    'is-layer-swap-instant'
+                  );
+
+                }
+              );
+
+            }
           );
 
         }
@@ -15307,16 +15402,17 @@
           'is-visible'
         );
 
-
-        create.style.opacity='0';
-
-        create.style.transform=
-          'translateY(-7px)';
-
-
         result.classList.add(
           'is-visible'
         );
+
+        create.classList.add(
+          'is-stage-hidden'
+        );
+
+        create.style.opacity='';
+
+        create.style.transform='';
 
 
         qrCards.forEach(
@@ -15387,7 +15483,9 @@
         }
 
 
-        resetUI();
+        resetUI(
+          playCount>0
+        );
 
 
         /*
@@ -15547,7 +15645,11 @@
 
         playCount=0;
 
-        resetUI();
+        resetUI(
+          result.classList.contains(
+            'is-visible'
+          )
+        );
 
       }
 
@@ -15561,10 +15663,9 @@
         resetUI();
 
 
-        create.style.opacity='0';
-
-        create.style.transform=
-          'translateY(-7px)';
+        create.classList.add(
+          'is-stage-hidden'
+        );
 
 
         result.classList.add(
