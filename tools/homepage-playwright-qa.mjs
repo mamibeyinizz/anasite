@@ -84,6 +84,7 @@ try {
       let boxOverflow = 0;
       document.querySelectorAll("body *").forEach((el) => {
         if (el.closest(".qrmo-gh-drawer") && !ghOpen) return;
+        if (el.closest("[data-qrmo-mod-ctx-scroll]")) return; /* yatay kaydırılabilir Context Nav listesi */
         const style = getComputedStyle(el);
         if (style.position === "fixed") return;
         const b = el.getBoundingClientRect();
