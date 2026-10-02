@@ -77,7 +77,9 @@ function renderFooterCtaBtn(rel) {
 
 function renderNavDesktopItem(rel, n, current, exact) {
   if (n.ctaPlaceholder) {
-    return `<li class="qrmo-gh-item"><button type="button" class="qrmo-gh-link qrmo-gh-link--pending" data-qrmo-cta="${esc(n.ctaPlaceholder)}">${esc(n.label)}</button></li>`;
+    const url = conversionTargetUrl(rel, n.ctaPlaceholder);
+    if (!url) return "";
+    return `<li class="qrmo-gh-item"><a class="qrmo-gh-link" href="${esc(url)}"${cur(n.key, current, exact)}>${esc(n.label)}</a></li>`;
   }
   if (n.conversionSlot) {
     const url = conversionTargetUrl(rel, n.conversionSlot);
@@ -103,10 +105,12 @@ function renderDrawerNavCard(rel, n, current, exact) {
       </span>
       <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>`;
   if (n.ctaPlaceholder) {
+    const url = conversionTargetUrl(rel, n.ctaPlaceholder);
+    if (!url) return "";
     return `
-      <button class="qrmo-gh-d-card qrmo-gh-d-card--pending" type="button" data-qrmo-cta="${esc(n.ctaPlaceholder)}">
+      <a class="qrmo-gh-d-card" href="${esc(url)}"${cur(n.key, current, exact)}>
         ${body}
-      </button>`;
+      </a>`;
   }
   if (n.conversionSlot) {
     const url = conversionTargetUrl(rel, n.conversionSlot);
@@ -130,8 +134,13 @@ function renderFooterLink(rel, l, current) {
       return `<li><a href="${esc(url)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
     }
   }
-  if (l.ctaPlaceholder || l.path == null) {
-    return `<li><button type="button" class="qrmo-gf-link-pending" data-qrmo-cta="${esc(l.ctaPlaceholder || "secondary")}">${esc(l.label)}</button></li>`;
+  if (l.ctaPlaceholder) {
+    const url = conversionTargetUrl(rel, l.ctaPlaceholder);
+    if (!url) return "";
+    return `<li><a href="${esc(url)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
+  }
+  if (l.path == null) {
+    return "";
   }
   return `<li><a href="${href(rel, l.path)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
 }
