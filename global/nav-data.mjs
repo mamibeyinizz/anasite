@@ -29,19 +29,17 @@ export const SITE = {
  *   transition — Geçiş İçin Bilgi Alın (S9)
  *   final      — Geçiş İçin Bilgi Alın (S12; ayrı href verilebilir)
  */
-const PRIMARY_TEL = "tel:+905422043587";
-
 export const CONVERSION = {
-  primary: { label: "Görüşme Talep Edin", href: PRIMARY_TEL },
+  primary: { label: "Görüşme Talep Edin", href: "" },
   secondary: { label: "Canlı Menüyü Gör", href: "" },
   packagesLink: { label: "Paketleri İnceleyin", path: "paketler/" },
   contact: {
     label: "Bize Ulaşın",
-    href: PRIMARY_TEL,
+    href: "",
     path: "paketler/"
   },
-  transition: { label: "Görüşme Talep Edin", href: PRIMARY_TEL },
-  final: { label: "Görüşme Talep Edin", href: PRIMARY_TEL }
+  transition: { label: "Geçiş İçin Bilgi Alın", href: "" },
+  final: { label: "Geçiş İçin Bilgi Alın", href: "" }
 };
 
 /** Pending CTA tıklanınca gösterilen metinler (frontend; build ile qrmo-conversion-config.js). */

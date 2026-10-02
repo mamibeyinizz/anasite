@@ -65,7 +65,7 @@ for (const pg of PAGES) {
   const rel = "../".repeat(depth);
   for (const m of seg.matchAll(/href="([^"]*)"/g)) {
     const h = m[1];
-    if (h.startsWith("#") || h.startsWith("tel:") || h.startsWith("mailto:")) continue;
+    if (h.startsWith("#")) continue;
     let t = h === "./" ? "index.html" : h;
     if (rel && t.startsWith(rel)) t = t.slice(rel.length); else if (rel) { check(false, `${pg.file} bağlantı göreli kök`, h); continue; }
     if (t === "") t = "index.html";
@@ -181,6 +181,7 @@ else {
           order.some((x) => x.includes("Ana Sayfa")) &&
           order.some((x) => x.includes("Çözümler")) &&
           order.some((x) => x.includes("Paketler")) &&
+          order.some((x) => x.includes("Canlı Menü")) &&
           order.some((x) => x.includes("Bize Ulaşın")),
         "klavye Tab sırası (V3 nav)",
         order.join(" > ")

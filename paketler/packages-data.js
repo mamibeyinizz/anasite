@@ -32,10 +32,11 @@ window.QRMO_PRICING = {
      Hedef netleşince yalnızca href'i doldurun; {id} paket kimliği ile değiştirilir.
      ------------------------------------------------------- */
   cta: {
-    href: "tel:+905422043587",
-    finalHref: "tel:+905422043587",
-    finalLabel: "Görüşme Talep Edin",
-    pendingNotice: ""
+    href: "",
+    finalHref: "",
+    finalLabel: "Paket seçimi için görüşün",
+    pendingNotice:
+      "Bu bağlantı henüz etkin değil. Paket başvurusu / ödeme kanalı yakında eklenecek."
   },
 
   /* Modül sayfalarının kök yolu (bu sayfaya göre). */
