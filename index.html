@@ -3657,7 +3657,7 @@
       <i></i>
 
       <span>
-        Tek Dokunuş
+        Misafir dilini seçer
       </span>
 
       <i></i>
@@ -3864,11 +3864,7 @@
     return DATA[lang];
   });
 
-  var SEQ=LANGS.filter(function(lang){
-    return lang!=='tr';
-  });
-
-  SEQ.push('tr');
+  var SEQ=['en','ar'];
 
   var CLAIM=
     LANGS.length>=8
@@ -4018,11 +4014,11 @@
     var running=false;
     var inView=false;
     var idx=0;
+    var played=false;
 
     var langStepsDone=0;
 
-    var MAX_LANG_STEPS=
-      SEQ.length*2;
+    var MAX_LANG_STEPS=SEQ.length;
     var active='tr';
 
 
@@ -4239,6 +4235,8 @@
 
       if(langStepsDone>MAX_LANG_STEPS){
         running=false;
+        played=true;
+        resetTransient();
         return;
       }
 
@@ -4341,17 +4339,17 @@
                     step();
                   }
 
-                },code==='tr'?2000:1700);
+                },750);
 
-              },280);
+              },180);
 
-            },110);
+            },80);
 
-          },300);
+          },200);
 
-        },220);
+        },160);
 
-      },630);
+      },380);
 
     }
 
@@ -4360,6 +4358,7 @@
 
       if(
         running ||
+        played ||
         (
           reduceMotionMq &&
           reduceMotionMq.matches
@@ -4372,7 +4371,7 @@
 
       later(
         step,
-        1400
+        550
       );
 
     }
@@ -4389,6 +4388,8 @@
       idx=0;
 
       langStepsDone=0;
+
+      played=false;
 
       applyLang('tr');
 
