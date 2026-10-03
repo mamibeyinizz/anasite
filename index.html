@@ -9045,7 +9045,15 @@
 
   position: relative;
 
-  overflow: hidden;
+  /* Hash/ctx-nav scroll-margin only applies if this is not a clip/scroll box. */
+  overflow: visible;
+
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-home-ctx-scroll, var(--qrmo-mod-ctx-h, 42px))
+      + 8px
+    );
 
   font-family:
     "Source Sans 3",
@@ -9091,6 +9099,8 @@
   column-gap:
     clamp(60px, 8vw, 135px);
 
+  overflow-x: clip;
+
 }
 
 
@@ -9107,6 +9117,13 @@
   align-items: center;
 
   justify-content: flex-start;
+
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-home-ctx-scroll, var(--qrmo-mod-ctx-h, 42px))
+      + 8px
+    );
 
 }
 
@@ -9990,22 +10007,25 @@
 
   align-items: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 
 }
 
 
 .qrmo-chatbot-feature__kicker span {
 
-  width: 30px;
-  height: 2px;
+  display: block;
+
+  width: 18px;
+
+  height: 1px;
 
   flex: 0 0 auto;
 
   background:
-    var(--qrmo-gold);
+    rgba(201, 168, 76, .55);
 
 }
 
@@ -10013,15 +10033,17 @@
 .qrmo-chatbot-feature__kicker strong {
 
   color:
-    var(--qrmo-gold);
+    rgba(13, 43, 34, .56);
 
   font-size: 11px;
 
-  line-height: 1;
+  line-height: 1.2;
 
   font-weight: 700;
 
-  letter-spacing: 1.45px;
+  letter-spacing: .2em;
+
+  text-transform: uppercase;
 
 }
 
@@ -10104,10 +10126,10 @@
   display: grid;
 
   grid-template-columns:
-    36px
+    18px
     minmax(0,1fr);
 
-  gap: 11px;
+  column-gap: 10px;
 
   align-items: start;
 
@@ -10116,39 +10138,40 @@
 
 .qrmo-chatbot-feature__icon {
 
-  width: 36px;
-  height: 36px;
+  width: 18px;
+
+  height: 18px;
+
+  margin-top: 2px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 0;
 
-  background:
-    var(--qrmo-green);
+  background: none;
 
-  color:
-    var(--qrmo-gold);
+  color: inherit;
 
-  box-shadow:
-    0 6px 14px
-    rgba(13,43,34,.12);
+  box-shadow: none;
 
 }
 
 
 .qrmo-chatbot-feature__icon svg {
 
-  width: 17px;
-  height: 17px;
+  width: 16px;
+
+  height: 16px;
 
   fill: none;
 
-  stroke: currentColor;
+  stroke: rgba(201, 168, 76, .82);
 
-  stroke-width: 1.7;
+  stroke-width: 2;
 
   stroke-linecap: round;
 
