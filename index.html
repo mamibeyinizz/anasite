@@ -1933,9 +1933,9 @@
   --qpm2-muted: rgba(13, 43, 34, 0.56);
   --qpm2-text: rgba(13, 43, 34, 0.84);
   --qpm2-cream: #f4f1e8;
-  --qpm2-cream-soft: #faf8f3;
-  --qpm2-emerald-soft: rgba(23, 50, 38, 0.07);
-  --qpm2-emerald-mid: rgba(23, 50, 38, 0.11);
+  --qpm2-cream-area: rgba(250, 248, 243, 0.72);
+  --qpm2-emerald-area: #dfeae4;
+  --qpm2-meta: rgba(13, 43, 34, 0.68);
   --qpm2-gold: #c9a84c;
   --qpm2-line: rgba(13, 43, 34, 0.09);
   --qpm2-ease: cubic-bezier(0.22, 1, 0.28, 1);
@@ -1950,7 +1950,7 @@
   color: var(--qpm2-green);
   isolation: isolate;
   box-sizing: border-box;
-  scroll-margin-top: calc(var(--qrmo-gh-h, 88px) + 16px);
+  scroll-margin-top: calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + 16px);
 }
 
 #qrmo-product-map-v2.qpm2-wrap.is-s2-active {
@@ -1967,11 +1967,11 @@
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: clamp(22px, 2.6vw, 34px) 0 clamp(20px, 2.4vw, 30px);
-  border-radius: clamp(12px, 1.1vw, 16px);
-  background:
-    radial-gradient(ellipse 85% 50% at 12% 0%, rgba(201, 168, 76, 0.06), transparent 55%),
-    linear-gradient(165deg, var(--qpm2-cream-soft) 0%, var(--qpm2-cream) 48%, #efece3 100%);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
 }
 
 #qrmo-product-map-v2 .qpm2-head {
@@ -2053,35 +2053,34 @@
   flex-direction: column;
   align-items: flex-start;
   border: none;
-  border-radius: 0;
-  background: transparent;
   box-shadow: none;
+}
+
+#qrmo-product-map-v2 .qpm2-area--cream {
+  background: var(--qpm2-cream-area);
+}
+
+#qrmo-product-map-v2 .qpm2-area--emerald {
+  background: var(--qpm2-emerald-area);
 }
 
 @media (max-width: 767px) {
   #qrmo-product-map-v2 .qpm2-area {
-    padding: 18px 0 20px;
+    padding: 18px clamp(12px, 3.5vw, 16px) 20px;
     border-bottom: 1px solid var(--qpm2-line);
+    border-radius: 0;
   }
 
   #qrmo-product-map-v2 .qpm2-area:last-child {
     border-bottom: none;
-    padding-bottom: 4px;
+    padding-bottom: 6px;
   }
 }
 
 @media (min-width: 768px) {
   #qrmo-product-map-v2 .qpm2-area {
-    border-radius: clamp(14px, 1.4vw, 18px);
+    border-radius: clamp(12px, 1.2vw, 16px);
     min-height: 100%;
-  }
-
-  #qrmo-product-map-v2 .qpm2-area--cream {
-    background: rgba(255, 255, 255, 0.42);
-  }
-
-  #qrmo-product-map-v2 .qpm2-area--emerald {
-    background: var(--qpm2-emerald-soft);
   }
 }
 
@@ -2141,12 +2140,12 @@
   font-size: clamp(12.5px, 1vw, 13.5px);
   line-height: 1.35;
   letter-spacing: 0.01em;
-  color: var(--qpm2-muted);
-  max-width: 36em;
+  color: var(--qpm2-meta);
+  max-width: none;
 }
 
 #qrmo-product-map-v2 .qpm2-dot {
-  color: rgba(13, 43, 34, 0.32);
+  color: rgba(13, 43, 34, 0.42);
   font-weight: 600;
   user-select: none;
 }
@@ -2155,11 +2154,6 @@
   #qrmo-product-map-v2.qpm2-wrap {
     padding-top: clamp(18px, 4.8vw, 26px);
     padding-bottom: clamp(26px, 5.5vw, 32px);
-  }
-
-  #qrmo-product-map-v2 .qpm2-surface {
-    padding: clamp(18px, 4vw, 22px) 0 clamp(14px, 3vw, 18px);
-    border-radius: 14px;
   }
 
   #qrmo-product-map-v2 .qpm2-head {
@@ -2210,13 +2204,6 @@
   }
 }
 
-@media (max-width: 900px) {
-  #qrmo-product-map-v2.qpm2-wrap {
-    padding-left: 5vw;
-    padding-right: 5vw;
-  }
-}
-
 @media (min-width: 768px) and (max-width: 959px) {
   #qrmo-product-map-v2 .qpm2-head {
     margin-bottom: 20px;
@@ -2241,14 +2228,21 @@
     v2.classList.add("is-s2-active");
   }
 
-  if (location.hash === "#qrmo-product-map-v2" && v2) {
-    requestAnimationFrame(function () {
-      var gh = document.querySelector("[data-qrmo-gh] .qrmo-gh-shell");
-      var offset = gh ? Math.ceil(gh.getBoundingClientRect().height) + 16 : 104;
-      var y = v2.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: y, behavior: "auto" });
-    });
+  function headerScrollOffset() {
+    var shell = document.querySelector("[data-qrmo-gh] .qrmo-gh-shell");
+    if (shell) return Math.ceil(shell.getBoundingClientRect().height) + 16;
+    var gh = document.querySelector("[data-qrmo-gh]");
+    return gh ? Math.ceil(gh.getBoundingClientRect().height) + 16 : 92;
   }
+
+  function scrollV2BelowHeader() {
+    if (!v2 || location.hash !== "#qrmo-product-map-v2") return;
+    var y = v2.getBoundingClientRect().top + window.scrollY - headerScrollOffset();
+    window.scrollTo({ top: Math.max(0, y), behavior: "auto" });
+  }
+
+  scrollV2BelowHeader();
+  requestAnimationFrame(scrollV2BelowHeader);
 })();
 </script>
 
