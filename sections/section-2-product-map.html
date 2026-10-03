@@ -192,15 +192,21 @@
 }
 
 @media (max-width: 767px) {
-  #qrmo-product-map-v1 .qpm2-area {
-    padding: 16px clamp(12px, 3.5vw, 16px) 16px;
-    border-bottom: 1px solid var(--qpm2-line);
-    border-radius: 0;
+  #qrmo-product-map-v1 .qpm2-areas {
+    gap: 3px;
+    border-top: none;
   }
 
-  #qrmo-product-map-v1 .qpm2-area:last-child {
+  #qrmo-product-map-v1 .qpm2-area {
+    padding: 14px 14px 15px;
     border-bottom: none;
-    padding-bottom: 6px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 359px) {
+  #qrmo-product-map-v1 .qpm2-area {
+    padding: 13px 12px 14px;
   }
 }
 
@@ -315,8 +321,8 @@
   }
 
   #qrmo-product-map-v1 .qpm2-idx {
-    margin-bottom: 4px;
-    font-size: 11px;
+    margin-bottom: 3px;
+    font-size: 10px;
   }
 
   #qrmo-product-map-v1 .qpm2-name {

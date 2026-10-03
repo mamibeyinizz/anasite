@@ -141,6 +141,7 @@ body.qrmo-home-ctx {
   .qrmo-mod-ctx--home .qrmo-mod-ctx-link {
     font-size: 10px;
     letter-spacing: .08em;
+    padding: 0 6px 1px;
   }
 
   .qrmo-mod-ctx--home .qrmo-mod-ctx-links > li + li::before {
