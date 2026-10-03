@@ -78,13 +78,15 @@
 
   display: none;
   position: relative;
-  width: 100%;
+  width: auto;
   max-width: 100%;
-  padding: clamp(36px, 5vw, 72px) clamp(20px, 5vw, 64px) clamp(40px, 4.5vw, 68px);
+  margin: 0;
+  padding: clamp(28px, 4.5vw, 52px) 5vw clamp(32px, 3.5vw, 48px);
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   color: var(--qpm2-green);
   isolation: isolate;
   box-sizing: border-box;
+  scroll-margin-top: calc(var(--qrmo-gh-h, 88px) + 16px);
 }
 
 #qrmo-product-map-v2.qpm2-wrap.is-s2-active {
@@ -98,10 +100,11 @@
 }
 
 #qrmo-product-map-v2 .qpm2-surface {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: clamp(28px, 3.5vw, 48px) clamp(24px, 3vw, 44px) clamp(32px, 3.2vw, 44px);
-  border-radius: clamp(20px, 2.2vw, 28px);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: clamp(22px, 2.6vw, 34px) 0 clamp(20px, 2.4vw, 30px);
+  border-radius: clamp(12px, 1.1vw, 16px);
   background:
     radial-gradient(ellipse 85% 50% at 12% 0%, rgba(201, 168, 76, 0.06), transparent 55%),
     linear-gradient(165deg, var(--qpm2-cream-soft) 0%, var(--qpm2-cream) 48%, #efece3 100%);
@@ -110,16 +113,16 @@
 #qrmo-product-map-v2 .qpm2-head {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(16px, 2.2vw, 28px);
-  margin-bottom: clamp(28px, 3.5vw, 44px);
+  gap: clamp(14px, 2vw, 22px);
+  margin-bottom: clamp(20px, 2.6vw, 32px);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 960px) {
   #qrmo-product-map-v2 .qpm2-head {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: clamp(32px, 4vw, 56px);
-    align-items: end;
-    margin-bottom: clamp(36px, 4vw, 52px);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(28px, 3.2vw, 44px);
+    align-items: start;
+    margin-bottom: clamp(22px, 2.8vw, 34px);
   }
 }
 
@@ -134,25 +137,27 @@
 
 #qrmo-product-map-v2 .qpm2-title {
   margin: 0;
-  font-size: clamp(34px, 4.6vw, 66px);
+  font-size: clamp(30px, 2.8vw + 1rem, 58px);
   font-weight: 750;
-  line-height: 1.06;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: -0.028em;
   color: var(--qpm2-green);
-  max-width: 14ch;
-}
-
-@media (min-width: 900px) {
-  #qrmo-product-map-v2 .qpm2-title {
-    max-width: none;
-  }
+  max-width: none;
+  text-wrap: balance;
 }
 
 #qrmo-product-map-v2 .qpm2-lede {
   display: flex;
   flex-direction: column;
-  gap: 0.65em;
-  max-width: 36em;
+  gap: 0.6em;
+  max-width: none;
+}
+
+@media (min-width: 960px) {
+  #qrmo-product-map-v2 .qpm2-lede {
+    padding-top: 0.15em;
+    max-width: 38em;
+  }
 }
 
 #qrmo-product-map-v2 .qpm2-desc {
@@ -173,13 +178,13 @@
   #qrmo-product-map-v2 .qpm2-areas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     border-top: none;
-    gap: clamp(10px, 1.2vw, 14px);
+    gap: clamp(8px, 0.9vw, 11px);
   }
 }
 
 #qrmo-product-map-v2 .qpm2-area {
   margin: 0;
-  padding: clamp(22px, 2.8vw, 36px) clamp(18px, 2.2vw, 28px);
+  padding: clamp(16px, 1.75vw, 22px) clamp(14px, 1.5vw, 20px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -227,14 +232,14 @@
 
 @media (min-width: 768px) {
   #qrmo-product-map-v2 .qpm2-idx {
-    margin-bottom: 10px;
-    font-size: 13px;
+    margin-bottom: 8px;
+    font-size: 12px;
   }
 }
 
 #qrmo-product-map-v2 .qpm2-name {
-  margin: 0 0 8px;
-  font-size: clamp(20px, 2vw, 26px);
+  margin: 0 0 6px;
+  font-size: clamp(18px, 1.5vw, 23px);
   font-weight: 750;
   line-height: 1.15;
   letter-spacing: 0.06em;
@@ -244,22 +249,22 @@
 
 @media (min-width: 768px) {
   #qrmo-product-map-v2 .qpm2-name {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 }
 
 #qrmo-product-map-v2 .qpm2-benefit {
-  margin: 0 0 10px;
-  font-size: clamp(14px, 1.15vw, 16px);
-  line-height: 1.48;
+  margin: 0 0 8px;
+  font-size: clamp(13.5px, 1.05vw, 15px);
+  line-height: 1.46;
   color: var(--qpm2-text);
-  max-width: 34em;
+  max-width: none;
 }
 
 @media (min-width: 768px) {
   #qrmo-product-map-v2 .qpm2-benefit {
-    margin-bottom: 14px;
-    line-height: 1.52;
+    margin-bottom: 10px;
+    line-height: 1.48;
   }
 }
 
@@ -284,17 +289,18 @@
 
 @media (max-width: 767px) {
   #qrmo-product-map-v2.qpm2-wrap {
-    padding: 20px 18px 28px;
+    padding-top: clamp(18px, 4.8vw, 26px);
+    padding-bottom: clamp(26px, 5.5vw, 32px);
   }
 
   #qrmo-product-map-v2 .qpm2-surface {
-    padding: 22px 18px 18px;
-    border-radius: 18px;
+    padding: clamp(18px, 4vw, 22px) 0 clamp(14px, 3vw, 18px);
+    border-radius: 14px;
   }
 
   #qrmo-product-map-v2 .qpm2-head {
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   #qrmo-product-map-v2 .qpm2-kicker {
@@ -302,10 +308,9 @@
   }
 
   #qrmo-product-map-v2 .qpm2-title {
-    font-size: clamp(26px, 7.2vw, 32px);
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-    max-width: none;
+    font-size: clamp(34px, 9vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.024em;
   }
 
   #qrmo-product-map-v2 .qpm2-lede {
@@ -341,30 +346,20 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   #qrmo-product-map-v2.qpm2-wrap {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  #qrmo-product-map-v2 .qpm2-surface {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
 }
 
-@media (min-width: 768px) and (max-width: 899px) {
-  #qrmo-product-map-v2.qpm2-wrap {
-    padding-top: 32px;
-    padding-bottom: 40px;
-  }
-
+@media (min-width: 768px) and (max-width: 959px) {
   #qrmo-product-map-v2 .qpm2-head {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   #qrmo-product-map-v2 .qpm2-area {
-    padding: 20px 18px 22px;
+    padding: 16px 14px 18px;
   }
 }
 </style>
@@ -380,6 +375,15 @@
   if (v2) {
     v2.removeAttribute("hidden");
     v2.classList.add("is-s2-active");
+  }
+
+  if (location.hash === "#qrmo-product-map-v2" && v2) {
+    requestAnimationFrame(function () {
+      var gh = document.querySelector("[data-qrmo-gh] .qrmo-gh-shell");
+      var offset = gh ? Math.ceil(gh.getBoundingClientRect().height) + 16 : 104;
+      var y = v2.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: "auto" });
+    });
   }
 })();
 </script>
