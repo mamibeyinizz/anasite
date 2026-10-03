@@ -9048,13 +9048,6 @@
   /* Hash/ctx-nav scroll-margin only applies if this is not a clip/scroll box. */
   overflow: visible;
 
-  scroll-margin-top:
-    calc(
-      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
-      + var(--qrmo-home-ctx-scroll, var(--qrmo-mod-ctx-h, 42px))
-      + 8px
-    );
-
   font-family:
     "Source Sans 3",
     -apple-system,
@@ -9116,10 +9109,19 @@
 
   justify-content: flex-start;
 
+}
+
+/*
+  Beat .qrmo-home-mod-zone .qrmo-home-anchor (which uses --qrmo-home-ctx-scroll).
+  That live token is 0px until ctx exists; --qrmo-mod-ctx-h is the sticky ctx height.
+*/
+.qrmo-home-mod-zone #qrmo-home-asistan.qrmo-home-anchor,
+.qrmo-chatbot-feature__demo {
+
   scroll-margin-top:
     calc(
       var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
-      + var(--qrmo-home-ctx-scroll, var(--qrmo-mod-ctx-h, 42px))
+      + var(--qrmo-mod-ctx-h, 42px)
       + 8px
     );
 
