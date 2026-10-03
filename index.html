@@ -5529,11 +5529,11 @@
           </div>
 
           <strong>
-            Filtreler uygulandı
+            Süt / Laktoz hariç
           </strong>
 
           <small>
-            Menü sonuçları güncelleniyor
+            İçeren ürünler listeden çıkar
           </small>
 
         </div>
@@ -6917,6 +6917,51 @@
 }
 
 
+.qrmo-real-filter-phone.is-demo-story .qrmo-sort-grid {
+
+  gap: 5px;
+
+}
+
+
+.qrmo-real-filter-phone.is-demo-story .qrmo-real-sort-card {
+
+  min-height: 44px;
+
+  padding: 5px 8px;
+
+}
+
+
+@media (max-width: 560px) {
+
+  .qrmo-real-filter-phone.is-demo-story .qrmo-real-sort-card {
+
+    min-height: 36px;
+
+    padding: 4px 7px;
+
+  }
+
+
+  .qrmo-real-filter-phone.is-demo-story .qrmo-allergen-card {
+
+    min-height: 52px;
+
+  }
+
+}
+
+
+.qrmo-real-apply.is-applied {
+
+  box-shadow:
+    0 0 0 1px rgba(232, 199, 102, .55),
+    0 8px 18px rgba(201, 168, 76, .28);
+
+}
+
+
 .qrmo-real-apply {
 
   position:
@@ -7393,7 +7438,19 @@
       340px;
 
     height:
-      620px;
+      400px;
+
+  }
+
+}
+
+
+@media (max-width: 360px) {
+
+  .qrmo-real-filter-phone {
+
+    height:
+      360px;
 
   }
 
@@ -7691,7 +7748,9 @@
 
   let demoCycles = 0;
 
-  const MAX_DEMO_CYCLES = 2;
+  const MAX_DEMO_CYCLES = 1;
+
+  panel.classList.add("is-demo-story");
 
 
   function sleep(ms) {
@@ -7742,7 +7801,13 @@
 
     applyButton.classList.remove("qrmo-applying");
 
-    feedback.classList.remove("is-visible");
+    if (demoCycles < MAX_DEMO_CYCLES) {
+
+      feedback.classList.remove("is-visible");
+
+      applyButton.classList.remove("is-applied");
+
+    }
 
   }
 
@@ -7979,6 +8044,11 @@
       "qrmo-applying"
     );
 
+
+    applyButton.classList.remove(
+      "is-applied"
+    );
+
   }
 
 
@@ -8015,7 +8085,7 @@
 
 
     await sleep(
-      470
+      320
     );
 
 
@@ -8025,7 +8095,7 @@
 
 
     await sleep(
-      100
+      80
     );
 
 
@@ -8039,15 +8109,15 @@
 
     } else {
 
-      toggleCard(
-        target
+      target.classList.add(
+        "is-selected"
       );
 
     }
 
 
     await sleep(
-      130
+      90
     );
 
 
@@ -8057,7 +8127,7 @@
 
 
     await sleep(
-      240
+      160
     );
 
   }
@@ -8080,7 +8150,7 @@
 
 
     await sleep(
-      500
+      380
     );
 
 
@@ -8090,7 +8160,7 @@
 
 
     await sleep(
-      100
+      90
     );
 
 
@@ -8098,9 +8168,13 @@
       "qrmo-applying"
     );
 
+    applyButton.classList.add(
+      "is-applied"
+    );
+
 
     await sleep(
-      150
+      120
     );
 
 
@@ -8110,7 +8184,7 @@
 
 
     await sleep(
-      350
+      220
     );
 
 
@@ -8125,7 +8199,7 @@
 
 
     await sleep(
-      1500
+      720
     );
 
 
@@ -8134,8 +8208,8 @@
     );
 
 
-    await sleep(
-      300
+    applyButton.classList.remove(
+      "qrmo-applying"
     );
 
   }
@@ -8164,16 +8238,20 @@
     resetDemoState();
 
 
-    /*
-     * Her tur başlangıçta.
-     */
+    const heading =
+      root.querySelector(
+        ".qrmo-real-filter-heading"
+      );
 
-    scrollArea.scrollTop =
-      0;
+
+    const milk =
+      root.querySelector(
+        '[data-demo="milk"]'
+      );
 
 
     await sleep(
-      700
+      280
     );
 
 
@@ -8182,19 +8260,30 @@
     );
 
 
-    /* -----------------------------------------------
-       1. EN PROTEİNLİ
-    ------------------------------------------------ */
+    if (heading) {
 
-    const protein =
-      root.querySelector(
-        '[data-demo="protein"]'
+      movePointerTo(
+        heading,
+        .45,
+        .55
       );
+
+    }
+
+
+    await sleep(
+      420
+    );
+
+
+    await revealTarget(
+      milk,
+      .38
+    );
 
 
     await animatedClick(
-      protein,
-      "sort"
+      milk
     );
 
 
@@ -8208,68 +8297,8 @@
     }
 
 
-    /* -----------------------------------------------
-       2. GLUTEN
-    ------------------------------------------------ */
-
-    const gluten =
-      root.querySelector(
-        '[data-demo="gluten"]'
-      );
-
-
-    await animatedClick(
-      gluten
-    );
-
-
-    /* -----------------------------------------------
-       3. SÜT / LAKTOZ
-    ------------------------------------------------ */
-
-    const milk =
-      root.querySelector(
-        '[data-demo="milk"]'
-      );
-
-
-    await animatedClick(
-      milk
-    );
-
-
-    /* -----------------------------------------------
-       4. POPÜLER
-    ------------------------------------------------ */
-
-    const popular =
-      root.querySelector(
-        '[data-demo="popular"]'
-      );
-
-
-    await revealTarget(
-      popular,
-      .40
-    );
-
-
     await sleep(
-      220
-    );
-
-
-    await animatedClick(
-      popular
-    );
-
-
-    /* -----------------------------------------------
-       5. UYGULA
-    ------------------------------------------------ */
-
-    await sleep(
-      300
+      480
     );
 
 
@@ -8288,77 +8317,12 @@
 
     demoCycles += 1;
 
-    if (demoCycles >= MAX_DEMO_CYCLES) {
-
-      animationRunning =
-        false;
-
-      pointer.classList.remove(
-        "is-visible"
-      );
-
-      return;
-
-    }
-
-
-    /* -----------------------------------------------
-       6. BAŞA DÖN
-    ------------------------------------------------ */
-
-    scrollArea.scrollTo({
-
-      top:
-        0,
-
-      behavior:
-        "smooth"
-
-    });
-
-
-    await sleep(
-      650
-    );
-
-
-    resetDemoState();
-
-
-    pointer.style.transform =
-      "translate3d(310px,560px,0)";
-
-
-    await sleep(
-      400
-    );
-
+    animationRunning =
+      false;
 
     pointer.classList.remove(
       "is-visible"
     );
-
-
-    await sleep(
-      1400
-    );
-
-
-    animationRunning =
-      false;
-
-
-    /*
-     * Döngüyü tekrar başlat.
-     */
-
-    if (
-      !userInteracted
-    ) {
-
-      runDemo();
-
-    }
 
   }
 
@@ -8564,7 +8528,8 @@
 
     if (
       reduceMotion ||
-      userInteracted
+      userInteracted ||
+      demoCycles >= MAX_DEMO_CYCLES
     ) {
 
       return;
@@ -8591,7 +8556,8 @@
               if (
                 inView &&
                 !document.hidden &&
-                !userInteracted
+                !userInteracted &&
+                demoCycles < MAX_DEMO_CYCLES
               ) {
 
                 runDemo();
@@ -8599,7 +8565,7 @@
               }
 
             },
-            500
+            280
           );
 
       }
@@ -8610,10 +8576,6 @@
     ) {
 
       haltDemo();
-
-      if (!inView) {
-        demoCycles = 0;
-      }
 
     }
 
