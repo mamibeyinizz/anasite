@@ -10880,7 +10880,7 @@
 
 
   const MAX_DEMO_RUNS =
-    2;
+    1;
 
 
   /* =======================================================
@@ -10951,9 +10951,6 @@
     inputText.textContent =
       "Bir şey sorun...";
 
-    cartButton.textContent =
-      "Sepete Ekle";
-
     send.classList.remove(
       "is-clicked"
     );
@@ -10961,19 +10958,25 @@
   }
 
 
-  /* Reduced motion: timer yok, döngü yok — tek final kare. */
+  /* Reduced motion / bitti: soru + yanıt + ürün kartı. Sepet yok. */
 
-  function showStatic() {
+  function showFinal() {
 
-    reset();
+    clearTimers();
 
     running = false;
 
-    demo.className =
-      "qrmo-chatbot-demo is-static is-added";
+    active = false;
 
-    cartButton.textContent =
-      "Sepette ✓";
+    demo.className =
+      "qrmo-chatbot-demo is-static is-user is-response is-product";
+
+    inputText.textContent =
+      "Bir şey sorun...";
+
+    send.classList.remove(
+      "is-clicked"
+    );
 
   }
 
@@ -10984,9 +10987,13 @@
 
     running = false;
 
-    completedRuns = 0;
+    clearTimers();
 
-    reset();
+    if (completedRuns < MAX_DEMO_RUNS) {
+
+      reset();
+
+    }
 
   }
 
@@ -11018,11 +11025,17 @@
 
   function start() {
 
+    if (completedRuns >= MAX_DEMO_RUNS) {
+
+      return;
+
+    }
+
     if (prefersReducedMotion.matches) {
 
-      active = false;
+      completedRuns = MAX_DEMO_RUNS;
 
-      showStatic();
+      showFinal();
 
       return;
 
@@ -11066,7 +11079,7 @@
         text[i];
 
       await wait(
-        25
+        16
       );
 
     }
@@ -11091,7 +11104,8 @@
     if (
       running ||
       !active ||
-      prefersReducedMotion.matches
+      prefersReducedMotion.matches ||
+      completedRuns >= MAX_DEMO_RUNS
     ) {
 
       return;
@@ -11110,7 +11124,7 @@
     ------------------------------------------------ */
 
     await wait(
-      900
+      280
     );
 
 
@@ -11141,7 +11155,7 @@
 
 
     await wait(
-      250
+      100
     );
 
 
@@ -11155,7 +11169,7 @@
 
 
     await wait(
-      110
+      80
     );
 
 
@@ -11178,7 +11192,7 @@
 
 
     await wait(
-      650
+      320
     );
 
 
@@ -11189,7 +11203,7 @@
 
 
     /* -----------------------------------------------
-       05 — AI THINKING
+       05 — THINKING
     ------------------------------------------------ */
 
     demo.classList.add(
@@ -11198,7 +11212,7 @@
 
 
     await wait(
-      1050
+      520
     );
 
 
@@ -11208,7 +11222,7 @@
 
 
     /* -----------------------------------------------
-       06 — AI RESPONSE
+       06 — RESPONSE
     ------------------------------------------------ */
 
     demo.classList.add(
@@ -11217,12 +11231,12 @@
 
 
     await wait(
-      650
+      280
     );
 
 
     /* -----------------------------------------------
-       07 — PRODUCT
+       07 — PRODUCT CARD (final)
     ------------------------------------------------ */
 
     demo.classList.add(
@@ -11231,25 +11245,7 @@
 
 
     await wait(
-      1100
-    );
-
-
-    /* -----------------------------------------------
-       08 — SEPETE EKLE → SEPETTE ✓
-    ------------------------------------------------ */
-
-    demo.classList.add(
-      "is-added"
-    );
-
-
-    cartButton.textContent =
-      "Sepette ✓";
-
-
-    await wait(
-      2200
+      400
     );
 
 
@@ -11262,43 +11258,9 @@
     }
 
 
-    /* -----------------------------------------------
-       09 — RESET PAUSE
-    ------------------------------------------------ */
-
-    running = false;
-
-
     completedRuns += 1;
 
-
-    if (completedRuns >= MAX_DEMO_RUNS) {
-
-      showStatic();
-
-      active = false;
-
-      return;
-
-    }
-
-
-    reset();
-
-
-    await wait(
-      1000
-    );
-
-
-    if (
-      active &&
-      !running
-    ) {
-
-      run();
-
-    }
+    showFinal();
 
   }
 
@@ -11395,7 +11357,9 @@
 
     if (prefersReducedMotion.matches) {
 
-      showStatic();
+      completedRuns = MAX_DEMO_RUNS;
+
+      showFinal();
 
     } else if (
       !document.hidden &&
@@ -11427,7 +11391,9 @@
 
   if (prefersReducedMotion.matches) {
 
-    showStatic();
+    completedRuns = MAX_DEMO_RUNS;
+
+    showFinal();
 
   }
 
