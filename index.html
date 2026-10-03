@@ -378,18 +378,30 @@
 
 
 <!-- =====================================================
-     SAĞ GÖRSEL
+     SAĞ GÖRSEL / MOBİL ÜRÜN VİTRİNİ
 ====================================================== -->
 
-<div class="qrmo-hero-v3-visual">
+<div class="qrmo-hero-v3-mobile-showcase">
 
-  <img
-    class="qrmo-hero-v3-image"
-    src="assets/product/menu/hero-menu-mockup-transparent.webp"
-    alt="QR Menu Official dijital menü arayüzü önizlemesi"
-    loading="eager"
-    decoding="async"
-  />
+  <h2 class="qrmo-hero-v3-showcase-kicker">
+    QR Menü Sadece Menü Olmasın.
+  </h2>
+
+  <div class="qrmo-hero-v3-visual">
+
+    <img
+      class="qrmo-hero-v3-image"
+      src="assets/product/menu/hero-menu-mockup-transparent.webp"
+      alt="QR Menu Official dijital menü arayüzü önizlemesi"
+      loading="eager"
+      decoding="async"
+    />
+
+  </div>
+
+  <p class="qrmo-hero-v3-showcase-bridge">
+    Peki, Bu Sistem Ciroya Nasıl Katkı Sağlar?
+  </p>
 
 </div>
 
@@ -878,6 +890,23 @@
    DEĞİŞTİ: padding-right sabit clamp yerine 5vw (üst sınırsız).
 ========================================================= */
 
+.qrmo-hero-v3-mobile-showcase {
+
+  display: contents;
+
+  min-width: 0;
+}
+
+
+.qrmo-hero-v3-showcase-kicker,
+.qrmo-hero-v3-showcase-bridge {
+
+  display: none;
+
+  margin: 0;
+}
+
+
 .qrmo-hero-v3-visual {
 
   position: relative;
@@ -1104,9 +1133,88 @@
   }
 
 
-  .qrmo-hero-v3-visual {
+  .qrmo-hero-v3-mobile-showcase {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
 
     order: 2;
+
+    width: 100vw;
+
+    max-width: 100vw;
+
+    margin-left: calc(50% - 50vw);
+
+    margin-right: calc(50% - 50vw);
+
+    padding-top: clamp(10px, 3svh, 22px);
+
+    box-sizing: border-box;
+  }
+
+
+  .qrmo-hero-v3-showcase-kicker {
+
+    display: block;
+
+    margin: 0 0 clamp(14px, 3.5vw, 22px);
+
+    padding: 0 clamp(16px, 5vw, 28px);
+
+    color: var(--qrmo-green-dark);
+
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    font-size: clamp(22px, 6.4vw, 30px);
+
+    font-weight: 800;
+
+    line-height: 1.22;
+
+    letter-spacing: -.022em;
+
+    text-align: center;
+  }
+
+
+  .qrmo-hero-v3-showcase-bridge {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding:
+      clamp(18px, 4.5vw, 28px)
+      clamp(16px, 5vw, 28px)
+      clamp(22px, 5.5vw, 36px);
+
+    box-sizing: border-box;
+
+    border-top: 1px solid rgba(201, 168, 76, .32);
+
+    color: var(--qrmo-green);
+
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    font-size: clamp(17px, 4.6vw, 21px);
+
+    font-weight: 700;
+
+    line-height: 1.38;
+
+    text-align: center;
+  }
+
+
+  .qrmo-hero-v3-visual {
+
+    order: 0;
 
     width: 100%;
 
@@ -1114,7 +1222,7 @@
 
     margin-top: 0;
 
-    padding: clamp(24px, 6svh, 48px) 0;
+    padding: 0 clamp(4px, 1.2vw, 10px);
 
     display: flex;
 
@@ -1124,9 +1232,11 @@
   }
 
 
-  .qrmo-hero-v3-image {
+  .qrmo-hero-v3-mobile-showcase .qrmo-hero-v3-image {
 
-    max-width: 349px;
+    width: 100%;
+
+    max-width: none;
   }
 
 
@@ -1262,6 +1372,13 @@
     max-width: 283px;
   }
 
+  .qrmo-hero-v3-mobile-showcase .qrmo-hero-v3-image {
+
+    max-width: none;
+
+    width: 100%;
+  }
+
 }
 
 
@@ -1281,6 +1398,13 @@
   .qrmo-hero-v3-feature-text { font-size: 14px; }
 
   .qrmo-hero-v3-image { max-width: 240px; }
+
+  .qrmo-hero-v3-mobile-showcase .qrmo-hero-v3-image {
+
+    max-width: none;
+
+    width: 100%;
+  }
 
 }
 
