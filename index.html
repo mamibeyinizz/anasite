@@ -1911,7 +1911,7 @@
   box-sizing:border-box;
   width:100%;
   /* QA: üst 90→24; Section 2 alt boşluğu (96) + ortalama payı ile ~150px geçiş */
-  padding:24px 0 90px;
+  padding:24px 0 40px;
   font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   color:var(--qt-dark);
   position:relative;
@@ -2716,7 +2716,7 @@
 
 @media (max-width:1099px){
   #qrmo-translation-v3-root{
-    padding:72px 0;
+    padding:72px 0 40px;
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-inner{
@@ -5643,9 +5643,9 @@
 
   align-items: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  margin-bottom: 19px;
+  margin-bottom: 12px;
 
 }
 
@@ -5654,12 +5654,12 @@
 
   display: block;
 
-  width: 29px;
+  width: 18px;
 
-  height: 2px;
+  height: 1px;
 
   background:
-    var(--qrmo-gold);
+    rgba(201, 168, 76, .55);
 
 }
 
@@ -5667,15 +5667,17 @@
 .qrmo-smart-filter-kicker strong {
 
   color:
-    var(--qrmo-gold);
+    rgba(13, 43, 34, .56);
 
   font-size: 11px;
 
-  line-height: 1;
+  line-height: 1.2;
 
   font-weight: 700;
 
-  letter-spacing: 1.45px;
+  letter-spacing: .2em;
+
+  text-transform: uppercase;
 
 }
 
@@ -5737,10 +5739,10 @@
   display: grid;
 
   grid-template-columns:
-    24px
+    18px
     minmax(0,1fr);
 
-  column-gap: 11px;
+  column-gap: 10px;
 
   align-items: start;
 
@@ -5749,9 +5751,11 @@
 
 .qrmo-benefit-check {
 
-  width: 24px;
+  width: 18px;
 
-  height: 24px;
+  height: 18px;
+
+  margin-top: 2px;
 
   display: flex;
 
@@ -5759,26 +5763,26 @@
 
   justify-content: center;
 
-  border-radius: 50%;
+  border-radius: 0;
 
   background:
-    #EAE1C5;
+    none;
 
 }
 
 
 .qrmo-benefit-check svg {
 
-  width: 12px;
+  width: 16px;
 
-  height: 12px;
+  height: 16px;
 
   fill: none;
 
   stroke:
-    var(--qrmo-gold);
+    rgba(201, 168, 76, .82);
 
-  stroke-width: 2.5;
+  stroke-width: 2;
 
   stroke-linecap: round;
 
