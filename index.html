@@ -11555,13 +11555,21 @@
   color:var(--qmt-dark);
 
   font-family:
+    "Source Sans 3",
+    -apple-system,
+    BlinkMacSystemFont,
     "Segoe UI",
-    Roboto,
-    Helvetica,
     Arial,
     sans-serif;
 
   overflow:visible;
+
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
 }
 
 .qrmo-tables-v5 *,
@@ -11629,27 +11637,40 @@
     12px
     0
     16px;
+
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
+}
+
+.qrmo-home-mod-zone #qrmo-home-masa.qrmo-home-anchor{
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
 }
 
 .qrmo-tables-v5__flow{
   width:100%;
   max-width:540px;
   margin:
-    16px
+    14px
     0
     0;
-  padding:
-    10px
-    12px;
-  border-radius:10px;
-  border:1px solid rgba(201,168,76,.22);
-  background:rgba(13,43,34,.04);
-  color:rgba(13,43,34,.78);
-  font-size:12.5px;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:rgba(13,43,34,.56);
+  font-size:12px;
   line-height:1.45;
   font-weight:600;
-  letter-spacing:.02em;
-  text-align:center;
+  letter-spacing:.04em;
+  text-align:left;
 }
 
 
@@ -11675,8 +11696,8 @@
   border:1px solid rgba(201,168,76,.15);
 
   box-shadow:
-    0 4px 10px rgba(13,43,34,.08),
-    0 28px 55px rgba(13,43,34,.17);
+    0 24px 55px rgba(0,0,0,.20),
+    0 6px 20px rgba(13,43,34,.10);
 
   overflow:hidden;
 }
@@ -12906,37 +12927,38 @@
 
   align-items:center;
 
-  gap:12px;
+  gap:10px;
 
   margin:
     0
     0
-    18px;
+    12px;
+}
 
-  color:var(--qmt-gold);
+.qrmo-tables-v5__eyebrow > span{
 
-  font-size:12px;
+  display:block;
+
+  width:18px;
+  height:1px;
+
+  flex:0 0 auto;
+
+  background:rgba(201,168,76,.55);
+}
+
+.qrmo-tables-v5__eyebrow strong{
+
+  color:rgba(13,43,34,.56);
+
+  font-size:11px;
   line-height:1.2;
 
   font-weight:700;
 
-  letter-spacing:.14em;
+  letter-spacing:.2em;
 
   text-transform:uppercase;
-}
-
-.qrmo-tables-v5__eyebrow::before{
-
-  content:"";
-
-  width:32px;
-  height:2px;
-
-  flex:0 0 32px;
-
-  border-radius:2px;
-
-  background:var(--qmt-gold);
 }
 
 
@@ -12980,7 +13002,7 @@
   margin:
     0
     0
-    27px;
+    22px;
 
   color:var(--qmt-muted);
 
@@ -13007,13 +13029,13 @@
   margin:
     0
     0
-    26px;
+    18px;
 
   padding:0;
 
   display:grid;
 
-  gap:17px;
+  gap:16px;
 }
 
 .qrmo-tables-v5__benefit{
@@ -13021,10 +13043,10 @@
   display:grid;
 
   grid-template-columns:
-    26px
+    18px
     minmax(0,1fr);
 
-  gap:12px;
+  column-gap:10px;
 
   align-items:start;
 
@@ -13034,31 +13056,33 @@
 
 .qrmo-tables-v5__check{
 
-  width:24px;
-  height:24px;
+  width:18px;
+  height:18px;
 
   display:flex;
 
   align-items:center;
   justify-content:center;
 
-  margin-top:1px;
+  margin-top:2px;
 
-  border-radius:50%;
+  border-radius:0;
 
-  background:rgba(201,168,76,.20);
+  background:none;
+
+  box-shadow:none;
 }
 
 .qrmo-tables-v5__check svg{
 
-  width:13px;
-  height:13px;
+  width:16px;
+  height:16px;
 
   fill:none;
 
-  stroke:var(--qmt-gold);
+  stroke:rgba(201,168,76,.82);
 
-  stroke-width:3;
+  stroke-width:2;
 
   stroke-linecap:round;
   stroke-linejoin:round;
@@ -13095,6 +13119,12 @@
   line-height:1.5;
 
   font-weight:400;
+}
+
+
+.qrmo-tables-v5__more{
+
+  margin:0;
 }
 
 
@@ -13400,7 +13430,7 @@
 
     padding:0;
 
-    overflow:hidden;
+    overflow:visible;
   }
 
   /*
@@ -13441,9 +13471,9 @@
     margin:0;
 
     padding:
-      52px
+      40px
       20px
-      20px;
+      18px;
 
     align-items:flex-start;
   }
@@ -13473,6 +13503,8 @@
 
     margin-left:auto;
     margin-right:auto;
+
+    text-align:center;
   }
 
   .qrmo-tables-v5__benefits{
@@ -13488,7 +13520,24 @@
     padding:
       8px
       20px
-      52px;
+      36px;
+  }
+
+
+  .qrmo-tables-v5__more{
+
+    order:4;
+
+    width:100%;
+
+    max-width:none;
+
+    margin:0;
+
+    padding:
+      0
+      20px
+      48px;
   }
 
 
@@ -13500,16 +13549,12 @@
 
     margin-bottom:12px;
 
-    font-size:10px;
-
-    gap:9px;
+    gap:10px;
   }
 
-  .qrmo-tables-v5__eyebrow::before{
+  .qrmo-tables-v5__eyebrow > span{
 
-    width:25px;
-
-    flex-basis:25px;
+    width:18px;
   }
 
   .qrmo-tables-v5__title{
@@ -13547,22 +13592,22 @@
   .qrmo-tables-v5__benefit{
 
     grid-template-columns:
-      22px
+      18px
       minmax(0,1fr);
 
-    gap:10px;
+    column-gap:10px;
   }
 
   .qrmo-tables-v5__check{
 
-    width:21px;
-    height:21px;
+    width:18px;
+    height:18px;
   }
 
   .qrmo-tables-v5__check svg{
 
-    width:11px;
-    height:11px;
+    width:16px;
+    height:16px;
   }
 
   .qrmo-tables-v5__benefit-title{
@@ -13866,6 +13911,9 @@
     padding-right:16px;
   }
 
+  .qrmo-tables-v5__intro,
+  .qrmo-tables-v5__benefits,
+  .qrmo-tables-v5__more,
   .qrmo-tables-v5__demo{
 
     padding-left:16px;
@@ -13973,7 +14021,8 @@
 
   .qrmo-tables-v5__intro,
   .qrmo-tables-v5__demo,
-  .qrmo-tables-v5__benefits{
+  .qrmo-tables-v5__benefits,
+  .qrmo-tables-v5__more{
     padding-left:16px;
     padding-right:16px;
   }
@@ -13989,6 +14038,10 @@
 
   .qrmo-tables-v5__title,
   .qrmo-tables-v5__description{
+    text-align:center;
+  }
+
+  .qrmo-tables-v5__more{
     text-align:center;
   }
 
@@ -14386,7 +14439,7 @@
     </div>
 
     <p class="qrmo-tables-v5__flow" aria-hidden="true">
-      Masa → QR → Müşteri → Talep → Servis Paneli
+      Toplu oluştur → 10 masa → QR → PNG / PDF
     </p>
 
   </div>
@@ -14401,7 +14454,8 @@
   <div class="qrmo-tables-v5__intro">
 
     <span class="qrmo-tables-v5__eyebrow">
-      02 · QR MASA
+      <span></span>
+      <strong>02 · QR MASA</strong>
     </span>
 
 
@@ -14409,17 +14463,15 @@
       class="qrmo-tables-v5__title"
       id="qrmo-tables-v5-title"
     >
-      Her Masanın Kendi QR'ı, Her Talep Masa Bilgisiyle
+      Her Masanın Kendi QR'ı,<br>
+      Sistem Masayı Bilir
     </h2>
 
 
     <p class="qrmo-tables-v5__description">
-      Masaları tek tek veya toplu oluşturun; QR kodlarını PNG veya PDF olarak yazdırın.
-      Müşteri masadaki QR ile menüyü açar, ilettiği talepler kayıtlı masa bilgisiyle eşleşir.
-    </p>
-
-    <p>
-      <a class="qrmo-home-module-link" href="moduller/qr-masa/">Nasıl çalışır →</a>
+      Her masayı ayrı QR ile tanımlayın; müşteri hangi masadaysa
+      sistem bunu bilir. Masaları tek tek veya toplu açın, kodları
+      PNG ya da PDF yazdırın.
     </p>
 
   </div>
@@ -14453,7 +14505,7 @@
           </span>
 
           <span class="qrmo-tables-v5__benefit-desc">
-            Her masa için ayrı QR hedefi oluşturulur; müşterinin hangi masada olduğu menü oturumunda taşınır.
+            Müşteri hangi masadaysa sistem bunu bilir.
           </span>
 
         </span>
@@ -14486,7 +14538,7 @@
           </span>
 
           <span class="qrmo-tables-v5__benefit-desc">
-            Masa adını güncellediğinizde QR kodun hedef adresi aynı kalır; basılı QR'ı yeniden basmanız gerekmez.
+            Basılı kodu yeniden basmanız gerekmez.
           </span>
 
         </span>
@@ -14519,7 +14571,7 @@
           </span>
 
           <span class="qrmo-tables-v5__benefit-desc">
-            Numaralı masaları tek işlemde açın; QR kodlarını PNG veya PDF olarak indirip yazdırmaya hazırlayın.
+            Numaralı masaları tek işlemde açın, yazdırmaya hazır indirin.
           </span>
 
         </span>
@@ -14528,6 +14580,10 @@
 
 
     </ul>
+
+    <p class="qrmo-tables-v5__more">
+      <a class="qrmo-home-module-link" href="moduller/qr-masa/">Nasıl çalışır →</a>
+    </p>
 
   </div>
 
