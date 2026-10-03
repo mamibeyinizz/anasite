@@ -1,9 +1,7 @@
-/* Hero CTA hiyerarşisi — primary placeholder + paketler metin linki */
+/* Hero CTA — tek primary, içerik kolonu genişliğinde */
 .qrmo-hero-v3-cta-group {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px 22px;
+  display: block;
+  width: 100%;
   max-width: 100%;
 }
 
