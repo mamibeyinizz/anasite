@@ -1907,15 +1907,24 @@
   --qt-gold-l:#E8C766;
   --qt-cream:#F4F1E8;
   --qt-muted:#3F4A45;
+  --qt-chrome:calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + var(--qrmo-mod-ctx-h, 42px) + 8px);
 
   box-sizing:border-box;
   width:100%;
-  /* QA: üst 90→24; Section 2 alt boşluğu (96) + ortalama payı ile ~150px geçiş */
-  padding:24px 0 40px;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:var(--qt-chrome) 0 28px;
   font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   color:var(--qt-dark);
   position:relative;
   overflow:visible;
+}
+
+.qrmo-home-mod-zone #qrmo-translation-v3-root.qrmo-home-anchor{
+  scroll-margin-top:var(--qt-chrome);
 }
 
 #qrmo-translation-v3-root *,
@@ -1933,11 +1942,13 @@
 #qrmo-translation-v3-root .qrmo-translation-v3-inner{
   width:90%;
   max-width:none;
-  margin:0 auto;
+  margin-left:5%;
+  margin-right:5%;
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);
   gap:48px;
   align-items:center;
+  flex:0 1 auto;
 }
 
 #qrmo-translation-v3-root .qt-only-mobile{
@@ -2004,32 +2015,20 @@
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefit{
   display:grid;
-  grid-template-columns:18px 1fr;
-  gap:10px;
+  grid-template-columns:8px minmax(0,1fr);
+  column-gap:12px;
   align-items:start;
   margin:0;
   padding:0;
 }
 
-#qrmo-translation-v3-root .qrmo-translation-v3-check{
-  width:18px;
-  height:18px;
-  margin-top:2px;
-  border-radius:0;
-  background:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-#qrmo-translation-v3-root .qrmo-translation-v3-check svg{
-  width:16px;
-  height:16px;
-  stroke:rgba(201,168,76,.82);
-  stroke-width:2;
-  fill:none;
-  stroke-linecap:round;
-  stroke-linejoin:round;
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit::before{
+  content:"";
+  width:6px;
+  height:6px;
+  margin-top:8px;
+  border-radius:1px;
+  background:var(--qt-dark);
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
@@ -2169,7 +2168,7 @@
   justify-content:center;
   align-items:flex-end;
   min-width:0;
-  padding:24px 8px 32px 0;
+  padding:0;
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-phone{
@@ -2715,10 +2714,6 @@
 }
 
 @media (max-width:1099px){
-  #qrmo-translation-v3-root{
-    padding:72px 0 40px;
-  }
-
   #qrmo-translation-v3-root .qrmo-translation-v3-inner{
     grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     gap:32px;
@@ -2737,10 +2732,11 @@
   }
 }
 
-/* QA: 768–900 → Hero / Section 2 ile aynı 20px kenar boşluğu */
 @media (min-width:768px) and (max-width:900px){
   #qrmo-translation-v3-root .qrmo-translation-v3-inner{
-    width:calc(100% - 40px);
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
   }
 }
 
@@ -2753,7 +2749,10 @@
 
   #qrmo-translation-v3-root{
     width:100%;
-    padding:0;
+    min-height:100vh;
+    min-height:100dvh;
+    justify-content:flex-start;
+    padding:var(--qt-chrome) 0 28px;
     overflow:visible;
   }
 
@@ -2772,11 +2771,12 @@
    * DEMO    = 2
    */
   #qrmo-translation-v3-root .qrmo-translation-v3-inner{
-    width:100%;
-    margin:0;
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
     display:flex;
     flex-direction:column;
-    gap:0;
+    gap:20px;
     align-items:stretch;
   }
 
@@ -2788,20 +2788,16 @@
     order:1;
 
     width:100%;
-    /* UX: blok içerik kadar; CTA → demo arasında boş ekran kalmaz */
     height:auto;
     min-height:0;
 
-    padding:
-      16px
-      20px
-      10px;
+    padding:0;
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
+    justify-content:flex-start;
 
-    overflow:hidden;
+    overflow:visible;
     scroll-snap-align:none;
   }
 
@@ -2849,10 +2845,9 @@
     line-height:1.35;
   }
 
-  #qrmo-translation-v3-root .qrmo-translation-v3-content .qrmo-home-module-link{
+  #qrmo-translation-v3-root .qrmo-translation-v3-content .qrmo-translation-v3-cta{
     flex:0 0 auto;
-    margin-top:0;
-    min-height:44px;
+    margin-top:4px;
   }
 
   /* legacy qt-features (kaldırıldı) */
@@ -2952,14 +2947,10 @@
     order:2;
 
     width:100%;
-    /* UX: 100svh ortalaması telefonun üstünde/altında ~140px boşluk bırakıyordu */
     height:auto;
     min-height:0;
 
-    padding:
-      8px
-      20px
-      12px;
+    padding:0;
 
     display:flex;
     flex-direction:column;
@@ -2967,14 +2958,7 @@
     align-items:center;
 
     gap:8px;
-
-    /*
-     * ÖNEMLİ:
-     * overflow:hidden YOK.
-     * Bölümün kendi yüksekliğini bozacak kesme yapılmıyor.
-     */
     overflow:visible;
-
     scroll-snap-align:none;
   }
 
@@ -3004,14 +2988,14 @@
     flex:0 0 auto;
     width:100%;
     max-width:min(316px,100%);
-    max-height:68svh;
+    max-height:none;
     padding:10px;
     border-radius:34px;
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-screen{
-    height:min(58svh,430px);
-    min-height:390px;
+    height:auto;
+    min-height:360px;
     padding:10px 11px 0;
     border-radius:25px;
   }
@@ -3198,9 +3182,9 @@
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-demo{
-    padding-top:12px;
-    padding-bottom:10px;
-    gap:7px;
+    padding-top:4px;
+    padding-bottom:0;
+    gap:8px;
   }
 
   /* QA: sabit ekran yüksekliği 3. ürün kartını ~32px kırpıyordu;
@@ -3273,18 +3257,8 @@
     text-align:center;
   }
 
-  /* Copy → telefon: sıkı editorial ayrım, boş sahne yok */
   #qrmo-translation-v3-root .qrmo-translation-v3-demo{
-    padding-top:12px;
-  }
-}
-
-/* ≤480: Hero / Section 2 ile aynı 16px gutter */
-@media (max-width:480px){
-  #qrmo-translation-v3-root .qrmo-translation-v3-content,
-  #qrmo-translation-v3-root .qrmo-translation-v3-demo{
-    padding-left:16px;
-    padding-right:16px;
+    padding-top:4px;
   }
 }
 
@@ -3332,12 +3306,6 @@
     <ul class="qrmo-translation-v3-benefits">
 
       <li class="qrmo-translation-v3-benefit">
-        <span class="qrmo-translation-v3-check" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <polyline points="4 12 10 18 20 6"/>
-          </svg>
-        </span>
-
         <span>
           <span class="qrmo-translation-v3-benefit-title">
             Yabancı misafir 'bu ne?' diye sormadan seçer
@@ -3350,12 +3318,6 @@
       </li>
 
       <li class="qrmo-translation-v3-benefit">
-        <span class="qrmo-translation-v3-check" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <polyline points="4 12 10 18 20 6"/>
-          </svg>
-        </span>
-
         <span>
           <span class="qrmo-translation-v3-benefit-title">
             Dilleri siz eklersiniz
@@ -3369,9 +3331,13 @@
 
     </ul>
 
-    <p>
-      <a class="qrmo-home-module-link" href="moduller/coklu-dil/">Nasıl çalışır →</a>
-    </p>
+    <a class="qrmo-translation-v3-cta" href="moduller/coklu-dil/">
+      <span class="qrmo-translation-v3-cta-text">Çoklu Dili İncele</span>
+      <svg class="qrmo-translation-v3-cta-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M5 12h14"/>
+        <path d="m13 6 6 6-6 6"/>
+      </svg>
+    </a>
 
 
   </div>
@@ -3855,23 +3821,13 @@
       : 'Çoklu Dil Desteği';
 
 
-  var reduce=
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-
   function init(){
 
     var root=document.getElementById(ROOT_ID);
 
-    if(
-      !root ||
-      root.getAttribute('data-qrmoInit')==='1'
-    ){
+    if(!root || root.getAttribute('data-qrmoInit')==='1'){
       return;
     }
-
-    root.setAttribute('data-qrmoInit','1');
 
 
     var langBox=root.querySelector(
@@ -3921,6 +3877,8 @@
     ){
       return;
     }
+
+    root.setAttribute('data-qrmoInit','1');
 
 
     var claimTitle=root.querySelector(
@@ -4220,6 +4178,7 @@
         running=false;
         played=true;
         resetTransient();
+        applyLang('ar');
         return;
       }
 
@@ -4339,66 +4298,36 @@
 
     function start(){
 
-      if(
-        running ||
-        played ||
-        (
-          reduceMotionMq &&
-          reduceMotionMq.matches
-        )
-      ){
+      if(running || played){
+        return;
+      }
+
+      if(reduceMotionMq && reduceMotionMq.matches){
+        played=true;
+        applyLang('ar');
+        resetTransient();
         return;
       }
 
       running=true;
-
-      later(
-        step,
-        550
-      );
-
-    }
-
-
-    function stop(){
-
-      running=false;
-
-      clearAll();
-
-      resetTransient();
-
-      idx=0;
-
-      langStepsDone=0;
-
-      played=false;
-
       applyLang('tr');
 
+      later(step, 550);
+
     }
 
-
-    /*
-     * MOCKUP ANIMATION VISIBILITY
-     */
 
     function syncDemo(){
 
-      if(
-        reduceMotionMq &&
-        reduceMotionMq.matches
-      ){
+      if(reduceMotionMq && reduceMotionMq.matches){
+        played=true;
+        applyLang('ar');
+        resetTransient();
         return;
       }
 
-      if(
-        inView &&
-        !document.hidden
-      ){
+      if(inView && !document.hidden){
         start();
-      }else{
-        stop();
       }
 
     }
@@ -4424,14 +4353,18 @@
 
     function onReduceMotionChange(){
 
-      if(
-        reduceMotionMq &&
-        reduceMotionMq.matches
-      ){
-        stop();
+      if(reduceMotionMq && reduceMotionMq.matches){
+        running=false;
+        played=true;
+        clearAll();
+        resetTransient();
+        applyLang('ar');
+      }else if(inView){
+        played=false;
+        idx=0;
+        langStepsDone=0;
         applyLang('tr');
-      }else{
-        syncDemo();
+        start();
       }
 
     }
@@ -4465,40 +4398,33 @@
     markActive();
 
 
-    if(
-      reduceMotionMq &&
-      reduceMotionMq.matches
-    ){
+    if(reduceMotionMq && reduceMotionMq.matches){
 
-      applyLang('tr');
+      played=true;
+      applyLang('ar');
 
     }else{
 
-      if(
-        'IntersectionObserver' in window
-      ){
+      if('IntersectionObserver' in window){
 
-        var io=
-          new IntersectionObserver(
-            function(entries){
+        var io=new IntersectionObserver(
+          function(entries){
 
-              inView=
-                entries[0].isIntersecting;
+            inView=entries[0].isIntersecting;
+            scheduleSyncDemo();
 
-              scheduleSyncDemo();
+          },
+          {
+            threshold:[0, 0.08, 0.2],
+            rootMargin:'0px 0px -8% 0px'
+          }
+        );
 
-            },
-            {
-              threshold:.25
-            }
-          );
-
-        io.observe(phone);
+        io.observe(root);
 
       }else{
 
         inView=true;
-
         syncDemo();
 
       }
