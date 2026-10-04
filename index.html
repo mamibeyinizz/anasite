@@ -17,6 +17,39 @@
   <link rel="stylesheet" href="css/home-cta-foundation.css">
   <link rel="stylesheet" href="css/home-context-nav.css">
   <script defer src="js/home-context-nav.js"></script>
+  <link rel="stylesheet" href="css/home-mod-snap-v2.css">
+  <script>
+  (function () {
+    try {
+      var s = new URLSearchParams(location.search).get("snap");
+      if (s === "v2") document.documentElement.classList.add("qrmo-mod-snap-v2");
+      if (s === "off") document.documentElement.classList.remove("qrmo-mod-snap-v2");
+    } catch (e) {}
+  })();
+  </script>
+  <script defer src="js/home-mod-snap-v2.js"></script>
+  <link rel="stylesheet" href="css/home-mod-story-v2.css">
+  <script>
+  (function () {
+    try {
+      var s = new URLSearchParams(location.search).get("story");
+      if (s === "v2") document.documentElement.classList.add("qrmo-mod-story-v2");
+      if (s === "off") document.documentElement.classList.remove("qrmo-mod-story-v2");
+    } catch (e) {}
+  })();
+  </script>
+  <script defer src="js/home-mod-story-v2.js"></script>
+  <link rel="stylesheet" href="css/home-mod-landing-v3.css">
+  <script>
+  (function () {
+    try {
+      var s = new URLSearchParams(location.search).get("landing");
+      if (s === "v3") document.documentElement.classList.add("qrmo-mod-landing-v3");
+      if (s === "off") document.documentElement.classList.remove("qrmo-mod-landing-v3");
+    } catch (e) {}
+  })();
+  </script>
+  <script defer src="js/home-mod-landing-v3.js"></script>
 <!-- QRMO:HEAD:START -->
 <link rel="stylesheet" href="global/dist/qrmo-global.css">
 <script src="global/dist/qrmo-conversion-config.js"></script>

@@ -1,0 +1,20 @@
+/* =========================================================
+   QR MENU OFFICIAL — SECTION LANDING V3 (prototype)
+
+   Isolated. Default homepage is unchanged.
+   Active only when <html> has .qrmo-mod-landing-v3 (?landing=v3).
+
+   JS does the landing. This file does not enable scroll-snap,
+   does not lock overflow, and does not change section heights.
+========================================================= */
+
+html.qrmo-mod-landing-v3 {
+  /* Marker only. Native document scroll stays the scroller.
+     No scroll-snap. No overflow lock. No section height rewrite. */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-landing-v3 {
+    scroll-behavior: auto;
+  }
+}
