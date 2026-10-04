@@ -1915,8 +1915,9 @@
   min-height:100dvh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
-  padding:var(--qt-chrome) 0 28px;
+  justify-content:flex-start;
+  /* Chrome sticky offset is scroll-margin only; do not pad it again. */
+  padding:72px 0 28px;
   font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   color:var(--qt-dark);
   position:relative;
@@ -2752,7 +2753,7 @@
     min-height:100vh;
     min-height:100dvh;
     justify-content:flex-start;
-    padding:var(--qt-chrome) 0 28px;
+    padding:72px 0 28px;
     overflow:visible;
   }
 
