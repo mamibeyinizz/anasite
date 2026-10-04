@@ -1,0 +1,118 @@
+/* =========================================================
+   QR MENU OFFICIAL — MODULE SCROLL STORY V2 (prototype)
+
+   Isolated layer. Default homepage is unchanged.
+   Nothing here applies unless <html> has .qrmo-mod-story-v2.
+
+   Enable:
+     - ?story=v2
+     - or add class "qrmo-mod-story-v2" on <html>
+
+   Disable:
+     - omit the class (default)
+     - or ?story=off
+
+   Scope: S3–S8 copy + mockup columns only.
+   Not in scope: Hero, S2, S9–S12, header, footer, context-nav.
+
+   Behaviour:
+     - native document scroll (no snap, no scrollIntoView, no wheel lock)
+     - no height / 100vh rewrite
+     - no overflow clipping
+     - CSS scroll-driven view() timelines where supported
+     - unsupported browsers keep the current static layout
+     - reduced-motion: no movement
+========================================================= */
+
+html.qrmo-mod-story-v2 {
+  --qrmo-story-copy-y: 12px;
+  --qrmo-story-demo-y: 16px;
+  --qrmo-story-copy-op: 0.9;
+  --qrmo-story-demo-op: 0.88;
+  --qrmo-story-copy-sc: 0.994;
+  --qrmo-story-demo-sc: 0.991;
+}
+
+@media (max-width: 767px) {
+  html.qrmo-mod-story-v2 {
+    --qrmo-story-copy-y: 8px;
+    --qrmo-story-demo-y: 10px;
+    --qrmo-story-copy-op: 0.94;
+    --qrmo-story-demo-op: 0.92;
+    --qrmo-story-copy-sc: 1;
+    --qrmo-story-demo-sc: 0.996;
+  }
+}
+
+@keyframes qrmo-mod-story-v2-copy {
+  from {
+    opacity: var(--qrmo-story-copy-op);
+    transform: translateY(var(--qrmo-story-copy-y)) scale(var(--qrmo-story-copy-sc));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes qrmo-mod-story-v2-demo {
+  from {
+    opacity: var(--qrmo-story-demo-op);
+    transform: translateY(var(--qrmo-story-demo-y)) scale(var(--qrmo-story-demo-sc));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*
+  Per-column view() timelines — NOT section-level “wait until fully visible”.
+  On tall mobile sections the copy settles as its own block enters; the mockup
+  settles later, when it itself reaches the viewport. Content stays readable
+  (from-opacity ≥ .88). After entry the to-state holds (no exit fade).
+*/
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    html.qrmo-mod-story-v2 #qrmo-translation-v3-root .qrmo-translation-v3-content,
+    html.qrmo-mod-story-v2 #qrmo-home-filtre .qrmo-smart-filter-copy,
+    html.qrmo-mod-story-v2 #qrmo-home-asistan .qrmo-chatbot-feature__content,
+    html.qrmo-mod-story-v2 #qrmo-home-masa .qrmo-tables-v5__content,
+    html.qrmo-mod-story-v2 #qrmo-home-servis .qrmo-service-v2__content,
+    html.qrmo-mod-story-v2 #qrmo-home-icgoru .qrmo-analytics-v3__content {
+      animation: qrmo-mod-story-v2-copy linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+
+    html.qrmo-mod-story-v2 #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+    html.qrmo-mod-story-v2 #qrmo-home-filtre .qrmo-real-filter-stage,
+    html.qrmo-mod-story-v2 #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+    html.qrmo-mod-story-v2 #qrmo-home-masa .qrmo-tables-v5__demo,
+    html.qrmo-mod-story-v2 #qrmo-home-servis .qrmo-service-v2__visual,
+    html.qrmo-mod-story-v2 #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+      animation: qrmo-mod-story-v2-demo linear both;
+      animation-timeline: view();
+      animation-range: entry 8% entry 100%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-story-v2 #qrmo-translation-v3-root .qrmo-translation-v3-content,
+  html.qrmo-mod-story-v2 #qrmo-home-filtre .qrmo-smart-filter-copy,
+  html.qrmo-mod-story-v2 #qrmo-home-asistan .qrmo-chatbot-feature__content,
+  html.qrmo-mod-story-v2 #qrmo-home-masa .qrmo-tables-v5__content,
+  html.qrmo-mod-story-v2 #qrmo-home-servis .qrmo-service-v2__content,
+  html.qrmo-mod-story-v2 #qrmo-home-icgoru .qrmo-analytics-v3__content,
+  html.qrmo-mod-story-v2 #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+  html.qrmo-mod-story-v2 #qrmo-home-filtre .qrmo-real-filter-stage,
+  html.qrmo-mod-story-v2 #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+  html.qrmo-mod-story-v2 #qrmo-home-masa .qrmo-tables-v5__demo,
+  html.qrmo-mod-story-v2 #qrmo-home-servis .qrmo-service-v2__visual,
+  html.qrmo-mod-story-v2 #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,132 @@
+/* =========================================================
+   QR MENU OFFICIAL — MODULE SCROLL SNAP V2 (prototype)
+
+   Isolated layer. Default homepage is unchanged.
+   Nothing here applies unless <html> has .qrmo-mod-snap-v2.
+
+   Enable:
+     - ?snap=v2
+     - or add class "qrmo-mod-snap-v2" on <html> (production switch)
+
+   Disable:
+     - omit the class (default)
+     - or ?snap=off
+
+   Scope: S3–S8 module sections only.
+   Not in scope: Hero, S1/S2, S9–S12, header, footer, context-nav.
+
+   Rules:
+     - CSS native scroll-snap only (y proximity, never mandatory)
+     - no height / min-height / 100vh rewrite on S4–S8
+     - no overflow:hidden clipping
+     - existing --qrmo-home-gh-scroll / --qrmo-mod-ctx-h tokens kept
+     - existing section scroll-margin kept (S3 uses internal --qt-chrome)
+========================================================= */
+
+html.qrmo-mod-snap-v2 {
+  scroll-snap-type: y proximity;
+}
+
+html.qrmo-mod-snap-v2 body {
+  /* Viewport is the scroller; body must not become a second snap root. */
+  scroll-snap-type: none;
+}
+
+/* ----- snap targets: module section roots only ----- */
+
+html.qrmo-mod-snap-v2 #qrmo-translation-v3-root,
+html.qrmo-mod-snap-v2 #qrmo-home-filtre,
+html.qrmo-mod-snap-v2 #qrmo-home-asistan,
+html.qrmo-mod-snap-v2 #qrmo-home-masa,
+html.qrmo-mod-snap-v2 #qrmo-home-servis,
+html.qrmo-mod-snap-v2 #qrmo-home-icgoru {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/*
+  S3 is already min-height: 100vh/100dvh with padding-top: var(--qt-chrome).
+  Snapping it with the hash chrome-margin would leave the previous section
+  peeking and crop the 100vh stage. V2 lands S3 at the viewport top; the
+  existing internal chrome padding keeps the title below header + ctx-nav.
+  Hash / context-nav still use scrollIntoView; this override applies only
+  while V2 is on.
+*/
+html.qrmo-mod-snap-v2 .qrmo-home-mod-zone #qrmo-translation-v3-root.qrmo-home-anchor {
+  scroll-margin-top: 0;
+}
+
+/*
+  S4–S8 keep their existing scroll-margin token stack so snap and
+  context-nav land on the same line (header + ctx + 8px).
+  Reinforced here so V2 does not depend on later section CSS order.
+*/
+html.qrmo-mod-snap-v2 #qrmo-home-filtre,
+html.qrmo-mod-snap-v2 #qrmo-home-asistan,
+html.qrmo-mod-snap-v2 #qrmo-home-masa,
+html.qrmo-mod-snap-v2 #qrmo-home-servis,
+html.qrmo-mod-snap-v2 #qrmo-home-icgoru {
+  /* Use --qrmo-mod-ctx-h, not --qrmo-home-ctx-scroll. The live ctx token is
+     written to 0px before the sticky nav exists, and 0px disables the CSS
+     fallback. --qrmo-mod-ctx-h stays 42px on body.qrmo-home-ctx. */
+  scroll-margin-top: calc(
+    var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+    + var(--qrmo-mod-ctx-h, 42px)
+    + 8px
+  );
+}
+
+/* Inner nodes must not become extra snap points (demos, lists, phones). */
+html.qrmo-mod-snap-v2 #qrmo-translation-v3-root *,
+html.qrmo-mod-snap-v2 #qrmo-home-filtre *,
+html.qrmo-mod-snap-v2 #qrmo-home-asistan *,
+html.qrmo-mod-snap-v2 #qrmo-home-masa *,
+html.qrmo-mod-snap-v2 #qrmo-home-servis *,
+html.qrmo-mod-snap-v2 #qrmo-home-icgoru * {
+  scroll-snap-align: none;
+}
+
+/* ----- explicitly out of snap scope ----- */
+
+html.qrmo-mod-snap-v2 .qrmo-gh,
+html.qrmo-mod-snap-v2 .qrmo-hero-v3-wrap,
+html.qrmo-mod-snap-v2 #qrmo-product-map-v1,
+html.qrmo-mod-snap-v2 .qrmo-mod-ctx--home,
+html.qrmo-mod-snap-v2 .qrmo-transition-v1,
+html.qrmo-mod-snap-v2 .qrmo-setup-v1,
+html.qrmo-mod-snap-v2 .qrmo-faq-v1,
+html.qrmo-mod-snap-v2 .qrmo-final-cta-v1,
+html.qrmo-mod-snap-v2 .qrmo-gf {
+  scroll-snap-align: none;
+}
+
+/*
+  Tall sections (content taller than the viewport): JS adds
+  .qrmo-mod-snap-v2--overscan unless ?snaptall=on. Arrival snap is
+  skipped so the user can read through without being pulled back.
+  Desktop S3–S8 currently fit the viewport, so they still snap.
+  Mobile S3–S8 currently exceed 100vh, so they scroll naturally.
+*/
+html.qrmo-mod-snap-v2 #qrmo-translation-v3-root.qrmo-mod-snap-v2--overscan,
+html.qrmo-mod-snap-v2 #qrmo-home-filtre.qrmo-mod-snap-v2--overscan,
+html.qrmo-mod-snap-v2 #qrmo-home-asistan.qrmo-mod-snap-v2--overscan,
+html.qrmo-mod-snap-v2 #qrmo-home-masa.qrmo-mod-snap-v2--overscan,
+html.qrmo-mod-snap-v2 #qrmo-home-servis.qrmo-mod-snap-v2--overscan,
+html.qrmo-mod-snap-v2 #qrmo-home-icgoru.qrmo-mod-snap-v2--overscan {
+  scroll-snap-align: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-snap-v2 {
+    scroll-snap-type: none;
+  }
+
+  html.qrmo-mod-snap-v2 #qrmo-translation-v3-root,
+  html.qrmo-mod-snap-v2 #qrmo-home-filtre,
+  html.qrmo-mod-snap-v2 #qrmo-home-asistan,
+  html.qrmo-mod-snap-v2 #qrmo-home-masa,
+  html.qrmo-mod-snap-v2 #qrmo-home-servis,
+  html.qrmo-mod-snap-v2 #qrmo-home-icgoru {
+    scroll-snap-align: none;
+  }
+}
