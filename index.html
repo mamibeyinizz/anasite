@@ -18867,7 +18867,7 @@
               <strong data-kpi="pc">2.1K</strong>
               <em data-delta="pc" class="is-up">+12%</em>
             </div>
-            <p>Tıklama oranı: %<span data-kpi="conv">26</span></p>
+            <p>Ürün tıklaması / görüntüleme: %<span data-kpi="conv">26</span></p>
           </div>
 
         </div>
@@ -18939,69 +18939,73 @@
 
     <div class="qrmo-analytics-v3__content">
 
+      <div class="qrmo-analytics-v3__intro">
+
       <div class="qrmo-analytics-v3__eyebrow">
         <span aria-hidden="true"></span>
         <strong>04 · İÇGÖRÜ</strong>
       </div>
 
       <h2 id="qrmo-analytics-v3-title" class="qrmo-analytics-v3__title">
-        Veriden karara,<br>
-        maliyetten müşteri sesine
+        Menünüzde Neyin<br>
+        İlgi Gördüğünü Görün
       </h2>
 
       <p class="qrmo-analytics-v3__lead">
-        Plus katmanı, menü ve servis akışının ürettiği veriyi işletme kararlarıyla buluşturur.
+        Hangi ürünler bakılıyor, ilgi ne zaman artıyor, menüde neyi
+        öne çıkarabileceğinizi görürsünüz.
       </p>
 
       <p class="qrmo-analytics-v3__description">
-        Soldaki örnek, hangi ürünün ne zaman ilgi gördüğünü gösterir. QR menü verisidir; kasa/POS verisi değildir.
+        QR menü verisidir; kasa/POS verisi değildir.
       </p>
 
-      <p>
-        <a class="qrmo-home-module-link" href="moduller/qr-analytics/">Nasıl çalışır →</a>
-      </p>
+      </div>
 
 
       <!-- =================================================
-           PLUS — VERİ → KARAR → KÂR → MÜŞTERİ SESİ
+           PLUS — VERİ → KARAR; kâr ve müşteri sesi destek
       ================================================== -->
 
       <div class="qrmo-analytics-v3__pillars">
 
         <article class="qrmo-analytics-v3__pillar" id="qrmo-home-analytics">
           <p class="qrmo-analytics-v3__pillar-kicker">Veri</p>
-          <h3 class="qrmo-analytics-v3__pillar-title">QR Analytics — Ne oluyor?</h3>
+          <h3 class="qrmo-analytics-v3__pillar-title">QR Analytics</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Menü görüntüleme ve ürün tıklamalarını izlersiniz; en çok ilgi görenleri ve günün saatlerini görürsünüz.
-            QR menü verisidir, kasa verisi değildir.
+            Menü görüntüleme ve ürün tıklamasını izleyin; en çok ilgi görenleri ve saatleri görün.
           </p>
         </article>
 
         <article class="qrmo-analytics-v3__pillar" id="qrmo-home-menu-muhendisligi">
           <p class="qrmo-analytics-v3__pillar-kicker">Karar</p>
-          <h3 class="qrmo-analytics-v3__pillar-title">Menü Mühendisliği — Ne öne çıkmalı?</h3>
+          <h3 class="qrmo-analytics-v3__pillar-title">Menü Mühendisliği</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Tıklama ve satış payına göre hangi ürünün öne çıkarılacağını netleştirir; maliyet girilmeyen ürünler matrise alınmaz.
+            İlgi ve satış payına göre hangi ürünün öne çıkacağını netleştirir.
           </p>
         </article>
 
-        <article class="qrmo-analytics-v3__pillar" id="qrmo-home-maliyet">
+        <article class="qrmo-analytics-v3__pillar is-support" id="qrmo-home-maliyet">
           <p class="qrmo-analytics-v3__pillar-kicker">Kâr</p>
-          <h3 class="qrmo-analytics-v3__pillar-title">Maliyet &amp; Reçete — Ne kazandırıyor?</h3>
+          <h3 class="qrmo-analytics-v3__pillar-title">Maliyet &amp; Reçete</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Reçete maliyetinizi tanımlarsınız; satışlarla birleşince ürün başına kalan tutarı görürsünüz. Maliyet verisini siz girersiniz.
+            Maliyeti siz girersiniz; satışla birleşince ürün başına kalan tutarı görürsünüz.
           </p>
         </article>
 
-        <article class="qrmo-analytics-v3__pillar" id="qrmo-home-geri-bildirim">
+        <article class="qrmo-analytics-v3__pillar is-support" id="qrmo-home-geri-bildirim">
           <p class="qrmo-analytics-v3__pillar-kicker">Müşteri sesi</p>
-          <h3 class="qrmo-analytics-v3__pillar-title">Geri Bildirim — Müşteri ne diyor?</h3>
+          <h3 class="qrmo-analytics-v3__pillar-title">Geri Bildirim</h3>
           <p class="qrmo-analytics-v3__pillar-text">
-            Müşteri puan ve yorumlarını panelde toplar; olumlu ve olumsuz kayıtları siz yayınlarsınız. Google yorumları burada değildir.
+            Puan ve yorumları panelde toplayın; yayını siz yönetirsiniz.
           </p>
         </article>
 
       </div>
+
+      <p class="qrmo-analytics-v3__more">
+        <a class="qrmo-home-module-link" href="moduller/qr-analytics/">Nasıl çalışır →</a>
+      </p>
 
 
 
@@ -19035,8 +19039,14 @@
   padding: 70px 0 50px;
   background: transparent !important;
   position: relative;
-  overflow: clip;
+  overflow: visible;
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
 }
 
 .qrmo-analytics-v3 *,
@@ -19056,7 +19066,7 @@
   margin-right: 5%;
   display: grid;
   grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   column-gap: clamp(55px, 7vw, 120px);
 }
 
@@ -19066,6 +19076,21 @@
   display: flex;
   justify-content: flex-start;
   align-self: start;
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
+}
+
+.qrmo-home-mod-zone #qrmo-home-icgoru.qrmo-home-anchor {
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
 }
 
 
@@ -19082,7 +19107,7 @@
   border-radius: 18px;
   background: #080A09;
   color: #F4F1E8;
-  box-shadow: 0 25px 65px rgba(0,0,0,.18), 0 8px 25px rgba(13,43,34,.09);
+  box-shadow: 0 24px 55px rgba(0,0,0,.20), 0 6px 20px rgba(13,43,34,.10);
   user-select: none;
   touch-action: pan-y;
   overscroll-behavior: auto;
@@ -19520,23 +19545,25 @@
 .qrmo-analytics-v3__eyebrow {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 19px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .qrmo-analytics-v3__eyebrow > span {
-  width: 30px;
-  height: 2px;
+  display: block;
+  width: 18px;
+  height: 1px;
   flex: 0 0 auto;
-  background: var(--qa-gold);
+  background: rgba(201, 168, 76, .55);
 }
 
 .qrmo-analytics-v3__eyebrow strong {
-  color: var(--qa-gold);
+  color: rgba(13, 43, 34, .56);
   font-size: 11px;
-  letter-spacing: 1.35px;
-  line-height: 1;
-  font-weight: 750;
+  letter-spacing: .2em;
+  line-height: 1.2;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .qrmo-analytics-v3__title {
@@ -19544,39 +19571,38 @@
   margin: 0;
   padding: 0;
   color: var(--qa-green);
-  font-size: clamp(42px, 4.3vw, 59px);
-  line-height: .97;
-  letter-spacing: -2.15px;
+  font-size: clamp(42px, 4vw, 57px);
+  line-height: .98;
+  letter-spacing: -2.1px;
   font-weight: 800;
 }
 
 .qrmo-analytics-v3__lead {
   max-width: 650px;
-  margin: 24px 0 0;
-  color: #3F4741;
-  font-size: clamp(16px, 1.2vw, 18px);
-  line-height: 1.55;
-  font-weight: 500;
+  margin: 22px 0 0;
+  color: #4F514D;
+  font-size: 17px;
+  line-height: 1.62;
 }
 
 .qrmo-analytics-v3__description {
   max-width: 640px;
-  margin: 13px 0 0;
-  color: #747A72;
-  font-size: 14px;
-  line-height: 1.62;
+  margin: 12px 0 0;
+  color: rgba(13, 43, 34, .56);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .qrmo-analytics-v3__pillars {
-  margin-top: 28px;
+  margin-top: 22px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .qrmo-analytics-v3__pillar {
-  padding: 14px 0 16px;
-  border-top: 1px solid rgba(13, 43, 34, .1);
+  padding: 10px 0 0;
+  border-top: 1px solid rgba(13, 43, 34, .08);
 }
 
 .qrmo-analytics-v3__pillar:first-child {
@@ -19585,28 +19611,41 @@
 }
 
 .qrmo-analytics-v3__pillar-kicker {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--qa-gold);
+  color: rgba(13, 43, 34, .56);
 }
 
 .qrmo-analytics-v3__pillar-title {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   color: var(--qa-green);
   font-size: 15px;
   line-height: 1.3;
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .qrmo-analytics-v3__pillar-text {
   margin: 0;
   max-width: 580px;
-  color: #747A72;
+  color: #62645F;
   font-size: 13px;
-  line-height: 1.55;
+  line-height: 1.5;
+}
+
+.qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-text {
+  font-size: 12.5px;
+}
+
+.qrmo-analytics-v3__more {
+  margin: 18px 0 0;
 }
 
 
@@ -19750,14 +19789,30 @@
   }
 
   .qrmo-analytics-v3__content {
+    display: contents;
+  }
+
+  .qrmo-analytics-v3__intro {
     order: 1;
-    max-width: none;
-    justify-self: auto;
+    width: 100%;
   }
 
   .qrmo-analytics-v3__visual {
     order: 2;
     justify-content: center;
+  }
+
+  .qrmo-analytics-v3__pillars {
+    order: 3;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .qrmo-analytics-v3__more {
+    order: 4;
+    width: 100%;
+    margin: 0;
+    text-align: center;
   }
 
   .qrmo-analytics-v3__dashboard {
@@ -19780,6 +19835,13 @@
     text-align: center;
   }
 
+  .qrmo-analytics-v3__lead,
+  .qrmo-analytics-v3__description {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
   .qrmo-analytics-v3__lead {
     margin-top: 20px;
   }
@@ -19798,16 +19860,16 @@
   }
 
   .qrmo-analytics-v3__eyebrow {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .qrmo-analytics-v3__eyebrow > span {
-    width: 24px;
+    width: 18px;
   }
 
   .qrmo-analytics-v3__eyebrow strong {
-    font-size: 8.5px;
-    letter-spacing: .9px;
+    font-size: 11px;
+    letter-spacing: .2em;
   }
 
   .qrmo-analytics-v3__title {
@@ -19829,8 +19891,8 @@
   }
 
   .qrmo-analytics-v3__pillars {
-    margin-top: 22px;
-    gap: 12px;
+    margin-top: 0;
+    gap: 10px;
   }
 
   .qrmo-analytics-v3__pillar-title {
@@ -19892,7 +19954,11 @@
   }
 
   .qrmo-analytics-v3__period span {
-    font-size: 10px;
+    font-size: 8.5px;
+  }
+
+  .qrmo-analytics-v3__xlabels span {
+    font-size: 8px;
   }
 
   .qrmo-analytics-v3__kpi {
