@@ -50,6 +50,17 @@
   })();
   </script>
   <script defer src="js/home-mod-landing-v3.js"></script>
+  <link rel="stylesheet" href="css/home-mod-scrollfx-v1.css">
+  <script>
+  (function () {
+    try {
+      var s = new URLSearchParams(location.search).get("scrollfx");
+      if (s === "v1") document.documentElement.classList.add("qrmo-mod-scrollfx-v1");
+      if (s === "off") document.documentElement.classList.remove("qrmo-mod-scrollfx-v1");
+    } catch (e) {}
+  })();
+  </script>
+  <script defer src="js/home-mod-scrollfx-v1.js"></script>
 <!-- QRMO:HEAD:START -->
 <link rel="stylesheet" href="global/dist/qrmo-global.css">
 <script src="global/dist/qrmo-conversion-config.js"></script>

@@ -1,0 +1,134 @@
+/* =========================================================
+   QR MENU OFFICIAL — MOBILE SCROLL FX (isolated prototype, V2 tokens)
+
+   Default homepage unchanged. Active only when <html> has
+   .qrmo-mod-scrollfx-v1 (?scrollfx=v1). Disable: ?scrollfx=off
+
+   Scope: S3–S8 inner copy + demo columns only.
+   Not in scope: Hero, S2, S9–S12, header, footer, context-nav,
+   Landing V3 micro-settle, snap/story modules.
+
+   Native document scroll only — no snap, lock, scrollTop writes,
+   scrollIntoView, or height rewrite.
+========================================================= */
+
+html.qrmo-mod-scrollfx-v1 {
+  --qrmo-sfx-copy-y: 11px;
+  --qrmo-sfx-demo-y: 16px;
+  --qrmo-sfx-copy-op: 0.93;
+  --qrmo-sfx-demo-op: 0.9;
+  --qrmo-sfx-demo-sc: 0.992;
+}
+
+@media (max-width: 767px) {
+  html.qrmo-mod-scrollfx-v1 {
+    --qrmo-sfx-copy-y: 8px;
+    --qrmo-sfx-demo-y: 11px;
+    --qrmo-sfx-copy-op: 0.96;
+    --qrmo-sfx-demo-op: 0.94;
+    --qrmo-sfx-demo-sc: 0.996;
+  }
+}
+
+@keyframes qrmo-mod-scrollfx-v1-copy {
+  from {
+    opacity: var(--qrmo-sfx-copy-op);
+    transform: translate3d(0, var(--qrmo-sfx-copy-y), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes qrmo-mod-scrollfx-v1-demo {
+  from {
+    opacity: var(--qrmo-sfx-demo-op);
+    transform: translate3d(0, var(--qrmo-sfx-demo-y), 0)
+      scale(var(--qrmo-sfx-demo-sc));
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/*
+  Per-column view() timelines (not whole-section). Tall sections keep
+  native height; blocks settle as they enter, then hold final state.
+*/
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-translation-v3-root
+      .qrmo-translation-v3-content,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-filtre
+      .qrmo-smart-filter-copy,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-asistan
+      .qrmo-chatbot-feature__content,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-masa
+      .qrmo-tables-v5__content,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-servis
+      .qrmo-service-v2__content,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-icgoru
+      .qrmo-analytics-v3__content {
+      animation: qrmo-mod-scrollfx-v1-copy linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 32%;
+    }
+
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-translation-v3-root
+      .qrmo-translation-v3-demo,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-filtre
+      .qrmo-real-filter-stage,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-asistan
+      .qrmo-chatbot-feature__demo,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-masa
+      .qrmo-tables-v5__demo,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-servis
+      .qrmo-service-v2__visual,
+    html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--view
+      #qrmo-home-icgoru
+      .qrmo-analytics-v3__visual {
+      animation: qrmo-mod-scrollfx-v1-demo linear both;
+      animation-timeline: view();
+      animation-range: entry 6% cover 38%;
+    }
+  }
+}
+
+/* JS scroll-linked fallback (no CSS transitions — follows finger) */
+html.qrmo-mod-scrollfx-v1.qrmo-mod-scrollfx-v1--js [data-qrmo-sfx-layer] {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-scrollfx-v1 #qrmo-translation-v3-root .qrmo-translation-v3-content,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-filtre .qrmo-smart-filter-copy,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-asistan .qrmo-chatbot-feature__content,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-masa .qrmo-tables-v5__content,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-servis .qrmo-service-v2__content,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-icgoru .qrmo-analytics-v3__content,
+  html.qrmo-mod-scrollfx-v1 #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-filtre .qrmo-real-filter-stage,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-masa .qrmo-tables-v5__demo,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-servis .qrmo-service-v2__visual,
+  html.qrmo-mod-scrollfx-v1 #qrmo-home-icgoru .qrmo-analytics-v3__visual,
+  html.qrmo-mod-scrollfx-v1 [data-qrmo-sfx-layer] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+}
