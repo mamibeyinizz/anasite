@@ -15434,6 +15434,8 @@
 
     <div class="qrmo-service-v2__content">
 
+      <div class="qrmo-service-v2__intro">
+
       <div class="qrmo-service-v2__eyebrow">
         <span aria-hidden="true"></span>
         <strong>03 · SERVİS</strong>
@@ -15444,20 +15446,23 @@
         id="qrmo-service-v2-title"
         class="qrmo-service-v2__title"
       >
-        Garson, hesap ve salon<br>
-        tek servis panelinde
+        Masadan Gelen Talep<br>
+        Ekip Panelden Yönetir
       </h2>
 
 
       <p class="qrmo-service-v2__lead">
-        Garson çağrısı ve hesap isteği masa bilgisiyle servis paneline düşer;
-        ekip talepleri bu ekrandan izler.
+        Müşteri garson beklemeden çağırır, hesap ister veya sipariş
+        gönderir. Talepler masa adıyla servis paneline düşer.
       </p>
 
 
       <p class="qrmo-service-v2__description">
-        Servis Paneli sesli uyarı ve masaüstü bildirimle yeni talebi duyurur.
+        Ekip kaydı Bekliyor’dan ilerletir; yeni talep sesli uyarı
+        ve tarayıcı bildirimiyle duyurulabilir.
       </p>
+
+      </div>
 
 
       <!-- =================================================
@@ -15473,20 +15478,18 @@
             aria-hidden="true"
           >
             <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="8.5"/>
-              <path d="M8 12h8"/>
-              <path d="M12 8v8"/>
+              <polyline points="4 12 10 18 20 6"></polyline>
             </svg>
           </div>
 
           <div class="qrmo-service-v2__feature-copy">
 
             <strong>
-              Müşteri masadan kalkmadan çağırır
+              Garson çağır
             </strong>
 
             <p>
-              Menüden garson çağrısı gönderir; talep masa bilgisiyle servis paneline düşer.
+              Menüden tek dokunuş; talep masa adıyla panele düşer.
             </p>
 
           </div>
@@ -15501,23 +15504,18 @@
             aria-hidden="true"
           >
             <svg viewBox="0 0 24 24">
-              <rect x="4" y="6" width="16" height="14" rx="2"/>
-              <path d="M8 3v3"/>
-              <path d="M16 3v3"/>
-              <path d="M7 10h10"/>
-              <path d="M8 14h3"/>
-              <path d="M13 14h3"/>
+              <polyline points="4 12 10 18 20 6"></polyline>
             </svg>
           </div>
 
           <div class="qrmo-service-v2__feature-copy">
 
             <strong>
-              Hesap isteği hangi masadan geldiğiyle gelir
+              Hesap iste
             </strong>
 
             <p>
-              Hesap talebi masa adı ve numarasıyla servis panelinde görünür.
+              İstek hangi masadan geldiğiyle görünür.
             </p>
 
           </div>
@@ -15527,19 +15525,21 @@
         <div class="qrmo-service-v2__feature">
 
           <div class="qrmo-service-v2__feature-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10"/><path d="M7 12h6"/></svg>
+            <svg viewBox="0 0 24 24">
+              <polyline points="4 12 10 18 20 6"></polyline>
+            </svg>
           </div>
 
           <div class="qrmo-service-v2__feature-copy">
-            <strong>Tüm talepler tek ekranda, sesli uyarıyla.</strong>
-            <p>Garson, hesap ve salon talepleri tek akışta listelenir; yeni kayıt ses ve bildirimle duyulur.</p>
+            <strong>Servis paneli</strong>
+            <p>Garson, hesap ve sipariş aynı akışta; ekip durumu günceller.</p>
           </div>
 
         </div>
 
       </div>
 
-      <p>
+      <p class="qrmo-service-v2__more">
         <a class="qrmo-home-module-link" href="moduller/servis-paneli/">Nasıl çalışır →</a>
       </p>
 
@@ -15849,7 +15849,14 @@
     Arial,
     sans-serif;
 
-  overflow: hidden;
+  overflow: visible;
+
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
 
 }
 
@@ -15911,29 +15918,44 @@
 }
 
 
+.qrmo-home-mod-zone #qrmo-home-servis.qrmo-home-anchor,
+.qrmo-service-v2__visual {
+
+  scroll-margin-top:
+    calc(
+      var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px))
+      + var(--qrmo-mod-ctx-h, 42px)
+      + 8px
+    );
+
+}
+
+
 .qrmo-service-v2__eyebrow {
 
   display: flex;
 
   align-items: center;
 
-  gap: 12px;
+  gap: 10px;
 
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 
 }
 
 
 .qrmo-service-v2__eyebrow > span {
 
-  width: 30px;
+  display: block;
 
-  height: 2px;
+  width: 18px;
+
+  height: 1px;
 
   flex: 0 0 auto;
 
   background:
-    var(--qsv-gold);
+    rgba(201, 168, 76, .55);
 
 }
 
@@ -15941,15 +15963,17 @@
 .qrmo-service-v2__eyebrow strong {
 
   color:
-    var(--qsv-gold);
+    rgba(13, 43, 34, .56);
 
   font-size: 11px;
 
-  line-height: 1;
+  line-height: 1.2;
 
-  letter-spacing: 1.45px;
+  letter-spacing: .2em;
 
   font-weight: 700;
+
+  text-transform: uppercase;
 
 }
 
@@ -16054,10 +16078,10 @@
   display: grid;
 
   grid-template-columns:
-    36px
+    18px
     minmax(0, 1fr);
 
-  gap: 11px;
+  column-gap: 10px;
 
   align-items: start;
 
@@ -16066,39 +16090,37 @@
 
 .qrmo-service-v2__feature-icon {
 
-  width: 36px;
-  height: 36px;
+  width: 18px;
+  height: 18px;
+
+  margin-top: 2px;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  border-radius: 10px;
+  border-radius: 0;
 
-  background:
-    var(--qsv-green);
+  background: none;
 
-  color:
-    var(--qsv-gold);
+  color: inherit;
 
-  box-shadow:
-    0 6px 14px
-    rgba(13,43,34,.12);
+  box-shadow: none;
 
 }
 
 
 .qrmo-service-v2__feature-icon svg {
 
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
 
   fill: none;
 
-  stroke: currentColor;
+  stroke: rgba(201, 168, 76, .82);
 
-  stroke-width: 1.7;
+  stroke-width: 2;
 
   stroke-linecap: round;
 
@@ -16143,6 +16165,14 @@
 
   line-height:
     1.45;
+
+}
+
+
+.qrmo-service-v2__more {
+
+  margin:
+    22px 0 0;
 
 }
 
@@ -16328,9 +16358,9 @@
     #F4F1E8;
 
   box-shadow:
-    0 25px 60px
-    rgba(0,0,0,.19),
-    0 7px 20px
+    0 24px 55px
+    rgba(0,0,0,.20),
+    0 6px 20px
     rgba(13,43,34,.10);
 
   user-select:
@@ -17837,11 +17867,19 @@
 
   .qrmo-service-v2__content {
 
+    display:
+      contents;
+
+  }
+
+
+  .qrmo-service-v2__intro {
+
     order:
       1;
 
-    max-width:
-      none;
+    width:
+      100%;
 
   }
 
@@ -17853,6 +17891,37 @@
 
     justify-content:
       center;
+
+  }
+
+
+  .qrmo-service-v2__features {
+
+    order:
+      3;
+
+    width:
+      100%;
+
+    margin-top:
+      0;
+
+    gap:
+      14px;
+
+  }
+
+
+  .qrmo-service-v2__more {
+
+    order:
+      4;
+
+    width:
+      100%;
+
+    margin:
+      0;
 
   }
 
@@ -17889,17 +17958,6 @@
 
     font-size:
       13px;
-
-  }
-
-
-  .qrmo-service-v2__features {
-
-    margin-top:
-      25px;
-
-    gap:
-      14px;
 
   }
 
@@ -17948,6 +18006,14 @@
 
   }
 
+
+  .qrmo-service-v2__more {
+
+    text-align:
+      center;
+
+  }
+
 }
 
 
@@ -17968,7 +18034,7 @@
   .qrmo-service-v2__eyebrow {
 
     margin-bottom:
-      16px;
+      12px;
 
   }
 
@@ -17976,7 +18042,7 @@
   .qrmo-service-v2__eyebrow > span {
 
     width:
-      24px;
+      18px;
 
   }
 
@@ -17984,10 +18050,10 @@
   .qrmo-service-v2__eyebrow strong {
 
     font-size:
-      8.5px;
+      11px;
 
     letter-spacing:
-      .9px;
+      .2em;
 
   }
 
