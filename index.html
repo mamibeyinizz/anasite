@@ -39,6 +39,17 @@
   })();
   </script>
   <script defer src="js/home-mod-story-v2.js"></script>
+  <link rel="stylesheet" href="css/home-mod-story-v3.css">
+  <script>
+  (function () {
+    try {
+      var s = new URLSearchParams(location.search).get("story");
+      if (s === "v3") document.documentElement.classList.add("qrmo-mod-story-v3");
+      if (s === "off") document.documentElement.classList.remove("qrmo-mod-story-v3");
+    } catch (e) {}
+  })();
+  </script>
+  <script defer src="js/home-mod-story-v3.js"></script>
   <link rel="stylesheet" href="css/home-mod-landing-v3.css">
   <script>
   (function () {
