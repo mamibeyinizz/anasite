@@ -6,6 +6,7 @@
      ?storydebug=1   HUD (prototype only)
 */
 (function () {
+  if (document.documentElement.classList.contains("qrmo-mod-story-v4")) return;
   var IDS = [
     "qrmo-translation-v3-root",
     "qrmo-home-filtre",

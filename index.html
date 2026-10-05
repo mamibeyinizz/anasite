@@ -72,6 +72,21 @@
   })();
   </script>
   <script defer src="js/home-mod-scrollfx-v1.js"></script>
+  <script>
+  (function () {
+    var html = document.documentElement;
+    try {
+      if (new URLSearchParams(location.search).get("story") === "off") return;
+    } catch (e) {}
+    html.classList.add("qrmo-mod-story-v4");
+    html.classList.remove("qrmo-mod-story-v2");
+    html.classList.remove("qrmo-mod-story-v3");
+    html.classList.remove("qrmo-mod-landing-v3");
+    html.classList.remove("qrmo-mod-snap-v2");
+    html.classList.remove("qrmo-mod-scrollfx-v1");
+  })();
+  </script>
+  <script defer src="js/home-mod-story-v4.js"></script>
 <!-- QRMO:HEAD:START -->
 <link rel="stylesheet" href="global/dist/qrmo-global.css">
 <script src="global/dist/qrmo-conversion-config.js"></script>
@@ -3345,7 +3360,7 @@
        1. KONTEYNER — CONTENT
        ======================================================== -->
 
-  <div class="qrmo-translation-v3-content">
+  <div class="qrmo-translation-v3-content module-scene module-scene--copy" data-qrmo-scene="copy">
 
     <span class="qrmo-translation-v3-eyebrow">
       01 · MENÜ
@@ -3403,7 +3418,7 @@
        2. KONTEYNER — DEMO
        ======================================================== -->
 
-  <div class="qrmo-translation-v3-demo">
+  <div class="qrmo-translation-v3-demo module-scene module-scene--demo" data-qrmo-scene="demo">
 
     <!-- PHONE -->
     <div
@@ -4558,7 +4573,7 @@
          LEFT CONTENT
     ====================================================== -->
 
-    <div class="qrmo-smart-filter-copy">
+    <div class="qrmo-smart-filter-copy module-scene module-scene--copy" data-qrmo-scene="copy">
 
       <div class="qrmo-smart-filter-kicker">
         <span></span>
@@ -4647,7 +4662,7 @@
          RIGHT FILTER DEMO
     ====================================================== -->
 
-    <div class="qrmo-real-filter-stage">
+    <div class="qrmo-real-filter-stage module-scene module-scene--demo" data-qrmo-scene="demo">
 
       <div class="qrmo-real-filter-phone">
 
@@ -8634,7 +8649,7 @@
          01 — ANIMATION / DESKTOP LEFT
     ====================================================== -->
 
-    <div class="qrmo-chatbot-feature__demo">
+    <div class="qrmo-chatbot-feature__demo module-scene module-scene--demo" data-qrmo-scene="demo">
 
       <div
         class="qrmo-chatbot-demo"
@@ -8848,7 +8863,7 @@
          02 — CONTENT / DESKTOP RIGHT
     ====================================================== -->
 
-    <div class="qrmo-chatbot-feature__content">
+    <div class="qrmo-chatbot-feature__content module-scene module-scene--copy" data-qrmo-scene="copy">
 
       <div class="qrmo-chatbot-feature__kicker">
 
@@ -14066,7 +14081,7 @@
        SOL — ANİMASYON
        ===================================================== -->
 
-  <div class="qrmo-tables-v5__demo">
+  <div class="qrmo-tables-v5__demo module-scene module-scene--demo" data-qrmo-scene="demo">
 
     <div class="qrmo-tables-v5__app">
 
@@ -14435,7 +14450,7 @@
        SAĞ — İÇERİK
        ===================================================== -->
 
-  <div class="qrmo-tables-v5__content">
+  <div class="qrmo-tables-v5__content module-scene module-scene--copy" data-qrmo-scene="copy">
 
   <div class="qrmo-tables-v5__intro">
 
@@ -15414,7 +15429,7 @@
          LEFT / CONTENT
     ====================================================== -->
 
-    <div class="qrmo-service-v2__content">
+    <div class="qrmo-service-v2__content module-scene module-scene--copy" data-qrmo-scene="copy">
 
       <div class="qrmo-service-v2__intro">
 
@@ -15534,7 +15549,7 @@
          RIGHT / ANIMATION (görsel simülasyon)
     ====================================================== -->
 
-    <div class="qrmo-service-v2__visual">
+    <div class="qrmo-service-v2__visual module-scene module-scene--demo" data-qrmo-scene="demo">
 
       <div
         class="qrmo-service-v2__demo"
@@ -18784,7 +18799,7 @@
          LEFT — ANALYTICS DEMO (dekoratif, örnek veri)
     ====================================================== -->
 
-    <div class="qrmo-analytics-v3__visual" aria-hidden="true">
+    <div class="qrmo-analytics-v3__visual module-scene module-scene--demo" data-qrmo-scene="demo" aria-hidden="true">
 
       <div class="qrmo-analytics-v3__dashboard" data-analytics-demo>
 
@@ -18919,7 +18934,7 @@
          RIGHT — CONTENT
     ====================================================== -->
 
-    <div class="qrmo-analytics-v3__content">
+    <div class="qrmo-analytics-v3__content module-scene module-scene--copy" data-qrmo-scene="copy">
 
       <div class="qrmo-analytics-v3__intro">
 
@@ -22913,5 +22928,6 @@
   </div>
 </footer>
 <!-- QRMO:FOOTER:END -->
+<link rel="stylesheet" href="css/home-mod-story-v4.css">
 </body>
 </html>

@@ -6,6 +6,7 @@
    AND a neighbor exists in that direction. Latch never blocks native scroll.
 */
 (function () {
+  if (document.documentElement.classList.contains("qrmo-mod-story-v4")) return;
   var IDS = [
     "qrmo-translation-v3-root",
     "qrmo-home-filtre",
