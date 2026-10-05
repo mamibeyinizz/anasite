@@ -101,9 +101,16 @@
     if (debug) html.setAttribute("data-qrmo-story-gesture", String(gestureId));
   }
 
-  /* Our scrollTo must not be readable as user input. Depth is synchronous
-     because scroll events fired by scrollTo run before scrollTo returns. */
-  function scrollToY(top) {
+  /* exact: animation frames may step 1px. Corrections skip ≤2px
+     so a landed scene is never written again. */
+  function scrollToY(top, exact) {
+    top = Math.round(top);
+    var cur = y();
+    if (exact) {
+      if (cur === top) return;
+    } else if (Math.abs(cur - top) <= 2) {
+      return;
+    }
     scrollWrite++;
     window.scrollTo(0, top);
     scrollWrite--;
@@ -237,7 +244,8 @@
         "is-out-prev",
         "is-prep-next",
         "is-prep-prev",
-        "is-in"
+        "is-in",
+        "is-story-enter"
       );
     }
   }
@@ -269,26 +277,23 @@
     toEl.classList.add("is-story-enter");
   }
 
-  /* Overflow hidden across a few frames cancels a compositor fling.
-     Restoring it in the same turn lets the fling resume, which is the
-     "page moved by itself" bug. After these frames, nothing scrolls. */
+  /* Touch fling is killed by overflow-y:hidden already held from
+     animateTo. Do not toggle that class at the landing frame and do
+     not scrollTo when we are already on the snapshot target. */
   function killFling(top, token, done) {
     var frames = FLING_FRAMES;
-    html.classList.add("qrmo-story-v4-lock");
-    scrollToY(top);
     function step() {
       if (token !== settleToken) {
-        releaseLock();
+        if (done) done();
         return;
       }
-      if (y() !== top) scrollToY(top);
+      if (Math.abs(y() - top) > 2) scrollToY(top);
       frames--;
       if (frames > 0) {
         raf = window.requestAnimationFrame(step);
         return;
       }
       raf = 0;
-      releaseLock();
       if (done) done();
     }
     raf = window.requestAnimationFrame(step);
@@ -320,6 +325,7 @@
   function enterIdle() {
     if (state === "TRANSITIONING" || state === "COMMITTED") return;
     cancelQuiet();
+    releaseLock();
     gestureCommitted = false;
     exitLatch = false;
     acc = 0;
@@ -364,23 +370,21 @@
 
   function finishMove(toIndex, targetY) {
     index = toIndex;
-    var top = targetY;
+    var top = Math.round(targetY);
     if (layoutDirty || Math.abs((window.innerHeight || 0) - runVh) > 2) {
       layoutDirty = true;
       correctLanding();
-      if (scenes[index]) top = scenes[index].top;
+      if (scenes[index]) top = Math.round(scenes[index].top);
     }
     activeTarget = top;
-    scrollToY(top);
     html.setAttribute("data-qrmo-story-land", String(top));
     html.classList.remove("qrmo-mod-story-v4--busy");
     setState("SETTLE");
     var token = ++settleToken;
     var kind = inputKind;
-    killFling(top, token, function () {
+    function afterSettle() {
       if (token !== settleToken || state !== "SETTLE") return;
-      var corrected = correctLanding();
-      if (!corrected && y() !== top) scrollToY(top);
+      correctLanding();
       if (kind === "touch") {
         if (touchDown || blockTouch) return;
         enterIdle();
@@ -388,7 +392,9 @@
       }
       if (now() - lastInputAt >= WHEEL_GAP) enterIdle();
       else armWheelSettle();
-    });
+    }
+    if (kind === "touch") killFling(top, token, afterSettle);
+    else afterSettle();
   }
 
   function animateTo(toIndex, dir, dur, targetOverride) {
@@ -413,13 +419,14 @@
     if (!dir) dir = distance > 0 ? 1 : -1;
     setState("TRANSITIONING");
     html.classList.add("qrmo-mod-story-v4--busy");
+    if (inputKind === "touch") html.classList.add("qrmo-story-v4-lock");
     if (dur >= DUR) paintFx(scenes[toIndex] && scenes[toIndex].el, dir);
     else clearFx();
     var t0 = performance.now();
     function frame(ts) {
       if (token !== navToken) return;
       var p = dur <= 0 ? 1 : Math.min(1, (ts - t0) / dur);
-      scrollToY(Math.round(start + distance * ease(p)));
+      scrollToY(Math.round(start + distance * ease(p)), true);
       if (p < 1) raf = window.requestAnimationFrame(frame);
       else {
         raf = 0;
@@ -898,7 +905,7 @@
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () {
         layoutStamp++;
-        if (state === "TRANSITIONING" || state === "COMMITTED") return;
+        if (state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE") return;
         var prev = scenes[index];
         var inside = inZone(y());
         measure();
