@@ -29,7 +29,6 @@
   var TOUCH_COMMIT = 32;
   var DUR = 680;
   var SETTLE = 170;
-  var REALIGN = 160;
   var FLING_FRAMES = 6;
   var EASE = [0.22, 0.84, 0.28, 1];
 
@@ -149,8 +148,9 @@
     measure();
   }
 
-  function measure() {
-    if (!scenes.length || state === "TRANSITIONING" || state === "COMMITTED") return;
+  function measure(force) {
+    if (!scenes.length) return;
+    if (!force && (state === "TRANSITIONING" || state === "COMMITTED")) return;
     var top = y();
     var i;
     for (i = 0; i < scenes.length; i++) {
@@ -260,15 +260,13 @@
     html.classList.remove("qrmo-story-v4-lock");
   }
 
-  function paintFx(fromEl, toEl, dir) {
-    if (reduced() || !fromEl || !toEl || fromEl === toEl || !dir) return;
+  /* Visual motion is a class on the destination only. It must not
+     transform the scene box: that box is the scroll target, and a
+     translate on it reads as an align-then-reverse jitter. */
+  function paintFx(toEl, dir) {
+    if (reduced() || !toEl || !dir) return;
     clearFx();
-    fromEl.classList.add("is-story-from");
-    toEl.classList.add("is-story-to", dir > 0 ? "is-prep-next" : "is-prep-prev");
-    void toEl.offsetWidth;
-    fromEl.classList.add(dir > 0 ? "is-out-next" : "is-out-prev");
-    toEl.classList.remove("is-prep-next", "is-prep-prev");
-    toEl.classList.add("is-in");
+    toEl.classList.add("is-story-enter");
   }
 
   /* Overflow hidden across a few frames cancels a compositor fling.
@@ -291,7 +289,6 @@
       }
       raf = 0;
       releaseLock();
-      if (token === settleToken) scrollToY(top);
       if (done) done();
     }
     raf = window.requestAnimationFrame(step);
@@ -345,21 +342,34 @@
     enterIdle();
   }
 
-  function finishMove(toIndex, targetY) {
-    var scene = scenes[toIndex];
-    var top = targetY;
-    clearFx();
-    if (scene && scene.el) {
-      scene.el.style.transform = "none";
-      scene.el.style.transition = "none";
-      void scene.el.offsetWidth;
-      var measured = Math.round(scene.el.getBoundingClientRect().top + y());
-      scene.el.style.transform = "";
-      scene.el.style.transition = "";
-      if (Math.abs(measured - targetY) <= REALIGN) top = measured;
-      scene.top = top;
+  /* Same logical scene, new layout top. One scroll, never a second scene. */
+  function correctLanding() {
+    if (!layoutDirty && Math.abs((window.innerHeight || 0) - runVh) <= 2) return false;
+    layoutDirty = false;
+    runVh = window.innerHeight || 0;
+    var prev = scenes[index];
+    syncChrome();
+    build();
+    if (measuredStamp !== layoutStamp) measure(true);
+    if (prev) {
+      var mapped = remap(prev);
+      if (mapped >= 0) index = mapped;
     }
+    if (!scenes[index]) return false;
+    var top = scenes[index].top;
+    activeTarget = top;
+    if (Math.abs(y() - top) > 2) scrollToY(top);
+    return true;
+  }
+
+  function finishMove(toIndex, targetY) {
     index = toIndex;
+    var top = targetY;
+    if (layoutDirty || Math.abs((window.innerHeight || 0) - runVh) > 2) {
+      layoutDirty = true;
+      correctLanding();
+      if (scenes[index]) top = scenes[index].top;
+    }
     activeTarget = top;
     scrollToY(top);
     html.setAttribute("data-qrmo-story-land", String(top));
@@ -369,12 +379,8 @@
     var kind = inputKind;
     killFling(top, token, function () {
       if (token !== settleToken || state !== "SETTLE") return;
-      if (layoutDirty || (window.innerHeight || 0) !== runVh) {
-        layoutDirty = false;
-        runVh = window.innerHeight || 0;
-        measure();
-        if (scenes[index]) scrollToY(scenes[index].top);
-      }
+      var corrected = correctLanding();
+      if (!corrected && y() !== top) scrollToY(top);
       if (kind === "touch") {
         if (touchDown || blockTouch) return;
         enterIdle();
@@ -407,8 +413,7 @@
     if (!dir) dir = distance > 0 ? 1 : -1;
     setState("TRANSITIONING");
     html.classList.add("qrmo-mod-story-v4--busy");
-    var fromScene = scenes[originIndex >= 0 ? originIndex : index];
-    if (dur > 0) paintFx(fromScene && fromScene.el, scenes[toIndex] && scenes[toIndex].el, dir);
+    if (dur >= DUR) paintFx(scenes[toIndex] && scenes[toIndex].el, dir);
     else clearFx();
     var t0 = performance.now();
     function frame(ts) {
@@ -480,6 +485,7 @@
     touchOwned = false;
     touchHorizontal = false;
     originY = y();
+    clearFx();
     ensureMeasured();
     originIndex = findAligned(originY);
     if (originIndex < 0) originIndex = containingIndex(originY);
@@ -788,10 +794,18 @@
   }
 
   function onResize() {
-    if (state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE") {
+    if (state === "TRANSITIONING" || state === "COMMITTED") {
       if (touchDown) blockTouch = true;
       layoutDirty = true;
       layoutStamp++;
+      return;
+    }
+    if (state === "SETTLE") {
+      if (touchDown) blockTouch = true;
+      layoutDirty = true;
+      layoutStamp++;
+      if (raf) return;
+      correctLanding();
       return;
     }
     var prev = scenes[index] || null;
