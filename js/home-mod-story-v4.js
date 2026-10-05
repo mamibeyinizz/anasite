@@ -24,6 +24,7 @@
   var APPROACH = 0.42;
   var WHEEL_COMMIT = 14;
   var WHEEL_GAP = 520;
+  var TAIL_DELTA = 40;
   var TOUCH_ARM = 10;
   var TOUCH_COMMIT = 32;
   var DUR = 680;
@@ -82,6 +83,9 @@
   var activeStart = 0;
   var activeTarget = 0;
   var commitReason = "";
+  var runVh = 0;
+  var layoutDirty = false;
+  var tailUntil = 0;
 
   function now() { return Date.now(); }
   function reduced() { return !!(reduceMq && reduceMq.matches); }
@@ -186,6 +190,19 @@
   function inZone(pos) {
     if (!scenes.length) return false;
     return pos >= scenes[0].top - 90 && pos <= scenes[scenes.length - 1].top + 90;
+  }
+
+  /* Scene that physically contains this scroll offset, including its middle.
+     Edges still step exactly one neighbor; the middle is not a new scene. */
+  function containingIndex(pos) {
+    var i;
+    var last = scenes.length - 1;
+    for (i = 0; i < scenes.length; i++) {
+      var start = scenes[i].top;
+      var end = i < last ? scenes[i + 1].top : start + (scenes[i].height || vh());
+      if (pos >= start - 2 && pos < end - 2) return i;
+    }
+    return -1;
   }
 
   function ease(t) {
@@ -352,6 +369,12 @@
     var kind = inputKind;
     killFling(top, token, function () {
       if (token !== settleToken || state !== "SETTLE") return;
+      if (layoutDirty || (window.innerHeight || 0) !== runVh) {
+        layoutDirty = false;
+        runVh = window.innerHeight || 0;
+        measure();
+        if (scenes[index]) scrollToY(scenes[index].top);
+      }
       if (kind === "touch") {
         if (touchDown || blockTouch) return;
         enterIdle();
@@ -370,6 +393,7 @@
     cancelQuiet();
     ensureMeasured();
     var token = ++navToken;
+    runVh = window.innerHeight || 0;
     var start = y();
     var dest = targetOverride != null ? targetOverride : scenes[toIndex].top;
     activeStart = start;
@@ -407,6 +431,7 @@
     var last = scenes.length - 1;
     var pos = originY;
 
+    if (aligned < 0) aligned = containingIndex(pos);
     if (aligned >= 0) {
       if ((aligned === 0 && dir < 0) || (aligned === last && dir > 0)) {
         return { type: "native", edge: true };
@@ -457,6 +482,7 @@
     originY = y();
     ensureMeasured();
     originIndex = findAligned(originY);
+    if (originIndex < 0) originIndex = containingIndex(originY);
     if (originIndex < 0 && scenes[index] && Math.abs(scenes[index].top - originY) <= ALIGN) {
       originIndex = index;
     }
@@ -469,6 +495,7 @@
   function commitTo(to, dir, reason) {
     if (gestureCommitted || busy()) return;
     if (!scenes[to]) return;
+    tailUntil = now() + 1600;
     commitReason = reason || inputKind;
     setState("COMMITTED");
     animateTo(to, dir, reduced() ? 0 : DUR);
@@ -513,6 +540,7 @@
     if (state !== "IDLE" && state !== "GESTURE_STARTED" && state !== "GESTURE_ACCUMULATING") {
       if (e.cancelable) e.preventDefault();
       lastInputAt = now();
+      if (Math.abs(delta) < TAIL_DELTA) tailUntil = Math.max(tailUntil, now() + 700);
       if (state === "SETTLE" && inputKind !== "touch") armWheelSettle();
       return;
     }
@@ -524,6 +552,10 @@
     }
 
     var dir = delta > 0 ? 1 : -1;
+    if (state === "IDLE" && Math.abs(delta) < TAIL_DELTA && now() < tailUntil) {
+      if (e.cancelable) e.preventDefault();
+      return;
+    }
     if (state === "IDLE") beginGesture("wheel");
     if (state === "GESTURE_STARTED") setState("GESTURE_ACCUMULATING");
     lastInputAt = now();
@@ -746,34 +778,25 @@
     return -1;
   }
 
-  /* Resize / address-bar: follow the scene already on screen.
-     Never animate to a different scene and never move the user
-     onto a scene they are not already looking at. */
-  function syncSceneToViewport() {
-    if (!scenes.length) return;
-    var pos = y();
-    if (!inZone(pos)) return;
-    var aligned = findAligned(pos);
-    if (aligned >= 0) {
-      index = aligned;
-      if (Math.abs(pos - scenes[aligned].top) > 2) scrollToY(scenes[aligned].top);
-      return;
-    }
-    var nearest = nearestIndex(pos);
-    if (nearest === index && scenes[index] && Math.abs(pos - scenes[index].top) <= Math.min(vh() * 0.45, 280)) {
-      scrollToY(scenes[index].top);
-      return;
-    }
-    index = nearest;
+  /* 100dvh / address bar moves every scene top. Keep the logical scene
+     and land on its new top. Do not adopt a different scene. */
+  function realignLogicalScene() {
+    if (!scenes[index]) return;
+    if (!inZone(y())) return;
+    var top = scenes[index].top;
+    if (Math.abs(y() - top) > 2) scrollToY(top);
   }
 
   function onResize() {
-    if (touchDown) blockTouch = true;
     if (state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE") {
+      if (touchDown) blockTouch = true;
+      layoutDirty = true;
       layoutStamp++;
       return;
     }
     var prev = scenes[index] || null;
+    var pos = y();
+    var wasAligned = !!(prev && Math.abs(pos - prev.top) <= ALIGN);
     layoutStamp++;
     syncChrome();
     build();
@@ -781,17 +804,24 @@
     clearFx();
     acc = 0;
     gestureCommitted = false;
+    layoutDirty = false;
     if (state !== "IDLE") setState("IDLE");
-    if (!prev) {
-      index = scenes.length ? nearestIndex(y()) : 0;
+    if (!inZone(pos)) {
+      if (prev) {
+        var outside = remap(prev);
+        if (outside >= 0) index = outside;
+      }
       return;
     }
-    var inside = inZone(y());
-    if (!inside) return;
-    var next = remap(prev);
-    if (next < 0) return;
-    index = next;
-    syncSceneToViewport();
+    if (wasAligned && prev) {
+      var next = remap(prev);
+      if (next < 0) return;
+      index = next;
+      realignLogicalScene();
+      return;
+    }
+    var contained = containingIndex(pos);
+    if (contained >= 0) index = contained;
   }
 
   function hud() {
@@ -862,7 +892,7 @@
         var next = remap(prev);
         if (next < 0) return;
         index = next;
-        syncSceneToViewport();
+        realignLogicalScene();
       });
     }
 
