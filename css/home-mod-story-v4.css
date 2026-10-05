@@ -131,6 +131,19 @@ html.qrmo-mod-story-v4 .module-scene {
     margin-bottom: 0.7em;
   }
 
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description {
+    margin-bottom: 0.45em;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description--hook {
+    margin-bottom: 0.3em;
+    font-weight: 600;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description:last-of-type {
+    margin-bottom: 0.55em;
+  }
+
   html.qrmo-mod-story-v4 #qrmo-home-filtre .qrmo-smart-filter-benefits,
   html.qrmo-mod-story-v4 #qrmo-home-asistan .qrmo-chatbot-feature__list,
   html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__benefits,
@@ -309,6 +322,20 @@ html.qrmo-mod-story-v4 .module-scene {
     margin-bottom: 8px;
   }
 
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description {
+    margin-bottom: 6px;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description--hook {
+    font-size: 14.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description:last-of-type {
+    margin-bottom: 8px;
+  }
+
   html.qrmo-mod-story-v4 #qrmo-home-filtre .qrmo-smart-filter-benefits,
   html.qrmo-mod-story-v4 #qrmo-home-asistan .qrmo-chatbot-feature__list,
   html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__benefits,
@@ -412,6 +439,21 @@ html.qrmo-mod-story-v4 .module-scene {
     font-size: 25px;
     line-height: 1.08;
     margin: 0 0 6px;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description {
+    font-size: 13px;
+    line-height: 1.32;
+    margin-bottom: 4px;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description--hook {
+    font-size: 13.5px;
+    margin-bottom: 3px;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-description:last-of-type {
+    margin-bottom: 6px;
   }
 
   html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-benefit {
