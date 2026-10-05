@@ -61,6 +61,11 @@ html.qrmo-mod-story-v3 .qrmo-story-v3-to.is-in {
     opacity 0.62s cubic-bezier(0.22, 0.84, 0.28, 1);
 }
 
+/* Transition only: do not lock the page outside a committed run. */
+html.qrmo-mod-story-v3.qrmo-mod-story-v3--busy {
+  overscroll-behavior-y: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html.qrmo-mod-story-v3 .qrmo-story-v3-from,
   html.qrmo-mod-story-v3 .qrmo-story-v3-to {

@@ -1,10 +1,9 @@
 /* Section Story V3 — opt-in scene change for S3–S8.
    Query: ?story=v3  enable   |  ?story=off  force disable  |  ?storydebug=1
-   Wheel/touch: preventDefault only at a committed boundary gesture or while busy.
-   One committed gesture → one section. Tall sections stay readable mid-body.
-
-   Latch: Story may commit only if the gesture STARTED near a section edge.
-   A mid-section start that later reaches an edge must not commit.
+   Native scroll stays free until a Story transition actually commits.
+   preventDefault only from that commit through the animated run.
+   Latch: Story may commit only if the gesture STARTED near a section edge
+   AND a neighbor exists in that direction. Latch never blocks native scroll.
 */
 (function () {
   var IDS = [
@@ -14,6 +13,15 @@
     "qrmo-home-masa",
     "qrmo-home-servis",
     "qrmo-home-icgoru"
+  ];
+
+  var PROBE = [
+    ".qrmo-translation-v3-eyebrow",
+    ".qrmo-smart-filter-kicker",
+    ".qrmo-chatbot-feature__kicker",
+    ".qrmo-tables-v5__eyebrow",
+    ".qrmo-service-v2__eyebrow",
+    ".qrmo-analytics-v3__eyebrow"
   ];
 
   var html = document.documentElement;
@@ -48,20 +56,18 @@
   var latchIndex = 0;
   var startedDuringBusy = false;
   var pointerDown = false;
+  var pinDest = null;
   var touchY = 0;
   var touchAcc = 0;
 
   var WHEEL_COMMIT = 92;
-  var WHEEL_ARM = 28;
   var TOUCH_COMMIT = 78;
-  var TOUCH_ARM = 32;
-  /* Keep S3/S4 on 320 as one-gesture scenes (they are only ~300px over vh)
-     while S5 chatbot stays inner-native. Window: 340–374. */
   var TALL_EXTRA = 350;
   var EDGE = 72;
   var DUR = 700;
-  var COOLDOWN = 260;
+  var COOLDOWN = 120;
   var SKIP_MS = 2000;
+  var OPTICAL = 12;
 
   function now() {
     return Date.now();
@@ -125,17 +131,18 @@
     return first.top <= line && last.bottom > line;
   }
 
+  function probeEl(s) {
+    if (!s || !s.el) return null;
+    var sel = PROBE[s.index];
+    return sel ? s.el.querySelector(sel) : null;
+  }
+
   function currentIndex() {
     var line = alignY() + 24;
     var i;
     for (i = 0; i < els.length; i++) {
       var r = els[i].el.getBoundingClientRect();
-      var ch = chromeFor(i);
-      /* Prefer the section whose start is at/above the sticky line and still covers it. */
       if (r.top <= line && r.bottom > line + 48) return i;
-      if (i > 0 && r.top <= ch + EDGE && r.bottom > line + 48 && r.top > -EDGE) {
-        return i;
-      }
     }
     var best = 0;
     var bestAbs = Infinity;
@@ -160,22 +167,28 @@
   }
 
   function atTopEdge(s) {
-    var r = s.el.getBoundingClientRect();
     var ch = chromeFor(s.index);
-    /* Distance from sticky header + context-nav align line.
-       Hash/scrollIntoView can park the section under chrome (top ≈ 0, dist ≈ -ch).
-       Still the section start until EDGE px have been read past that align line. */
-    var dist = r.top - ch;
-    return dist < EDGE && dist > -(ch + EDGE);
+    var probe = probeEl(s);
+    var top = (probe || s.el).getBoundingClientRect().top;
+    var dist = top - ch;
+    /* Optical kicker may sit below the section top; still "start" until
+       EDGE px have been read past the sticky align line. */
+    return dist < EDGE && dist > -(EDGE + 48);
   }
 
   function canAdvance(s, dir) {
+    if (!s) return false;
+    var j = s.index + dir;
+    if (j < 0 || j >= els.length) return false;
     if (!isTall(s)) return true;
     return dir > 0 ? atBottomEdge(s) : atTopEdge(s);
   }
 
   function targetTop(s) {
-    var dest = Math.round(s.el.getBoundingClientRect().top + y() - chromeFor(s.index));
+    var ch = chromeFor(s.index);
+    var probe = s.index === 0 ? null : probeEl(s);
+    var el = probe || s.el;
+    var dest = Math.round(el.getBoundingClientRect().top + y() - ch - (probe ? OPTICAL : 0));
     return dest < 0 ? 0 : dest;
   }
 
@@ -201,6 +214,8 @@
   function finishIdle() {
     busy = false;
     raf = 0;
+    window.scrollTo(0, run.dest);
+    pinDest = run.dest;
     clearScene();
     cooldownUntil = now() + COOLDOWN;
     lastHud();
@@ -239,6 +254,7 @@
     cancelRun();
     clearScene();
     busy = true;
+    pinDest = null;
     html.classList.add("qrmo-mod-story-v3--busy");
     run.from = from;
     run.to = to;
@@ -265,24 +281,11 @@
     });
   }
 
-  function reverseRun() {
-    if (!busy || !run.from || !run.to) return;
-    var from = run.to;
-    var to = run.from;
-    var dir = -run.dir;
-    gestureFired = true;
-    latchIndex = to.index;
-    startRun(from, to, dir);
-  }
-
   function tryCommit(dir) {
     if (reduced()) return false;
     if (skipping()) return false;
-    if (now() < cooldownUntil && !busy) return false;
-    if (busy) {
-      if (dir && dir !== run.dir) reverseRun();
-      return true;
-    }
+    if (busy) return false;
+    if (now() < cooldownUntil) return false;
     if (startedDuringBusy) return false;
     if (gestureFired) return false;
     var i = latchSet ? latchIndex : currentIndex();
@@ -326,10 +329,16 @@
     if (dir && dir !== gestureDir) {
       gestureAcc = 0;
       gestureDir = dir;
-      /* Direction flip is still the same pointer; keep the start latch. */
     }
     if (!gestureDir) gestureDir = dir;
     gestureAcc += mag;
+  }
+
+  function holdPin(e) {
+    if (pinDest == null) return false;
+    window.scrollTo(0, pinDest);
+    if (e && e.cancelable) e.preventDefault();
+    return true;
   }
 
   function wheelDelta(e) {
@@ -343,38 +352,38 @@
     if (reduced()) return;
     if (skipping()) return;
     if (!els.length) return;
-    if (!inStoryBand() && !busy) return;
+    if (busy) {
+      e.preventDefault();
+      return;
+    }
+    if (!inStoryBand()) return;
     var d = wheelDelta(e);
     if (!d) return;
     var dir = d > 0 ? 1 : -1;
     if (!pointerDown) {
       pointerDown = true;
-      startedDuringBusy = busy || now() < cooldownUntil;
+      startedDuringBusy = now() < cooldownUntil;
       if (!startedDuringBusy) {
         resetGesture();
         armLatch();
       }
     }
     noteGesture(dir, d < 0 ? -d : d);
-
-    if (busy) {
-      e.preventDefault();
-      if (dir !== run.dir && gestureAcc > WHEEL_ARM) tryCommit(dir);
+    if (startedDuringBusy) {
+      holdPin(e);
       return;
     }
-    if (startedDuringBusy) return;
     if (!latchAllows(dir)) return;
-
-    if (gestureAcc >= WHEEL_ARM) e.preventDefault();
     if (gestureFired) return;
     if (gestureAcc >= WHEEL_COMMIT) {
-      tryCommit(dir);
+      if (tryCommit(dir) && e.cancelable) e.preventDefault();
     }
   }
 
   function endWheelGesture() {
     pointerDown = false;
     startedDuringBusy = false;
+    pinDest = null;
     resetGesture();
   }
 
@@ -391,21 +400,28 @@
     touchAcc = 0;
     if (skipping()) {
       startedDuringBusy = true;
+      pinDest = null;
       return;
     }
     resetGesture();
-    if (busy || now() < cooldownUntil) {
+    if (busy) {
       startedDuringBusy = true;
       return;
     }
     startedDuringBusy = false;
+    pinDest = null;
+    if (!inStoryBand()) return;
     armLatch();
   }
 
   function onTouchMove(e) {
     if (reduced() || !e.touches || !e.touches.length) return;
     if (skipping()) return;
-    if (!inStoryBand() && !busy) return;
+    if (busy) {
+      if (e.cancelable) e.preventDefault();
+      return;
+    }
+    if (!inStoryBand()) return;
     var cy = e.touches[0].clientY;
     var dy = touchY - cy;
     touchY = cy;
@@ -414,33 +430,33 @@
     touchAcc += dy < 0 ? -dy : dy;
     noteGesture(dir, dy < 0 ? -dy : dy);
 
-    if (busy) {
-      if (e.cancelable) e.preventDefault();
-      if (dir !== run.dir && touchAcc > TOUCH_ARM) tryCommit(dir);
-      return;
-    }
-
     if (startedDuringBusy) {
-      /* Extra flick that began during a transition: swallow so it cannot skip a section. */
-      if (e.cancelable) e.preventDefault();
+      holdPin(e);
       return;
     }
-
     if (!latchAllows(dir)) return;
-
-    /* Prevent native fling as soon as an edge-started Story direction is known.
-       Mid-section starts never reach here (latch is false). */
-    if (e.cancelable) e.preventDefault();
-
     if (gestureFired) return;
     if (gestureAcc >= TOUCH_COMMIT) {
-      tryCommit(dir);
+      if (tryCommit(dir) && e.cancelable) e.preventDefault();
     }
   }
 
   function onTouchEnd() {
+    if (
+      pointerDown &&
+      !busy &&
+      !skipping() &&
+      !startedDuringBusy &&
+      !gestureFired &&
+      latchSet &&
+      latchAllows(gestureDir) &&
+      gestureAcc >= TOUCH_COMMIT
+    ) {
+      tryCommit(gestureDir);
+    }
     pointerDown = false;
     startedDuringBusy = false;
+    pinDest = null;
     resetGesture();
   }
 
@@ -448,6 +464,7 @@
     skipUntil = now() + SKIP_MS;
     pointerDown = false;
     startedDuringBusy = true;
+    pinDest = null;
     resetGesture();
     if (busy) {
       cancelRun();
