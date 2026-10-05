@@ -2077,46 +2077,83 @@
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefits{
   list-style:none;
-  margin:0 0 26px;
+  margin:0 0 28px;
   padding:0;
-  display:grid;
-  gap:16px;
+  display:flex;
+  flex-direction:column;
+  gap:0;
   max-width:560px;
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefit{
   display:grid;
-  grid-template-columns:8px minmax(0,1fr);
-  column-gap:12px;
-  align-items:start;
+  grid-template-columns:92px minmax(0,1fr);
+  column-gap:22px;
+  align-items:center;
   margin:0;
-  padding:0;
+  padding:20px 0;
+  border:0;
+  border-bottom:1px solid rgba(201,168,76,.28);
+  background:none;
+  box-shadow:none;
 }
 
-#qrmo-translation-v3-root .qrmo-translation-v3-benefit::before{
-  content:"";
-  width:6px;
-  height:6px;
-  margin-top:8px;
-  border-radius:1px;
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit:first-child{
+  padding-top:4px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit:last-child{
+  border-bottom:0;
+  padding-bottom:4px;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon{
+  width:92px;
+  height:92px;
+  margin:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 92px;
+  border:0;
+  border-radius:14px;
   background:var(--qt-dark);
+  box-shadow:none;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg{
+  width:40px;
+  height:40px;
+  fill:none;
+  stroke:var(--qt-gold-l);
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+#qrmo-translation-v3-root .qrmo-translation-v3-benefit-copy{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
   display:block;
-  font-size:16px;
-  line-height:1.3;
-  font-weight:700;
+  font-size:20px;
+  line-height:1.22;
+  font-weight:750;
+  letter-spacing:-.018em;
   color:var(--qt-dark);
-  margin:0 0 3px;
+  margin:0;
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc{
   display:block;
-  font-size:14px;
+  font-size:15px;
   line-height:1.5;
   font-weight:400;
-  color:rgba(13,43,34,.56);
+  color:rgba(13,43,34,.52);
   margin:0;
 }
 
@@ -2794,6 +2831,28 @@
     font-size:38px;
   }
 
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit{
+    grid-template-columns:76px minmax(0,1fr);
+    column-gap:18px;
+    padding:16px 0;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon{
+    width:76px;
+    height:76px;
+    flex-basis:76px;
+    border-radius:12px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg{
+    width:34px;
+    height:34px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
+    font-size:18px;
+  }
+
   #qrmo-translation-v3-root .qrmo-translation-v3-phone{
     max-width:320px;
   }
@@ -2902,18 +2961,41 @@
   /* 3 benefit — mobil */
   #qrmo-translation-v3-root .qrmo-translation-v3-benefits{
     flex:0 0 auto;
-    margin:0 0 8px;
-    gap:8px;
+    margin:0 0 12px;
+    gap:0;
+    max-width:none;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit{
+    grid-template-columns:56px minmax(0,1fr);
+    column-gap:14px;
+    padding:12px 0;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon{
+    width:56px;
+    height:56px;
+    flex-basis:56px;
+    border-radius:10px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg{
+    width:26px;
+    height:26px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-copy{
+    gap:4px;
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
-    font-size:13.5px;
+    font-size:15px;
     line-height:1.22;
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc{
-    font-size:11.5px;
-    line-height:1.35;
+    font-size:12.5px;
+    line-height:1.4;
   }
 
   #qrmo-translation-v3-root .qrmo-translation-v3-content .qrmo-translation-v3-cta{
@@ -3228,6 +3310,32 @@
     margin-bottom:11px;
   }
 
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit{
+    grid-template-columns:48px minmax(0,1fr);
+    column-gap:12px;
+    padding:9px 0;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon{
+    width:48px;
+    height:48px;
+    flex-basis:48px;
+    border-radius:9px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg{
+    width:22px;
+    height:22px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title{
+    font-size:14px;
+  }
+
+  #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc{
+    font-size:11.5px;
+  }
+
   #qrmo-translation-v3-root .qt-features{
     gap:9px 14px;
     margin-bottom:11px;
@@ -3377,11 +3485,18 @@
     <ul class="qrmo-translation-v3-benefits">
 
       <li class="qrmo-translation-v3-benefit">
-        <span>
+        <span class="qrmo-translation-v3-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M3 12h18"/>
+            <path d="M12 3c2.6 3.2 2.6 14.8 0 18"/>
+            <path d="M12 3c-2.6 3.2-2.6 14.8 0 18"/>
+          </svg>
+        </span>
+        <span class="qrmo-translation-v3-benefit-copy">
           <span class="qrmo-translation-v3-benefit-title">
             Yabancı misafir 'bu ne?' diye sormadan seçer
           </span>
-
           <span class="qrmo-translation-v3-benefit-desc">
             Menüyü kendi dilinde okur; ürünler ve kategoriler seçtiği dile göre görünür.
           </span>
@@ -3389,13 +3504,39 @@
       </li>
 
       <li class="qrmo-translation-v3-benefit">
-        <span>
+        <span class="qrmo-translation-v3-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3.5" y="4" width="17" height="16" rx="2"/>
+            <path d="M7.5 9h5.5"/>
+            <path d="M7.5 13h4"/>
+            <path d="M16 10.5v5"/>
+            <path d="M13.5 13h5"/>
+          </svg>
+        </span>
+        <span class="qrmo-translation-v3-benefit-copy">
           <span class="qrmo-translation-v3-benefit-title">
             Dilleri siz eklersiniz
           </span>
-
           <span class="qrmo-translation-v3-benefit-desc">
             Dilleri panelden tek tek ekleyin veya CSV ile toplu aktarın. Menüde yalnızca hazırladığınız diller açılır.
+          </span>
+        </span>
+      </li>
+
+      <li class="qrmo-translation-v3-benefit">
+        <span class="qrmo-translation-v3-benefit-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 3.5 4.5 7.5 12 11.5 19.5 7.5 12 3.5z"/>
+            <path d="M4.5 12 12 16l7.5-4"/>
+            <path d="M4.5 16.5 12 20.5 19.5 16.5"/>
+          </svg>
+        </span>
+        <span class="qrmo-translation-v3-benefit-copy">
+          <span class="qrmo-translation-v3-benefit-title">
+            Aynı menü, farklı diller
+          </span>
+          <span class="qrmo-translation-v3-benefit-desc">
+            Kategori, ürün ve açıklamalar her dilde aynı menü yapısıyla sunulur.
           </span>
         </span>
       </li>
