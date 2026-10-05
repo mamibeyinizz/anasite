@@ -6,9 +6,15 @@
 html.qrmo-mod-story-v4 {
   --qrmo-story-chrome: calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + var(--qrmo-mod-ctx-h, 42px));
   --qrmo-story-ease: cubic-bezier(0.22, 0.84, 0.28, 1);
-  scroll-behavior: auto;
+  scroll-behavior: auto !important;
   overflow-x: clip;
   overflow-anchor: none;
+}
+
+/* Brief fling brake. Never left on after settle — it is not a scroll mode. */
+html.qrmo-mod-story-v4.qrmo-story-v4-lock {
+  overflow-y: hidden;
+  overscroll-behavior-y: none;
 }
 
 html.qrmo-mod-story-v4 body {

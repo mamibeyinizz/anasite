@@ -1,8 +1,14 @@
 /* Story V4 — production scroll authority for homepage modules S3–S8.
-   One gesture commits at most one scene. Desktop: one module = one scene.
-   Mobile (≤767): copy scene then demo scene. Hero, S2, and S9+ stay native.
+   One physical gesture commits at most one scene.
+   Desktop: one module = one scene. Mobile (≤767): copy, then demo.
+   Hero, S2, and S9+ stay native.
    Kill switch: ?story=off. Debug HUD: ?storydebug=1.
-   Older story/landing/snap/scrollfx controllers no-op while this class is set.
+
+   Gesture rule: wheel/touch input is the only way to commit.
+   scroll events produced by our own scrollTo() are never a gesture.
+   A committed gesture stays consumed until that finger ends and, for
+   wheel/trackpad, until the event stream has been silent. The tail of
+   the same flick cannot start the next scene.
 */
 (function () {
   var MODULES = [
@@ -17,11 +23,13 @@
   var ALIGN = 80;
   var APPROACH = 0.42;
   var WHEEL_COMMIT = 14;
-  var WHEEL_QUIET = 130;
+  var WHEEL_GAP = 520;
   var TOUCH_ARM = 10;
   var TOUCH_COMMIT = 32;
   var DUR = 680;
   var SETTLE = 170;
+  var REALIGN = 160;
+  var FLING_FRAMES = 6;
   var EASE = [0.22, 0.84, 0.28, 1];
 
   var html = document.documentElement;
@@ -49,38 +57,53 @@
   var index = 0;
   var state = "IDLE";
   var raf = 0;
+  var gestureId = 0;
   var gestureCommitted = false;
   var exitLatch = false;
   var acc = 0;
   var accDir = 0;
   var originY = 0;
+  var originIndex = -1;
   var inputKind = "";
   var lastInputAt = 0;
   var quietTimer = 0;
-  var wheelQuiet = false;
   var touchDown = false;
   var touchX = 0;
   var touchY = 0;
   var touchOwned = false;
   var touchHorizontal = false;
+  var blockTouch = false;
   var bypassUntil = 0;
   var layoutStamp = 0;
   var measuredStamp = -1;
   var navToken = 0;
-  var pinRaf = 0;
-  var pinUntil = 0;
-  var pinTop = 0;
+  var settleToken = 0;
+  var scrollWrite = 0;
+  var activeStart = 0;
+  var activeTarget = 0;
+  var commitReason = "";
 
   function now() { return Date.now(); }
   function reduced() { return !!(reduceMq && reduceMq.matches); }
   function mobile() { return !!(mobileMq && mobileMq.matches); }
   function y() { return window.pageYOffset || html.scrollTop || 0; }
   function vh() { return window.innerHeight || html.clientHeight || 800; }
-  function bypass() { return now() < bypassUntil || reduced(); }
+  function busy() {
+    return state === "COMMITTED" || state === "TRANSITIONING" || state === "SETTLE";
+  }
 
   function setState(next) {
     state = next;
     html.setAttribute("data-qrmo-story-state", next);
+    if (debug) html.setAttribute("data-qrmo-story-gesture", String(gestureId));
+  }
+
+  /* Our scrollTo must not be readable as user input. Depth is synchronous
+     because scroll events fired by scrollTo run before scrollTo returns. */
+  function scrollToY(top) {
+    scrollWrite++;
+    window.scrollTo(0, top);
+    scrollWrite--;
   }
 
   function syncChrome() {
@@ -123,7 +146,7 @@
   }
 
   function measure() {
-    if (!scenes.length || state === "TRANSITIONING") return;
+    if (!scenes.length || state === "TRANSITIONING" || state === "COMMITTED") return;
     var top = y();
     var i;
     for (i = 0; i < scenes.length; i++) {
@@ -209,8 +232,19 @@
     }
   }
 
+  function cancelQuiet() {
+    if (quietTimer) {
+      window.clearTimeout(quietTimer);
+      quietTimer = 0;
+    }
+  }
+
+  function releaseLock() {
+    html.classList.remove("qrmo-story-v4-lock");
+  }
+
   function paintFx(fromEl, toEl, dir) {
-    if (reduced() || !fromEl || !toEl || fromEl === toEl) return;
+    if (reduced() || !fromEl || !toEl || fromEl === toEl || !dir) return;
     clearFx();
     fromEl.classList.add("is-story-from");
     toEl.classList.add("is-story-to", dir > 0 ? "is-prep-next" : "is-prep-prev");
@@ -220,79 +254,64 @@
     toEl.classList.add("is-in");
   }
 
-  function finishMove(toIndex) {
-    raf = 0;
-    clearFx();
-    var scene = scenes[toIndex];
-    if (scene) {
-      scene.el.style.transform = "none";
-      scene.el.style.transition = "none";
-      void scene.el.offsetWidth;
-      var top = Math.round(scene.el.getBoundingClientRect().top + y());
-      scene.el.style.transform = "";
-      scene.el.style.transition = "";
-      scene.top = top;
-      killAndPin(top);
-      index = toIndex;
-      html.setAttribute("data-qrmo-story-land", String(top));
-      holdPin(top);
+  /* Overflow hidden across a few frames cancels a compositor fling.
+     Restoring it in the same turn lets the fling resume, which is the
+     "page moved by itself" bug. After these frames, nothing scrolls. */
+  function killFling(top, token, done) {
+    var frames = FLING_FRAMES;
+    html.classList.add("qrmo-story-v4-lock");
+    scrollToY(top);
+    function step() {
+      if (token !== settleToken) {
+        releaseLock();
+        return;
+      }
+      if (y() !== top) scrollToY(top);
+      frames--;
+      if (frames > 0) {
+        raf = window.requestAnimationFrame(step);
+        return;
+      }
+      raf = 0;
+      releaseLock();
+      if (token === settleToken) scrollToY(top);
+      if (done) done();
     }
-    html.classList.remove("qrmo-mod-story-v4--busy");
-    if (inputKind === "touch") {
-      setState(touchDown ? "LOCKED" : "IDLE");
-      if (!touchDown) unlockGesture();
-      return;
-    }
-    setState("LOCKED");
-    if (wheelQuiet || now() - lastInputAt >= WHEEL_QUIET) unlockGesture();
-    else armQuiet();
+    raf = window.requestAnimationFrame(step);
   }
 
-  function animateTo(toIndex, dir, dur) {
-    if (!scenes[toIndex]) return;
-    stopPin();
-    ensureMeasured();
-    var token = ++navToken;
-    var start = y();
-    var dest = scenes[toIndex].top;
-    var fromIndex = findAligned(start);
-    if (fromIndex < 0) fromIndex = nearestIndex(start);
-    var distance = dest - start;
-    if (Math.abs(distance) < 2) {
-      window.scrollTo(0, dest);
-      index = toIndex;
-      clearFx();
-      html.classList.remove("qrmo-mod-story-v4--busy");
-      setState("LOCKED");
-      if (inputKind === "touch" && touchDown) return;
-      unlockGesture();
-      return;
-    }
-    if (!dir) dir = distance > 0 ? 1 : -1;
-    setState("TRANSITIONING");
-    html.classList.add("qrmo-mod-story-v4--busy");
-    if (dur > 0) paintFx(scenes[fromIndex] && scenes[fromIndex].el, scenes[toIndex].el, dir);
-    else clearFx();
-    var t0 = performance.now();
-    cancelAnim();
-    function frame(ts) {
-      if (token !== navToken) return;
-      var p = dur <= 0 ? 1 : Math.min(1, (ts - t0) / dur);
-      window.scrollTo(0, Math.round(start + distance * ease(p)));
-      if (p < 1) raf = window.requestAnimationFrame(frame);
-      else finishMove(toIndex);
-    }
-    raf = window.requestAnimationFrame(frame);
+  function armWheelSettle() {
+    cancelQuiet();
+    quietTimer = window.setTimeout(function () {
+      quietTimer = 0;
+      if (state !== "SETTLE") return;
+      if (touchDown || blockTouch) return;
+      enterIdle();
+    }, WHEEL_GAP);
   }
 
-  function unlockGesture() {
-    if (state === "TRANSITIONING") return;
+  /* An uncommitted wheel gesture must die on silence.
+     Otherwise its accumulator and edge latch leak into the next flick. */
+  function armOpenGesture() {
+    if (state !== "GESTURE_STARTED" && state !== "GESTURE_ACCUMULATING") return;
+    cancelQuiet();
+    quietTimer = window.setTimeout(function () {
+      quietTimer = 0;
+      if (gestureCommitted) return;
+      if (state !== "GESTURE_STARTED" && state !== "GESTURE_ACCUMULATING") return;
+      cancelGesture();
+    }, WHEEL_GAP);
+  }
+
+  function enterIdle() {
+    if (state === "TRANSITIONING" || state === "COMMITTED") return;
+    cancelQuiet();
     gestureCommitted = false;
     exitLatch = false;
     acc = 0;
     accDir = 0;
     touchOwned = false;
-    wheelQuiet = false;
+    touchHorizontal = false;
     inputKind = "";
     setState("IDLE");
     clearFx();
@@ -300,61 +319,114 @@
     hud();
   }
 
-  function armQuiet() {
-    window.clearTimeout(quietTimer);
-    wheelQuiet = false;
-    quietTimer = window.setTimeout(function () {
-      wheelQuiet = true;
-      if (state === "TRANSITIONING") return;
-      unlockGesture();
-    }, WHEEL_QUIET);
+  function cancelGesture() {
+    setState("CANCELLED");
+    acc = 0;
+    accDir = 0;
+    gestureCommitted = false;
+    touchOwned = false;
+    enterIdle();
   }
 
-  function noteWheel() {
-    lastInputAt = now();
-    wheelQuiet = false;
-    if (!inputKind) inputKind = "wheel";
-    armQuiet();
+  function finishMove(toIndex, targetY) {
+    var scene = scenes[toIndex];
+    var top = targetY;
+    clearFx();
+    if (scene && scene.el) {
+      scene.el.style.transform = "none";
+      scene.el.style.transition = "none";
+      void scene.el.offsetWidth;
+      var measured = Math.round(scene.el.getBoundingClientRect().top + y());
+      scene.el.style.transform = "";
+      scene.el.style.transition = "";
+      if (Math.abs(measured - targetY) <= REALIGN) top = measured;
+      scene.top = top;
+    }
+    index = toIndex;
+    activeTarget = top;
+    scrollToY(top);
+    html.setAttribute("data-qrmo-story-land", String(top));
+    html.classList.remove("qrmo-mod-story-v4--busy");
+    setState("SETTLE");
+    var token = ++settleToken;
+    var kind = inputKind;
+    killFling(top, token, function () {
+      if (token !== settleToken || state !== "SETTLE") return;
+      if (kind === "touch") {
+        if (touchDown || blockTouch) return;
+        enterIdle();
+        return;
+      }
+      if (now() - lastInputAt >= WHEEL_GAP) enterIdle();
+      else armWheelSettle();
+    });
   }
 
-  /* Gesture began on a scene, or outside/between. Returns commit | native. */
+  function animateTo(toIndex, dir, dur, targetOverride) {
+    if (!scenes[toIndex] && targetOverride == null) return;
+    settleToken++;
+    releaseLock();
+    cancelAnim();
+    cancelQuiet();
+    ensureMeasured();
+    var token = ++navToken;
+    var start = y();
+    var dest = targetOverride != null ? targetOverride : scenes[toIndex].top;
+    activeStart = start;
+    activeTarget = dest;
+    var distance = dest - start;
+    gestureCommitted = true;
+    if (Math.abs(distance) < 2) {
+      finishMove(toIndex, dest);
+      return;
+    }
+    if (!dir) dir = distance > 0 ? 1 : -1;
+    setState("TRANSITIONING");
+    html.classList.add("qrmo-mod-story-v4--busy");
+    var fromScene = scenes[originIndex >= 0 ? originIndex : index];
+    if (dur > 0) paintFx(fromScene && fromScene.el, scenes[toIndex] && scenes[toIndex].el, dir);
+    else clearFx();
+    var t0 = performance.now();
+    function frame(ts) {
+      if (token !== navToken) return;
+      var p = dur <= 0 ? 1 : Math.min(1, (ts - t0) / dur);
+      scrollToY(Math.round(start + distance * ease(p)));
+      if (p < 1) raf = window.requestAnimationFrame(frame);
+      else {
+        raf = 0;
+        finishMove(toIndex, dest);
+      }
+    }
+    raf = window.requestAnimationFrame(frame);
+  }
+
   function decide(dir) {
     if (!scenes.length) return { type: "native", edge: false };
-    var pos = y();
-    var originAligned = findAligned(originY);
+    var aligned = originIndex;
+    if (aligned < 0) aligned = findAligned(originY);
     var last = scenes.length - 1;
+    var pos = originY;
 
-    if (originAligned === 0 && dir < 0) return { type: "native", edge: true };
-    if (originAligned === last && dir > 0) return { type: "native", edge: true };
-
-    if (originAligned >= 0) {
-      var step = originAligned + dir;
-      if (step < 0 || step >= scenes.length) return { type: "native", edge: true };
-      return { type: "commit", to: step };
+    if (aligned >= 0) {
+      if ((aligned === 0 && dir < 0) || (aligned === last && dir > 0)) {
+        return { type: "native", edge: true };
+      }
+      return { type: "commit", to: aligned + dir };
     }
 
     var firstTop = scenes[0].top;
     var lastTop = scenes[last].top;
-
-    if (originY < firstTop - ALIGN) {
-      if (dir > 0 && (firstTop - pos < vh() * APPROACH || pos >= firstTop - ALIGN)) {
+    if (pos < firstTop - ALIGN) {
+      if (dir > 0 && (firstTop - y() < vh() * APPROACH || y() >= firstTop - ALIGN)) {
         return { type: "commit", to: 0 };
       }
       return { type: "native", edge: false };
     }
-
-    if (originY > lastTop + ALIGN) {
-      if (dir < 0 && (pos - lastTop < vh() * APPROACH || pos <= lastTop + ALIGN)) {
+    if (pos > lastTop + ALIGN) {
+      if (dir < 0 && (y() - lastTop < vh() * APPROACH || y() <= lastTop + ALIGN)) {
         return { type: "commit", to: last };
       }
       return { type: "native", edge: false };
-    }
-
-    var alignedNow = findAligned(pos);
-    if (alignedNow >= 0) {
-      var n = alignedNow + dir;
-      if (n < 0 || n >= scenes.length) return { type: "native", edge: true };
-      return { type: "commit", to: n };
     }
 
     var i;
@@ -370,7 +442,11 @@
     return { type: "native", edge: true };
   }
 
-  function resetGesture(kind) {
+  function beginGesture(kind) {
+    cancelQuiet();
+    settleToken++;
+    releaseLock();
+    gestureId += 1;
     inputKind = kind;
     gestureCommitted = false;
     exitLatch = false;
@@ -378,16 +454,42 @@
     accDir = 0;
     touchOwned = false;
     touchHorizontal = false;
-    wheelQuiet = false;
     originY = y();
     ensureMeasured();
+    originIndex = findAligned(originY);
+    if (originIndex < 0 && scenes[index] && Math.abs(scenes[index].top - originY) <= ALIGN) {
+      originIndex = index;
+    }
+    if (originIndex >= 0) index = originIndex;
+    commitReason = "";
     setState("GESTURE_STARTED");
+    hud();
   }
 
-  function commitTo(to, dir) {
-    gestureCommitted = true;
-    setState("COMMIT_PENDING");
+  function commitTo(to, dir, reason) {
+    if (gestureCommitted || busy()) return;
+    if (!scenes[to]) return;
+    commitReason = reason || inputKind;
+    setState("COMMITTED");
     animateTo(to, dir, reduced() ? 0 : DUR);
+  }
+
+  function settleBack() {
+    if (originIndex < 0 || !scenes[originIndex]) {
+      cancelGesture();
+      return;
+    }
+    var dest = scenes[originIndex].top;
+    if (Math.abs(y() - dest) <= 2) {
+      index = originIndex;
+      cancelGesture();
+      return;
+    }
+    commitReason = "settle-back";
+    inputKind = "touch";
+    gestureCommitted = false;
+    setState("COMMITTED");
+    animateTo(originIndex, y() < dest ? 1 : -1, SETTLE, dest);
   }
 
   function wheelDelta(e) {
@@ -403,98 +505,72 @@
       if (e.cancelable) e.preventDefault();
       return;
     }
-    if (e.ctrlKey) return;
-    if (!scenes.length) return;
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    if (e.ctrlKey || !scenes.length) return;
+    if (e.deltaX && Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
     var delta = wheelDelta(e);
     if (!delta) return;
-    var dir = delta > 0 ? 1 : -1;
 
-    if (state === "TRANSITIONING" || state === "LOCKED" || gestureCommitted) {
+    if (state !== "IDLE" && state !== "GESTURE_STARTED" && state !== "GESTURE_ACCUMULATING") {
       if (e.cancelable) e.preventDefault();
-      noteWheel();
+      lastInputAt = now();
+      if (state === "SETTLE" && inputKind !== "touch") armWheelSettle();
       return;
     }
+    if (state === "GESTURE_STARTED" || state === "GESTURE_ACCUMULATING") {
+      if (inputKind !== "wheel") {
+        if (e.cancelable) e.preventDefault();
+        return;
+      }
+    }
 
-    stopPin();
-    if (state === "IDLE" || inputKind !== "wheel") resetGesture("wheel");
-    noteWheel();
+    var dir = delta > 0 ? 1 : -1;
+    if (state === "IDLE") beginGesture("wheel");
+    if (state === "GESTURE_STARTED") setState("GESTURE_ACCUMULATING");
+    lastInputAt = now();
 
     if (dir !== accDir) {
       acc = 0;
       accDir = dir;
       exitLatch = false;
     }
+    if (exitLatch || gestureCommitted) {
+      if (e.cancelable && !exitLatch) e.preventDefault();
+      armOpenGesture();
+      return;
+    }
     acc += Math.abs(delta);
-
-    if (exitLatch) return;
 
     var decision = decide(dir);
     if (decision.type !== "commit") {
       if (decision.edge) exitLatch = true;
+      armOpenGesture();
       return;
     }
-
     if (e.cancelable) e.preventDefault();
-    if (acc < WHEEL_COMMIT) return;
-    commitTo(decision.to, dir);
-  }
-
-  function stopPin() {
-    pinUntil = 0;
-    if (pinRaf) {
-      window.cancelAnimationFrame(pinRaf);
-      pinRaf = 0;
+    if (acc < WHEEL_COMMIT) {
+      armOpenGesture();
+      return;
     }
-  }
-
-  /* Chrome keeps a touch fling alive after preventDefault. Hold the landed
-     scroll offset until that fling decays. A finger still down only pauses
-     the correction; the loop stays armed so the fling after touchend is eaten. */
-  function holdPin(top) {
-    pinTop = top;
-    pinUntil = now() + 1200;
-    if (pinRaf) return;
-    function frame() {
-      if (!pinUntil || state === "TRANSITIONING" || now() > pinUntil) {
-        pinRaf = 0;
-        return;
-      }
-      if (!touchDown && y() !== pinTop) window.scrollTo(0, pinTop);
-      pinRaf = window.requestAnimationFrame(frame);
-    }
-    pinRaf = window.requestAnimationFrame(frame);
-  }
-
-  function killAndPin(top) {
-    var root = document.scrollingElement || html;
-    root.style.overflow = "hidden";
-    window.scrollTo(0, top);
-    root.style.overflow = "";
-    window.scrollTo(0, top);
-  }
-
-  function stopFling() {
-    var pos = y();
-    ensureMeasured();
-    if (!scenes.length) return;
-    var last = scenes[scenes.length - 1];
-    if (pos < scenes[0].top - 120 || pos > last.top + Math.max(last.height, 0)) return;
-    killAndPin(pos);
+    commitTo(decision.to, dir, "wheel");
   }
 
   function onTouchStart(e) {
-    if (reduced() || bypass() || !e.touches || !e.touches.length) return;
-    if (state === "TRANSITIONING" || state === "LOCKED" || gestureCommitted) {
+    if (reduced() || !e.touches || !e.touches.length) return;
+    if (now() < bypassUntil) return;
+    if (blockTouch || state === "TRANSITIONING" || state === "COMMITTED") {
+      blockTouch = true;
       touchDown = true;
       return;
     }
-    stopPin();
-    stopFling();
     touchDown = true;
     touchX = e.touches[0].clientX;
     touchY = e.touches[0].clientY;
-    resetGesture("touch");
+    if (state !== "IDLE") {
+      cancelQuiet();
+      setState("IDLE");
+      gestureCommitted = false;
+    }
+    beginGesture("touch");
   }
 
   function onTouchMove(e) {
@@ -504,6 +580,12 @@
       return;
     }
     if (!touchDown) return;
+    if (blockTouch || state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE" || gestureCommitted) {
+      if (e.cancelable) e.preventDefault();
+      return;
+    }
+    if (state !== "GESTURE_STARTED" && state !== "GESTURE_ACCUMULATING") return;
+
     var cx = e.touches[0].clientX;
     var cy = e.touches[0].clientY;
     var dx = cx - touchX;
@@ -511,64 +593,59 @@
     touchX = cx;
     touchY = cy;
 
-    if (state === "TRANSITIONING" || state === "LOCKED" || gestureCommitted) {
-      if (e.cancelable) e.preventDefault();
-      return;
-    }
-
-    if (!touchHorizontal && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 12) {
-      touchHorizontal = true;
-    }
+    if (!touchHorizontal && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 12) touchHorizontal = true;
     if (touchHorizontal) return;
 
     var dir = dy > 0 ? 1 : dy < 0 ? -1 : 0;
     if (!dir) return;
+    if (state === "GESTURE_STARTED") setState("GESTURE_ACCUMULATING");
     if (dir !== accDir) {
       acc = 0;
       accDir = dir;
       exitLatch = false;
     }
     acc += Math.abs(dy);
-    if (exitLatch || gestureCommitted) {
-      if (touchOwned && e.cancelable) e.preventDefault();
-      return;
-    }
+    if (exitLatch) return;
 
     var decision = decide(dir);
-    html.setAttribute("data-qrmo-story-last", decision.type + ":" + (decision.to == null ? "-" : decision.to) + " acc=" + Math.round(acc) + " o=" + Math.round(originY) + " y=" + Math.round(y()));
+    if (debug) {
+      html.setAttribute(
+        "data-qrmo-story-last",
+        decision.type + ":" + (decision.to == null ? "-" : decision.to) +
+          " g=" + gestureId + " acc=" + Math.round(acc)
+      );
+    }
     if (decision.type !== "commit") {
       if (decision.edge) exitLatch = true;
       return;
     }
-
     if (acc < TOUCH_ARM) return;
     touchOwned = true;
     if (e.cancelable) e.preventDefault();
-    if (acc < TOUCH_COMMIT) return;
-    commitTo(decision.to, dir);
+    if (acc < TOUCH_COMMIT || gestureCommitted) return;
+    commitTo(decision.to, dir, "touch");
   }
 
   function onTouchEnd() {
-    var wasDown = touchDown;
+    var blocked = blockTouch;
     touchDown = false;
-    if (wasDown && pinRaf) pinUntil = now() + 1200;
-    if (!wasDown || reduced() || bypass()) return;
-    if (state === "TRANSITIONING") return;
-    if (gestureCommitted || state === "LOCKED") {
-      unlockGesture();
+    blockTouch = false;
+    if (reduced()) return;
+    if (state === "TRANSITIONING" || state === "COMMITTED") return;
+    if (blocked || now() < bypassUntil) {
+      if (state === "SETTLE") enterIdle();
+      else if (state !== "IDLE") cancelGesture();
       return;
     }
-    if (touchOwned && !touchHorizontal) {
-      var back = findAligned(originY);
-      if (back < 0) back = nearestIndex(originY);
-      var drift = Math.abs(y() - (scenes[back] ? scenes[back].top : originY));
-      if (drift > 2) {
-        inputKind = "touch";
-        animateTo(back, 0, SETTLE);
-        return;
-      }
+    if (state === "SETTLE") {
+      enterIdle();
+      return;
     }
-    unlockGesture();
+    if ((state === "GESTURE_STARTED" || state === "GESTURE_ACCUMULATING") && touchOwned && !touchHorizontal) {
+      settleBack();
+      return;
+    }
+    if (state !== "IDLE") cancelGesture();
   }
 
   function sceneForModule(id) {
@@ -583,27 +660,34 @@
   }
 
   function navigateToModule(id, animate) {
-    stopPin();
     ensureMeasured();
     var to = sceneForModule(id);
     if (to < 0) return;
+    settleToken++;
+    releaseLock();
     cancelAnim();
+    cancelQuiet();
     clearFx();
-    gestureCommitted = true;
-    exitLatch = true;
-    inputKind = "wheel";
-    bypassUntil = now() + (animate ? DUR + 120 : 80);
+    navToken++;
+    bypassUntil = now() + (!animate || reduced() ? 80 : DUR + 160);
     originY = y();
+    originIndex = index;
+    inputKind = "wheel";
+    lastInputAt = 0;
+    commitReason = "nav";
+    gestureCommitted = false;
     if (!animate || reduced()) {
       var dest = scenes[to].top;
-      window.scrollTo(0, dest);
+      scrollToY(dest);
       index = to;
+      activeStart = originY;
+      activeTarget = dest;
       html.classList.remove("qrmo-mod-story-v4--busy");
-      unlockGesture();
-      holdPin(dest);
-      bypassUntil = now() + 80;
+      setState("SETTLE");
+      armWheelSettle();
       return;
     }
+    setState("COMMITTED");
     animateTo(to, scenes[to].top >= y() ? 1 : -1, DUR);
   }
 
@@ -662,26 +746,52 @@
     return -1;
   }
 
-  function onResize() {
-    var prev = scenes[index] || null;
+  /* Resize / address-bar: follow the scene already on screen.
+     Never animate to a different scene and never move the user
+     onto a scene they are not already looking at. */
+  function syncSceneToViewport() {
+    if (!scenes.length) return;
     var pos = y();
-    var inside = inZone(pos);
+    if (!inZone(pos)) return;
+    var aligned = findAligned(pos);
+    if (aligned >= 0) {
+      index = aligned;
+      if (Math.abs(pos - scenes[aligned].top) > 2) scrollToY(scenes[aligned].top);
+      return;
+    }
+    var nearest = nearestIndex(pos);
+    if (nearest === index && scenes[index] && Math.abs(pos - scenes[index].top) <= Math.min(vh() * 0.45, 280)) {
+      scrollToY(scenes[index].top);
+      return;
+    }
+    index = nearest;
+  }
+
+  function onResize() {
+    if (touchDown) blockTouch = true;
+    if (state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE") {
+      layoutStamp++;
+      return;
+    }
+    var prev = scenes[index] || null;
     layoutStamp++;
     syncChrome();
     build();
-    if (!inside || !prev) {
+    cancelAnim();
+    clearFx();
+    acc = 0;
+    gestureCommitted = false;
+    if (state !== "IDLE") setState("IDLE");
+    if (!prev) {
       index = scenes.length ? nearestIndex(y()) : 0;
       return;
     }
-    if (state === "TRANSITIONING") return;
+    var inside = inZone(y());
+    if (!inside) return;
     var next = remap(prev);
     if (next < 0) return;
-    cancelAnim();
-    clearFx();
-    window.scrollTo(0, scenes[next].top);
     index = next;
-    setState("IDLE");
-    gestureCommitted = false;
+    syncSceneToViewport();
   }
 
   function hud() {
@@ -690,19 +800,17 @@
     if (!box) {
       box = document.createElement("div");
       box.id = "qrmo-story-v4-hud";
-      box.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:99999;max-width:300px;padding:8px 10px;border-radius:8px;background:#0D2B22;color:#F4F1E8;font:11px/1.35 ui-monospace,monospace;pointer-events:none;white-space:pre";
+      box.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:99999;max-width:320px;padding:8px 10px;border-radius:8px;background:#0D2B22;color:#F4F1E8;font:11px/1.35 ui-monospace,monospace;pointer-events:none;white-space:pre";
       document.body.appendChild(box);
     }
     var cur = scenes[index];
     box.textContent = [
-      "STORY V4 " + window.innerWidth + "×" + vh() + (mobile() ? " M" : " D"),
-      state + " acc=" + Math.round(acc) + " exit=" + (exitLatch ? "1" : "0"),
-      cur ? cur.id : "-"
+      "STORY V4 g" + gestureId + " " + state,
+      "scene " + index + " " + (cur ? cur.id : "-"),
+      "dir " + accDir + " " + (commitReason || "-"),
+      "start " + Math.round(activeStart) + " target " + Math.round(activeTarget),
+      "y " + Math.round(y())
     ].join("\n");
-  }
-
-  function bindMotion() {
-    /* Hijack listeners stay off under reduced motion. Hash landing still aligns. */
   }
 
   function boot() {
@@ -716,13 +824,21 @@
     window.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("touchend", onTouchEnd, { passive: true });
     window.addEventListener("touchcancel", onTouchEnd, { passive: true });
+    /* Scroll events, including those from scrollToY, never commit a scene. */
+    window.addEventListener("scroll", function () {
+      if (scrollWrite > 0) return;
+      if (state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE") return;
+    }, { passive: true });
     document.addEventListener("click", onDocClick, true);
     window.addEventListener("hashchange", onHashChange);
     window.addEventListener("popstate", function () {
       bypassUntil = now() + 500;
+      settleToken++;
+      releaseLock();
       cancelAnim();
+      cancelQuiet();
       clearFx();
-      unlockGesture();
+      cancelGesture();
     });
 
     var resizeTimer = 0;
@@ -731,24 +847,22 @@
       resizeTimer = window.setTimeout(onResize, 90);
     }, { passive: true });
     window.addEventListener("orientationchange", function () {
+      if (touchDown) blockTouch = true;
       window.setTimeout(onResize, 140);
     });
 
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(function () {
         layoutStamp++;
-        if (state !== "TRANSITIONING") {
-          var inside = inZone(y());
-          var prev = scenes[index];
-          measure();
-          if (inside && prev) {
-            var next = remap(prev);
-            if (next >= 0 && Math.abs(y() - scenes[next].top) > 2 && Math.abs(y() - scenes[next].top) < ALIGN + 8) {
-              window.scrollTo(0, scenes[next].top);
-              index = next;
-            }
-          }
-        }
+        if (state === "TRANSITIONING" || state === "COMMITTED") return;
+        var prev = scenes[index];
+        var inside = inZone(y());
+        measure();
+        if (!inside || !prev) return;
+        var next = remap(prev);
+        if (next < 0) return;
+        index = next;
+        syncSceneToViewport();
       });
     }
 
@@ -761,10 +875,12 @@
 
     if (typeof reduceMq.addEventListener === "function") {
       reduceMq.addEventListener("change", function () {
+        settleToken++;
+        releaseLock();
         cancelAnim();
+        cancelQuiet();
         clearFx();
-        unlockGesture();
-        bindMotion();
+        cancelGesture();
       });
     }
     if (typeof mobileMq.addEventListener === "function") {
@@ -777,7 +893,10 @@
     }
 
     window.addEventListener("pagehide", function () {
+      settleToken++;
+      releaseLock();
       cancelAnim();
+      cancelQuiet();
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
