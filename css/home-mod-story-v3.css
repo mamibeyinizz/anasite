@@ -1,0 +1,72 @@
+/* =========================================================
+   QR MENU OFFICIAL — SECTION STORY V3 (isolated prototype)
+
+   Active only when <html> has .qrmo-mod-story-v3 (?story=v3).
+   Disable: omit class, or ?story=off.
+
+   Does not rewrite section heights. No CSS scroll-snap.
+========================================================= */
+
+html.qrmo-mod-story-v3 {
+  overflow-x: clip;
+}
+
+html.qrmo-mod-story-v3 #qrmo-translation-v3-root,
+html.qrmo-mod-story-v3 #qrmo-home-filtre,
+html.qrmo-mod-story-v3 #qrmo-home-asistan,
+html.qrmo-mod-story-v3 #qrmo-home-masa,
+html.qrmo-mod-story-v3 #qrmo-home-servis,
+html.qrmo-mod-story-v3 #qrmo-home-icgoru {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+html.qrmo-mod-story-v3 .qrmo-story-v3-from,
+html.qrmo-mod-story-v3 .qrmo-story-v3-to {
+  will-change: transform, opacity;
+  transform-origin: 50% 42%;
+}
+
+html.qrmo-mod-story-v3 .qrmo-story-v3-from.is-out-next {
+  transform: translate3d(0, -12vh, 0) scale(0.96);
+  opacity: 0.22;
+  transition: transform 0.7s cubic-bezier(0.22, 0.84, 0.28, 1),
+    opacity 0.62s cubic-bezier(0.22, 0.84, 0.28, 1);
+}
+
+html.qrmo-mod-story-v3 .qrmo-story-v3-from.is-out-prev {
+  transform: translate3d(0, 12vh, 0) scale(0.96);
+  opacity: 0.22;
+  transition: transform 0.7s cubic-bezier(0.22, 0.84, 0.28, 1),
+    opacity 0.62s cubic-bezier(0.22, 0.84, 0.28, 1);
+}
+
+html.qrmo-mod-story-v3 .qrmo-story-v3-to.is-prep-next {
+  transform: translate3d(0, 18vh, 0) scale(0.97);
+  opacity: 0.35;
+  transition: none;
+}
+
+html.qrmo-mod-story-v3 .qrmo-story-v3-to.is-prep-prev {
+  transform: translate3d(0, -18vh, 0) scale(0.97);
+  opacity: 0.35;
+  transition: none;
+}
+
+html.qrmo-mod-story-v3 .qrmo-story-v3-to.is-in {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  transition: transform 0.7s cubic-bezier(0.22, 0.84, 0.28, 1),
+    opacity 0.62s cubic-bezier(0.22, 0.84, 0.28, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-story-v3 .qrmo-story-v3-from,
+  html.qrmo-mod-story-v3 .qrmo-story-v3-to {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+}
