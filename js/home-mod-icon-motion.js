@@ -37,7 +37,7 @@
     root.classList.add("is-mod-icons-active", "is-mod-icons-active--" + slug);
     window.setTimeout(function () {
       root.classList.remove("is-mod-icons-active", "is-mod-icons-active--" + slug);
-    }, 720);
+    }, 980);
   }
 
   document.addEventListener("qrmo-story-scene-enter", function (e) {
