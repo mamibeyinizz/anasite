@@ -71,8 +71,10 @@
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
+    font-size: 28px;
     font-weight: 750;
-    font-size: 1.12em;
+    line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   /* —— Küçük meta: 13 / 500 —— */
@@ -93,6 +95,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 1.35;
+    letter-spacing: -0.01em;
   }
 
   /* —— Liste açıklaması: 15 / 400 / 1.50 —— */
@@ -111,12 +114,12 @@
   /* —— CTA metni: 15 / 700 / 20 —— (buton ölçüleri değişmez) */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-cta-text,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-cta,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__cta,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__cta-text,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-home-module-link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-home-module-link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-home-module-link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-home-module-link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-home-module-link {
+    font-family: inherit;
     font-size: 15px;
     font-weight: 700;
     line-height: 20px;
