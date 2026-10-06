@@ -83,7 +83,7 @@
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg {
   transform-origin: 50% 50%;
-  animation: qrmo-icon-s3-globe 520ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s3-globe 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth-child(1) .qrmo-translation-v3-benefit-icon svg {
@@ -97,7 +97,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg {
-  animation: qrmo-icon-s4-slide 480ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s4-slide 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(1) .qrmo-benefit-check svg {
@@ -112,7 +112,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-c
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg {
   transform-origin: 50% 50%;
-  animation: qrmo-icon-s5-sparkle 460ms cubic-bezier(0.33, 1, 0.32, 1) both;
+  animation: qrmo-icon-s5-sparkle 700ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__item:nth-child(1) .qrmo-chatbot-feature__icon svg {
@@ -144,7 +144,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check::after {
     rgba(232, 199, 102, 0) 100%
   );
   pointer-events: none;
-  animation: qrmo-icon-s6-scan 560ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s6-scan 720ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-child(1) .qrmo-tables-v5__check::after {
@@ -159,7 +159,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-chi
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg {
   transform-origin: 50% 50%;
-  animation: qrmo-icon-s7-pulse 500ms cubic-bezier(0.33, 1, 0.32, 1) both;
+  animation: qrmo-icon-s7-pulse 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature:nth-child(1) .qrmo-service-v2__feature-icon svg {
@@ -187,7 +187,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicke
   border-radius: 1px;
   background: rgba(201, 168, 76, 0.82);
   transform-origin: 50% 100%;
-  animation: qrmo-icon-s8-bar 500ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s8-bar 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(1) .qrmo-analytics-v3__pillar-kicker::before {
@@ -205,12 +205,12 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-c
 
 @media (max-width: 767px) {
   html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg {
-    animation-duration: 440ms;
+    animation-duration: 560ms;
   }
 
   html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg,
   html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg {
-    animation-duration: 420ms;
+    animation-duration: 560ms;
   }
 
   html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg {
