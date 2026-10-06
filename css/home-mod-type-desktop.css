@@ -111,7 +111,7 @@
     line-height: 1.50;
   }
 
-  /* —— CTA metni: 15 / 700 / 20 —— (buton ölçüleri değişmez) */
+  /* —— CTA metni: 15 / 700 / 20 —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-cta-text,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-home-module-link,
@@ -123,6 +123,36 @@
     font-size: 15px;
     font-weight: 700;
     line-height: 20px;
+  }
+
+  /* S3 primary CTA — desktop/tablet chrome (S4–S8 stay text links) */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta {
+    min-width: 240px;
+    width: fit-content;
+    height: 50px;
+    min-height: 50px;
+    padding: 0 20px;
+    gap: 12px;
+    border-radius: 8px;
+    border-bottom-width: 2px;
+    transition: transform 200ms ease, background-color 200ms ease;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:focus-visible {
+    transform: translateY(-1px);
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-cta-arrow {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    transition: transform 200ms ease;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:hover .qrmo-translation-v3-cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:focus-visible .qrmo-translation-v3-cta-arrow {
+    transform: translateX(3px);
   }
 
   /* S3 benefit list icons — 56px container, 24px glyph, 16px column gap */
