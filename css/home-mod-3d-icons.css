@@ -43,6 +43,11 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-trans
   border-radius: 12px;
 }
 
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d {
+  width: 36px;
+  height: 36px;
+}
+
 /* S4–S7: independent of S3 plate — mid-scale 3D glyphs */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
@@ -79,12 +84,17 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     border-radius: 10px;
   }
 
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d {
+    width: 40px;
+    height: 40px;
+  }
+
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     margin-top: 0;
   }
 
