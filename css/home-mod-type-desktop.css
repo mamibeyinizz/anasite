@@ -2,16 +2,18 @@
    Loaded after home-mod-story-v4.css. Mobile ≤767 unchanged. */
 
 @media (min-width: 768px) {
-  /* —— Kicker / module label: 11 / 700 / 14 —— */
+  /* —— Kicker: 12 / 700 / 14 / .16em —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-eyebrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-eyebrow-mod,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-kicker,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__kicker,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__eyebrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__eyebrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__eyebrow {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 14px;
+    letter-spacing: .16em;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-kicker strong,
@@ -19,12 +21,13 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__eyebrow strong,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__eyebrow strong,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__eyebrow strong {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 14px;
+    letter-spacing: .16em;
   }
 
-  /* —— H2: 48 / 750 / ~1.06 —— */
+  /* —— H2: 48 / 750 / 1.08 / -0.025em —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-title,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy > h2,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2,
@@ -33,68 +36,79 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__title {
     font-size: 48px;
     font-weight: 750;
-    line-height: 1.06;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
   }
 
-  /* —— Hook / question: 18 / 600 / 25 —— */
+  /* —— Normal açıklama: 16 / 400 / 1.55 —— */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--proof,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.55;
+  }
+
+  /* —— Hook / güçlü lead: 18 / 600 / 1.45 (after body so S3 --hook wins) —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--hook,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__lead,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {
     font-size: 18px;
     font-weight: 600;
-    line-height: 25px;
+    line-height: 1.45;
   }
 
-  /* —— Body / lead copy: 17 / 400 / 26 —— */
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__description,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 26px;
-  }
-
-  /* —— Proof line: 17 / 400 —— */
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--proof {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 26px;
+  /* —— KPI / vurgu sayı: 28 / 750 —— */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-stat-num {
+    font-size: 28px;
+    font-weight: 750;
+    line-height: 1;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
-    font-size: 19px;
-    font-weight: 825;
-    line-height: 26px;
+    font-weight: 750;
+    font-size: 1.12em;
   }
 
-  /* —— List title: 19 / 750 / 24 —— */
+  /* —— Küçük meta: 13 / 500 —— */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-stat-label,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-footnote {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* —— Liste başlığı: 18 / 700 / 1.35 —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit strong,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item strong,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit-title,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-copy strong,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-title {
-    font-size: 19px;
-    font-weight: 750;
-    line-height: 24px;
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.35;
   }
 
-  /* —— List description: 16 / 400 / 24 —— */
+  /* —— Liste açıklaması: 15 / 400 / 1.50 —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit p,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item p,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit-desc,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-copy p,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-text {
-    font-size: 16px;
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-text,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-text {
+    font-size: 15px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.50;
   }
 
-  /* —— CTA: 16 / 700 / 20 —— */
+  /* —— CTA metni: 15 / 700 / 20 —— (buton ölçüleri değişmez) */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-cta-text,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-cta,
@@ -103,7 +117,7 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__cta-text,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 20px;
   }
