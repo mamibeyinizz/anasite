@@ -1,43 +1,58 @@
-/* S3–S8 list icon micro-motion — triggered by .is-mod-icons-active on module root. */
+/* S3–S8 3D icon scene-entry motion — once via .is-mod-icons-active. */
 
 @keyframes qrmo-icon-s3-globe {
   0% {
-    transform: rotate(-9deg) scale(0.94);
-    opacity: 0.82;
+    transform: rotateY(-18deg) rotate(-6deg) scale(0.92);
+    opacity: 0.78;
   }
   100% {
-    transform: rotate(0deg) scale(1);
+    transform: rotateY(0deg) rotate(0deg) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes qrmo-icon-s4-slide {
   0% {
-    transform: translate3d(-5px, 0, 0);
-    opacity: 0.55;
+    transform: translate3d(-6px, 3px, 0) scale(0.94);
+    opacity: 0.5;
   }
-  65% {
-    transform: translate3d(1px, 0, 0);
+  62% {
+    transform: translate3d(1px, -1px, 0) scale(1.02);
     opacity: 1;
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes qrmo-icon-s5-sparkle {
   0% {
-    transform: scale(0.88);
-    opacity: 0.65;
+    transform: scale(0.86);
+    opacity: 0.55;
   }
-  45% {
-    transform: scale(1.06);
+  42% {
+    transform: scale(1.07);
     opacity: 1;
   }
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes qrmo-icon-s5-spark {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -46,34 +61,45 @@
     transform: translate3d(0, -120%, 0);
     opacity: 0;
   }
-  25% {
-    opacity: 0.85;
+  28% {
+    opacity: 0.9;
   }
   100% {
-    transform: translate3d(0, 120%, 0);
+    transform: translate3d(0, 130%, 0);
     opacity: 0;
+  }
+}
+
+@keyframes qrmo-icon-s6-settle {
+  0% {
+    transform: rotateX(12deg) scale(0.92);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
   }
 }
 
 @keyframes qrmo-icon-s7-pulse {
   0% {
-    transform: scale(0.9);
+    transform: rotate(-11deg) scale(0.9);
     opacity: 0.7;
   }
-  50% {
-    transform: scale(1.05);
+  48% {
+    transform: rotate(6deg) scale(1.05);
     opacity: 1;
   }
   100% {
-    transform: scale(1);
+    transform: rotate(0deg) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes qrmo-icon-s8-bar {
   0% {
-    transform: scaleY(0.15);
-    opacity: 0.5;
+    transform: scaleY(0.12);
+    opacity: 0.45;
   }
   100% {
     transform: scaleY(1);
@@ -81,9 +107,21 @@
   }
 }
 
-html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg {
+@keyframes qrmo-icon-s8-trend {
+  0% {
+    opacity: 0;
+    transform: translate3d(-4px, 4px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d {
   transform-origin: 50% 50%;
-  animation: qrmo-icon-s3-globe 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  transform-style: preserve-3d;
+  animation: qrmo-icon-s3-globe 760ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth-child(1) .qrmo-translation-v3-benefit-icon svg {
@@ -96,8 +134,8 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth
   animation-delay: 140ms;
 }
 
-html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg {
-  animation: qrmo-icon-s4-slide 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d {
+  animation: qrmo-icon-s4-slide 720ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(1) .qrmo-benefit-check svg {
@@ -110,9 +148,14 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-c
   animation-delay: 130ms;
 }
 
-html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg {
+html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg.qrmo-mod-3d {
   transform-origin: 50% 50%;
-  animation: qrmo-icon-s5-sparkle 700ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s5-sparkle 740ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-mod-3d-spark {
+  transform-origin: 50% 50%;
+  animation: qrmo-icon-s5-spark 740ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__item:nth-child(1) .qrmo-chatbot-feature__icon svg {
@@ -130,21 +173,26 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check {
   overflow: hidden;
 }
 
+html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check svg.qrmo-mod-3d {
+  transform-origin: 50% 80%;
+  animation: qrmo-icon-s6-settle 760ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
+}
+
 html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 8%;
+  right: 8%;
   top: 0;
-  height: 40%;
+  height: 38%;
   background: linear-gradient(
     180deg,
     rgba(232, 199, 102, 0) 0%,
-    rgba(232, 199, 102, 0.45) 48%,
+    rgba(232, 199, 102, 0.55) 48%,
     rgba(232, 199, 102, 0) 100%
   );
   pointer-events: none;
-  animation: qrmo-icon-s6-scan 720ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s6-scan 780ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-child(1) .qrmo-tables-v5__check::after {
@@ -157,9 +205,9 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-chi
   animation-delay: 160ms;
 }
 
-html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg {
-  transform-origin: 50% 50%;
-  animation: qrmo-icon-s7-pulse 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg.qrmo-mod-3d {
+  transform-origin: 50% 18%;
+  animation: qrmo-icon-s7-pulse 720ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
 }
 
 html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature:nth-child(1) .qrmo-service-v2__feature-icon svg {
@@ -172,49 +220,35 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature:nth-ch
   animation-delay: 140ms;
 }
 
-html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker {
-  position: relative;
-  padding-left: 10px;
-}
-
-html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 3px;
-  height: 12px;
-  border-radius: 1px;
-  background: rgba(201, 168, 76, 0.82);
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-mod-3d-bar {
   transform-origin: 50% 100%;
-  animation: qrmo-icon-s8-bar 680ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+  animation: qrmo-icon-s8-bar 760ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
 }
 
-html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(1) .qrmo-analytics-v3__pillar-kicker::before {
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-mod-3d-trend {
+  animation: qrmo-icon-s8-trend 820ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(1) .qrmo-mod-3d-bar {
   animation-delay: 0ms;
 }
-html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(2) .qrmo-analytics-v3__pillar-kicker::before {
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(2) .qrmo-mod-3d-bar {
   animation-delay: 60ms;
 }
-html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(3) .qrmo-analytics-v3__pillar-kicker::before {
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(3) .qrmo-mod-3d-bar {
   animation-delay: 120ms;
 }
-html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(4) .qrmo-analytics-v3__pillar-kicker::before {
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(4) .qrmo-mod-3d-bar {
   animation-delay: 180ms;
 }
 
 @media (max-width: 767px) {
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg {
-    animation-duration: 560ms;
-  }
-
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg,
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg {
-    animation-duration: 560ms;
-  }
-
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg {
-    animation-name: qrmo-icon-s5-sparkle;
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg.qrmo-mod-3d {
+    animation-duration: 640ms;
   }
 }
 
@@ -222,19 +256,14 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-c
   html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-translation-v3-benefit-icon svg,
   html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-benefit-check svg,
   html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-chatbot-feature__icon svg,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-tables-v5__check svg,
   html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-tables-v5__check::after,
   html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-service-v2__feature-icon svg,
-  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-analytics-v3__pillar-kicker::before {
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-mod-3d-bar,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-mod-3d-trend,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-mod-3d-spark {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;
-  }
-
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker {
-    padding-left: 0;
-  }
-
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker::before {
-    content: none;
   }
 }

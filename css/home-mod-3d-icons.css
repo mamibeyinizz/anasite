@@ -1,0 +1,113 @@
+/* S3–S8 premium 3D module icons — layout + paint only. Story V4 untouched. */
+
+html.qrmo-mod-story-v4 .qrmo-mod-3d-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d {
+  display: block;
+  overflow: visible;
+  fill: none;
+  stroke: none;
+}
+
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-em-rad)"] { fill: url(#q3d-em-rad); }
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-em-lin)"] { fill: url(#q3d-em-lin); }
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-em-side)"] { fill: url(#q3d-em-side); }
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-gold-rad)"] { fill: url(#q3d-gold-rad); }
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-gold-lin)"] { fill: url(#q3d-gold-lin); }
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-hi)"] { fill: url(#q3d-hi); }
+html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="#071C16"] { fill: #071C16; }
+
+html.qrmo-mod-story-v4 .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-benefit-check svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-chatbot-feature__icon svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-tables-v5__check svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-service-v2__feature-icon svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
+  fill: none;
+  stroke: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* S3: keep emerald tile; 3D glyph fills more of the plate */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
+  width: 52px;
+  height: 52px;
+  flex-basis: 52px;
+  flex: 0 0 52px;
+  border-radius: 12px;
+}
+
+/* S4–S7: independent of S3 plate — mid-scale 3D glyphs */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* S8: kicker stays text; 3D bars sit beside it */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+    flex: 0 0 56px;
+    border-radius: 10px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
+    width: 24px;
+    height: 24px;
+    flex-basis: 24px;
+  }
+}
+
+@media (max-width: 359px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    flex: 0 0 44px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
