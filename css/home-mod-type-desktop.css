@@ -107,4 +107,24 @@
     font-weight: 700;
     line-height: 20px;
   }
+
+  /* S3 benefit list icons — 56px container, 24px glyph, 16px column gap */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit {
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: center;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
+    flex-basis: 56px;
+    border-radius: 10px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg {
+    width: 24px;
+    height: 24px;
+  }
 }
