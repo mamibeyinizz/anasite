@@ -234,6 +234,30 @@
     return ((ay * u + by) * u + cy) * u;
   }
 
+  function emitSceneEnter(scene) {
+    if (!scene) scene = scenes[index];
+    if (!scene) return;
+    try {
+      document.dispatchEvent(
+        new CustomEvent("qrmo-story-scene-enter", {
+          detail: {
+            moduleId: scene.moduleId,
+            key: scene.key,
+            role: scene.role
+          }
+        })
+      );
+    } catch (err) {}
+  }
+
+  function scheduleSceneEnter(scene) {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        emitSceneEnter(scene);
+      });
+    });
+  }
+
   function clearFx() {
     var i;
     for (i = 0; i < scenes.length; i++) {
@@ -380,6 +404,7 @@
     html.setAttribute("data-qrmo-story-land", String(top));
     html.classList.remove("qrmo-mod-story-v4--busy");
     setState("SETTLE");
+    scheduleSceneEnter(scenes[toIndex]);
     var token = ++settleToken;
     var kind = inputKind;
     function afterSettle() {
@@ -729,6 +754,7 @@
       activeTarget = dest;
       html.classList.remove("qrmo-mod-story-v4--busy");
       setState("SETTLE");
+      scheduleSceneEnter(scenes[to]);
       armWheelSettle();
       return;
     }
@@ -922,6 +948,10 @@
       window.requestAnimationFrame(function () {
         navigateToModule(startId, false);
       });
+    } else if (inZone(y())) {
+      var aligned = findAligned(y());
+      if (aligned < 0) aligned = containingIndex(y());
+      if (aligned >= 0) scheduleSceneEnter(scenes[aligned]);
     }
 
     if (typeof reduceMq.addEventListener === "function") {

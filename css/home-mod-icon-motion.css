@@ -1,0 +1,240 @@
+/* S3–S8 list icon micro-motion — triggered by .is-mod-icons-active on module root. */
+
+@keyframes qrmo-icon-s3-globe {
+  0% {
+    transform: rotate(-9deg) scale(0.94);
+    opacity: 0.82;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes qrmo-icon-s4-slide {
+  0% {
+    transform: translate3d(-5px, 0, 0);
+    opacity: 0.55;
+  }
+  65% {
+    transform: translate3d(1px, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes qrmo-icon-s5-sparkle {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.65;
+  }
+  45% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes qrmo-icon-s6-scan {
+  0% {
+    transform: translate3d(0, -120%, 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(0, 120%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes qrmo-icon-s7-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes qrmo-icon-s8-bar {
+  0% {
+    transform: scaleY(0.15);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg {
+  transform-origin: 50% 50%;
+  animation: qrmo-icon-s3-globe 520ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth-child(1) .qrmo-translation-v3-benefit-icon svg {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth-child(2) .qrmo-translation-v3-benefit-icon svg {
+  animation-delay: 70ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit:nth-child(3) .qrmo-translation-v3-benefit-icon svg {
+  animation-delay: 140ms;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg {
+  animation: qrmo-icon-s4-slide 480ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(1) .qrmo-benefit-check svg {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(2) .qrmo-benefit-check svg {
+  animation-delay: 65ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(3) .qrmo-benefit-check svg {
+  animation-delay: 130ms;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg {
+  transform-origin: 50% 50%;
+  animation: qrmo-icon-s5-sparkle 460ms cubic-bezier(0.33, 1, 0.32, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__item:nth-child(1) .qrmo-chatbot-feature__icon svg {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__item:nth-child(2) .qrmo-chatbot-feature__icon svg {
+  animation-delay: 70ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__item:nth-child(3) .qrmo-chatbot-feature__icon svg {
+  animation-delay: 140ms;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check {
+  position: relative;
+  overflow: hidden;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 40%;
+  background: linear-gradient(
+    180deg,
+    rgba(232, 199, 102, 0) 0%,
+    rgba(232, 199, 102, 0.45) 48%,
+    rgba(232, 199, 102, 0) 100%
+  );
+  pointer-events: none;
+  animation: qrmo-icon-s6-scan 560ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-child(1) .qrmo-tables-v5__check::after {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-child(2) .qrmo-tables-v5__check::after {
+  animation-delay: 80ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__benefit:nth-child(3) .qrmo-tables-v5__check::after {
+  animation-delay: 160ms;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg {
+  transform-origin: 50% 50%;
+  animation: qrmo-icon-s7-pulse 500ms cubic-bezier(0.33, 1, 0.32, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature:nth-child(1) .qrmo-service-v2__feature-icon svg {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature:nth-child(2) .qrmo-service-v2__feature-icon svg {
+  animation-delay: 70ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature:nth-child(3) .qrmo-service-v2__feature-icon svg {
+  animation-delay: 140ms;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker {
+  position: relative;
+  padding-left: 10px;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 3px;
+  height: 12px;
+  border-radius: 1px;
+  background: rgba(201, 168, 76, 0.82);
+  transform-origin: 50% 100%;
+  animation: qrmo-icon-s8-bar 500ms cubic-bezier(0.22, 0.84, 0.28, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(1) .qrmo-analytics-v3__pillar-kicker::before {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(2) .qrmo-analytics-v3__pillar-kicker::before {
+  animation-delay: 60ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(3) .qrmo-analytics-v3__pillar-kicker::before {
+  animation-delay: 120ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-child(4) .qrmo-analytics-v3__pillar-kicker::before {
+  animation-delay: 180ms;
+}
+
+@media (max-width: 767px) {
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s3 .qrmo-translation-v3-benefit-icon svg {
+    animation-duration: 440ms;
+  }
+
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg {
+    animation-duration: 420ms;
+  }
+
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg {
+    animation-name: qrmo-icon-s5-sparkle;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-translation-v3-benefit-icon svg,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-benefit-check svg,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-chatbot-feature__icon svg,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-tables-v5__check::after,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-service-v2__feature-icon svg,
+  html.qrmo-mod-story-v4 .is-mod-icons-active .qrmo-analytics-v3__pillar-kicker::before {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker {
+    padding-left: 0;
+  }
+
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-kicker::before {
+    content: none;
+  }
+}
