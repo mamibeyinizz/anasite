@@ -85,6 +85,8 @@
   var runVh = 0;
   var layoutDirty = false;
   var tailUntil = 0;
+  var programmaticNav = 0;
+  var moveDest = 0;
 
   function now() { return Date.now(); }
   function reduced() { return !!(reduceMq && reduceMq.matches); }
@@ -114,6 +116,41 @@
     scrollWrite++;
     window.scrollTo(0, top);
     scrollWrite--;
+  }
+
+  function resetGestureState() {
+    cancelQuiet();
+    cancelAnim();
+    acc = 0;
+    accDir = 0;
+    gestureCommitted = false;
+    exitLatch = false;
+    touchOwned = false;
+    touchHorizontal = false;
+    inputKind = "";
+    commitReason = "";
+    blockTouch = false;
+    touchDown = false;
+  }
+
+  /* Measure + keep logical scene index; optional one-step realign scroll. */
+  function idleGeometrySync(force) {
+    if (!force && !layoutDirty) return;
+    if (!inZone(y())) {
+      layoutDirty = false;
+      return;
+    }
+    var prev = scenes[index] || null;
+    layoutDirty = false;
+    runVh = window.innerHeight || 0;
+    syncChrome();
+    build();
+    measure(true);
+    if (prev) {
+      var mapped = remap(prev);
+      if (mapped >= 0) index = mapped;
+    }
+    if (scenes[index]) realignLogicalScene();
   }
 
   function syncChrome() {
@@ -350,13 +387,8 @@
     if (state === "TRANSITIONING" || state === "COMMITTED") return;
     cancelQuiet();
     releaseLock();
-    gestureCommitted = false;
-    exitLatch = false;
-    acc = 0;
-    accDir = 0;
-    touchOwned = false;
-    touchHorizontal = false;
-    inputKind = "";
+    resetGestureState();
+    idleGeometrySync(false);
     setState("IDLE");
     clearFx();
     html.classList.remove("qrmo-mod-story-v4--busy");
@@ -365,41 +397,15 @@
 
   function cancelGesture() {
     setState("CANCELLED");
-    acc = 0;
-    accDir = 0;
-    gestureCommitted = false;
-    touchOwned = false;
+    resetGestureState();
     enterIdle();
-  }
-
-  /* Same logical scene, new layout top. One scroll, never a second scene. */
-  function correctLanding() {
-    if (!layoutDirty && Math.abs((window.innerHeight || 0) - runVh) <= 2) return false;
-    layoutDirty = false;
-    runVh = window.innerHeight || 0;
-    var prev = scenes[index];
-    syncChrome();
-    build();
-    if (measuredStamp !== layoutStamp) measure(true);
-    if (prev) {
-      var mapped = remap(prev);
-      if (mapped >= 0) index = mapped;
-    }
-    if (!scenes[index]) return false;
-    var top = scenes[index].top;
-    activeTarget = top;
-    if (Math.abs(y() - top) > 2) scrollToY(top);
-    return true;
   }
 
   function finishMove(toIndex, targetY) {
     index = toIndex;
     var top = Math.round(targetY);
-    if (layoutDirty || Math.abs((window.innerHeight || 0) - runVh) > 2) {
-      layoutDirty = true;
-      correctLanding();
-      if (scenes[index]) top = Math.round(scenes[index].top);
-    }
+    if (Math.abs((window.innerHeight || 0) - runVh) > 2) layoutDirty = true;
+    scrollToY(top, true);
     activeTarget = top;
     html.setAttribute("data-qrmo-story-land", String(top));
     html.classList.remove("qrmo-mod-story-v4--busy");
@@ -409,14 +415,15 @@
     var kind = inputKind;
     function afterSettle() {
       if (token !== settleToken || state !== "SETTLE") return;
-      correctLanding();
       if (kind === "touch") {
         if (touchDown || blockTouch) return;
         enterIdle();
         return;
       }
-      if (now() - lastInputAt >= WHEEL_GAP) enterIdle();
-      else armWheelSettle();
+      window.requestAnimationFrame(function () {
+        if (token !== settleToken || state !== "SETTLE") return;
+        enterIdle();
+      });
     }
     if (kind === "touch") killFling(top, token, afterSettle);
     else afterSettle();
@@ -433,6 +440,8 @@
     runVh = window.innerHeight || 0;
     var start = y();
     var dest = targetOverride != null ? targetOverride : scenes[toIndex].top;
+    dest = Math.round(dest);
+    moveDest = dest;
     activeStart = start;
     activeTarget = dest;
     var distance = dest - start;
@@ -455,7 +464,7 @@
       if (p < 1) raf = window.requestAnimationFrame(frame);
       else {
         raf = 0;
-        finishMove(toIndex, dest);
+        finishMove(toIndex, moveDest);
       }
     }
     raf = window.requestAnimationFrame(frame);
@@ -505,8 +514,9 @@
   }
 
   function beginGesture(kind) {
+    if (state !== "IDLE") return;
+    if (programmaticNav > 0 || now() < bypassUntil) return;
     cancelQuiet();
-    settleToken++;
     releaseLock();
     gestureId += 1;
     inputKind = kind;
@@ -532,6 +542,7 @@
 
   function commitTo(to, dir, reason) {
     if (gestureCommitted || busy()) return;
+    if (programmaticNav > 0 || now() < bypassUntil) return;
     if (!scenes[to]) return;
     tailUntil = now() + 1600;
     commitReason = reason || inputKind;
@@ -566,6 +577,10 @@
 
   function onWheel(e) {
     if (reduced()) return;
+    if (programmaticNav > 0) {
+      if (e.cancelable) e.preventDefault();
+      return;
+    }
     if (now() < bypassUntil) {
       if (e.cancelable) e.preventDefault();
       return;
@@ -577,9 +592,6 @@
 
     if (state !== "IDLE" && state !== "GESTURE_STARTED" && state !== "GESTURE_ACCUMULATING") {
       if (e.cancelable) e.preventDefault();
-      lastInputAt = now();
-      if (Math.abs(delta) < TAIL_DELTA) tailUntil = Math.max(tailUntil, now() + 700);
-      if (state === "SETTLE" && inputKind !== "touch") armWheelSettle();
       return;
     }
     if (state === "GESTURE_STARTED" || state === "GESTURE_ACCUMULATING") {
@@ -626,20 +638,17 @@
 
   function onTouchStart(e) {
     if (reduced() || !e.touches || !e.touches.length) return;
-    if (now() < bypassUntil) return;
-    if (blockTouch || state === "TRANSITIONING" || state === "COMMITTED") {
+    if (now() < bypassUntil || programmaticNav > 0) return;
+    if (state === "TRANSITIONING" || state === "COMMITTED") {
       blockTouch = true;
       touchDown = true;
       return;
     }
+    if (state === "SETTLE") enterIdle();
+    if (state !== "IDLE") return;
     touchDown = true;
     touchX = e.touches[0].clientX;
     touchY = e.touches[0].clientY;
-    if (state !== "IDLE") {
-      cancelQuiet();
-      setState("IDLE");
-      gestureCommitted = false;
-    }
     beginGesture("touch");
   }
 
@@ -738,28 +747,36 @@
     cancelAnim();
     cancelQuiet();
     clearFx();
+    resetGestureState();
     navToken++;
-    bypassUntil = now() + (!animate || reduced() ? 80 : DUR + 160);
+    programmaticNav++;
+    bypassUntil = now() + (!animate || reduced() ? 120 : DUR + 220);
     originY = y();
     originIndex = index;
-    inputKind = "wheel";
+    inputKind = "nav";
     lastInputAt = 0;
     commitReason = "nav";
     gestureCommitted = false;
     if (!animate || reduced()) {
-      var dest = scenes[to].top;
-      scrollToY(dest);
+      var dest = Math.round(scenes[to].top);
+      scrollToY(dest, true);
       index = to;
       activeStart = originY;
       activeTarget = dest;
       html.classList.remove("qrmo-mod-story-v4--busy");
       setState("SETTLE");
       scheduleSceneEnter(scenes[to]);
-      armWheelSettle();
+      window.requestAnimationFrame(function () {
+        programmaticNav = Math.max(0, programmaticNav - 1);
+        enterIdle();
+      });
       return;
     }
     setState("COMMITTED");
     animateTo(to, scenes[to].top >= y() ? 1 : -1, DUR);
+    window.setTimeout(function () {
+      programmaticNav = Math.max(0, programmaticNav - 1);
+    }, DUR + 240);
   }
 
   function samePageHash(href) {
@@ -827,18 +844,10 @@
   }
 
   function onResize() {
-    if (state === "TRANSITIONING" || state === "COMMITTED") {
+    if (state === "SETTLE" || state === "TRANSITIONING" || state === "COMMITTED") {
       if (touchDown) blockTouch = true;
       layoutDirty = true;
       layoutStamp++;
-      return;
-    }
-    if (state === "SETTLE") {
-      if (touchDown) blockTouch = true;
-      layoutDirty = true;
-      layoutStamp++;
-      if (raf) return;
-      correctLanding();
       return;
     }
     var prev = scenes[index] || null;
@@ -901,6 +910,15 @@
     window.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("touchend", onTouchEnd, { passive: true });
     window.addEventListener("touchcancel", onTouchEnd, { passive: true });
+    window.addEventListener("blur", function () {
+      if (touchDown) {
+        touchDown = false;
+        blockTouch = false;
+        resetGestureState();
+        if (state === "SETTLE") enterIdle();
+        else if (state !== "IDLE") cancelGesture();
+      }
+    });
     /* Scroll events, including those from scrollToY, never commit a scene. */
     window.addEventListener("scroll", function () {
       if (scrollWrite > 0) return;
