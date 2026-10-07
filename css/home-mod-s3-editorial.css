@@ -64,11 +64,53 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-trans
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
-  font-size: 1.18em;
-  font-weight: 825;
-  letter-spacing: 0.04em;
-  padding: 0 0.05em;
-  filter: drop-shadow(0 0 10px rgba(201, 168, 76, 0.28));
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-family: inherit;
+  display: inline;
+  padding: 0 0 0.2em;
+  color: #C9A84C;
+  background-image:
+    linear-gradient(
+      105deg,
+      #C9A84C 0%,
+      #C9A84C 30%,
+      #E8C766 46%,
+      #F0D78A 50%,
+      #E8C766 54%,
+      #C9A84C 70%,
+      #C9A84C 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(201, 168, 76, 0) 0%,
+      rgba(232, 199, 102, 0.22) 35%,
+      rgba(244, 228, 166, 0.55) 50%,
+      rgba(232, 199, 102, 0.22) 65%,
+      rgba(201, 168, 76, 0) 100%
+    );
+  background-size: 240% 1.15em, 32% 1px;
+  background-position: 12% 0, 0 calc(100% - 0.5px);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  filter: none;
+  animation: qrmo-s3-proof-lux 9.5s ease-in-out infinite;
+}
+
+@keyframes qrmo-s3-proof-lux {
+  0%,
+  100% {
+    background-position: 10% 0, -24% calc(100% - 0.5px);
+  }
+  50% {
+    background-position: 78% 0, 92% calc(100% - 0.5px);
+  }
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
@@ -202,7 +244,12 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-tran
 @media (prefers-reduced-motion: reduce) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root::before,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-content::before,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo::before {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo::before,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
     animation: none;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
+    background-position: 30% 0, 26% calc(100% - 0.5px);
   }
 }
