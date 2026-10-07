@@ -1,4 +1,6 @@
-/* Context nav — yalnızca anasayfa modül bölgesi ([data-qrmo-home-mod-zone]). index.html, global/inject.mjs marker bloğunun dışında yükler. */
+/* Context nav — yalnızca anasayfa modül bölgesi ([data-qrmo-home-mod-zone]).
+   Full-width infinite loop; aktif modül viewport merkezinde.
+   Story V4 scroll engine'e dokunmaz. */
 (function () {
   var nav = document.querySelector("[data-qrmo-mod-ctx]");
   if (!nav || !document.body.classList.contains("qrmo-home-ctx")) return;
@@ -7,10 +9,20 @@
   if (!zone) return;
 
   var scroller = nav.querySelector("[data-qrmo-mod-ctx-scroll]");
-  var links = Array.prototype.slice.call(nav.querySelectorAll("[data-qrmo-mod-ctx-link]"));
-  if (!links.length) return;
+  var list = nav.querySelector(".qrmo-mod-ctx-links");
+  if (!scroller || !list) return;
 
-  var pairs = links
+  var originalItems = Array.prototype.slice.call(list.children);
+  if (!originalItems.length) return;
+
+  var origLinks = originalItems
+    .map(function (li) {
+      return li.querySelector("[data-qrmo-mod-ctx-link]");
+    })
+    .filter(Boolean);
+  if (!origLinks.length) return;
+
+  var pairs = origLinks
     .map(function (a) {
       var href = a.getAttribute("href") || "";
       if (href.charAt(0) !== "#") return null;
@@ -19,20 +31,22 @@
       return { link: a, el: el, key: a.getAttribute("data-qrmo-mod-ctx-link") };
     })
     .filter(Boolean);
-
   if (!pairs.length) return;
 
+  var cloned = false;
+  var allLinks = origLinks.slice();
   var activeKey = null;
-  var userHorizLock = false;
-  var programmaticHoriz = false;
+  var tx = 0;
+  var animRaf = 0;
   var zoneObserver = null;
   var sectionObserver = null;
+  var reduceMq = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : { matches: false };
 
   function ghHeight() {
     var gh = document.querySelector("[data-qrmo-gh]");
-    if (gh) {
-      return Math.ceil(gh.getBoundingClientRect().height);
-    }
+    if (gh) return Math.ceil(gh.getBoundingClientRect().height);
     return parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 76;
   }
 
@@ -53,8 +67,162 @@
     nav.setAttribute("aria-hidden", on ? "false" : "true");
   }
 
+  function cloneSet(append) {
+    var frag = document.createDocumentFragment();
+    originalItems.forEach(function (li) {
+      var copy = li.cloneNode(true);
+      copy.setAttribute("data-qrmo-mod-ctx-clone", "1");
+      copy.setAttribute("aria-hidden", "true");
+      var a = copy.querySelector("[data-qrmo-mod-ctx-link]");
+      if (a) {
+        a.setAttribute("tabindex", "-1");
+        a.removeAttribute("aria-current");
+        a.classList.remove("is-active");
+      }
+      frag.appendChild(copy);
+    });
+    if (append) list.appendChild(frag);
+    else list.insertBefore(frag, list.firstChild);
+  }
+
+  function ensureLoop() {
+    if (cloned) return;
+    cloneSet(false);
+    cloneSet(true);
+    cloned = true;
+    nav.classList.add("qrmo-mod-ctx--loop");
+    allLinks = Array.prototype.slice.call(nav.querySelectorAll("[data-qrmo-mod-ctx-link]"));
+  }
+
+  function setWidth() {
+    var n = originalItems.length;
+    if (list.children.length < n * 2) return 0;
+    var a = list.children[0];
+    var b = list.children[n];
+    return b.offsetLeft - a.offsetLeft;
+  }
+
+  function applyTx(animate) {
+    if (animate) {
+      list.style.transition = reduceMq.matches
+        ? "none"
+        : "transform .52s cubic-bezier(.2, .7, .2, 1)";
+    } else {
+      list.style.transition = "none";
+    }
+    list.style.transform = "translate3d(" + tx + "px,0,0)";
+  }
+
+  function linksForKey(key) {
+    return allLinks.filter(function (a) {
+      return a.getAttribute("data-qrmo-mod-ctx-link") === key;
+    });
+  }
+
+  function txToCenter(link) {
+    var s = scroller.getBoundingClientRect();
+    var l = link.getBoundingClientRect();
+    var delta = s.left + s.width / 2 - (l.left + l.width / 2);
+    return tx + delta;
+  }
+
+  function pickTargetLink(key) {
+    var cands = linksForKey(key);
+    if (!cands.length) return null;
+    var best = cands[0];
+    var bestTx = txToCenter(best);
+    var bestDist = Math.abs(bestTx - tx);
+    var i;
+    for (i = 1; i < cands.length; i++) {
+      var nextTx = txToCenter(cands[i]);
+      var dist = Math.abs(nextTx - tx);
+      if (dist < bestDist - 0.5) {
+        best = cands[i];
+        bestTx = nextTx;
+        bestDist = dist;
+      }
+    }
+    return { link: best, nextTx: bestTx };
+  }
+
+  function normalizeToMiddle() {
+    var n = originalItems.length;
+    var active = nav.querySelector(".qrmo-mod-ctx-link.is-active");
+    if (!active) return;
+    var li = active.closest("li");
+    if (!li || !li.parentNode) return;
+    var idx = Array.prototype.indexOf.call(list.children, li);
+    if (idx < 0) return;
+    var cycle = setWidth();
+    if (!(cycle > 0)) return;
+    if (idx < n) {
+      tx -= cycle;
+      applyTx(false);
+    } else if (idx >= n * 2) {
+      tx += cycle;
+      applyTx(false);
+    }
+  }
+
+  function applyActiveClasses(key, preferred) {
+    var target = preferred || null;
+    allLinks.forEach(function (a) {
+      var on = false;
+      if (key) {
+        if (target) on = a === target;
+        else on = a.getAttribute("data-qrmo-mod-ctx-link") === key && !a.closest("[data-qrmo-mod-ctx-clone]");
+      }
+      a.classList.toggle("is-active", on);
+      if (on) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  }
+
+  function finishCenter(key) {
+    normalizeToMiddle();
+    var mid = origLinks.filter(function (a) {
+      return a.getAttribute("data-qrmo-mod-ctx-link") === key;
+    })[0];
+    if (mid) applyActiveClasses(key, mid);
+    var again = pickTargetLink(key);
+    if (again) {
+      tx = again.nextTx;
+      applyTx(false);
+      applyActiveClasses(key, again.link);
+    }
+  }
+
+  function centerKey(key, animate) {
+    if (!key) return;
+    ensureLoop();
+    var pick = pickTargetLink(key);
+    if (!pick) return;
+    applyActiveClasses(key, pick.link);
+    pick = pickTargetLink(key) || pick;
+    var instant = !animate || reduceMq.matches;
+    tx = pick.nextTx;
+    applyTx(!instant);
+    if (animRaf) {
+      window.clearTimeout(animRaf);
+      animRaf = 0;
+    }
+    if (instant) {
+      finishCenter(key);
+      return;
+    }
+    animRaf = window.setTimeout(function () {
+      animRaf = 0;
+      finishCenter(key);
+    }, 560);
+  }
+
+  function zoneIsInView() {
+    var zr = zone.getBoundingClientRect();
+    return zr.bottom > ghHeight() && zr.top < window.innerHeight;
+  }
+
   function resolveActiveKey() {
-    if (!nav.classList.contains("is-zone-live")) return null;
+    if (!zoneIsInView()) return null;
     var line = offsetTop();
     var best = null;
     var bestTop = -Infinity;
@@ -74,94 +242,43 @@
     return best ? best.key : null;
   }
 
-  function linkVisibleInScroller(link) {
-    if (!scroller || !link) return true;
-    var pad = 8;
-    var s = scroller.getBoundingClientRect();
-    var l = link.getBoundingClientRect();
-    return l.left >= s.left + pad - 0.5 && l.right <= s.right - pad + 0.5;
-  }
-
-  function repositionActiveLink() {
-    var active = nav.querySelector(".qrmo-mod-ctx-link.is-active");
-    if (!active || !scroller) return;
-    if (linkVisibleInScroller(active)) return;
-
-    var scrollerRect = scroller.getBoundingClientRect();
-    var linkRect = active.getBoundingClientRect();
-    var pad = 12;
-    var next = scroller.scrollLeft;
-
-    if (linkRect.left < scrollerRect.left + pad) {
-      next -= scrollerRect.left + pad - linkRect.left;
-    } else if (linkRect.right > scrollerRect.right - pad) {
-      next += linkRect.right - (scrollerRect.right - pad);
-    } else {
+  function commitActiveKey(key, allowMotion) {
+    if (key === activeKey && allowMotion !== true) return;
+    var changed = activeKey !== null && key !== null && key !== activeKey;
+    var first = activeKey === null && key !== null;
+    activeKey = key;
+    if (!key) {
+      applyActiveClasses(null, null);
       return;
     }
-
-    programmaticHoriz = true;
-    scroller.scrollLeft = Math.max(0, Math.round(next));
-    programmaticHoriz = false;
-  }
-
-  function applyActiveClasses(key) {
-    links.forEach(function (a) {
-      var on = Boolean(key) && a.getAttribute("data-qrmo-mod-ctx-link") === key;
-      a.classList.toggle("is-active", on);
-      if (on) a.setAttribute("aria-current", "location");
-      else a.removeAttribute("aria-current");
-    });
-  }
-
-  function commitActiveKey(key, allowReposition) {
-    if (key === activeKey) return;
-
-    var moduleChanged = activeKey !== null && key !== null && key !== activeKey;
-    activeKey = key;
-    applyActiveClasses(key);
-
-    if (!key) return;
-
-    if (moduleChanged || allowReposition) {
-      userHorizLock = false;
-    }
-    if (!userHorizLock) {
-      repositionActiveLink();
-    }
+    centerKey(key, changed || allowMotion === true || first);
   }
 
   function pickActive() {
-    var nextKey = resolveActiveKey();
+    var live = zoneIsInView();
+    setZoneLive(live);
+    var nextKey = live ? resolveActiveKey() : null;
     if (nextKey === activeKey) return;
     commitActiveKey(nextKey, false);
   }
 
   function scrollToTarget(el) {
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reduce = reduceMq.matches;
     el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   }
 
-  if (scroller) {
-    scroller.addEventListener(
-      "scroll",
-      function () {
-        if (programmaticHoriz) return;
-        userHorizLock = true;
-      },
-      { passive: true }
-    );
-  }
-
-  links.forEach(function (a) {
+  origLinks.forEach(function (a) {
     a.addEventListener("click", function (e) {
       var href = a.getAttribute("href") || "";
       if (href.charAt(0) !== "#") return;
       var el = document.getElementById(href.slice(1));
       if (!el) return;
+      if (e.defaultPrevented) {
+        commitActiveKey(a.getAttribute("data-qrmo-mod-ctx-link"), true);
+        return;
+      }
       e.preventDefault();
       scrollToTarget(el);
-      userHorizLock = false;
       commitActiveKey(a.getAttribute("data-qrmo-mod-ctx-link"), true);
       if (typeof history !== "undefined" && history.pushState) {
         history.pushState(null, "", href);
@@ -169,6 +286,16 @@
         location.hash = href.slice(1);
       }
     });
+  });
+
+  nav.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest && e.target.closest("[data-qrmo-mod-ctx-clone] [data-qrmo-mod-ctx-link]");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (href.charAt(0) !== "#") return;
+    var el = document.getElementById(href.slice(1));
+    if (!el) return;
+    commitActiveKey(a.getAttribute("data-qrmo-mod-ctx-link"), true);
   });
 
   function bindSectionObserver() {
@@ -204,6 +331,7 @@
     zoneObserver.observe(zone);
   }
 
+  ensureLoop();
   syncStickyTop();
   bindZoneObserver();
   bindSectionObserver();
@@ -218,7 +346,8 @@
         syncStickyTop();
         bindZoneObserver();
         bindSectionObserver();
-        pickActive();
+        if (activeKey) centerKey(activeKey, false);
+        else pickActive();
       });
     },
     { passive: true }
@@ -229,11 +358,15 @@
       syncStickyTop();
       bindZoneObserver();
       bindSectionObserver();
-      pickActive();
+      if (activeKey) centerKey(activeKey, false);
+      else pickActive();
     }, 120);
   });
 
-  window.addEventListener("scroll", pickActive, { passive: true });
+  window.addEventListener("scroll", pickActive, { passive: true, capture: true });
   nav.setAttribute("aria-hidden", "true");
-  pickActive();
+  window.requestAnimationFrame(function () {
+    pickActive();
+    if (activeKey) centerKey(activeKey, false);
+  });
 })();
