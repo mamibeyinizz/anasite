@@ -1,0 +1,235 @@
+/* S4 Akıllı Filtreleme — premium kicker, desktop editorial rhythm,
+   gold-weighted 3D icons, +10% demo size. S3 / S5–S8 / Story V4 engine untouched. */
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-kicker-core {
+  color: rgba(13, 43, 34, 0.56);
+  -webkit-text-fill-color: rgba(13, 43, 34, 0.56);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-kicker-mod {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: #C9A84C;
+  background-image: linear-gradient(
+    105deg,
+    #C9A84C 0%,
+    #C9A84C 30%,
+    #E8C766 46%,
+    #F0D78A 50%,
+    #E8C766 54%,
+    #C9A84C 70%,
+    #C9A84C 100%
+  );
+  background-size: 240% 100%;
+  background-position: 12% 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-sell {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-family: inherit;
+  display: inline;
+  padding: 0 0 0.18em;
+  color: #C9A84C;
+  background-image:
+    linear-gradient(
+      105deg,
+      #C9A84C 0%,
+      #C9A84C 30%,
+      #E8C766 46%,
+      #F0D78A 50%,
+      #E8C766 54%,
+      #C9A84C 70%,
+      #C9A84C 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(201, 168, 76, 0.15) 0%,
+      rgba(232, 199, 102, 0.55) 50%,
+      rgba(201, 168, 76, 0.15) 100%
+    );
+  background-size: 240% 1.15em, 100% 1px;
+  background-position: 12% 0, 0 calc(100% - 0.5px);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  animation: qrmo-s4-sell-lux 9.5s ease-in-out infinite;
+}
+
+@keyframes qrmo-s4-sell-lux {
+  0%,
+  100% {
+    background-position: 10% 0, 0 calc(100% - 0.5px);
+  }
+  50% {
+    background-position: 78% 0, 0 calc(100% - 0.5px);
+  }
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check {
+  box-shadow:
+    0 6px 14px rgba(7, 28, 22, 0.18),
+    0 0 12px rgba(30, 61, 47, 0.14),
+    0 0 0 1px rgba(201, 168, 76, 0.12),
+    inset 0 1px 0 rgba(244, 241, 232, 0.16);
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check {
+  box-shadow:
+    0 8px 18px rgba(7, 28, 22, 0.22),
+    0 0 14px rgba(30, 61, 47, 0.16),
+    0 0 0 1px rgba(201, 168, 76, 0.14),
+    inset 0 1px 0 rgba(244, 241, 232, 0.18);
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d {
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  animation: qrmo-icon-s4-elevate 760ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(1) .qrmo-benefit-check svg {
+  animation-delay: 0ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(2) .qrmo-benefit-check svg {
+  animation-delay: 65ms;
+}
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-smart-filter-benefit:nth-child(3) .qrmo-benefit-check svg {
+  animation-delay: 130ms;
+}
+
+@keyframes qrmo-icon-s4-elevate {
+  0% {
+    transform: rotateX(16deg) rotateY(-12deg) scale(0.92);
+    opacity: 0.72;
+  }
+  58% {
+    transform: rotateX(-3deg) rotateY(4deg) scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-s4-icon-sheen {
+  opacity: 0.14;
+}
+
+html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
+  animation: qrmo-s4-icon-sheen 780ms cubic-bezier(0.16, 0.84, 0.22, 1) both;
+}
+
+@keyframes qrmo-s4-icon-sheen {
+  0% {
+    opacity: 0;
+  }
+  42% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.16;
+  }
+}
+
+@media (min-width: 768px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy > h2 {
+    margin-bottom: 0.62em;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead {
+    margin-top: 0;
+    margin-bottom: 26px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefits {
+    gap: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit {
+    padding: 17px 0;
+    border-bottom-color: rgba(13, 43, 34, 0.08);
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit:first-child {
+    padding-top: 2px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit:last-child {
+    padding-bottom: 2px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit p {
+    color: rgba(13, 43, 34, 0.44);
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta {
+    margin-top: 22px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone {
+    width: min(
+      100%,
+      352px,
+      calc((100dvh - var(--qrmo-story-chrome) - 128px) * 320 / 500)
+    );
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 320 / 500;
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 768px) and (max-height: 800px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy > h2 {
+    margin-bottom: 0.42em;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead {
+    margin-bottom: 16px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit {
+    padding: 11px 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-sell,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
+    animation: none !important;
+  }
+
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-sell {
+    background-position: 30% 0, 0 calc(100% - 0.5px);
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-s4-icon-sheen {
+    opacity: 0.14;
+  }
+}
