@@ -12,7 +12,8 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__eyebrow-mod,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__eyebrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__eyebrow-mod,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__eyebrow {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__eyebrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__eyebrow-mod {
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
@@ -127,19 +128,21 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__cta-text,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta-text,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-home-module-link {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta-text {
     font-family: inherit;
     font-size: 15px;
     font-weight: 700;
     line-height: 20px;
   }
 
-  /* S3–S7 primary CTA — desktop/tablet chrome (S8 stays text link) */
+  /* S3–S8 primary CTA — desktop/tablet chrome */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
     min-width: 240px;
     width: fit-content;
     height: 50px;
@@ -160,7 +163,9 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:hover,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:focus-visible,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:hover,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:focus-visible {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:focus-visible,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:focus-visible {
     transform: translateY(-1px);
   }
 
@@ -168,7 +173,8 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-cta-arrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__cta-arrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__cta-arrow,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta-arrow {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta-arrow {
     width: 18px;
     height: 18px;
     flex: 0 0 18px;
@@ -184,7 +190,9 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:hover .qrmo-tables-v5__cta-arrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:focus-visible .qrmo-tables-v5__cta-arrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:hover .qrmo-service-v2__cta-arrow,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:focus-visible .qrmo-service-v2__cta-arrow {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:focus-visible .qrmo-service-v2__cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:hover .qrmo-analytics-v3__cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:focus-visible .qrmo-analytics-v3__cta-arrow {
     transform: translateX(3px);
   }
 
@@ -193,7 +201,8 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar {
     grid-template-columns: 56px minmax(0, 1fr);
     column-gap: 16px;
     align-items: center;
@@ -203,7 +212,8 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
     width: 56px;
     height: 56px;
     flex: 0 0 56px;
@@ -215,7 +225,8 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check svg,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon svg,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check svg,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon svg {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon svg,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg {
     width: 24px;
     height: 24px;
   }
@@ -277,6 +288,24 @@
     max-width: 100%;
     height: auto;
     aspect-ratio: 490 / 575;
+    flex: 0 0 auto;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillars {
+    margin-bottom: 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
+    margin-top: 20px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
+    width: min(
+      100%,
+      var(--qt-s8-demo-fill)
+    );
+    max-width: 100%;
+    max-height: calc(100dvh - var(--qrmo-story-chrome) - 140px);
     flex: 0 0 auto;
   }
 }

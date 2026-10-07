@@ -247,7 +247,8 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar:nth-c
   html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d,
   html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon svg.qrmo-mod-3d,
   html.qrmo-mod-story-v4 .is-mod-icons-active--s6 .qrmo-tables-v5__check svg.qrmo-mod-3d,
-  html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg.qrmo-mod-3d {
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s7 .qrmo-service-v2__feature-icon svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .is-mod-icons-active--s8 .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
     animation-duration: 640ms;
   }
 }

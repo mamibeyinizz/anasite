@@ -120,18 +120,29 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__f
   height: 36px;
 }
 
-/* S8: kicker stays text; 3D bars sit beside it */
+/* S8: emerald tile + 3D glyph, same family as S3–S7 */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-kicker {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
+  margin: 0 0 4px;
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
-  display: block;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  flex-basis: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  border-radius: 12px;
+  background: linear-gradient(158deg, #1E3D2F 0%, #0D2B22 48%, #081814 100%);
+  overflow: hidden;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
+  width: 36px;
+  height: 36px;
 }
 
 @media (min-width: 768px) {
@@ -203,9 +214,17 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
-    width: 24px;
-    height: 24px;
-    flex-basis: 24px;
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+    flex: 0 0 56px;
+    border-radius: 10px;
+    margin-top: 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -239,6 +258,13 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+    flex: 0 0 44px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
     width: 44px;
     height: 44px;
     flex-basis: 44px;
