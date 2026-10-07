@@ -43,6 +43,8 @@ body.qrmo-home-ctx {
   pointer-events: none;
   overflow: hidden;
   touch-action: pan-y;
+  --qm-ctx-window: min(34rem, 40vw);
+  --qm-ctx-fade: 3.25rem;
   transition: opacity .14s var(--qm-ease), visibility .14s var(--qm-ease);
 }
 
@@ -66,6 +68,24 @@ body.qrmo-home-ctx {
   overscroll-behavior-x: none;
   scrollbar-width: none;
   touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(50% - (var(--qm-ctx-window) / 2) - var(--qm-ctx-fade)),
+    #000 calc(50% - (var(--qm-ctx-window) / 2)),
+    #000 calc(50% + (var(--qm-ctx-window) / 2)),
+    transparent calc(50% + (var(--qm-ctx-window) / 2) + var(--qm-ctx-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(50% - (var(--qm-ctx-window) / 2) - var(--qm-ctx-fade)),
+    #000 calc(50% - (var(--qm-ctx-window) / 2)),
+    #000 calc(50% + (var(--qm-ctx-window) / 2)),
+    transparent calc(50% + (var(--qm-ctx-window) / 2) + var(--qm-ctx-fade)),
+    transparent 100%
+  );
 }
 
 .qrmo-mod-ctx--home .qrmo-mod-ctx-scroll::-webkit-scrollbar {
@@ -149,7 +169,19 @@ body.qrmo-home-ctx {
   outline-offset: 2px;
 }
 
+@media (max-width: 767px) {
+  .qrmo-mod-ctx--home {
+    --qm-ctx-window: min(15.5rem, 56vw);
+    --qm-ctx-fade: 2.5rem;
+  }
+}
+
 @media (max-width: 390px) {
+  .qrmo-mod-ctx--home {
+    --qm-ctx-window: min(11.25rem, 50vw);
+    --qm-ctx-fade: 2.1rem;
+  }
+
   .qrmo-mod-ctx--home .qrmo-mod-ctx-link {
     font-size: 10px;
     letter-spacing: .08em;
