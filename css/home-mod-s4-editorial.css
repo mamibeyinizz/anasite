@@ -30,53 +30,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-
   -webkit-text-fill-color: transparent;
 }
 
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-sell {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  font-family: inherit;
-  display: inline;
-  padding: 0 0 0.18em;
-  color: #C9A84C;
-  background-image:
-    linear-gradient(
-      105deg,
-      #C9A84C 0%,
-      #C9A84C 30%,
-      #E8C766 46%,
-      #F0D78A 50%,
-      #E8C766 54%,
-      #C9A84C 70%,
-      #C9A84C 100%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(201, 168, 76, 0.15) 0%,
-      rgba(232, 199, 102, 0.55) 50%,
-      rgba(201, 168, 76, 0.15) 100%
-    );
-  background-size: 240% 1.15em, 100% 1px;
-  background-position: 12% 0, 0 calc(100% - 0.5px);
-  background-repeat: no-repeat;
-  -webkit-background-clip: text, padding-box;
-  background-clip: text, padding-box;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  animation: qrmo-s4-sell-lux 9.5s ease-in-out infinite;
-}
-
-@keyframes qrmo-s4-sell-lux {
-  0%,
-  100% {
-    background-position: 10% 0, 0 calc(100% - 0.5px);
-  }
-  50% {
-    background-position: 78% 0, 0 calc(100% - 0.5px);
-  }
-}
-
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check {
   box-shadow:
     0 6px 14px rgba(7, 28, 22, 0.18),
@@ -214,7 +167,6 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-sell,
   html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d,
   html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
     animation: none !important;
@@ -223,10 +175,6 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
   html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check svg.qrmo-mod-3d {
     transform: none !important;
     opacity: 1 !important;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-sell {
-    background-position: 30% 0, 0 calc(100% - 0.5px);
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-s4-icon-sheen {

@@ -1,0 +1,67 @@
+/* Shared premium champagne-gold underline.
+   Use .qrmo-gold-underline on body proof/sell spans in any module section.
+   Type inherits from parent copy. Color + underline only. */
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
+  --qgu-ink: #8A6F42;
+  --qgu-mid: #A58B55;
+  --qgu-hi: #C2AC76;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-family: inherit;
+  display: inline;
+  position: relative;
+  padding: 0 0 0.22em;
+  color: var(--qgu-mid);
+  background-image:
+    linear-gradient(
+      105deg,
+      var(--qgu-ink) 0%,
+      var(--qgu-mid) 26%,
+      var(--qgu-hi) 48%,
+      var(--qgu-mid) 74%,
+      var(--qgu-ink) 100%
+    ),
+    linear-gradient(
+      90deg,
+      var(--qgu-ink) 0%,
+      var(--qgu-hi) 48%,
+      var(--qgu-ink) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(244, 236, 214, 0) 0%,
+      rgba(244, 236, 214, 0.55) 50%,
+      rgba(244, 236, 214, 0) 100%
+    );
+  background-size: 100% 1.12em, 100% 1px, 36% 1px;
+  background-position: 0 0, 0 calc(100% - 1px), -40% calc(100% - 1px);
+  background-repeat: no-repeat;
+  -webkit-background-clip: text, padding-box, padding-box;
+  background-clip: text, padding-box, padding-box;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  filter: none;
+  text-shadow: none;
+  text-decoration: none;
+  animation: qrmo-gold-underline-lux 11s linear infinite;
+}
+
+@keyframes qrmo-gold-underline-lux {
+  0% {
+    background-position: 0 0, 0 calc(100% - 1px), -45% calc(100% - 1px);
+  }
+  100% {
+    background-position: 0 0, 0 calc(100% - 1px), 145% calc(100% - 1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
+    animation: none;
+    background-position: 0 0, 0 calc(100% - 1px), 28% calc(100% - 1px);
+  }
+}

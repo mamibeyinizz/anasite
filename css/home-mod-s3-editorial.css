@@ -63,60 +63,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-trans
     0 0 42px rgba(13, 43, 34, 0.09);
 }
 
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  font-family: inherit;
-  display: inline;
-  position: relative;
-  padding: 0 0 0.22em;
-  color: #B7A57A;
-  background-image:
-    linear-gradient(
-      105deg,
-      #A8946C 0%,
-      #B7A57A 26%,
-      #C9BDA0 48%,
-      #B7A57A 74%,
-      #A8946C 100%
-    ),
-    linear-gradient(
-      90deg,
-      #A8946C 0%,
-      #C4B898 48%,
-      #A8946C 100%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(232, 224, 204, 0) 0%,
-      rgba(232, 224, 204, 0.45) 50%,
-      rgba(232, 224, 204, 0) 100%
-    );
-  background-size: 100% 1.12em, 100% 1px, 36% 1px;
-  background-position: 0 0, 0 calc(100% - 1px), -40% calc(100% - 1px);
-  background-repeat: no-repeat;
-  -webkit-background-clip: text, padding-box, padding-box;
-  background-clip: text, padding-box, padding-box;
-  -webkit-text-fill-color: transparent;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  filter: none;
-  text-shadow: none;
-  text-decoration: none;
-  animation: qrmo-s3-proof-lux 11s linear infinite;
-}
-
-@keyframes qrmo-s3-proof-lux {
-  0% {
-    background-position: 0 0, 0 calc(100% - 1px), -45% calc(100% - 1px);
-  }
-  100% {
-    background-position: 0 0, 0 calc(100% - 1px), 145% calc(100% - 1px);
-  }
-}
-
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
   background: linear-gradient(158deg, #1E3D2F 0%, #0D2B22 48%, #081814 100%);
   box-shadow:
@@ -248,12 +194,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-tran
 @media (prefers-reduced-motion: reduce) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root::before,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-content::before,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo::before,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo::before {
     animation: none;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
-    background-position: 0 0, 0 calc(100% - 1px), 28% calc(100% - 1px);
   }
 }

@@ -75,13 +75,6 @@
     line-height: 1;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-proof {
-    font-size: 28px;
-    font-weight: 750;
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-
   /* —— Küçük meta: 13 / 500 —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-stat-label,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-footnote {
