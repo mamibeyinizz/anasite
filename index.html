@@ -2011,6 +2011,14 @@
   --qt-cream:#F4F1E8;
   --qt-muted:#3F4A45;
   --qt-chrome:calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + var(--qrmo-mod-ctx-h, 42px) + 8px);
+  --qt-s3-grid-gap:clamp(24px, 3.2vw, 64px);
+  /* Sol kolon + gap alanının ~%85'i — Story V4 tam genişlik grid sonrası ölçeklenir */
+  --qt-s3-sol-span:calc(
+    5vw
+    + (90vw - var(--qt-s3-grid-gap)) * 1.08 / (1.08 + 0.92)
+    + var(--qt-s3-grid-gap)
+  );
+  --qt-s3-copy-fill:min(100%, calc(var(--qt-s3-sol-span) * 0.85));
 
   box-sizing:border-box;
   width:100%;
@@ -2106,6 +2114,7 @@
 
 #qrmo-translation-v3-root .qrmo-translation-v3-title{
   margin:0 0 16px;
+  max-width:var(--qt-s3-copy-fill, none);
   font-size:46px;
   line-height:1.07;
   font-weight:750;
@@ -2115,7 +2124,7 @@
 
 #qrmo-translation-v3-root .qrmo-translation-v3-description{
   margin:0 0 10px;
-  max-width:560px;
+  max-width:var(--qt-s3-copy-fill, 560px);
   font-size:17px;
   line-height:1.55;
   font-weight:400;
@@ -2159,7 +2168,7 @@
   display:flex;
   flex-direction:column;
   gap:0;
-  max-width:560px;
+  max-width:var(--qt-s3-copy-fill, 560px);
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-benefit{
@@ -2241,7 +2250,7 @@
   margin:0;
   padding:18px 0 0;
   border-top:1px solid rgba(13,43,34,.12);
-  max-width:560px;
+  max-width:var(--qt-s3-copy-fill, 560px);
 }
 
 #qrmo-translation-v3-root .qrmo-translation-v3-stat{
@@ -2271,7 +2280,7 @@
   font-size:12px;
   line-height:1.45;
   color:var(--qt-muted);
-  max-width:560px;
+  max-width:var(--qt-s3-copy-fill, 560px);
 }
 
 /* ============================================================
@@ -3021,6 +3030,7 @@
 
   #qrmo-translation-v3-root .qrmo-translation-v3-title{
     flex:0 0 auto;
+    max-width:none;
     font-size:clamp(28px,8.4vw,34px);
     line-height:1.08;
     margin:0 0 8px;
@@ -3508,17 +3518,6 @@
 /* ============================================================
    UX DÜZELTMELERİ (scroll kaydı QA)
    ============================================================ */
-
-/* Masaüstü: metin ölçüsü 560 → 640; telefon sağda kalır,
-   metin ↔ telefon arası boşluk daralır */
-@media (min-width:1100px){
-  #qrmo-translation-v3-root .qrmo-translation-v3-description,
-  #qrmo-translation-v3-root .qrmo-translation-v3-benefits,
-  #qrmo-translation-v3-root .qrmo-translation-v3-stats,
-  #qrmo-translation-v3-root .qrmo-translation-v3-footnote{
-    max-width:640px;
-  }
-}
 
 /* Mobil: başlık bloğu Hero / Section 2 gibi ortalı */
 @media (max-width:767px){
