@@ -418,7 +418,8 @@ html.qrmo-mod-story-v4 .module-scene {
   html.qrmo-mod-story-v4 #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
   html.qrmo-mod-story-v4 #qrmo-home-filtre a.qrmo-smart-filter-cta,
   html.qrmo-mod-story-v4 #qrmo-home-asistan a.qrmo-chatbot-feature__cta,
-  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__cta {
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__cta,
+  html.qrmo-mod-story-v4 #qrmo-home-servis a.qrmo-service-v2__cta {
     min-height: 46px;
     width: auto;
     max-width: 100%;
