@@ -1,5 +1,50 @@
-/* S3–S8 module copy typography — desktop/tablet only (≥768px).
-   Loaded after home-mod-story-v4.css. Mobile ≤767 unchanged. */
+/* S3–S8 master type + optical fill.
+   Loaded after home-mod-story-v4.css. Icon paint lives in home-mod-3d-icons.css. */
+
+:root {
+  --qrmo-mod-plate: 56px;
+  --qrmo-mod-glyph: 32px;
+  --qrmo-mod-col-fill: 85%;
+  --qrmo-mod-feature-measure: 36ch;
+}
+
+/* —— Shared feature type: desktop + mobile —— */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit strong,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item strong,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit-title,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-copy strong,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-title,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit p,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item p,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit-desc,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-copy p,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-text,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-text {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.50;
+  max-width: min(100%, var(--qrmo-mod-feature-measure));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar {
+  grid-template-columns: var(--qrmo-mod-plate) minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: start;
+}
 
 @media (min-width: 768px) {
   /* —— Kicker: 12 / 700 / 14 / .16em —— */
@@ -45,12 +90,13 @@
     letter-spacing: -0.025em;
   }
 
-  /* —— Normal açıklama: 16 / 400 / 1.55 —— */
+  /* —— Ana body: 16 / 400 / 1.55 (S5 lead included) —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--proof,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
     font-size: 16px;
@@ -58,10 +104,8 @@
     line-height: 1.55;
   }
 
-  /* —— Hook / güçlü lead: 18 / 600 / 1.45 (after body so S3 --hook wins) ——
-     S5 lead is owned by home-mod-s5-editorial.css (long paragraph; 600 reads too heavy). */
+  /* —— Hook / kısa güçlü lead: 18 / 600 / 1.45 —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--hook,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__lead,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {
     font-size: 18px;
@@ -81,33 +125,6 @@
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-footnote {
     font-size: 13px;
     font-weight: 500;
-  }
-
-  /* —— Liste başlığı: 18 / 700 / 1.35 —— */
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-title,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit strong,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item strong,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit-title,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-copy strong,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-title,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-title {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-  }
-
-  /* —— Liste açıklaması: 15 / 400 / 1.50 —— */
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-desc,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit p,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item p,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit-desc,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-copy p,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-text,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar.is-support .qrmo-analytics-v3__pillar-text {
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.50;
   }
 
   /* —— CTA metni: 15 / 700 / 20 —— */
@@ -130,7 +147,6 @@
     line-height: 20px;
   }
 
-  /* S3–S8 primary CTA — desktop/tablet chrome */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta,
@@ -190,76 +206,96 @@
     transform: translateX(3px);
   }
 
-  /* S3–S8 benefit list icons — 56px container, 32px glyph, 16px column gap */
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar {
-    grid-template-columns: 56px minmax(0, 1fr);
-    column-gap: 16px;
+  /* —— Copy fills its own grid column at 85%; 15% breath toward the demo —— */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__content {
+    width: var(--qrmo-mod-col-fill);
+    max-width: var(--qrmo-mod-col-fill);
+    justify-self: start;
+    box-sizing: border-box;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__content {
+    width: var(--qrmo-mod-col-fill);
+    max-width: var(--qrmo-mod-col-fill);
+    justify-self: end;
+    box-sizing: border-box;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefits,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-stats,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-footnote,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy > h2,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefits {
+    max-width: none;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  /* —— Demo fills its own grid column at 85%; width is not derived from dvh —— */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+    width: 100%;
+    min-width: 0;
+    display: flex;
     align-items: center;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
-    width: 56px;
-    height: 56px;
-    flex: 0 0 56px;
-    flex-basis: 56px;
-    border-radius: 10px;
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual {
+    justify-content: flex-end;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check svg,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon svg,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check svg,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon svg,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    max-width: 32px;
-    max-height: 32px;
-    flex: 0 0 32px;
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+    justify-content: flex-start;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-phone,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
+    width: var(--qrmo-mod-col-fill);
+    max-width: var(--qrmo-mod-col-fill);
+    height: auto;
+    max-height: calc(100dvh - var(--qrmo-story-chrome) - 28px);
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-screen {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 350 / 520;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone {
+    aspect-ratio: 320 / 500;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-demo {
-    width: min(
-      100%,
-      var(--qt-s5-demo-fill),
-      calc((100dvh - var(--qrmo-story-chrome) - 140px) * 390 / 535)
-    );
-    max-width: 100%;
-    height: auto;
     aspect-ratio: 390 / 535;
-    flex: 0 0 auto;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefits {
-    margin-bottom: 0;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta {
-    margin-top: 20px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app {
-    width: min(
-      100%,
-      var(--qt-s6-demo-fill),
-      calc((100dvh - var(--qrmo-story-chrome) - 180px) * 540 / 562)
-    );
-    max-width: 100%;
-    height: auto;
     aspect-ratio: 540 / 562;
-    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
   }
@@ -270,41 +306,148 @@
     flex: 1 1 auto;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__features {
-    margin-bottom: 0;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta {
-    margin-top: 20px;
-  }
-
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
-    width: min(
-      100%,
-      var(--qt-s7-demo-fill),
-      calc((100dvh - var(--qrmo-story-chrome) - 140px) * 490 / 575)
-    );
-    max-width: 100%;
-    height: auto;
     aspect-ratio: 490 / 575;
-    flex: 0 0 auto;
   }
 
+
+  /* —— Shared editorial rhythm —— */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy > h2,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__title {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--hook {
+    margin-bottom: 0.42em;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description:last-of-type,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
+    margin-top: 0;
+    margin-bottom: 26px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefits,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefits,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__list,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefits,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__features,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillars {
+    gap: 0;
+    margin-top: 0;
     margin-bottom: 0;
   }
 
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar {
+    padding: 17px 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar:first-child {
+    padding-top: 2px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit:last-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit:last-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item:last-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit:last-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature:last-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar:last-child {
+    padding-bottom: 2px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
+    margin-top: 22px;
+    align-self: flex-start;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-height: 800px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy > h2,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__title,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__title {
+    margin-bottom: 22px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {
+    margin-bottom: 16px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description:last-of-type,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
+    margin-bottom: 18px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar {
+    padding: 11px 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
     margin-top: 20px;
   }
+}
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
-    width: min(
-      100%,
-      var(--qt-s8-demo-fill)
-    );
-    max-width: 100%;
-    max-height: calc(100dvh - var(--qrmo-story-chrome) - 140px);
-    flex: 0 0 auto;
+@media (max-width: 767px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--proof,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__description,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.55;
   }
 }

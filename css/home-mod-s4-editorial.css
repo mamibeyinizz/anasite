@@ -133,19 +133,6 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta {
     margin-top: 22px;
   }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone {
-    width: min(
-      100%,
-      352px,
-      calc((100dvh - var(--qrmo-story-chrome) - 128px) * 320 / 500)
-    );
-    max-width: 100%;
-    height: auto;
-    max-height: none;
-    aspect-ratio: 320 / 500;
-    flex: 0 0 auto;
-  }
 }
 
 @media (min-width: 768px) and (max-height: 800px) {
