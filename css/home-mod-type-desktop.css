@@ -275,6 +275,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     width: var(--qrmo-mod-col-fill);
     max-width: var(--qrmo-mod-col-fill);
     height: auto;
+    max-height: calc(100dvh - var(--qrmo-story-chrome) - 28px);
     flex: 0 0 auto;
     box-sizing: border-box;
   }
@@ -287,7 +288,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone {
     aspect-ratio: 320 / 500;
-    max-height: none;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-demo {
@@ -310,9 +310,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     aspect-ratio: 490 / 575;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
-    max-height: none;
-  }
 
   /* —— Shared editorial rhythm —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-title,
