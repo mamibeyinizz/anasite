@@ -50,8 +50,13 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__f
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
   fill: none;
   stroke: none;
+  box-sizing: border-box;
   width: 32px;
   height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  max-width: 32px;
+  max-height: 32px;
   flex: 0 0 32px;
   display: block;
 }
