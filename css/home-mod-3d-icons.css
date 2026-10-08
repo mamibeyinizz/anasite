@@ -22,30 +22,35 @@ html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-gold-lin)"] { fill: url(#
 html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="url(#q3d-hi)"] { fill: url(#q3d-hi); }
 html.qrmo-mod-story-v4 svg.qrmo-mod-3d [fill="#071C16"] { fill: #071C16; }
 
-html.qrmo-mod-story-v4 .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d,
-html.qrmo-mod-story-v4 .qrmo-benefit-check svg.qrmo-mod-3d,
-html.qrmo-mod-story-v4 .qrmo-chatbot-feature__icon svg.qrmo-mod-3d,
-html.qrmo-mod-story-v4 .qrmo-tables-v5__check svg.qrmo-mod-3d,
-html.qrmo-mod-story-v4 .qrmo-service-v2__feature-icon svg.qrmo-mod-3d,
-html.qrmo-mod-story-v4 .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
+/* Feature/benefit glyphs: exact 32×32 at every breakpoint (plates stay 52/56/44). */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-benefit-check svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-chatbot-feature__icon svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-tables-v5__check svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-service-v2__feature-icon svg.qrmo-mod-3d,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
   fill: none;
   stroke: none;
-  width: 100%;
-  height: 100%;
+  flex: 0 0 32px;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  max-width: 32px;
+  max-height: 32px;
 }
 
-/* S3: keep emerald tile; 3D glyph fills more of the plate */
+/* S3: keep emerald tile; 32px glyph centered in the plate */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
   width: 52px;
   height: 52px;
   flex-basis: 52px;
   flex: 0 0 52px;
   border-radius: 12px;
-}
-
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d {
-  width: 36px;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* S4: emerald tile + 3D glyph, same family as S3 */
@@ -57,11 +62,9 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check
   margin-top: 0;
   border-radius: 12px;
   background: linear-gradient(158deg, #1E3D2F 0%, #0D2B22 48%, #081814 100%);
-}
-
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check svg.qrmo-mod-3d {
-  width: 36px;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* S5: emerald tile + 3D glyph, same family as S3/S4 */
@@ -73,11 +76,9 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feat
   margin-top: 0;
   border-radius: 12px;
   background: linear-gradient(158deg, #1E3D2F 0%, #0D2B22 48%, #081814 100%);
-}
-
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon svg.qrmo-mod-3d {
-  width: 36px;
-  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* S6: emerald tile + 3D glyph, same family as S3–S5 */
@@ -95,11 +96,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__chec
   overflow: hidden;
 }
 
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check svg.qrmo-mod-3d {
-  width: 36px;
-  height: 36px;
-}
-
 /* S7: emerald tile + 3D glyph, same family as S3–S6 */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
   width: 52px;
@@ -113,11 +109,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__f
   align-items: center;
   justify-content: center;
   overflow: hidden;
-}
-
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon svg.qrmo-mod-3d {
-  width: 36px;
-  height: 36px;
 }
 
 /* S8: emerald tile + 3D glyph, same family as S3–S7 */
@@ -140,11 +131,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   overflow: hidden;
 }
 
-html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
-  width: 36px;
-  height: 36px;
-}
-
 @media (min-width: 768px) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon {
     width: 56px;
@@ -152,11 +138,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     flex-basis: 56px;
     flex: 0 0 56px;
     border-radius: 10px;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d {
-    width: 40px;
-    height: 40px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check {
@@ -167,22 +148,12 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     border-radius: 10px;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check svg.qrmo-mod-3d {
-    width: 40px;
-    height: 40px;
-  }
-
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon {
     width: 56px;
     height: 56px;
     flex-basis: 56px;
     flex: 0 0 56px;
     border-radius: 10px;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon svg.qrmo-mod-3d {
-    width: 40px;
-    height: 40px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check {
@@ -194,11 +165,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     margin-top: 0;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check svg.qrmo-mod-3d {
-    width: 40px;
-    height: 40px;
-  }
-
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon {
     width: 56px;
     height: 56px;
@@ -208,11 +174,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     margin-top: 0;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon svg.qrmo-mod-3d {
-    width: 40px;
-    height: 40px;
-  }
-
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
     width: 56px;
     height: 56px;
@@ -220,11 +181,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     flex: 0 0 56px;
     border-radius: 10px;
     margin-top: 0;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
-    width: 40px;
-    height: 40px;
   }
 }
 
