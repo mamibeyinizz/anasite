@@ -58,9 +58,9 @@
     line-height: 1.55;
   }
 
-  /* —— Hook / güçlü lead: 18 / 600 / 1.45 (after body so S3 --hook wins) —— */
+  /* —— Hook / güçlü lead: 18 / 600 / 1.45 (after body so S3 --hook wins) ——
+     S5 lead is owned by home-mod-s5-editorial.css (long paragraph; 600 reads too heavy). */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--hook,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__lead,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {

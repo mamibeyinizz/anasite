@@ -1,6 +1,10 @@
-/* S5 Menü Asistanı — premium kicker, desktop editorial rhythm,
-   gold-weighted 3D icons. S3/S4/S6–S8 / Story V4 / demo fill untouched. */
+/* S5 Menü Asistanı — FINAL PREMIUM STANDARD.
+   Desktop typography, copy fill, editorial rhythm, gold 3D icons.
+   Single source for S5-only type. Shared kicker/H2/feature/CTA sizes
+   live in home-mod-type-desktop.css. Story V4 engine / S3–S4 / S6–S8
+   / mobile type / demo flow: untouched. */
 
+/* —— Kicker: 03 · muted, MENÜ ASİSTANI champagne-gold —— */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__kicker-core {
   color: rgba(13, 43, 34, 0.56);
   -webkit-text-fill-color: rgba(13, 43, 34, 0.56);
@@ -31,6 +35,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feat
   -webkit-text-fill-color: transparent;
 }
 
+/* —— 3D gold icon plates —— */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon {
   box-shadow:
     0 6px 14px rgba(7, 28, 22, 0.18),
@@ -68,18 +73,43 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-s5-icon-sheen {
 }
 
 @media (min-width: 768px) {
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2 {
-    margin-bottom: 0.62em;
+  /* Grid cell stays 1.08fr. Content block is an explicit 85% of that
+     cell (not shrink-to-H2). justify-self:end keeps the 15% breath
+     on the demo side and flushes the right edge. */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content {
+    width: 85%;
+    max-width: 85%;
+    justify-self: end;
+    box-sizing: border-box;
   }
 
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #0d2b22;
+    font-weight: 750;
+  }
+
+  /* Lead: 18px / 500 / 1.45 — 600 on this long Source Sans 3 paragraph
+     reads ~700/black. 500 matches S3 hook optical weight on a short line. */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead {
     margin-top: 0;
-    margin-bottom: 0.42em;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.45;
+    letter-spacing: 0;
+    color: rgba(13, 43, 34, 0.72);
+    -webkit-text-fill-color: rgba(13, 43, 34, 0.72);
+    font-synthesis: none;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description {
     margin-top: 0;
     margin-bottom: 26px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.55;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__list {
@@ -115,15 +145,15 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-s5-icon-sheen {
 
 @media (min-width: 768px) and (max-height: 800px) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2 {
-    margin-bottom: 0.42em;
+    margin-bottom: 22px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead {
-    margin-bottom: 0.28em;
+    margin-bottom: 16px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__description {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item {
