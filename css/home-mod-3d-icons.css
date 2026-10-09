@@ -1,5 +1,7 @@
 /* S3–S8 premium 3D module icons — layout + paint only. Story V4 untouched.
-   Master glyph box: 32×32. Master plate: 56×56. Desktop and mobile. */
+   Master plate: 56×56. Glyph renders at 40×40 so the 3D mark fills the
+   plate at a similar optical weight (hero feature icons sit near 74% of
+   their box; these marks include a ground shadow inside the viewBox). */
 
 html.qrmo-mod-story-v4 .qrmo-mod-3d-defs {
   position: absolute;
@@ -40,6 +42,11 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   justify-content: center;
   overflow: hidden;
   background: linear-gradient(158deg, #1E3D2F 0%, #0D2B22 48%, #081814 100%);
+  box-shadow:
+    0 6px 14px rgba(7, 28, 22, 0.18),
+    0 0 12px rgba(30, 61, 47, 0.14),
+    0 0 0 1px rgba(201, 168, 76, 0.28),
+    inset 0 1px 0 rgba(244, 241, 232, 0.16);
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d,
@@ -51,13 +58,13 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   fill: none;
   stroke: none;
   box-sizing: border-box;
-  width: 32px;
-  height: 32px;
-  min-width: 32px;
-  min-height: 32px;
-  max-width: 32px;
-  max-height: 32px;
-  flex: 0 0 32px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  flex: 0 0 40px;
   display: block;
 }
 
