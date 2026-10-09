@@ -216,12 +216,20 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     box-sizing: border-box;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__content {
     width: var(--qrmo-mod-col-fill);
     max-width: var(--qrmo-mod-col-fill);
     justify-self: end;
+    box-sizing: border-box;
+  }
+
+  /* S5 copy stays in column 2. Fill that track (capped at 85vw). A box of
+     82–85vw cannot sit beside the chatbot without overlapping it. */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content {
+    width: 100%;
+    max-width: min(100%, 85vw);
+    justify-self: stretch;
     box-sizing: border-box;
   }
 
