@@ -34,7 +34,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check
   box-shadow:
     0 6px 14px rgba(7, 28, 22, 0.18),
     0 0 12px rgba(30, 61, 47, 0.14),
-    0 0 0 1px rgba(201, 168, 76, 0.12),
+    0 0 0 1px rgba(201, 168, 76, 0.28),
     inset 0 1px 0 rgba(244, 241, 232, 0.16);
 }
 
@@ -42,7 +42,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-benefit-check {
   box-shadow:
     0 8px 18px rgba(7, 28, 22, 0.22),
     0 0 14px rgba(30, 61, 47, 0.16),
-    0 0 0 1px rgba(201, 168, 76, 0.14),
+    0 0 0 1px rgba(201, 168, 76, 0.32),
     inset 0 1px 0 rgba(244, 241, 232, 0.18);
 }
 
@@ -114,20 +114,20 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s4 .qrmo-s4-icon-sheen {
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit {
-    padding: 17px 0;
-    border-bottom-color: rgba(13, 43, 34, 0.08);
+    padding: 14px 0;
+    border-bottom-color: rgba(201, 168, 76, 0.28);
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit:first-child {
-    padding-top: 2px;
+    padding-top: 14px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit:last-child {
-    padding-bottom: 2px;
+    padding-bottom: 14px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit p {
-    color: rgba(13, 43, 34, 0.44);
+    color: rgba(13, 43, 34, 0.68);
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta {

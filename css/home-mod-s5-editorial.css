@@ -37,7 +37,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feat
   box-shadow:
     0 6px 14px rgba(7, 28, 22, 0.18),
     0 0 12px rgba(30, 61, 47, 0.14),
-    0 0 0 1px rgba(201, 168, 76, 0.12),
+    0 0 0 1px rgba(201, 168, 76, 0.28),
     inset 0 1px 0 rgba(244, 241, 232, 0.16);
 }
 
@@ -45,7 +45,7 @@ html.qrmo-mod-story-v4 .is-mod-icons-active--s5 .qrmo-chatbot-feature__icon {
   box-shadow:
     0 8px 18px rgba(7, 28, 22, 0.22),
     0 0 14px rgba(30, 61, 47, 0.16),
-    0 0 0 1px rgba(201, 168, 76, 0.14),
+    0 0 0 1px rgba(201, 168, 76, 0.32),
     inset 0 1px 0 rgba(244, 241, 232, 0.18);
 }
 
@@ -81,11 +81,11 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feat
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item {
-  border-bottom-color: rgba(13, 43, 34, 0.08);
+  border-bottom-color: rgba(201, 168, 76, 0.28);
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item p {
-  color: rgba(13, 43, 34, 0.44);
+  color: rgba(13, 43, 34, 0.68);
 }
 
 @media (prefers-reduced-motion: reduce) {
