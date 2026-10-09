@@ -1,5 +1,7 @@
 /* Story V4 — production scroll authority for homepage modules S3–S8.
    One physical gesture commits at most one scene.
+   A scene taller than the viewport is read in place first; the same
+   gesture does not also advance. The next gesture commits one scene.
    Desktop: one module = one scene. Mobile (≤767): copy, then demo.
    Hero, S2, and S9+ stay native.
    Kill switch: ?story=off. Debug HUD: ?storydebug=1.
@@ -21,6 +23,9 @@
   ];
 
   var ALIGN = 80;
+  /* Ignore a few pixels of scene/viewport mismatch. Larger than this,
+     the scene still has copy the viewport has not reached. */
+  var SCENE_SLACK = 4;
   var APPROACH = 0.42;
   var WHEEL_COMMIT = 14;
   var WHEEL_GAP = 520;
@@ -59,6 +64,7 @@
   var raf = 0;
   var gestureId = 0;
   var gestureCommitted = false;
+  var gesturePanned = false;
   var exitLatch = false;
   var acc = 0;
   var accDir = 0;
@@ -124,6 +130,7 @@
     acc = 0;
     accDir = 0;
     gestureCommitted = false;
+    gesturePanned = false;
     exitLatch = false;
     touchOwned = false;
     touchHorizontal = false;
@@ -234,6 +241,20 @@
   function inZone(pos) {
     if (!scenes.length) return false;
     return pos >= scenes[0].top - 90 && pos <= scenes[scenes.length - 1].top + 90;
+  }
+
+  /* Pixels of this scene still outside the viewport in the travel direction.
+     Scenes that fit the viewport return 0 so desktop snap is unchanged. */
+  function unreadRoom(sceneIndex, dir) {
+    var scene = scenes[sceneIndex];
+    if (!scene || !dir) return 0;
+    var view = vh();
+    var height = scene.height || view;
+    if (height <= view + SCENE_SLACK) return 0;
+    var pos = y();
+    var top = scene.top;
+    if (dir > 0) return Math.max(0, top + height - view - pos);
+    return Math.max(0, pos - top);
   }
 
   /* Scene that physically contains this scroll offset, including its middle.
@@ -479,6 +500,8 @@
 
     if (aligned < 0) aligned = containingIndex(pos);
     if (aligned >= 0) {
+      var room = unreadRoom(aligned, dir);
+      if (room > SCENE_SLACK) return { type: "pan", room: room };
       if ((aligned === 0 && dir < 0) || (aligned === last && dir > 0)) {
         return { type: "native", edge: true };
       }
@@ -521,6 +544,7 @@
     gestureId += 1;
     inputKind = kind;
     gestureCommitted = false;
+    gesturePanned = false;
     exitLatch = false;
     acc = 0;
     accDir = 0;
@@ -623,6 +647,19 @@
     acc += Math.abs(delta);
 
     var decision = decide(dir);
+    if (decision.type === "pan") {
+      if (e.cancelable) e.preventDefault();
+      gesturePanned = true;
+      var wheelStep = dir > 0 ? Math.min(delta, decision.room) : -Math.min(-delta, decision.room);
+      scrollToY(y() + wheelStep, true);
+      armOpenGesture();
+      return;
+    }
+    if (gesturePanned) {
+      if (e.cancelable) e.preventDefault();
+      armOpenGesture();
+      return;
+    }
     if (decision.type !== "commit") {
       if (decision.edge) exitLatch = true;
       armOpenGesture();
@@ -687,6 +724,17 @@
     if (exitLatch) return;
 
     var decision = decide(dir);
+    if (decision.type === "pan") {
+      gesturePanned = true;
+      if (e.cancelable) e.preventDefault();
+      var touchStep = dir > 0 ? Math.min(dy, decision.room) : -Math.min(-dy, decision.room);
+      scrollToY(y() + touchStep, true);
+      return;
+    }
+    if (gesturePanned) {
+      if (e.cancelable) e.preventDefault();
+      return;
+    }
     if (debug) {
       html.setAttribute(
         "data-qrmo-story-last",
@@ -839,8 +887,21 @@
   function realignLogicalScene() {
     if (!scenes[index]) return;
     if (!inZone(y())) return;
-    var top = scenes[index].top;
-    if (Math.abs(y() - top) > 2) scrollToY(top);
+    var scene = scenes[index];
+    var view = vh();
+    var top = scene.top;
+    var height = scene.height || view;
+    var pos = y();
+    /* A tall scene may be parked mid-copy. Do not yank that read
+       back to the scene top when fonts or the viewport settle. */
+    if (height > view + SCENE_SLACK) {
+      var max = top + height - view;
+      if (pos > top + SCENE_SLACK && pos < max + SCENE_SLACK) {
+        if (pos > max) scrollToY(max);
+        return;
+      }
+    }
+    if (Math.abs(pos - top) > 2) scrollToY(top);
   }
 
   function onResize() {
