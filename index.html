@@ -6326,6 +6326,8 @@
 
   position: relative;
 
+  container: qrmo-filter / size;
+
   width: 340px;
 
   height: 620px;
@@ -6503,7 +6505,7 @@
   min-height: 0;
 
   padding:
-    14px 14px 20px;
+    8px 14px 24px;
 
   overflow-y: auto;
 
@@ -6548,7 +6550,7 @@
 .qrmo-real-filter-section {
 
   margin-bottom:
-    22px;
+    10px;
 
 }
 
@@ -6558,7 +6560,7 @@
   width: 100%;
 
   margin-bottom:
-    10px;
+    8px;
 
   display: flex;
 
@@ -6837,7 +6839,7 @@
   grid-template-columns:
     repeat(3,minmax(0,1fr));
 
-  gap: 7px;
+  gap: 6px;
 
 }
 
@@ -6848,7 +6850,7 @@
 
   min-width: 0;
 
-  min-height: 58px;
+  min-height: 46px;
 
   padding:
     7px 4px;
@@ -7227,7 +7229,7 @@
 .qrmo-scroll-bottom-space {
 
   height:
-    8px;
+    16px;
 
 }
 
@@ -7322,7 +7324,7 @@
 
 .qrmo-real-filter-phone.is-demo-story .qrmo-real-sort-card {
 
-  min-height: 44px;
+  min-height: 40px;
 
   padding: 5px 8px;
 
@@ -7342,7 +7344,7 @@
 
   .qrmo-real-filter-phone.is-demo-story .qrmo-allergen-card {
 
-    min-height: 52px;
+    min-height: 46px;
 
   }
 
@@ -7894,8 +7896,8 @@
 }
 
 
-/* Scroll: dikey sürükleme / wheel ana sayfaya geçer.
-   Liste kullanıcı scroll'una kapalı; programatik scrollTo() çalışır. */
+/* Liste kendi içinde kayar. Başlık ile Sıfırla/Uygula yerinde kalır.
+   Demo akışı scrollTo() ile aynı alanı kullanır. */
 .qrmo-real-filter-phone,
 .qrmo-real-filter-scroll {
 
@@ -7911,7 +7913,81 @@
 .qrmo-real-filter-scroll {
 
   overflow-y:
-    hidden;
+    auto;
+
+}
+
+
+/* 680px telefon: kalori kutuları footer çizgisinin üstünde kalsın. */
+@container qrmo-filter (min-height: 640px) {
+
+  .qrmo-real-filter-scroll {
+
+    padding-top:
+      4px;
+
+  }
+
+}
+
+
+/* 602px telefon: son alerjen satırı dururken kalori başlığı görünsün. */
+@container qrmo-filter (min-height: 590px) and (max-height: 640px) {
+
+  .qrmo-real-filter-scroll {
+
+    padding-top:
+      0;
+
+  }
+
+
+  .qrmo-real-filter-section-title {
+
+    margin-bottom:
+      4px;
+
+  }
+
+}
+
+
+/* 560px telefon: kesilen son alerjen satırı kutunun içine gelsin. */
+@container qrmo-filter (min-height: 520px) and (max-height: 580px) {
+
+  .qrmo-real-filter-scroll {
+
+    padding-top:
+      0;
+
+  }
+
+
+  .qrmo-real-filter-section {
+
+    margin-bottom:
+      4px;
+
+  }
+
+
+  .qrmo-real-filter-section-title {
+
+    margin-bottom:
+      4px;
+
+  }
+
+
+  .qrmo-allergen-grid {
+
+    gap:
+      1px;
+
+    margin-bottom:
+      16px;
+
+  }
 
 }
 
@@ -8274,8 +8350,8 @@
 
   /* =======================================================
      USER SCROLL
-     Liste CSS ile kullanıcı scroll'una kapalı (overflow-y:hidden).
-     wheel / touch / klavye olayları engellenmez → ana sayfa kayar.
+     Liste overflow-y:auto ile kendi içinde kayar. Başlık ve
+     Sıfırla/Uygula kaymaz. Uçta overscroll sayfaya zincirlenir.
   ======================================================== */
 
 
