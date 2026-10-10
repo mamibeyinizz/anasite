@@ -1,0 +1,182 @@
+/* S3–S8 phone mockups — one outer size.
+   The shell is sized from the scene, never from its demo content.
+   The screen fills the bezel; long demos scroll or flex inside it. */
+
+html.qrmo-mod-story-v4 {
+  --qrmo-phone-radius: 32px;
+  --qrmo-phone-screen-radius: 22px;
+  --qrmo-phone-bezel: 12px;
+  --qrmo-phone-border: 1px solid rgba(201, 168, 76, 0.18);
+  --qrmo-phone-shadow:
+    0 2px 6px rgba(13, 43, 34, 0.10),
+    0 30px 60px -14px rgba(13, 43, 34, 0.32),
+    0 0 42px rgba(13, 43, 34, 0.09);
+  /* Room for the frame and its shadow inside the 100dvh scene. */
+  --qrmo-phone-avail: calc(100dvh - var(--qrmo-story-chrome) - 48px);
+  --qrmo-phone-h: min(680px, var(--qrmo-phone-avail));
+  --qrmo-phone-w: min(460px, calc(var(--qrmo-phone-h) * 0.70), 100%);
+}
+
+@media (max-width: 767px) {
+  html.qrmo-mod-story-v4 {
+    --qrmo-phone-avail: calc(100dvh - var(--qrmo-story-chrome) - 40px);
+    --qrmo-phone-h: min(560px, var(--qrmo-phone-avail));
+    --qrmo-phone-w: min(320px, calc(var(--qrmo-phone-h) * 0.68), 100%);
+    --qrmo-phone-radius: 28px;
+    --qrmo-phone-screen-radius: 20px;
+    --qrmo-phone-bezel: 10px;
+  }
+}
+
+/* —— Shared shell. Content cannot change these outer boxes. —— */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-phone,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
+  width: var(--qrmo-phone-w);
+  max-width: var(--qrmo-phone-w);
+  min-width: 0;
+  height: var(--qrmo-phone-h);
+  max-height: var(--qrmo-phone-h);
+  min-height: 0;
+  flex: 0 0 auto;
+  align-self: center;
+  box-sizing: border-box;
+  aspect-ratio: auto;
+  overflow: hidden;
+  border-radius: var(--qrmo-phone-radius);
+  border: var(--qrmo-phone-border);
+  box-shadow: var(--qrmo-phone-shadow);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+  overflow: visible;
+  min-width: 0;
+  min-height: 0;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Copy stays on the inside; the device sits on the outer edge of its column. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual {
+  justify-content: flex-end;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+  justify-content: flex-start;
+}
+
+/* S6 caption sits under the device and must not lift the frame. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo {
+  position: relative;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__flow {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: var(--qrmo-phone-w);
+  max-width: var(--qrmo-phone-w);
+  margin: 0;
+}
+
+/* S3 — screen is the bezel's content box, not its own aspect ratio. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-phone {
+  display: flex;
+  flex-direction: column;
+  padding: var(--qrmo-phone-bezel);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-screen {
+  flex: 1 1 auto;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  border-radius: var(--qrmo-phone-screen-radius);
+  overflow: hidden;
+}
+
+/* S4 — header and apply bar stay put; the filter list scrolls inside. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone {
+  display: flex;
+  flex-direction: column;
+}
+
+/* S6 — screen fills the bezel instead of a fixed 430–500px slab. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--qrmo-phone-bezel);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__screen {
+  flex: 1 1 auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  border-radius: var(--qrmo-phone-screen-radius);
+  overflow: hidden;
+}
+
+/* S7 — existing row template keeps the live line; the staff pane flexes. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
+  display: grid;
+  padding: 0;
+  grid-template-rows: 61px minmax(0, auto) 40px minmax(0, 1fr) 30px;
+}
+
+/* S8 — chart absorbs leftover height so the device matches without a gap. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__chart-card {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__chart {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 72px;
+}
+
+@media (max-width: 767px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__flow {
+    position: static;
+    width: var(--qrmo-phone-w);
+    max-width: 100%;
+    margin-top: 8px;
+  }
+}

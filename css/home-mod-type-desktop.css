@@ -324,49 +324,9 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     justify-content: flex-start;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-phone,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-demo,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo,
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
-    width: var(--qrmo-mod-col-fill);
-    max-width: var(--qrmo-mod-col-fill);
-    height: auto;
-    max-height: calc(100dvh - var(--qrmo-story-chrome) - 28px);
-    flex: 0 0 auto;
-    box-sizing: border-box;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-screen {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 350 / 520;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-phone {
-    aspect-ratio: 320 / 500;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-demo {
-    aspect-ratio: 390 / 535;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app {
-    aspect-ratio: 540 / 562;
-    display: flex;
-    flex-direction: column;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__screen {
-    height: auto;
-    min-height: 0;
-    flex: 1 1 auto;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
-    aspect-ratio: 490 / 575;
-  }
+  /* Phone frame size, ratio, and screen lock: css/home-mod-phone-standard.css.
+     Per-module aspect ratios used to size the shell from its content, so a
+     clamped scene let the S3 screen grow past the bezel. */
 
 
   /* —— Shared editorial rhythm —— */

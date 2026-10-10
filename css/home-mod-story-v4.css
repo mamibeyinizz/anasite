@@ -334,33 +334,7 @@ html.qrmo-mod-story-v4 .module-scene {
     line-height: 1.35;
   }
 
-  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-phone,
-  html.qrmo-mod-story-v4 #qrmo-home-filtre .qrmo-real-filter-phone,
-  html.qrmo-mod-story-v4 #qrmo-home-asistan .qrmo-chatbot-demo,
-  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__app,
-  html.qrmo-mod-story-v4 #qrmo-home-servis .qrmo-service-v2__demo,
-  html.qrmo-mod-story-v4 #qrmo-home-icgoru .qrmo-analytics-v3__dashboard {
-    width: 100%;
-    max-width: min(360px, 100%);
-  }
-
-  html.qrmo-mod-story-v4 #qrmo-translation-v3-root .qrmo-translation-v3-screen {
-    height: auto;
-    min-height: 0;
-    max-height: calc(100dvh - var(--qrmo-story-chrome) - 72px);
-  }
-
-  html.qrmo-mod-story-v4 #qrmo-home-filtre .qrmo-real-filter-phone,
-  html.qrmo-mod-story-v4 #qrmo-home-asistan .qrmo-chatbot-demo,
-  html.qrmo-mod-story-v4 #qrmo-home-servis .qrmo-service-v2__demo {
-    height: min(490px, calc(100dvh - var(--qrmo-story-chrome) - 36px));
-    max-height: calc(100dvh - var(--qrmo-story-chrome) - 28px);
-  }
-
-  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__screen {
-    height: min(420px, calc(100dvh - var(--qrmo-story-chrome) - 88px));
-    min-height: 0;
-  }
+  /* Mobile phone shell size lives in css/home-mod-phone-standard.css. */
 
   html.qrmo-mod-story-v4 #qrmo-home-filtre .qrmo-real-filter-stage,
   html.qrmo-mod-story-v4 #qrmo-home-asistan .qrmo-chatbot-feature__demo,
