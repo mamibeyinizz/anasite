@@ -542,6 +542,22 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   }
 }
 
+/* 900px-tall desktops still clip only the S8 CTA by about 5px.
+   Same levers as the 800px squeeze, totaling 8px. That block stays as-is. */
+@media (min-width: 768px) and (min-height: 801px) and (max-height: 900px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__title {
+    margin-bottom: 28px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {
+    margin-bottom: 18px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
+    margin-top: 18px;
+  }
+}
+
 @media (max-width: 767px) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--proof,
