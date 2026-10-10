@@ -76,6 +76,17 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feat
   letter-spacing: 0;
 }
 
+/* 1440: the merged lead is four lines in the copy column.
+   Widen only this paragraph into the gap beside the phone so it sits on three
+   lines. Type, title, feature rows, and the device stay as they are. */
+@media (min-width: 1400px) and (max-width: 1600px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead {
+    width: calc(100% + 88px);
+    max-width: none;
+    margin-left: -88px;
+  }
+}
+
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2 {
   color: #0d2b22;
 }
