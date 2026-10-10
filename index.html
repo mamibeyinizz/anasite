@@ -9807,8 +9807,20 @@
   height:
     calc(100% - 131px);
 
-  overflow:
-    hidden;
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  /* Mesajlar girişin üstünde birikir. İçerik gövdeyi aşınca
+     kayar; başlık ve giriş alanı yerinde kalır. */
+  overflow-x: hidden;
+
+  overflow-y: auto;
+
+  padding:
+    18px 18px 16px;
 
   /* Dikey swipe ana sayfaya geçer (S5 ile aynı yaklaşım). */
   overscroll-behavior:
@@ -9901,18 +9913,27 @@
 
 .qrmo-chatbot-demo__user-message {
 
-  position: absolute;
+  position: relative;
 
-  top: 23px;
-  right: 18px;
+  align-self: flex-end;
 
-  max-width: 245px;
+  flex: 0 0 auto;
+
+  width: fit-content;
+
+  max-width: min(245px, 100%);
+
+  margin-top: auto;
+
+  max-height: 0;
 
   padding:
-    11px 13px;
+    0 13px;
+
+  overflow: hidden;
 
   border:
-    1px solid
+    0 solid
     rgba(201,168,76,.25);
 
   border-radius:
@@ -9938,6 +9959,19 @@
 
 .qrmo-chatbot-demo.is-user
 .qrmo-chatbot-demo__user-message {
+
+  max-height: 72px;
+
+  padding:
+    11px 13px;
+
+  border-width: 1px;
+
+  overflow: visible;
+
+  transition:
+    max-height .38s cubic-bezier(.22,.7,.25,1),
+    padding .38s cubic-bezier(.22,.7,.25,1);
 
   animation:
     qrmoUserMessage
@@ -9969,10 +10003,15 @@
 
 .qrmo-chatbot-demo__typing {
 
-  position: absolute;
+  position: relative;
 
-  left: 18px;
-  bottom: 23px;
+  align-self: flex-start;
+
+  flex: 0 0 auto;
+
+  width: fit-content;
+
+  max-width: 100%;
 
   display: flex;
 
@@ -9980,11 +10019,17 @@
 
   gap: 7px;
 
+  max-height: 0;
+
+  margin-top: 0;
+
   padding:
-    8px 11px;
+    0 11px;
+
+  overflow: hidden;
 
   border:
-    1px solid
+    0 solid
     #262926;
 
   border-radius:
@@ -10000,6 +10045,22 @@
 
 .qrmo-chatbot-demo.is-typing
 .qrmo-chatbot-demo__typing {
+
+  max-height: 48px;
+
+  margin-top: 10px;
+
+  padding:
+    8px 11px;
+
+  border-width: 1px;
+
+  overflow: visible;
+
+  transition:
+    max-height .25s ease,
+    margin-top .25s ease,
+    padding .25s ease;
 
   animation:
     qrmoTypingIn
@@ -10073,12 +10134,21 @@
 
 .qrmo-chatbot-demo__response {
 
-  position: absolute;
+  position: relative;
 
-  left: 18px;
-  right: 18px;
+  align-self: flex-start;
 
-  top: 104px;
+  flex: 0 0 auto;
+
+  width: fit-content;
+
+  max-width: 100%;
+
+  max-height: 0;
+
+  margin-top: 0;
+
+  overflow: hidden;
 
   opacity: 0;
 
@@ -10090,6 +10160,16 @@
 
 .qrmo-chatbot-demo.is-response
 .qrmo-chatbot-demo__response {
+
+  max-height: 88px;
+
+  margin-top: 10px;
+
+  overflow: visible;
+
+  transition:
+    max-height .42s cubic-bezier(.22,.72,.28,1),
+    margin-top .42s cubic-bezier(.22,.72,.28,1);
 
   animation:
     qrmoResponse
@@ -10137,16 +10217,25 @@
 
 .qrmo-chatbot-demo__product {
 
-  position: absolute;
+  position: relative;
 
-  left: 18px;
-  right: 18px;
+  align-self: stretch;
 
-  top: 171px;
+  flex: 0 0 auto;
 
-  min-height: 77px;
+  width: auto;
 
-  padding: 9px;
+  max-width: 100%;
+
+  min-height: 0;
+
+  max-height: 0;
+
+  margin-top: 0;
+
+  padding: 0 9px;
+
+  overflow: hidden;
 
   display: grid;
 
@@ -10157,7 +10246,7 @@
   gap: 9px;
 
   border:
-    1px solid
+    0 solid
     #292C29;
 
   border-radius:
@@ -10176,6 +10265,23 @@
 
 .qrmo-chatbot-demo.is-product
 .qrmo-chatbot-demo__product {
+
+  min-height: 77px;
+
+  max-height: 110px;
+
+  margin-top: 10px;
+
+  padding: 9px;
+
+  border-width: 1px;
+
+  overflow: visible;
+
+  transition:
+    max-height .4s cubic-bezier(.22,.72,.28,1),
+    margin-top .4s cubic-bezier(.22,.72,.28,1),
+    padding .4s cubic-bezier(.22,.72,.28,1);
 
   animation:
     qrmoProduct
