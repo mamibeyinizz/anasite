@@ -24116,6 +24116,16 @@
 <link rel="stylesheet" href="css/home-mod-s5-editorial.css">
 <link rel="stylesheet" href="css/home-mod-type-desktop.css">
 <link rel="stylesheet" href="css/home-mod-phone-standard.css">
+<style>
+/* S7 — personel kartı telefonun kalan yüksekliğini yutmasın.
+   Ortak çerçeve aynı kalır; fazla boşluk satırlar arasında dağılır. */
+@media (min-height: 641px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
+    grid-template-rows: 61px minmax(0, auto) 40px minmax(0, max-content) 30px;
+    align-content: space-between;
+  }
+}
+</style>
 <link rel="stylesheet" href="css/home-mod-gold-underline.css">
 </body>
 </html>
