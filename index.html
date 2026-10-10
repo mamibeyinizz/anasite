@@ -24120,6 +24120,17 @@
     align-content: space-between;
   }
 }
+
+/* S6 — kicker’dan CTA’ya kadar olan grup telefon çerçevesine göre
+   ortalanınca ekranın üstüne yapışıyor. Çubuk yalnız üstte (38px);
+   ekranın merkezi çerçevenin 19px altında. Grubu tek parça kaydır.
+   Dar sütunda metin zaten sahneyi dolduruyor; orada kaydırma CTA’yı keser. */
+@media (min-width: 1280px) and (min-height: 720px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content {
+    position: relative;
+    top: calc(38px / 2);
+  }
+}
 </style>
 <link rel="stylesheet" href="css/home-mod-gold-underline.css">
 </body>
