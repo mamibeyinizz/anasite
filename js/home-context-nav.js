@@ -119,23 +119,47 @@
     });
   }
 
+  /* Visual X, not the pending target. Mid-transition getBoundingClientRect
+     is already between frames; adding the queued tx double-counts the move. */
+  function currentTx() {
+    var value = "none";
+    try {
+      value = window.getComputedStyle(list).transform;
+    } catch (err) {
+      value = "none";
+    }
+    if (!value || value === "none") return 0;
+    try {
+      if (typeof DOMMatrixReadOnly === "function") return new DOMMatrixReadOnly(value).m41 || 0;
+      if (typeof DOMMatrix === "function") return new DOMMatrix(value).m41 || 0;
+    } catch (err) {}
+    var matched = String(value).match(/matrix3d\(([^)]+)\)/);
+    if (!matched) matched = String(value).match(/matrix\(([^)]+)\)/);
+    if (!matched) return 0;
+    var parts = matched[1].split(",");
+    var raw = parts.length >= 16 ? parts[12] : parts[4];
+    var n = parseFloat(raw);
+    return isFinite(n) ? n : 0;
+  }
+
   function txToCenter(link) {
     var s = scroller.getBoundingClientRect();
     var l = link.getBoundingClientRect();
     var delta = s.left + s.width / 2 - (l.left + l.width / 2);
-    return tx + delta;
+    return currentTx() + delta;
   }
 
   function pickTargetLink(key) {
     var cands = linksForKey(key);
     if (!cands.length) return null;
+    var origin = currentTx();
     var best = cands[0];
     var bestTx = txToCenter(best);
-    var bestDist = Math.abs(bestTx - tx);
+    var bestDist = Math.abs(bestTx - origin);
     var i;
     for (i = 1; i < cands.length; i++) {
       var nextTx = txToCenter(cands[i]);
-      var dist = Math.abs(nextTx - tx);
+      var dist = Math.abs(nextTx - origin);
       if (dist < bestDist - 0.5) {
         best = cands[i];
         bestTx = nextTx;
@@ -330,6 +354,12 @@
     );
     zoneObserver.observe(zone);
   }
+
+  originalItems.forEach(function (li) {
+    var label = li.querySelector(".qrmo-mod-ctx-link-t");
+    if (!label || label.getAttribute("data-text")) return;
+    label.setAttribute("data-text", (label.textContent || "").replace(/\s+/g, " ").trim());
+  });
 
   ensureLoop();
   syncStickyTop();

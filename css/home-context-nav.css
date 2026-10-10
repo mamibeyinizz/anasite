@@ -146,11 +146,26 @@ body.qrmo-home-ctx {
   white-space: nowrap;
   border-bottom: 0;
   box-shadow: inset 0 -1px 0 transparent;
-  transition: color .16s var(--qm-ease), box-shadow .16s var(--qm-ease), font-weight .16s var(--qm-ease);
+  transition: color .16s var(--qm-ease), box-shadow .16s var(--qm-ease);
 }
 
+/* Bold width is always reserved, so weight 500 → 600 does not shift the row. */
 .qrmo-mod-ctx--home .qrmo-mod-ctx-link-t {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrmo-mod-ctx--home .qrmo-mod-ctx-link-t::after {
+  content: attr(data-text);
+  font-weight: 600;
+  height: 0;
+  min-height: 0;
+  line-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
 }
 
 .qrmo-mod-ctx--home .qrmo-mod-ctx-link:hover {
