@@ -501,19 +501,34 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   }
 }
 
-/* 900px-tall desktops still clip only the S8 CTA by about 5px.
-   Same levers as the 800px squeeze, totaling 8px. That block stays as-is. */
+/* 801–900px: S8’s copy is taller than the scene, so the eyebrow sits on the
+   module strip and the CTA paints past the viewport. Spacing only; type stays. */
 @media (min-width: 768px) and (min-height: 801px) and (max-height: 900px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__eyebrow {
+    margin-bottom: 8px;
+  }
+
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__title {
-    margin-bottom: 28px;
+    margin-bottom: 22px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__lead {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__description {
+    margin-bottom: 14px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar:last-child {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
-    margin-top: 18px;
+    margin-top: 12px;
   }
 }
 
