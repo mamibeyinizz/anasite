@@ -6,6 +6,14 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-
   -webkit-text-fill-color: rgba(13, 43, 34, 0.56);
 }
 
+/* 320px: "02 / 06 ·" makes this label the only one that wraps.
+   Tracking only, and only under 360px, so 390+ and the other modules stay put. */
+@media (max-width: 360px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-kicker strong {
+    letter-spacing: 0.15em;
+  }
+}
+
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-kicker-mod {
   font-size: inherit;
   font-weight: inherit;
