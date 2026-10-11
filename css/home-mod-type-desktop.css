@@ -274,8 +274,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     box-sizing: border-box;
   }
 
-  /* S5 copy stays in column 2. Fill that track (capped at 85vw). A box of
-     82–85vw cannot sit beside the chatbot without overlapping it. */
+  /* S5 copy is column 1 (same tracks as S4/S7). Fill that track, capped at 85vw. */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content {
     width: 100%;
     max-width: min(100%, 85vw);
@@ -314,11 +313,11 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual {
     justify-content: flex-end;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
     justify-content: flex-start;
