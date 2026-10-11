@@ -532,6 +532,17 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   }
 }
 
+/* S6’s track is 1fr and S8’s is 1.08fr. Both copy boxes are 85% of their
+   own track and right-aligned, so S6’s left edge sits inward of S8.
+   At ≥1280 only, give S6 the same box width (85% × 1.08) and keep it
+   pinned to the right edge. S8 is unchanged. */
+@media (min-width: 1280px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content {
+    width: calc(var(--qrmo-mod-col-fill) * 1.08);
+    max-width: calc(var(--qrmo-mod-col-fill) * 1.08);
+  }
+}
+
 @media (max-width: 767px) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-description--proof,
