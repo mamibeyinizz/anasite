@@ -63,11 +63,11 @@
   --qpm2-muted: rgba(13, 43, 34, 0.56);
   --qpm2-text: rgba(13, 43, 34, 0.84);
   --qpm2-cream: #f4f1e8;
-  --qpm2-cream-area: #f2efe8;
-  --qpm2-emerald-area: #e9eae4;
+  --qpm2-cream-area: #ece9e2;
+  --qpm2-emerald-area: #e3e4de;
   --qpm2-meta: rgba(13, 43, 34, 0.74);
   --qpm2-gold: #c9a84c;
-  --qpm2-line: rgba(13, 43, 34, 0.09);
+  --qpm2-line: rgba(13, 43, 34, 0.22);
   --qpm2-ease: cubic-bezier(0.22, 1, 0.28, 1);
 
   display: block;
@@ -155,7 +155,7 @@
   margin: 0;
   font-size: clamp(15.5px, 1.15vw, 17.5px);
   line-height: 1.52;
-  color: var(--qpm2-muted);
+  color: rgba(13, 43, 34, 0.70);
 }
 
 #qrmo-product-map-v1 .qpm2-areas {
@@ -181,6 +181,8 @@
   align-items: flex-start;
   border: none;
   box-shadow: none;
+  outline: 1px solid var(--qpm2-line);
+  outline-offset: 0;
 }
 
 #qrmo-product-map-v1 .qpm2-area--cream {
@@ -278,7 +280,7 @@
 }
 
 #qrmo-product-map-v1 .qpm2-dot {
-  color: rgba(13, 43, 34, 0.48);
+  color: rgba(13, 43, 34, 0.70);
   font-weight: 600;
   user-select: none;
 }
