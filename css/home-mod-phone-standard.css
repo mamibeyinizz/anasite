@@ -123,6 +123,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__app 
   flex-direction: column;
   margin: 0;
   padding: var(--qrmo-phone-bezel);
+  container-type: size;
 }
 
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__screen {
@@ -133,6 +134,14 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__scre
   max-height: none;
   border-radius: var(--qrmo-phone-screen-radius);
   overflow: hidden;
+  /* Inner demo was drawn for a ~500px slab. Scale from the phone box
+     (cqw/cqh) so nested % in --qrmo-phone-w cannot collapse child sizes.
+     Outer frame size stays in --qrmo-phone-*. */
+  --s6-x: min(1.28, calc(100cqw / 360px));
+  --s6-y: min(1.64, calc((100cqh - 62px) / 375px));
+  --s6-fs-sm: clamp(9px, calc(8.5px * max(1, var(--s6-x))), 10px);
+  --s6-fs-md: clamp(10px, calc(10.5px * max(1, var(--s6-x))), 12px);
+  --s6-fs-lg: clamp(18px, calc(22px * var(--s6-x)), 28px);
 }
 
 /* S7 — existing row template keeps the live line; the staff pane flexes. */
