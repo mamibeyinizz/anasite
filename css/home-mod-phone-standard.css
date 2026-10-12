@@ -144,11 +144,14 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__scre
   --s6-fs-lg: clamp(18px, calc(22px * var(--s6-x)), 28px);
 }
 
-/* S7 — existing row template keeps the live line; the staff pane flexes. */
+/* S7 — existing row template keeps the live line; the staff pane flexes.
+   Size container lets the screen’s own type scale with the phone box. */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
   display: grid;
   padding: 0;
   grid-template-rows: 61px minmax(0, auto) 40px minmax(0, 1fr) 30px;
+  container-type: size;
+  container-name: qrmo-s7;
 }
 
 /* S8 — chart absorbs leftover height so the device matches without a gap. */

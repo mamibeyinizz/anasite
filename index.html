@@ -24374,6 +24374,232 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__expo
   padding: 0 calc(9px * var(--s6-x));
   font-size: var(--s6-fs-sm);
 }
+
+/* S7 phone interior only — type and spacing follow the phone box.
+   Outer frame, bezel, and the 780deb4 staff row stay as they are. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
+  --s7-x: min(1.15, calc(100cqw / 400px));
+  --s7-g: clamp(0, calc((100cqh - 500px) / 180px), 1);
+  --s7-fs-2: clamp(9px, calc(9.5px * max(1, var(--s7-x))), 10px);
+  --s7-fs-3: clamp(10px, calc(11px * max(1, var(--s7-x))), 12px);
+  --s7-fs-4: clamp(12px, calc(13px * max(1, var(--s7-x))), 15px);
+  --s7-muted: #8c908a;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__brand-mark {
+  font-size: var(--s7-fs-2);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__brand strong {
+  font-size: var(--s7-fs-4);
+  line-height: 1.05;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__brand small,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__live,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product-info small,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__confirmation small,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__transfer small,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-heading small,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__request-content span,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__request time,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-status span,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__live-message span {
+  color: var(--s7-muted);
+  font-size: var(--s7-fs-2);
+  line-height: 1.15;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__panel-label {
+  font-size: var(--s7-fs-2);
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__customer {
+  padding: calc(13px + 5px * var(--s7-g)) 13px 56px;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product {
+  height: calc(64px + 12px * var(--s7-g));
+  margin-top: calc(12px + 6px * var(--s7-g));
+  grid-template-columns: calc(44px + 8px * var(--s7-g)) minmax(0, 1fr) 26px;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product-image {
+  width: calc(44px + 8px * var(--s7-g));
+  height: calc(44px + 8px * var(--s7-g));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product-image span {
+  color: rgba(201, 168, 76, 1);
+  font-size: calc(16px + 2px * var(--s7-g));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product-info strong,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product-info b,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action strong,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__confirmation strong,
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__request-content strong {
+  font-size: var(--s7-fs-3);
+  line-height: 1.35;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action {
+  height: calc(42px + 8px * var(--s7-g));
+  color: var(--s7-muted);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action strong {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action span {
+  font-size: var(--s7-fs-3);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__actions {
+  margin-top: calc(10px + 6px * var(--s7-g));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__confirmation {
+  width: min(240px, calc(100% - 16px));
+  min-height: 40px;
+  padding: 4px 9px;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__transfer small {
+  top: 21px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo.is-transferring .qrmo-service-v2__transfer small {
+  color: var(--qsv-gold);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff {
+  align-self: start;
+  height: auto;
+  padding: calc(13px + 5px * var(--s7-g));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-heading {
+  margin-top: calc(8px + 4px * var(--s7-g));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-heading small {
+  letter-spacing: 0.08em;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-heading strong {
+  font-size: var(--s7-fs-4);
+  line-height: 1.1;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__notification {
+  width: 24px;
+  height: 24px;
+  opacity: 1;
+  font-size: var(--s7-fs-2);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__request {
+  margin-top: calc(10px + 6px * var(--s7-g));
+  min-height: calc(54px + 12px * var(--s7-g));
+  opacity: 1;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__request-content small {
+  font-size: var(--s7-fs-2);
+  letter-spacing: 0.08em;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-status {
+  margin-top: calc(8px + 6px * var(--s7-g));
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-status strong {
+  font-size: var(--s7-fs-2);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-status .qrmo-service-v2__next {
+  color: var(--qsv-gold-light);
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action.is-active {
+  color: #ecede7;
+}
+
+@container qrmo-s7 (max-width: 340px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__customer {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__actions {
+    gap: 4px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action strong,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action span {
+    font-size: 10px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@container qrmo-s7 (max-height: 520px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__customer {
+    margin-top: 8px;
+    padding-top: 8px;
+    padding-bottom: 50px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__product {
+    height: 58px;
+    margin-top: 6px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__actions {
+    margin-top: 6px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__action {
+    height: 40px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__confirmation {
+    bottom: 6px;
+    min-height: 38px;
+    padding: 4px 8px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-heading {
+    margin-top: 4px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__request {
+    margin-top: 6px;
+    min-height: 48px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__staff-status {
+    margin-top: 6px;
+  }
+}
 </style>
 <link rel="stylesheet" href="css/home-mod-gold-underline.css">
 </body>
