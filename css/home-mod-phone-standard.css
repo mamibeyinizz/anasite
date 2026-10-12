@@ -109,6 +109,8 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-trans
   aspect-ratio: auto;
   border-radius: var(--qrmo-phone-screen-radius);
   overflow: hidden;
+  container-type: size;
+  container-name: qrmo-s3;
 }
 
 /* S4 — header and apply bar stay put; the filter list scrolls inside. */

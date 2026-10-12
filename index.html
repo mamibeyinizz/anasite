@@ -24375,6 +24375,49 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__expo
   font-size: var(--s6-fs-sm);
 }
 
+/* S3 phone interior only — cards take half the spare cream above the
+   fixed bottom actions. Outer frame and the action row stay put. */
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qt-list::after {
+  content: "";
+  display: block;
+  flex: 3 1 0;
+  min-height: 0;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-product {
+  flex-grow: 1;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-pimg {
+  align-self: stretch;
+  height: auto;
+  min-height: 64px;
+  aspect-ratio: 1;
+}
+
+html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg {
+  min-height: 44px;
+}
+
+@container qrmo-s3 (max-width: 360px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-pimg {
+    min-height: 48px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qt-product-lite .qrmo-translation-v3-pimg {
+    min-height: 32px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qt-cats {
+    gap: 4px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qt-cat {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+
 /* S7 phone interior only — type and spacing follow the phone box.
    Outer frame, bezel, and the 780deb4 staff row stay as they are. */
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__demo {
