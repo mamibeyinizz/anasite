@@ -85,8 +85,19 @@ html.qrmo-mod-story-v4 .module-scene {
     grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
   }
 
+  /* S8 markup is demo, then copy. Same tracks as S3–S7: copy in column 1, phone in column 2. */
   html.qrmo-mod-story-v4 #qrmo-home-icgoru .qrmo-analytics-v3__inner {
-    grid-template-columns: minmax(260px, 0.92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-icgoru .qrmo-analytics-v3__content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-icgoru .qrmo-analytics-v3__visual {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   /* S5 markup is demo, then copy. Same tracks as S4/S7: copy in column 1, phone in column 2. */
