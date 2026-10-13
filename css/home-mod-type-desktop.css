@@ -259,6 +259,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   /* —— Copy fills its own grid column at 85%; 15% breath toward the demo —— */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-content,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__content {
     width: var(--qrmo-mod-col-fill);
     max-width: var(--qrmo-mod-col-fill);
@@ -266,7 +267,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     box-sizing: border-box;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__content {
     width: var(--qrmo-mod-col-fill);
     max-width: var(--qrmo-mod-col-fill);
@@ -294,7 +294,7 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   }
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content {
-    margin-left: auto;
+    margin-left: 0;
     margin-right: 0;
   }
 
@@ -314,11 +314,11 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-real-filter-stage,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__demo,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__visual {
     justify-content: flex-end;
   }
 
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__demo,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__visual {
     justify-content: flex-start;
   }
@@ -529,17 +529,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
     margin-top: 12px;
-  }
-}
-
-/* S6’s track is 1fr and S8’s is 1.08fr. Both copy boxes are 85% of their
-   own track and right-aligned, so S6’s left edge sits inward of S8.
-   At ≥1280 only, give S6 the same box width (85% × 1.08) and keep it
-   pinned to the right edge. S8 is unchanged. */
-@media (min-width: 1280px) {
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content {
-    width: calc(var(--qrmo-mod-col-fill) * 1.08);
-    max-width: calc(var(--qrmo-mod-col-fill) * 1.08);
   }
 }
 

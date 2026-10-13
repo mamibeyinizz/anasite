@@ -100,8 +100,19 @@ html.qrmo-mod-story-v4 .module-scene {
     grid-row: 1;
   }
 
+  /* S6 markup is demo, then copy. Same tracks as S3/S4/S5/S7: copy in column 1, phone in column 2. */
   html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.92fr);
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__demo {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   html.qrmo-mod-story-v4 #qrmo-translation-v3-root .module-scene,
