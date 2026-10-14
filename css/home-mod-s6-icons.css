@@ -1,0 +1,130 @@
+/* S6 benefit marks only. The emerald plate stays in home-mod-3d-icons.css.
+   Drawings are stroke icons; motion is transform and opacity. */
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__check > svg.qrmo-s6-ico {
+  width: 68%;
+  height: 68%;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+  max-height: none;
+  display: block;
+  overflow: visible;
+  fill: none;
+  stroke: none;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__stroke {
+  fill: none;
+  stroke: #C9A84C;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__fill {
+  fill: #F8F6F0;
+  stroke: none;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__ink {
+  fill: #F8F6F0;
+  stroke: none;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-weight: 650;
+  font-size: 3.15px;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__badge {
+  font-size: 5px;
+  font-weight: 700;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-b {
+  opacity: 0;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__scan {
+  animation: qrmo-s6-scan 3s ease-in-out infinite alternate;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-a {
+  animation: qrmo-s6-name-a 4s ease-in-out infinite both;
+  animation-delay: 0.45s;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-b {
+  animation: qrmo-s6-name-b 4s ease-in-out infinite both;
+  animation-delay: 0.45s;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card {
+  animation: qrmo-s6-card 3.5s ease-in-out infinite both;
+}
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card-1 { animation-delay: 0.85s; }
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card-2 { animation-delay: 1.2s; }
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card-3 { animation-delay: 1.55s; }
+
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__arrow {
+  animation: qrmo-s6-arrow 3.5s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+/* The old one-shot plate wash belongs to the previous 3D marks. */
+html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__check::after {
+  content: none;
+  animation: none;
+}
+
+@keyframes qrmo-s6-scan {
+  from { transform: translateY(-8px); }
+  to { transform: translateY(8px); }
+}
+
+@keyframes qrmo-s6-name-a {
+  0%, 38% { opacity: 1; }
+  50%, 88% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes qrmo-s6-name-b {
+  0%, 38% { opacity: 0; }
+  50%, 88% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes qrmo-s6-card {
+  0% { opacity: 0; transform: translateY(1.4px); }
+  16% { opacity: 1; transform: translateY(0); }
+  76% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(0); }
+}
+
+@keyframes qrmo-s6-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(1.8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__scan,
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-a,
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-b,
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card,
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__arrow {
+    animation: none;
+    transform: none;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card {
+    opacity: 1;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-a {
+    opacity: 1;
+  }
+
+  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__name-b {
+    opacity: 0;
+  }
+}
