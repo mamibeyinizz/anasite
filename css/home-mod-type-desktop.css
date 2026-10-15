@@ -5,6 +5,9 @@
   --qrmo-mod-plate: 56px;
   --qrmo-mod-glyph: 40px;
   --qrmo-mod-col-fill: 85%;
+  /* Desktop ≥1280 replaces the 85% column fill. See the 1280px block. */
+  --qrmo-mod-copy-gap: 100px;
+  --qrmo-mod-copy-max: 800px;
   --qrmo-mod-ink: #0D2B22;
   --qrmo-mod-body: rgba(13, 43, 34, 0.78);
   --qrmo-mod-feature-desc: rgba(13, 43, 34, 0.68);
@@ -268,7 +271,8 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
     box-sizing: border-box;
   }
 
-  /* S5 copy is column 1 (same tracks as S4/S7). Fill that track, capped at 85vw. */
+  /* S5 copy is column 1 (same tracks as S4/S7). Fill that track, capped at 85vw.
+     From 1024 up, a later rule keeps it at least 48px from the phone. */
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content {
     width: 100%;
     max-width: min(100%, 85vw);
@@ -520,6 +524,105 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3_
 
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta {
     margin-top: 12px;
+  }
+}
+
+/* 1024–1279: S5 is the only module whose copy is the whole column, so the
+   gap is just the grid gap (~33px at 1024). Hold it to ≥48px. The 464px
+   floor corrects the phone-height estimate where the device is actually
+   capped by its column (1024×768): the pure 48px calc would narrow the
+   lead onto an extra line. Wider than that, the calc is the real 48px
+   gap and is already above 464px, so the other modules stay on 85%. */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content {
+    max-width: min(
+      100%,
+      85vw,
+      max(464px, calc(90vw - min(460px, var(--qrmo-phone-h) * 0.70) - 48px))
+    );
+  }
+}
+
+/* ≥1280: one copy width for S3–S8.
+   The scene pads 5vw on both sides and the phone sits on the right pad,
+   so the open run from the text’s left edge to the phone’s left edge is
+   90vw minus the phone. Leave 100px of that run; never grow past 800px,
+   so 1587px and wider keep a readable measure and a larger gap.
+   Phone width uses the same height cap as --qrmo-phone-w, without the
+   phone’s own 100% (that percentage would resolve against the copy).
+   min-width: 0 keeps the wider box from stretching the grid track,
+   so the phone and the 5vw text edge stay put.
+   The rule starts at 1280, not 1024: 768–1279 is the existing tablet
+   band, the 85% fill there already leaves ~105px except S5, and the
+   88–120px target is specified for 1280–1600. */
+@media (min-width: 1280px) {
+  html.qrmo-mod-story-v4 {
+    --qrmo-mod-copy-w: min(
+      var(--qrmo-mod-copy-max),
+      calc(90vw - min(460px, var(--qrmo-phone-h) * 0.70) - var(--qrmo-mod-copy-gap))
+    );
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-copy,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__content,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__content {
+    width: var(--qrmo-mod-copy-w);
+    max-width: var(--qrmo-mod-copy-w);
+    min-width: 0;
+    justify-self: start;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+  }
+
+  /* S4 has no hard break. Between ~631px and ~719px the last line is the
+     single word “Bulur”; at 736px the whole title fits on one line.
+     Keep the current two-line split on its own line from 1280 up. */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-title-tail {
+    display: block;
+  }
+}
+
+/* 1280×720: S5 still fills the scene after the wider measure. Tighten only
+   that module’s rhythm so the kicker clears the strip by 12px and the CTA
+   stays 16px inside the scene. S6’s 19px phone-align shift is eased by 5px
+   so its CTA clears; S7 only needs the title margin 4px shorter. */
+@media (min-width: 1280px) and (max-height: 720px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__content h2 {
+    margin-bottom: 12px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__lead {
+    margin-bottom: 8px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item:last-child {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta {
+    margin-top: 12px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__title {
+    margin-bottom: 18px;
+  }
+}
+
+/* 1366×768: S5’s kicker sits ~6px under the strip. Two pixels off each
+   benefit row clears 12px without moving the 1440 rhythm. */
+@media (min-width: 1280px) and (min-height: 721px) and (max-height: 768px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item:first-child,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item:last-child {
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
