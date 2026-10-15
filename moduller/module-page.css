@@ -1497,3 +1497,101 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
   #mod-v2-prototype .qrmo-mod-hero-copy { animation: qrmoModRise .5s var(--qm-ease) backwards; }
   #mod-v2-prototype .qrmo-mod-hero-visual { animation: qrmoModIn .6s var(--qm-ease) .08s backwards; }
 }
+
+/* =========================================================
+   Servis Paneli — satış sayfası yerleşimi
+   Yalnızca body.qrmo-mod-page--servis-paneli.
+   Tablet ve masaüstünde dış boşluk 5vw; metin satırı
+   uzunluğu mevcut ch sınırlarında kalır.
+========================================================= */
+
+body.qrmo-mod-page--servis-paneli .qrmo-mod-h1 {
+  max-width: 20em;
+  text-wrap: wrap;
+}
+
+body.qrmo-mod-page--servis-paneli .qrmo-mod-h2--l {
+  max-width: 18em;
+}
+
+body.qrmo-mod-page--servis-paneli .qrmo-mod-h2--m {
+  max-width: 22em;
+}
+
+body.qrmo-mod-page--servis-paneli .qrmo-mod-lead,
+body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
+  max-width: 58ch;
+}
+
+@media (min-width: 900px) {
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-hero--split .qrmo-mod-h1 {
+    max-width: none;
+    font-size: clamp(34px, 3vw, 46px);
+  }
+}
+
+@media (min-width: 768px) {
+  body.qrmo-mod-page--servis-paneli {
+    --qm-gutter: 5vw;
+  }
+
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-inner {
+    max-width: none;
+  }
+}
+
+/* Beş adım, dar masaüstünde dikey akışta kalır; geniş ekranda yan yana durur. */
+@media (min-width: 900px) and (max-width: 1099px) {
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5 {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5::before {
+    left: 21px;
+    right: auto;
+    top: 22px;
+    bottom: 22px;
+    width: 2px;
+    height: auto;
+    background: linear-gradient(var(--qm-gold), rgba(201, 168, 76, .25));
+  }
+
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5 li {
+    grid-template-columns: 44px minmax(0, 1fr);
+    justify-items: start;
+    text-align: left;
+    row-gap: 4px;
+  }
+
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5 .qrmo-mod-pipe-n {
+    grid-row: span 2;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
+    font-size: 14px;
+    box-shadow: none;
+  }
+
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5 h3 {
+    align-self: end;
+    font-size: 20px;
+  }
+
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5 p {
+    max-width: 62ch;
+  }
+}
+
+@media (min-width: 1024px) {
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-stage--dark,
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-close {
+    padding-inline: 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  body.qrmo-mod-page--servis-paneli .qrmo-mod-pipe--5 p {
+    max-width: 24ch;
+  }
+}

@@ -268,10 +268,10 @@ function crumbs(items) {
 const kicker = (t, extra = "") => `<p class="qrmo-mod-kicker${extra}">${esc(t)}</p>`;
 const caveat = (t) => (t ? `<p class="qrmo-mod-caveat">${ICON.info}<span>${esc(t)}</span></p>` : "");
 
-function ctaRow(rel, back, { dark = false } = {}) {
+function ctaRow(rel, back, { dark = false, modulesLabel } = {}) {
   return `<div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta${dark ? " qrmo-mod-cta--ondark" : ""}" href="${rel}paketler/"><span>${esc(MOD.site.pricingLabel)}</span>${ICON.arrow}</a>
-          <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${back}">${esc(MOD.site.modulesLabel)}</a>
+          <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${back}">${esc(modulesLabel || MOD.site.modulesLabel)}</a>
         </div>`;
 }
 
@@ -356,11 +356,11 @@ const SECTION = {
   <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--${h.layout}${m.designV2 ? " qrmo-mod-hero--v2" : ""}" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-mod-inner qrmo-mod-hero-grid">
       <div class="qrmo-mod-hero-copy">
-        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
         <p class="qrmo-mod-lead">${esc(h.lead)}</p>
         <ul class="qrmo-mod-proof">${join(h.proof, (p) => `<li>${ICON.check}<span>${esc(p)}</span></li>`)}</ul>
-        ${ctaRow(ctx.rel, "../")}
+        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel })}
       </div>
       <div class="qrmo-mod-hero-visual">
       ${figure(h.visual, { caption: MOD.mockCaption, cls: "qrmo-mod-fig--hero" })}
@@ -525,7 +525,7 @@ const SECTION = {
   <section class="qrmo-mod-sec qrmo-mod-details${v2SecClass(m, "details")}" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     ${innerOpen}
       <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">${esc(m.detailsTitle || "Tüm özellikler ve sınırlar")}</h2>
         <div class="qrmo-mod-know">
           <h3>Bilmeniz gerekenler</h3>
           <ul>${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul>
@@ -552,7 +552,7 @@ const SECTION = {
   <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">${esc(m.relatedTitle || "Birlikte çalıştığı modüller")}</h2>
       </header>
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
@@ -566,7 +566,8 @@ const SECTION = {
 
   closing(m, ctx) {
     const where = pkgWhere(ctx.minIdx);
-    const title = ctx.minIdx === 0 ? `${m.name} ${where}.` : `${m.name}, ${where}.`;
+    const title = (m.closing && m.closing.title) || (ctx.minIdx === 0 ? `${m.name} ${where}.` : `${m.name}, ${where}.`);
+    const closingText = (m.closing && m.closing.text) || "Paketleri ve içerdikleri modülleri yan yana karşılaştırın.";
     const tiers = join(PKG.packages, (p, i) => {
       const inc = i >= ctx.minIdx;
       return `
@@ -578,11 +579,11 @@ const SECTION = {
       <div class="qrmo-mod-close">
         <div class="qrmo-mod-close-copy">
           <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">${esc(title)}</h2>
-          <p class="qrmo-mod-text">Paketleri ve içerdikleri modülleri yan yana karşılaştırın.</p>
+          <p class="qrmo-mod-text">${esc(closingText)}</p>
         </div>
         <ol class="qrmo-mod-tiers" aria-label="Paketlere göre ${esc(m.name)}">${tiers}
         </ol>
-        ${ctaRow(ctx.rel, "../", { dark: true })}
+        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel })}
       </div>
     </div>
   </section>`;
@@ -609,7 +610,7 @@ function renderModule(m, faqById) {
     cssPath: "../module-page.css",
     extraHead: '<script defer src="../module-page.js"></script>'
   }) + `
-<body class="qrmo-mod-page qrmo-mod-page--detail"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
+<body class="qrmo-mod-page qrmo-mod-page--detail${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 ${moduleContextNav(m)}
   ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
@@ -720,6 +721,7 @@ function validate(faqById) {
     (m.faq || []).forEach((id) => { if (!faqById[id]) problems.push(`${m.slug}: SSS kimliği yok: ${id}`); });
     ["hero", "details", "related", "closing"].forEach((k) => { if (!m.order.includes(k)) problems.push(`${m.slug}: order içinde ${k} yok`); });
     if (m.order[0] !== "hero") problems.push(`${m.slug}: ilk bölüm hero olmalı`);
+    if (m.pageClass && !/^[a-z0-9-]+$/.test(m.pageClass)) problems.push(`${m.slug}: pageClass geçersiz`);
   });
   PKG.features.forEach((f) => { if (f.page && !bySlug[f.page]) problems.push(`packages-data feature ${f.id}: page=${f.page} modül yok`); });
 }

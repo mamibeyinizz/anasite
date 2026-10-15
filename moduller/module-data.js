@@ -786,18 +786,27 @@
         cue: "kanban",
         tagline: "Masadan gelen talepler tek ekranda.",
         featureIds: ["servis-paneli", "garson-cagir", "hesap-iste", "qr-siparis", "personel-rolu"],
+        pageClass: "qrmo-mod-page--servis-paneli",
+        modulesLabel: "Diğer Modülleri Keşfedin",
+        detailsTitle: "Sistemin neleri kapsadığını bilin.",
+        relatedTitle: "Birlikte çalışan modüllerle servis akışını tamamlayın.",
+        closing: {
+          title: "Servis Paneli hangi pakette yer alıyor?",
+          text: "İhtiyacınıza uygun paketi seçmeden önce Servis Paneli’nin ve birlikte kullanacağınız modüllerin paket kapsamını karşılaştırın."
+        },
         seo: {
-          title: "Servis Paneli — Garson, Hesap ve Sipariş Takibi",
-          description: "Garson çağrısı, hesap isteği ve siparişler tek panelde toplanır. Ekibiniz kayıtları Bekliyor’dan Tamamlandı’ya taşır; sesli uyarı ve bildirim desteklenir."
+          title: "Servis Paneli",
+          description: "Restoranınızda siparişleri, garson çağrılarını ve hesap isteklerini tek servis panelinde takip edin. QR Menu Official Servis Paneli’nin özelliklerini ve paketlerini inceleyin."
         },
         faq: ["qrmo-faq-q-garson-cagir", "qrmo-faq-q-siparis-servis-paneli", "qrmo-faq-q-online-odeme"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
 
         hero: {
           layout: "split",
-          h1: "Masadan gelen her talep tek akışta.",
-          lead: "Garson çağrısı, hesap isteği ve sipariş masa adıyla servis paneline düşer. Ekibiniz her kaydı Bekliyor’dan Tamamlandı’ya taşır.",
-          proof: ["Sesli uyarı ve tarayıcı bildirimi", "Bekleyen kart önce sarıya, sonra kırmızıya döner", "Personel için ayrı servis rolü"],
+          kicker: "MASA VE SERVİS YÖNETİMİ",
+          h1: "Her masa talebi, doğru ekibin önünde.",
+          lead: "Garson çağrısı, hesap isteği ve siparişleri masa bilgisiyle tek servis panelinde toplayın. Ekibiniz talepleri takip etsin, servis akışını daha kolay yönetsin.",
+          proof: ["Talepleri tek panelde takip edin.", "Bekleyen kayıtları renkli uyarılarla fark edin.", "Personel erişimini görevine göre sınırlandırın."],
           visual: {
             frame: "scene", layout: "duo",
             alt: "Temsili arayüz: müşteri telefonunda Siparişi Gönder, Garson Çağır ve Hesap İste düğmeleri; yanında Servis Paneli’nde Bekliyor, Hazırlanıyor ve Serviste sütunlarında masa kartları.",
@@ -821,21 +830,22 @@
         story: {
           type: "pipeline",
           kicker: "SERVİS AKIŞI",
-          title: "Müşteriden masaya, tek akış.",
+          title: "Talep gelir, ekibiniz süreci takip eder.",
+          text: "Müşterinin oluşturduğu kayıt, servis panelinde ilgili masa ve talep türüyle görüntülenir. Ekip, kayıtları mevcut iş akışına göre takip eder.",
           nodes: [
-            { t: "Müşteri", d: "Sipariş verir, garson çağırır ya da hesap ister." },
-            { t: "Bekliyor", d: "Kayıt masa adı ve tipiyle panele düşer; sesli uyarı verilebilir." },
-            { t: "Hazırlanıyor", d: "Ekip kartı, üzerindeki düğmeyle bir sonraki duruma taşır." },
-            { t: "Serviste", d: "Sipariş masaya çıkar." },
-            { t: "Tamamlandı", d: "Kayıt kapanır; iptal edilenler İptal sütununa alınır." }
+            { t: "Müşteri talebi", d: "Müşteri sipariş verir, garson çağırır veya hesap ister." },
+            { t: "Panele düşer", d: "Kayıt, masa bilgisi ve talep türüyle görüntülenir." },
+            { t: "Hazırlanır", d: "Ekip, kaydı paneldeki mevcut iş akışına göre ilerletir." },
+            { t: "Servis edilir", d: "Sipariş veya talep, işletmenin servis sürecinde karşılanır." },
+            { t: "Kapatılır", d: "Tamamlanan kayıt, panelde ilgili tamamlanma durumuna alınır." }
           ]
         },
 
         stage: {
           theme: "dark", layout: "wide",
-          kicker: "PANEL",
-          title: "Kim neyle ilgileniyor, tek ekranda.",
-          text: "Kartlar tipe ve masaya göre süzülür. Tamamlanmamış kart, belirlediğiniz süreyi aşınca rengini değiştirir; gözden kaçan talep görünür hale gelir.",
+          kicker: "TALEP TAKİBİ",
+          title: "Bekleyen talepleri gözden kaçırmayın.",
+          text: "Sipariş, garson çağrısı ve hesap taleplerini aynı panelde takip edin. Kartları talep türüne ve masa bilgisine göre ayırarak ekibinizin öncelikleri daha kolay görmesini sağlayın.",
           visual: {
             frame: "window", theme: "dark", title: "Servis Paneli",
             alt: "Temsili arayüz: Servis Paneli; üstte Tümü, Sipariş, Garson ve Hesap filtreleri ile ses ve bildirim düğmeleri; altta Bekliyor, Hazırlanıyor, Serviste ve Tamamlandı sütunlarında masa kartları, bekleyen kartlar sarı ve kırmızı.",
@@ -850,16 +860,16 @@
             ]
           },
           callouts: [
-            { t: "Tipe ve masaya göre süzme", d: "Sipariş, garson ve hesap kayıtları aynı panelde; istediğinizi ayırırsınız." },
-            { t: "Bekleme renkleri", d: "Kart varsayılan olarak 3 dakikada sarıya, 7 dakikada kırmızıya döner." },
-            { t: "Ses ve bildirim", d: "Yeni kayıtta sesli uyarı; tarayıcı izni verilirse bildirim." }
+            { t: "Talep türüne göre filtreleme", d: "Sipariş, garson çağrısı ve hesap isteğini aynı panelde ayırarak görüntüleyin." },
+            { t: "Bekleme süresine göre renkli uyarılar", d: "Tamamlanmamış kart, varsayılan olarak 3 dakikada sarıya, 7 dakikada kırmızıya döner." },
+            { t: "Ses ve tarayıcı bildirimleri", d: "Sesli uyarı panelden açılır. Tarayıcı bildirimi, panel açıkken ve bildirim izni verildiğinde gelir." }
           ]
         },
 
         proof: {
           kicker: "AYARLAR",
-          title: "Panel sizin servis temponuza uyar.",
-          text: "Dar ekranda sütunlar sekmeye dönüşür. Servis rolüyle giren garson ve mutfak personeli panelden başka ekran görmez; menüyü ve ayarları göremez.",
+          title: "Servis düzenini işletmenize göre yönetin.",
+          text: "Panelin yenileme aralığını, bekleme uyarılarını ve ilgili görüntüleme ayarlarını işletmenizin çalışma biçimine göre düzenleyin.",
           facts: [
             { v: "5 sn", l: "varsayılan yenileme; 3–60 saniye arası ayarlanır" },
             { v: "3 / 7 dk", l: "varsayılan sarı ve kırmızı uyarı eşiği" },
@@ -870,45 +880,45 @@
 
         groups: [
           {
-            title: "Panel",
+            title: "Panel kullanımı",
             items: [
-              { t: "Üç kayıt tipi", d: "Sipariş, Garson ve Hesap kayıtları aynı panelde toplanır; tipe ve masa adına göre süzülür.", src: "class-qrms-sp-veri.php tipler()" },
-              { t: "Durum sütunları", d: "Bekliyor, Hazırlanıyor, Serviste, Tamamlandı ve İptal sütunları vardır; kartlardaki düğmelerle durum değiştirilir. Dar ekranda sütunlar sekmeye dönüşür.", src: "class-qrms-sp-veri.php durumlar(), panel-sayfasi.php" },
-              { t: "Bekleme uyarısı", d: "Tamamlanmamış bir kart, belirlediğiniz süreleri aştıkça sarıya ve kırmızıya döner (varsayılan 3 ve 7 dakika).", src: "class-qrms-sp-veri.php (esik_sari 180, esik_kirmizi 420), panel.js aciliyet()" }
+              { t: "Üç kayıt tipi", d: "Sipariş, garson çağrısı ve hesap isteği aynı panelde toplanır. Kayıtları talep türüne ve masa adına göre süzebilirsiniz.", src: "class-qrms-sp-veri.php tipler()" },
+              { t: "Durum sütunları", d: "Bekliyor, Hazırlanıyor, Serviste, Tamamlandı ve İptal sütunları vardır. Ekip, karttaki düğmeyle durumu günceller. Dar ekranda sütunlar sekmeye dönüşür.", src: "class-qrms-sp-veri.php durumlar(), panel-sayfasi.php" },
+              { t: "Bekleme uyarısı", d: "Tamamlanmamış kart, belirlediğiniz süreleri aşınca sarıya ve kırmızıya döner. Varsayılan eşikler 3 ve 7 dakikadır.", src: "class-qrms-sp-veri.php (esik_sari 180, esik_kirmizi 420), panel.js aciliyet()" }
             ]
           },
           {
-            title: "Uyarılar",
+            title: "Uyarılar ve bildirimler",
             items: [
-              { t: "Sesli uyarı", d: "Yeni kayıt geldiğinde sesli uyarı verilebilir; panelden açılıp kapatılır.", src: "ayarlar-sayfasi.php, panel.js" },
-              { t: "Bildirim", d: "Panelin “Bildirim” düğmesiyle tarayıcı bildirimi istenir; bunun için tarayıcı izni gerekir.", src: "panel-sayfasi.php" },
-              { t: "Yenileme aralığı", d: "Panel kayıtları belirli aralıklarla yeniler (varsayılan 5 saniye; 3–60 arasında ayarlanır).", src: "class-qrms-sp-veri.php (yenileme)" }
+              { t: "Sesli uyarı", d: "Yeni kayıtta sesli uyarı açılabilir ve panelden kapatılabilir. Uyarının duyulması için panelin tarayıcıda açık olması gerekir.", src: "ayarlar-sayfasi.php, panel.js" },
+              { t: "Bildirim", d: "Bildirim düğmesi tarayıcı izni ister. İzin verilmezse veya panel kapalıysa bildirim gelmez.", src: "panel-sayfasi.php" },
+              { t: "Yenileme aralığı", d: "Panel kayıtları belirli aralıklarla yenilenir. Varsayılan aralık 5 saniyedir; 3 ile 60 saniye arasında ayarlanır.", src: "class-qrms-sp-veri.php (yenileme)" }
             ]
           },
           {
             title: "Müşteri tarafı",
             items: [
-              { t: "Garson çağır ve hesap iste", d: "Müşteri tek dokunuşla garson çağırır ya da hesap ister; iki düğme birlikte veya ayrı basılabilir.", src: "qr-chatbot/module.php ([garson_butonu], [hesap_iste_butonu], [ikili_buton])" },
-              { t: "QR üzerinden sipariş", d: "Müşteri menüden sepete ürün ekleyip siparişi gönderir; sipariş panele kart olarak düşer.", src: "qr-chatbot/module.php ([qmo_sepet], rest-order.php)" }
+              { t: "Garson çağır ve hesap iste", d: "Müşteri tek dokunuşla garson çağırır veya hesabın masaya getirilmesini ister. İki düğme birlikte ya da ayrı açılabilir. Hesap isteği ödeme almaz.", src: "qr-chatbot/module.php ([garson_butonu], [hesap_iste_butonu], [ikili_buton])" },
+              { t: "QR üzerinden sipariş", d: "Müşteri menüden sepete ürün ekleyip siparişi gönderir. Sipariş panele kart olarak düşer. Talebi oluşturmak, personelin onu karşılaması değildir.", src: "qr-chatbot/module.php ([qmo_sepet], rest-order.php)" }
             ]
           },
           {
             title: "Personel erişimi",
             items: [
-              { t: "Servis rolü", d: "Garson ve mutfak personeli için dar bir rol vardır; bu rolle giren kullanıcı panelden başka ekran görmez, menüyü ve ayarları göremez.", src: "class-qrms-sp-rol.php" },
-              { t: "Tamamlananlar", d: "Tamamlanan kayıtların panelde ne kadar süre görüneceğini (varsayılan 2 saat) ayarlarsınız.", src: "class-qrms-sp-veri.php (tamam_penceresi)" }
+              { t: "Servis rolü", d: "Garson ve mutfak personeli için sınırlı bir servis rolü vardır. Bu rolle giren kullanıcı paneli görür; menüyü ve ayarları göremez. Bu, tam yönetici yetkisi değildir.", src: "class-qrms-sp-rol.php" },
+              { t: "Tamamlananlar", d: "Tamamlanan kayıtların panelde ne kadar süre görüneceğini siz ayarlarsınız. Varsayılan süre 2 saattir.", src: "class-qrms-sp-veri.php (tamam_penceresi)" }
             ]
           }
         ],
         notes: [
-          "Panel talebi personele gösterir; talebin ne kadar sürede karşılanacağı işletmenin operasyonuna bağlıdır.",
-          "Ödeme altyapısı yoktur. “Hesap iste”, hesabın masaya getirilmesi talebidir.",
-          "Sesli uyarı ve bildirim için panelin tarayıcıda açık olması ve bildirim izni verilmesi gerekir."
+          "Talep oluşturmak, talebin personel tarafından karşılanması değildir. Panel kaydı gösterir; süre işletmenin operasyonuna bağlıdır.",
+          "Hesap istemek ödeme almak değildir. “Hesap iste”, hesabın masaya getirilmesini ister.",
+          "Ses ve tarayıcı bildirimi her koşulda çalışmaz. Panelin açık olması ve bildirim izninin verilmesi gerekir."
         ],
         related: [
-          { slug: "qr-masa", why: "Çağrıların masa bilgisi buradan gelir." },
-          { slug: "masa-oturum-guvenligi", why: "Çağrı ve sipariş, doğrulanmış masa oturumuyla çalışır." },
-          { slug: "menu-asistani", why: "Sohbetten de garson ve hesap talebi doğabilir." }
+          { slug: "qr-masa", why: "Talepler, kayıtlı masa adıyla panele düşer." },
+          { slug: "masa-oturum-guvenligi", why: "Çağrı ve sipariş, doğrulanmış masa oturumunda çalışır." },
+          { slug: "menu-asistani", why: "Sohbetten gelen garson ve hesap talepleri panele iletilebilir." }
         ]
       },
 

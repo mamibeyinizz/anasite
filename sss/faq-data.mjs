@@ -287,7 +287,7 @@ export const FAQ_ITEMS = [
     question: "QR menü ile garson çağrılabilir mi?",
     answer: [
       T(
-        "Evet. Müşteri menüden garson çağrısı gönderir; talep servis paneline düşer. Yanıt süresi personel yoğunluğunuza bağlıdır — sistem çağrıyı kaydeder ve bildirir, servis hızını tek başına garanti etmez."
+        "Evet. Müşteri QR menüden garson çağırır; kayıt masa bilgisiyle servis paneline düşer. Personel talebi panelde görür. Yanıt süresi işletmenin temposuna bağlıdır; sistem çağrıyı kaydeder, servis hızını garanti etmez."
       ),
     ],
   },
@@ -307,7 +307,7 @@ export const FAQ_ITEMS = [
     question: "QR menü üzerinden ödeme alınabilir mi?",
     answer: [
       T(
-        "Hayır. Ürün sipariş, çağrı ve menü etkileşimi sunar; kartla veya cüzdanla online tahsilat altyapısı içermez. Açılış ekranında kabul ettiğiniz ödeme yöntemleri bilgi amaçlı gösterilebilir, ancak tahsilat menü içinde yapılmaz."
+        "Hayır. Servis Paneli’ndeki hesap isteği, hesabın masaya getirilmesini ister; bu bir ödeme alma sistemi değildir. Kartla veya cüzdanla tahsilat menü içinde yapılmaz."
       ),
     ],
   },
@@ -317,7 +317,7 @@ export const FAQ_ITEMS = [
     question: "Sipariş ve çağrılar ekibe nasıl ulaşır?",
     answer: [
       T(
-        "Gelen sipariş ve çağrılar servis panelinde listelenir; sesli uyarı ve tarayıcı bildirimi açılabilir. Personel ekrandan talebi görüp operasyonel olarak karşılar. "
+        "Sipariş, garson çağrısı ve hesap isteği servis panelinde masa bilgisiyle listelenir. Sesli uyarı panelden açılabilir. Tarayıcı bildirimi, panel açıkken ve bildirim izni verildiğinde çalışır. Personel kaydı ekrandan görüp karşılar. "
       ),
       L("/moduller/servis-paneli/", "Servis Paneli"),
       T(" modülünde detaylar yer alır."),
