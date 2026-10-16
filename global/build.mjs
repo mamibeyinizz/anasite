@@ -10,7 +10,7 @@
      global/dist/qrmo-header.html  başvuru parçası (kök dizin sayfası için)
      global/dist/qrmo-footer.html  başvuru parçası
    ve statik sayfalara header/footer HTML'i doğrudan yazılır:
-     index.html · paketler/index.html
+     index.html · paketler/index.html · iletisim/index.html
    Modül sayfaları (moduller/build.js) ve SSS (sss/build.mjs) kendi üreticilerinde
    aynı `applyGlobal()` fonksiyonunu çağırır; hepsi tek kaynaktan beslenir.
    İşaretçiler sayesinde komut tekrar çalıştırılabilir (idempotent).
@@ -42,7 +42,8 @@ write("dist/qrmo-footer.html", renderFooter({ rel: "", current: "home" }) + "\n"
 
 const PAGES = [
   { file: "index.html", rel: "", current: "home", skip: "icerik" },
-  { file: "paketler/index.html", rel: "../", current: "paketler", skip: "qrmo-pricing" }
+  { file: "paketler/index.html", rel: "../", current: "paketler", skip: "qrmo-pricing" },
+  { file: "iletisim/index.html", rel: "../", current: "iletisim", skip: "icerik" }
 ];
 for (const p of PAGES) {
   const f = path.join(root, p.file);

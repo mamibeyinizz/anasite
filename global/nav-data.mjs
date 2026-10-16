@@ -18,25 +18,26 @@ export const SITE = {
 };
 
 /**
- * Dönüşüm CTA'ları — href boşken UI görünür kalır, sahte URL üretilmez.
- * Hedef netleşince yalnızca ilgili `href` alanlarını doldurun.
+ * Dönüşüm CTA'ları — href boşken ve path yokken UI görünür kalır, sahte URL üretilmez.
+ * `href` olduğu gibi yazılır (mutlak veya harici adres). Site içi sayfalar `path` alır;
+ * render katmanı bunu sayfa derinliğine göre göreli yola çevirir (`iletisim/` → `../../iletisim/`).
  *
  * Slot → kullanım:
- *   primary    — Görüşme Talep Edin (header, hero, footer)
- *   secondary  — Canlı Menüyü Gör
+ *   primary    — İletişime Geçin (header, hero, footer) → /iletisim/
+ *   secondary  — Canlı Menüyü Gör (demo adresi yok; bağlı değil)
  *   packagesLink — Paketleri İnceleyin (path)
- *   contact    — Bize Ulaşın (href yokken `path` geçici hedef)
- *   transition — Geçiş İçin Bilgi Alın (S9)
+ *   contact    — Bize Ulaşın → /iletisim/
+ *   transition — Geçiş İçin Bilgi Alın (S9; ayrı hedef yok)
  *   final      — Geçiş İçin Bilgi Alın (S12; ayrı href verilebilir)
  */
 export const CONVERSION = {
-  primary: { label: "Görüşme Talep Edin", href: "" },
+  primary: { label: "İletişime Geçin", href: "", path: "iletisim/" },
   secondary: { label: "Canlı Menüyü Gör", href: "" },
   packagesLink: { label: "Paketleri İnceleyin", path: "paketler/" },
   contact: {
     label: "Bize Ulaşın",
     href: "",
-    path: "paketler/"
+    path: "iletisim/"
   },
   transition: { label: "Geçiş İçin Bilgi Alın", href: "" },
   final: { label: "Geçiş İçin Bilgi Alın", href: "" }

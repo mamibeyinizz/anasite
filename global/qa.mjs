@@ -33,6 +33,7 @@ const PREFIX = "/anasite";
 const PAGES = [
   { url: "/", file: "index.html" },
   { url: "/paketler/", file: "paketler/index.html" },
+  { url: "/iletisim/", file: "iletisim/index.html" },
   { url: "/sss/", file: "sss/index.html" },
   { url: "/sss.html", file: "sss.html" },
   { url: "/moduller/", file: "moduller/index.html" },
@@ -167,7 +168,7 @@ else {
       const page = await ctx.newPage();
       await page.goto(base + "/moduller/qr-masa/", { waitUntil: "load" });
       check(await page.isVisible(".qrmo-gh-nav"), "1200: masaüstü nav görünür");
-      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta")).includes("Görüşme Talep Edin"), "1200: gold CTA metni");
+      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta")).includes("İletişime Geçin"), "1200: gold CTA metni");
       const solHrefs = await page.$$eval(".qrmo-gh-d-sol", (a) => a.map((x) => x.getAttribute("href")));
       check(solHrefs.includes("../../moduller/restoran-menu/") && solHrefs.includes("../../moduller/menu-asistani/"), "1200: drawer çözüm kartları gerçek modül URL'leri", solHrefs.join(","));
       await page.goto(base + "/", { waitUntil: "load" });
