@@ -355,6 +355,32 @@ body.qrmo-contact-page {
   line-height: 1.4;
 }
 
+.qrmo-contact-message-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.qrmo-contact-count {
+  margin: 0;
+  color: var(--qc-muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.qrmo-contact-count.is-near-limit {
+  color: var(--qc-gold-ink);
+}
+
+.qrmo-contact-count.is-at-limit {
+  color: var(--qc-error);
+}
+
 .qrmo-contact-error {
   color: var(--qc-error);
   font-size: 14px;
@@ -602,6 +628,7 @@ body.qrmo-contact-page {
   font-size: 16px;
   letter-spacing: 0;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .qrmo-contact-channel-action {
@@ -783,6 +810,33 @@ body.qrmo-contact-page {
     width: auto;
     min-width: 280px;
   }
+}
+
+/* Pending dönüşüm CTA — sayfa kapsamında aktif bağlantıdan ayırt edilir (global kaynak değişmez). */
+body.qrmo-contact-page button.qrmo-gh-link--pending,
+body.qrmo-contact-page button.qrmo-gf-link-pending,
+body.qrmo-contact-page button.qrmo-gh-d-card--pending {
+  cursor: help;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: rgba(201, 168, 76, .85);
+  text-underline-offset: 3px;
+}
+
+body.qrmo-contact-page .qrmo-gh-in .qrmo-cta-note {
+  margin: 4px 0 0;
+  color: #e8c766;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+body.qrmo-contact-page .qrmo-gf-in .qrmo-cta-note {
+  margin: 6px 0 0;
+  color: var(--qc-gold-ink);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 @media (prefers-reduced-motion: reduce) {

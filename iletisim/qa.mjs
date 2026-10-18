@@ -39,6 +39,12 @@ check(html.includes("Bu düğme mesajı bize ulaştırmaz"), "mailto sınırı y
 check(/name="consent"[^>]*required/.test(html), "yanıtlama onayı zorunlu");
 check(!/id="qrmo-contact-marketing"[^>]*required/.test(html), "pazarlama onayı zorunlu değil");
 check(html.includes("QRMO:HEADER:END") && html.includes("QRMO:FOOTER:END"), "global işaretçiler duruyor");
+check(html.includes('rel="canonical" href="https://qrmenuofficial.com/iletisim/"'), "canonical");
+check(html.includes('property="og:title" content="İletişim | QR Menu Official"'), "og:title");
+check(html.includes('"@type":"ContactPage"'), "yapılandırılmış veri ContactPage");
+check(/id="qrmo-contact-form"[^>]*aria-labelledby="qrmo-contact-form-title"/.test(html), "form aria-labelledby");
+check(html.includes('maxlength="600"') && html.includes("qrmo-contact-message-count"), "mesaj sınırı ve sayaç");
+check((html.match(/<h2[\s>]/g) || []).length >= 3, "h2 hiyerarşisi");
 
 for (const href of [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])) {
   if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
@@ -199,6 +205,8 @@ if (!pw) {
     await page.fill("#qrmo-contact-email", "yanlis");
     await page.selectOption("#qrmo-contact-topic", "paketler");
     await page.fill("#qrmo-contact-message", "kısa");
+    const countAfterShort = await page.locator(".qrmo-contact-count-num").innerText();
+    check(countAfterShort === "4", "mesaj karakter sayacı", countAfterShort);
     await page.click("#qrmo-contact-submit");
     check((await page.locator("#qrmo-contact-phone-error").innerText()).includes("10 ile 15"), "telefon hatası");
     check((await page.locator("#qrmo-contact-email-error").innerText()).length > 0, "e-posta hatası");
@@ -229,6 +237,17 @@ if (!pw) {
     check(mailto.includes(encodeURIComponent("Yılmaz Kafe")), "mailto gövdesinde işletme");
     check(mailto.includes(encodeURIComponent("Paketler ve fiyatlar")), "mailto konusunda seçim");
 
+    await page.fill("#qrmo-contact-message", "ğ".repeat(590) + "|QA_COPY|");
+    await page.click("#qrmo-contact-submit");
+    await page.waitForSelector("#qrmo-contact-status-title");
+    const copyTitle = await page.locator("#qrmo-contact-status-title").innerText();
+    const copyDraft = await page.locator(".qrmo-contact-draft").innerText();
+    const copyUrlLen = (await page.getAttribute("#qrmo-contact-form", "data-draft-url") || "").length;
+    check(copyTitle.includes("kendiniz göndermeniz"), "uzun kodlama kopyalama modu", copyTitle);
+    check(copyUrlLen > 1800, "mailto 1800 üstü", String(copyUrlLen));
+    check(copyDraft.includes("|QA_COPY|"), "kopyalama modunda taslak tam");
+    check((await page.inputValue("#qrmo-contact-message")).includes("|QA_COPY|"), "form metni korunur");
+
     await page.click(".qrmo-contact-copy");
     const copied = await page.evaluate(() => navigator.clipboard.readText());
     check(copied.includes("Yılmaz Kafe"), "kopyalama");
@@ -253,6 +272,11 @@ if (!pw) {
     check(deskNext === "qrmo-contact-name", "masaüstünde sekme forma gider", deskNext);
     const visibleAsides = await deskPage.locator(".qrmo-contact-aside").evaluateAll((els) => els.filter((el) => getComputedStyle(el).display !== "none").length);
     check(visibleAsides === 1, "masaüstünde tek iletişim sütunu", String(visibleAsides));
+    const railHidden = await deskPage.locator('[data-qrmo-contact-aside="rail"]').getAttribute("aria-hidden");
+    check(railHidden === "false", "masaüstünde rail erişilebilir", railHidden);
+    await deskPage.locator('button[data-qrmo-cta="secondary"]').first().click();
+    const pendingNote = await deskPage.locator(".qrmo-gh-in .qrmo-cta-note").innerText();
+    check(pendingNote.includes("Canlı menü adresi henüz tanımlanmadı"), "demo CTA pending metni", pendingNote);
     await desk.close();
   } finally {
     await browser.close();

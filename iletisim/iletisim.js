@@ -3,7 +3,9 @@
    Taslak açılması, iletinin ulaştığı anlamına gelmez. */
 (function () {
   var EMAIL = "muhammedulusoyresmi@gmail.com";
+  /* Tam mailto: dizesinin uzunluğu (encodeURIComponent sonrası subject+body). */
   var MAX_URL = 1800;
+  var MAX_MESSAGE = 600;
   var TOPICS = {
     "qr-menu": "QR menü hakkında bilgi",
     paketler: "Paketler ve fiyatlar",
@@ -27,8 +29,45 @@
   var busy = false;
   var tried = false;
   var defaultLabel = submitBtn ? submitBtn.textContent : "";
+  var messageInput = form.elements.message;
+  var messageCount = document.getElementById("qrmo-contact-message-count");
+  var messageCountNum = messageCount ? messageCount.querySelector(".qrmo-contact-count-num") : null;
+  var asideStack = document.querySelector('[data-qrmo-contact-aside="stack"]');
+  var asideRail = document.querySelector('[data-qrmo-contact-aside="rail"]');
+  var asideMedia = window.matchMedia("(min-width: 1000px)");
 
   form.noValidate = true;
+
+  function syncContactAsides() {
+    var desktop = asideMedia.matches;
+    if (asideStack) asideStack.setAttribute("aria-hidden", desktop ? "true" : "false");
+    if (asideRail) asideRail.setAttribute("aria-hidden", desktop ? "false" : "true");
+  }
+
+  function updateMessageCount() {
+    if (!messageInput || !messageCountNum) return;
+    if (messageInput.value.length > MAX_MESSAGE) {
+      messageInput.value = messageInput.value.slice(0, MAX_MESSAGE);
+    }
+    var len = messageText(messageInput.value).length;
+    messageCountNum.textContent = String(len);
+    if (messageCount) {
+      messageCount.classList.toggle("is-near-limit", len >= MAX_MESSAGE - 40);
+      messageCount.classList.toggle("is-at-limit", len >= MAX_MESSAGE);
+    }
+  }
+
+  document.querySelectorAll('[data-qrmo-cta="secondary"]').forEach(function (btn) {
+    btn.setAttribute("title", "Canlı menü adresi henüz tanımlı değil");
+  });
+
+  syncContactAsides();
+  if (typeof asideMedia.addEventListener === "function") {
+    asideMedia.addEventListener("change", syncContactAsides);
+  } else if (typeof asideMedia.addListener === "function") {
+    asideMedia.addListener(syncContactAsides);
+  }
+  updateMessageCount();
 
   function oneLine(value) {
     return String(value || "").replace(/[\r\n]+/g, " ").trim();
@@ -78,7 +117,11 @@
       },
       {
         el: form.elements.message,
-        message: message.length < 10 ? "Mesajınızı en az 10 karakterle yazın." : ""
+        message: message.length < 10
+          ? "Mesajınızı en az 10 karakterle yazın."
+          : message.length > MAX_MESSAGE
+            ? "Mesaj en fazla " + MAX_MESSAGE + " karakter olabilir."
+            : ""
       },
       {
         el: form.elements.consent,
@@ -265,8 +308,9 @@
   });
 
   form.addEventListener("input", function (event) {
-    if (!tried) return;
     var target = event.target;
+    if (target === messageInput) updateMessageCount();
+    if (!tried) return;
     if (!target || !target.id || !form.contains(target)) return;
     var match = rules().filter(function (item) { return item.el === target; })[0];
     if (match) setFieldError(match.el, match.message);

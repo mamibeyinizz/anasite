@@ -188,7 +188,7 @@
         </li>
         <li>
           <span class="qrmo-contact-step-no" aria-hidden="true">02</span>
-          <p><strong>Nasıl yardımcı oluruz.</strong> Paylaştığınız ihtiyaca göre uygun çözümü birlikte değerlendiririz.</p>
+          <p><strong>Nasıl yardımcı oluruz.</strong> İhtiyacınıza göre uygun seçeneği birlikte netleştiririz.</p>
         </li>
         <li>
           <span class="qrmo-contact-step-no" aria-hidden="true">03</span>
@@ -203,7 +203,7 @@
 
   <section class="qrmo-contact-request" aria-label="Talep formu ve doğrudan iletişim">
     <div class="qrmo-contact-inner qrmo-contact-split">
-      <aside class="qrmo-contact-aside qrmo-contact-aside--stack" aria-label="Doğrudan iletişim">
+      <aside class="qrmo-contact-aside qrmo-contact-aside--stack" aria-label="Doğrudan iletişim" data-qrmo-contact-aside="stack">
         <h2 class="qrmo-contact-h2">Doğrudan iletişim</h2>
         <p class="qrmo-contact-aside-lead">Arama ve e-posta, cihazınızdaki uygulamayı açar.</p>
         <ul class="qrmo-contact-channels">
@@ -236,7 +236,7 @@
         <noscript>
           <p class="qrmo-contact-noscript">Form kontrolü JavaScript ile çalışır. JavaScript kapalıyken <a href="tel:+905422043587">0542 204 35 87</a> numarasını arayabilir veya <a href="mailto:muhammedulusoyresmi@gmail.com">muhammedulusoyresmi@gmail.com</a> adresine yazabilirsiniz.</p>
         </noscript>
-        <form class="qrmo-contact-form" id="qrmo-contact-form" action="mailto:muhammedulusoyresmi@gmail.com" method="post" enctype="text/plain">
+        <form class="qrmo-contact-form" id="qrmo-contact-form" action="mailto:muhammedulusoyresmi@gmail.com" method="post" enctype="text/plain" aria-labelledby="qrmo-contact-form-title" novalidate>
           <div class="qrmo-contact-fields">
             <div class="qrmo-contact-field">
               <label for="qrmo-contact-name">Adınız <span class="qrmo-contact-req">(zorunlu)</span></label>
@@ -286,8 +286,11 @@
           </div>
           <div class="qrmo-contact-field qrmo-contact-field--message">
             <label for="qrmo-contact-message">Mesajınız <span class="qrmo-contact-req">(zorunlu)</span></label>
-            <textarea id="qrmo-contact-message" name="message" rows="5" required maxlength="300" aria-required="true" aria-describedby="qrmo-contact-message-hint"></textarea>
-            <p class="qrmo-contact-hint" id="qrmo-contact-message-hint">En fazla 300 karakter. İhtiyacınızı kısaca yazmanız yeterli.</p>
+            <textarea id="qrmo-contact-message" name="message" rows="5" required maxlength="600" aria-required="true" aria-describedby="qrmo-contact-message-hint qrmo-contact-message-count"></textarea>
+            <div class="qrmo-contact-message-meta">
+              <p class="qrmo-contact-hint" id="qrmo-contact-message-hint">En az 10 karakter. E-posta taslağı uzunluğu nedeniyle en fazla 600 karakter.</p>
+              <p class="qrmo-contact-count" id="qrmo-contact-message-count" aria-live="polite"><span class="qrmo-contact-count-num">0</span>/600</p>
+            </div>
             <p class="qrmo-contact-error" id="qrmo-contact-message-error" hidden></p>
           </div>
           <p class="qrmo-contact-privacy" id="qrmo-contact-privacy">Bu form bilgileri sunucuya kaydetmez. Düğme, cihazınızdaki e-posta uygulamasında taslak açar. Mesaj, siz gönderdiğinizde muhammedulusoyresmi@gmail.com adresine ulaşır ve yalnızca bu talebi yanıtlamak için kullanılır. Duyuru tercihi de yalnızca e-postanın içinde yer alır.</p>
@@ -309,7 +312,7 @@
           <div class="qrmo-contact-status" id="qrmo-contact-status" role="status" aria-live="polite"></div>
         </form>
       </div>
-      <aside class="qrmo-contact-aside qrmo-contact-aside--rail" aria-label="Doğrudan iletişim">
+      <aside class="qrmo-contact-aside qrmo-contact-aside--rail" aria-label="Doğrudan iletişim" data-qrmo-contact-aside="rail" aria-hidden="true">
         <h2 class="qrmo-contact-h2">Doğrudan iletişim</h2>
         <p class="qrmo-contact-aside-lead">Arama ve e-posta, cihazınızdaki uygulamayı açar.</p>
         <ul class="qrmo-contact-channels">
