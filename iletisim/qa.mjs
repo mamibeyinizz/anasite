@@ -1,0 +1,229 @@
+#!/usr/bin/env node
+/**
+ * /iletisim/ kalite kontrolü:  node iletisim/qa.mjs
+ * Statik bağlantı ve tek H1 kontrolü her zaman çalışır.
+ * Tarayıcı kontrolleri Playwright + sistem Chrome varsa çalışır.
+ */
+import fs from "fs";
+import http from "http";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, "..");
+const html = fs.readFileSync(path.join(here, "index.html"), "utf8");
+const WIDTHS = [320, 360, 390, 768, 1024, 1366, 1440];
+let pass = 0;
+let failN = 0;
+const check = (ok, name, detail) => {
+  if (ok) pass += 1;
+  else {
+    failN += 1;
+    console.error(`FAIL: ${name}${detail ? " — " + detail : ""}`);
+  }
+};
+
+const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+const dup = ids.filter((id, i) => ids.indexOf(id) !== i);
+check((html.match(/<h1[\s>]/g) || []).length === 1, "tek h1");
+check(dup.length === 0, "yinelenen id yok", dup.join(","));
+check(html.includes('href="tel:+905422043587"'), "telefon bağlantısı");
+check(html.includes("0542 204 35 87"), "telefon metni");
+check(html.includes("mailto:muhammedulusoyresmi@gmail.com"), "e-posta bağlantısı");
+check(html.includes("muhammedulusoyresmi@gmail.com"), "e-posta metni");
+check(!/whatsapp|wa\.me/i.test(html), "uydurma WhatsApp yok");
+check(!/href="#"/.test(html), 'href="#" yok');
+check(html.includes('src="iletisim.js"'), "form betiği bağlı");
+check(html.includes("QRMO:HEADER:END") && html.includes("QRMO:FOOTER:END"), "global işaretçiler duruyor");
+
+for (const href of [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])) {
+  if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
+  let target = path.resolve(here, href);
+  if (href.endsWith("/")) target = path.join(target, "index.html");
+  check(target.startsWith(root) && fs.existsSync(target), `bağlantı ${href}`, target);
+}
+
+function serve() {
+  const types = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "application/javascript; charset=utf-8", ".svg": "image/svg+xml" };
+  return new Promise((resolve) => {
+    const server = http.createServer((req, res) => {
+      let urlPath = decodeURIComponent(req.url.split("?")[0]);
+      if (urlPath.endsWith("/")) urlPath += "index.html";
+      const file = path.join(root, urlPath);
+      if (!file.startsWith(root)) {
+        res.writeHead(404);
+        return res.end("nf");
+      }
+      fs.readFile(file, (err, data) => {
+        if (err) {
+          res.writeHead(404);
+          return res.end("nf");
+        }
+        res.writeHead(200, { "Content-Type": types[path.extname(file)] || "application/octet-stream" });
+        res.end(data);
+      });
+    });
+    server.listen(0, "127.0.0.1", () => resolve({ server, port: server.address().port }));
+  });
+}
+
+async function loadPlaywright() {
+  try {
+    return await import("playwright");
+  } catch { /* yerel kurulum yok */ }
+  const bundled = process.env.PLAYWRIGHT_PATH;
+  if (bundled && fs.existsSync(bundled)) return import(bundled);
+  return null;
+}
+
+const pw = await loadPlaywright();
+if (!pw) {
+  console.warn("Playwright yok; tarayıcı kontrolleri atlandı.");
+} else {
+  const chrome = ["/usr/local/bin/google-chrome", process.env.CHROME_PATH].find((p) => p && fs.existsSync(p));
+  const browser = await pw.chromium.launch({
+    executablePath: chrome,
+    args: ["--no-sandbox", "--disable-dev-shm-usage"]
+  });
+  const { server, port } = await serve();
+  const shotDir = "/tmp/iletisim-qa";
+  fs.mkdirSync(shotDir, { recursive: true });
+  try {
+    for (const width of WIDTHS) {
+      const page = await browser.newPage({ viewport: { width, height: 900 }, reducedMotion: "reduce" });
+      const errors = [];
+      page.on("pageerror", (err) => errors.push(String(err)));
+      page.on("response", (res) => {
+        if (res.status() < 400) return;
+        if (/favicon\.ico/.test(res.url())) return;
+        errors.push(`${res.status()} ${res.url()}`);
+      });
+      await page.goto(`http://127.0.0.1:${port}/iletisim/`, { waitUntil: "networkidle" });
+      const result = await page.evaluate(() => {
+        const vw = document.documentElement.clientWidth;
+        const main = document.querySelector("main.qrmo-contact");
+        const h1 = document.querySelector("h1");
+        const form = document.getElementById("qrmo-contact-form");
+        const panel = document.getElementById("talep");
+        const aside = [...document.querySelectorAll(".qrmo-contact-aside")].find((el) => getComputedStyle(el).display !== "none");
+        const controls = [...main.querySelectorAll("a, button, input, select, textarea")];
+        const small = [];
+        controls.forEach((el) => {
+          const style = getComputedStyle(el);
+          if (style.display === "none" || style.visibility === "hidden") return;
+          const target = el.matches('input[type="checkbox"]') ? el.closest("label") || el : el;
+          const box = target.getBoundingClientRect();
+          if (!box.width || !box.height) return;
+          if (box.height < 43.5 || box.width < 24) small.push(`${el.id || el.textContent.trim().slice(0, 28)} ${Math.round(box.width)}x${Math.round(box.height)}`);
+        });
+        const inner = document.querySelector(".qrmo-contact-inner");
+        const panelBox = panel.getBoundingClientRect();
+        const asideBox = aside.getBoundingClientRect();
+        const split = vw >= 1000 ? asideBox.left > panelBox.right - 2 : asideBox.top < panelBox.top;
+        return {
+          overflow: document.documentElement.scrollWidth - vw,
+          h1: h1 ? h1.textContent.trim() : "",
+          h1Count: document.querySelectorAll("h1").length,
+          split,
+          small: small.slice(0, 8),
+          gutter: inner ? Math.round(parseFloat(getComputedStyle(inner).paddingLeft)) : 0,
+          h1Size: h1 ? Math.round(parseFloat(getComputedStyle(h1).fontSize)) : 0
+        };
+      });
+      check(errors.length === 0, `@${width} konsol hatası yok`, errors.join(" | "));
+      check(result.overflow <= 1, `@${width} yatay taşma yok`, `${result.overflow}px`);
+      check(result.h1Count === 1, `@${width} tek h1`);
+      check(result.split, `@${width} sütun düzeni`, `split=${result.split}`);
+      check(result.small.length === 0, `@${width} küçük hedef yok`, result.small.join("; "));
+      if (width <= 360) check(result.gutter === 16, `@${width} oluk 16px`, String(result.gutter));
+      else if (width < 901) check(result.gutter === 20, `@${width} oluk 20px`, String(result.gutter));
+      else check(Math.abs(result.gutter - Math.round(width * 0.05)) <= 1, `@${width} oluk 5vw`, String(result.gutter));
+      if (width <= 360) check(result.h1Size >= 32 && result.h1Size <= 40, `@${width} h1 boyutu`, String(result.h1Size));
+      if (width >= 1024) check(result.h1Size >= 48 && result.h1Size <= 64, `@${width} h1 boyutu`, String(result.h1Size));
+      await page.screenshot({ path: path.join(shotDir, `iletisim-${width}.png`), fullPage: true });
+      await page.close();
+    }
+
+    const context = await browser.newContext({
+      viewport: { width: 390, height: 844 },
+      permissions: ["clipboard-read", "clipboard-write"]
+    });
+    const page = await context.newPage();
+    await page.goto(`http://127.0.0.1:${port}/iletisim/`, { waitUntil: "networkidle" });
+    await page.click("#qrmo-contact-submit");
+    const emptyErrors = await page.locator(".qrmo-contact-error:not([hidden])").count();
+    check(emptyErrors >= 5, "boş gönderimde alan hataları", String(emptyErrors));
+    check(await page.locator("#qrmo-contact-status").innerText() === "", "boş gönderimde başarı yok");
+    await page.waitForFunction(() => document.activeElement.id === "qrmo-contact-name");
+    const focused = await page.evaluate(() => document.activeElement.id);
+    check(focused === "qrmo-contact-name", "ilk hatalı alana odak", focused);
+
+    await page.fill("#qrmo-contact-name", "A");
+    await page.fill("#qrmo-contact-business", "Kafe");
+    await page.fill("#qrmo-contact-phone", "123");
+    await page.fill("#qrmo-contact-email", "yanlis");
+    await page.selectOption("#qrmo-contact-topic", "paketler");
+    await page.fill("#qrmo-contact-message", "kısa");
+    await page.click("#qrmo-contact-submit");
+    check((await page.locator("#qrmo-contact-phone-error").innerText()).includes("10 ile 15"), "telefon hatası");
+    check((await page.locator("#qrmo-contact-email-error").innerText()).length > 0, "e-posta hatası");
+    check((await page.locator("#qrmo-contact-message-error").innerText()).includes("10 karakter"), "mesaj hatası");
+    check(await page.locator("#qrmo-contact-status h3").count() === 0, "hatalı veride taslak yok");
+
+    await page.fill("#qrmo-contact-name", "Ayşe Yılmaz");
+    await page.fill("#qrmo-contact-business", "Yılmaz Kafe");
+    await page.fill("#qrmo-contact-phone", "0542 204 35 87");
+    await page.fill("#qrmo-contact-email", "ayse@ornek.com");
+    await page.selectOption("#qrmo-contact-type", "kafe");
+    await page.selectOption("#qrmo-contact-topic", "paketler");
+    await page.fill("#qrmo-contact-message", "Üç masalık kafe için paketleri birlikte değerlendirmek istiyorum.");
+    await page.check("#qrmo-contact-consent");
+    await page.click("#qrmo-contact-submit");
+    await page.waitForSelector("#qrmo-contact-status-title");
+    const statusText = await page.locator("#qrmo-contact-status").innerText();
+    check(statusText.includes("E-posta taslağı hazır"), "taslak başlığı");
+    check(statusText.includes("siz gönderene kadar bize ulaşmaz"), "ulaştığı iddia edilmiyor");
+    check(!(/mesajınız (bize )?ulaştı|gönderildi/i.test(statusText)), "sahte başarı yok");
+    const draft = await page.locator(".qrmo-contact-draft").innerText();
+    check(draft.includes("muhammedulusoyresmi@gmail.com"), "taslakta alıcı");
+    check(draft.includes("Yılmaz Kafe"), "taslakta işletme");
+    check(draft.includes("Paketler ve fiyatlar"), "taslakta konu");
+    check(draft.includes("Ürün duyurusu: İstemiyor"), "pazarlama izni varsayılan değil");
+    const mailto = await page.getAttribute("#qrmo-contact-form", "data-draft-url");
+    check(Boolean(mailto && mailto.startsWith("mailto:muhammedulusoyresmi@gmail.com?")), "mailto adresi hazır", (mailto || "").slice(0, 120));
+    check(mailto.includes(encodeURIComponent("Yılmaz Kafe")), "mailto gövdesinde işletme");
+    check(mailto.includes(encodeURIComponent("Paketler ve fiyatlar")), "mailto konusunda seçim");
+
+    await page.click(".qrmo-contact-copy");
+    const copied = await page.evaluate(() => navigator.clipboard.readText());
+    check(copied.includes("Yılmaz Kafe"), "kopyalama");
+
+    const burger = page.locator(".qrmo-gh-burger");
+    await burger.click();
+    check(await burger.getAttribute("aria-expanded") === "true", "mobil menü açıldı");
+    await page.keyboard.press("Escape");
+    check(await burger.getAttribute("aria-expanded") === "false", "mobil menü kapandı");
+    await page.locator("a[href='#talep']").focus();
+    await page.keyboard.press("Tab");
+    const mobileNext = await page.evaluate(() => document.activeElement.getAttribute("href"));
+    check(mobileNext === "tel:+905422043587", "mobilde sekme telefon kartına gider", mobileNext);
+    await context.close();
+
+    const desk = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    const deskPage = await desk.newPage();
+    await deskPage.goto(`http://127.0.0.1:${port}/iletisim/`, { waitUntil: "load" });
+    await deskPage.locator("a[href='#talep']").focus();
+    await deskPage.keyboard.press("Tab");
+    const deskNext = await deskPage.evaluate(() => document.activeElement.id);
+    check(deskNext === "qrmo-contact-name", "masaüstünde sekme forma gider", deskNext);
+    const visibleAsides = await deskPage.locator(".qrmo-contact-aside").evaluateAll((els) => els.filter((el) => getComputedStyle(el).display !== "none").length);
+    check(visibleAsides === 1, "masaüstünde tek iletişim sütunu", String(visibleAsides));
+    await desk.close();
+  } finally {
+    await browser.close();
+    server.close();
+  }
+}
+
+console.log(`iletisim qa: ${pass} geçti, ${failN} kaldı`);
+if (failN) process.exit(1);
