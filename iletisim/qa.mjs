@@ -12,7 +12,7 @@ import { fileURLToPath } from "url";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
 const html = fs.readFileSync(path.join(here, "index.html"), "utf8");
-const WIDTHS = [320, 360, 390, 768, 1024, 1366, 1440];
+const WIDTHS = [320, 360, 390, 561, 600, 768, 900, 901, 1024, 1366, 1440, 1920];
 let pass = 0;
 let failN = 0;
 const check = (ok, name, detail) => {
@@ -34,6 +34,10 @@ check(html.includes("muhammedulusoyresmi@gmail.com"), "e-posta metni");
 check(!/whatsapp|wa\.me/i.test(html), "uydurma WhatsApp yok");
 check(!/href="#"/.test(html), 'href="#" yok');
 check(html.includes('src="iletisim.js"'), "form betiği bağlı");
+check(html.includes("Canlı menü adresi henüz tanımlı değil"), "canlı menü notu");
+check(html.includes("Bu düğme mesajı bize ulaştırmaz"), "mailto sınırı yazılı");
+check(/name="consent"[^>]*required/.test(html), "yanıtlama onayı zorunlu");
+check(!/id="qrmo-contact-marketing"[^>]*required/.test(html), "pazarlama onayı zorunlu değil");
 check(html.includes("QRMO:HEADER:END") && html.includes("QRMO:FOOTER:END"), "global işaretçiler duruyor");
 
 for (const href of [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])) {
@@ -120,6 +124,18 @@ if (!pw) {
         const panelBox = panel.getBoundingClientRect();
         const asideBox = aside.getBoundingClientRect();
         const split = vw >= 1000 ? asideBox.left > panelBox.right - 2 : asideBox.top < panelBox.top;
+        const edge = (el) => {
+          const b = el.getBoundingClientRect();
+          const s = getComputedStyle(el);
+          return {
+            left: Math.round((b.left + parseFloat(s.paddingLeft)) * 10) / 10,
+            right: Math.round((b.right - parseFloat(s.paddingRight)) * 10) / 10
+          };
+        };
+        const contact = edge(inner);
+        const footer = edge(document.querySelector(".qrmo-gf-in"));
+        const header = edge(document.querySelector(".qrmo-gh-in"));
+        const guide = document.getElementById("qrmo-contact-guide-title").getBoundingClientRect().left;
         return {
           overflow: document.documentElement.scrollWidth - vw,
           h1: h1 ? h1.textContent.trim() : "",
@@ -127,7 +143,16 @@ if (!pw) {
           split,
           small: small.slice(0, 8),
           gutter: inner ? Math.round(parseFloat(getComputedStyle(inner).paddingLeft)) : 0,
-          h1Size: h1 ? Math.round(parseFloat(getComputedStyle(h1).fontSize)) : 0
+          h1Size: h1 ? Math.round(parseFloat(getComputedStyle(h1).fontSize)) : 0,
+          contactLeft: contact.left,
+          contactRight: contact.right,
+          headerLeft: header.left,
+          headerRight: header.right,
+          footerLeft: footer.left,
+          footerRight: footer.right,
+          h1Left: h1 ? Math.round(h1.getBoundingClientRect().left * 10) / 10 : 0,
+          formLeft: Math.round(panelBox.left * 10) / 10,
+          guideLeft: Math.round(guide * 10) / 10
         };
       });
       check(errors.length === 0, `@${width} konsol hatası yok`, errors.join(" | "));
@@ -136,10 +161,20 @@ if (!pw) {
       check(result.split, `@${width} sütun düzeni`, `split=${result.split}`);
       check(result.small.length === 0, `@${width} küçük hedef yok`, result.small.join("; "));
       if (width <= 360) check(result.gutter === 16, `@${width} oluk 16px`, String(result.gutter));
-      else if (width < 901) check(result.gutter === 20, `@${width} oluk 20px`, String(result.gutter));
+      else if (width < 561) check(result.gutter === 20, `@${width} oluk 20px`, String(result.gutter));
       else check(Math.abs(result.gutter - Math.round(width * 0.05)) <= 1, `@${width} oluk 5vw`, String(result.gutter));
-      if (width <= 360) check(result.h1Size >= 32 && result.h1Size <= 40, `@${width} h1 boyutu`, String(result.h1Size));
-      if (width >= 1024) check(result.h1Size >= 48 && result.h1Size <= 64, `@${width} h1 boyutu`, String(result.h1Size));
+      check(Math.abs(result.h1Left - result.contactLeft) <= 1, `@${width} h1 sol ızgara`, `${result.h1Left}/${result.contactLeft}`);
+      check(Math.abs(result.formLeft - result.contactLeft) <= 1, `@${width} form sol ızgara`, `${result.formLeft}/${result.contactLeft}`);
+      check(Math.abs(result.guideLeft - result.contactLeft) <= 1, `@${width} karar sol ızgara`, `${result.guideLeft}/${result.contactLeft}`);
+      check(Math.abs(result.contactLeft - result.footerLeft) <= 1, `@${width} footer sol hizası`, `${result.contactLeft}/${result.footerLeft}`);
+      check(Math.abs(result.contactRight - result.footerRight) <= 1, `@${width} footer sağ hizası`, `${result.contactRight}/${result.footerRight}`);
+      if (width >= 561) {
+        check(Math.abs(result.contactLeft - result.headerLeft) <= 1, `@${width} header sol hizası`, `${result.contactLeft}/${result.headerLeft}`);
+        check(Math.abs(result.contactRight - result.headerRight) <= 1, `@${width} header sağ hizası`, `${result.contactRight}/${result.headerRight}`);
+      }
+      console.log(`@${width} içerik sol/sağ: iletişim ${result.contactLeft}/${result.contactRight} · header ${result.headerLeft}/${result.headerRight} · footer ${result.footerLeft}/${result.footerRight} · oluk ${result.gutter}px`);
+      if (width < 901) check(result.h1Size >= 32 && result.h1Size <= 40, `@${width} h1 boyutu`, String(result.h1Size));
+      else check(result.h1Size >= 48 && result.h1Size <= 64, `@${width} h1 boyutu`, String(result.h1Size));
       await page.screenshot({ path: path.join(shotDir, `iletisim-${width}.png`), fullPage: true });
       await page.close();
     }

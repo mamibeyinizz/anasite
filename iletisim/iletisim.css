@@ -2,7 +2,8 @@
    QR MENU OFFICIAL — /iletisim/
    Namespace: .qrmo-contact-*
    Renkler DESIGN_SYSTEM.md / header token'ları ile aynıdır.
-   Yatay boşluk: ≥901px 5vw · 361–900px 20px · ≤360px 16px
+   Yatay boşluk tek sistemdir: ≥561px 5vw · 361–560px 20px · ≤360px 16px.
+   İç kapsayıcıya ikinci bir max-width verilmez; ≥561px kenar header/footer ile aynı 5vw çizgisinde kalır.
 ========================================================= */
 
 html {
@@ -70,7 +71,6 @@ body.qrmo-contact-page {
 
 .qrmo-contact-inner {
   width: 100%;
-  max-width: 1440px;
   margin-inline: auto;
   padding-inline: var(--qc-gutter);
 }
@@ -672,7 +672,7 @@ body.qrmo-contact-page {
 
 @media (min-width: 768px) {
   .qrmo-contact-h1 {
-    font-size: 46px;
+    font-size: 40px;
   }
 
   .qrmo-contact-h2 {
@@ -700,9 +700,15 @@ body.qrmo-contact-page {
   }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 561px) {
   .qrmo-contact {
     --qc-gutter: 5vw;
+  }
+}
+
+@media (min-width: 901px) {
+  .qrmo-contact-h1 {
+    font-size: 48px;
   }
 
   .qrmo-contact-hero {
