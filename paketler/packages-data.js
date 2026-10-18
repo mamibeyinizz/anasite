@@ -11,8 +11,9 @@
                            üst paketlerde otomatik "dahil" sayılır.
    - Tek pakete özel     → features[].values  (opsiyonel)
    - İkincil satır       → features[].secondary  (karşılaştırmada ayrıntı alanında)
-   - Kart CTA hedefi     → cta.href  (boşsa satın alma varmış gibi link üretilmez)
-   - Yardım CTA hedefi   → cta.finalHref  (gerçek iletişim sayfası)
+   - Kart CTA hedefi     → cta.href  (boşsa satın alma adresi üretilmez;
+                           düğme cta.finalHref ile iletişim formuna gider)
+   - Yardım CTA hedefi   → cta.finalHref  (gerçek iletişim formu, #talep)
    - Modül sayfası       → features[].page
    ========================================================= */
 
@@ -31,8 +32,9 @@ window.QRMO_PRICING = {
      Alt yardım düğmesi gerçek iletişim sayfasına gider.
      ------------------------------------------------------- */
   cta: {
+    /* Satın alma adresi yoktur. href boşken kart düğmesi bu yardım adresine gider. */
     href: "",
-    finalHref: "../iletisim/",
+    finalHref: "../iletisim/#talep",
     finalLabel: "Paket seçimi için yardım alın",
     pendingNotice:
       "Bu düğme satın alma sayfası açmaz. Paket başvurusu için iletişim kanallarını kullanın."
@@ -60,12 +62,12 @@ window.QRMO_PRICING = {
       subdomain: "temel.qrmenuofficial.com",
       price: { monthly: 749, annual: 7490 },
       variant: "plain",
-      ctaLabel: "Temel paketi seç",
+      ctaLabel: "Temel için iletişime geçin",
       highlightsLead: "Temel özellikler",
       highlights: ["qr-menu", "menu-yonetimi", "coklu-dil", "filtreler", "qr-masa", "kampanya-combo"],
       scenario: {
         title: "Menümü dijitalleştirmek istiyorum.",
-        text: "Ürün, fiyat ve dili tek panelden yönetmek yeterliyse Temel paketi bunu karşılar. Müşteri menüyü QR ile, uygulama indirmeden açar."
+        text: "Ürün, fiyat, dil ve QR masa yeterliyse Temel yeter. Garson çağrısı, sipariş ve servis paneli bu pakette yoktur."
       }
     },
     {
@@ -78,12 +80,13 @@ window.QRMO_PRICING = {
       price: { monthly: 1490, annual: 14900 },
       variant: "featured",
       badge: "Önerilen",
-      ctaLabel: "Pro paketini seç",
+      recommendReason: "Garson çağrısı, hesap talebi, sipariş ve servis paneli bu pakette Temel’in üzerine eklenir.",
+      ctaLabel: "Pro için iletişime geçin",
       highlightsLead: "Temel’e ek olarak",
       highlights: ["garson-cagir", "hesap-iste", "qr-siparis", "servis-paneli", "personel-rolu", "oturum-guvenligi"],
       scenario: {
         title: "Masa ve servis akışımı kolaylaştırmak istiyorum.",
-        text: "Garson çağrısı, hesap talebi ve sipariş masadan gelsin, servis panelinde toplansın diyorsanız Pro paketi bu akışı Temel’in üzerine ekler."
+        text: "Garson çağrısı, hesap talebi ve sipariş servis panelinde toplanacaksa önerilen paket Pro’dur. Temel’deki menü de açıktır."
       }
     },
     {
@@ -95,12 +98,12 @@ window.QRMO_PRICING = {
       subdomain: "plus.qrmenuofficial.com",
       price: { monthly: 2990, annual: 29900 },
       variant: "dark",
-      ctaLabel: "Plus paketini seç",
+      ctaLabel: "Plus için iletişime geçin",
       highlightsLead: "Pro’ya ek olarak",
       highlights: ["analytics", "geri-bildirim", "menu-muhendisligi", "maliyet-recete", "asistan"],
       scenario: {
         title: "İşletmemi verilerle geliştirmek istiyorum.",
-        text: "Menü analitiği, geri bildirim, maliyet ve reçete ile menü asistanı için Plus paketi bu araçları Pro’nun üzerine ekler."
+        text: "Menü analitiği, geri bildirim, maliyet, reçete ve menü asistanı da gerekiyorsa Plus, bu araçları Pro’nun üzerine ekler."
       }
     }
   ],
