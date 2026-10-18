@@ -1,6 +1,6 @@
 /* =========================================================
    QR MENU OFFICIAL — /paketler/ RENDER
-   İçerik packages-data.js'ten gelir; burada içerik YOK.
+   İçerik packages-data.js'ten gelir; fiyat burada yeniden tanımlanmaz.
    Bağımlılık yok. Kapsam: .qrmo-pricing
 ========================================================= */
 (function () {
@@ -13,11 +13,15 @@
   var P = D.packages;
   var fmt = new Intl.NumberFormat("tr-TR");
   var period = D.defaultPeriod === "annual" ? "annual" : "monthly";
-  var activePkg = P.length > 1 ? P[1].id : P[0].id; // mobil seçici: varsayılan orta paket
+  var activePkg = P.length > 1 ? P[1].id : P[0].id;
   var openCats = {};
   D.categories.forEach(function (c, i) { openCats[c.id] = i === 0; });
 
   var freeMonths = D.annual.usedMonths - D.annual.payMonths;
+  var modelHolds = P.every(function (p) {
+    return p.price.annual === p.price.monthly * D.annual.payMonths;
+  });
+  var twoMonthOffer = modelHolds && freeMonths === 2;
 
   /* ---------- yardımcılar ---------- */
 
@@ -54,7 +58,6 @@
     return s;
   }
 
-  /* Özellik adı: modül sayfası tanımlıysa link, değilse düz metin. */
   function featName(f) {
     if (!f.page || !D.modulePagesBase) return el("span", { text: f.name });
     return el("a", { class: "qrmo-pricing-modlink", href: D.modulePagesBase + f.page + "/", text: f.name });
@@ -63,7 +66,6 @@
   function pkgById(id) { return P.filter(function (p) { return p.id === id; })[0]; }
   function rank(id) { return P.indexOf(pkgById(id)); }
 
-  /* Özellik → paket durumu: { on: bool, text: string|null } */
   function status(f, pkg) {
     var v = f.values && f.values[pkg.id];
     if (typeof v === "string") return { on: true, text: v };
@@ -72,20 +74,35 @@
     return { on: rank(pkg.id) >= rank(f.from), text: null };
   }
 
+  function savingsAmount(pkg) {
+    return pkg.price.monthly * D.annual.usedMonths - pkg.price.annual;
+  }
+
   function price(pkg) {
     var annual = period === "annual";
     var amount = annual ? pkg.price.annual : pkg.price.monthly;
+    var save = savingsAmount(pkg);
+    var note = annual
+      ? "12 ay kullanım için yıllık toplam."
+      : "Her ay ödenen tutar.";
+    if (annual && save > 0) {
+      note += " Aylık ödemeye göre " + fmt.format(save) + " " + D.currency + " daha az.";
+    }
     return {
       amount: fmt.format(amount),
       unit: D.currency + (annual ? " / yıl" : " / ay"),
       short: fmt.format(amount) + " " + D.currency,
-      note: annual
-        ? fmt.format(pkg.price.monthly) + " " + D.currency + " × " + D.annual.payMonths + " ay · " + freeMonths + " ay ücretsiz"
-        : "Aylık ödeme"
+      note: note
     };
   }
 
-  /* CTA: href tanımlıysa <a>, değilse pasif <button> (sahte href yok). */
+  function colMark(pkg) {
+    if (pkg.variant === "featured") return " is-featured";
+    if (pkg.variant === "dark") return " is-plus";
+    return " is-temel";
+  }
+
+  /* CTA: href tanımlıysa <a>, değilse pasif <button>. Satın alma adresi uydurulmaz. */
   function cta(pkg, label, variant, final) {
     var tpl = (final && D.cta.finalHref) || D.cta.href;
     var cls = "qrmo-pricing-btn qrmo-pricing-btn--" + variant;
@@ -96,13 +113,18 @@
       kids.forEach(function (k) { a.appendChild(k); });
       return a;
     }
-    var b = el("button", { class: cls, type: "button", "data-cta-pending": "", "data-cta-target": "TBD" });
+    var b = el("button", {
+      class: cls,
+      type: "button",
+      "data-cta-pending": "",
+      "data-cta-target": "TBD",
+      "aria-describedby": "qrmo-pricing-flow-note"
+    });
     b.addEventListener("click", function () { showPending(b); });
     kids.forEach(function (k) { b.appendChild(k); });
     return b;
   }
 
-  /* Hedef TBD iken tıklama: kullanıcıya dürüst bir bilgi gösterir. */
   function showPending(btn) {
     if (!D.cta.pendingNotice) return;
     var n = btn.nextElementSibling;
@@ -130,13 +152,17 @@
         list.appendChild(el("li", null, el("span", { class: "qrmo-pricing-check" }, icon("check")), featName(f)));
       });
 
-      var card = el("article", { class: "qrmo-pricing-card qrmo-pricing-card--" + variant, id: "paket-" + pkg.id, "aria-labelledby": "paket-" + pkg.id + "-name" },
+      var card = el("article", {
+        class: "qrmo-pricing-card qrmo-pricing-card--" + variant,
+        id: "paket-" + pkg.id,
+        "aria-labelledby": "paket-" + pkg.id + "-name"
+      },
+        pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null,
+        variant === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
         el("header", { class: "qrmo-pricing-card-head" },
           el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name }),
-          el("p", { class: "qrmo-pricing-card-tagline", text: pkg.tagline }),
-          D.showSubdomain && pkg.subdomain ? el("p", { class: "qrmo-pricing-card-sub", text: pkg.subdomain }) : null
+          el("p", { class: "qrmo-pricing-card-fit", text: pkg.audience })
         ),
-        el("p", { class: "qrmo-pricing-card-summary", text: pkg.summary }),
         el("div", { class: "qrmo-pricing-price" },
           el("p", { class: "qrmo-pricing-price-row" },
             el("span", { class: "qrmo-pricing-amount", "data-qp": "amount", "data-pkg": pkg.id }),
@@ -144,13 +170,13 @@
           ),
           el("p", { class: "qrmo-pricing-price-sub", "data-qp": "note", "data-pkg": pkg.id })
         ),
-        cta(pkg, pkg.ctaLabel, btnVariant),
-        el("div", { class: "qrmo-pricing-audience" },
-          el("p", { class: "qrmo-pricing-label", text: "KİMLER İÇİN" }),
-          el("p", { text: pkg.audience })
-        ),
+        el("p", { class: "qrmo-pricing-card-summary", text: pkg.summary }),
         el("p", { class: "qrmo-pricing-label qrmo-pricing-card-lead", text: pkg.highlightsLead.toLocaleUpperCase("tr") }),
-        list
+        list,
+        D.showSubdomain && pkg.subdomain
+          ? el("p", { class: "qrmo-pricing-card-sub", text: pkg.subdomain })
+          : null,
+        cta(pkg, pkg.ctaLabel, btnVariant)
       );
       wrap.appendChild(card);
     });
@@ -160,7 +186,7 @@
 
   function statusCell(f, pkg) {
     var s = status(f, pkg);
-    var td = el("td", { class: "qrmo-pricing-cell" + (pkg.variant === "featured" ? " is-featured" : "") });
+    var td = el("td", { class: "qrmo-pricing-cell" + colMark(pkg) });
     if (s.text) {
       td.appendChild(el("span", { class: "qrmo-pricing-cell-text", text: s.text }));
     } else if (s.on) {
@@ -168,24 +194,49 @@
       td.appendChild(el("span", { class: "qrmo-pricing-sr", text: "Dahil" }));
     } else {
       td.appendChild(el("span", { class: "qrmo-pricing-cell-off" }, icon("dash")));
-      td.appendChild(el("span", { class: "qrmo-pricing-sr", text: "Dahil değil" }));
+      td.appendChild(el("span", { class: "qrmo-pricing-sr", text: "Bu pakette yok" }));
     }
     return td;
   }
 
-  function renderTable() {
-    var wrap = mount("table");
-    var table = el("table", { class: "qrmo-pricing-table" });
-    table.appendChild(el("caption", { class: "qrmo-pricing-sr", text: "Paketlere göre özellik karşılaştırması" }));
+  function appendFeatureRows(table, features, withFoot) {
+    D.categories.forEach(function (cat) {
+      var rows = features.filter(function (f) { return f.category === cat.id; });
+      if (!rows.length) return;
+      var tb = el("tbody");
+      tb.appendChild(el("tr", { class: "qrmo-pricing-cat-row" },
+        el("th", { scope: "colgroup", colspan: String(P.length + 1), text: cat.name.toLocaleUpperCase("tr") })));
+      rows.forEach(function (f) {
+        var tr = el("tr", null, el("th", { scope: "row", class: "qrmo-pricing-feature" }, featName(f)));
+        P.forEach(function (pkg) { tr.appendChild(statusCell(f, pkg)); });
+        tb.appendChild(tr);
+      });
+      table.appendChild(tb);
+    });
 
+    if (!withFoot) return;
+    var fr = el("tr", null, el("td", { class: "qrmo-pricing-foot-label" }));
+    P.forEach(function (pkg) {
+      var variant = pkg.variant === "featured" ? "primary" : pkg.variant === "dark" ? "on-dark" : "outline";
+      fr.appendChild(el("td", { class: "qrmo-pricing-foot-cell" + colMark(pkg) },
+        cta(pkg, pkg.ctaLabel, variant)));
+    });
+    table.appendChild(el("tfoot", null, fr));
+  }
+
+  function makeTable(features, caption, withFoot) {
+    var table = el("table", { class: "qrmo-pricing-table" });
+    table.appendChild(el("caption", { class: "qrmo-pricing-sr", text: caption }));
     var colgroup = el("colgroup", null, el("col", { class: "qrmo-pricing-col-label" }));
     P.forEach(function () { colgroup.appendChild(el("col")); });
     table.appendChild(colgroup);
 
     var hr = el("tr", null, el("th", { scope: "col", class: "qrmo-pricing-th-label" }, el("span", { class: "qrmo-pricing-sr", text: "Özellik" })));
     P.forEach(function (pkg) {
-      hr.appendChild(el("th", { scope: "col", class: "qrmo-pricing-th" + (pkg.variant === "featured" ? " is-featured" : "") },
+      hr.appendChild(el("th", { scope: "col", class: "qrmo-pricing-th" + colMark(pkg) },
+        pkg.badge ? el("span", { class: "qrmo-pricing-th-badge", text: pkg.badge }) : null,
         el("span", { class: "qrmo-pricing-th-name", text: pkg.name }),
+        pkg.variant === "dark" ? el("span", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
         el("span", { class: "qrmo-pricing-th-price" },
           el("span", { "data-qp": "short", "data-pkg": pkg.id }),
           el("span", { class: "qrmo-pricing-th-unit", "data-qp": "unit-only", "data-pkg": pkg.id })
@@ -193,28 +244,25 @@
       ));
     });
     table.appendChild(el("thead", null, hr));
+    appendFeatureRows(table, features, withFoot);
+    return table;
+  }
 
-    D.categories.forEach(function (cat) {
-      var tb = el("tbody");
-      tb.appendChild(el("tr", { class: "qrmo-pricing-cat-row" },
-        el("th", { scope: "colgroup", colspan: String(P.length + 1), text: cat.name.toLocaleUpperCase("tr") })));
-      D.features.filter(function (f) { return f.category === cat.id; }).forEach(function (f) {
-        var tr = el("tr", null, el("th", { scope: "row", class: "qrmo-pricing-feature" },
-          featName(f),
-          f.note ? el("small", { text: f.note }) : null));
-        P.forEach(function (pkg) { tr.appendChild(statusCell(f, pkg)); });
-        tb.appendChild(tr);
-      });
-      table.appendChild(tb);
-    });
+  function renderTable() {
+    var wrap = mount("table");
+    var primary = D.features.filter(function (f) { return !f.secondary; });
+    var secondary = D.features.filter(function (f) { return f.secondary; });
+    wrap.appendChild(makeTable(primary, "Paketlere göre özellik karşılaştırması", true));
+    if (!secondary.length) return;
 
-    var fr = el("tr", null, el("td", { class: "qrmo-pricing-foot-label" }));
-    P.forEach(function (pkg) {
-      fr.appendChild(el("td", { class: "qrmo-pricing-foot-cell" },
-        cta(pkg, pkg.name + " paketi seç", pkg.variant === "featured" ? "primary" : "outline")));
-    });
-    table.appendChild(el("tfoot", null, fr));
-    wrap.appendChild(table);
+    var details = el("details", { class: "qrmo-pricing-more" });
+    details.appendChild(el("summary", null, "Dijital menüdeki diğer özellikler"));
+    details.appendChild(el("p", {
+      class: "qrmo-pricing-more-note",
+      text: "Bu özellikler Temel paketten itibaren bütün paketlerde vardır."
+    }));
+    details.appendChild(makeTable(secondary, "Dijital menüdeki diğer özellikler", false));
+    wrap.appendChild(details);
   }
 
   /* ---------- 3. MOBİL SEÇİCİ (<768px) ---------- */
@@ -226,9 +274,20 @@
 
     var tablist = el("div", { class: "qrmo-pricing-tabs", role: "tablist", "aria-label": "Karşılaştırılacak paket" });
     P.forEach(function (pkg) {
-      var t = el("button", { class: "qrmo-pricing-tab", type: "button", role: "tab", id: "qrmo-pricing-tab-" + pkg.id, "aria-controls": "qrmo-pricing-panel" },
+      var t = el("button", {
+        class: "qrmo-pricing-tab",
+        type: "button",
+        role: "tab",
+        id: "qrmo-pricing-tab-" + pkg.id,
+        "aria-controls": "qrmo-pricing-panel"
+      },
         el("span", { class: "qrmo-pricing-tab-name", text: pkg.name }),
-        el("span", { class: "qrmo-pricing-tab-price", "data-qp": "short", "data-pkg": pkg.id })
+        pkg.badge ? el("span", { class: "qrmo-pricing-tab-badge", text: pkg.badge }) : null,
+        el("span", { class: "qrmo-pricing-tab-price" },
+          el("span", { "data-qp": "short", "data-pkg": pkg.id }),
+          " ",
+          el("span", { "data-qp": "unit-only", "data-pkg": pkg.id })
+        )
       );
       t.addEventListener("click", function () { selectTab(pkg.id, false); });
       t.addEventListener("keydown", function (e) {
@@ -252,7 +311,13 @@
 
     D.categories.forEach(function (cat) {
       var bid = "qrmo-pricing-acc-btn-" + cat.id, pid = "qrmo-pricing-acc-panel-" + cat.id;
-      var btn = el("button", { class: "qrmo-pricing-acc-btn", type: "button", id: bid, "aria-controls": pid, "aria-expanded": "false" },
+      var btn = el("button", {
+        class: "qrmo-pricing-acc-btn",
+        type: "button",
+        id: bid,
+        "aria-controls": pid,
+        "aria-expanded": "false"
+      },
         el("span", { class: "qrmo-pricing-acc-title", text: cat.name }),
         el("span", { class: "qrmo-pricing-acc-count" }),
         icon("chev"));
@@ -263,7 +328,8 @@
         openCats[cat.id] = !openCats[cat.id];
         syncAcc(cat.id);
       });
-      accBtns[cat.id] = btn; accLists[cat.id] = list;
+      accBtns[cat.id] = btn;
+      accLists[cat.id] = list;
       panelEl.appendChild(el("div", { class: "qrmo-pricing-acc" }, el("h3", { class: "qrmo-pricing-acc-h" }, btn), body));
     });
 
@@ -295,10 +361,12 @@
     });
     panelEl.setAttribute("aria-labelledby", "qrmo-pricing-tab-" + pkg.id);
 
-    var added = D.features.filter(function (f) { return status(f, pkg).on && (i === 0 || !status(f, P[i - 1]).on); }).length;
+    var added = D.features.filter(function (f) {
+      return status(f, pkg).on && (i === 0 || !status(f, P[i - 1]).on);
+    }).length;
     introEl.textContent = i === 0
-      ? pkg.name + ": " + added + " özellik. " + pkg.tagline + "."
-      : P[i - 1].name + "'in tümü + " + added + " yeni özellik. " + pkg.tagline + ".";
+      ? pkg.name + " paketinde " + added + " özellik var. " + pkg.summary
+      : pkg.name + ", " + P[i - 1].name + " paketine " + added + " özellik ekler. " + pkg.summary;
 
     D.categories.forEach(function (cat) {
       var feats = D.features.filter(function (f) { return f.category === cat.id; });
@@ -308,12 +376,14 @@
         var s = status(f, pkg);
         if (s.on) on++;
         var li = el("li", { class: s.on ? "is-on" : "is-off" },
-          s.on ? el("span", { class: "qrmo-pricing-check" }, icon("check")) : el("span", { class: "qrmo-pricing-cell-off" }, icon("dash")),
+          s.on
+            ? el("span", { class: "qrmo-pricing-check" }, icon("check"))
+            : el("span", { class: "qrmo-pricing-cell-off" }, icon("dash")),
           el("span", { class: "qrmo-pricing-acc-name" },
             featName(f),
             s.text ? el("small", { text: s.text }) : null,
-            !s.on ? el("small", { text: pkgById(f.from).name + " paketinde" }) : null,
-            el("span", { class: "qrmo-pricing-sr", text: s.on ? " — dahil" : " — dahil değil" })
+            !s.on ? el("small", { text: "Bu pakette yok. " + pkgById(f.from).name + " ile başlar." }) : null,
+            el("span", { class: "qrmo-pricing-sr", text: s.on ? " — dahil" : " — bu pakette yok" })
           ));
         list.appendChild(li);
       });
@@ -322,7 +392,7 @@
     });
 
     ctaSlot.textContent = "";
-    ctaSlot.appendChild(cta(pkg, pkg.ctaLabel, pkg.variant === "featured" ? "primary" : "outline"));
+    ctaSlot.appendChild(cta(pkg, pkg.ctaLabel, pkg.variant === "featured" ? "primary" : pkg.variant === "dark" ? "on-dark" : "outline"));
   }
 
   /* ---------- 4. HANGİ PAKET ---------- */
@@ -331,13 +401,18 @@
     var list = mount("which");
     P.forEach(function (pkg) {
       list.appendChild(el("li", { class: "qrmo-pricing-which-item" },
-        el("div", { class: "qrmo-pricing-which-pkg" },
-          el("p", { class: "qrmo-pricing-label", text: pkg.name.toLocaleUpperCase("tr") }),
-          el("p", { class: "qrmo-pricing-which-tag", text: pkg.audience })),
-        el("h3", { class: "qrmo-pricing-which-title", text: pkg.scenario.title }),
-        el("div", { class: "qrmo-pricing-which-body" },
-          el("p", { text: pkg.scenario.text }),
-          el("a", { class: "qrmo-pricing-textlink", href: "#paket-" + pkg.id }, pkg.name + " paketini incele ", el("span", { "aria-hidden": "true", text: "→" })))
+        el("div", { class: "qrmo-pricing-which-copy" },
+          el("h3", { class: "qrmo-pricing-which-title", text: pkg.scenario.title }),
+          el("p", { text: pkg.scenario.text })
+        ),
+        el("div", { class: "qrmo-pricing-which-pick" },
+          el("p", { class: "qrmo-pricing-label", text: "UYGUN PAKET" }),
+          el("p", { class: "qrmo-pricing-which-name", text: pkg.name }),
+          el("a", { class: "qrmo-pricing-textlink", href: "#paket-" + pkg.id },
+            pkg.name + " paketini incele ",
+            el("span", { "aria-hidden": "true", text: "→" })
+          )
+        )
       ));
     });
   }
@@ -350,12 +425,24 @@
 
   /* ---------- FİYAT / DÖNEM ---------- */
 
+  function periodMessage() {
+    if (!twoMonthOffer) {
+      return period === "annual"
+        ? "Yıllık fiyatlar, seçilen dönemdeki toplam ödemedir."
+        : "Aylık fiyatlar, her ay ödenen tutardır.";
+    }
+    return period === "annual"
+      ? "Yıllık ödemede 2 ay daha az ödeyin. Karttaki tutar, 12 aylık kullanım için ödeyeceğiniz toplamdır."
+      : "Aylık tutar her ay ödenir. Yıllık ödemede 2 ay daha az ödeyin.";
+  }
+
   function updatePrices(animate) {
     var byPkg = {};
     P.forEach(function (p) { byPkg[p.id] = price(p); });
 
     root.querySelectorAll("[data-qp]").forEach(function (n) {
       var pr = byPkg[n.getAttribute("data-pkg")];
+      if (!pr) return;
       var kind = n.getAttribute("data-qp");
       var next = kind === "amount" ? pr.amount
         : kind === "unit" ? pr.unit
@@ -371,13 +458,12 @@
     });
 
     root.querySelectorAll("[data-qp-free]").forEach(function (n) {
-      n.textContent = freeMonths + " ay ücretsiz";
+      n.textContent = twoMonthOffer ? "2 ay daha az" : "";
+      n.hidden = !twoMonthOffer;
     });
 
     var note = document.getElementById("qrmo-pricing-period-note");
-    note.textContent = period === "annual"
-      ? "Yıllık fiyatlar gösteriliyor: " + D.annual.usedMonths + " ay kullanın, " + D.annual.payMonths + " ay ödeyin."
-      : "Aylık fiyatlar gösteriliyor. Yıllık ödemede " + freeMonths + " ay ücretsiz.";
+    if (note) note.textContent = periodMessage();
   }
 
   function bindToggle() {
