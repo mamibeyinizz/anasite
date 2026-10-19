@@ -225,6 +225,143 @@ function cue(key) {
   return `<span class="qrmo-mod-cue qrmo-mod-cue--${key}" aria-hidden="true">${inner}</span>`;
 }
 
+/* Hub kartı illüstrasyonu. Ayrıntı sayfalarındaki küçük işaret (cue) ayrı kalır.
+   Ortak dil: viewBox 200×120, çizgi 1.75, köşe 8–10, krem + altın, orman yeşili zemin.
+   Dekoratif: kart bağlantısının adı modül başlığından gelir. */
+function moduleArt(key) {
+  const cream = "#F4F1E8";
+  const gold = "#C9A84C";
+  const goldL = "#E8C766";
+  const ink = "#0D2B22";
+  const sw = 'stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"';
+  const star = "M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z";
+  const starAt = (x, y, fill, scale) => `<path d="${star}" fill="${fill}" transform="translate(${x} ${y}) scale(${scale || 1})"/>`;
+  const scenes = {
+    menu: `
+      <rect x="46" y="14" width="108" height="92" rx="10" stroke="${cream}" ${sw}/>
+      <rect x="58" y="26" width="36" height="10" rx="5" fill="${goldL}"/>
+      <rect x="98" y="26" width="24" height="10" rx="5" stroke="${cream}" ${sw}/>
+      <rect x="126" y="26" width="16" height="10" rx="5" stroke="${cream}" ${sw} opacity=".45"/>
+      <circle cx="68" cy="52" r="7" stroke="${goldL}" ${sw}/>
+      <circle cx="68" cy="52" r="2.4" fill="${goldL}"/>
+      <path d="M82 52h34" stroke="${cream}" ${sw}/>
+      <path d="M128 52h14" stroke="${goldL}" ${sw}/>
+      <circle cx="68" cy="72" r="7" stroke="${cream}" ${sw}/>
+      <path d="M82 72h28" stroke="${cream}" ${sw} opacity=".8"/>
+      <path d="M122 72h20" stroke="${cream}" ${sw} opacity=".8"/>
+      <g opacity=".38">
+        <circle cx="68" cy="92" r="7" stroke="${cream}" ${sw}/>
+        <path d="M82 92h26" stroke="${cream}" ${sw}/>
+        <path d="M120 92h22" stroke="${cream}" ${sw}/>
+      </g>`,
+    qr: `
+      <ellipse cx="100" cy="102" rx="66" ry="9" stroke="${cream}" ${sw}/>
+      <rect x="72" y="26" width="56" height="70" rx="8" stroke="${cream}" ${sw}/>
+      <rect x="82" y="38" width="16" height="16" rx="2" stroke="${goldL}" ${sw}/>
+      <rect x="86" y="42" width="8" height="8" fill="${goldL}"/>
+      <rect x="104" y="38" width="16" height="16" rx="2" stroke="${cream}" ${sw}/>
+      <rect x="108" y="42" width="8" height="8" fill="${cream}"/>
+      <rect x="84" y="60" width="5" height="5" fill="${cream}"/>
+      <rect x="92" y="60" width="5" height="5" fill="${goldL}"/>
+      <rect x="108" y="60" width="5" height="5" fill="${cream}" opacity=".7"/>
+      <rect x="100" y="68" width="5" height="5" fill="${cream}"/>
+      <rect x="112" y="72" width="5" height="5" fill="${goldL}"/>
+      <path d="M84 84h32" stroke="${cream}" ${sw} opacity=".45"/>`,
+    kanban: `
+      <rect x="22" y="18" width="156" height="84" rx="10" stroke="${cream}" ${sw}/>
+      <rect x="34" y="32" width="40" height="58" rx="8" stroke="${cream}" ${sw}/>
+      <path d="M46 60c0-8 3.6-13 8-13s8 5 8 13" stroke="${cream}" ${sw}/>
+      <path d="M43 60h22" stroke="${cream}" ${sw}/>
+      <circle cx="54" cy="66" r="2.2" fill="${cream}"/>
+      <rect x="80" y="32" width="40" height="58" rx="8" fill="${goldL}" fill-opacity=".16" stroke="${goldL}" ${sw}/>
+      <circle cx="100" cy="54" r="9" stroke="${goldL}" ${sw}/>
+      <circle cx="100" cy="54" r="3" fill="${goldL}"/>
+      <path d="M86 70h28" stroke="${goldL}" ${sw}/>
+      <rect x="126" y="32" width="40" height="58" rx="8" stroke="${cream}" ${sw}/>
+      <path d="M136 50h20M136 58h14M136 66h18" stroke="${cream}" ${sw}/>`,
+    chart: `
+      <rect x="28" y="16" width="144" height="88" rx="10" stroke="${cream}" ${sw}/>
+      <path d="M46 86h112" stroke="${cream}" ${sw} opacity=".4"/>
+      <rect x="54" y="64" width="14" height="22" rx="4" fill="${cream}" opacity=".4"/>
+      <rect x="76" y="52" width="14" height="34" rx="4" fill="${cream}" opacity=".62"/>
+      <rect x="98" y="36" width="14" height="50" rx="4" fill="${goldL}"/>
+      <rect x="120" y="46" width="14" height="40" rx="4" fill="${cream}" opacity=".5"/>
+      <path d="M61 58 83 48 105 34 127 44" stroke="${gold}" ${sw}/>
+      <circle cx="105" cy="34" r="3.5" fill="${goldL}"/>`,
+    chat: `
+      <rect x="24" y="18" width="92" height="34" rx="10" stroke="${cream}" ${sw}/>
+      <path d="M40 35h52" stroke="${cream}" ${sw} opacity=".75"/>
+      <path d="M40 52 30 64h16" stroke="${cream}" ${sw}/>
+      <rect x="72" y="58" width="104" height="44" rx="10" stroke="${goldL}" ${sw}/>
+      <circle cx="94" cy="80" r="9" stroke="${goldL}" ${sw}/>
+      <circle cx="94" cy="80" r="3" fill="${goldL}"/>
+      <path d="M112 74h48" stroke="${goldL}" ${sw}/>
+      <path d="M112 88h32" stroke="${cream}" ${sw} opacity=".75"/>
+      <path d="M168 50l1.5 3.4 3.6.4-2.7 2.3.8 3.5-3.2-1.9-3.2 1.9.8-3.5-2.7-2.3 3.6-.4Z" fill="${goldL}"/>`,
+    matrix: `
+      <path d="M40 22v80H172" stroke="${cream}" ${sw}/>
+      <path d="M35 32 40 22l5 10" stroke="${cream}" ${sw}/>
+      <path d="M162 97l10 5-10 5" stroke="${cream}" ${sw}/>
+      <rect x="52" y="34" width="52" height="28" rx="8" stroke="${cream}" ${sw} opacity=".55"/>
+      <rect x="112" y="34" width="52" height="28" rx="8" fill="${goldL}"/>
+      <rect x="52" y="68" width="52" height="28" rx="8" stroke="${cream}" ${sw} opacity=".32"/>
+      <rect x="112" y="68" width="52" height="28" rx="8" stroke="${cream}" ${sw} opacity=".7"/>
+      <circle cx="78" cy="48" r="4" stroke="${cream}" ${sw}/>
+      ${starAt(138, 48, ink, 0.85)}
+      <circle cx="78" cy="82" r="4" fill="${cream}" opacity=".28"/>
+      <circle cx="138" cy="82" r="4" fill="${cream}" opacity=".7"/>`,
+    filter: `
+      <rect x="22" y="16" width="46" height="20" rx="10" stroke="${cream}" ${sw}/>
+      <rect x="74" y="16" width="58" height="20" rx="10" fill="${goldL}"/>
+      <path d="M90 26l6 6 12-12" stroke="${ink}" ${sw}/>
+      <rect x="138" y="16" width="40" height="20" rx="10" stroke="${cream}" ${sw} opacity=".55"/>
+      <rect x="22" y="48" width="156" height="18" rx="8" stroke="${cream}" ${sw}/>
+      <circle cx="38" cy="57" r="3.5" fill="${goldL}"/>
+      <path d="M50 57h78" stroke="${cream}" ${sw} opacity=".8"/>
+      <rect x="22" y="72" width="156" height="18" rx="8" stroke="${cream}" ${sw}/>
+      <circle cx="38" cy="81" r="3.5" fill="${goldL}"/>
+      <path d="M50 81h64" stroke="${cream}" ${sw} opacity=".8"/>
+      <g opacity=".42">
+        <rect x="22" y="96" width="156" height="16" rx="8" stroke="${cream}" ${sw}/>
+        <path d="M50 104h52" stroke="${cream}" ${sw}/>
+      </g>`,
+    lang: `
+      <circle cx="58" cy="60" r="34" stroke="${cream}" ${sw}/>
+      <ellipse cx="58" cy="60" rx="14" ry="34" stroke="${cream}" ${sw} opacity=".7"/>
+      <path d="M24 60h68M32 44h52M32 76h52" stroke="${cream}" ${sw} opacity=".55"/>
+      <rect x="108" y="24" width="40" height="22" rx="8" stroke="${cream}" ${sw}/>
+      <rect x="152" y="24" width="40" height="22" rx="8" fill="${goldL}"/>
+      <rect x="108" y="54" width="40" height="22" rx="8" stroke="${cream}" ${sw} opacity=".75"/>
+      <rect x="152" y="54" width="40" height="22" rx="8" stroke="${cream}" ${sw} opacity=".75"/>
+      <text x="128" y="39" text-anchor="middle" fill="${cream}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">TR</text>
+      <text x="172" y="39" text-anchor="middle" fill="${ink}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">EN</text>
+      <text x="128" y="69" text-anchor="middle" fill="${cream}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">DE</text>
+      <text x="172" y="69" text-anchor="middle" fill="${cream}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">AR</text>`,
+    shield: `
+      <path d="M72 16 110 32v26c0 20-14 34-38 42-24-8-38-22-38-42V32L72 16Z" stroke="${cream}" ${sw}/>
+      <path d="M58 54l10 10 20-22" stroke="${goldL}" ${sw}/>
+      <circle cx="150" cy="58" r="26" stroke="${cream}" ${sw} opacity=".4"/>
+      <path d="M150 32a26 26 0 0 1 22 40" stroke="${goldL}" ${sw}/>
+      <path d="M150 58V42M150 58l12 8" stroke="${gold}" ${sw}/>
+      <circle cx="150" cy="58" r="2.6" fill="${goldL}"/>
+      <ellipse cx="108" cy="106" rx="62" ry="7" stroke="${cream}" ${sw} opacity=".55"/>`,
+    stars: `
+      ${starAt(34, 28, goldL, 0.92)}
+      ${starAt(54, 28, goldL, 0.92)}
+      ${starAt(74, 28, goldL, 0.92)}
+      ${starAt(94, 28, goldL, 0.92)}
+      <path d="${star}" fill="${cream}" opacity=".28" transform="translate(114 28) scale(.92)"/>
+      <rect x="24" y="48" width="152" height="52" rx="10" stroke="${cream}" ${sw}/>
+      <path d="M40 68h84" stroke="${cream}" ${sw} opacity=".85"/>
+      <path d="M40 82h56" stroke="${cream}" ${sw} opacity=".5"/>
+      <circle cx="158" cy="74" r="16" fill="${goldL}"/>
+      <path d="M151 74h14M159 67l7 7-7 7" stroke="${ink}" ${sw}/>`
+  };
+  const body = scenes[key];
+  if (body == null) throw new Error("Bilinmeyen modül görseli: " + key);
+  return `<span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${body}</svg></span>`;
+}
+
 /* =========================================================
    ORTAK SAYFA PARÇALARI
 ========================================================= */
@@ -644,9 +781,10 @@ function renderIndex() {
         const { index } = modulePackage(m);
         return `
         <li><a class="qrmo-mod-card" href="${m.slug}/">
-          <span class="qrmo-mod-card-cue">${cue(m.cue)}</span>
+          ${moduleArt(m.cue)}
           <span class="qrmo-mod-card-b">
-            <span class="qrmo-mod-card-top"><h3>${esc(m.name)}</h3><span class="qrmo-mod-chip">${esc(pkgShort(index))}</span></span>
+            <h3>${esc(m.name)}</h3>
+            <span class="qrmo-mod-chip">${esc(pkgShort(index))}</span>
             <span class="qrmo-mod-card-d">${esc(m.tagline)}</span>
             <span class="qrmo-mod-card-go">Modülü inceleyin${ICON.arrow}</span>
           </span>
@@ -682,7 +820,8 @@ ${groups}
           <p class="qrmo-mod-text">${esc(H.closingText)}</p>
         </div>
         <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/"><span>${esc(MOD.site.pricingLabel)}</span>${ICON.arrow}</a>
+          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/#karsilastirma"><span>Paketleri karşılaştırın</span>${ICON.arrow}</a>
+          <a class="qrmo-mod-textlink qrmo-mod-textlink--ondark" href="${rel}iletisim/">İletişime geçin</a>
         </div>
       </div>
     </div>
