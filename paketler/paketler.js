@@ -83,16 +83,21 @@
     var amount = annual ? pkg.price.annual : pkg.price.monthly;
     var save = savingsAmount(pkg);
     var note = annual
-      ? "12 ay kullanım için yıllık toplam."
-      : "Her ay ödenen tutar.";
+      ? (modelHolds
+        ? D.annual.usedMonths + " ay kullanım için tahsil edilen toplam. " + D.annual.payMonths + " aylık ücrete karşılık gelir."
+        : "Seçilen dönem için tahsil edilen yıllık toplam.")
+      : "Her ay tahsil edilen tutar.";
+    var saveText = "";
     if (annual && save > 0) {
-      note += " Aylık ödemeye göre " + fmt.format(save) + " " + D.currency + " daha az.";
+      saveText = D.annual.usedMonths + " aylık ödemeye göre tasarruf: " + fmt.format(save) + " " + D.currency + ".";
     }
     return {
       amount: fmt.format(amount),
       unit: D.currency + (annual ? " / yıl" : " / ay"),
+      qualifier: annual ? "Yıllık toplam" : "Aylık tahsilat",
       short: fmt.format(amount) + " " + D.currency,
-      note: note
+      note: note,
+      save: saveText
     };
   }
 
@@ -102,14 +107,17 @@
     return " is-temel";
   }
 
-  /* CTA: href tanımlıysa <a>, değilse pasif <button>. Satın alma adresi uydurulmaz. */
+  /* Satın alma href'i boşsa düğme iletişim formuna gider. Sahte ödeme adresi üretilmez. */
   function cta(pkg, label, variant, final) {
-    var tpl = (final && D.cta.finalHref) || D.cta.href;
+    var purchase = D.cta.href && String(D.cta.href).trim();
+    var help = D.cta.finalHref && String(D.cta.finalHref).trim();
+    var tpl = final ? help : (purchase || help);
     var cls = "qrmo-pricing-btn qrmo-pricing-btn--" + variant;
     var kids = [el("span", { text: label }), icon("arrow")];
     if (tpl) {
       var href = tpl.replace("{id}", pkg ? pkg.id : "");
       var a = el("a", { class: cls, href: href });
+      if (!final && !purchase) a.setAttribute("aria-describedby", "qrmo-pricing-flow-note");
       kids.forEach(function (k) { a.appendChild(k); });
       return a;
     }
@@ -117,7 +125,6 @@
       class: cls,
       type: "button",
       "data-cta-pending": "",
-      "data-cta-target": "TBD",
       "aria-describedby": "qrmo-pricing-flow-note"
     });
     b.addEventListener("click", function () { showPending(b); });
@@ -158,25 +165,28 @@
         "aria-labelledby": "paket-" + pkg.id + "-name"
       },
         pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null,
+        pkg.recommendReason ? el("p", { class: "qrmo-pricing-reason", text: pkg.recommendReason }) : null,
         variant === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
         el("header", { class: "qrmo-pricing-card-head" },
           el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name }),
-          el("p", { class: "qrmo-pricing-card-fit", text: pkg.audience })
+          el("p", { class: "qrmo-pricing-card-tagline", text: pkg.tagline })
         ),
         el("div", { class: "qrmo-pricing-price" },
           el("p", { class: "qrmo-pricing-price-row" },
             el("span", { class: "qrmo-pricing-amount", "data-qp": "amount", "data-pkg": pkg.id }),
             el("span", { class: "qrmo-pricing-unit", "data-qp": "unit", "data-pkg": pkg.id })
           ),
-          el("p", { class: "qrmo-pricing-price-sub", "data-qp": "note", "data-pkg": pkg.id })
+          el("p", { class: "qrmo-pricing-qualifier", "data-qp": "qualifier", "data-pkg": pkg.id }),
+          el("p", { class: "qrmo-pricing-price-sub", "data-qp": "note", "data-pkg": pkg.id }),
+          el("p", { class: "qrmo-pricing-save", "data-qp": "save", "data-pkg": pkg.id, hidden: true })
         ),
         el("p", { class: "qrmo-pricing-card-summary", text: pkg.summary }),
         el("p", { class: "qrmo-pricing-label qrmo-pricing-card-lead", text: pkg.highlightsLead.toLocaleUpperCase("tr") }),
         list,
+        cta(pkg, pkg.ctaLabel, btnVariant),
         D.showSubdomain && pkg.subdomain
           ? el("p", { class: "qrmo-pricing-card-sub", text: pkg.subdomain })
-          : null,
-        cta(pkg, pkg.ctaLabel, btnVariant)
+          : null
       );
       wrap.appendChild(card);
     });
@@ -239,7 +249,7 @@
         pkg.variant === "dark" ? el("span", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
         el("span", { class: "qrmo-pricing-th-price" },
           el("span", { "data-qp": "short", "data-pkg": pkg.id }),
-          el("span", { class: "qrmo-pricing-th-unit", "data-qp": "unit-only", "data-pkg": pkg.id })
+          el("span", { class: "qrmo-pricing-th-unit", "data-qp": "qualifier", "data-pkg": pkg.id })
         )
       ));
     });
@@ -285,8 +295,7 @@
         pkg.badge ? el("span", { class: "qrmo-pricing-tab-badge", text: pkg.badge }) : null,
         el("span", { class: "qrmo-pricing-tab-price" },
           el("span", { "data-qp": "short", "data-pkg": pkg.id }),
-          " ",
-          el("span", { "data-qp": "unit-only", "data-pkg": pkg.id })
+          el("span", { "data-qp": "qualifier", "data-pkg": pkg.id })
         )
       );
       t.addEventListener("click", function () { selectTab(pkg.id, false); });
@@ -365,8 +374,8 @@
       return status(f, pkg).on && (i === 0 || !status(f, P[i - 1]).on);
     }).length;
     introEl.textContent = i === 0
-      ? pkg.name + " paketinde " + added + " özellik var. " + pkg.summary
-      : pkg.name + ", " + P[i - 1].name + " paketine " + added + " özellik ekler. " + pkg.summary;
+      ? pkg.name + " paketinde " + added + " özellik var."
+      : pkg.name + ", " + P[i - 1].name + " paketine " + added + " özellik ekler.";
 
     D.categories.forEach(function (cat) {
       var feats = D.features.filter(function (f) { return f.category === cat.id; });
@@ -426,14 +435,16 @@
   /* ---------- FİYAT / DÖNEM ---------- */
 
   function periodMessage() {
-    if (!twoMonthOffer) {
-      return period === "annual"
-        ? "Yıllık fiyatlar, seçilen dönemdeki toplam ödemedir."
-        : "Aylık fiyatlar, her ay ödenen tutardır.";
+    if (period === "annual") {
+      if (modelHolds) {
+        return "Karttaki tutar yıllık toplamdır: " + D.annual.usedMonths + " ay kullanım için tahsil edilir ve " + D.annual.payMonths + " aylık ücrete karşılık gelir. Tasarruf satırı, tahsil edilen tutar değildir.";
+      }
+      return "Karttaki tutar, yıllık toplam tahsilattır.";
     }
-    return period === "annual"
-      ? "Yıllık ödemede 2 ay daha az ödeyin. Karttaki tutar, 12 aylık kullanım için ödeyeceğiniz toplamdır."
-      : "Aylık tutar her ay ödenir. Yıllık ödemede 2 ay daha az ödeyin.";
+    if (twoMonthOffer) {
+      return "Karttaki tutar her ay tahsil edilir. Yıllık toplam, " + D.annual.payMonths + " aylık ücrete karşılık gelir.";
+    }
+    return "Karttaki tutar her ay tahsil edilir.";
   }
 
   function updatePrices(animate) {
@@ -447,9 +458,14 @@
       var next = kind === "amount" ? pr.amount
         : kind === "unit" ? pr.unit
         : kind === "note" ? pr.note
+        : kind === "save" ? pr.save
+        : kind === "qualifier" ? pr.qualifier
         : kind === "short" ? pr.short
-        : pr.unit.replace(D.currency + " ", "");
-      if (n.textContent !== next) n.textContent = next;
+        : (period === "annual" ? "yıllık toplam" : "/ ay");
+      if (kind === "save") {
+        n.hidden = !next;
+        n.textContent = next || "";
+      } else if (n.textContent !== next) n.textContent = next;
       if (animate && (kind === "amount" || kind === "short")) {
         n.classList.remove("is-swap");
         void n.offsetWidth;
