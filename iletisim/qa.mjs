@@ -45,6 +45,10 @@ check(html.includes('"@type":"ContactPage"'), "yapılandırılmış veri Contact
 check(/id="qrmo-contact-form"[^>]*aria-labelledby="qrmo-contact-form-title"/.test(html), "form aria-labelledby");
 check(html.includes('maxlength="600"') && html.includes("qrmo-contact-message-count"), "mesaj sınırı ve sayaç");
 check((html.match(/<h2[\s>]/g) || []).length >= 3, "h2 hiyerarşisi");
+check((html.match(/class="qrmo-contact-guide-card"/g) || []).length === 3, "üç karar kartı");
+check(html.includes('href="../paketler/"') && html.includes("Paketleri incele"), "paketler kartı");
+check(html.includes('href="../moduller/"') && html.includes("Çözümleri keşfet"), "çözümler kartı");
+check(html.includes('href="../sss/"') && html.includes("Soruların yanıtlarını gör"), "sss kartı");
 
 for (const href of [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])) {
   if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
@@ -142,6 +146,10 @@ if (!pw) {
         const footer = edge(document.querySelector(".qrmo-gf-in"));
         const header = edge(document.querySelector(".qrmo-gh-in"));
         const guide = document.getElementById("qrmo-contact-guide-title").getBoundingClientRect().left;
+        const cards = [...document.querySelectorAll(".qrmo-contact-guide-card")].map((el) => el.getBoundingClientRect());
+        const cardTops = cards.map((b) => Math.round(b.top));
+        const stacked = cards.length === 3 && cardTops[1] > cardTops[0] + 20 && cardTops[2] > cardTops[1] + 20;
+        const threeCol = cards.length === 3 && Math.abs(cardTops[0] - cardTops[1]) <= 2 && Math.abs(cardTops[1] - cardTops[2]) <= 2;
         return {
           overflow: document.documentElement.scrollWidth - vw,
           h1: h1 ? h1.textContent.trim() : "",
@@ -158,7 +166,11 @@ if (!pw) {
           footerRight: footer.right,
           h1Left: h1 ? Math.round(h1.getBoundingClientRect().left * 10) / 10 : 0,
           formLeft: Math.round(panelBox.left * 10) / 10,
-          guideLeft: Math.round(guide * 10) / 10
+          guideLeft: Math.round(guide * 10) / 10,
+          cardCount: cards.length,
+          cardLayout: vw >= 1000 ? threeCol : stacked,
+          firstCardLeft: cards[0] ? Math.round(cards[0].left * 10) / 10 : 0,
+          lastCardRight: cards[2] ? Math.round(cards[2].right * 10) / 10 : 0
         };
       });
       check(errors.length === 0, `@${width} konsol hatası yok`, errors.join(" | "));
@@ -172,6 +184,10 @@ if (!pw) {
       check(Math.abs(result.h1Left - result.contactLeft) <= 1, `@${width} h1 sol ızgara`, `${result.h1Left}/${result.contactLeft}`);
       check(Math.abs(result.formLeft - result.contactLeft) <= 1, `@${width} form sol ızgara`, `${result.formLeft}/${result.contactLeft}`);
       check(Math.abs(result.guideLeft - result.contactLeft) <= 1, `@${width} karar sol ızgara`, `${result.guideLeft}/${result.contactLeft}`);
+      check(result.cardCount === 3, `@${width} üç karar kartı`, String(result.cardCount));
+      check(result.cardLayout, `@${width} karar kart düzeni`);
+      check(Math.abs(result.firstCardLeft - result.contactLeft) <= 1, `@${width} ilk kart sol`, `${result.firstCardLeft}/${result.contactLeft}`);
+      check(Math.abs(result.lastCardRight - result.contactRight) <= 1, `@${width} son kart sağ`, `${result.lastCardRight}/${result.contactRight}`);
       check(Math.abs(result.contactLeft - result.footerLeft) <= 1, `@${width} footer sol hizası`, `${result.contactLeft}/${result.footerLeft}`);
       check(Math.abs(result.contactRight - result.footerRight) <= 1, `@${width} footer sağ hizası`, `${result.contactRight}/${result.footerRight}`);
       if (width >= 561) {

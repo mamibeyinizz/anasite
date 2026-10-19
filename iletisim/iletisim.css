@@ -433,7 +433,8 @@ body.qrmo-contact-page {
 .qrmo-contact-submit,
 .qrmo-contact-copy,
 .qrmo-contact-channel,
-.qrmo-contact-textlink {
+.qrmo-contact-textlink,
+.qrmo-contact-guide-card {
   transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease, text-decoration-color .18s ease;
 }
 
@@ -655,24 +656,90 @@ body.qrmo-contact-page {
 
 .qrmo-contact-guide-list {
   display: grid;
-  gap: 22px;
+  gap: 16px;
   margin-top: 28px;
+  align-items: stretch;
 }
 
 .qrmo-contact-guide-list li {
   display: flex;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.qrmo-contact-guide-card {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
-  min-width: 0;
-  padding-top: 14px;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 44px;
+  padding: 22px 20px 18px;
+  color: inherit;
+  text-decoration: none;
+  background: var(--qc-paper);
+  border: 1px solid var(--qc-line);
   border-top: 2px solid var(--qc-gold);
+  border-radius: 16px;
+}
+
+.qrmo-contact-guide-card:hover {
+  background: #fff;
+  border-color: rgba(201, 168, 76, .55);
+}
+
+.qrmo-contact-guide-card:hover .qrmo-contact-guide-arrow {
+  transform: translateX(3px);
+}
+
+.qrmo-contact-guide-card:focus-visible {
+  outline: 3px solid var(--qc-focus);
+  outline-offset: 3px;
+}
+
+.qrmo-contact-guide-icon {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--qc-gold-ink);
+  background: rgba(201, 168, 76, .14);
+  border-radius: 9px;
+}
+
+.qrmo-contact-guide-card .qrmo-contact-h3 {
+  text-wrap: balance;
 }
 
 .qrmo-contact-guide-list p {
+  flex: 1 1 auto;
   color: var(--qc-text);
   font-size: 16px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.qrmo-contact-guide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
+  color: var(--qc-green-dark);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.qrmo-contact-guide-arrow {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--qc-gold-ink);
+  transition: transform .18s ease;
 }
 
 /* ---------- kırılımlar ---------- */
@@ -850,6 +917,10 @@ body.qrmo-contact-page .qrmo-gf-in .qrmo-cta-note {
 
   .qrmo-contact-submit:hover,
   .qrmo-contact-submit:active {
+    transform: none;
+  }
+
+  .qrmo-contact-guide-card:hover .qrmo-contact-guide-arrow {
     transform: none;
   }
 }
