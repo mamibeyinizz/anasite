@@ -59,7 +59,7 @@
 
     hub: {
       h1: "Menüden servise, tek sistem.",
-      lead: "QR Menu Official on modülden oluşur: müşterinin gördüğü menü, masadan gelen servis akışı ve işletmeyi veriyle yöneten araçlar. Her modülün ne yaptığını ve hangi pakette olduğunu kendi sayfasında görün.",
+      lead: "Müşterinin menüsü, masadan gelen servis ve işletme araçları. On modülün ne yaptığını ve hangi pakette olduğunu kendi sayfasında görün.",
       closingTitle: "Hangi modül hangi pakette?",
       closingText: "Temel, Pro ve Plus paketlerini ve içerdikleri modülleri yan yana karşılaştırın."
     },
