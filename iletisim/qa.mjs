@@ -49,6 +49,11 @@ check((html.match(/class="qrmo-contact-guide-card"/g) || []).length === 3, "üç
 check(html.includes('href="../paketler/"') && html.includes("Paketleri incele"), "paketler kartı");
 check(html.includes('href="../moduller/"') && html.includes("Çözümleri keşfet"), "çözümler kartı");
 check(html.includes('href="../sss/"') && html.includes("Soruların yanıtlarını gör"), "sss kartı");
+check(!html.includes("Talep formuna geç") && !html.includes('href="#talep"'), "hero talep bağlantısı yok");
+check((html.match(/Bizi arayın/g) || []).length === 2, "telefon CTA metni");
+check((html.match(/E-posta gönderin/g) || []).length === 2, "e-posta CTA metni");
+check(!html.includes("Aramayı başlat") && !html.includes("E-posta yaz"), "eski kanal CTA yok");
+check(!fs.readFileSync(path.join(here, "iletisim.css"), "utf8").includes("#7F6419"), "kahverengi gold-ink yok");
 
 for (const href of [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])) {
   if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
@@ -273,16 +278,44 @@ if (!pw) {
     check(await burger.getAttribute("aria-expanded") === "true", "mobil menü açıldı");
     await page.keyboard.press("Escape");
     check(await burger.getAttribute("aria-expanded") === "false", "mobil menü kapandı");
-    await page.locator("a[href='#talep']").focus();
+    await page.locator(".qrmo-contact-aside--stack a[href='tel:+905422043587']").focus();
     await page.keyboard.press("Tab");
     const mobileNext = await page.evaluate(() => document.activeElement.getAttribute("href"));
-    check(mobileNext === "tel:+905422043587", "mobilde sekme telefon kartına gider", mobileNext);
+    check(mobileNext === "mailto:muhammedulusoyresmi@gmail.com", "mobilde sekme e-posta kartına gider", mobileNext);
     await context.close();
 
     const desk = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const deskPage = await desk.newPage();
     await deskPage.goto(`http://127.0.0.1:${port}/iletisim/`, { waitUntil: "load" });
-    await deskPage.locator("a[href='#talep']").focus();
+    const phoneCard = deskPage.locator('.qrmo-contact-aside--rail a[href="tel:+905422043587"]');
+    const loadRing = await phoneCard.evaluate((el) => ({
+      active: document.activeElement === el,
+      style: getComputedStyle(el).outlineStyle
+    }));
+    check(!loadRing.active && loadRing.style === "none", "yüklemede telefon odağı yok", JSON.stringify(loadRing));
+    await deskPage.locator("#qrmo-contact-submit").focus();
+    await deskPage.keyboard.press("Tab");
+    const keyRing = await phoneCard.evaluate((el) => ({
+      active: document.activeElement === el,
+      focusVisible: el.matches(":focus-visible"),
+      style: getComputedStyle(el).outlineStyle
+    }));
+    check(keyRing.active && keyRing.focusVisible && keyRing.style === "solid", "klavye odağında telefon çerçevesi var", JSON.stringify(keyRing));
+    await deskPage.locator("#qrmo-contact-submit").evaluate((el) => el.focus());
+    await phoneCard.evaluate((el) => {
+      el.addEventListener("click", (event) => event.preventDefault(), { once: true });
+    });
+    await phoneCard.click();
+    const mouseRing = await phoneCard.evaluate((el) => ({
+      focusVisible: el.matches(":focus-visible"),
+      style: getComputedStyle(el).outlineStyle
+    }));
+    check(!mouseRing.focusVisible && mouseRing.style === "none", "fare tıklamasında telefon çerçevesi yok", JSON.stringify(mouseRing));
+    await deskPage.evaluate(() => {
+      const panel = document.getElementById("talep");
+      panel.setAttribute("tabindex", "-1");
+      panel.focus();
+    });
     await deskPage.keyboard.press("Tab");
     const deskNext = await deskPage.evaluate(() => document.activeElement.id);
     check(deskNext === "qrmo-contact-name", "masaüstünde sekme forma gider", deskNext);
@@ -290,7 +323,7 @@ if (!pw) {
     check(visibleAsides === 1, "masaüstünde tek iletişim sütunu", String(visibleAsides));
     const railHidden = await deskPage.locator('[data-qrmo-contact-aside="rail"]').getAttribute("aria-hidden");
     check(railHidden === "false", "masaüstünde rail erişilebilir", railHidden);
-    await deskPage.locator('button[data-qrmo-cta="secondary"]').first().click();
+    await deskPage.locator(".qrmo-gh-nav button[data-qrmo-cta=\"secondary\"]").click();
     const pendingNote = await deskPage.locator(".qrmo-gh-in .qrmo-cta-note").innerText();
     check(pendingNote.includes("Canlı menü adresi henüz tanımlanmadı"), "demo CTA pending metni", pendingNote);
     await desk.close();
