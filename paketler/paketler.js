@@ -152,24 +152,43 @@
       var variant = pkg.variant || "plain";
       var btnVariant = variant === "featured" ? "primary" : variant === "dark" ? "on-dark" : "outline";
 
-      var list = el("ul", { class: "qrmo-pricing-card-list" });
-      pkg.highlights.forEach(function (fid) {
+      var previewCount = 3;
+      var list = el("ul", { class: "qrmo-pricing-card-list", id: "paket-" + pkg.id + "-feats" });
+      pkg.highlights.forEach(function (fid, idx) {
         var f = D.features.filter(function (x) { return x.id === fid; })[0];
         if (!f) return;
-        list.appendChild(el("li", null, el("span", { class: "qrmo-pricing-check" }, icon("check")), featName(f)));
+        list.appendChild(el("li", {
+          class: idx >= previewCount ? "qrmo-pricing-card-feat--rest" : false
+        }, el("span", { class: "qrmo-pricing-check" }, icon("check")), featName(f)));
       });
+
+      var moreBtn = null;
+      if (pkg.highlights.length > previewCount) {
+        moreBtn = el("button", {
+          class: "qrmo-pricing-more-feats",
+          type: "button",
+          "aria-expanded": "false",
+          "aria-controls": list.id,
+          "aria-label": pkg.name + ": tüm özellikleri gör"
+        },
+          el("span", { class: "qrmo-pricing-more-feats-text", text: "Tüm özellikleri gör" }),
+          icon("chev")
+        );
+      }
 
       var card = el("article", {
         class: "qrmo-pricing-card qrmo-pricing-card--" + variant,
         id: "paket-" + pkg.id,
         "aria-labelledby": "paket-" + pkg.id + "-name"
       },
-        pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null,
-        pkg.recommendReason ? el("p", { class: "qrmo-pricing-reason", text: pkg.recommendReason }) : null,
-        variant === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
         el("header", { class: "qrmo-pricing-card-head" },
-          el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name }),
-          el("p", { class: "qrmo-pricing-card-tagline", text: pkg.tagline })
+          variant === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
+          el("div", { class: "qrmo-pricing-card-title-row" },
+            el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name }),
+            pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null
+          ),
+          el("p", { class: "qrmo-pricing-card-tagline", text: pkg.tagline }),
+          pkg.recommendReason ? el("p", { class: "qrmo-pricing-reason", text: pkg.recommendReason }) : null
         ),
         el("div", { class: "qrmo-pricing-price" },
           el("p", { class: "qrmo-pricing-price-row" },
@@ -181,13 +200,30 @@
           el("p", { class: "qrmo-pricing-save", "data-qp": "save", "data-pkg": pkg.id, hidden: true })
         ),
         el("p", { class: "qrmo-pricing-card-summary", text: pkg.summary }),
-        el("p", { class: "qrmo-pricing-label qrmo-pricing-card-lead", text: pkg.highlightsLead.toLocaleUpperCase("tr") }),
-        list,
-        cta(pkg, pkg.ctaLabel, btnVariant),
-        D.showSubdomain && pkg.subdomain
-          ? el("p", { class: "qrmo-pricing-card-sub", text: pkg.subdomain })
-          : null
+        el("div", { class: "qrmo-pricing-card-body" },
+          el("p", { class: "qrmo-pricing-label qrmo-pricing-card-lead", text: pkg.highlightsLead.toLocaleUpperCase("tr") }),
+          list,
+          moreBtn
+        ),
+        el("div", { class: "qrmo-pricing-card-actions" },
+          cta(pkg, pkg.ctaLabel, btnVariant),
+          D.showSubdomain && pkg.subdomain
+            ? el("p", { class: "qrmo-pricing-card-sub", text: pkg.subdomain })
+            : null
+        )
       );
+      if (moreBtn) {
+        moreBtn.addEventListener("click", function () {
+          var open = card.classList.toggle("is-feats-open");
+          moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
+          moreBtn.setAttribute("aria-label", open
+            ? pkg.name + " özelliklerini gizle"
+            : pkg.name + ": tüm özellikleri gör");
+          moreBtn.querySelector(".qrmo-pricing-more-feats-text").textContent = open
+            ? "Gizle"
+            : "Tüm özellikleri gör";
+        });
+      }
       wrap.appendChild(card);
     });
   }
@@ -296,7 +332,8 @@
         el("span", { class: "qrmo-pricing-tab-price" },
           el("span", { "data-qp": "short", "data-pkg": pkg.id }),
           el("span", { "data-qp": "qualifier", "data-pkg": pkg.id })
-        )
+        ),
+        el("span", { class: "qrmo-pricing-tab-state" })
       );
       t.addEventListener("click", function () { selectTab(pkg.id, false); });
       t.addEventListener("keydown", function (e) {
@@ -367,6 +404,8 @@
       var on = p.id === activePkg;
       tabEls[p.id].setAttribute("aria-selected", on ? "true" : "false");
       tabEls[p.id].tabIndex = on ? 0 : -1;
+      var state = tabEls[p.id].querySelector(".qrmo-pricing-tab-state");
+      if (state) state.textContent = on ? "Seçili" : "";
     });
     panelEl.setAttribute("aria-labelledby", "qrmo-pricing-tab-" + pkg.id);
 
@@ -496,6 +535,13 @@
 
   /* ---------- BAŞLAT ---------- */
 
+  function syncStickyOffset() {
+    var hdr = document.querySelector("[data-qrmo-gh]");
+    if (!hdr) return;
+    var h = Math.round(hdr.getBoundingClientRect().height);
+    if (h > 0) root.style.setProperty("--qp-sticky-top", h + "px");
+  }
+
   renderCards();
   renderTable();
   renderSwitcher();
@@ -503,6 +549,12 @@
   renderFinal();
   bindToggle();
   updatePrices(false);
+  syncStickyOffset();
+  window.addEventListener("resize", syncStickyOffset);
+  if (typeof ResizeObserver !== "undefined") {
+    var hdrEl = document.querySelector("[data-qrmo-gh]");
+    if (hdrEl) new ResizeObserver(syncStickyOffset).observe(hdrEl);
+  }
 
   if (D.priceNote) {
     var pn = mount("price-note");
