@@ -1589,23 +1589,26 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
    ÇÖZÜMLER DİZİNİ — yalnızca main.qrmo-mod--hub
    Ayrıntı sayfalarındaki cue / sahne stillerine dokunmaz.
 
-   Genişlik: header ile aynı kenar. Header içeriği >560px'te 5vw,
-   ≤560px'te 15px. Hub kutusu bu yüzden min(90%, 1320px) ve ≤560px'te
-   15px iç boşluk kullanır. Global --qm-max (1240) ayrıntı sayfalarında kalır.
+   Genişlik: header ile aynı kenar. Header (.qrmo-gh) 560px üstünde
+   5vw kullanır ve tavanı yoktur. Eski 1320px tavan 1536px'te hub'ı
+   header'dan 31px içeri alıyordu. Hub artık aynı 5vw / 15px oluğunu
+   kullanır. Global --qm-max ayrıntı sayfalarında kalır.
 ========================================================= */
 
 .qrmo-mod--hub { min-width: 0; }
 
 .qrmo-mod--hub .qrmo-mod-inner {
-  width: min(90%, 1320px);
+  width: 100%;
   max-width: none;
-  padding-inline: 0;
+  margin-inline: 0;
+  padding-inline: 5vw;
 }
 
 @media (max-width: 560px) {
   .qrmo-mod--hub { --qm-gutter: 15px; }
   .qrmo-mod--hub .qrmo-mod-inner {
     width: 100%;
+    max-width: none;
     padding-inline: 15px;
   }
 }
@@ -1626,7 +1629,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 .qrmo-mod--hub .qrmo-mod-h1 {
   max-width: 11em;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   font-size: clamp(34px, 8.6vw, 40px);
   font-weight: 800;
   line-height: 1.02;
@@ -1635,8 +1638,8 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 .qrmo-mod--hub .qrmo-mod-lead {
-  max-width: 42ch;
-  font-size: 16.5px;
+  max-width: 46ch;
+  font-size: 17px;
   font-weight: 400;
   line-height: 1.55;
   color: var(--qm-text);
@@ -1696,7 +1699,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-mod-h2--m {
   font-size: 28px;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -.03em;
   color: var(--qm-ink);
 }
@@ -1722,21 +1725,19 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   gap: 10px;
   height: 100%;
   min-width: 0;
-  padding: 12px 12px 14px;
+  padding: 12px 12px 16px;
   background: #fff;
 }
 
 .qrmo-mod--hub .qrmo-mod-card-art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  width: max-content;
-  max-width: 100%;
+  display: block;
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
   height: auto;
-  aspect-ratio: auto;
-  padding: 8px 12px;
-  overflow: visible;
+  aspect-ratio: 200 / 120;
+  padding: 0;
+  overflow: hidden;
   border: 1px solid rgba(201, 168, 76, .4);
   border-radius: 12px;
   background: #0D2B22;
@@ -1744,9 +1745,9 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 .qrmo-mod--hub .qrmo-mod-art {
   display: block;
-  width: 168px;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: none;
+  height: 100%;
 }
 
 .qrmo-mod--hub .qrmo-mod-card-b {
@@ -1760,7 +1761,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 .qrmo-mod--hub .qrmo-mod-card h3 {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -.02em;
@@ -1779,9 +1780,9 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 .qrmo-mod--hub .qrmo-mod-card-d {
-  font-size: 15.5px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--qm-text);
 }
 
@@ -1844,15 +1845,15 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @media (min-width: 768px) {
-  .qrmo-mod--hub .qrmo-mod-h1 { font-size: 46px; }
-  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 32px; }
+  .qrmo-mod--hub .qrmo-mod-h1 { font-size: 48px; }
+  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 34px; }
   .qrmo-mod--hub .qrmo-mod-lead {
-    max-width: 46ch;
+    max-width: 48ch;
     font-size: 18px;
   }
   .qrmo-mod--hub .qrmo-mod-hubcat { padding-top: 28px; padding-bottom: 28px; }
   .qrmo-mod--hub .qrmo-mod-hubcat-head { margin-bottom: 14px; }
-  .qrmo-mod--hub .qrmo-mod-card h3 { font-size: 20px; }
+  .qrmo-mod--hub .qrmo-mod-card h3 { font-size: 22px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1871,12 +1872,10 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     gap: 40px;
   }
   .qrmo-mod--hub .qrmo-mod-h1 {
-    max-width: 10.6em;
-    font-size: clamp(54px, 3.8vw, 60px);
+    max-width: 10.5em;
+    font-size: clamp(56px, 4vw, 64px);
   }
-  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 34px; }
-  .qrmo-mod--hub .qrmo-mod-art { width: 200px; }
-  .qrmo-mod--hub .qrmo-mod-card-art { padding: 10px 16px; }
+  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
   .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "copy" "actions";
@@ -1891,7 +1890,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 @media (min-width: 1024px) {
   .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 16px; }
-  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 34px; }
+  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
   .qrmo-mod--hub .qrmo-mod-closing { padding-bottom: 56px; }
 }
 
