@@ -1589,27 +1589,34 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
    ÇÖZÜMLER DİZİNİ — yalnızca main.qrmo-mod--hub
    Ayrıntı sayfalarındaki cue / sahne stillerine dokunmaz.
 
-   Genişlik: header ile aynı kenar. Header (.qrmo-gh) 560px üstünde
-   5vw kullanır ve tavanı yoktur. Eski 1320px tavan 1536px'te hub'ı
-   header'dan 31px içeri alıyordu. Hub artık aynı 5vw / 15px oluğunu
-   kullanır. Global --qm-max ayrıntı sayfalarında kalır.
+   Genişlik: hub kabı (.qrmo-mod-inner) kendi kutu kenarıyla 90vw.
+   Ortak kural width:100% + max-width:calc(1240px + 2*gutter) +
+   padding-inline:gutter ve border-box yüzünden 100% kenar kutusu
+   oluyor, boşluk padding'in içinde kalıyordu. Hub bunu iptal eder:
+   padding yok, max-width yok, kenar boşluğu doğrudan 5vw / 15px.
+   Ayrıntı sayfalarındaki --qm-max durur.
 ========================================================= */
 
 .qrmo-mod--hub { min-width: 0; }
 
 .qrmo-mod--hub .qrmo-mod-inner {
-  width: 100%;
+  width: auto;
+  min-width: 0;
   max-width: none;
-  margin-inline: 0;
-  padding-inline: 5vw;
+  max-inline-size: none;
+  margin-inline: 5vw;
+  padding-inline: 0;
 }
 
 @media (max-width: 560px) {
   .qrmo-mod--hub { --qm-gutter: 15px; }
   .qrmo-mod--hub .qrmo-mod-inner {
-    width: 100%;
+    width: auto;
+    min-width: 0;
     max-width: none;
-    padding-inline: 15px;
+    max-inline-size: none;
+    margin-inline: 15px;
+    padding-inline: 0;
   }
 }
 
@@ -1805,7 +1812,9 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 .qrmo-mod--hub .qrmo-mod-close {
-  width: 100%;
+  width: auto;
+  max-width: none;
+  max-inline-size: none;
   margin-inline: 0;
   gap: 20px;
   padding: 28px 20px;
