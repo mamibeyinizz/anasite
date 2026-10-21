@@ -1588,70 +1588,140 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 /* =========================================================
    ÇÖZÜMLER DİZİNİ — yalnızca main.qrmo-mod--hub
    Ayrıntı sayfalarındaki cue / sahne stillerine dokunmaz.
+
+   Genişlik: hub kabı (.qrmo-mod-inner) kendi kutu kenarıyla 90vw.
+   Ortak kural width:100% + max-width:calc(1240px + 2*gutter) +
+   padding-inline:gutter ve border-box yüzünden 100% kenar kutusu
+   oluyor, boşluk padding'in içinde kalıyordu. Hub bunu iptal eder:
+   padding yok, max-width yok, kenar boşluğu doğrudan 5vw / 15px.
+   Ayrıntı sayfalarındaki --qm-max durur.
 ========================================================= */
 
 .qrmo-mod--hub { min-width: 0; }
 
-@media (max-width: 360px) {
-  .qrmo-mod--hub { --qm-gutter: 16px; }
+.qrmo-mod--hub .qrmo-mod-inner {
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  max-inline-size: none;
+  margin-inline: 5vw;
+  padding-inline: 0;
+}
+
+@media (max-width: 560px) {
+  .qrmo-mod--hub { --qm-gutter: 15px; }
+  .qrmo-mod--hub .qrmo-mod-inner {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    max-inline-size: none;
+    margin-inline: 15px;
+    padding-inline: 0;
+  }
 }
 
 .qrmo-mod--hub .qrmo-mod-sec { padding-bottom: 0; }
 
 .qrmo-mod--hub .qrmo-mod-hero {
-  padding-bottom: clamp(28px, 4vw, 48px);
+  padding-top: 4px;
+  padding-bottom: 0;
 }
 
-.qrmo-mod--hub .qrmo-mod-hubhero { gap: 24px; }
+.qrmo-mod--hub .qrmo-mod-kicker { margin-bottom: 8px; }
+
+.qrmo-mod--hub .qrmo-mod-hubhero {
+  align-items: start;
+  gap: 16px;
+}
 
 .qrmo-mod--hub .qrmo-mod-h1 {
   max-width: 11em;
-  margin-bottom: 12px;
-  font-size: clamp(32px, 8.8vw, 40px);
-  line-height: 1.05;
+  margin-bottom: 14px;
+  font-size: clamp(34px, 8.6vw, 40px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.04em;
+  color: var(--qm-ink);
 }
 
 .qrmo-mod--hub .qrmo-mod-lead {
-  max-width: 42ch;
-  font-size: clamp(16px, 1.35vw, 18px);
+  max-width: 46ch;
+  font-size: 17px;
+  font-weight: 400;
   line-height: 1.55;
+  color: var(--qm-text);
+}
+
+.qrmo-mod--hub .qrmo-mod-jump ol { gap: 6px; }
+
+.qrmo-mod--hub .qrmo-mod-jump a {
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  gap: 10px;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-color: rgba(13, 43, 34, .16);
+  background: #fff;
+}
+
+.qrmo-mod--hub .qrmo-mod-jump-n { font-size: 13px; }
+
+.qrmo-mod--hub .qrmo-mod-jump strong { font-size: 16px; }
+
+.qrmo-mod--hub .qrmo-mod-jump small {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--qm-gold-ink);
 }
 
 .qrmo-mod--hub .qrmo-mod-hubcat {
-  padding-top: clamp(28px, 3.5vw, 40px);
-  padding-bottom: clamp(28px, 3.5vw, 44px);
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 1px solid var(--qm-line);
 }
 
 .qrmo-mod--hub .qrmo-mod-hubcat-head {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 6px;
-  align-items: start;
-  margin-bottom: 18px;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas: "num title" "text text";
+  align-items: baseline;
+  column-gap: 10px;
+  row-gap: 4px;
+  margin-bottom: 12px;
 }
 
 .qrmo-mod--hub .qrmo-mod-hubcat-n {
+  grid-area: num;
   margin: 0;
   font-size: 13px;
-  letter-spacing: .14em;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1;
 }
 
-.qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-h2 { max-width: 20ch; }
+.qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-h2 {
+  grid-area: title;
+  max-width: none;
+}
 
 .qrmo-mod--hub .qrmo-mod-h2--m {
-  font-size: clamp(26px, 6vw, 30px);
-  line-height: 1.15;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  color: var(--qm-ink);
 }
 
 .qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-text {
-  max-width: 42ch;
+  grid-area: text;
+  max-width: 58ch;
   margin-top: 0;
   font-size: 16px;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--qm-text);
 }
 
-.qrmo-mod--hub .qrmo-mod-hubgrid { gap: 14px; }
+.qrmo-mod--hub .qrmo-mod-hubgrid { gap: 10px; }
 
 .qrmo-mod--hub .qrmo-mod-hubgrid > li { min-width: 0; height: 100%; }
 
@@ -1659,18 +1729,23 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 14px;
+  gap: 10px;
   height: 100%;
   min-width: 0;
   padding: 12px 12px 16px;
-  background: rgba(255, 255, 255, .82);
+  background: #fff;
 }
 
 .qrmo-mod--hub .qrmo-mod-card-art {
   display: block;
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  height: auto;
   aspect-ratio: 200 / 120;
+  padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(201, 168, 76, .45);
+  border: 1px solid rgba(201, 168, 76, .4);
   border-radius: 12px;
   background: #0D2B22;
 }
@@ -1678,6 +1753,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-mod-art {
   display: block;
   width: 100%;
+  max-width: none;
   height: 100%;
 }
 
@@ -1686,53 +1762,79 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   flex: 1 1 auto;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   min-width: 0;
-  padding: 0 4px;
+  padding: 0 2px 0;
 }
 
 .qrmo-mod--hub .qrmo-mod-card h3 {
   font-size: 20px;
-  line-height: 1.25;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  color: var(--qm-ink);
 }
 
 .qrmo-mod--hub .qrmo-mod-chip {
   max-width: 100%;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--qm-gold-ink);
+  background: rgba(201, 168, 76, .12);
   white-space: normal;
 }
 
-.qrmo-mod--hub .qrmo-mod-card-d { font-size: 15px; line-height: 1.45; }
+.qrmo-mod--hub .qrmo-mod-card-d {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--qm-text);
+}
 
 .qrmo-mod--hub .qrmo-mod-card-go {
   margin-top: auto;
-  min-height: 32px;
-  padding-top: 4px;
+  min-height: 24px;
+  padding-top: 8px;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--qm-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--qm-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .qrmo-mod--hub .qrmo-mod-closing {
-  padding-top: clamp(8px, 2vw, 20px);
-  padding-bottom: clamp(48px, 7vw, 96px);
+  padding-top: 8px;
+  padding-bottom: 48px;
 }
 
 .qrmo-mod--hub .qrmo-mod-close {
-  width: 100%;
+  width: auto;
+  max-width: none;
+  max-inline-size: none;
   margin-inline: 0;
+  gap: 20px;
+  padding: 28px 20px;
 }
 
 .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 {
   max-width: 16em;
-  font-size: clamp(28px, 6.2vw, 34px);
+  font-size: clamp(26px, 6vw, 32px);
+  line-height: 1.12;
 }
 
 .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-text {
-  max-width: 42ch;
-  margin-top: 10px;
+  max-width: 46ch;
+  margin-top: 8px;
   font-size: 16px;
   line-height: 1.5;
 }
 
 .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
-  margin-top: 16px;
+  margin-top: 4px;
   align-items: stretch;
 }
 
@@ -1742,26 +1844,25 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   max-width: 100%;
 }
 
-.qrmo-mod--hub .qrmo-mod-jump a { min-height: 52px; }
-
-@media (min-width: 600px) {
-  .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 16px; }
+@media (min-width: 600px) and (max-width: 1023px) {
+  .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 14px; }
+  .qrmo-mod--hub .qrmo-mod-hubgrid--3 > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 7px);
+    justify-self: center;
+  }
 }
 
 @media (min-width: 768px) {
-  .qrmo-mod--hub .qrmo-mod-h1 { font-size: 42px; }
-  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 30px; }
-  .qrmo-mod--hub .qrmo-mod-hubcat-head {
-    grid-template-columns: max-content minmax(0, 40rem);
-    grid-template-areas: "num title" "num text";
-    justify-content: start;
-    column-gap: 16px;
-    row-gap: 6px;
-    margin-bottom: 22px;
+  .qrmo-mod--hub .qrmo-mod-h1 { font-size: 48px; }
+  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 34px; }
+  .qrmo-mod--hub .qrmo-mod-lead {
+    max-width: 48ch;
+    font-size: 18px;
   }
-  .qrmo-mod--hub .qrmo-mod-hubcat-n { grid-area: num; align-self: start; padding-top: .42em; }
-  .qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-h2 { grid-area: title; }
-  .qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-text { grid-area: text; }
+  .qrmo-mod--hub .qrmo-mod-hubcat { padding-top: 28px; padding-bottom: 28px; }
+  .qrmo-mod--hub .qrmo-mod-hubcat-head { margin-bottom: 14px; }
+  .qrmo-mod--hub .qrmo-mod-card h3 { font-size: 22px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1770,25 +1871,45 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-cta,
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-textlink { width: auto; }
+  .qrmo-mod--hub .qrmo-mod-close { padding: 36px 40px; }
 }
 
 @media (min-width: 900px) {
   .qrmo-mod--hub .qrmo-mod-hubhero {
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
     align-items: center;
-    gap: clamp(32px, 4vw, 64px);
+    gap: 40px;
   }
   .qrmo-mod--hub .qrmo-mod-h1 {
-    max-width: 12em;
-    font-size: clamp(48px, 4.5vw, 68px);
+    max-width: 10.5em;
+    font-size: clamp(56px, 4vw, 64px);
   }
-  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 32px; }
-  .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: clamp(32px, 2.6vw, 40px); }
-  .qrmo-mod--hub .qrmo-mod-hubcat-n { font-size: 15px; }
+  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
+  .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "copy" "actions";
+    align-items: start;
+  }
+  .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 {
+    max-width: 22em;
+    font-size: clamp(32px, 2.4vw, 40px);
+  }
+  .qrmo-mod--hub .qrmo-mod-hubcat-n { font-size: 14px; }
 }
 
 @media (min-width: 1024px) {
-  .qrmo-mod--hub .qrmo-mod-card h3 { font-size: 21px; }
-  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 34px; }
+  .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 16px; }
+  .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
+  .qrmo-mod--hub .qrmo-mod-closing { padding-bottom: 56px; }
+}
+
+@media (min-width: 1200px) {
+  .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "copy actions";
+    align-items: center;
+    column-gap: 40px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
