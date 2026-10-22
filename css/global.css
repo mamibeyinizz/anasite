@@ -4,6 +4,19 @@
    ========================================================= */
 
 /* ANA SAYFA ZEMİNİ */
+/* Ana içerik kabuğu. >560px kenar 5vw (içerik 90vw), ≤560px kenar 15px.
+   Yüzde, üst kapsayıcının genişliğine değil viewport'a bağlanır.
+   Kabuğun border-box'ı bu kenarda başlar; yatay padding ikinci bir oluk açmaz. */
+:root {
+  --qrmo-shell-gutter: 5vw;
+}
+
+@media (max-width: 560px) {
+  :root {
+    --qrmo-shell-gutter: 15px;
+  }
+}
+
 html {
   background: #f8f6f0 !important;
 }
