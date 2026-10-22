@@ -548,11 +548,13 @@
 
 .qrmo-hero-v3-inner {
 
-  width: 100%;
+  box-sizing: border-box;
+
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
 
   max-width: none;
 
-  margin-inline: auto;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
 
   padding-inline: 0;
 
@@ -585,7 +587,7 @@
 
   width: 100%;
 
-  padding-left: 5vw;
+  padding-left: 0;
 }
 
 
@@ -1002,7 +1004,7 @@
 
   justify-content: center;
 
-  padding-right: 5vw;
+  padding-right: 0;
 }
 
 
@@ -1102,13 +1104,17 @@
 
   .qrmo-hero-v3-inner {
 
-    width: 100%;
+    box-sizing: border-box;
+
+    width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
 
     min-height: 100%;
 
-    max-width: var(--qrmo-site-max-width);
+    max-width: none;
 
-    padding-inline: var(--qrmo-site-gutter);
+    margin-inline: var(--qrmo-shell-gutter, 5vw);
+
+    padding-inline: 0;
 
     display: grid;
 
@@ -1224,13 +1230,13 @@
 
     order: 2;
 
-    width: 100vw;
+    width: 100%;
 
-    max-width: 100vw;
+    max-width: none;
 
-    margin-left: calc(50% - 50vw);
+    margin-left: 0;
 
-    margin-right: calc(50% - 50vw);
+    margin-right: 0;
 
     padding-top: clamp(10px, 3svh, 22px);
 
@@ -1244,7 +1250,7 @@
 
     margin: 0 0 clamp(14px, 3.5vw, 22px);
 
-    padding: 0 clamp(16px, 5vw, 28px);
+    padding: 0;
 
     color: var(--qrmo-green-dark);
 
@@ -1272,7 +1278,7 @@
 
     padding:
       clamp(18px, 4.5vw, 28px)
-      clamp(16px, 5vw, 28px)
+      0
       clamp(22px, 5.5vw, 36px);
 
     box-sizing: border-box;
@@ -1585,14 +1591,14 @@
 
   display: block;
   position: relative;
-  width: auto;
-  max-width: 100%;
-  margin: 0;
-  padding: clamp(28px, 4.5vw, 52px) 5vw clamp(18px, 2vw, 26px);
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding: clamp(28px, 4.5vw, 52px) 0 clamp(18px, 2vw, 26px);
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   color: var(--qpm2-green);
   isolation: isolate;
-  box-sizing: border-box;
   scroll-margin-top: calc(var(--qrmo-home-gh-scroll, var(--qrmo-gh-h, 76px)) + 16px);
 }
 
@@ -2064,10 +2070,11 @@
    ============================================================ */
 
 #qrmo-translation-v3-root .qrmo-translation-v3-inner{
-  width:90%;
+  box-sizing:border-box;
+  width:calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
   max-width:none;
-  margin-left:5%;
-  margin-right:5%;
+  margin-inline:var(--qrmo-shell-gutter, 5vw);
+  padding-inline:0;
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(420px,.85fr);
   gap:48px;
@@ -2959,9 +2966,10 @@
 
 @media (min-width:768px) and (max-width:900px){
   #qrmo-translation-v3-root .qrmo-translation-v3-inner{
-    width:90%;
-    margin-left:5%;
-    margin-right:5%;
+    width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
   }
 }
 
@@ -2996,9 +3004,10 @@
    * DEMO    = 2
    */
   #qrmo-translation-v3-root .qrmo-translation-v3-inner{
-    width:90%;
-    margin-left:5%;
-    margin-right:5%;
+    width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
     display:flex;
     flex-direction:column;
     gap:20px;
@@ -5915,13 +5924,17 @@
 
 .qrmo-smart-filter-layout {
 
-  width: 90%;
+  box-sizing: border-box;
+
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+
+  max-width: none;
 
   min-height: 760px;
 
-  margin-left: 5%;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
 
-  margin-right: 5%;
+  padding-inline: 0;
 
   display: grid;
 
@@ -7901,42 +7914,7 @@
    UX / RESPONSIVE QA (entegrasyon)
 ========================================================= */
 
-/* ≤900: Hero / Section 2–4 ile aynı 20px hat (önce %5 → 38–45px) */
-@media (max-width: 900px) {
-
-  .qrmo-smart-filter-layout {
-
-    width:
-      calc(100% - 40px);
-
-    margin-left:
-      20px;
-
-    margin-right:
-      20px;
-
-  }
-
-}
-
-
-/* ≤480: Hero / Section 2–4 ile aynı 16px gutter (önce %5 → 16–24px) */
-@media (max-width: 480px) {
-
-  .qrmo-smart-filter-layout {
-
-    width:
-      calc(100% - 32px);
-
-    margin-left:
-      16px;
-
-    margin-right:
-      16px;
-
-  }
-
-}
+/* ≤900 / ≤480 yatay boşluk artık --qrmo-shell-gutter ile taban kuraldadır. */
 
 
 /* Liste kendi içinde kayar. Başlık ile Sıfırla/Uygula yerinde kalır.
@@ -9684,9 +9662,10 @@
 
 .qrmo-chatbot-feature__inner {
 
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 
   display: grid;
 
@@ -11279,15 +11258,6 @@
 
   .qrmo-chatbot-feature__inner {
 
-    width:
-      calc(100% - 40px);
-
-    margin-left:
-      20px;
-
-    margin-right:
-      20px;
-
     grid-template-columns:
       300px
       minmax(0,1fr);
@@ -11560,22 +11530,6 @@
 
 /* ≤480: Hero / Section 2–5 ile aynı 16px gutter */
 
-@media (max-width: 480px) {
-
-  .qrmo-chatbot-feature__inner {
-
-    width:
-      calc(100% - 32px);
-
-    margin-left:
-      16px;
-
-    margin-right:
-      16px;
-
-  }
-
-}
 
 
 /* =========================================================
@@ -12502,11 +12456,10 @@
 
 .qrmo-tables-v5__inner{
 
-  width:90%;
+  width:calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
   max-width:none;
-
-  margin-left:auto;
-  margin-right:auto;
+  margin-inline:var(--qrmo-shell-gutter, 5vw);
+  padding-inline:0;
 
   display:grid;
 
@@ -14199,8 +14152,6 @@
 
   .qrmo-tables-v5__inner{
 
-    width:90%;
-
     grid-template-columns:
       minmax(0,1fr)
       minmax(0,1fr);
@@ -14571,9 +14522,7 @@
 
     min-width:0;
 
-    max-width:calc(100% - 40px);
-
-    min-height:46px;
+    max-width:calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));max-width:none;margin-inline:var(--qrmo-shell-gutter, 5vw);padding-inline:0;min-height:46px;
 
     height:auto;
 
@@ -14868,10 +14817,7 @@
   }
 
   .qrmo-tables-v5__cta{
-    max-width:calc(100% - 32px);
-    margin-left:16px;
-    margin-right:16px;
-  }
+    max-}
 
   .qrmo-tables-v5__title{
 
@@ -14970,8 +14916,7 @@
 @media (min-width:768px) and (max-width:900px){
 
   .qrmo-tables-v5__inner{
-    width:calc(100% - 40px);
-  }
+    width:calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));max-width:none;margin-inline:var(--qrmo-shell-gutter, 5vw);padding-inline:0;}
 
 }
 
@@ -14987,10 +14932,7 @@
   }
 
   .qrmo-tables-v5__cta{
-    max-width:calc(100% - 32px);
-    margin-left:16px;
-    margin-right:16px;
-  }
+    max-}
 
 }
 
@@ -16933,10 +16875,10 @@
 
 .qrmo-service-v2__inner {
 
-  width: 90%;
-
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 
   display: grid;
 
@@ -18852,15 +18794,6 @@
 
   .qrmo-service-v2__inner {
 
-    width:
-      calc(100% - 40px);
-
-    margin-left:
-      20px;
-
-    margin-right:
-      20px;
-
     grid-template-columns:
       minmax(0,1fr)
       340px;
@@ -19228,22 +19161,6 @@
 
 /* ≤480: Hero / Section 2–6 ile aynı 16px gutter */
 
-@media (max-width: 480px) {
-
-  .qrmo-service-v2__inner {
-
-    width:
-      calc(100% - 32px);
-
-    margin-left:
-      16px;
-
-    margin-right:
-      16px;
-
-  }
-
-}
 
 @media (max-width: 359px) {
 
@@ -20243,9 +20160,10 @@
 ========================================================= */
 
 .qrmo-analytics-v3__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
   display: grid;
   grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
   align-items: start;
@@ -20953,9 +20871,6 @@
   }
 
   .qrmo-analytics-v3__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
     grid-template-columns: 340px minmax(0, 1fr);
     column-gap: 30px;
   }
@@ -21173,15 +21088,6 @@
 
 
 /* ≤480: Hero / Section 2–7 ile aynı 16px gutter */
-@media (max-width: 480px) {
-
-  .qrmo-analytics-v3__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
-}
 
 @media (max-width: 359px) {
   .qrmo-analytics-v3__pillar {
@@ -21925,9 +21831,10 @@
 ========================================================= */
 
 .qrmo-transition-v1__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 .qrmo-transition-v1__head {
@@ -22356,11 +22263,6 @@
     padding: 60px 0 60px;
   }
 
-  .qrmo-transition-v1__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 
   .qrmo-transition-v1__title {
     font-size: 39px;
@@ -22543,15 +22445,6 @@
 
 
 /* ≤480: Hero / Section 2–8 ile aynı 16px gutter */
-@media (max-width: 480px) {
-
-  .qrmo-transition-v1__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
-}
 
 
 /* =========================================================
@@ -22820,9 +22713,10 @@
 ========================================================= */
 
 .qrmo-setup-v1__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 .qrmo-setup-v1__head {
@@ -23010,11 +22904,6 @@
     padding: 60px 0 60px;
   }
 
-  .qrmo-setup-v1__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 
   .qrmo-setup-v1__title {
     font-size: 39px;
@@ -23151,15 +23040,6 @@
 
 
 /* ≤480: Hero / Section 2–9 ile aynı 16px gutter */
-@media (max-width: 480px) {
-
-  .qrmo-setup-v1__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
-}
 
 
 /* =========================================================
@@ -23351,9 +23231,10 @@
 ========================================================= */
 
 .qrmo-faq-v1__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
   display: grid;
   grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: start;
@@ -23540,9 +23421,6 @@
   }
 
   .qrmo-faq-v1__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
     column-gap: 30px;
   }
 
@@ -23652,15 +23530,6 @@
 
 
 /* ≤480: Hero / Section 2–10 ile aynı 16px gutter */
-@media (max-width: 480px) {
-
-  .qrmo-faq-v1__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
-}
 
 
 /* =========================================================
@@ -23829,9 +23698,10 @@
 ========================================================= */
 
 .qrmo-final-cta-v1__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 .qrmo-final-cta-v1__panel {
@@ -23999,11 +23869,6 @@
     padding: 60px 0 56px;
   }
 
-  .qrmo-final-cta-v1__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 
   .qrmo-final-cta-v1__title {
     font-size: 39px;
@@ -24097,11 +23962,6 @@
 /* ≤480: Hero / Section 2–11 ile aynı 16px gutter */
 @media (max-width: 480px) {
 
-  .qrmo-final-cta-v1__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
 
   .qrmo-final-cta-v1__panel {
     padding: 40px 18px 36px;

@@ -36,7 +36,7 @@ body.qrmo-pricing-page {
   --qp-text-2: #2C4036;
   --qp-line: rgba(13, 43, 34, .16);
   --qp-gold-line: rgba(201, 168, 76, .25);
-  --qp-gutter: 20px;
+  --qp-gutter: var(--qrmo-shell-gutter, 5vw);
   --qp-focus: var(--qp-green-dark);
 
   color: var(--qp-text);
@@ -78,10 +78,11 @@ body.qrmo-pricing-page {
 .qrmo-pricing-skip:focus { top: 16px; outline: 3px solid #E8C766; outline-offset: 2px; }
 
 .qrmo-pricing-inner {
-  width: 100%;
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
   max-width: none;
-  margin-inline: 0;
-  padding-inline: var(--qp-gutter);
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 /* ---------- tipografi (Hero V3 ölçekleri) ---------- */
@@ -646,7 +647,6 @@ body.qrmo-pricing-page {
 ========================================================= */
 
 @media (min-width: 901px) {
-  .qrmo-pricing { --qp-gutter: 5vw; }
   .qrmo-pricing-diff { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .qrmo-pricing-hero-grid {
     grid-template-columns: minmax(0, 1fr) minmax(220px, 240px);
@@ -741,7 +741,6 @@ body.qrmo-pricing-page {
 }
 
 @media (max-width: 360px) {
-  .qrmo-pricing { --qp-gutter: 16px; }
   .qrmo-pricing-hero { padding: 8px 0 10px; }
   .qrmo-pricing-hero-grid { gap: 8px; }
   .qrmo-pricing-title { font-size: 24px; margin-bottom: 6px !important; }

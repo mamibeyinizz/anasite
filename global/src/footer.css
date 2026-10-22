@@ -54,9 +54,11 @@
 }
 
 .qrmo-gf-in {
-  width: 100%;
-  margin: 0 auto;
-  padding: 76px 5vw 26px;
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding: 76px 0 26px;
   padding-bottom: calc(26px + env(safe-area-inset-bottom));
 }
 
@@ -479,7 +481,7 @@ button.qrmo-gf-cta-btn {
 
 @media (max-width: 560px) {
   .qrmo-gf-in {
-    padding: 48px 20px 22px;
+    padding: 48px 0 22px;
     padding-bottom: calc(22px + env(safe-area-inset-bottom));
   }
 
@@ -580,11 +582,6 @@ button.qrmo-gf-cta-btn {
 }
 
 @media (max-width: 360px) {
-  .qrmo-gf-in {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-
   .qrmo-gf-cta {
     padding-right: 16px;
     padding-left: 16px;

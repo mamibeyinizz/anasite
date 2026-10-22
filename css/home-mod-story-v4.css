@@ -63,13 +63,15 @@ html.qrmo-mod-story-v4 .module-scene {
   html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__inner,
   html.qrmo-mod-story-v4 #qrmo-home-servis .qrmo-service-v2__inner,
   html.qrmo-mod-story-v4 #qrmo-home-icgoru .qrmo-analytics-v3__inner {
-    width: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
     max-width: none;
     min-height: 0;
     height: auto;
     max-height: 100%;
-    margin: 0;
-    padding-inline: 5vw;
+    margin-block: 0;
+    margin-inline: var(--qrmo-shell-gutter, 5vw);
+    padding-inline: 0;
     flex: 1 1 auto;
     display: grid;
     align-items: center;
@@ -241,12 +243,14 @@ html.qrmo-mod-story-v4 .module-scene {
   html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__inner,
   html.qrmo-mod-story-v4 #qrmo-home-servis .qrmo-service-v2__inner,
   html.qrmo-mod-story-v4 #qrmo-home-icgoru .qrmo-analytics-v3__inner {
-    width: 100%;
+    box-sizing: border-box;
+    width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
     max-width: none;
     min-height: 0;
     height: auto;
-    margin: 0;
-    padding-inline: 5vw;
+    margin-block: 0;
+    margin-inline: var(--qrmo-shell-gutter, 5vw);
+    padding-inline: 0;
     display: flex;
     flex-direction: column;
     gap: 0;

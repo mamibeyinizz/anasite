@@ -38,7 +38,7 @@
   --qrmo-muted: rgba(248, 243, 231, 0.68);
   --qrmo-line: rgba(212, 180, 91, 0.2);
   --qrmo-h: 94px;
-  --qrmo-gutter: 5vw;
+  --qrmo-gutter: var(--qrmo-shell-gutter, 5vw);
   position: relative;
   z-index: 99999;
   width: 100%;
@@ -49,6 +49,35 @@
 
 :root {
   --qrmo-gh-h: 72px;
+  --qrmo-shell-gutter: 5vw;
+}
+@media (max-width: 560px) {
+  :root {
+    --qrmo-shell-gutter: 15px;
+  }
+}
+
+/* Esnek satırdaki kabuk, içeriğin min-width:auto değerine takılıp
+   viewport dışına taşmasın. Genişliği her sayfanın kendi kabuk kuralı verir. */
+.qrmo-gh-in,
+.qrmo-gf-in,
+.qrmo-hero-v3-inner,
+#qrmo-product-map-v1,
+.qrmo-translation-v3-inner,
+.qrmo-smart-filter-layout,
+.qrmo-chatbot-feature__inner,
+.qrmo-tables-v5__inner,
+.qrmo-service-v2__inner,
+.qrmo-analytics-v3__inner,
+.qrmo-transition-v1__inner,
+.qrmo-setup-v1__inner,
+.qrmo-faq-v1__inner,
+.qrmo-final-cta-v1__inner,
+.qrmo-pricing-inner,
+.qrmo-contact-inner,
+.qrmo-faq-inner,
+.qrmo-mod-inner {
+  min-width: 0;
 }
 @media (min-width: 561px) {
   :root {
@@ -165,9 +194,12 @@ html:not(.qrmo-gh-js) .qrmo-gh {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  width: 100%;
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
   min-height: var(--qrmo-h);
-  padding-inline: var(--qrmo-gutter);
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 /* ---------- logo ---------- */
@@ -790,7 +822,6 @@ html:not(.qrmo-gh-js) .qrmo-gh-in > .qrmo-gh-cta {
 @media (max-width: 560px) {
   .qrmo-gh {
     --qrmo-h: 72px;
-    --qrmo-gutter: 15px;
   }
   .qrmo-gh-in {
     gap: 12px;
@@ -971,9 +1002,11 @@ button.qrmo-gh-d-card--pending {
 }
 
 .qrmo-gf-in {
-  width: 100%;
-  margin: 0 auto;
-  padding: 76px 5vw 26px;
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding: 76px 0 26px;
   padding-bottom: calc(26px + env(safe-area-inset-bottom));
 }
 
@@ -1396,7 +1429,7 @@ button.qrmo-gf-cta-btn {
 
 @media (max-width: 560px) {
   .qrmo-gf-in {
-    padding: 48px 20px 22px;
+    padding: 48px 0 22px;
     padding-bottom: calc(22px + env(safe-area-inset-bottom));
   }
 
@@ -1497,11 +1530,6 @@ button.qrmo-gf-cta-btn {
 }
 
 @media (max-width: 360px) {
-  .qrmo-gf-in {
-    padding-right: 16px;
-    padding-left: 16px;
-  }
-
   .qrmo-gf-cta {
     padding-right: 16px;
     padding-left: 16px;

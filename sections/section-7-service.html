@@ -466,10 +466,10 @@
 
 .qrmo-service-v2__inner {
 
-  width: 90%;
-
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 
   display: grid;
 
@@ -2332,15 +2332,6 @@
 
   .qrmo-service-v2__inner {
 
-    width:
-      calc(100% - 40px);
-
-    margin-left:
-      20px;
-
-    margin-right:
-      20px;
-
     grid-template-columns:
       minmax(0,1fr)
       340px;
@@ -2636,22 +2627,6 @@
 
 /* ≤480: Hero / Section 2–6 ile aynı 16px gutter */
 
-@media (max-width: 480px) {
-
-  .qrmo-service-v2__inner {
-
-    width:
-      calc(100% - 32px);
-
-    margin-left:
-      16px;
-
-    margin-right:
-      16px;
-
-  }
-
-}
 
 
 /* =========================================================

@@ -294,9 +294,10 @@
 ========================================================= */
 
 .qrmo-analytics-v3__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
   display: grid;
   grid-template-columns: minmax(0, 500px) minmax(0, 1fr);
   align-items: center;
@@ -937,9 +938,6 @@
   }
 
   .qrmo-analytics-v3__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
     grid-template-columns: 340px minmax(0, 1fr);
     column-gap: 30px;
   }
@@ -1113,15 +1111,6 @@
 
 
 /* ≤480: Hero / Section 2–7 ile aynı 16px gutter */
-@media (max-width: 480px) {
-
-  .qrmo-analytics-v3__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-
-}
 
 
 /* =========================================================

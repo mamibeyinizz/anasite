@@ -97,9 +97,10 @@
 ========================================================= */
 
 .qrmo-final-cta-v1__inner {
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 .qrmo-final-cta-v1__panel {
@@ -267,11 +268,6 @@
     padding: 60px 0 56px;
   }
 
-  .qrmo-final-cta-v1__inner {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
 
   .qrmo-final-cta-v1__title {
     font-size: 39px;
@@ -365,11 +361,6 @@
 /* ≤480: Hero / Section 2–11 ile aynı 16px gutter */
 @media (max-width: 480px) {
 
-  .qrmo-final-cta-v1__inner {
-    width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
-  }
 
   .qrmo-final-cta-v1__panel {
     padding: 40px 18px 36px;

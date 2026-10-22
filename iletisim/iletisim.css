@@ -2,8 +2,8 @@
    QR MENU OFFICIAL — /iletisim/
    Namespace: .qrmo-contact-*
    Renkler DESIGN_SYSTEM.md / header token'ları ile aynıdır.
-   Yatay boşluk tek sistemdir: ≥561px 5vw · 361–560px 20px · ≤360px 16px.
-   İç kapsayıcıya ikinci bir max-width verilmez; ≥561px kenar header/footer ile aynı 5vw çizgisinde kalır.
+   Yatay boşluk tek sistemdir: >560px 5vw · ≤560px 15px.
+   İç kapsayıcının border-box'ı bu kenarda başlar; ikinci bir max-width yoktur.
 ========================================================= */
 
 html {
@@ -49,7 +49,7 @@ body.qrmo-contact-page {
   --qc-muted: #56625B;
   --qc-line: rgba(13, 43, 34, .14);
   --qc-error: #7A2E2E;
-  --qc-gutter: 20px;
+  --qc-gutter: var(--qrmo-shell-gutter, 5vw);
   --qc-focus: #0D2B22;
   color: var(--qc-text);
 }
@@ -73,9 +73,11 @@ body.qrmo-contact-page {
 }
 
 .qrmo-contact-inner {
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: var(--qc-gutter);
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  max-width: none;
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+  padding-inline: 0;
 }
 
 .qrmo-contact-kicker {
@@ -744,10 +746,6 @@ body.qrmo-contact-page {
 /* ---------- kırılımlar ---------- */
 
 @media (max-width: 360px) {
-  .qrmo-contact {
-    --qc-gutter: 16px;
-  }
-
   .qrmo-contact-h1 {
     font-size: 32px;
   }
@@ -790,12 +788,6 @@ body.qrmo-contact-page {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px 28px;
     margin-top: 32px;
-  }
-}
-
-@media (min-width: 561px) {
-  .qrmo-contact {
-    --qc-gutter: 5vw;
   }
 }
 
