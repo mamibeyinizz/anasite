@@ -1888,6 +1888,10 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @media (min-width: 1024px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+    gap: 28px;
+  }
   .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 16px; }
   .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
   .qrmo-mod--hub .qrmo-mod-closing { padding-bottom: 56px; }
@@ -1895,32 +1899,15 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 @media (min-width: 1200px) {
   .qrmo-mod--hub .qrmo-mod-hubhero {
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 300px);
-    gap: 28px;
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 1fr);
+    gap: 36px;
+    align-items: center;
   }
-  .qrmo-mod--hub .qrmo-mod-h1 { max-width: 14em; }
   .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas: "copy actions";
     align-items: center;
     column-gap: 40px;
-  }
-}
-
-/* İki cümle yan yana sığınca metin kolonu genişler; kartlar boşluğu doldurmak için büyümez. */
-@media (min-width: 1280px) {
-  .qrmo-mod--hub .qrmo-mod-hubhero {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 352px);
-    gap: 36px;
-    align-items: start;
-  }
-}
-
-@media (min-width: 1440px) {
-  .qrmo-mod--hub .qrmo-mod-hubhero {
-    grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
-    gap: 44px;
   }
 }
 
@@ -1935,11 +1922,13 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
   grid-template-areas: "line line" "masa perf";
-  gap: 8px;
+  gap: 16px;
   align-items: start;
+  justify-self: stretch;
+  width: 100%;
   min-width: 0;
   max-width: 100%;
-  padding-bottom: 16px;
+  padding-bottom: 12px;
 }
 .qrmo-mod--hub .qrmo-hubviz-card {
   min-width: 0;
@@ -1958,18 +1947,18 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-hubviz-card--masa,
 .qrmo-mod--hub .qrmo-hubviz-card--perf {
   position: relative;
-  padding: 12px;
+  padding: 14px 14px 16px;
   border-radius: var(--qm-r-s);
 }
 .qrmo-mod--hub .qrmo-hubviz-card--masa {
   grid-area: masa;
   z-index: 2;
-  transform: translateY(-14px);
+  transform: translateY(-4px);
 }
 .qrmo-mod--hub .qrmo-hubviz-card--perf {
   grid-area: perf;
   z-index: 3;
-  transform: translateY(12px);
+  transform: translateY(6px);
 }
 .qrmo-mod--hub .qrmo-hubviz-top {
   display: flex;
@@ -2123,11 +2112,15 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-hubviz-arc--c { stroke: var(--qm-gold-light); stroke-dasharray: 22 78; stroke-dashoffset: -76; }
 
 @media (min-width: 768px) {
-  .qrmo-mod--hub .qrmo-hubviz { gap: 10px; }
+  .qrmo-mod--hub .qrmo-hubviz { gap: 20px; }
   .qrmo-mod--hub .qrmo-hubviz-title { font-size: 15px; }
   .qrmo-mod--hub .qrmo-hubviz-card--line { padding: 16px 16px 14px; }
   .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump { margin-top: 40px; }
   .qrmo-mod--hub .qrmo-hubviz-ring { width: 80px; height: 80px; }
+}
+
+@media (min-width: 1024px) {
+  .qrmo-mod--hub .qrmo-hubviz { gap: 24px; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
