@@ -1661,6 +1661,8 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   border-top: 1px solid var(--qm-line);
 }
 
+.qrmo-mod--hub .qrmo-mod-hero + .qrmo-mod-hubcat { padding-top: 32px; }
+
 .qrmo-mod--hub .qrmo-mod-hubcat-head {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -1843,6 +1845,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     font-size: 18px;
   }
   .qrmo-mod--hub .qrmo-mod-hubcat { padding-top: 28px; padding-bottom: 28px; }
+  .qrmo-mod--hub .qrmo-mod-hero + .qrmo-mod-hubcat { padding-top: 40px; }
   .qrmo-mod--hub .qrmo-mod-hubcat-head { margin-bottom: 14px; }
   .qrmo-mod--hub .qrmo-mod-card h3 { font-size: 22px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
@@ -1858,12 +1861,13 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 @media (min-width: 900px) {
   .qrmo-mod--hub .qrmo-mod-hubhero {
-    grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+    grid-template-columns: minmax(0, 1.22fr) minmax(268px, .78fr);
     align-items: center;
-    gap: 40px;
+    gap: 32px;
   }
+  /* 10.6em ikinci cümleyi alt satırda tutar; 1200px üstünde her cümle kendi satırında. */
   .qrmo-mod--hub .qrmo-mod-h1 {
-    max-width: 14em;
+    max-width: 10.6em;
     font-size: clamp(56px, 4vw, 64px);
   }
   .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump ol {
@@ -1890,6 +1894,12 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @media (min-width: 1200px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 300px);
+    gap: 28px;
+    align-items: start;
+  }
+  .qrmo-mod--hub .qrmo-mod-h1 { max-width: 14em; }
   .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas: "copy actions";
@@ -1898,12 +1908,28 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   }
 }
 
+/* İki cümle yan yana sığınca metin kolonu genişler; kartlar boşluğu doldurmak için büyümez. */
+@media (min-width: 1280px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 352px);
+    gap: 36px;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1440px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+    gap: 44px;
+  }
+}
+
 /* Hub hero görseli — yalnızca Çözümler dizini. Ayrıntı sayfası hero'suna değmez. */
 .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-actions {
   align-items: flex-start;
   margin-top: 22px;
 }
-.qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump { margin-top: 22px; }
+.qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump { margin-top: 32px; }
 
 .qrmo-mod--hub .qrmo-hubviz {
   display: grid;
@@ -2100,7 +2126,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-hubviz { gap: 10px; }
   .qrmo-mod--hub .qrmo-hubviz-title { font-size: 15px; }
   .qrmo-mod--hub .qrmo-hubviz-card--line { padding: 16px 16px 14px; }
-  .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump { margin-top: 28px; }
+  .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump { margin-top: 40px; }
   .qrmo-mod--hub .qrmo-hubviz-ring { width: 80px; height: 80px; }
 }
 
