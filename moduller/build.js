@@ -33,6 +33,12 @@ const PKG = sandbox.window.QRMO_PRICING;
 
 const esc = (s) => String(s == null ? "" : s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+/* İki cümlelik hub başlığı: cümleler ayrı satırda kırılır, punto ve aile değişmez. */
+const hubH1 = (s) => {
+  const parts = String(s).split(/\.\s+/);
+  if (parts.length < 2) return esc(s);
+  return parts.map((p, i) => esc(i < parts.length - 1 && !p.endsWith(".") ? p + "." : p)).join("<br>");
+};
 const up = (s) => String(s).toLocaleUpperCase("tr");
 const pad = (n) => String(n).padStart(2, "0");
 const join = (arr, fn) => (arr || []).map(fn).join("");
@@ -760,6 +766,58 @@ ${body}
 
 /* ---------- modül dizini ---------- */
 
+/* Hub hero görseli: dekoratif, temsili. Rakam yok; "Örnek görünüm" etiketi
+   grafiklerin canlı veri olmadığını gösterir. Ayrıntı sayfalarında kullanılmaz. */
+function hubHeroVisual() {
+  return `<div class="qrmo-mod-hero-visual qrmo-hubviz" aria-hidden="true">
+      <div class="qrmo-hubviz-card qrmo-hubviz-card--line">
+        <div class="qrmo-hubviz-top">
+          <p class="qrmo-hubviz-title">Menü Etkileşimi</p>
+          <p class="qrmo-hubviz-sample">Örnek görünüm</p>
+        </div>
+        <svg class="qrmo-hubviz-chart" viewBox="0 0 320 108" fill="none">
+          <path d="M4 28h312M4 54h312M4 80h312" stroke="rgba(13,43,34,.08)" stroke-width="1"/>
+          <path class="qrmo-hubviz-area" d="M4 80C28 78 48 72 72 70S112 60 140 54 176 38 208 36 260 20 316 18V96H4Z"/>
+          <path class="qrmo-hubviz-stroke qrmo-hubviz-stroke--compare" pathLength="100" d="M4 60C36 56 62 66 96 58S150 44 188 50 246 62 316 48"/>
+          <path class="qrmo-hubviz-stroke qrmo-hubviz-stroke--main" pathLength="100" d="M4 80C28 78 48 72 72 70S112 60 140 54 176 38 208 36 260 20 316 18"/>
+          <circle class="qrmo-hubviz-dot" cx="316" cy="18" r="3.5"/>
+        </svg>
+        <ul class="qrmo-hubviz-legend">
+          <li><span class="qrmo-hubviz-swatch qrmo-hubviz-swatch--main"></span><span>Menü görüntüleme</span></li>
+          <li><span class="qrmo-hubviz-swatch qrmo-hubviz-swatch--compare"></span><span>Ürün ilgisi</span></li>
+        </ul>
+      </div>
+      <div class="qrmo-hubviz-card qrmo-hubviz-card--masa">
+        <p class="qrmo-hubviz-title">Masa &amp; Servis</p>
+        <p class="qrmo-hubviz-live"><span class="qrmo-hubviz-dots"><i></i><i class="is-on"></i><i></i><i></i><i></i></span><span>Aktif masa</span></p>
+        <ul class="qrmo-hubviz-pills">
+          <li>Garson çağrısı</li>
+          <li>Hesap isteği</li>
+        </ul>
+        <svg class="qrmo-hubviz-spark" viewBox="0 0 180 46" fill="none">
+          <path class="qrmo-hubviz-stroke qrmo-hubviz-stroke--masa2" pathLength="100" d="M2 36C22 34 40 38 64 30S100 22 132 26 160 18 178 24"/>
+          <path class="qrmo-hubviz-stroke qrmo-hubviz-stroke--masa" pathLength="100" d="M2 32C18 30 28 18 46 20S72 36 92 28 124 12 148 16 168 22 178 14"/>
+        </svg>
+      </div>
+      <div class="qrmo-hubviz-card qrmo-hubviz-card--perf">
+        <p class="qrmo-hubviz-title">Menü Performansı</p>
+        <div class="qrmo-hubviz-perf">
+          <svg class="qrmo-hubviz-ring" viewBox="0 0 88 88" fill="none">
+            <circle cx="44" cy="44" r="32" stroke="rgba(13,43,34,.08)" stroke-width="9"/>
+            <circle class="qrmo-hubviz-arc qrmo-hubviz-arc--a" cx="44" cy="44" r="32" pathLength="100" transform="rotate(-90 44 44)"/>
+            <circle class="qrmo-hubviz-arc qrmo-hubviz-arc--b" cx="44" cy="44" r="32" pathLength="100" transform="rotate(-90 44 44)"/>
+            <circle class="qrmo-hubviz-arc qrmo-hubviz-arc--c" cx="44" cy="44" r="32" pathLength="100" transform="rotate(-90 44 44)"/>
+          </svg>
+          <ul class="qrmo-hubviz-legend qrmo-hubviz-legend--stack">
+            <li><span class="qrmo-hubviz-swatch qrmo-hubviz-swatch--view"></span><span>Ürün görüntüleme</span></li>
+            <li><span class="qrmo-hubviz-swatch qrmo-hubviz-swatch--cart"></span><span>Sepete ekleme</span></li>
+            <li><span class="qrmo-hubviz-swatch qrmo-hubviz-swatch--order"></span><span>Sipariş</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>`;
+}
+
 function renderIndex() {
   const rel = "../";
   const url = `${MOD.site.baseUrl}/moduller/`;
@@ -798,11 +856,17 @@ function renderIndex() {
 <main id="icerik" class="qrmo-mod qrmo-mod--hub" tabindex="-1">
   ${crumbs([["Ana sayfa", rel], ["Modüller"]])}
   <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--hub" aria-labelledby="qrmo-mod-h1">
-    <div class="qrmo-mod-inner qrmo-mod-hubhero">
-      <div class="qrmo-mod-hero-copy">
-        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MODÜLLER</span><span class="qrmo-mod-kicker-pkg">${MOD.modules.length} modül · 3 paket</span></p>
-        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(H.h1)}</h1>
-        <p class="qrmo-mod-lead">${esc(H.lead)}</p>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-mod-hubhero">
+        <div class="qrmo-mod-hero-copy">
+          <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MODÜLLER</span><span class="qrmo-mod-kicker-pkg">${MOD.modules.length} modül · 3 paket</span></p>
+          <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${hubH1(H.h1)}</h1>
+          <p class="qrmo-mod-lead">${esc(H.lead)}</p>
+          <div class="qrmo-mod-actions">
+            <a class="qrmo-mod-cta" href="${rel}iletisim/#talep"><span>Demo Talep Et</span>${ICON.arrow}</a>
+          </div>
+        </div>
+        ${hubHeroVisual()}
       </div>
       <nav class="qrmo-mod-jump" aria-label="Modül grupları">
         <ol>${jump}

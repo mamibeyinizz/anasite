@@ -58,8 +58,8 @@
     ],
 
     hub: {
-      h1: "Menüden servise, tek sistem.",
-      lead: "Müşterinin menüsü, masadan gelen servis ve işletme araçları. On modülün ne yaptığını ve hangi pakette olduğunu kendi sayfasında görün.",
+      h1: "Siz misafirlerinize odaklanın. Gerisini kolaylaştıralım.",
+      lead: "Dijital menüden masa yönetimine, siparişlerden garson çağrısına kadar restoranınızın günlük işlerini tek bir yerden kolayca yönetin.",
       closingTitle: "Hangi modül hangi pakette?",
       closingText: "Temel, Pro ve Plus paketlerini ve içerdikleri modülleri yan yana karşılaştırın."
     },
