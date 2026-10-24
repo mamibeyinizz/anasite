@@ -818,122 +818,6 @@ function hubHeroVisual() {
     </div>`;
 }
 
-/* Hub ürün hikâyesi: statik adımlar. Ayrıntı sayfalarında kullanılmaz. */
-function hubStoryVisual(kind) {
-  const cream = "#F4F1E8";
-  const gold = "#C9A84C";
-  const goldL = "#E8C766";
-  const goldInk = "#7F6419";
-  const ink = "#0D2B22";
-  const muted = "#56625B";
-  const line = "rgba(13,43,34,.14)";
-  const scenes = {
-    qr: `
-      <rect x="8" y="22" width="118" height="124" rx="14" fill="#fff" stroke="${line}"/>
-      <rect x="28" y="38" width="78" height="78" rx="8" fill="${cream}" stroke="${ink}" stroke-width="1.4"/>
-      <rect x="34" y="44" width="18" height="18" rx="2" fill="${ink}"/>
-      <rect x="82" y="44" width="18" height="18" rx="2" fill="${ink}"/>
-      <rect x="34" y="92" width="18" height="18" rx="2" fill="${ink}"/>
-      <rect x="40" y="50" width="6" height="6" fill="${cream}"/>
-      <rect x="88" y="50" width="6" height="6" fill="${cream}"/>
-      <rect x="40" y="98" width="6" height="6" fill="${cream}"/>
-      <rect x="58" y="62" width="8" height="8" fill="${ink}"/>
-      <rect x="70" y="70" width="8" height="8" fill="${ink}"/>
-      <rect x="58" y="78" width="6" height="6" fill="${gold}"/>
-      <text x="67" y="132" text-anchor="middle" fill="${ink}" font-size="11" font-weight="800">Masa 12</text>
-      <rect x="146" y="16" width="126" height="136" rx="22" fill="${ink}"/>
-      <rect x="154" y="28" width="110" height="112" rx="14" fill="${cream}"/>
-      <text x="209" y="48" text-anchor="middle" fill="${ink}" font-size="11" font-weight="800">Menü</text>
-      <text x="209" y="62" text-anchor="middle" fill="${muted}" font-size="9">Masa 12</text>
-      <rect x="166" y="74" width="86" height="10" rx="5" fill="#fff" stroke="${line}"/>
-      <rect x="166" y="92" width="86" height="14" rx="6" fill="#fff"/>
-      <rect x="166" y="112" width="58" height="14" rx="6" fill="#fff"/>
-      <rect x="228" y="112" width="24" height="14" rx="6" fill="${goldL}"/>`,
-    menu: `
-      <rect x="58" y="10" width="164" height="148" rx="24" fill="${ink}"/>
-      <rect x="66" y="22" width="148" height="124" rx="16" fill="${cream}"/>
-      <text x="140" y="42" text-anchor="middle" fill="${ink}" font-size="11" font-weight="800">Menü</text>
-      <rect x="78" y="52" width="124" height="16" rx="8" fill="#fff" stroke="${line}"/>
-      <text x="90" y="63" fill="${muted}" font-size="9">Ürün ara…</text>
-      <rect x="78" y="74" width="28" height="14" rx="7" fill="${ink}"/>
-      <text x="92" y="84" text-anchor="middle" fill="${cream}" font-size="8" font-weight="800">TR</text>
-      <rect x="110" y="74" width="28" height="14" rx="7" fill="#fff" stroke="${gold}" stroke-width="1.4"/>
-      <text x="124" y="84" text-anchor="middle" fill="${ink}" font-size="8" font-weight="800">EN</text>
-      <rect x="144" y="74" width="58" height="14" rx="7" fill="#fff" stroke="${line}"/>
-      <text x="173" y="84" text-anchor="middle" fill="${goldInk}" font-size="8" font-weight="800">Filtrele</text>
-      <rect x="78" y="96" width="124" height="20" rx="6" fill="#fff"/>
-      <text x="86" y="109" fill="${ink}" font-size="9" font-weight="700">Mercimek Çorbası</text>
-      <rect x="78" y="120" width="124" height="20" rx="6" fill="#fff"/>
-      <text x="86" y="133" fill="${ink}" font-size="9" font-weight="700">Izgara Tavuk</text>`,
-    talep: `
-      <rect x="58" y="10" width="164" height="148" rx="24" fill="${ink}"/>
-      <rect x="66" y="22" width="148" height="124" rx="16" fill="${cream}"/>
-      <text x="140" y="42" text-anchor="middle" fill="${ink}" font-size="11" font-weight="800">QR Menü</text>
-      <text x="140" y="56" text-anchor="middle" fill="${muted}" font-size="9">Masa 12</text>
-      <rect x="78" y="66" width="124" height="22" rx="8" fill="${ink}"/>
-      <text x="140" y="80" text-anchor="middle" fill="${cream}" font-size="10" font-weight="800">Siparişi Gönder</text>
-      <rect x="78" y="94" width="124" height="22" rx="8" fill="#fff" stroke="${line}"/>
-      <text x="140" y="108" text-anchor="middle" fill="${ink}" font-size="10" font-weight="700">Garson Çağır</text>
-      <rect x="78" y="122" width="124" height="22" rx="8" fill="#fff" stroke="${line}"/>
-      <text x="140" y="136" text-anchor="middle" fill="${ink}" font-size="10" font-weight="700">Hesap İste</text>`,
-    panel: `
-      <rect x="16" y="18" width="248" height="132" rx="14" fill="#fff" stroke="${line}"/>
-      <rect x="16" y="18" width="248" height="28" rx="14" fill="${ink}"/>
-      <rect x="16" y="32" width="248" height="14" fill="${ink}"/>
-      <text x="28" y="36" fill="${cream}" font-size="11" font-weight="800">Servis Paneli</text>
-      <rect x="168" y="24" width="84" height="16" rx="8" fill="${goldL}"/>
-      <text x="210" y="35" text-anchor="middle" fill="${ink}" font-size="8" font-weight="800">Oturum doğrulandı</text>
-      <rect x="28" y="56" width="68" height="80" rx="8" fill="${cream}"/>
-      <text x="62" y="72" text-anchor="middle" fill="${goldInk}" font-size="8" font-weight="800">Bekliyor</text>
-      <rect x="36" y="80" width="52" height="22" rx="5" fill="#fff"/>
-      <text x="62" y="94" text-anchor="middle" fill="${ink}" font-size="8" font-weight="700">Sipariş</text>
-      <rect x="104" y="56" width="68" height="80" rx="8" fill="${cream}"/>
-      <text x="138" y="72" text-anchor="middle" fill="${goldInk}" font-size="8" font-weight="800">Hazırlanıyor</text>
-      <rect x="112" y="80" width="52" height="22" rx="5" fill="#fff"/>
-      <text x="138" y="94" text-anchor="middle" fill="${ink}" font-size="8" font-weight="700">Garson</text>
-      <rect x="180" y="56" width="68" height="80" rx="8" fill="${cream}"/>
-      <text x="214" y="72" text-anchor="middle" fill="${goldInk}" font-size="8" font-weight="800">Serviste</text>
-      <rect x="188" y="80" width="52" height="22" rx="5" fill="#fff"/>
-      <text x="214" y="94" text-anchor="middle" fill="${ink}" font-size="8" font-weight="700">Hesap</text>
-      <text x="62" y="122" text-anchor="middle" fill="${muted}" font-size="8">Masa 12</text>
-      <text x="138" y="122" text-anchor="middle" fill="${muted}" font-size="8">Masa 12</text>
-      <text x="214" y="122" text-anchor="middle" fill="${muted}" font-size="8">Masa 12</text>`
-  };
-  const inner = scenes[kind];
-  if (!inner) throw new Error("Bilinmeyen hub hikâye sahnesi: " + kind);
-  return `<svg class="qrmo-mod-hubstory-svg" viewBox="0 0 280 168" fill="none" aria-hidden="true" focusable="false">${inner}</svg>`;
-}
-
-function hubStory(H) {
-  const S = H.story;
-  if (!S || !S.steps || S.steps.length !== 4) throw new Error("hub.story dört adım içermeli");
-  const kinds = ["qr", "menu", "talep", "panel"];
-  const steps = join(S.steps, (st, i) => `
-        <li class="qrmo-mod-hubstory-step">
-          <div class="qrmo-mod-hubstory-copy">
-            <span class="qrmo-mod-hubstory-n" aria-hidden="true">${pad(i + 1)}</span>
-            <h3 class="qrmo-mod-hubstory-h3">${esc(st.title)}</h3>
-            <p class="qrmo-mod-hubstory-text">${esc(st.text)}</p>
-          </div>
-          <figure class="qrmo-mod-hubstory-fig">
-            <div class="qrmo-mod-hubstory-shot" role="img" aria-label="${esc(st.alt)}">${hubStoryVisual(kinds[i])}</div>
-            <figcaption class="qrmo-mod-cap">${esc(MOD.mockCaptionShort)}</figcaption>
-          </figure>
-        </li>`);
-  return `
-  <section class="qrmo-mod-sec qrmo-mod-hubstory" aria-labelledby="qrmo-mod-hubstory-h">
-    <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-hubstory-head">
-        ${kicker(S.kicker)}
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hubstory-h">${esc(S.title)}</h2>
-        <p class="qrmo-mod-text">${esc(S.lead)}</p>
-      </header>
-      <ol class="qrmo-mod-hubstory-list">${steps}
-      </ol>
-    </div>
-  </section>`;
-}
-
 function renderIndex() {
   const rel = "../";
   const url = `${MOD.site.baseUrl}/moduller/`;
@@ -991,7 +875,6 @@ function renderIndex() {
       </nav>
     </div>
   </section>
-${hubStory(H)}
 ${groups}
   <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
