@@ -1,5 +1,5 @@
 /* Ana sayfa splash. Yalnızca index.html bağlar.
-   Zemin üretim tuvali, yazı derin orman, çizgi ve ışık sınırlı altın.
+   Zemin koyu orman, yazı krem, çizgi ve ışık sınırlı altın.
    html.qrmo-splash yokken katman yoktur; kilit de yoktur. */
 
 .qrmo-splash {
@@ -35,7 +35,7 @@ html.qrmo-splash-on .qrmo-splash {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #f8f6f0;
+  background: #0d2b22;
   touch-action: none;
   overscroll-behavior: none;
   user-select: none;
@@ -57,11 +57,12 @@ html.qrmo-splash-on .qrmo-splash.is-dismiss {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform-origin: center center;
 }
 
 .qrmo-splash__word {
   margin: 0;
-  color: #0d2b22;
+  color: #f4f1e8;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: clamp(22px, 7.2vw, 64px);
   font-weight: 800;
@@ -185,6 +186,25 @@ html.qrmo-splash-on .qrmo-splash.is-dismiss {
 
   .qrmo-splash__rule {
     margin-top: 0.32em;
+  }
+}
+
+/* Masaüstü: kilit grubu orantılı büyütülür; harfler yatay esnetilmez. */
+@media (min-width: 768px) {
+  .qrmo-splash__stage {
+    transform: scale(1.18);
+  }
+}
+
+@media (min-width: 1024px) {
+  .qrmo-splash__stage {
+    transform: scale(1.26);
+  }
+}
+
+@media (min-width: 1366px) {
+  .qrmo-splash__stage {
+    transform: scale(1.3);
   }
 }
 
