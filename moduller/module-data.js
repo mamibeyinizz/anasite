@@ -62,7 +62,34 @@
       lead: "Dijital menüden masa yönetimine, siparişlerden garson çağrısına kadar restoranınızın günlük işlerini tek bir yerden kolayca yönetin.",
       note: "Menünüzü, masa taleplerini ve sipariş süreçlerini tek bir sistemde yönetin. Misafirlerinize daha kolay bir deneyim sunarken günlük operasyonlarınızı sadeleştirin.",
       closingTitle: "Hangi modül hangi pakette?",
-      closingText: "Temel, Pro ve Plus paketlerini ve içerdikleri modülleri yan yana karşılaştırın."
+      closingText: "Temel, Pro ve Plus paketlerini ve içerdikleri modülleri yan yana karşılaştırın.",
+      story: {
+        kicker: "MİSAFİR AKIŞI",
+        title: "Masadan panele, tek akış.",
+        lead: "Misafir QR ile menüyü açar, ürünleri inceler ve talebini gönderir. İşletme aynı kaydı masa bilgisiyle Servis Paneli’nde görür.",
+        steps: [
+          {
+            title: "Masadaki QR menüyü açar",
+            text: "Misafir masadaki QR kodu okutur; dijital menü tarayıcıda açılır.",
+            alt: "Temsili arayüz: Masa 12 yazılı bir QR kartı ve yanında menünün açıldığı telefon çerçevesi."
+          },
+          {
+            title: "Menü aranır, filtrelenir, dil değişir",
+            text: "Misafir ürünleri inceler, Akıllı Filtreleme ile aradığını daraltır ve Çoklu Dil ile menüyü kendi dilinde görür.",
+            alt: "Temsili arayüz: menü telefonunda arama alanı, TR ve EN dil seçimi, filtre çipleri ve iki ürün satırı."
+          },
+          {
+            title: "Sipariş ve servis talebi gönderilir",
+            text: "Misafir sipariş gönderir, garson çağırır veya hesabın masaya getirilmesini ister. Hesap isteği ödeme almaz.",
+            alt: "Temsili arayüz: telefonda Siparişi Gönder, Garson Çağır ve Hesap İste düğmeleri; hesap isteği masaya getirme talebidir."
+          },
+          {
+            title: "Kayıt, doğrulanmış masayla panele düşer",
+            text: "Sipariş ve talepler masa adı ve türüyle Servis Paneli’nde görünür. Masa oturumu doğrulanmış ve süreyle sınırlıdır.",
+            alt: "Temsili arayüz: Servis Paneli’nde Masa 12 için sipariş, garson ve hesap kartları ile oturum doğrulanmış etiketi."
+          }
+        ]
+      }
     },
 
     modules: [
