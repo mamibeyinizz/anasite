@@ -58,7 +58,12 @@ const ICON = {
   spark: svg('<path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/>', { w: 1.6 }),
   bell: svg('<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15L6 16Z"/><path d="M10 20.5h4"/>'),
   doc: svg('<path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4"/>'),
-  plus: svg('<path d="M12 5v14"/><path d="M5 12h14"/>', { w: 2.4 })
+  plus: svg('<path d="M12 5v14"/><path d="M5 12h14"/>', { w: 2.4 }),
+  prev: svg('<path d="M19 12H5"/><path d="m11 6-6 6 6 6"/>'),
+  next: svg('<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'),
+  utensils: svg('<path d="M8 3v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V3"/><path d="M6 13v8"/><path d="M18 3v8"/><path d="M16 3c0 3 2 5 2 8"/><path d="M20 3c0 3-2 5-2 8"/><path d="M18 13v8"/>'),
+  globe: svg('<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/>'),
+  sliders: svg('<path d="M4 7h16"/><path d="M7 12h10"/><path d="M10 17h4"/>')
 };
 
 const pkgIdx = (id) => PKG.packages.findIndex((p) => p.id === id);
@@ -366,6 +371,134 @@ function moduleArt(key) {
   const body = scenes[key];
   if (body == null) throw new Error("Bilinmeyen modül görseli: " + key);
   return `<span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${body}</svg></span>`;
+}
+
+/* Menü prototipi: kart içi temsili arayüz (örnek içerik, gerçek veri değil). */
+function hubBoxIcon(slug) {
+  if (slug === "restoran-menu") return ICON.utensils;
+  if (slug === "coklu-dil") return ICON.globe;
+  if (slug === "akilli-filtreleme") return ICON.sliders;
+  throw new Error("Hub kutu ikonu yok: " + slug);
+}
+
+function hubBoxArt(slug) {
+  const cream = "#F4F1E8";
+  const gold = "#C9A84C";
+  const goldL = "#E8C766";
+  const ink = "#0D2B22";
+  const muted = "#56625B";
+  const line = "rgba(13,43,34,.14)";
+  const sw = 'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+  const font = 'font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif"';
+  const scenes = {
+    "restoran-menu": `
+      <rect x="8" y="8" width="224" height="136" rx="14" fill="#fff" stroke="${line}"/>
+      <rect x="8" y="8" width="224" height="28" rx="14" fill="${ink}"/>
+      <rect x="8" y="22" width="224" height="14" fill="${ink}"/>
+      <text x="22" y="26" ${font} font-size="10" font-weight="700" fill="${cream}">Örnek menü</text>
+      <rect x="20" y="46" width="58" height="18" rx="9" fill="${goldL}"/>
+      <text x="49" y="58" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${ink}">Çorbalar</text>
+      <rect x="84" y="46" width="62" height="18" rx="9" fill="none" stroke="${line}"/>
+      <text x="115" y="58" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Izgaralar</text>
+      <rect x="152" y="46" width="64" height="18" rx="9" fill="none" stroke="${line}"/>
+      <text x="184" y="58" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Tatlılar</text>
+      <path d="M20 78h200" stroke="${line}"/>
+      <text x="22" y="94" ${font} font-size="11" font-weight="700" fill="${ink}">Mercimek çorbası</text>
+      <text x="218" y="94" text-anchor="end" ${font} font-size="11" font-weight="700" fill="${ink}">₺95</text>
+      <path d="M20 106h200" stroke="${line}"/>
+      <text x="22" y="122" ${font} font-size="11" font-weight="700" fill="${ink}">Ezogelin</text>
+      <text x="218" y="122" text-anchor="end" ${font} font-size="11" font-weight="700" fill="${ink}">₺90</text>
+      <text x="22" y="136" ${font} font-size="9" fill="${muted}">Örnek ürün satırı · fiyat gösterimi</text>`,
+    "coklu-dil": `
+      <rect x="8" y="8" width="224" height="136" rx="14" fill="#fff" stroke="${line}"/>
+      <rect x="8" y="8" width="224" height="28" rx="14" fill="${ink}"/>
+      <rect x="8" y="22" width="224" height="14" fill="${ink}"/>
+      <text x="22" y="26" ${font} font-size="10" font-weight="700" fill="${cream}">Menü dili</text>
+      <rect x="20" y="48" width="36" height="20" rx="10" fill="${goldL}"/>
+      <text x="38" y="62" text-anchor="middle" ${font} font-size="10" font-weight="800" fill="${ink}">TR</text>
+      <rect x="62" y="48" width="36" height="20" rx="10" fill="none" stroke="${line}"/>
+      <text x="80" y="62" text-anchor="middle" ${font} font-size="10" font-weight="700" fill="${muted}">EN</text>
+      <rect x="104" y="48" width="36" height="20" rx="10" fill="none" stroke="${line}"/>
+      <text x="122" y="62" text-anchor="middle" ${font} font-size="10" font-weight="700" fill="${muted}">DE</text>
+      <rect x="146" y="48" width="36" height="20" rx="10" fill="none" stroke="${line}"/>
+      <text x="164" y="62" text-anchor="middle" ${font} font-size="10" font-weight="700" fill="${muted}">AR</text>
+      <rect x="20" y="80" width="200" height="52" rx="10" fill="${cream}"/>
+      <text x="34" y="102" ${font} font-size="12" font-weight="800" fill="${ink}">Şefin salatası</text>
+      <text x="34" y="118" ${font} font-size="10" fill="${muted}">Chef's Salad · örnek çeviri satırı</text>`,
+    "akilli-filtreleme": `
+      <rect x="8" y="8" width="224" height="136" rx="14" fill="#fff" stroke="${line}"/>
+      <rect x="8" y="8" width="224" height="28" rx="14" fill="${ink}"/>
+      <rect x="8" y="22" width="224" height="14" fill="${ink}"/>
+      <text x="22" y="26" ${font} font-size="10" font-weight="700" fill="${cream}">Filtreler</text>
+      <rect x="20" y="46" width="72" height="20" rx="10" fill="${goldL}"/>
+      <text x="56" y="60" text-anchor="middle" ${font} font-size="9" font-weight="800" fill="${ink}">Glutensiz</text>
+      <rect x="98" y="46" width="52" height="20" rx="10" fill="none" stroke="${line}"/>
+      <text x="124" y="60" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Vegan</text>
+      <rect x="156" y="46" width="64" height="20" rx="10" fill="none" stroke="${line}"/>
+      <text x="188" y="60" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Fındık yok</text>
+      <rect x="20" y="78" width="200" height="22" rx="8" fill="${cream}"/>
+      <circle cx="36" cy="89" r="4" fill="${gold}"/>
+      <text x="48" y="93" ${font} font-size="10" font-weight="700" fill="${ink}">Izgara sebze tabağı</text>
+      <rect x="20" y="106" width="200" height="22" rx="8" fill="${cream}"/>
+      <circle cx="36" cy="117" r="4" fill="${gold}"/>
+      <text x="48" y="121" ${font} font-size="10" font-weight="700" fill="${ink}">Mercimek köftesi</text>`
+  };
+  const body = scenes[slug];
+  if (body == null) throw new Error("Hub kutu görseli yok: " + slug);
+  return `<span class="qrmo-mod-hubbox-art"><svg viewBox="0 0 240 152" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${body}</svg></span>`;
+}
+
+function hubMenuRail(mods) {
+  const boxes = join(mods, (m) => `
+        <li>
+          <a class="qrmo-mod-hubbox" href="${m.slug}/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true">${hubBoxIcon(m.slug)}</span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>${esc(m.name)}</h3>
+                <span class="qrmo-mod-hubbox-d">${esc(m.tagline)}</span>
+              </span>
+            </span>
+            ${hubBoxArt(m.slug)}
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin${ICON.arrow}</span>
+          </a>
+        </li>`);
+  return `
+      <div class="qrmo-mod-hubrail" data-qrmo-hubrail>
+        <div class="qrmo-mod-hubrail-nav">
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="Önceki menü modülleri">${ICON.prev}</button>
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="Sonraki menü modülleri">${ICON.next}</button>
+        </div>
+        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track tabindex="0" aria-label="Menü modül kutuları">${boxes}
+        </ul>
+      </div>
+      <script>
+(function () {
+  var root = document.querySelector("[data-qrmo-hubrail]");
+  if (!root) return;
+  var track = root.querySelector("[data-qrmo-hubrail-track]");
+  if (!track) return;
+  function reduce() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+  function step(dir) {
+    var card = track.querySelector("li");
+    var styles = getComputedStyle(track);
+    var gap = parseFloat(styles.columnGap || styles.gap) || 16;
+    var w = card ? card.getBoundingClientRect().width : track.clientWidth * 0.72;
+    track.scrollBy({ left: dir * (w + gap), behavior: reduce() ? "auto" : "smooth" });
+  }
+  root.addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-qrmo-hubrail-dir]");
+    if (!btn || !root.contains(btn)) return;
+    step(Number(btn.getAttribute("data-qrmo-hubrail-dir")) || 0);
+  });
+  track.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+    else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+  });
+})();
+      </script>`;
 }
 
 /* =========================================================
@@ -827,14 +960,14 @@ function renderIndex() {
   const jump = join(cats, ({ c, mods }, i) => `
           <li><a href="#${c.id}"><span class="qrmo-mod-jump-n">${pad(i + 1)}</span><strong>${esc(c.name)}</strong><small>${mods.length} modül</small></a></li>`);
 
-  const groups = join(cats, ({ c, mods }, i) => `
-  <section class="qrmo-mod-sec qrmo-mod-hubcat" id="${c.id}" aria-labelledby="qrmo-mod-hub-${c.id}">
-    <div class="qrmo-mod-inner">
+  const groups = join(cats, ({ c, mods }, i) => {
+    const head = `
       <header class="qrmo-mod-hubcat-head">
         <span class="qrmo-mod-hubcat-n" aria-hidden="true">${pad(i + 1)}</span>
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-${c.id}">${esc(c.name)}</h2>
         <p class="qrmo-mod-text">${esc(c.lead)}</p>
-      </header>
+      </header>`;
+    const body = c.id === "menu" ? hubMenuRail(mods) : `
       <ul class="qrmo-mod-hubgrid qrmo-mod-hubgrid--${mods.length}">${join(mods, (m) => {
         const { index } = modulePackage(m);
         return `
@@ -848,9 +981,13 @@ function renderIndex() {
           </span>
         </a></li>`;
       })}
-      </ul>
+      </ul>`;
+    return `
+  <section class="qrmo-mod-sec qrmo-mod-hubcat" id="${c.id}" aria-labelledby="qrmo-mod-hub-${c.id}">
+    <div class="qrmo-mod-inner">${head}${body}
     </div>
-  </section>`);
+  </section>`;
+  });
 
   const body = `
 <main id="icerik" class="qrmo-mod qrmo-mod--hub" tabindex="-1">
