@@ -60,6 +60,7 @@
     hub: {
       h1: "Siz misafirlerinize odaklanın. Gerisini kolaylaştıralım.",
       lead: "Dijital menüden masa yönetimine, siparişlerden garson çağrısına kadar restoranınızın günlük işlerini tek bir yerden kolayca yönetin.",
+      note: "Menünüzü, masa taleplerini ve sipariş süreçlerini tek bir sistemde yönetin. Misafirlerinize daha kolay bir deneyim sunarken günlük operasyonlarınızı sadeleştirin.",
       closingTitle: "Hangi modül hangi pakette?",
       closingText: "Temel, Pro ve Plus paketlerini ve içerdikleri modülleri yan yana karşılaştırın."
     },

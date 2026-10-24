@@ -862,6 +862,7 @@ function renderIndex() {
           <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MODÜLLER</span><span class="qrmo-mod-kicker-pkg">${MOD.modules.length} modül · 3 paket</span></p>
           <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${hubH1(H.h1)}</h1>
           <p class="qrmo-mod-lead">${esc(H.lead)}</p>
+          <p class="qrmo-mod-note">${esc(H.note)}</p>
           <div class="qrmo-mod-actions">
             <a class="qrmo-mod-cta" href="${rel}iletisim/#talep"><span>Demo Talep Et</span>${ICON.arrow}</a>
           </div>

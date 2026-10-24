@@ -1634,6 +1634,16 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   color: var(--qm-text);
 }
 
+.qrmo-mod--hub .qrmo-mod-note {
+  max-width: 42ch;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--qm-text);
+  text-wrap: pretty;
+}
+
 .qrmo-mod--hub .qrmo-mod-jump ol { gap: 6px; }
 
 .qrmo-mod--hub .qrmo-mod-jump a {
@@ -1844,6 +1854,12 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     max-width: 48ch;
     font-size: 18px;
   }
+  .qrmo-mod--hub .qrmo-mod-note {
+    max-width: 46ch;
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
   .qrmo-mod--hub .qrmo-mod-hubcat { padding-top: 28px; padding-bottom: 28px; }
   .qrmo-mod--hub .qrmo-mod-hero + .qrmo-mod-hubcat { padding-top: 40px; }
   .qrmo-mod--hub .qrmo-mod-hubcat-head { margin-bottom: 14px; }
@@ -1865,6 +1881,8 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     align-items: center;
     gap: 32px;
   }
+  .qrmo-mod--hub .qrmo-mod-hero-copy,
+  .qrmo-mod--hub .qrmo-hubviz { align-self: start; }
   /* 10.6em ikinci cümleyi alt satırda tutar; 1200px üstünde her cümle kendi satırında. */
   .qrmo-mod--hub .qrmo-mod-h1 {
     max-width: 10.6em;
