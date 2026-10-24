@@ -1,0 +1,203 @@
+/* Ana sayfa splash. Yalnızca index.html bağlar.
+   Zemin üretim tuvali, yazı derin orman, çizgi ve ışık sınırlı altın.
+   html.qrmo-splash yokken katman yoktur; kilit de yoktur. */
+
+.qrmo-splash {
+  --qrmo-splash-ease: cubic-bezier(0.22, 0.84, 0.28, 1);
+  display: none;
+}
+
+html.qrmo-splash-on,
+html.qrmo-mod-story-v4.qrmo-splash-on {
+  overflow: hidden;
+}
+
+html.qrmo-splash-on body,
+html.qrmo-mod-story-v4.qrmo-splash-on body {
+  overflow: hidden;
+}
+
+html.qrmo-splash-on .qrmo-splash {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding:
+    max(12px, env(safe-area-inset-top, 0px))
+    max(16px, env(safe-area-inset-right, 0px))
+    max(12px, env(safe-area-inset-bottom, 0px))
+    max(16px, env(safe-area-inset-left, 0px));
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #f8f6f0;
+  touch-action: none;
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  animation: qrmo-splash-exit 0.9s var(--qrmo-splash-ease) 3.2s forwards;
+}
+
+html.qrmo-splash-on .qrmo-splash.is-dismiss {
+  animation: qrmo-splash-dismiss 0.2s linear forwards;
+  pointer-events: none;
+}
+
+.qrmo-splash__stage {
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrmo-splash__word {
+  margin: 0;
+  color: #0d2b22;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(22px, 7.2vw, 64px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.qrmo-splash__row {
+  white-space: nowrap;
+}
+
+.qrmo-splash__row--sub {
+  margin-top: 0.2em;
+  margin-right: -0.32em;
+  font-size: 0.62em;
+  line-height: 1;
+  letter-spacing: 0.32em;
+}
+
+.qrmo-splash__ch {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+  animation: qrmo-splash-in 0.4s var(--qrmo-splash-ease) forwards;
+}
+
+.qrmo-splash__ch--q { animation-delay: 0.05s; }
+.qrmo-splash__ch--r { animation-delay: 0.28s; }
+.qrmo-splash__ch--m { animation-delay: 0.5s; animation-duration: 0.38s; }
+.qrmo-splash__ch--e { animation-delay: 0.62s; animation-duration: 0.38s; }
+.qrmo-splash__ch--n { animation-delay: 0.74s; animation-duration: 0.38s; }
+.qrmo-splash__ch--u { animation-delay: 0.86s; animation-duration: 0.38s; }
+.qrmo-splash__ch--off { animation-delay: 1.05s; animation-duration: 0.55s; }
+
+.qrmo-splash__sp {
+  display: inline-block;
+  width: 0.32em;
+}
+
+/* Çizgi, birincil satırın (QR MENU) genişliğidir. OFFICIAL daha dar ve ortalanmış kalır. */
+.qrmo-splash__rule {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.42em;
+  overflow: visible;
+  background: #c9a84c;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: qrmo-splash-draw 0.8s var(--qrmo-splash-ease) 1.55s forwards;
+}
+
+.qrmo-splash__sheen {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 42%;
+  height: 8px;
+  background: radial-gradient(
+    ellipse 68% 100% at 50% 50%,
+    #e8c766 0%,
+    rgba(232, 199, 102, 0.72) 38%,
+    rgba(232, 199, 102, 0) 72%
+  );
+  opacity: 0;
+  transform: translate3d(-130%, -50%, 0);
+  animation: qrmo-splash-sheen 1.05s linear 2.22s forwards;
+  pointer-events: none;
+}
+
+@keyframes qrmo-splash-in {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes qrmo-splash-draw {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes qrmo-splash-sheen {
+  0% {
+    opacity: 0;
+    transform: translate3d(-130%, -50%, 0);
+  }
+  14% {
+    opacity: 1;
+  }
+  76% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(360%, -50%, 0);
+  }
+}
+
+@keyframes qrmo-splash-exit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes qrmo-splash-dismiss {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (max-height: 500px) {
+  .qrmo-splash__word {
+    font-size: clamp(18px, 5vh, 36px);
+  }
+
+  .qrmo-splash__rule {
+    margin-top: 0.32em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.qrmo-splash-on,
+  html.qrmo-mod-story-v4.qrmo-splash-on,
+  html.qrmo-splash-on body,
+  html.qrmo-mod-story-v4.qrmo-splash-on body {
+    overflow: visible;
+  }
+
+  html.qrmo-splash-on .qrmo-splash {
+    display: none !important;
+    animation: none !important;
+  }
+}

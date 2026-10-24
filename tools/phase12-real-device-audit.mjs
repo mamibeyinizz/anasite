@@ -258,7 +258,7 @@ async function longTasksDuring(page, fn) {
 }
 
 const server = await startServer();
-const baseUrl = `http://127.0.0.1:${server.address().port}/index.html`;
+const baseUrl = `http://127.0.0.1:${server.address().port}/index.html?splash=off`;
 
 const browser = await chromium.launch({
   headless: true,

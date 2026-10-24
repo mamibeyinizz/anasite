@@ -171,7 +171,7 @@ else {
       check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta")).includes("İletişime Geçin"), "1200: gold CTA metni");
       const solHrefs = await page.$$eval(".qrmo-gh-d-sol", (a) => a.map((x) => x.getAttribute("href")));
       check(solHrefs.includes("../../moduller/restoran-menu/") && solHrefs.includes("../../moduller/menu-asistani/"), "1200: drawer çözüm kartları gerçek modül URL'leri", solHrefs.join(","));
-      await page.goto(base + "/", { waitUntil: "load" });
+      await page.goto(base + "/?splash=off", { waitUntil: "load" });
       const order = [];
       for (let i = 0; i < 9; i++) {
         await page.keyboard.press("Tab");
@@ -252,7 +252,7 @@ else {
     {
       const ctx = await browser.newContext({ viewport: { width: 768, height: 800 } });
       const page = await ctx.newPage();
-      await page.goto(base + "/", { waitUntil: "load" });
+      await page.goto(base + "/?splash=off", { waitUntil: "load" });
       await page.click(".qrmo-gh-burger");
       await page.waitForFunction(() => document.querySelector("[data-qrmo-gh]").classList.contains("qrmo-gh--open"));
       await page.evaluate(() => document.querySelector("[data-qrmo-gh-backdrop]").click());

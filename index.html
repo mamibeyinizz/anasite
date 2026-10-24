@@ -88,6 +88,33 @@
   </script>
   <script defer src="js/home-mod-story-v4.js"></script>
   <script defer src="js/home-mod-icon-motion.js"></script>
+<link rel="stylesheet" href="css/home-splash.css">
+<script>
+(function () {
+  var root = document.documentElement;
+  var key = "qrmo-splash-seen";
+  try {
+    if (new URLSearchParams(location.search).get("splash") === "off") return;
+  } catch (e) {
+    return;
+  }
+  try {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  } catch (e) {}
+  try {
+    if (sessionStorage.getItem(key) === "1") return;
+  } catch (e) {
+    return;
+  }
+  try {
+    sessionStorage.setItem(key, "1");
+  } catch (e) {}
+  root.classList.add("qrmo-splash-on");
+  window.addEventListener("pageshow", function (ev) {
+    if (ev.persisted) root.classList.remove("qrmo-splash-on");
+  });
+})();
+</script>
 <!-- QRMO:HEAD:START -->
 <link rel="stylesheet" href="global/dist/qrmo-global.css">
 <script src="global/dist/qrmo-conversion-config.js"></script>
@@ -95,6 +122,79 @@
 <!-- QRMO:HEAD:END -->
 </head>
 <body class="qrmo-home-ctx">
+<div id="qrmo-splash" class="qrmo-splash" aria-hidden="true">
+  <div class="qrmo-splash__stage">
+    <div class="qrmo-splash__word">
+      <div class="qrmo-splash__row"><span class="qrmo-splash__ch qrmo-splash__ch--q">Q</span><span class="qrmo-splash__ch qrmo-splash__ch--r">R</span><span class="qrmo-splash__sp">&#160;</span><span class="qrmo-splash__ch qrmo-splash__ch--m">M</span><span class="qrmo-splash__ch qrmo-splash__ch--e">E</span><span class="qrmo-splash__ch qrmo-splash__ch--n">N</span><span class="qrmo-splash__ch qrmo-splash__ch--u">U</span></div>
+      <div class="qrmo-splash__row qrmo-splash__row--sub"><span class="qrmo-splash__ch qrmo-splash__ch--off">O</span><span class="qrmo-splash__ch qrmo-splash__ch--off">F</span><span class="qrmo-splash__ch qrmo-splash__ch--off">F</span><span class="qrmo-splash__ch qrmo-splash__ch--off">I</span><span class="qrmo-splash__ch qrmo-splash__ch--off">C</span><span class="qrmo-splash__ch qrmo-splash__ch--off">I</span><span class="qrmo-splash__ch qrmo-splash__ch--off">A</span><span class="qrmo-splash__ch qrmo-splash__ch--off">L</span></div>
+    </div>
+    <span class="qrmo-splash__rule"><span class="qrmo-splash__sheen"></span></span>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains("qrmo-splash-on")) return;
+  var el = document.getElementById("qrmo-splash");
+  if (!el) {
+    root.classList.remove("qrmo-splash-on");
+    return;
+  }
+  var closed = false;
+  var swallowUntil = 0;
+  var safety = window.setTimeout(finish, 5200);
+  var early = 0;
+
+  function finish() {
+    if (closed) return;
+    closed = true;
+    window.clearTimeout(safety);
+    window.clearTimeout(early);
+    root.classList.remove("qrmo-splash-on");
+  }
+
+  function dismiss(fromPointer) {
+    if (closed || el.classList.contains("is-dismiss")) return;
+    if (fromPointer) swallowUntil = performance.now() + 450;
+    el.classList.add("is-dismiss");
+    early = window.setTimeout(finish, 240);
+  }
+
+  el.addEventListener("animationend", function (e) {
+    if (e.target !== el) return;
+    if (e.animationName !== "qrmo-splash-exit" && e.animationName !== "qrmo-splash-dismiss") return;
+    finish();
+  });
+
+  el.addEventListener("pointerdown", function (e) {
+    if (e.button && e.button !== 0) return;
+    e.preventDefault();
+    e.stopPropagation();
+    dismiss(true);
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!swallowUntil || performance.now() > swallowUntil) return;
+    swallowUntil = 0;
+    e.preventDefault();
+    e.stopPropagation();
+  }, true);
+
+  document.addEventListener("keydown", function (e) {
+    if (!root.classList.contains("qrmo-splash-on")) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      e.stopPropagation();
+      dismiss(false);
+      return;
+    }
+    if (e.key === "Tab" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
+})();
+</script>
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>

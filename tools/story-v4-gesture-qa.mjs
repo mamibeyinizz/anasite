@@ -54,7 +54,7 @@ if (!pw) {
 }
 
 const { s, port } = await serve();
-const base = `http://127.0.0.1:${port}${PREFIX}/index.html`;
+const base = `http://127.0.0.1:${port}${PREFIX}/index.html?splash=off`;
 const browser = await pw.chromium.launch();
 const issues = [];
 const consoleErrors = [];

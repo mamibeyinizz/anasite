@@ -75,7 +75,7 @@ try {
   for (const w of WIDTHS) {
     const ctx = await browser.newContext({ viewport: { width: w, height: 900 } });
     const page = await ctx.newPage();
-    await page.goto(base, { waitUntil: "load" });
+    await page.goto(base + "?splash=off", { waitUntil: "load" });
 
     const layout = await page.evaluate(() => {
       const vw = document.documentElement.clientWidth;
