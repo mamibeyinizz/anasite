@@ -1883,7 +1883,8 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   }
   .qrmo-mod--hub .qrmo-mod-hero-copy,
   .qrmo-mod--hub .qrmo-hubviz { align-self: start; }
-  /* 10.6em ikinci cümleyi alt satırda tutar; 1200px üstünde her cümle kendi satırında. */
+  .qrmo-mod--hub .qrmo-mod-hero-copy { width: 100%; min-width: 0; }
+  /* 10.6em, ikinci cümle tek satıra sığmadan önce yarım kırılımı önler. */
   .qrmo-mod--hub .qrmo-mod-h1 {
     max-width: 10.6em;
     font-size: clamp(56px, 4vw, 64px);
@@ -1917,7 +1918,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 @media (min-width: 1200px) {
   .qrmo-mod--hub .qrmo-mod-hubhero {
-    grid-template-columns: minmax(0, 1fr) minmax(340px, 1fr);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     gap: 36px;
     align-items: center;
   }
