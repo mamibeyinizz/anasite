@@ -1845,17 +1845,23 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   min-width: 0;
   max-width: 100%;
   margin: 0;
-  padding: 2px 0 8px;
+  padding: 2px 0 4px;
   list-style: none;
   overflow-x: auto;
   overflow-y: hidden;
   overflow-anchor: none;
   overscroll-behavior-x: contain;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(13, 43, 34, .28) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   scroll-padding-inline: 0;
   scroll-snap-type: none;
   direction: ltr;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubrail-track::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .qrmo-mod--hub .qrmo-mod-hubrail-track > li {

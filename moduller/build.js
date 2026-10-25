@@ -473,7 +473,13 @@ function hubMenuRail(mods) {
   if (!root) return;
   var track = root.querySelector("[data-qrmo-hubrail-track]");
   if (!track) return;
-  track.scrollLeft = 0;
+  var userMoved = false;
+  function alignStart() {
+    track.scrollLeft = 0;
+  }
+  function markMoved() {
+    userMoved = true;
+  }
   function reduce() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
@@ -502,6 +508,7 @@ function hubMenuRail(mods) {
     track.scrollTo({ left: dest, behavior: reduce() ? "auto" : "smooth" });
   }
   function step(dir) {
+    userMoved = true;
     scrollToIndex(leadIndex() + (Number(dir) || 0));
   }
   root.addEventListener("click", function (e) {
@@ -512,6 +519,30 @@ function hubMenuRail(mods) {
   root.addEventListener("keydown", function (e) {
     if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+  });
+  track.addEventListener("pointerdown", markMoved, { passive: true });
+  track.addEventListener("wheel", markMoved, { passive: true });
+  track.addEventListener("touchstart", markMoved, { passive: true });
+  function enterMenu() {
+    alignStart();
+    requestAnimationFrame(alignStart);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    if (href === "#menu" || a.hash === "#menu") enterMenu();
+  });
+  window.addEventListener("hashchange", function () {
+    if (location.hash === "#menu") enterMenu();
+  });
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) return;
+    if (!userMoved) alignStart();
+  });
+  alignStart();
+  requestAnimationFrame(function () {
+    if (!userMoved) alignStart();
   });
 })();
       </script>`;
