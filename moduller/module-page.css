@@ -2035,6 +2035,11 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   --hubui-cols: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr);
 }
 
+.qrmo-mod--hub .qrmo-mod-hubui--qr .qrmo-mod-hubui-table,
+.qrmo-mod--hub .qrmo-mod-hubui--reviews .qrmo-mod-hubui-table {
+  --hubui-cols: minmax(0, 1.15fr) minmax(0, .95fr) minmax(0, .85fr);
+}
+
 .qrmo-mod--hub .qrmo-mod-hubui-tr {
   display: contents;
 }
@@ -2175,6 +2180,204 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   line-height: 1.3;
   background: #F7F4EC;
   border-top: 1px solid var(--qm-line);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kanban {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 0;
+  background: #FBF9F3;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kcol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 8px 6px 6px;
+  background: #fff;
+  border-right: 1px solid var(--qm-line);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kcol:last-child {
+  border-right: 0;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kc {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  padding: 5px 6px;
+  overflow: hidden;
+  color: var(--qm-ink);
+  font-size: 11px;
+  line-height: 1.25;
+  background: #fff;
+  border: 1px solid var(--qm-line);
+  border-radius: 4px;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kc b {
+  color: var(--qm-muted);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kc.is-on {
+  box-shadow: inset 2px 0 0 var(--qm-gold);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kv {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 6px;
+  color: var(--qm-ink);
+  font-size: 11px;
+  line-height: 1.25;
+  background: #fff;
+  border: 1px solid var(--qm-line);
+  border-radius: 4px;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kv small {
+  color: var(--qm-muted);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-kv b {
+  font-variant-numeric: tabular-nums;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-hit.is-on {
+  box-shadow: inset 2px 0 0 var(--qm-gold);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-lock {
+  margin-top: 6px;
+  padding: 12px 8px;
+  color: var(--qm-ink);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.3;
+  text-align: center;
+  background: #fff;
+  border: 1px dashed var(--qm-line);
+  border-radius: 4px;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-thread {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 0;
+  padding: 8px;
+  background: #fff;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-msg {
+  max-width: 92%;
+  padding: 6px 8px;
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.3;
+  border-radius: 6px;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-msg--user {
+  align-self: flex-start;
+  color: var(--qm-ink);
+  background: #F4F1E8;
+  border: 1px solid var(--qm-line);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-msg--bot {
+  align-self: flex-start;
+  color: var(--qm-cream);
+  background: var(--qm-green-dark);
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-rank {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  padding: 8px 10px 10px;
+  background: #fff;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-rk {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  color: var(--qm-ink);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-rk i {
+  display: block;
+  width: var(--w, 40%);
+  max-width: 100%;
+  height: 6px;
+  background: var(--qm-green-dark);
+  border-radius: 2px;
+  opacity: .28;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-rk.is-on i {
+  background: var(--qm-gold);
+  opacity: 1;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-quads {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  min-height: 0;
+  padding: 8px;
+  background: #FBF9F3;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-quad {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  padding: 8px;
+  overflow: hidden;
+  color: var(--qm-ink);
+  background: #fff;
+  border: 1px solid var(--qm-line);
+  border-radius: 4px;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-quad b {
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-quad small {
+  overflow: hidden;
+  color: var(--qm-muted);
+  font-size: 10px;
+  line-height: 1.3;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubui-quad.is-on {
+  box-shadow: inset 2px 0 0 var(--qm-gold);
 }
 
 .qrmo-mod--hub .qrmo-mod-hubbox-go {

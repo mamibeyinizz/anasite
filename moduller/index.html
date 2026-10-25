@@ -254,7 +254,7 @@
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-menu">Menü</h2>
         <p class="qrmo-mod-text">Müşterinin telefonunda açılan menü: içerik, dil ve filtre.</p>
       </header>
-      <div class="qrmo-mod-hubrail" data-qrmo-hubrail>
+      <div class="qrmo-mod-hubrail" data-qrmo-hubrail="menu">
         <div class="qrmo-mod-hubrail-nav">
           <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="Önceki menü modülleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></button>
           <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="Sonraki menü modülleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
@@ -344,81 +344,6 @@
           <li class="qrmo-mod-hubrail-end" aria-hidden="true"></li>
         </ul>
       </div>
-      <script>
-(function () {
-  var root = document.querySelector("[data-qrmo-hubrail]");
-  if (!root) return;
-  var track = root.querySelector("[data-qrmo-hubrail-track]");
-  if (!track) return;
-  var userMoved = false;
-  function alignStart() {
-    track.scrollLeft = 0;
-  }
-  function markMoved() {
-    userMoved = true;
-  }
-  function reduce() {
-    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-  function items() {
-    return Array.prototype.slice.call(track.querySelectorAll("[data-qrmo-hubrail-card]"));
-  }
-  function leadIndex() {
-    var origin = track.getBoundingClientRect().left + 1;
-    var list = items();
-    var i, best = 0, bestScore = Infinity;
-    for (i = 0; i < list.length; i++) {
-      var d = list[i].getBoundingClientRect().left - origin;
-      var score = d >= -8 ? Math.abs(d) : Math.abs(d) + 80;
-      if (score < bestScore) { bestScore = score; best = i; }
-    }
-    return best;
-  }
-  function scrollToIndex(i) {
-    var list = items();
-    if (!list.length) return;
-    i = Math.max(0, Math.min(list.length - 1, i));
-    var dest;
-    if (i <= 0) dest = 0;
-    else if (i >= list.length - 1) dest = Math.max(0, track.scrollWidth - track.clientWidth);
-    else dest = list[i].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
-    track.scrollTo({ left: dest, behavior: reduce() ? "auto" : "smooth" });
-  }
-  function step(dir) {
-    userMoved = true;
-    scrollToIndex(leadIndex() + (Number(dir) || 0));
-  }
-  root.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-qrmo-hubrail-dir]");
-    if (!btn || !root.contains(btn)) return;
-    step(btn.getAttribute("data-qrmo-hubrail-dir"));
-  });
-  root.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
-    else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
-  });
-  track.addEventListener("pointerdown", markMoved, { passive: true });
-  track.addEventListener("wheel", markMoved, { passive: true });
-  track.addEventListener("touchstart", markMoved, { passive: true });
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest("a");
-    if (!a) return;
-    var href = a.getAttribute("href") || "";
-    if (href === "#menu" || (a.hash === "#menu")) alignStart();
-  });
-  window.addEventListener("hashchange", function () {
-    if (location.hash === "#menu") alignStart();
-  });
-  window.addEventListener("pageshow", function (e) {
-    if (e.persisted) return;
-    if (!userMoved) alignStart();
-  });
-  alignStart();
-  requestAnimationFrame(function () {
-    if (!userMoved) alignStart();
-  });
-})();
-      </script>
     </div>
   </section>
   <section class="qrmo-mod-sec qrmo-mod-hubcat" id="servis" aria-labelledby="qrmo-mod-hub-servis">
@@ -428,65 +353,97 @@
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-servis">Masa &amp; Servis</h2>
         <p class="qrmo-mod-text">Masadan gelen talebin ekibinize ulaştığı akış.</p>
       </header>
-      <ul class="qrmo-mod-hubgrid qrmo-mod-hubgrid--3">
-        <li><a class="qrmo-mod-card" href="qr-masa/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <ellipse cx="100" cy="102" rx="66" ry="9" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="72" y="26" width="56" height="70" rx="8" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="82" y="38" width="16" height="16" rx="2" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="86" y="42" width="8" height="8" fill="#E8C766"/>
-      <rect x="104" y="38" width="16" height="16" rx="2" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="108" y="42" width="8" height="8" fill="#F4F1E8"/>
-      <rect x="84" y="60" width="5" height="5" fill="#F4F1E8"/>
-      <rect x="92" y="60" width="5" height="5" fill="#E8C766"/>
-      <rect x="108" y="60" width="5" height="5" fill="#F4F1E8" opacity=".7"/>
-      <rect x="100" y="68" width="5" height="5" fill="#F4F1E8"/>
-      <rect x="112" y="72" width="5" height="5" fill="#E8C766"/>
-      <path d="M84 84h32" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".45"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>QR Masa</h3>
-            <span class="qrmo-mod-chip">Tüm paketlerde</span>
-            <span class="qrmo-mod-card-d">Her masaya kendi QR kodu.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-        <li><a class="qrmo-mod-card" href="servis-paneli/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <rect x="22" y="18" width="156" height="84" rx="10" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="34" y="32" width="40" height="58" rx="8" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M46 60c0-8 3.6-13 8-13s8 5 8 13" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M43 60h22" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="54" cy="66" r="2.2" fill="#F4F1E8"/>
-      <rect x="80" y="32" width="40" height="58" rx="8" fill="#E8C766" fill-opacity=".16" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="100" cy="54" r="9" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="100" cy="54" r="3" fill="#E8C766"/>
-      <path d="M86 70h28" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="126" y="32" width="40" height="58" rx="8" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M136 50h20M136 58h14M136 66h18" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>Servis Paneli</h3>
-            <span class="qrmo-mod-chip">Pro ve Plus paketlerinde</span>
-            <span class="qrmo-mod-card-d">Masadan gelen talepler tek ekranda.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-        <li><a class="qrmo-mod-card" href="masa-oturum-guvenligi/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path d="M72 16 110 32v26c0 20-14 34-38 42-24-8-38-22-38-42V32L72 16Z" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58 54l10 10 20-22" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="150" cy="58" r="26" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/>
-      <path d="M150 32a26 26 0 0 1 22 40" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M150 58V42M150 58l12 8" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="150" cy="58" r="2.6" fill="#E8C766"/>
-      <ellipse cx="108" cy="106" rx="62" ry="7" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>Masa Oturum Güvenliği</h3>
-            <span class="qrmo-mod-chip">Pro ve Plus paketlerinde</span>
-            <span class="qrmo-mod-card-d">Masa oturumu doğrulanmış ve süreli.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-      </ul>
+      <div class="qrmo-mod-hubrail" data-qrmo-hubrail="servis">
+        <div class="qrmo-mod-hubrail-nav">
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="Önceki Masa &amp; Servis modülleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></button>
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="Sonraki Masa &amp; Servis modülleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+        </div>
+        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track aria-label="Masa &amp; Servis modül kutuları">
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="qr-masa/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><path d="M14 14h2v2h-2z"/><path d="M18 14h2v2h-2z"/><path d="M14 18h2v2h-2z"/><path d="M18 18h2v2h-2z"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>QR Masa</h3>
+                <span class="qrmo-mod-hubbox-d">Her masaya kendi QR kodu.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--qr">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">QR Kodlar</span>
+                <span class="qrmo-mod-hubui-field">Masa ara</span>
+              </span>
+              <span class="qrmo-mod-hubui-table">
+                <span class="qrmo-mod-hubui-tr qrmo-mod-hubui-tr--h"><span class="qrmo-mod-hubui-td">Masa</span><span class="qrmo-mod-hubui-td">Adres</span><span class="qrmo-mod-hubui-td">Çıktı</span></span>
+                <span class="qrmo-mod-hubui-tr is-on"><span class="qrmo-mod-hubui-td">Masa 12</span><span class="qrmo-mod-hubui-td">masa-12</span><span class="qrmo-mod-hubui-td">PNG · PDF</span></span>
+                <span class="qrmo-mod-hubui-tr"><span class="qrmo-mod-hubui-td">ic-masa-3</span><span class="qrmo-mod-hubui-td">ic-masa-3</span><span class="qrmo-mod-hubui-td">PNG · PDF</span></span>
+                <span class="qrmo-mod-hubui-tr"><span class="qrmo-mod-hubui-td">VIP Salon</span><span class="qrmo-mod-hubui-td">vip-salon</span><span class="qrmo-mod-hubui-td">PNG · PDF</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="servis-paneli/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="5.5" height="14" rx="1"/><rect x="9.25" y="5" width="5.5" height="14" rx="1"/><rect x="15" y="5" width="5.5" height="14" rx="1"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>Servis Paneli</h3>
+                <span class="qrmo-mod-hubbox-d">Masadan gelen talepler tek ekranda.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--board">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Servis Paneli</span>
+                <span class="qrmo-mod-hubui-langs"><span class="is-on">Tümü</span><span>Sipariş</span><span>Garson</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-kanban">
+                <span class="qrmo-mod-hubui-kcol"><span class="qrmo-mod-hubui-pane-t">Bekliyor</span><span class="qrmo-mod-hubui-kc is-on"><b>Garson</b>Masa 4</span><span class="qrmo-mod-hubui-kc"><b>Hesap</b>Masa 9</span></span>
+                <span class="qrmo-mod-hubui-kcol"><span class="qrmo-mod-hubui-pane-t">Hazırlanıyor</span><span class="qrmo-mod-hubui-kc"><b>Sipariş</b>Masa 12</span></span>
+                <span class="qrmo-mod-hubui-kcol"><span class="qrmo-mod-hubui-pane-t">Serviste</span><span class="qrmo-mod-hubui-kc"><b>Sipariş</b>Masa 7</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="masa-oturum-guvenligi/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>Masa Oturum Güvenliği</h3>
+                <span class="qrmo-mod-hubbox-d">Masa oturumu doğrulanmış ve süreli.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--session">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Oturum limitleri</span>
+              </span>
+              <span class="qrmo-mod-hubui-split">
+                <span class="qrmo-mod-hubui-pane">
+                  <span class="qrmo-mod-hubui-pane-t">Kayıtlı masa</span>
+                  <span class="qrmo-mod-hubui-hit is-on">Masa 7 · aktif</span>
+                  <span class="qrmo-mod-hubui-kv"><small>En uzun oturum</small><b>90 dk</b></span>
+                  <span class="qrmo-mod-hubui-kv"><small>Hareketsizlik</small><b>30 dk</b></span>
+                </span>
+                <span class="qrmo-mod-hubui-pane qrmo-mod-hubui-pane--list">
+                  <span class="qrmo-mod-hubui-pane-t">Kayıtsız adres</span>
+                  <span class="qrmo-mod-hubui-lock">Oturum gerekli</span>
+                </span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+          <li class="qrmo-mod-hubrail-end" aria-hidden="true"></li>
+        </ul>
+      </div>
     </div>
   </section>
   <section class="qrmo-mod-sec qrmo-mod-hubcat" id="isletme" aria-labelledby="qrmo-mod-hub-isletme">
@@ -496,84 +453,207 @@
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-isletme">Akıllı İşletme</h2>
         <p class="qrmo-mod-text">Menüyü soru, kullanım verisi, geri bildirim ve maliyetle yöneten araçlar.</p>
       </header>
-      <ul class="qrmo-mod-hubgrid qrmo-mod-hubgrid--4">
-        <li><a class="qrmo-mod-card" href="menu-asistani/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <rect x="24" y="18" width="92" height="34" rx="10" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M40 35h52" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
-      <path d="M40 52 30 64h16" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="72" y="58" width="104" height="44" rx="10" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="94" cy="80" r="9" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="94" cy="80" r="3" fill="#E8C766"/>
-      <path d="M112 74h48" stroke="#E8C766" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M112 88h32" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>
-      <path d="M168 50l1.5 3.4 3.6.4-2.7 2.3.8 3.5-3.2-1.9-3.2 1.9.8-3.5-2.7-2.3 3.6-.4Z" fill="#E8C766"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>Menü Asistanı</h3>
-            <span class="qrmo-mod-chip">Plus paketinde</span>
-            <span class="qrmo-mod-card-d">Menü sorularını sohbette yanıtlar.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-        <li><a class="qrmo-mod-card" href="qr-analytics/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <rect x="28" y="16" width="144" height="88" rx="10" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M46 86h112" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/>
-      <rect x="54" y="64" width="14" height="22" rx="4" fill="#F4F1E8" opacity=".4"/>
-      <rect x="76" y="52" width="14" height="34" rx="4" fill="#F4F1E8" opacity=".62"/>
-      <rect x="98" y="36" width="14" height="50" rx="4" fill="#E8C766"/>
-      <rect x="120" y="46" width="14" height="40" rx="4" fill="#F4F1E8" opacity=".5"/>
-      <path d="M61 58 83 48 105 34 127 44" stroke="#C9A84C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="105" cy="34" r="3.5" fill="#E8C766"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>QR Analytics</h3>
-            <span class="qrmo-mod-chip">Plus paketinde</span>
-            <span class="qrmo-mod-card-d">Menünüzün nasıl kullanıldığını görün.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-        <li><a class="qrmo-mod-card" href="yorum-geri-bildirim/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path d="M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z" fill="#E8C766" transform="translate(34 28) scale(0.92)"/>
-      <path d="M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z" fill="#E8C766" transform="translate(54 28) scale(0.92)"/>
-      <path d="M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z" fill="#E8C766" transform="translate(74 28) scale(0.92)"/>
-      <path d="M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z" fill="#E8C766" transform="translate(94 28) scale(0.92)"/>
-      <path d="M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z" fill="#F4F1E8" opacity=".28" transform="translate(114 28) scale(.92)"/>
-      <rect x="24" y="48" width="152" height="52" rx="10" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M40 68h84" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
-      <path d="M40 82h56" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".5"/>
-      <circle cx="158" cy="74" r="16" fill="#E8C766"/>
-      <path d="M151 74h14M159 67l7 7-7 7" stroke="#0D2B22" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>Yorum &amp; Geri Bildirim</h3>
-            <span class="qrmo-mod-chip">Plus paketinde</span>
-            <span class="qrmo-mod-card-d">Müşterinin görüşü size ulaşsın.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-        <li><a class="qrmo-mod-card" href="menu-muhendisligi/">
-          <span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path d="M40 22v80H172" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M35 32 40 22l5 10" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M162 97l10 5-10 5" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="52" y="34" width="52" height="28" rx="8" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
-      <rect x="112" y="34" width="52" height="28" rx="8" fill="#E8C766"/>
-      <rect x="52" y="68" width="52" height="28" rx="8" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".32"/>
-      <rect x="112" y="68" width="52" height="28" rx="8" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-      <circle cx="78" cy="48" r="4" stroke="#F4F1E8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M0-7.2 2.1-2.2 7.6-1.6 3.6 2.2 4.6 7.6 0 4.8-4.6 7.6-3.6 2.2-7.6-1.6-2.1-2.2Z" fill="#0D2B22" transform="translate(138 48) scale(0.85)"/>
-      <circle cx="78" cy="82" r="4" fill="#F4F1E8" opacity=".28"/>
-      <circle cx="138" cy="82" r="4" fill="#F4F1E8" opacity=".7"/></svg></span>
-          <span class="qrmo-mod-card-b">
-            <h3>Menü Mühendisliği</h3>
-            <span class="qrmo-mod-chip">Plus paketinde</span>
-            <span class="qrmo-mod-card-d">Menünün performansını popülerlik ve kârlılıkla görün.</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          </span>
-        </a></li>
-      </ul>
+      <div class="qrmo-mod-hubrail" data-qrmo-hubrail="isletme">
+        <div class="qrmo-mod-hubrail-nav">
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="Önceki Akıllı İşletme modülleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></button>
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="Sonraki Akıllı İşletme modülleri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+        </div>
+        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track aria-label="Akıllı İşletme modül kutuları">
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="menu-asistani/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6.5h14a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 19 17.5H9L5 20.5V8A1.5 1.5 0 0 1 6.5 6.5Z"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>Menü Asistanı</h3>
+                <span class="qrmo-mod-hubbox-d">Menü sorularını sohbette yanıtlar.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--chat">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Menü Asistanı</span>
+              </span>
+              <span class="qrmo-mod-hubui-thread">
+                <span class="qrmo-mod-hubui-msg qrmo-mod-hubui-msg--user">Acı olmayan bir ana yemek önerir misiniz?</span>
+                <span class="qrmo-mod-hubui-msg qrmo-mod-hubui-msg--bot">Acısız girilmiş ürünlerden ızgara tavuk önerilebilir.</span>
+                <span class="qrmo-mod-hubui-hit">Izgara tavuk · ana yemek</span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="qr-analytics/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 19h16"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-8"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>QR Analytics</h3>
+                <span class="qrmo-mod-hubbox-d">Menünüzün nasıl kullanıldığını görün.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--chart">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">İstatistikler</span>
+                <span class="qrmo-mod-hubui-langs"><span>Bugün</span><span class="is-on">Son 7 gün</span><span>Bu ay</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-rank">
+                <span class="qrmo-mod-hubui-pane-t">Ürün ilgisi</span>
+                <span class="qrmo-mod-hubui-rk is-on"><span>Izgara tavuk</span><i style="--w:100%"></i></span>
+                <span class="qrmo-mod-hubui-rk"><span>Serpme kahvaltı</span><i style="--w:72%"></i></span>
+                <span class="qrmo-mod-hubui-rk"><span>Filtre kahve</span><i style="--w:58%"></i></span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="yorum-geri-bildirim/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.1 4.4 4.8.6-3.5 3.3.9 4.7L12 15.2 7.7 17l.9-4.7-3.5-3.3 4.8-.6Z"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>Yorum &amp; Geri Bildirim</h3>
+                <span class="qrmo-mod-hubbox-d">Müşterinin görüşü size ulaşsın.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--reviews">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Yorumlar</span>
+                <span class="qrmo-mod-hubui-langs"><span>Tümü</span><span>Olumlu</span><span class="is-on">Olumsuz</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-table">
+                <span class="qrmo-mod-hubui-tr qrmo-mod-hubui-tr--h"><span class="qrmo-mod-hubui-td">Yorum</span><span class="qrmo-mod-hubui-td">Masa</span><span class="qrmo-mod-hubui-td">Durum</span></span>
+                <span class="qrmo-mod-hubui-tr is-on"><span class="qrmo-mod-hubui-td">Servis bekledi.</span><span class="qrmo-mod-hubui-td">Masa 4</span><span class="qrmo-mod-hubui-td qrmo-mod-hubui-st qrmo-mod-hubui-st--mute">Bekliyor</span></span>
+                <span class="qrmo-mod-hubui-tr"><span class="qrmo-mod-hubui-td">Masa düzeni iyiydi.</span><span class="qrmo-mod-hubui-td">Masa 9</span><span class="qrmo-mod-hubui-td qrmo-mod-hubui-st">Yayında</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li data-qrmo-hubrail-card>
+          <a class="qrmo-mod-hubbox" href="menu-muhendisligi/">
+            <span class="qrmo-mod-hubbox-top">
+              <span class="qrmo-mod-hubbox-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></span>
+              <span class="qrmo-mod-hubbox-copy">
+                <h3>Menü Mühendisliği</h3>
+                <span class="qrmo-mod-hubbox-d">Menünün performansını popülerlik ve kârlılıkla görün.</span>
+              </span>
+            </span>
+            <span class="qrmo-mod-hubbox-art" aria-hidden="true">
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--matrix">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Menü performansı</span>
+              </span>
+              <span class="qrmo-mod-hubui-quads">
+                <span class="qrmo-mod-hubui-quad"><b>Yıldız</b><small>Izgara tavuk</small></span>
+                <span class="qrmo-mod-hubui-quad is-on"><b>Gizli fırsat</b><small>Künefe</small></span>
+                <span class="qrmo-mod-hubui-quad"><b>Çok satan</b><small>Mercimek çorbası</small></span>
+                <span class="qrmo-mod-hubui-quad"><b>Zayıf performans</b><small>Örnek ürün</small></span>
+              </span>
+              <span class="qrmo-mod-hubui-cap">Temsili arayüz · örnek içerik</span>
+            </span></span>
+            <span class="qrmo-mod-hubbox-go">Modülü inceleyin<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          </a>
+        </li>
+          <li class="qrmo-mod-hubrail-end" aria-hidden="true"></li>
+        </ul>
+      </div>
     </div>
   </section>
+      <script>
+(function () {
+  var rails = document.querySelectorAll("[data-qrmo-hubrail]");
+  var byId = {};
+  Array.prototype.forEach.call(rails, bindRail);
+  function bindRail(root) {
+    var id = root.getAttribute("data-qrmo-hubrail") || "";
+    var track = root.querySelector("[data-qrmo-hubrail-track]");
+    if (!track) return;
+    var userMoved = false;
+    function alignStart() {
+      track.scrollLeft = 0;
+    }
+    function markMoved() {
+      userMoved = true;
+    }
+    function reduce() {
+      return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+    function items() {
+      return Array.prototype.slice.call(track.querySelectorAll("[data-qrmo-hubrail-card]"));
+    }
+    function leadIndex() {
+      var origin = track.getBoundingClientRect().left + 1;
+      var list = items();
+      var i, best = 0, bestScore = Infinity;
+      for (i = 0; i < list.length; i++) {
+        var d = list[i].getBoundingClientRect().left - origin;
+        var score = d >= -8 ? Math.abs(d) : Math.abs(d) + 80;
+        if (score < bestScore) { bestScore = score; best = i; }
+      }
+      return best;
+    }
+    function scrollToIndex(i) {
+      var list = items();
+      if (!list.length) return;
+      i = Math.max(0, Math.min(list.length - 1, i));
+      var dest;
+      if (i <= 0) dest = 0;
+      else if (i >= list.length - 1) dest = Math.max(0, track.scrollWidth - track.clientWidth);
+      else dest = list[i].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+      track.scrollTo({ left: dest, behavior: reduce() ? "auto" : "smooth" });
+    }
+    function step(dir) {
+      userMoved = true;
+      scrollToIndex(leadIndex() + (Number(dir) || 0));
+    }
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-qrmo-hubrail-dir]");
+      if (!btn || !root.contains(btn)) return;
+      step(btn.getAttribute("data-qrmo-hubrail-dir"));
+    });
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    });
+    track.addEventListener("pointerdown", markMoved, { passive: true });
+    track.addEventListener("wheel", markMoved, { passive: true });
+    track.addEventListener("touchstart", markMoved, { passive: true });
+    function enter() {
+      alignStart();
+      requestAnimationFrame(alignStart);
+    }
+    byId[id] = {
+      enter: enter,
+      pin: function () { if (!userMoved) alignStart(); }
+    };
+    alignStart();
+    requestAnimationFrame(function () {
+      if (!userMoved) alignStart();
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a");
+    if (!a) return;
+    var href = a.getAttribute("href") || "";
+    var hash = a.hash || (href.charAt(0) === "#" ? href : "");
+    var id = hash.charAt(0) === "#" ? hash.slice(1) : "";
+    if (id && byId[id]) byId[id].enter();
+  });
+  window.addEventListener("hashchange", function () {
+    var id = (location.hash || "").slice(1);
+    if (id && byId[id]) byId[id].enter();
+  });
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) return;
+    Object.keys(byId).forEach(function (k) { byId[k].pin(); });
+  });
+})();
+      </script>
   <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
       <div class="qrmo-mod-close qrmo-mod-close--hub">

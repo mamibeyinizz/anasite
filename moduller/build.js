@@ -63,7 +63,13 @@ const ICON = {
   next: svg('<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'),
   list: svg('<rect x="7" y="3" width="10" height="4" rx="1"/><path d="M16 5h1.5A1.5 1.5 0 0 1 19 6.5v13A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-13A1.5 1.5 0 0 1 6.5 5H8"/><path d="M9 11h6"/><path d="M9 15h6"/>'),
   lang: svg('<path d="M5 5h9"/><path d="M9.5 5c0 4-2 7-6 8"/><path d="m8 9 3.5 7"/><path d="m14 19 3-7 3 7"/><path d="M15.2 16.5h3.6"/>'),
-  filter: svg('<path d="M4 5h16l-6.2 7.4V18l-3.6 1.6v-7.2L4 5z"/>')
+  filter: svg('<path d="M4 5h16l-6.2 7.4V18l-3.6 1.6v-7.2L4 5z"/>'),
+  qr: svg('<rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><path d="M14 14h2v2h-2z"/><path d="M18 14h2v2h-2z"/><path d="M14 18h2v2h-2z"/><path d="M18 18h2v2h-2z"/>'),
+  board: svg('<rect x="3.5" y="5" width="5.5" height="14" rx="1"/><rect x="9.25" y="5" width="5.5" height="14" rx="1"/><rect x="15" y="5" width="5.5" height="14" rx="1"/>'),
+  chat: svg('<path d="M5 6.5h14a1.5 1.5 0 0 1 1.5 1.5v8A1.5 1.5 0 0 1 19 17.5H9L5 20.5V8A1.5 1.5 0 0 1 6.5 6.5Z"/>'),
+  chart: svg('<path d="M4 19h16"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-8"/>'),
+  star: svg('<path d="m12 4 2.1 4.4 4.8.6-3.5 3.3.9 4.7L12 15.2 7.7 17l.9-4.7-3.5-3.3 4.8-.6Z"/>'),
+  grid: svg('<rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/>')
 };
 
 const pkgIdx = (id) => PKG.packages.findIndex((p) => p.id === id);
@@ -375,10 +381,20 @@ function moduleArt(key) {
 
 /* Menü prototipi: kart içi temsili masaüstü yazılım arayüzü. */
 function hubBoxIcon(slug) {
-  if (slug === "restoran-menu") return ICON.list;
-  if (slug === "coklu-dil") return ICON.lang;
-  if (slug === "akilli-filtreleme") return ICON.filter;
-  throw new Error("Hub kutu ikonu yok: " + slug);
+  const map = {
+    "restoran-menu": ICON.list,
+    "coklu-dil": ICON.lang,
+    "akilli-filtreleme": ICON.filter,
+    "qr-masa": ICON.qr,
+    "servis-paneli": ICON.board,
+    "masa-oturum-guvenligi": ICON.lock,
+    "menu-asistani": ICON.chat,
+    "qr-analytics": ICON.chart,
+    "yorum-geri-bildirim": ICON.star,
+    "menu-muhendisligi": ICON.grid
+  };
+  if (!map[slug]) throw new Error("Hub kutu ikonu yok: " + slug);
+  return map[slug];
 }
 
 function hubUiCell(text, extra) {
@@ -436,13 +452,118 @@ function hubBoxUi(slug) {
               </span>
               ${cap}
             </span>`;
+  } else if (slug === "qr-masa") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--qr">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">QR Kodlar</span>
+                <span class="qrmo-mod-hubui-field">Masa ara</span>
+              </span>
+              <span class="qrmo-mod-hubui-table">
+                <span class="qrmo-mod-hubui-tr qrmo-mod-hubui-tr--h">${hubUiCell("Masa")}${hubUiCell("Adres")}${hubUiCell("Çıktı")}</span>
+                <span class="qrmo-mod-hubui-tr is-on">${hubUiCell("Masa 12")}${hubUiCell("masa-12")}${hubUiCell("PNG · PDF")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("ic-masa-3")}${hubUiCell("ic-masa-3")}${hubUiCell("PNG · PDF")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("VIP Salon")}${hubUiCell("vip-salon")}${hubUiCell("PNG · PDF")}</span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "servis-paneli") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--board">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Servis Paneli</span>
+                <span class="qrmo-mod-hubui-langs"><span class="is-on">Tümü</span><span>Sipariş</span><span>Garson</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-kanban">
+                <span class="qrmo-mod-hubui-kcol"><span class="qrmo-mod-hubui-pane-t">Bekliyor</span><span class="qrmo-mod-hubui-kc is-on"><b>Garson</b>Masa 4</span><span class="qrmo-mod-hubui-kc"><b>Hesap</b>Masa 9</span></span>
+                <span class="qrmo-mod-hubui-kcol"><span class="qrmo-mod-hubui-pane-t">Hazırlanıyor</span><span class="qrmo-mod-hubui-kc"><b>Sipariş</b>Masa 12</span></span>
+                <span class="qrmo-mod-hubui-kcol"><span class="qrmo-mod-hubui-pane-t">Serviste</span><span class="qrmo-mod-hubui-kc"><b>Sipariş</b>Masa 7</span></span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "masa-oturum-guvenligi") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--session">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Oturum limitleri</span>
+              </span>
+              <span class="qrmo-mod-hubui-split">
+                <span class="qrmo-mod-hubui-pane">
+                  <span class="qrmo-mod-hubui-pane-t">Kayıtlı masa</span>
+                  <span class="qrmo-mod-hubui-hit is-on">Masa 7 · aktif</span>
+                  <span class="qrmo-mod-hubui-kv"><small>En uzun oturum</small><b>90 dk</b></span>
+                  <span class="qrmo-mod-hubui-kv"><small>Hareketsizlik</small><b>30 dk</b></span>
+                </span>
+                <span class="qrmo-mod-hubui-pane qrmo-mod-hubui-pane--list">
+                  <span class="qrmo-mod-hubui-pane-t">Kayıtsız adres</span>
+                  <span class="qrmo-mod-hubui-lock">Oturum gerekli</span>
+                </span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "menu-asistani") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--chat">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Menü Asistanı</span>
+              </span>
+              <span class="qrmo-mod-hubui-thread">
+                <span class="qrmo-mod-hubui-msg qrmo-mod-hubui-msg--user">Acı olmayan bir ana yemek önerir misiniz?</span>
+                <span class="qrmo-mod-hubui-msg qrmo-mod-hubui-msg--bot">Acısız girilmiş ürünlerden ızgara tavuk önerilebilir.</span>
+                <span class="qrmo-mod-hubui-hit">Izgara tavuk · ana yemek</span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "qr-analytics") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--chart">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">İstatistikler</span>
+                <span class="qrmo-mod-hubui-langs"><span>Bugün</span><span class="is-on">Son 7 gün</span><span>Bu ay</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-rank">
+                <span class="qrmo-mod-hubui-pane-t">Ürün ilgisi</span>
+                <span class="qrmo-mod-hubui-rk is-on"><span>Izgara tavuk</span><i style="--w:100%"></i></span>
+                <span class="qrmo-mod-hubui-rk"><span>Serpme kahvaltı</span><i style="--w:72%"></i></span>
+                <span class="qrmo-mod-hubui-rk"><span>Filtre kahve</span><i style="--w:58%"></i></span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "yorum-geri-bildirim") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--reviews">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Yorumlar</span>
+                <span class="qrmo-mod-hubui-langs"><span>Tümü</span><span>Olumlu</span><span class="is-on">Olumsuz</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-table">
+                <span class="qrmo-mod-hubui-tr qrmo-mod-hubui-tr--h">${hubUiCell("Yorum")}${hubUiCell("Masa")}${hubUiCell("Durum")}</span>
+                <span class="qrmo-mod-hubui-tr is-on">${hubUiCell("Servis bekledi.")}${hubUiCell("Masa 4")}${hubUiCell("Bekliyor", "qrmo-mod-hubui-st qrmo-mod-hubui-st--mute")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("Masa düzeni iyiydi.")}${hubUiCell("Masa 9")}${hubUiCell("Yayında", "qrmo-mod-hubui-st")}</span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "menu-muhendisligi") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--matrix">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Menü performansı</span>
+              </span>
+              <span class="qrmo-mod-hubui-quads">
+                <span class="qrmo-mod-hubui-quad"><b>Yıldız</b><small>Izgara tavuk</small></span>
+                <span class="qrmo-mod-hubui-quad is-on"><b>Gizli fırsat</b><small>Künefe</small></span>
+                <span class="qrmo-mod-hubui-quad"><b>Çok satan</b><small>Mercimek çorbası</small></span>
+                <span class="qrmo-mod-hubui-quad"><b>Zayıf performans</b><small>Örnek ürün</small></span>
+              </span>
+              ${cap}
+            </span>`;
   } else {
     throw new Error("Hub kutu görseli yok: " + slug);
   }
   return `<span class="qrmo-mod-hubbox-art" aria-hidden="true">${body}</span>`;
 }
 
-function hubMenuRail(mods) {
+function hubCatRail(mods, cat) {
   const boxes = join(mods, (m) => `
         <li data-qrmo-hubrail-card>
           <a class="qrmo-mod-hubbox" href="${m.slug}/">
@@ -457,92 +578,110 @@ function hubMenuRail(mods) {
             <span class="qrmo-mod-hubbox-go">Modülü inceleyin${ICON.arrow}</span>
           </a>
         </li>`);
+  const prev = cat.id === "menu" ? "Önceki menü modülleri" : `Önceki ${cat.name} modülleri`;
+  const next = cat.id === "menu" ? "Sonraki menü modülleri" : `Sonraki ${cat.name} modülleri`;
+  const track = cat.id === "menu" ? "Menü modül kutuları" : `${cat.name} modül kutuları`;
   return `
-      <div class="qrmo-mod-hubrail" data-qrmo-hubrail>
+      <div class="qrmo-mod-hubrail" data-qrmo-hubrail="${esc(cat.id)}">
         <div class="qrmo-mod-hubrail-nav">
-          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="Önceki menü modülleri">${ICON.prev}</button>
-          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="Sonraki menü modülleri">${ICON.next}</button>
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="${esc(prev)}">${ICON.prev}</button>
+          <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="${esc(next)}">${ICON.next}</button>
         </div>
-        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track aria-label="Menü modül kutuları">${boxes}
+        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track aria-label="${esc(track)}">${boxes}
           <li class="qrmo-mod-hubrail-end" aria-hidden="true"></li>
         </ul>
-      </div>
+      </div>`;
+}
+
+function hubRailsScript() {
+  return `
       <script>
 (function () {
-  var root = document.querySelector("[data-qrmo-hubrail]");
-  if (!root) return;
-  var track = root.querySelector("[data-qrmo-hubrail-track]");
-  if (!track) return;
-  var userMoved = false;
-  function alignStart() {
-    track.scrollLeft = 0;
-  }
-  function markMoved() {
-    userMoved = true;
-  }
-  function reduce() {
-    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-  function items() {
-    return Array.prototype.slice.call(track.querySelectorAll("[data-qrmo-hubrail-card]"));
-  }
-  function leadIndex() {
-    var origin = track.getBoundingClientRect().left + 1;
-    var list = items();
-    var i, best = 0, bestScore = Infinity;
-    for (i = 0; i < list.length; i++) {
-      var d = list[i].getBoundingClientRect().left - origin;
-      var score = d >= -8 ? Math.abs(d) : Math.abs(d) + 80;
-      if (score < bestScore) { bestScore = score; best = i; }
+  var rails = document.querySelectorAll("[data-qrmo-hubrail]");
+  var byId = {};
+  Array.prototype.forEach.call(rails, bindRail);
+  function bindRail(root) {
+    var id = root.getAttribute("data-qrmo-hubrail") || "";
+    var track = root.querySelector("[data-qrmo-hubrail-track]");
+    if (!track) return;
+    var userMoved = false;
+    function alignStart() {
+      track.scrollLeft = 0;
     }
-    return best;
-  }
-  function scrollToIndex(i) {
-    var list = items();
-    if (!list.length) return;
-    i = Math.max(0, Math.min(list.length - 1, i));
-    var dest;
-    if (i <= 0) dest = 0;
-    else if (i >= list.length - 1) dest = Math.max(0, track.scrollWidth - track.clientWidth);
-    else dest = list[i].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
-    track.scrollTo({ left: dest, behavior: reduce() ? "auto" : "smooth" });
-  }
-  function step(dir) {
-    userMoved = true;
-    scrollToIndex(leadIndex() + (Number(dir) || 0));
-  }
-  root.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-qrmo-hubrail-dir]");
-    if (!btn || !root.contains(btn)) return;
-    step(btn.getAttribute("data-qrmo-hubrail-dir"));
-  });
-  root.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
-    else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
-  });
-  track.addEventListener("pointerdown", markMoved, { passive: true });
-  track.addEventListener("wheel", markMoved, { passive: true });
-  track.addEventListener("touchstart", markMoved, { passive: true });
-  function enterMenu() {
+    function markMoved() {
+      userMoved = true;
+    }
+    function reduce() {
+      return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+    function items() {
+      return Array.prototype.slice.call(track.querySelectorAll("[data-qrmo-hubrail-card]"));
+    }
+    function leadIndex() {
+      var origin = track.getBoundingClientRect().left + 1;
+      var list = items();
+      var i, best = 0, bestScore = Infinity;
+      for (i = 0; i < list.length; i++) {
+        var d = list[i].getBoundingClientRect().left - origin;
+        var score = d >= -8 ? Math.abs(d) : Math.abs(d) + 80;
+        if (score < bestScore) { bestScore = score; best = i; }
+      }
+      return best;
+    }
+    function scrollToIndex(i) {
+      var list = items();
+      if (!list.length) return;
+      i = Math.max(0, Math.min(list.length - 1, i));
+      var dest;
+      if (i <= 0) dest = 0;
+      else if (i >= list.length - 1) dest = Math.max(0, track.scrollWidth - track.clientWidth);
+      else dest = list[i].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+      track.scrollTo({ left: dest, behavior: reduce() ? "auto" : "smooth" });
+    }
+    function step(dir) {
+      userMoved = true;
+      scrollToIndex(leadIndex() + (Number(dir) || 0));
+    }
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-qrmo-hubrail-dir]");
+      if (!btn || !root.contains(btn)) return;
+      step(btn.getAttribute("data-qrmo-hubrail-dir"));
+    });
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+      else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+    });
+    track.addEventListener("pointerdown", markMoved, { passive: true });
+    track.addEventListener("wheel", markMoved, { passive: true });
+    track.addEventListener("touchstart", markMoved, { passive: true });
+    function enter() {
+      alignStart();
+      requestAnimationFrame(alignStart);
+    }
+    byId[id] = {
+      enter: enter,
+      pin: function () { if (!userMoved) alignStart(); }
+    };
     alignStart();
-    requestAnimationFrame(alignStart);
+    requestAnimationFrame(function () {
+      if (!userMoved) alignStart();
+    });
   }
   document.addEventListener("click", function (e) {
     var a = e.target.closest("a");
     if (!a) return;
     var href = a.getAttribute("href") || "";
-    if (href === "#menu" || a.hash === "#menu") enterMenu();
+    var hash = a.hash || (href.charAt(0) === "#" ? href : "");
+    var id = hash.charAt(0) === "#" ? hash.slice(1) : "";
+    if (id && byId[id]) byId[id].enter();
   });
   window.addEventListener("hashchange", function () {
-    if (location.hash === "#menu") enterMenu();
+    var id = (location.hash || "").slice(1);
+    if (id && byId[id]) byId[id].enter();
   });
   window.addEventListener("pageshow", function (e) {
     if (e.persisted) return;
-    if (!userMoved) alignStart();
-  });
-  alignStart();
-  requestAnimationFrame(function () {
-    if (!userMoved) alignStart();
+    Object.keys(byId).forEach(function (k) { byId[k].pin(); });
   });
 })();
       </script>`;
@@ -1014,21 +1153,7 @@ function renderIndex() {
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-${c.id}">${esc(c.name)}</h2>
         <p class="qrmo-mod-text">${esc(c.lead)}</p>
       </header>`;
-    const body = c.id === "menu" ? hubMenuRail(mods) : `
-      <ul class="qrmo-mod-hubgrid qrmo-mod-hubgrid--${mods.length}">${join(mods, (m) => {
-        const { index } = modulePackage(m);
-        return `
-        <li><a class="qrmo-mod-card" href="${m.slug}/">
-          ${moduleArt(m.cue)}
-          <span class="qrmo-mod-card-b">
-            <h3>${esc(m.name)}</h3>
-            <span class="qrmo-mod-chip">${esc(pkgShort(index))}</span>
-            <span class="qrmo-mod-card-d">${esc(m.tagline)}</span>
-            <span class="qrmo-mod-card-go">Modülü inceleyin${ICON.arrow}</span>
-          </span>
-        </a></li>`;
-      })}
-      </ul>`;
+    const body = hubCatRail(mods, c);
     return `
   <section class="qrmo-mod-sec qrmo-mod-hubcat" id="${c.id}" aria-labelledby="qrmo-mod-hub-${c.id}">
     <div class="qrmo-mod-inner">${head}${body}
@@ -1059,7 +1184,7 @@ function renderIndex() {
       </nav>
     </div>
   </section>
-${groups}
+${groups}${hubRailsScript()}
   <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
       <div class="qrmo-mod-close qrmo-mod-close--hub">
