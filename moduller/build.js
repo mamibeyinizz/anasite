@@ -61,9 +61,9 @@ const ICON = {
   plus: svg('<path d="M12 5v14"/><path d="M5 12h14"/>', { w: 2.4 }),
   prev: svg('<path d="M19 12H5"/><path d="m11 6-6 6 6 6"/>'),
   next: svg('<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'),
-  utensils: svg('<path d="M8 3v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V3"/><path d="M6 13v8"/><path d="M18 3v8"/><path d="M16 3c0 3 2 5 2 8"/><path d="M20 3c0 3-2 5-2 8"/><path d="M18 13v8"/>'),
-  globe: svg('<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><ellipse cx="12" cy="12" rx="4" ry="9"/>'),
-  sliders: svg('<path d="M4 7h16"/><path d="M7 12h10"/><path d="M10 17h4"/>')
+  list: svg('<rect x="7" y="3" width="10" height="4" rx="1"/><path d="M16 5h1.5A1.5 1.5 0 0 1 19 6.5v13A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5v-13A1.5 1.5 0 0 1 6.5 5H8"/><path d="M9 11h6"/><path d="M9 15h6"/>'),
+  lang: svg('<path d="M5 5h9"/><path d="M9.5 5c0 4-2 7-6 8"/><path d="m8 9 3.5 7"/><path d="m14 19 3-7 3 7"/><path d="M15.2 16.5h3.6"/>'),
+  filter: svg('<path d="M4 5h16l-6.2 7.4V18l-3.6 1.6v-7.2L4 5z"/>')
 };
 
 const pkgIdx = (id) => PKG.packages.findIndex((p) => p.id === id);
@@ -373,79 +373,73 @@ function moduleArt(key) {
   return `<span class="qrmo-mod-card-art"><svg class="qrmo-mod-art" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${body}</svg></span>`;
 }
 
-/* Menü prototipi: kart içi temsili arayüz (örnek içerik, gerçek veri değil). */
+/* Menü prototipi: kart içi temsili masaüstü yazılım arayüzü. */
 function hubBoxIcon(slug) {
-  if (slug === "restoran-menu") return ICON.utensils;
-  if (slug === "coklu-dil") return ICON.globe;
-  if (slug === "akilli-filtreleme") return ICON.sliders;
+  if (slug === "restoran-menu") return ICON.list;
+  if (slug === "coklu-dil") return ICON.lang;
+  if (slug === "akilli-filtreleme") return ICON.filter;
   throw new Error("Hub kutu ikonu yok: " + slug);
 }
 
-function hubBoxArt(slug) {
-  const cream = "#F4F1E8";
-  const gold = "#C9A84C";
-  const goldL = "#E8C766";
-  const ink = "#0D2B22";
-  const muted = "#56625B";
-  const line = "rgba(13,43,34,.14)";
-  const sw = 'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
-  const font = 'font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif"';
-  const scenes = {
-    "restoran-menu": `
-      <rect x="8" y="8" width="224" height="136" rx="14" fill="#fff" stroke="${line}"/>
-      <rect x="8" y="8" width="224" height="28" rx="14" fill="${ink}"/>
-      <rect x="8" y="22" width="224" height="14" fill="${ink}"/>
-      <text x="22" y="26" ${font} font-size="10" font-weight="700" fill="${cream}">Örnek menü</text>
-      <rect x="20" y="46" width="58" height="18" rx="9" fill="${goldL}"/>
-      <text x="49" y="58" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${ink}">Çorbalar</text>
-      <rect x="84" y="46" width="62" height="18" rx="9" fill="none" stroke="${line}"/>
-      <text x="115" y="58" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Izgaralar</text>
-      <rect x="152" y="46" width="64" height="18" rx="9" fill="none" stroke="${line}"/>
-      <text x="184" y="58" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Tatlılar</text>
-      <path d="M20 78h200" stroke="${line}"/>
-      <text x="22" y="94" ${font} font-size="11" font-weight="700" fill="${ink}">Mercimek çorbası</text>
-      <text x="218" y="94" text-anchor="end" ${font} font-size="11" font-weight="700" fill="${ink}">₺95</text>
-      <path d="M20 106h200" stroke="${line}"/>
-      <text x="22" y="122" ${font} font-size="11" font-weight="700" fill="${ink}">Ezogelin</text>
-      <text x="218" y="122" text-anchor="end" ${font} font-size="11" font-weight="700" fill="${ink}">₺90</text>
-      <text x="22" y="136" ${font} font-size="9" fill="${muted}">Örnek ürün satırı · fiyat gösterimi</text>`,
-    "coklu-dil": `
-      <rect x="8" y="8" width="224" height="136" rx="14" fill="#fff" stroke="${line}"/>
-      <rect x="8" y="8" width="224" height="28" rx="14" fill="${ink}"/>
-      <rect x="8" y="22" width="224" height="14" fill="${ink}"/>
-      <text x="22" y="26" ${font} font-size="10" font-weight="700" fill="${cream}">Menü dili</text>
-      <rect x="20" y="48" width="36" height="20" rx="10" fill="${goldL}"/>
-      <text x="38" y="62" text-anchor="middle" ${font} font-size="10" font-weight="800" fill="${ink}">TR</text>
-      <rect x="62" y="48" width="36" height="20" rx="10" fill="none" stroke="${line}"/>
-      <text x="80" y="62" text-anchor="middle" ${font} font-size="10" font-weight="700" fill="${muted}">EN</text>
-      <rect x="104" y="48" width="36" height="20" rx="10" fill="none" stroke="${line}"/>
-      <text x="122" y="62" text-anchor="middle" ${font} font-size="10" font-weight="700" fill="${muted}">DE</text>
-      <rect x="146" y="48" width="36" height="20" rx="10" fill="none" stroke="${line}"/>
-      <text x="164" y="62" text-anchor="middle" ${font} font-size="10" font-weight="700" fill="${muted}">AR</text>
-      <rect x="20" y="80" width="200" height="52" rx="10" fill="${cream}"/>
-      <text x="34" y="102" ${font} font-size="12" font-weight="800" fill="${ink}">Şefin salatası</text>
-      <text x="34" y="118" ${font} font-size="10" fill="${muted}">Chef's Salad · örnek çeviri satırı</text>`,
-    "akilli-filtreleme": `
-      <rect x="8" y="8" width="224" height="136" rx="14" fill="#fff" stroke="${line}"/>
-      <rect x="8" y="8" width="224" height="28" rx="14" fill="${ink}"/>
-      <rect x="8" y="22" width="224" height="14" fill="${ink}"/>
-      <text x="22" y="26" ${font} font-size="10" font-weight="700" fill="${cream}">Filtreler</text>
-      <rect x="20" y="46" width="72" height="20" rx="10" fill="${goldL}"/>
-      <text x="56" y="60" text-anchor="middle" ${font} font-size="9" font-weight="800" fill="${ink}">Glutensiz</text>
-      <rect x="98" y="46" width="52" height="20" rx="10" fill="none" stroke="${line}"/>
-      <text x="124" y="60" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Vegan</text>
-      <rect x="156" y="46" width="64" height="20" rx="10" fill="none" stroke="${line}"/>
-      <text x="188" y="60" text-anchor="middle" ${font} font-size="9" font-weight="700" fill="${muted}">Fındık yok</text>
-      <rect x="20" y="78" width="200" height="22" rx="8" fill="${cream}"/>
-      <circle cx="36" cy="89" r="4" fill="${gold}"/>
-      <text x="48" y="93" ${font} font-size="10" font-weight="700" fill="${ink}">Izgara sebze tabağı</text>
-      <rect x="20" y="106" width="200" height="22" rx="8" fill="${cream}"/>
-      <circle cx="36" cy="117" r="4" fill="${gold}"/>
-      <text x="48" y="121" ${font} font-size="10" font-weight="700" fill="${ink}">Mercimek köftesi</text>`
-  };
-  const body = scenes[slug];
-  if (body == null) throw new Error("Hub kutu görseli yok: " + slug);
-  return `<span class="qrmo-mod-hubbox-art"><svg viewBox="0 0 240 152" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${body}</svg></span>`;
+function hubUiCell(text, extra) {
+  return `<span class="qrmo-mod-hubui-td${extra ? " " + extra : ""}">${esc(text)}</span>`;
+}
+
+function hubBoxUi(slug) {
+  const cap = `<span class="qrmo-mod-hubui-cap">${esc(MOD.mockCaptionShort)}</span>`;
+  let body;
+  if (slug === "restoran-menu") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--menu">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Ürünler</span>
+                <span class="qrmo-mod-hubui-field">Ara ürün</span>
+              </span>
+              <span class="qrmo-mod-hubui-table">
+                <span class="qrmo-mod-hubui-tr qrmo-mod-hubui-tr--h">${hubUiCell("Ürün")}${hubUiCell("Kategori")}${hubUiCell("Fiyat")}${hubUiCell("Durum")}</span>
+                <span class="qrmo-mod-hubui-tr is-on">${hubUiCell("Mercimek çorbası")}${hubUiCell("Çorbalar")}${hubUiCell("95 TL", "qrmo-mod-hubui-num")}${hubUiCell("Yayında", "qrmo-mod-hubui-st")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("Ezogelin")}${hubUiCell("Çorbalar")}${hubUiCell("90 TL", "qrmo-mod-hubui-num")}${hubUiCell("Taslak", "qrmo-mod-hubui-st qrmo-mod-hubui-st--mute")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("Izgara köfte")}${hubUiCell("Izgaralar")}${hubUiCell("240 TL", "qrmo-mod-hubui-num")}${hubUiCell("Yayında", "qrmo-mod-hubui-st")}</span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "coklu-dil") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--lang">
+              <span class="qrmo-mod-hubui-bar">
+                <span class="qrmo-mod-hubui-bar-t">Çeviri</span>
+                <span class="qrmo-mod-hubui-langs"><span>TR</span><span class="is-on">EN</span><span>DE</span></span>
+              </span>
+              <span class="qrmo-mod-hubui-table">
+                <span class="qrmo-mod-hubui-tr qrmo-mod-hubui-tr--h">${hubUiCell("Öğe")}${hubUiCell("Türkçe")}${hubUiCell("English", "is-on")}</span>
+                <span class="qrmo-mod-hubui-tr is-on">${hubUiCell("Şefin salatası")}${hubUiCell("Şefin salatası")}${hubUiCell("Chef's Salad")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("Mercimek çorbası")}${hubUiCell("Mercimek çorbası")}${hubUiCell("Lentil soup")}</span>
+                <span class="qrmo-mod-hubui-tr">${hubUiCell("Ezogelin")}${hubUiCell("Ezogelin")}${hubUiCell("—", "qrmo-mod-hubui-empty")}</span>
+              </span>
+              ${cap}
+            </span>`;
+  } else if (slug === "akilli-filtreleme") {
+    body = `
+            <span class="qrmo-mod-hubui qrmo-mod-hubui--filter">
+              <span class="qrmo-mod-hubui-split">
+                <span class="qrmo-mod-hubui-pane">
+                  <span class="qrmo-mod-hubui-pane-t">Kurallar</span>
+                  <span class="qrmo-mod-hubui-rule is-on"><i></i>Glutensiz</span>
+                  <span class="qrmo-mod-hubui-rule"><i></i>Vegan</span>
+                  <span class="qrmo-mod-hubui-rule"><i></i>Fındık yok</span>
+                </span>
+                <span class="qrmo-mod-hubui-pane qrmo-mod-hubui-pane--list">
+                  <span class="qrmo-mod-hubui-pane-t">Sonuçlar</span>
+                  <span class="qrmo-mod-hubui-hit">Izgara sebze tabağı</span>
+                  <span class="qrmo-mod-hubui-hit">Mercimek köftesi</span>
+                </span>
+              </span>
+              ${cap}
+            </span>`;
+  } else {
+    throw new Error("Hub kutu görseli yok: " + slug);
+  }
+  return `<span class="qrmo-mod-hubbox-art" aria-hidden="true">${body}</span>`;
 }
 
 function hubMenuRail(mods) {
@@ -459,7 +453,7 @@ function hubMenuRail(mods) {
                 <span class="qrmo-mod-hubbox-d">${esc(m.tagline)}</span>
               </span>
             </span>
-            ${hubBoxArt(m.slug)}
+            ${hubBoxUi(m.slug)}
             <span class="qrmo-mod-hubbox-go">Modülü inceleyin${ICON.arrow}</span>
           </a>
         </li>`);
