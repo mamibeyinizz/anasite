@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07110e">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'self'; object-src 'none'">
+  <title>Lisans yönetimi — QR Menu Official</title>
+  <link rel="stylesheet" href="lisans.css">
+</head>
+<body>
+  <a class="skip" href="#icerik">İçeriğe geç</a>
+  <main id="icerik">
+    <section id="ekran-acilis" class="boot" aria-labelledby="acilis-baslik">
+      <h1 id="acilis-baslik">Oturum kontrol ediliyor</h1>
+      <p id="acilis-durum" role="status">Sunucudan oturum bilgisi isteniyor.</p>
+    </section>
+
+    <section id="ekran-giris" class="login-wrap" hidden aria-labelledby="giris-baslik">
+      <div class="login-card">
+        <img class="logo" src="../assets/brand/qr-menu-official-logo-compact.svg" width="172" height="50" alt="QR Menu Official">
+        <h1 id="giris-baslik">Lisans yönetimi</h1>
+        <p class="lede">Yönetici oturumu ile lisans kayıtlarını görüntüleyin.</p>
+        <p id="giris-durum" class="banner" role="alert" hidden></p>
+        <form id="form-giris" method="post" action="#giris" autocomplete="on" novalidate>
+          <div class="field">
+            <label for="giris-kullanici">Kullanıcı adı</label>
+            <input id="giris-kullanici" name="username" type="text" autocomplete="username" maxlength="64" required spellcheck="false">
+          </div>
+          <div class="field">
+            <label for="giris-parola">Parola</label>
+            <input id="giris-parola" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+          </div>
+          <button id="giris-gonder" class="btn btn-gold" type="submit">Giriş yap</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="ekran-panel" class="shell" hidden>
+      <header class="top">
+        <img class="logo" src="../assets/brand/qr-menu-official-logo-compact.svg" width="172" height="50" alt="QR Menu Official">
+        <div class="top-titles">
+          <p class="kicker">Yönetim</p>
+          <h1 id="panel-baslik" tabindex="-1">Lisanslar</h1>
+        </div>
+        <div class="top-actions">
+          <p class="who">Oturum: <strong id="kullanici-adi"></strong></p>
+          <button id="cikis" class="btn btn-ghost" type="button">Çıkış yap</button>
+        </div>
+      </header>
+
+      <p id="uyari" class="banner" role="alert" hidden></p>
+
+      <div id="ekran-liste">
+        <div class="metrics" aria-label="Lisans özeti">
+          <article class="metric">
+            <p class="metric-value" id="ozet-total" aria-labelledby="ozet-total-label">—</p>
+            <p class="metric-label" id="ozet-total-label">Toplam lisans</p>
+          </article>
+          <article class="metric">
+            <p class="metric-value" id="ozet-usable" aria-labelledby="ozet-usable-label">—</p>
+            <p class="metric-label" id="ozet-usable-label">Kullanılabilir lisans</p>
+          </article>
+          <article class="metric">
+            <p class="metric-value" id="ozet-inactive" aria-labelledby="ozet-inactive-label">—</p>
+            <p class="metric-label" id="ozet-inactive-label">Pasif lisans</p>
+          </article>
+          <article class="metric">
+            <p class="metric-value" id="ozet-expired" aria-labelledby="ozet-expired-label">—</p>
+            <p class="metric-label" id="ozet-expired-label">Süresi dolmuş lisans</p>
+          </article>
+        </div>
+        <div id="ozet-durum" role="status"></div>
+
+        <div class="toolbar">
+          <form id="form-filtre" class="filters" method="post" action="#liste" novalidate>
+            <div class="field">
+              <label for="filtre-q">Firma adı</label>
+              <input id="filtre-q" type="search" maxlength="191" autocomplete="off" spellcheck="false" aria-describedby="filtre-ipucu">
+              <p id="filtre-ipucu" class="hint">Arama firma adında ve kilitli domainde yapılır.</p>
+            </div>
+            <div class="field">
+              <label for="filtre-durum">Durum</label>
+              <select id="filtre-durum">
+                <option value="">Tümü</option>
+                <option value="kullanilabilir">Kullanılabilir</option>
+                <option value="pasif">Pasif</option>
+                <option value="suresi_dolmus">Süresi dolmuş</option>
+                <option value="aktif">Aktif kayıt, süresi dolmuş olanlar dahil</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filtre-boyut">Sayfa boyutu</label>
+              <select id="filtre-boyut">
+                <option value="10">10</option>
+                <option value="20" selected>20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filtre-sira">Sıralama</label>
+              <select id="filtre-sira">
+                <option value="created_at">Oluşturma</option>
+                <option value="company_name">Firma adı</option>
+                <option value="expires_on">Bitiş tarihi</option>
+                <option value="updated_at">Güncelleme</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filtre-yon">Yön</label>
+              <select id="filtre-yon">
+                <option value="desc">Azalan</option>
+                <option value="asc">Artan</option>
+              </select>
+            </div>
+            <div class="filter-actions">
+              <button class="btn btn-gold" type="submit">Ara</button>
+              <button id="filtre-temizle" class="btn btn-ghost" type="button">Temizle</button>
+            </div>
+          </form>
+          <button id="yeni-lisans" class="btn btn-gold" type="button">Yeni lisans</button>
+        </div>
+
+        <div id="liste-durum" role="status"></div>
+        <div class="table-wrap">
+          <table id="liste-tablo">
+            <caption class="sr-only">Lisans listesi</caption>
+            <thead>
+              <tr>
+                <th scope="col">Firma</th>
+                <th scope="col">Domain</th>
+                <th scope="col">Anahtar</th>
+                <th scope="col">Durum</th>
+                <th scope="col">İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="liste-govde"></tbody>
+          </table>
+        </div>
+        <nav id="liste-sayfa" class="pager" aria-label="Sayfalama" hidden>
+          <button id="sayfa-once" class="btn btn-ghost" type="button">Önceki</button>
+          <p id="sayfa-bilgi"></p>
+          <button id="sayfa-sonra" class="btn btn-ghost" type="button">Sonraki</button>
+        </nav>
+      </div>
+
+      <div id="ekran-form" hidden>
+        <div class="panel-head">
+          <h2 id="form-baslik" tabindex="-1">Yeni lisans</h2>
+          <button id="form-vazgec" class="btn btn-ghost" type="button">Listeye dön</button>
+        </div>
+        <p id="form-durum" class="banner" role="alert" hidden></p>
+        <form id="form-lisans" method="post" action="#form" novalidate>
+          <div class="form-grid">
+            <div class="field span-2">
+              <label for="alan-firma">Firma adı</label>
+              <input id="alan-firma" type="text" maxlength="191" required autocomplete="organization" spellcheck="false">
+            </div>
+            <div class="field">
+              <label for="alan-paket">Paket</label>
+              <select id="alan-paket" aria-describedby="paket-notu paket-onizleme"></select>
+              <p id="paket-notu" class="hint">Başlangıç, Pro ve Kurumsal sunucudaki lisans paketleridir. Pazarlama adları Temel, Pro ve Plus bu paketlerle eşlenmez. Paket seçmek kaydı yazmaz.</p>
+              <div id="paket-onizleme" class="preview" aria-live="polite"></div>
+            </div>
+            <fieldset class="field">
+              <legend>Kayıt durumu</legend>
+              <label class="choice"><input id="alan-durum-aktif" type="radio" name="kayit-durumu" value="aktif" checked> Aktif</label>
+              <label class="choice"><input id="alan-durum-pasif" type="radio" name="kayit-durumu" value="pasif"> Pasif</label>
+            </fieldset>
+            <div class="field">
+              <label for="alan-baslangic">Başlangıç tarihi</label>
+              <input id="alan-baslangic" type="date">
+            </div>
+            <div class="field">
+              <label for="alan-bitis">Bitiş tarihi</label>
+              <input id="alan-bitis" type="date" aria-describedby="bitis-notu">
+              <label class="choice" for="alan-suresiz"><input id="alan-suresiz" type="checkbox"> Süresiz</label>
+              <p id="bitis-notu" class="hint">Tarihler UTC günüdür. Süresiz seçilirse bitiş gönderilmez ve kayıt sınırsız kalır.</p>
+            </div>
+            <div class="field">
+              <label for="alan-ucret">Ücret</label>
+              <input id="alan-ucret" type="text" maxlength="64" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="field span-2">
+              <label for="alan-not">Not</label>
+              <textarea id="alan-not" maxlength="4000" rows="4"></textarea>
+            </div>
+            <fieldset class="field span-2">
+              <legend>Modüller</legend>
+              <label class="choice"><input id="modul-sablon" type="radio" name="modul-modu" value="sablon" checked> Sunucudaki paket şablonunu kullan</label>
+              <label class="choice"><input id="modul-secim" type="radio" name="modul-modu" value="secim"> Modülleri kendim seçeyim</label>
+              <p id="modul-notu" class="hint">Liste, doğrulamanın kabul ettiği 13 slug’dır. Altın çerçeve, seçili paketin şablonundaki modülü gösterir. Şablon seçiliyse kutular gönderilmez. Elle seçimde kayıt, işaretlediğiniz kutuları kullanır.</p>
+              <div id="modul-kutu" class="modules" role="group" aria-describedby="modul-notu"></div>
+            </fieldset>
+          </div>
+          <div class="form-actions">
+            <button id="form-kaydet" class="btn btn-gold" type="submit">Kaydet</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="ekran-ayrinti" hidden>
+        <div class="panel-head">
+          <h2 id="ayrinti-baslik" tabindex="-1">Lisans ayrıntısı</h2>
+          <button id="ayrinti-geri" class="btn btn-ghost" type="button">Listeye dön</button>
+        </div>
+        <div id="ayrinti-durum" class="banner" role="alert" hidden></div>
+        <dl id="ayrinti-alanlar" class="facts"></dl>
+        <section class="keybox" aria-labelledby="anahtar-baslik">
+          <h3 id="anahtar-baslik">Lisans anahtarı</h3>
+          <p>Maskeli anahtar: <span id="anahtar-maske" class="slug"></span></p>
+          <div class="form-actions">
+            <button id="anahtar-goster" class="btn btn-gold" type="button">Anahtarı görüntüle</button>
+            <button id="islem-yenile" class="btn btn-danger" type="button">Anahtarı yenile</button>
+            <button id="islem-kilit" class="btn btn-ghost" type="button">Domain kilidini kaldır</button>
+            <button id="islem-duzenle" class="btn btn-ghost" type="button">Düzenle</button>
+            <button id="islem-arsiv" class="btn btn-danger" type="button">Arşivle</button>
+          </div>
+          <p id="kilit-durum" class="hint"></p>
+          <div id="anahtar-panel" class="key-reveal" hidden>
+            <p class="hint">Anahtar yalnız bu görünümde durur. Ekran kapanınca bellekten silinir.</p>
+            <p id="anahtar-deger" class="secret" translate="no"></p>
+            <div class="form-actions">
+              <button id="anahtar-kopyala" class="btn btn-ghost" type="button">Panoya kopyala</button>
+              <button id="anahtar-gizle" class="btn btn-gold" type="button">Anahtarı gizle</button>
+            </div>
+          </div>
+        </section>
+        <section aria-labelledby="denetim-baslik">
+          <h3 id="denetim-baslik">Denetim geçmişi</h3>
+          <div id="denetim-durum" role="status"></div>
+          <div class="table-wrap">
+            <table id="denetim-tablo">
+              <caption class="sr-only">Denetim olayları</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Zaman (UTC)</th>
+                  <th scope="col">İşlem</th>
+                  <th scope="col">Kim</th>
+                  <th scope="col">Ayrıntı</th>
+                </tr>
+              </thead>
+              <tbody id="denetim-govde"></tbody>
+            </table>
+          </div>
+          <nav id="denetim-sayfa" class="pager" aria-label="Denetim sayfalama" hidden>
+            <button id="denetim-once" class="btn btn-ghost" type="button">Önceki</button>
+            <p id="denetim-bilgi"></p>
+            <button id="denetim-sonra" class="btn btn-ghost" type="button">Sonraki</button>
+          </nav>
+        </section>
+      </div>
+
+      <p class="footnote">Bu ekran aynı kaynaktaki <span class="slug">/api</span> yolunu kullanır. Canlı adres ayrıca ayarlanmadı.</p>
+    </section>
+  </main>
+
+  <div id="onay" class="modal-back" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="onay-baslik" aria-describedby="onay-metin">
+      <h2 id="onay-baslik" tabindex="-1"></h2>
+      <p id="onay-metin"></p>
+      <p id="onay-hata" class="banner" role="alert" tabindex="-1" hidden></p>
+      <div class="modal-actions">
+        <button id="onay-iptal" class="btn btn-ghost" type="button">Vazgeç</button>
+        <button id="onay-tamam" class="btn btn-danger" type="button">Onayla</button>
+      </div>
+    </div>
+  </div>
+  <p id="canli" class="sr-only" role="status" aria-live="polite"></p>
+  <noscript>
+    <p class="banner">Bu ekran JavaScript ile çalışır. Betik kapalıyken lisans verisi gösterilmez.</p>
+  </noscript>
+  <script src="lisans.js"></script>
+</body>
+</html>
