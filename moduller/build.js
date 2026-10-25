@@ -444,7 +444,7 @@ function hubBoxUi(slug) {
 
 function hubMenuRail(mods) {
   const boxes = join(mods, (m) => `
-        <li>
+        <li data-qrmo-hubrail-card>
           <a class="qrmo-mod-hubbox" href="${m.slug}/">
             <span class="qrmo-mod-hubbox-top">
               <span class="qrmo-mod-hubbox-ico" aria-hidden="true">${hubBoxIcon(m.slug)}</span>
@@ -463,7 +463,8 @@ function hubMenuRail(mods) {
           <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="-1" aria-label="Önceki menü modülleri">${ICON.prev}</button>
           <button type="button" class="qrmo-mod-hubrail-btn" data-qrmo-hubrail-dir="1" aria-label="Sonraki menü modülleri">${ICON.next}</button>
         </div>
-        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track tabindex="0" aria-label="Menü modül kutuları">${boxes}
+        <ul class="qrmo-mod-hubrail-track" data-qrmo-hubrail-track aria-label="Menü modül kutuları">${boxes}
+          <li class="qrmo-mod-hubrail-end" aria-hidden="true"></li>
         </ul>
       </div>
       <script>
@@ -472,22 +473,43 @@ function hubMenuRail(mods) {
   if (!root) return;
   var track = root.querySelector("[data-qrmo-hubrail-track]");
   if (!track) return;
+  track.scrollLeft = 0;
   function reduce() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
+  function items() {
+    return Array.prototype.slice.call(track.querySelectorAll("[data-qrmo-hubrail-card]"));
+  }
+  function leadIndex() {
+    var origin = track.getBoundingClientRect().left + 1;
+    var list = items();
+    var i, best = 0, bestScore = Infinity;
+    for (i = 0; i < list.length; i++) {
+      var d = list[i].getBoundingClientRect().left - origin;
+      var score = d >= -8 ? Math.abs(d) : Math.abs(d) + 80;
+      if (score < bestScore) { bestScore = score; best = i; }
+    }
+    return best;
+  }
+  function scrollToIndex(i) {
+    var list = items();
+    if (!list.length) return;
+    i = Math.max(0, Math.min(list.length - 1, i));
+    var dest;
+    if (i <= 0) dest = 0;
+    else if (i >= list.length - 1) dest = Math.max(0, track.scrollWidth - track.clientWidth);
+    else dest = list[i].getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+    track.scrollTo({ left: dest, behavior: reduce() ? "auto" : "smooth" });
+  }
   function step(dir) {
-    var card = track.querySelector("li");
-    var styles = getComputedStyle(track);
-    var gap = parseFloat(styles.columnGap || styles.gap) || 16;
-    var w = card ? card.getBoundingClientRect().width : track.clientWidth * 0.72;
-    track.scrollBy({ left: dir * (w + gap), behavior: reduce() ? "auto" : "smooth" });
+    scrollToIndex(leadIndex() + (Number(dir) || 0));
   }
   root.addEventListener("click", function (e) {
     var btn = e.target.closest("[data-qrmo-hubrail-dir]");
     if (!btn || !root.contains(btn)) return;
-    step(Number(btn.getAttribute("data-qrmo-hubrail-dir")) || 0);
+    step(btn.getAttribute("data-qrmo-hubrail-dir"));
   });
-  track.addEventListener("keydown", function (e) {
+  root.addEventListener("keydown", function (e) {
     if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
   });

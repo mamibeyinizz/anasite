@@ -1839,6 +1839,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 .qrmo-mod--hub .qrmo-mod-hubrail-track {
   display: flex;
+  justify-content: flex-start;
   gap: 12px;
   width: 100%;
   min-width: 0;
@@ -1848,15 +1849,28 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   list-style: none;
   overflow-x: auto;
   overflow-y: hidden;
+  overflow-anchor: none;
   overscroll-behavior-x: contain;
   scrollbar-width: thin;
   scrollbar-color: rgba(13, 43, 34, .28) transparent;
+  scroll-padding-inline: 0;
+  scroll-snap-type: none;
+  direction: ltr;
 }
 
 .qrmo-mod--hub .qrmo-mod-hubrail-track > li {
   display: flex;
-  flex: 0 0 calc(100% - 12px - 36px);
+  flex: 0 0 68%;
   min-width: 0;
+  scroll-snap-align: none;
+}
+
+.qrmo-mod--hub .qrmo-mod-hubrail-track > .qrmo-mod-hubrail-end {
+  flex: 0 0 calc(12px + 36px);
+  width: calc(12px + 36px);
+  min-width: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .qrmo-mod--hub .qrmo-mod-hubbox {
@@ -2227,7 +2241,8 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 @media (min-width: 768px) {
   .qrmo-mod--hub .qrmo-mod-hubrail-track { gap: 14px; }
-  .qrmo-mod--hub .qrmo-mod-hubrail-track > li { flex-basis: calc((100% - 28px - 40px) / 2); }
+  .qrmo-mod--hub .qrmo-mod-hubrail-track > li { flex-basis: calc((100% - 28px - 36px) / 2); }
+  .qrmo-mod--hub .qrmo-mod-hubrail-track > .qrmo-mod-hubrail-end { flex-basis: calc(14px + 36px); width: calc(14px + 36px); }
   .qrmo-mod--hub .qrmo-mod-hubbox { padding: 16px 16px 14px; gap: 12px; }
   .qrmo-mod--hub .qrmo-mod-hubbox h3 { font-size: 18px; }
   .qrmo-mod--hub .qrmo-mod-hubbox-d { font-size: 14px; }
@@ -2296,14 +2311,15 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     gap: 28px;
   }
   .qrmo-mod--hub .qrmo-mod-hubrail-track { gap: 16px; }
-  .qrmo-mod--hub .qrmo-mod-hubrail-track > li { flex-basis: calc((100% - 32px - 40px) / 2); }
+  .qrmo-mod--hub .qrmo-mod-hubrail-track > li { flex-basis: calc((100% - 32px - 36px) / 2); }
+  .qrmo-mod--hub .qrmo-mod-hubrail-track > .qrmo-mod-hubrail-end { flex-basis: calc(16px + 36px); width: calc(16px + 36px); }
   .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 16px; }
   .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
   .qrmo-mod--hub .qrmo-mod-closing { padding-bottom: 56px; }
 }
 
 @media (min-width: 1200px) {
-  .qrmo-mod--hub .qrmo-mod-hubrail-track > li { flex-basis: calc((100% - 32px - 40px) / 2); }
+  .qrmo-mod--hub .qrmo-mod-hubrail-track > li { flex-basis: calc((100% - 32px - 36px) / 2); }
   .qrmo-mod--hub .qrmo-mod-hubhero {
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     gap: 36px;
