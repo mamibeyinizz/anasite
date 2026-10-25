@@ -9,22 +9,31 @@
   <link rel="stylesheet" href="yonetim.css">
 </head>
 <body>
-  <a class="skip" href="#icerik">İçeriğe geç</a>
-  <main id="icerik">
-    <header class="top">
-      <img class="logo" src="../../assets/brand/qr-menu-official-logo-compact.svg" width="172" height="50" alt="QR Menu Official">
-      <p class="kicker">Prototip</p>
-      <h1>Yönetim paneli</h1>
-      <p class="lede">Restoran ekranlarının bağımsız dosyası bu depoda yok. Aşağıdaki başlıklar tanıtım sayfalarındaki temsili çizimlerdir ve örnek veri kullanır. Kayıt oluşturmaz, sipariş taşımaz.</p>
-      <p class="actions"><a class="btn" href="../../lisans/">Lisans yönetimini aç</a></p>
-    </header>
-    <section aria-labelledby="cizim-baslik">
-      <h2 id="cizim-baslik">Örnek veri çizimleri</h2>
-      <p id="cizim-durum" class="status">Çizim listesi hazırlanıyor.</p>
-      <div id="cizim-liste"></div>
-    </section>
-  </main>
-  <script src="../../moduller/module-data.js"></script>
+  <a class="skip" href="#sayfa">İçeriğe geç</a>
+  <div class="app" id="uygulama">
+    <aside id="yan-menu" class="yan">
+      <div class="yan-ust">
+        <img class="logo" src="../../assets/brand/qr-menu-official-logo-compact.svg" width="160" height="46" alt="QR Menu Official">
+        <p class="kicker">Yönetim</p>
+      </div>
+      <nav id="menu" aria-label="Yönetim bölümleri"></nav>
+      <p class="yan-not">Örnek kayıtlar bu oturumdadır. Sayfa yenilenince ilk listeye döner.</p>
+      <button type="button" class="yan-kapat" id="menu-kapat">Menüyü kapat</button>
+    </aside>
+    <div class="perde" id="perde" hidden></div>
+    <div class="icerik">
+      <header class="ust">
+        <button type="button" class="menu-ac" id="menu-ac" aria-expanded="false" aria-controls="yan-menu">Menü</button>
+        <div class="ust-metin">
+          <p class="ornek" role="status">Örnek veri. Bu panel veritabanına bağlı değildir.</p>
+          <h1 id="sayfa-baslik">Genel bakış</h1>
+        </div>
+      </header>
+      <main id="sayfa" tabindex="-1">
+        <p class="bos">Panel hazırlanıyor.</p>
+      </main>
+    </div>
+  </div>
   <script src="yonetim.js"></script>
 </body>
 </html>
