@@ -688,16 +688,16 @@ function hubRailsScript() {
 }
 
 function hubCloseTrail() {
-  const pathH = "M6 90 C68 90 108 38 196 58 S248 74 258 74";
-  const headH = "M248 68.5 260 74 248 79.5";
-  const pathV = "M80 4 C58 18 102 28 80 44";
-  const headV = "M74.5 38 80 44 85.5 38";
+  const pathH = "M12 86 C78 86 116 38 198 58 S244 72 254 72";
+  const headH = "M243 66.5 256 72 243 77.5";
+  const pathV = "M80 4 C48 16 112 30 80 46";
+  const headV = "M73.5 39 80 47 86.5 39";
   const svg = (mod, view, path, head) => `<svg class="qrmo-mod-close-trail-svg qrmo-mod-close-trail-svg--${mod}" viewBox="${view}" fill="none" focusable="false" aria-hidden="true">
           <defs>
             <linearGradient id="qrmoHubTrailGrad-${mod}" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#F4F1E8" stop-opacity=".22"/>
-              <stop offset=".55" stop-color="#E8C766" stop-opacity=".7"/>
-              <stop offset="1" stop-color="#C9A84C" stop-opacity=".95"/>
+              <stop offset="0" stop-color="#F4F1E8" stop-opacity=".25"/>
+              <stop offset=".55" stop-color="#E8C766" stop-opacity=".75"/>
+              <stop offset="1" stop-color="#C9A84C" stop-opacity="1"/>
             </linearGradient>
           </defs>
           <path class="qrmo-mod-close-trail-glow" pathLength="100" d="${path}"/>
@@ -705,7 +705,13 @@ function hubCloseTrail() {
           <path class="qrmo-mod-close-trail-flow" pathLength="100" d="${path}"/>
           <path class="qrmo-mod-close-trail-head" d="${head}"/>
         </svg>`;
-  return `<div class="qrmo-mod-close-trail" aria-hidden="true">
+  const sq = (pos) => `<svg class="qrmo-mod-close-sq qrmo-mod-close-sq--${pos}" viewBox="0 0 18 18" fill="none" focusable="false" aria-hidden="true">
+          <rect class="qrmo-mod-close-sq-glow" x="2.5" y="2.5" width="13" height="13" pathLength="100"/>
+          <rect class="qrmo-mod-close-sq-base" x="2.5" y="2.5" width="13" height="13" pathLength="100"/>
+          <rect class="qrmo-mod-close-sq-flow" x="2.5" y="2.5" width="13" height="13" pathLength="100"/>
+        </svg>`;
+  return `<div class="qrmo-mod-close-sqs" aria-hidden="true">${sq("tl")}${sq("tr")}${sq("bl")}${sq("br")}</div>
+        <div class="qrmo-mod-close-trail" aria-hidden="true">
         ${svg("h", "0 0 280 140", pathH, headH)}
         ${svg("v", "0 0 160 52", pathV, headV)}
       </div>`;
