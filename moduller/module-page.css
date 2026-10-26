@@ -2511,6 +2511,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   z-index: 1;
   width: 0;
   height: 0;
+  overflow: visible;
   pointer-events: none;
 }
 
@@ -2518,13 +2519,13 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-mod-close-nest--r { right: 0; }
 
 .qrmo-mod--hub .qrmo-mod-close-nest-sq {
-  --sq-x: 0px;
+  --sq: 40px;
+  --sq-x: 8px;
   position: absolute;
   top: 0;
   left: 0;
-  box-sizing: border-box;
-  border: 1px solid rgba(244, 241, 232, .96);
-  background: transparent;
+  width: var(--sq);
+  height: var(--sq);
   pointer-events: none;
   transform: translate(-50%, -50%);
 }
@@ -2532,19 +2533,41 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-mod-close-nest--l .qrmo-mod-close-nest-sq { left: calc(var(--sq-x) * -1); }
 .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq { left: var(--sq-x); }
 
-.qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq-x: 8px; width: 58px; height: 58px; opacity: .92; }
-.qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq-x: 22px; width: 84px; height: 84px; opacity: .7; }
-.qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq-x: 40px; width: 112px; height: 112px; opacity: .5; }
-.qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq-x: 56px; width: 140px; height: 140px; opacity: .34; }
-.qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq-x: 74px; width: 168px; height: 168px; opacity: .22; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.qrmo-mod--hub .qrmo-mod-close-nest-sq rect {
+  fill: none;
+  stroke: #f4f1e8;
+  stroke-width: 1.15;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq: 40px; --sq-x: 8px; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq: 58px; --sq-x: 14px; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq: 76px; --sq-x: 20px; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq: 94px; --sq-x: 26px; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq: 112px; --sq-x: 32px; }
+
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--a rect { stroke-opacity: .9; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--b rect { stroke-opacity: .68; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--c rect { stroke-opacity: .48; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--d rect { stroke-opacity: .32; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--e rect { stroke-opacity: .2; }
 
 @media (max-width: 340px) {
   .qrmo-mod--hub .qrmo-mod-close { padding: 26px 26px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq-x: 14px; width: 52px; height: 52px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq-x: 28px; width: 76px; height: 76px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq-x: 44px; width: 100px; height: 100px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq-x: 60px; width: 124px; height: 124px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq-x: 78px; width: 146px; height: 146px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq: 36px; --sq-x: 8px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq: 52px; --sq-x: 14px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq: 68px; --sq-x: 20px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq: 84px; --sq-x: 26px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq: 100px; --sq-x: 32px; }
 }
 
 @media (min-width: 600px) and (max-width: 1023px) {
@@ -2588,11 +2611,11 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-mod-close { padding: 32px 46px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: 30px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-text { font-size: 16px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq-x: 6px; width: 76px; height: 76px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq-x: 22px; width: 108px; height: 108px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq-x: 40px; width: 140px; height: 140px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq-x: 60px; width: 172px; height: 172px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq-x: 80px; width: 204px; height: 204px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq: 52px; --sq-x: 12px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq: 74px; --sq-x: 18px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq: 96px; --sq-x: 24px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq: 118px; --sq-x: 30px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq: 140px; --sq-x: 36px; }
 }
 
 @media (min-width: 900px) {
@@ -2623,11 +2646,11 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     row-gap: 0;
     padding: 32px 52px;
   }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq-x: 4px; width: 72px; height: 72px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq-x: 16px; width: 100px; height: 100px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq-x: 32px; width: 128px; height: 128px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq-x: 46px; width: 154px; height: 154px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq-x: 62px; width: 178px; height: 178px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq: 40px; --sq-x: 4px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq: 58px; --sq-x: 8px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq: 76px; --sq-x: 12px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq: 94px; --sq-x: 16px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq: 112px; --sq-x: 20px; }
   .qrmo-mod--hub .qrmo-mod-close-copy {
     grid-area: copy;
     max-width: 42rem;
@@ -2679,13 +2702,13 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas: "copy actions";
     column-gap: clamp(24px, 3vw, 40px);
-    padding: 36px 60px;
+    padding: 36px 64px;
   }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq-x: 2px; width: 84px; height: 84px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq-x: 14px; width: 116px; height: 116px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq-x: 30px; width: 146px; height: 146px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq-x: 46px; width: 172px; height: 172px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq-x: 64px; width: 186px; height: 186px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq: 48px; --sq-x: 6px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq: 72px; --sq-x: 10px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq: 96px; --sq-x: 14px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq: 120px; --sq-x: 18px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq: 144px; --sq-x: 22px; }
 }
 
 @media (min-width: 1200px) {
@@ -2696,14 +2719,14 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     align-items: center;
   }
   .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
-    padding: 40px 68px;
+    padding: 40px 82px;
   }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: 34px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq-x: -2px; width: 96px; height: 96px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq-x: 12px; width: 128px; height: 128px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq-x: 28px; width: 158px; height: 158px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq-x: 44px; width: 184px; height: 184px; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq-x: 62px; width: 200px; height: 200px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { --sq: 52px; --sq-x: 8px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { --sq: 78px; --sq-x: 12px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { --sq: 104px; --sq-x: 16px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { --sq: 130px; --sq-x: 20px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { --sq: 156px; --sq-x: 24px; }
 }
 
 /* Hub hero görseli — yalnızca Çözümler dizini. Ayrıntı sayfası hero'suna değmez. */
@@ -2954,28 +2977,29 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq {
-    animation: qrmoCloseNest 24s ease-in-out infinite alternate;
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq svg {
+    transform-origin: center;
+    animation: qrmoCloseNest 32s ease-in-out infinite alternate;
   }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { animation-duration: 28s; animation-delay: -7s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { animation-duration: 33s; animation-delay: -14s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { animation-duration: 38s; animation-delay: -20s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e { animation-duration: 44s; animation-delay: -27s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq { animation-name: qrmoCloseNestR; animation-delay: -11s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--b { animation-delay: -18s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--c { animation-delay: -5s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--d { animation-delay: -24s; }
-  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--e { animation-delay: -31s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b svg { animation-duration: 38s; animation-delay: -9s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c svg { animation-duration: 44s; animation-delay: -16s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d svg { animation-duration: 50s; animation-delay: -23s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--e svg { animation-duration: 58s; animation-delay: -31s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq svg { animation-name: qrmoCloseNestR; animation-delay: -13s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--b svg { animation-delay: -21s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--c svg { animation-delay: -6s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--d svg { animation-delay: -28s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--e svg { animation-delay: -36s; }
 }
 
 @keyframes qrmoCloseNest {
-  from { transform: translate(-50%, -50%) scale(1); }
-  to { transform: translate(calc(-50% + 3px), calc(-50% - 2px)) scale(1.02); }
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(2px, -1.5px) scale(1.025); }
 }
 
 @keyframes qrmoCloseNestR {
-  from { transform: translate(-50%, -50%) scale(1); }
-  to { transform: translate(calc(-50% - 3px), calc(-50% + 2px)) scale(1.02); }
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-2px, 1.5px) scale(1.025); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -3052,7 +3076,8 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-mod-close--hub .qrmo-mod-kicker,
   .qrmo-mod--hub .qrmo-mod-close--hub .qrmo-mod-h2,
   .qrmo-mod--hub .qrmo-mod-close--hub .qrmo-mod-text,
-  .qrmo-mod--hub .qrmo-mod-close-nest-sq {
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq,
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq svg {
     transition: none;
     animation: none;
   }

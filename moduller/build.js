@@ -688,8 +688,8 @@ function hubRailsScript() {
 }
 
 function hubCloseFrames() {
-  const layers = ["a", "b", "c", "d", "e"].map((id) => `<span class="qrmo-mod-close-nest-sq qrmo-mod-close-nest-sq--${id}"></span>`).join("");
-  const side = (name) => `<div class="qrmo-mod-close-nest qrmo-mod-close-nest--${name}" aria-hidden="true">${layers}</div>`;
+  const frames = ["e", "d", "c", "b", "a"].map((id) => `<span class="qrmo-mod-close-nest-sq qrmo-mod-close-nest-sq--${id}"><svg viewBox="0 0 100 100" overflow="visible" focusable="false"><rect x="1.5" y="1.5" width="97" height="97"/></svg></span>`).join("");
+  const side = (name) => `<div class="qrmo-mod-close-nest qrmo-mod-close-nest--${name}" aria-hidden="true">${frames}</div>`;
   return side("l") + side("r");
 }
 
