@@ -688,7 +688,7 @@ function hubRailsScript() {
 }
 
 function hubCloseFrames() {
-  const layers = ["a", "b", "c", "d"].map((id) => `<span class="qrmo-mod-close-nest-sq qrmo-mod-close-nest-sq--${id}"></span>`).join("");
+  const layers = ["a", "b", "c", "d", "e"].map((id) => `<span class="qrmo-mod-close-nest-sq qrmo-mod-close-nest-sq--${id}"></span>`).join("");
   const side = (name) => `<div class="qrmo-mod-close-nest qrmo-mod-close-nest--${name}" aria-hidden="true">${layers}</div>`;
   return side("l") + side("r");
 }
