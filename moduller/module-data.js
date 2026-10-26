@@ -52,9 +52,24 @@
     mockCaptionShort: "Temsili arayüz · örnek içerik",
 
     categories: [
-      { id: "menu", name: "Menü", lead: "Müşterinin telefonunda açılan menü: içerik, dil ve filtre." },
-      { id: "servis", name: "Masa & Servis", lead: "Masadan gelen talebin ekibinize ulaştığı akış." },
-      { id: "isletme", name: "Akıllı İşletme", lead: "Menüyü soru, kullanım verisi, geri bildirim ve maliyetle yöneten araçlar." }
+      {
+        id: "menu",
+        name: "Menü",
+        headline: "Menünüzü kolayca yönetin, misafirlerinize daha iyi bir deneyim sunun.",
+        lead: "Menü içeriklerini, fiyatları ve ürün bilgilerini tek noktadan güncelleyin. Çoklu dil ve akıllı filtreleme ile misafirlerin aradığı ürünü daha kolay bulmasını sağlayın; her değişiklikte menüyü yeniden basmak zorunda kalmayın."
+      },
+      {
+        id: "servis",
+        name: "Masa & Servis",
+        headline: "Masa yönetimini kolaylaştırın, servis taleplerini tek ekranda toplayın.",
+        lead: "Her masaya özel QR kodlarıyla masa erişimini düzenleyin. Garson çağrısı, hesap isteği ve sipariş gibi talepleri servis panelinde izleyerek ekibinizin hangi masada neye ihtiyaç duyduğunu daha net görün."
+      },
+      {
+        id: "isletme",
+        name: "Akıllı İşletme",
+        headline: "Menünüzü verilerle geliştirin, daha bilinçli işletme kararları alın.",
+        lead: "Menü asistanıyla misafir sorularını yanıtlamaya yardımcı olun; QR kullanımını, müşteri geri bildirimini ve ürün maliyetini birlikte değerlendirin. Hangi ürünlerin ilgi gördüğünü ve hangilerinin kârlılık açısından incelenmesi gerektiğini daha iyi anlayın."
+      }
     ],
 
     hub: {
@@ -75,7 +90,7 @@
         name: "Restoran Menü",
         category: "menu",
         cue: "menu",
-        tagline: "Menü, fiyat ve stok tek panelde.",
+        tagline: "Fiyat ve ürünleri tek panelden güncelleyin; menü baskısız güncel kalsın.",
         featureIds: ["qr-menu", "menu-yonetimi", "csv-aktar", "porsiyon-ekstra", "kampanya-combo", "rozetler"],
         seo: {
           title: "Restoran Menü — Dijital QR Menü Yönetimi",
@@ -242,7 +257,7 @@
         name: "QR Masa",
         category: "servis",
         cue: "qr",
-        tagline: "Her masaya kendi QR kodu.",
+        tagline: "Her masaya özel QR kodu üretin; misafir menüyü masa bilgisiyle açsın.",
         featureIds: ["qr-masa"],
         seo: {
           title: "QR Masa — Masa Bazlı QR Kod Oluşturma",
@@ -376,7 +391,7 @@
         designV2: true,
         category: "menu",
         cue: "lang",
-        tagline: "Menü misafirin dilinde açılır.",
+        tagline: "Menüyü seçtiğiniz dillerde sunun; misafir ürünü kendi dilinde okusun.",
         featureIds: ["coklu-dil"],
         seo: {
           title: "Çoklu Dil — Çok Dilli Dijital Menü",
@@ -507,7 +522,7 @@
         name: "Akıllı Filtreleme",
         category: "menu",
         cue: "filter",
-        tagline: "Müşteri aradığı ürünü daha hızlı bulur.",
+        tagline: "Alerjen, kalori, fiyat ve ürün özelliğiyle uygun seçeneği bulun.",
         featureIds: ["filtreler"],
         seo: {
           title: "Akıllı Filtreleme — Alerjen ve Kalori Filtresi",
@@ -641,7 +656,7 @@
         name: "Menü Asistanı",
         category: "isletme",
         cue: "chat",
-        tagline: "Menü sorularını sohbette yanıtlar.",
+        tagline: "Menü verinize göre soruları yanıtlar; bilemediğini size bırakır.",
         featureIds: ["asistan"],
         seo: {
           title: "Menü Asistanı — Menü Sorularını Yanıtlayan Asistan",
@@ -785,7 +800,7 @@
         name: "Servis Paneli",
         category: "servis",
         cue: "kanban",
-        tagline: "Masadan gelen talepler tek ekranda.",
+        tagline: "Garson çağrısı, hesap isteği ve siparişleri tek ekranda izleyin.",
         featureIds: ["servis-paneli", "garson-cagir", "hesap-iste", "qr-siparis", "personel-rolu"],
         pageClass: "qrmo-mod-page--servis-paneli",
         modulesLabel: "Diğer Modülleri Keşfedin",
@@ -931,7 +946,7 @@
         name: "QR Analytics",
         category: "isletme",
         cue: "chart",
-        tagline: "Menünüzün nasıl kullanıldığını görün.",
+        tagline: "Menü görüntüleme ve ürün tıklamasını görün; kasa satışı değil.",
         featureIds: ["analytics"],
         seo: {
           title: "QR Analytics — Menü, Ürün ve Masa Raporları",
@@ -1061,7 +1076,7 @@
         name: "Masa Oturum Güvenliği",
         category: "servis",
         cue: "shield",
-        tagline: "Masa oturumu doğrulanmış ve süreli.",
+        tagline: "Kayıtlı masada imzalı oturum açın; süre ve hareketsizlik limitini siz koyun.",
         featureIds: ["oturum-guvenligi"],
         seo: {
           title: "Masa Oturum Güvenliği — İmzalı Masa Oturumu",
@@ -1190,7 +1205,7 @@
         name: "Yorum & Geri Bildirim",
         category: "isletme",
         cue: "stars",
-        tagline: "Müşterinin görüşü size ulaşsın.",
+        tagline: "Puan ve yorumları toplayın; yayına hangisinin çıkacağına siz karar verin.",
         featureIds: ["geri-bildirim"],
         seo: {
           title: "Yorum & Geri Bildirim — Puanlama ve Form Modülü",
@@ -1328,7 +1343,7 @@
         name: "Menü Mühendisliği",
         category: "isletme",
         cue: "matrix",
-        tagline: "Menünün performansını popülerlik ve kârlılıkla görün.",
+        tagline: "Maliyet ve satışla popülerlik ile kârlılığı yan yana görün.",
         featureIds: ["menu-muhendisligi", "maliyet-recete"],
         seo: {
           title: "Menü Mühendisliği — Maliyet ve Menü Matrisi",

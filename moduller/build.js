@@ -1147,10 +1147,12 @@ function renderIndex() {
           <li><a href="#${c.id}"><span class="qrmo-mod-jump-n">${pad(i + 1)}</span><strong>${esc(c.name)}</strong><small>${mods.length} modül</small></a></li>`);
 
   const groups = join(cats, ({ c, mods }, i) => {
+    if (!c.headline) throw new Error("Kategori başlığı yok: " + c.id);
     const head = `
       <header class="qrmo-mod-hubcat-head">
         <span class="qrmo-mod-hubcat-n" aria-hidden="true">${pad(i + 1)}</span>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-${c.id}">${esc(c.name)}</h2>
+        <p class="qrmo-mod-hubcat-label">${esc(c.name)}</p>
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-hub-${c.id}">${esc(c.headline)}</h2>
         <p class="qrmo-mod-text">${esc(c.lead)}</p>
       </header>`;
     const body = hubCatRail(mods, c);
@@ -1195,7 +1197,6 @@ ${groups}${hubRailsScript()}
         </div>
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/#karsilastirma"><span>Paketleri karşılaştırın</span>${ICON.arrow}</a>
-          <a class="qrmo-mod-textlink qrmo-mod-textlink--ondark" href="${rel}iletisim/">İletişime geçin</a>
         </div>
       </div>
     </div>
