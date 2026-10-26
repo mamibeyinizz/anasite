@@ -687,6 +687,55 @@ function hubRailsScript() {
       </script>`;
 }
 
+function hubCloseTrail() {
+  const pathH = "M6 90 C68 90 108 38 196 58 S248 74 258 74";
+  const headH = "M248 68.5 260 74 248 79.5";
+  const pathV = "M80 4 C58 18 102 28 80 44";
+  const headV = "M74.5 38 80 44 85.5 38";
+  const svg = (mod, view, path, head) => `<svg class="qrmo-mod-close-trail-svg qrmo-mod-close-trail-svg--${mod}" viewBox="${view}" fill="none" focusable="false" aria-hidden="true">
+          <defs>
+            <linearGradient id="qrmoHubTrailGrad-${mod}" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#F4F1E8" stop-opacity=".22"/>
+              <stop offset=".55" stop-color="#E8C766" stop-opacity=".7"/>
+              <stop offset="1" stop-color="#C9A84C" stop-opacity=".95"/>
+            </linearGradient>
+          </defs>
+          <path class="qrmo-mod-close-trail-glow" pathLength="100" d="${path}"/>
+          <path class="qrmo-mod-close-trail-base" pathLength="100" d="${path}" stroke="url(#qrmoHubTrailGrad-${mod})"/>
+          <path class="qrmo-mod-close-trail-flow" pathLength="100" d="${path}"/>
+          <path class="qrmo-mod-close-trail-head" d="${head}"/>
+        </svg>`;
+  return `<div class="qrmo-mod-close-trail" aria-hidden="true">
+        ${svg("h", "0 0 280 140", pathH, headH)}
+        ${svg("v", "0 0 160 52", pathV, headV)}
+      </div>`;
+}
+
+function hubCloseEnterScript() {
+  return `<script>
+(function () {
+  var box = document.querySelector(".qrmo-mod-close--hub");
+  if (!box) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  box.setAttribute("data-qrmo-close-enter", "wait");
+  var io = new IntersectionObserver(function (entries) {
+    var e = entries[0];
+    if (!e || !e.isIntersecting) return;
+    box.setAttribute("data-qrmo-close-enter", "in");
+    io.disconnect();
+  }, { threshold: 0.16, rootMargin: "0px 0px -6% 0px" });
+  io.observe(box);
+  window.setTimeout(function () {
+    if (box.getAttribute("data-qrmo-close-enter") === "wait") {
+      box.setAttribute("data-qrmo-close-enter", "in");
+      try { io.disconnect(); } catch (err) {}
+    }
+  }, 1200);
+})();
+      </script>`;
+}
+
 /* =========================================================
    ORTAK SAYFA PARÇALARI
 ========================================================= */
@@ -1191,15 +1240,17 @@ ${groups}${hubRailsScript()}
     <div class="qrmo-mod-inner">
       <div class="qrmo-mod-close qrmo-mod-close--hub">
         <div class="qrmo-mod-close-copy">
-          ${kicker("PAKETLER")}
+          ${kicker(up(H.closingKicker))}
           <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">${esc(H.closingTitle)}</h2>
           <p class="qrmo-mod-text">${esc(H.closingText)}</p>
         </div>
+        ${hubCloseTrail()}
         <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/#karsilastirma"><span>Paketleri karşılaştırın</span>${ICON.arrow}</a>
+          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/#karsilastirma"><span>${esc(H.closingCta)}</span>${ICON.arrow}</a>
         </div>
       </div>
     </div>
+    ${hubCloseEnterScript()}
   </section>
 </main>`;
 
