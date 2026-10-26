@@ -687,34 +687,10 @@ function hubRailsScript() {
       </script>`;
 }
 
-function hubCloseTrail() {
-  const pathH = "M12 86 C78 86 116 38 198 58 S244 72 254 72";
-  const headH = "M243 66.5 256 72 243 77.5";
-  const pathV = "M80 4 C48 16 112 30 80 46";
-  const headV = "M73.5 39 80 47 86.5 39";
-  const svg = (mod, view, path, head) => `<svg class="qrmo-mod-close-trail-svg qrmo-mod-close-trail-svg--${mod}" viewBox="${view}" fill="none" focusable="false" aria-hidden="true">
-          <defs>
-            <linearGradient id="qrmoHubTrailGrad-${mod}" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#F4F1E8" stop-opacity=".25"/>
-              <stop offset=".55" stop-color="#E8C766" stop-opacity=".75"/>
-              <stop offset="1" stop-color="#C9A84C" stop-opacity="1"/>
-            </linearGradient>
-          </defs>
-          <path class="qrmo-mod-close-trail-glow" pathLength="100" d="${path}"/>
-          <path class="qrmo-mod-close-trail-base" pathLength="100" d="${path}" stroke="url(#qrmoHubTrailGrad-${mod})"/>
-          <path class="qrmo-mod-close-trail-flow" pathLength="100" d="${path}"/>
-          <path class="qrmo-mod-close-trail-head" d="${head}"/>
-        </svg>`;
-  const sq = (pos) => `<svg class="qrmo-mod-close-sq qrmo-mod-close-sq--${pos}" viewBox="0 0 18 18" fill="none" focusable="false" aria-hidden="true">
-          <rect class="qrmo-mod-close-sq-glow" x="2.5" y="2.5" width="13" height="13" pathLength="100"/>
-          <rect class="qrmo-mod-close-sq-base" x="2.5" y="2.5" width="13" height="13" pathLength="100"/>
-          <rect class="qrmo-mod-close-sq-flow" x="2.5" y="2.5" width="13" height="13" pathLength="100"/>
-        </svg>`;
-  return `<div class="qrmo-mod-close-sqs" aria-hidden="true">${sq("tl")}${sq("tr")}${sq("bl")}${sq("br")}</div>
-        <div class="qrmo-mod-close-trail" aria-hidden="true">
-        ${svg("h", "0 0 280 140", pathH, headH)}
-        ${svg("v", "0 0 160 52", pathV, headV)}
-      </div>`;
+function hubCloseFrames() {
+  const layers = ["a", "b", "c", "d"].map((id) => `<span class="qrmo-mod-close-nest-sq qrmo-mod-close-nest-sq--${id}"></span>`).join("");
+  const side = (name) => `<div class="qrmo-mod-close-nest qrmo-mod-close-nest--${name}" aria-hidden="true">${layers}</div>`;
+  return side("l") + side("r");
 }
 
 function hubCloseEnterScript() {
@@ -1250,7 +1226,7 @@ ${groups}${hubRailsScript()}
           <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">${esc(H.closingTitle)}</h2>
           <p class="qrmo-mod-text">${esc(H.closingText)}</p>
         </div>
-        ${hubCloseTrail()}
+        ${hubCloseFrames()}
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/#karsilastirma"><span>${esc(H.closingCta)}</span>${ICON.arrow}</a>
         </div>

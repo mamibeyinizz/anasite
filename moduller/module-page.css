@@ -2425,14 +2425,16 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 .qrmo-mod--hub .qrmo-mod-close {
+  --nest-out: 36px;
   position: relative;
+  overflow: hidden;
   width: auto;
   max-width: none;
   max-inline-size: none;
   margin-inline: 0;
   grid-template-columns: minmax(0, 1fr);
   gap: 16px;
-  padding: 26px 22px;
+  padding: 28px 52px;
 }
 
 .qrmo-mod--hub .qrmo-mod-close-copy {
@@ -2498,116 +2500,41 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   text-wrap: pretty;
 }
 
-.qrmo-mod--hub .qrmo-mod-close-sqs {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-sq {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  overflow: visible;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-sq--tl { top: 8px; left: 8px; }
-.qrmo-mod--hub .qrmo-mod-close-sq--tr { top: 8px; right: 8px; }
-.qrmo-mod--hub .qrmo-mod-close-sq--bl { bottom: 8px; left: 8px; }
-.qrmo-mod--hub .qrmo-mod-close-sq--br { bottom: 8px; right: 8px; }
-
-.qrmo-mod--hub .qrmo-mod-close-sq-base,
-.qrmo-mod--hub .qrmo-mod-close-sq-glow,
-.qrmo-mod--hub .qrmo-mod-close-sq-flow {
-  fill: none;
-  stroke-linecap: square;
-  stroke-linejoin: miter;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-sq-base {
-  stroke: #C9A84C;
-  stroke-width: 1.35;
-  opacity: .55;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-sq-glow {
-  stroke: #C9A84C;
-  stroke-width: 3.5;
-  opacity: .16;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-sq-flow {
-  stroke: #E8C766;
-  stroke-width: 1.6;
-}
-
 .qrmo-mod--hub .qrmo-mod-close-copy,
 .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
   position: relative;
   z-index: 2;
 }
 
-.qrmo-mod--hub .qrmo-mod-close-trail {
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  height: 48px;
-  margin-block: -2px;
+.qrmo-mod--hub .qrmo-mod-close-nest {
+  position: absolute;
+  top: 50%;
   z-index: 1;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.qrmo-mod--hub .qrmo-mod-close-trail-svg {
-  display: block;
-  overflow: visible;
+.qrmo-mod--hub .qrmo-mod-close-nest--l { left: 0; }
+.qrmo-mod--hub .qrmo-mod-close-nest--r { right: 0; }
+
+.qrmo-mod--hub .qrmo-mod-close-nest-sq {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, .55);
+  box-shadow: 0 0 18px rgba(244, 241, 232, .16);
+  transform: translate(-50%, -50%);
 }
 
-.qrmo-mod--hub .qrmo-mod-close-trail-svg--h { display: none; }
+.qrmo-mod--hub .qrmo-mod-close-nest--l .qrmo-mod-close-nest-sq { left: calc(var(--nest-out) * -1); }
+.qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq { left: var(--nest-out); }
 
-.qrmo-mod--hub .qrmo-mod-close-trail-svg--v {
-  width: 72px;
-  height: 52px;
-}
-.qrmo-mod--hub .qrmo-mod-close-trail-svg--v .qrmo-mod-close-trail-glow {
-  stroke-width: 3.5;
-  stroke-opacity: .12;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-trail-base,
-.qrmo-mod--hub .qrmo-mod-close-trail-glow,
-.qrmo-mod--hub .qrmo-mod-close-trail-flow,
-.qrmo-mod--hub .qrmo-mod-close-trail-head {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-trail-base {
-  stroke-width: 1.5;
-  stroke: #E8C766;
-  opacity: .82;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-trail-glow {
-  stroke: #C9A84C;
-  stroke-width: 6;
-  stroke-opacity: .2;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-trail-flow {
-  stroke: #F4F1E8;
-  stroke-width: 2.2;
-  stroke-opacity: .95;
-}
-
-.qrmo-mod--hub .qrmo-mod-close-trail-head {
-  stroke: #E8C766;
-  stroke-width: 1.7;
-  opacity: .95;
-}
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--a { width: 58px; height: 58px; opacity: .82; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--b { width: 86px; height: 86px; opacity: .58; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--c { width: 114px; height: 114px; opacity: .38; }
+.qrmo-mod--hub .qrmo-mod-close-nest-sq--d { width: 142px; height: 142px; opacity: .24; }
 
 @media (min-width: 600px) and (max-width: 1023px) {
   .qrmo-mod--hub .qrmo-mod-hubgrid { gap: 14px; }
@@ -2647,7 +2574,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-h2 { font-size: 30px; }
   .qrmo-mod--hub .qrmo-mod-hubcat-head .qrmo-mod-text { font-size: 16px; }
   .qrmo-mod--hub .qrmo-mod-card h3 { font-size: 22px; }
-  .qrmo-mod--hub .qrmo-mod-close { padding: 26px 28px; }
+  .qrmo-mod--hub .qrmo-mod-close { padding: 30px 44px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: 30px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-text { font-size: 16px; }
 }
@@ -2678,18 +2605,13 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     align-items: center;
     column-gap: clamp(24px, 3.2vw, 40px);
     row-gap: 0;
-    padding: 28px 32px;
+    padding: 32px 52px;
   }
   .qrmo-mod--hub .qrmo-mod-close-copy {
     grid-area: copy;
     max-width: 42rem;
   }
-  .qrmo-mod--hub .qrmo-mod-close-trail { display: none; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-cta span { white-space: nowrap; }
-  .qrmo-mod--hub .qrmo-mod-close-sq--tl { top: 12px; left: 12px; }
-  .qrmo-mod--hub .qrmo-mod-close-sq--tr { top: 12px; right: 12px; }
-  .qrmo-mod--hub .qrmo-mod-close-sq--bl { bottom: 12px; left: 12px; }
-  .qrmo-mod--hub .qrmo-mod-close-sq--br { bottom: 12px; right: 12px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 {
     max-width: none;
     font-size: clamp(28px, 2.3vw, 34px);
@@ -2733,27 +2655,16 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-mod-h2--m { font-size: 36px; }
   .qrmo-mod--hub .qrmo-mod-closing { padding-top: 12px; padding-bottom: 48px; }
   .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
-    grid-template-columns: minmax(0, 42rem) minmax(96px, 1fr) auto;
-    grid-template-areas: "copy trail actions";
-    column-gap: 10px;
-    padding: 32px 40px;
+    --nest-out: 10px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "copy actions";
+    column-gap: clamp(24px, 3vw, 40px);
+    padding: 36px 84px;
   }
-  .qrmo-mod--hub .qrmo-mod-close-trail {
-    display: flex;
-    grid-area: trail;
-    height: auto;
-    min-height: 112px;
-    min-width: 0;
-    margin: 0;
-    align-self: stretch;
-  }
-  .qrmo-mod--hub .qrmo-mod-close-trail-svg--h {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: 112px;
-  }
-  .qrmo-mod--hub .qrmo-mod-close-trail-svg--v { display: none; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { width: 78px; height: 78px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { width: 112px; height: 112px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { width: 146px; height: 146px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { width: 176px; height: 176px; }
 }
 
 @media (min-width: 1200px) {
@@ -2764,13 +2675,14 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     align-items: center;
   }
   .qrmo-mod--hub .qrmo-mod-close.qrmo-mod-close--hub {
-    grid-template-columns: minmax(0, 42rem) minmax(120px, 1fr) auto;
-    column-gap: 12px;
-    padding: 36px 44px;
+    --nest-out: 6px;
+    padding: 40px 96px;
   }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: 34px; }
-  .qrmo-mod--hub .qrmo-mod-close-trail,
-  .qrmo-mod--hub .qrmo-mod-close-trail-svg--h { min-height: 120px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--a { width: 88px; height: 88px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { width: 124px; height: 124px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { width: 160px; height: 160px; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { width: 196px; height: 196px; }
 }
 
 /* Hub hero görseli — yalnızca Çözümler dizini. Ayrıntı sayfası hero'suna değmez. */
@@ -3021,26 +2933,26 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .qrmo-mod--hub .qrmo-mod-close-trail-flow {
-    stroke-dasharray: 16 84;
-    animation: qrmoHubTrailFlow 2.8s linear infinite;
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq {
+    animation: qrmoCloseNest 16s ease-in-out infinite alternate;
   }
-  .qrmo-mod--hub .qrmo-mod-close-sq-flow {
-    stroke-dasharray: 24 76;
-    animation: qrmoHubSqFlow 3.2s linear infinite;
-  }
-  .qrmo-mod--hub .qrmo-mod-close-sq--tr .qrmo-mod-close-sq-flow,
-  .qrmo-mod--hub .qrmo-mod-close-sq--br .qrmo-mod-close-sq-flow {
-    animation-delay: -1.6s;
-  }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--b { animation-duration: 19s; animation-delay: -4s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--c { animation-duration: 23s; animation-delay: -9s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq--d { animation-duration: 27s; animation-delay: -13s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq { animation-name: qrmoCloseNestR; animation-delay: -7s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--b { animation-delay: -11s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--c { animation-delay: -2s; }
+  .qrmo-mod--hub .qrmo-mod-close-nest--r .qrmo-mod-close-nest-sq--d { animation-delay: -16s; }
 }
 
-@keyframes qrmoHubTrailFlow {
-  to { stroke-dashoffset: -100; }
+@keyframes qrmoCloseNest {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(calc(-50% + 7px), calc(-50% - 4px)) scale(1.045); }
 }
 
-@keyframes qrmoHubSqFlow {
-  to { stroke-dashoffset: -100; }
+@keyframes qrmoCloseNestR {
+  from { transform: translate(-50%, -50%) scale(1); }
+  to { transform: translate(calc(-50% - 7px), calc(-50% + 4px)) scale(1.045); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -3117,26 +3029,9 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-mod-close--hub .qrmo-mod-kicker,
   .qrmo-mod--hub .qrmo-mod-close--hub .qrmo-mod-h2,
   .qrmo-mod--hub .qrmo-mod-close--hub .qrmo-mod-text,
-  .qrmo-mod--hub .qrmo-mod-close-trail-base,
-  .qrmo-mod--hub .qrmo-mod-close-trail-glow,
-  .qrmo-mod--hub .qrmo-mod-close-trail-flow,
-  .qrmo-mod--hub .qrmo-mod-close-trail-head,
-  .qrmo-mod--hub .qrmo-mod-close-sq-base,
-  .qrmo-mod--hub .qrmo-mod-close-sq-glow,
-  .qrmo-mod--hub .qrmo-mod-close-sq-flow {
+  .qrmo-mod--hub .qrmo-mod-close-nest-sq {
     transition: none;
     animation: none;
-  }
-  .qrmo-mod--hub .qrmo-mod-close-trail-base,
-  .qrmo-mod--hub .qrmo-mod-close-trail-head,
-  .qrmo-mod--hub .qrmo-mod-close-sq-base {
-    stroke-dasharray: none;
-    stroke-dashoffset: 0;
-    opacity: .55;
-  }
-  .qrmo-mod--hub .qrmo-mod-close-trail-flow,
-  .qrmo-mod--hub .qrmo-mod-close-sq-flow {
-    opacity: 0;
   }
   .qrmo-mod--hub .qrmo-mod-close--hub[data-qrmo-close-enter] .qrmo-mod-kicker,
   .qrmo-mod--hub .qrmo-mod-close--hub[data-qrmo-close-enter] .qrmo-mod-h2,
