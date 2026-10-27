@@ -123,7 +123,7 @@ body.qrmo-pricing-page {
   font-size: clamp(16px, 1.6vw, 18px); font-weight: 500; line-height: 1.45;
 }
 .qrmo-pricing-hero .qrmo-pricing-subtitle {
-  max-width: 42ch;
+  max-width: 46ch;
   color: var(--qp-text);
   font-size: 15.5px;
   font-weight: 400;
@@ -245,36 +245,52 @@ body.qrmo-pricing-page {
   max-width: 100%;
 }
 
-.qrmo-pricing-hero-plans {
+.qrmo-pricing-hero-steps {
   display: grid;
   gap: 0;
   margin: 18px 0 0;
   max-width: 38em;
 }
-.qrmo-pricing-hero-plans li {
+.qrmo-pricing-hero-steps li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: start;
   padding: 12px 0;
-  border-top: 1px solid rgba(13, 43, 34, .10);
+  border-top: 1px solid rgba(201, 168, 76, .22);
 }
-.qrmo-pricing-hero-plans li:last-child {
+.qrmo-pricing-hero-steps li:last-child {
   padding-bottom: 0;
 }
-.qrmo-pricing-hero-plan-name {
+.qrmo-pricing-hero-step-n {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(158deg, var(--qp-green-hover) 0%, var(--qp-green-dark) 52%, #081814 100%);
+  color: var(--qp-gold-light);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.qrmo-pricing-hero-step-title {
   color: var(--qp-green-dark);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: -.01em;
   line-height: 1.3;
 }
-.qrmo-pricing-hero-plan-name span {
-  font-weight: 600;
-}
-.qrmo-pricing-hero-plan-copy {
-  margin-top: 4px !important;
+.qrmo-pricing-hero-step-copy {
+  margin-top: 3px !important;
   max-width: 42ch;
   color: var(--qp-text-2);
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .qrmo-pricing-viz {
@@ -329,15 +345,15 @@ body.qrmo-pricing-page {
 }
 .qrmo-pricing-viz-pct {
   color: var(--qp-green-dark);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -.03em;
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -.02em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 .qrmo-pricing-viz-card--plus .qrmo-pricing-viz-pct {
   color: var(--qp-gold-light);
-  font-weight: 600;
+  font-weight: 500;
 }
 .qrmo-pricing-viz-plot {
   position: relative;
@@ -912,12 +928,12 @@ body.qrmo-pricing-page {
     font-size: clamp(38px, 5vw, 48px);
     margin-bottom: 16px !important;
   }
-  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 16.5px; max-width: 44ch; }
-  .qrmo-pricing-hero-plans { margin-top: 20px; }
-  .qrmo-pricing-hero-plan-name { font-size: 15.5px; }
-  .qrmo-pricing-hero-plan-copy { font-size: 15px; }
+  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 16.5px; max-width: 50ch; }
+  .qrmo-pricing-hero-steps { margin-top: 20px; }
+  .qrmo-pricing-hero-step-title { font-size: 15.5px; }
+  .qrmo-pricing-hero-step-copy { font-size: 14.5px; }
   .qrmo-pricing-viz { gap: 12px; }
-  .qrmo-pricing-viz-pct { font-size: 28px; }
+  .qrmo-pricing-viz-pct { font-size: 25px; }
   .qrmo-pricing-viz-plot { height: 140px; min-height: 124px; }
   .qrmo-pricing-viz-plot--wide { height: 100px; min-height: 88px; }
   .qrmo-pricing-hero-close { margin-top: 36px; margin-bottom: 12px; }
@@ -935,11 +951,20 @@ body.qrmo-pricing-page {
     justify-content: flex-start;
     padding-block: 4px 0;
   }
-  .qrmo-pricing-hero-plans {
+  .qrmo-pricing-hero-steps {
     margin-top: 22px;
     max-width: 36em;
   }
-  .qrmo-pricing-hero-plans li { padding: 14px 0; }
+  .qrmo-pricing-hero-steps li {
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 14px 0;
+  }
+  .qrmo-pricing-hero-step-n {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
   .qrmo-pricing-hero .qrmo-pricing-title {
     max-width: 11.2em;
     font-size: clamp(50px, 4vw, 62px);
@@ -948,15 +973,15 @@ body.qrmo-pricing-page {
   }
   .qrmo-pricing-hero .qrmo-pricing-subtitle {
     font-size: 17.5px;
-    max-width: 42ch;
+    max-width: 48ch;
     line-height: 1.55;
   }
-  .qrmo-pricing-hero-plan-name { font-size: 16px; }
-  .qrmo-pricing-hero-plan-copy { font-size: 15.5px; max-width: 46ch; }
+  .qrmo-pricing-hero-step-title { font-size: 16px; }
+  .qrmo-pricing-hero-step-copy { font-size: 15px; max-width: 46ch; }
   .qrmo-pricing-viz { gap: 14px; flex: 1 1 auto; }
   .qrmo-pricing-viz-card { padding: 16px 16px 14px; }
   .qrmo-pricing-viz-card--plus { padding: 16px 18px 14px; }
-  .qrmo-pricing-viz-pct { font-size: 30px; }
+  .qrmo-pricing-viz-pct { font-size: 26px; }
   .qrmo-pricing-viz-plot { height: 160px; min-height: 144px; }
   .qrmo-pricing-viz-plot--wide { height: 114px; min-height: 100px; }
   .qrmo-pricing-hero-close { margin-top: 40px; margin-bottom: 16px; gap: 12px; }
@@ -1022,13 +1047,23 @@ body.qrmo-pricing-page {
     line-height: 1.12;
     margin-bottom: 12px !important;
   }
-  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 15.5px; line-height: 1.5; max-width: 40ch; }
-  .qrmo-pricing-hero-plans { margin-top: 14px; }
-  .qrmo-pricing-hero-plans li { padding: 10px 0; }
-  .qrmo-pricing-hero-plan-name { font-size: 14.5px; }
-  .qrmo-pricing-hero-plan-copy { font-size: 14px; line-height: 1.45; }
+  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 15.5px; line-height: 1.5; max-width: 42ch; }
+  .qrmo-pricing-hero-steps { margin-top: 14px; }
+  .qrmo-pricing-hero-steps li {
+    grid-template-columns: 32px minmax(0, 1fr);
+    column-gap: 10px;
+    padding: 10px 0;
+  }
+  .qrmo-pricing-hero-step-n {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-size: 11px;
+  }
+  .qrmo-pricing-hero-step-title { font-size: 14.5px; }
+  .qrmo-pricing-hero-step-copy { font-size: 13.5px; line-height: 1.45; }
   .qrmo-pricing-viz-card { padding: 12px 12px 10px; border-radius: 16px; }
-  .qrmo-pricing-viz-pct { font-size: 26px; }
+  .qrmo-pricing-viz-pct { font-size: 23px; }
   .qrmo-pricing-viz-plot { height: 92px; min-height: 80px; }
   .qrmo-pricing-viz-plot--wide { height: 70px; min-height: 60px; }
   .qrmo-pricing-viz-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; box-shadow: 0 0 0 1.5px #fff; }
@@ -1049,11 +1084,11 @@ body.qrmo-pricing-page {
   .qrmo-pricing-hero .qrmo-pricing-title { font-size: 30px; margin-bottom: 8px !important; }
   .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 15px; margin-bottom: 0 !important; }
   .qrmo-pricing-viz-name { font-size: 11px; }
-  .qrmo-pricing-viz-pct { font-size: 22px; }
-  .qrmo-pricing-hero-plans { margin-top: 12px; }
-  .qrmo-pricing-hero-plans li { padding: 8px 0; }
-  .qrmo-pricing-hero-plan-name { font-size: 14px; }
-  .qrmo-pricing-hero-plan-copy { font-size: 13.5px; }
+  .qrmo-pricing-viz-pct { font-size: 19px; }
+  .qrmo-pricing-hero-steps { margin-top: 12px; }
+  .qrmo-pricing-hero-steps li { padding: 8px 0; }
+  .qrmo-pricing-hero-step-title { font-size: 14px; }
+  .qrmo-pricing-hero-step-copy { font-size: 13px; }
   .qrmo-pricing-answers { gap: 8px; }
   .qrmo-pricing-answers li { font-size: 15px; line-height: 1.4; }
   .qrmo-pricing-tabs { gap: 6px; }
