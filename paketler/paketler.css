@@ -100,12 +100,12 @@ body.qrmo-pricing-page {
   text-wrap: pretty;
 }
 .qrmo-pricing-hero .qrmo-pricing-title {
-  max-width: none;
-  margin-bottom: 12px !important;
-  font-size: clamp(30px, 7.6vw, 34px);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -.03em;
+  max-width: 13.5em;
+  margin-bottom: 14px !important;
+  font-size: clamp(30px, 7.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.035em;
   text-wrap: wrap;
 }
 
@@ -123,14 +123,14 @@ body.qrmo-pricing-page {
   font-size: clamp(16px, 1.6vw, 18px); font-weight: 500; line-height: 1.45;
 }
 .qrmo-pricing-hero .qrmo-pricing-subtitle {
-  max-width: 40ch;
-  color: var(--qp-text-2);
+  max-width: 34ch;
+  color: var(--qp-text);
   font-size: 15.5px;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .qrmo-pricing-hero .qrmo-pricing-eyebrow {
-  margin-bottom: 6px !important;
+  margin-bottom: 8px !important;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .12em;
@@ -226,24 +226,30 @@ body.qrmo-pricing-page {
 ========================================================= */
 
 .qrmo-pricing-hero {
-  padding: 10px 0 20px;
+  padding: 12px 0 22px;
   overflow-x: clip;
 }
 
 .qrmo-pricing-hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
+  gap: 20px;
   align-items: start;
 }
 .qrmo-pricing-hero-copy,
-.qrmo-pricing-hero-visual { min-width: 0; max-width: 100%; }
+.qrmo-pricing-hero-visual,
+.qrmo-pricing-hero-lead {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+}
 
 .qrmo-pricing-hero-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   max-width: 42em;
 }
 .qrmo-pricing-hero-tags a {
@@ -273,39 +279,39 @@ body.qrmo-pricing-page {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas: "temel pro" "plus plus";
   align-items: stretch;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
 }
 .qrmo-pricing-viz-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-width: 0;
   min-height: 0;
-  padding: 10px 10px 8px;
+  padding: 14px 14px 12px;
   border: 1px solid rgba(13, 43, 34, .10);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, .72);
-  box-shadow: none;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 10px 28px -22px rgba(13, 43, 34, .35);
 }
 .qrmo-pricing-viz-card--temel { grid-area: temel; }
 .qrmo-pricing-viz-card--pro {
   grid-area: pro;
-  border-color: rgba(201, 168, 76, .38);
+  border-color: rgba(201, 168, 76, .42);
 }
 .qrmo-pricing-viz-card--plus {
   grid-area: plus;
-  padding: 9px 12px 7px;
+  padding: 14px 16px 12px;
   background: var(--qp-green-dark);
-  border-color: rgba(13, 43, 34, .4);
+  border-color: transparent;
   color: var(--qp-cream);
+  box-shadow: 0 12px 28px -20px rgba(13, 43, 34, .45);
 }
 .qrmo-pricing-viz-meta {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 .qrmo-pricing-viz-name {
   color: var(--qp-text-2);
@@ -332,15 +338,15 @@ body.qrmo-pricing-page {
 }
 .qrmo-pricing-viz-chart {
   display: block;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   width: 100%;
-  height: 48px;
-  max-height: 48px;
-  overflow: visible;
+  height: 108px;
+  min-height: 88px;
+  overflow: hidden;
 }
 .qrmo-pricing-viz-chart--wide {
-  height: 36px;
-  max-height: 36px;
+  height: 80px;
+  min-height: 64px;
 }
 .qrmo-pricing-viz-grid {
   fill: none;
@@ -352,15 +358,15 @@ body.qrmo-pricing-page {
   stroke: rgba(232, 199, 102, .12);
 }
 .qrmo-pricing-viz-area {
-  fill: rgba(201, 168, 76, .07);
+  fill: rgba(201, 168, 76, .10);
 }
 .qrmo-pricing-viz-area--plus {
-  fill: rgba(232, 199, 102, .08);
+  fill: rgba(232, 199, 102, .12);
 }
 .qrmo-pricing-viz-stroke {
   fill: none;
   stroke: var(--qp-gold);
-  stroke-width: 1.35;
+  stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 100;
@@ -371,7 +377,7 @@ body.qrmo-pricing-page {
   stroke: var(--qp-gold-light);
 }
 .qrmo-pricing-viz-caption {
-  margin: 6px 0 0 !important;
+  margin: 8px 0 0 !important;
   color: var(--qp-text-2);
   font-size: 11px;
   font-weight: 400;
@@ -383,7 +389,8 @@ body.qrmo-pricing-page {
   display: grid;
   justify-items: center;
   gap: 10px;
-  margin-top: 22px;
+  margin-top: 28px;
+  margin-bottom: 8px;
   text-align: center;
 }
 .qrmo-pricing-hero-choose {
@@ -858,42 +865,55 @@ body.qrmo-pricing-page {
 }
 
 @media (min-width: 768px) {
-  .qrmo-pricing-hero { padding: 14px 0 24px; }
-  .qrmo-pricing-hero-grid { gap: 20px; }
+  .qrmo-pricing-hero { padding: 18px 0 28px; }
+  .qrmo-pricing-hero-grid { gap: 24px; }
   .qrmo-pricing-hero .qrmo-pricing-title {
-    font-size: clamp(34px, 4.6vw, 44px);
-    margin-bottom: 14px !important;
+    font-size: clamp(38px, 5vw, 48px);
+    margin-bottom: 16px !important;
   }
-  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 16px; }
-  .qrmo-pricing-hero-tags { margin-top: 16px; }
-  .qrmo-pricing-viz-pct { font-size: 26px; }
-  .qrmo-pricing-viz-chart { height: 52px; max-height: 52px; }
-  .qrmo-pricing-viz-chart--wide { height: 38px; max-height: 38px; }
-  .qrmo-pricing-hero-close { margin-top: 28px; }
+  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 16.5px; max-width: 36ch; }
+  .qrmo-pricing-hero-tags { margin-top: 18px; }
+  .qrmo-pricing-viz { gap: 12px; }
+  .qrmo-pricing-viz-pct { font-size: 28px; }
+  .qrmo-pricing-viz-chart { height: 140px; min-height: 124px; }
+  .qrmo-pricing-viz-chart--wide { height: 100px; min-height: 88px; }
+  .qrmo-pricing-hero-close { margin-top: 36px; margin-bottom: 12px; }
   .qrmo-pricing-hero-choose { font-size: 24px; }
 }
 
 @media (min-width: 1024px) {
-  .qrmo-pricing-hero { padding: 16px 0 28px; }
+  .qrmo-pricing-hero { padding: 20px 0 32px; }
   .qrmo-pricing-hero-grid {
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: clamp(24px, 3vw, 40px);
-    align-items: center;
+    gap: clamp(28px, 3.4vw, 48px);
+    align-items: stretch;
   }
+  .qrmo-pricing-hero-copy {
+    justify-content: space-between;
+    padding-block: 4px 0;
+  }
+  .qrmo-pricing-hero-tags { margin-top: auto; padding-top: 24px; }
   .qrmo-pricing-hero .qrmo-pricing-title {
-    font-size: clamp(48px, 3.5vw, 54px);
-    line-height: 1.12;
+    max-width: 11.2em;
+    font-size: clamp(50px, 4vw, 62px);
+    line-height: 1.04;
+    letter-spacing: -.04em;
   }
-  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 17px; max-width: 38ch; }
+  .qrmo-pricing-hero .qrmo-pricing-subtitle {
+    font-size: 17.5px;
+    max-width: 34ch;
+    line-height: 1.55;
+  }
   .qrmo-pricing-hero-tags a { font-size: 13.5px; }
-  .qrmo-pricing-viz { gap: 10px; }
-  .qrmo-pricing-viz-card { padding: 12px 12px 10px; }
-  .qrmo-pricing-viz-pct { font-size: 28px; }
-  .qrmo-pricing-viz-chart { height: 58px; max-height: 58px; }
-  .qrmo-pricing-viz-chart--wide { height: 42px; max-height: 42px; }
-  .qrmo-pricing-hero-close { margin-top: 32px; gap: 12px; }
+  .qrmo-pricing-viz { gap: 14px; flex: 1 1 auto; }
+  .qrmo-pricing-viz-card { padding: 16px 16px 14px; }
+  .qrmo-pricing-viz-card--plus { padding: 16px 18px 14px; }
+  .qrmo-pricing-viz-pct { font-size: 30px; }
+  .qrmo-pricing-viz-chart { height: 160px; min-height: 144px; }
+  .qrmo-pricing-viz-chart--wide { height: 114px; min-height: 100px; }
+  .qrmo-pricing-hero-close { margin-top: 40px; margin-bottom: 16px; gap: 12px; }
   .qrmo-pricing-hero-choose { font-size: 26px; font-weight: 600; }
-  .qrmo-pricing-hero-rule { width: min(36%, 240px); }
+  .qrmo-pricing-hero-rule { width: min(32%, 240px); }
 }
 
 @media (max-width: 900px) {
@@ -942,23 +962,26 @@ body.qrmo-pricing-page {
 }
 
 @media (max-width: 480px) {
-  .qrmo-pricing-hero { padding: 8px 0 16px; }
+  .qrmo-pricing-hero { padding: 8px 0 18px; }
   .qrmo-pricing-hero .qrmo-pricing-eyebrow {
     letter-spacing: .1em;
-    margin-bottom: 4px !important;
+    margin-bottom: 6px !important;
     font-size: 11px;
   }
-  .qrmo-pricing-hero-grid { gap: 14px; }
+  .qrmo-pricing-hero-grid { gap: 16px; }
   .qrmo-pricing-hero .qrmo-pricing-title {
-    font-size: clamp(30px, 8vw, 33px);
-    line-height: 1.18;
-    margin-bottom: 10px !important;
+    font-size: clamp(30px, 8vw, 34px);
+    line-height: 1.12;
+    margin-bottom: 12px !important;
   }
-  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 15px; line-height: 1.45; }
-  .qrmo-pricing-hero-tags { margin-top: 12px; gap: 6px; }
+  .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 15.5px; line-height: 1.5; max-width: 36ch; }
+  .qrmo-pricing-hero-tags { margin-top: 14px; gap: 6px; }
   .qrmo-pricing-hero-tags a { white-space: nowrap; }
-  .qrmo-pricing-viz-pct { font-size: 24px; }
-  .qrmo-pricing-hero-close { margin-top: 18px; gap: 8px; }
+  .qrmo-pricing-viz-card { padding: 12px 12px 10px; border-radius: 16px; }
+  .qrmo-pricing-viz-pct { font-size: 26px; }
+  .qrmo-pricing-viz-chart { height: 92px; min-height: 80px; }
+  .qrmo-pricing-viz-chart--wide { height: 70px; min-height: 60px; }
+  .qrmo-pricing-hero-close { margin-top: 24px; margin-bottom: 6px; gap: 8px; }
   .qrmo-pricing-hero-choose { font-size: 22px; font-weight: 600; }
   .qrmo-pricing-desc,
   .qrmo-pricing-answers li { font-size: 15.5px; }
