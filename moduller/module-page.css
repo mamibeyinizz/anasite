@@ -2558,35 +2558,35 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 .qrmo-mod--hub .qrmo-mod-close-orb--a {
-  width: 78px;
-  height: 78px;
-  left: 64%;
-  top: 10%;
-  background: radial-gradient(circle, rgba(232, 199, 102, .62) 0%, rgba(201, 168, 76, .28) 34%, rgba(201, 168, 76, .08) 58%, rgba(201, 168, 76, 0) 78%);
+  width: 74px;
+  height: 74px;
+  left: 68%;
+  top: 8%;
+  background: radial-gradient(circle, rgba(232, 199, 102, .28) 0%, rgba(201, 168, 76, .1) 38%, rgba(201, 168, 76, 0) 74%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-orb--b {
-  width: 52px;
-  height: 52px;
-  left: 5%;
-  top: 40%;
-  background: radial-gradient(circle, rgba(244, 241, 232, .5) 0%, rgba(232, 199, 102, .22) 36%, rgba(201, 168, 76, .06) 60%, rgba(201, 168, 76, 0) 78%);
+  width: 48px;
+  height: 48px;
+  left: 4%;
+  top: 34%;
+  background: radial-gradient(circle, rgba(244, 241, 232, .2) 0%, rgba(232, 199, 102, .07) 42%, rgba(201, 168, 76, 0) 74%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-orb--c {
-  width: 86px;
-  height: 86px;
-  left: 42%;
-  top: 54%;
-  background: radial-gradient(circle, rgba(201, 168, 76, .34) 0%, rgba(232, 199, 102, .14) 38%, rgba(201, 168, 76, .04) 62%, rgba(201, 168, 76, 0) 80%);
+  width: 64px;
+  height: 64px;
+  left: 40%;
+  top: 22%;
+  background: radial-gradient(circle, rgba(201, 168, 76, .22) 0%, rgba(232, 199, 102, .07) 42%, rgba(201, 168, 76, 0) 76%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-orb--d {
-  width: 38px;
-  height: 38px;
-  left: 22%;
-  top: 16%;
-  background: radial-gradient(circle, rgba(232, 199, 102, .48) 0%, rgba(244, 241, 232, .16) 40%, rgba(232, 199, 102, 0) 76%);
+  width: 36px;
+  height: 36px;
+  left: 16%;
+  top: 5%;
+  background: radial-gradient(circle, rgba(232, 199, 102, .22) 0%, rgba(244, 241, 232, .06) 44%, rgba(232, 199, 102, 0) 74%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-spark {
@@ -2703,10 +2703,10 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     text-wrap: balance;
   }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-text { max-width: 46ch; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--a { left: 54%; top: 8%; width: 84px; height: 84px; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--b { left: 6%; top: 52%; width: 56px; height: 56px; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--c { left: 36%; top: 42%; width: 70px; height: 70px; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--d { left: 18%; top: 14%; width: 42px; height: 42px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--a { left: 10%; top: 16%; width: 70px; height: 70px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--b { left: 4%; top: 58%; width: 46px; height: 46px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--c { left: 64%; top: 2%; width: 58px; height: 58px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--d { left: 30%; top: 6%; width: 40px; height: 40px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
     grid-area: actions;
     display: flex;
@@ -2762,6 +2762,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     padding: 38px 64px;
   }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: 34px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--c { left: 57%; top: 26%; width: 76px; height: 76px; }
 }
 
 /* Hub hero görseli — yalnızca Çözümler dizini. Ayrıntı sayfası hero'suna değmez. */
@@ -3046,23 +3047,23 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @keyframes qrmoCloseOrbA {
-  from { transform: translate3d(0, 6px, 0) scale(.96); }
-  to { transform: translate3d(12px, -14px, 0) scale(1.05); }
+  from { transform: translate3d(0, 3px, 0) scale(.98); }
+  to { transform: translate3d(8px, -10px, 0) scale(1.03); }
 }
 
 @keyframes qrmoCloseOrbB {
-  from { transform: translate3d(0, -4px, 0) scale(1.04); }
-  to { transform: translate3d(-10px, 12px, 0) scale(.95); }
+  from { transform: translate3d(0, -2px, 0) scale(1.02); }
+  to { transform: translate3d(-7px, 7px, 0) scale(.98); }
 }
 
 @keyframes qrmoCloseOrbC {
-  from { transform: translate3d(4px, 8px, 0) scale(.94); }
-  to { transform: translate3d(-12px, -10px, 0) scale(1.06); }
+  from { transform: translate3d(2px, 0, 0) scale(.98); }
+  to { transform: translate3d(-8px, -7px, 0) scale(1.03); }
 }
 
 @keyframes qrmoCloseOrbD {
-  from { transform: translate3d(-4px, 2px, 0) scale(.97); }
-  to { transform: translate3d(8px, 11px, 0) scale(1.04); }
+  from { transform: translate3d(-2px, 0, 0) scale(.99); }
+  to { transform: translate3d(6px, 5px, 0) scale(1.02); }
 }
 
 @keyframes qrmoCloseSpark {
