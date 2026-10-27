@@ -270,25 +270,36 @@
     table.appendChild(el("tfoot", null, fr));
   }
 
+  function headerCell(pkg, withCta) {
+    var variant = pkg.variant === "featured" ? "primary" : pkg.variant === "dark" ? "on-dark" : "outline";
+    var th = el("th", { scope: "col", class: "qrmo-pricing-th" + colMark(pkg) });
+    th.appendChild(pkg.badge
+      ? el("span", { class: "qrmo-pricing-th-badge", text: pkg.badge })
+      : el("span", { class: "qrmo-pricing-th-badge is-empty", "aria-hidden": "true" }));
+    th.appendChild(el("span", { class: "qrmo-pricing-th-name", text: pkg.name }));
+    if (pkg.variant === "dark") {
+      th.appendChild(el("span", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }));
+    }
+    th.appendChild(el("span", { class: "qrmo-pricing-th-price" },
+      el("span", { "data-qp": "short", "data-pkg": pkg.id }),
+      el("span", { class: "qrmo-pricing-th-unit", "data-qp": "qualifier", "data-pkg": pkg.id })
+    ));
+    if (withCta) {
+      th.appendChild(el("div", { class: "qrmo-pricing-th-cta" },
+        cta(pkg, pkg.ctaLabel, variant)));
+    }
+    return th;
+  }
+
   function makeTable(features, caption, withFoot) {
-    var table = el("table", { class: "qrmo-pricing-table" });
+    var table = el("table", { class: "qrmo-pricing-table" + (withFoot ? " qrmo-pricing-table--main" : "") });
     table.appendChild(el("caption", { class: "qrmo-pricing-sr", text: caption }));
     var colgroup = el("colgroup", null, el("col", { class: "qrmo-pricing-col-label" }));
     P.forEach(function () { colgroup.appendChild(el("col")); });
     table.appendChild(colgroup);
 
     var hr = el("tr", null, el("th", { scope: "col", class: "qrmo-pricing-th-label" }, el("span", { class: "qrmo-pricing-sr", text: "Özellik" })));
-    P.forEach(function (pkg) {
-      hr.appendChild(el("th", { scope: "col", class: "qrmo-pricing-th" + colMark(pkg) },
-        pkg.badge ? el("span", { class: "qrmo-pricing-th-badge", text: pkg.badge }) : null,
-        el("span", { class: "qrmo-pricing-th-name", text: pkg.name }),
-        pkg.variant === "dark" ? el("span", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
-        el("span", { class: "qrmo-pricing-th-price" },
-          el("span", { "data-qp": "short", "data-pkg": pkg.id }),
-          el("span", { class: "qrmo-pricing-th-unit", "data-qp": "qualifier", "data-pkg": pkg.id })
-        )
-      ));
-    });
+    P.forEach(function (pkg) { hr.appendChild(headerCell(pkg, withFoot)); });
     table.appendChild(el("thead", null, hr));
     appendFeatureRows(table, features, withFoot);
     return table;
