@@ -293,20 +293,44 @@
         </div>
       </div>
 
-      <div class="qrmo-pricing-hero-close">
-        <h2 class="qrmo-pricing-hero-choose" id="qrmo-pricing-hero-choose">Paketinizi belirleyin</h2>
-        <div class="qrmo-pricing-hero-rule" aria-hidden="true"><span></span></div>
-      </div>
-
     </div>
   </header>
 
   <!-- =====================================================
-       2. PAKET KARTLARI
+       2. ÖZELLİK KARŞILAŞTIRMA
   ====================================================== -->
-  <section class="qrmo-pricing-packages" id="paketler" aria-labelledby="qrmo-pricing-packages-title">
+  <section class="qrmo-pricing-compare" id="karsilastirma" aria-labelledby="qrmo-pricing-compare-title">
     <div class="qrmo-pricing-inner">
-      <h2 class="qrmo-pricing-sr" id="qrmo-pricing-packages-title">Paketler</h2>
+
+      <div class="qrmo-pricing-head">
+        <p class="qrmo-pricing-eyebrow">KARŞILAŞTIRMA</p>
+        <h2 class="qrmo-pricing-h2" id="qrmo-pricing-compare-title">Paket farklarını yan yana görün.</h2>
+        <p class="qrmo-pricing-desc">Üst paket, alttaki özellikleri de içerir. İşaret dahil, çizgi bu pakette yok demektir.</p>
+      </div>
+
+      <ul class="qrmo-pricing-legend">
+        <li><span class="qrmo-pricing-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span> Dahil</li>
+        <li><span class="qrmo-pricing-cell-off" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 12h10"/></svg></span> Bu pakette yok</li>
+      </ul>
+
+      <!-- Masaüstü / tablet: tablo -->
+      <div class="qrmo-pricing-table-wrap" data-qp-mount="table"></div>
+
+      <!-- Mobil: paket seçici + kategori akordeonları -->
+      <div class="qrmo-pricing-switcher-wrap" data-qp-mount="switcher"></div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       3. PAKET KARTLARI
+  ====================================================== -->
+  <section class="qrmo-pricing-packages" id="paketler" aria-labelledby="qrmo-pricing-hero-choose">
+    <div class="qrmo-pricing-inner">
+      <div class="qrmo-pricing-hero-close">
+        <h2 class="qrmo-pricing-hero-choose" id="qrmo-pricing-hero-choose">Paketinizi belirleyin</h2>
+        <div class="qrmo-pricing-hero-rule" aria-hidden="true"><span></span></div>
+      </div>
       <div class="qrmo-pricing-cards" data-qp-mount="cards"></div>
       <noscript>
         <div class="qrmo-pricing-fallback">
@@ -320,43 +344,11 @@
         </div>
       </noscript>
       <p class="qrmo-pricing-cards-foot">
-        <a class="qrmo-pricing-textlink" href="#karsilastirma">Tüm özellikleri karşılaştır <span aria-hidden="true">↓</span></a>
+        <a class="qrmo-pricing-textlink" href="#karsilastirma">Tüm özellikleri karşılaştır <span aria-hidden="true">↑</span></a>
         <a class="qrmo-pricing-textlink" href="../moduller/">Modül sayfalarını incele <span aria-hidden="true">→</span></a>
       </p>
       <p class="qrmo-pricing-flow-note" id="qrmo-pricing-flow-note">Satın alma bu sayfada tamamlanmaz. Paket düğmesi ödeme almaz; iletişim formunu açar.</p>
       <p class="qrmo-pricing-price-note" data-qp-mount="price-note" hidden></p>
-    </div>
-  </section>
-
-  <!-- =====================================================
-       3. ÖZELLİK KARŞILAŞTIRMA
-  ====================================================== -->
-  <section class="qrmo-pricing-compare" id="karsilastirma" aria-labelledby="qrmo-pricing-compare-title">
-    <div class="qrmo-pricing-inner">
-
-      <div class="qrmo-pricing-head">
-        <p class="qrmo-pricing-eyebrow">KARŞILAŞTIRMA</p>
-        <h2 class="qrmo-pricing-h2" id="qrmo-pricing-compare-title">Paket farklarını yan yana görün.</h2>
-        <p class="qrmo-pricing-desc">Üst paket, alttaki özellikleri de içerir. İşaret dahil, çizgi bu pakette yok demektir.</p>
-      </div>
-
-      <ul class="qrmo-pricing-diff">
-        <li><span>Temel</span> Dijital menü, panel, dil, filtre ve QR masa.</li>
-        <li class="is-recommended"><span>Pro · önerilen</span> Ayrıca garson çağrısı, hesap talebi, sipariş ve servis paneli.</li>
-        <li><span>Plus</span> Ayrıca analitik, geri bildirim, maliyet, reçete ve menü asistanı.</li>
-      </ul>
-
-      <ul class="qrmo-pricing-legend">
-        <li><span class="qrmo-pricing-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span> Dahil</li>
-        <li><span class="qrmo-pricing-cell-off" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 12h10"/></svg></span> Bu pakette yok</li>
-      </ul>
-
-      <!-- Masaüstü / tablet: tablo -->
-      <div class="qrmo-pricing-table-wrap" data-qp-mount="table"></div>
-
-      <!-- Mobil: paket seçici + kategori akordeonları -->
-      <div class="qrmo-pricing-switcher-wrap" data-qp-mount="switcher"></div>
-
     </div>
   </section>
 
