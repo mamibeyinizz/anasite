@@ -688,7 +688,7 @@ function hubRailsScript() {
 }
 
 function hubCloseGlow() {
-  const orbs = ["a", "b", "c"].map((id) => `<span class="qrmo-mod-close-orb qrmo-mod-close-orb--${id}"></span>`).join("");
+  const orbs = ["a", "b", "c", "d"].map((id) => `<span class="qrmo-mod-close-orb qrmo-mod-close-orb--${id}"></span>`).join("");
   const sparks = [1, 2, 3, 4, 5, 6, 7].map((n) => `<span class="qrmo-mod-close-spark qrmo-mod-close-spark--${n}"></span>`).join("");
   return `<div class="qrmo-mod-close-glow" aria-hidden="true">${orbs}${sparks}</div>`;
 }

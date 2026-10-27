@@ -2553,28 +2553,40 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   pointer-events: none;
 }
 
+.qrmo-mod--hub .qrmo-mod-close-orb {
+  transform-origin: center;
+}
+
 .qrmo-mod--hub .qrmo-mod-close-orb--a {
-  width: 200px;
-  height: 190px;
-  left: -86px;
-  top: -80px;
-  background: radial-gradient(circle, rgba(52, 112, 88, .48) 0%, rgba(23, 50, 38, .16) 48%, rgba(13, 43, 34, 0) 74%);
+  width: 78px;
+  height: 78px;
+  left: 64%;
+  top: 10%;
+  background: radial-gradient(circle, rgba(232, 199, 102, .62) 0%, rgba(201, 168, 76, .28) 34%, rgba(201, 168, 76, .08) 58%, rgba(201, 168, 76, 0) 78%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-orb--b {
-  width: 230px;
-  height: 180px;
-  right: -100px;
-  bottom: -84px;
-  background: radial-gradient(circle, rgba(201, 168, 76, .16) 0%, rgba(232, 199, 102, .05) 42%, rgba(201, 168, 76, 0) 72%);
+  width: 52px;
+  height: 52px;
+  left: 5%;
+  top: 40%;
+  background: radial-gradient(circle, rgba(244, 241, 232, .5) 0%, rgba(232, 199, 102, .22) 36%, rgba(201, 168, 76, .06) 60%, rgba(201, 168, 76, 0) 78%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-orb--c {
-  width: 170px;
-  height: 130px;
-  left: 46%;
-  top: -88px;
-  background: radial-gradient(circle, rgba(244, 241, 232, .07) 0%, rgba(232, 199, 102, .025) 46%, rgba(244, 241, 232, 0) 72%);
+  width: 86px;
+  height: 86px;
+  left: 42%;
+  top: 54%;
+  background: radial-gradient(circle, rgba(201, 168, 76, .34) 0%, rgba(232, 199, 102, .14) 38%, rgba(201, 168, 76, .04) 62%, rgba(201, 168, 76, 0) 80%);
+}
+
+.qrmo-mod--hub .qrmo-mod-close-orb--d {
+  width: 38px;
+  height: 38px;
+  left: 22%;
+  top: 16%;
+  background: radial-gradient(circle, rgba(232, 199, 102, .48) 0%, rgba(244, 241, 232, .16) 40%, rgba(232, 199, 102, 0) 76%);
 }
 
 .qrmo-mod--hub .qrmo-mod-close-spark {
@@ -2645,8 +2657,10 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-h2 { font-size: 32px; line-height: 1.16; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-text { margin-top: 10px; font-size: 17px; line-height: 1.5; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-cta { width: auto; padding: 14px 22px; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--a { width: 260px; height: 220px; left: -110px; top: -90px; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--b { width: 300px; height: 220px; right: -130px; bottom: -100px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--a { width: 86px; height: 86px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--b { width: 58px; height: 58px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--c { width: 90px; height: 90px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--d { width: 44px; height: 44px; }
 }
 
 @media (min-width: 900px) {
@@ -2689,6 +2703,10 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     text-wrap: balance;
   }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-text { max-width: 46ch; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--a { left: 54%; top: 8%; width: 84px; height: 84px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--b { left: 6%; top: 52%; width: 56px; height: 56px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--c { left: 36%; top: 42%; width: 70px; height: 70px; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--d { left: 18%; top: 14%; width: 42px; height: 42px; }
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-actions {
     grid-area: actions;
     display: flex;
@@ -2731,8 +2749,6 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     column-gap: clamp(24px, 3vw, 40px);
     padding: 36px 56px;
   }
-  .qrmo-mod--hub .qrmo-mod-close-orb--a { width: 320px; height: 260px; left: -130px; top: -110px; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--b { width: 360px; height: 240px; right: -150px; bottom: -110px; }
 }
 
 @media (min-width: 1200px) {
@@ -2996,16 +3012,17 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .qrmo-mod--hub .qrmo-mod-close-orb--a { animation: qrmoCloseWash 32s ease-in-out -8s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--b { animation: qrmoCloseWashB 35s ease-in-out -19s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-orb--c { animation: qrmoCloseWash 28s ease-in-out -14s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--1 { animation: qrmoCloseSpark 22s ease-in-out -3s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--2 { animation: qrmoCloseSparkB 26s ease-in-out -11s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--3 { animation: qrmoCloseSpark 30s ease-in-out -17s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--4 { animation: qrmoCloseSparkB 24s ease-in-out -6s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--5 { animation: qrmoCloseSpark 34s ease-in-out -21s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--6 { animation: qrmoCloseSparkB 20s ease-in-out -9s infinite alternate; }
-  .qrmo-mod--hub .qrmo-mod-close-spark--7 { animation: qrmoCloseSpark 27s ease-in-out -15s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--a { animation: qrmoCloseOrbA 22s ease-in-out -5s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--b { animation: qrmoCloseOrbB 16s ease-in-out -9s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--c { animation: qrmoCloseOrbC 26s ease-in-out -14s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-orb--d { animation: qrmoCloseOrbD 18s ease-in-out -7s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--1 { animation: qrmoCloseSpark 18s ease-in-out -3s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--2 { animation: qrmoCloseSparkB 24s ease-in-out -11s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--3 { animation: qrmoCloseSpark 21s ease-in-out -6s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--4 { animation: qrmoCloseSparkB 15s ease-in-out -8s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--5 { animation: qrmoCloseSpark 26s ease-in-out -13s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--6 { animation: qrmoCloseSparkB 19s ease-in-out -4s infinite alternate; }
+  .qrmo-mod--hub .qrmo-mod-close-spark--7 { animation: qrmoCloseSpark 23s ease-in-out -16s infinite alternate; }
 
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-cta,
   .qrmo-mod--hub .qrmo-mod-close .qrmo-mod-cta svg {
@@ -3028,14 +3045,24 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   }
 }
 
-@keyframes qrmoCloseWash {
-  from { transform: translate3d(0, 0, 0); opacity: .78; }
-  to { transform: translate3d(16px, -10px, 0); opacity: 1; }
+@keyframes qrmoCloseOrbA {
+  from { transform: translate3d(0, 6px, 0) scale(.96); }
+  to { transform: translate3d(12px, -14px, 0) scale(1.05); }
 }
 
-@keyframes qrmoCloseWashB {
-  from { transform: translate3d(0, 0, 0); opacity: .85; }
-  to { transform: translate3d(-14px, 8px, 0); opacity: .6; }
+@keyframes qrmoCloseOrbB {
+  from { transform: translate3d(0, -4px, 0) scale(1.04); }
+  to { transform: translate3d(-10px, 12px, 0) scale(.95); }
+}
+
+@keyframes qrmoCloseOrbC {
+  from { transform: translate3d(4px, 8px, 0) scale(.94); }
+  to { transform: translate3d(-12px, -10px, 0) scale(1.06); }
+}
+
+@keyframes qrmoCloseOrbD {
+  from { transform: translate3d(-4px, 2px, 0) scale(.97); }
+  to { transform: translate3d(8px, 11px, 0) scale(1.04); }
 }
 
 @keyframes qrmoCloseSpark {
