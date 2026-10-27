@@ -806,17 +806,13 @@ body.qrmo-pricing-page {
 @media (min-width: 768px) {
   .qrmo-pricing-table-wrap {
     display: block;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    margin-inline: -4px;
-    padding-inline: 4px;
+    overflow: visible;
   }
   .qrmo-pricing-switcher-wrap { display: none; }
 
   .qrmo-pricing-table {
     width: 100%;
-    min-width: 720px;
+    min-width: 0;
     border-collapse: separate;
     border-spacing: 0;
     table-layout: fixed;
@@ -977,8 +973,24 @@ body.qrmo-pricing-page {
   .qrmo-pricing-more-note { margin: 0 0 8px !important; color: var(--qp-text); font-size: 15px; line-height: 1.5; }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .qrmo-pricing-table-wrap {
+    overflow-x: auto;
+    overflow-y: clip;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .qrmo-pricing-col-label { width: 30%; }
+  .qrmo-pricing-th-cta .qrmo-pricing-btn,
+  .qrmo-pricing-foot-cell .qrmo-pricing-btn {
+    font-size: 13px;
+    padding: 8px 6px;
+    gap: 6px;
+  }
+  .qrmo-pricing-th-name { font-size: 18px; }
+}
+
 @media (min-width: 1024px) {
-  .qrmo-pricing-table { min-width: 0; }
   .qrmo-pricing-col-label { width: 34%; }
   .qrmo-pricing-table col:not(.qrmo-pricing-col-label) { width: 22%; }
 }
