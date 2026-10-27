@@ -289,7 +289,7 @@
     var wrap = mount("table");
     var primary = D.features.filter(function (f) { return !f.secondary; });
     var secondary = D.features.filter(function (f) { return f.secondary; });
-    wrap.appendChild(makeTable(primary, "Paketlere göre özellik karşılaştırması", true));
+    wrap.appendChild(makeTable(primary, "Temel, Pro ve Plus özellik tablosu", true));
     if (!secondary.length) return;
 
     var details = el("details", { class: "qrmo-pricing-more" });
