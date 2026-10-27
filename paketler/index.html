@@ -209,38 +209,75 @@
 
         <div class="qrmo-pricing-hero-visual" aria-hidden="true">
           <div class="qrmo-pricing-viz">
+            <!-- Shared plot: viewBox 0 0 240 160, x0=20, x1=220, yBottom=148, H=136, yEnd=yBottom-(p/100)*H -->
             <article class="qrmo-pricing-viz-card qrmo-pricing-viz-card--temel">
               <div class="qrmo-pricing-viz-meta">
                 <p class="qrmo-pricing-viz-name">Temel</p>
                 <p class="qrmo-pricing-viz-pct"><span data-qp-viz-n="27">27</span>%</p>
               </div>
-              <svg class="qrmo-pricing-viz-chart" viewBox="0 0 200 160" fill="none" preserveAspectRatio="none" focusable="false">
-                <path class="qrmo-pricing-viz-grid" d="M10 45h180M10 80h180M10 115h180"/>
-                <path class="qrmo-pricing-viz-area" d="M10 150C60 150 78 131.1 100 131.1S150 112.2 190 112.2V158H10Z"/>
-                <path class="qrmo-pricing-viz-stroke" pathLength="100" d="M10 150C60 150 78 131.1 100 131.1S150 112.2 190 112.2"/>
-              </svg>
+              <div class="qrmo-pricing-viz-plot">
+                <svg class="qrmo-pricing-viz-chart" viewBox="0 0 240 160" fill="none" preserveAspectRatio="none" focusable="false">
+                  <defs>
+                    <mask id="qrmo-viz-mask-temel" maskUnits="userSpaceOnUse">
+                      <rect class="qrmo-pricing-viz-wipe" x="0" y="0" width="240" height="160" fill="#fff"/>
+                    </mask>
+                  </defs>
+                  <path class="qrmo-pricing-viz-grid qrmo-pricing-viz-grid--y" d="M20 12H220M20 46H220M20 80H220M20 114H220M20 148H220"/>
+                  <path class="qrmo-pricing-viz-grid qrmo-pricing-viz-grid--x" d="M20 12V148M70 12V148M120 12V148M170 12V148M220 12V148"/>
+                  <g mask="url(#qrmo-viz-mask-temel)">
+                    <path class="qrmo-pricing-viz-area" d="M20 148C70 148 90 129.64 120 129.64S170 111.28 220 111.28V154H20Z"/>
+                    <path class="qrmo-pricing-viz-stroke" d="M20 148C70 148 90 129.64 120 129.64S170 111.28 220 111.28"/>
+                  </g>
+                </svg>
+                <span class="qrmo-pricing-viz-dot qrmo-pricing-viz-dot--start"></span>
+                <span class="qrmo-pricing-viz-dot qrmo-pricing-viz-dot--end"></span>
+              </div>
             </article>
             <article class="qrmo-pricing-viz-card qrmo-pricing-viz-card--pro">
               <div class="qrmo-pricing-viz-meta">
                 <p class="qrmo-pricing-viz-name">Pro</p>
                 <p class="qrmo-pricing-viz-pct"><span data-qp-viz-n="53">53</span>%</p>
               </div>
-              <svg class="qrmo-pricing-viz-chart" viewBox="0 0 200 160" fill="none" preserveAspectRatio="none" focusable="false">
-                <path class="qrmo-pricing-viz-grid" d="M10 45h180M10 80h180M10 115h180"/>
-                <path class="qrmo-pricing-viz-area" d="M10 150C60 150 78 112.9 100 112.9S150 75.8 190 75.8V158H10Z"/>
-                <path class="qrmo-pricing-viz-stroke" pathLength="100" d="M10 150C60 150 78 112.9 100 112.9S150 75.8 190 75.8"/>
-              </svg>
+              <div class="qrmo-pricing-viz-plot">
+                <svg class="qrmo-pricing-viz-chart" viewBox="0 0 240 160" fill="none" preserveAspectRatio="none" focusable="false">
+                  <defs>
+                    <mask id="qrmo-viz-mask-pro" maskUnits="userSpaceOnUse">
+                      <rect class="qrmo-pricing-viz-wipe" x="0" y="0" width="240" height="160" fill="#fff"/>
+                    </mask>
+                  </defs>
+                  <path class="qrmo-pricing-viz-grid qrmo-pricing-viz-grid--y" d="M20 12H220M20 46H220M20 80H220M20 114H220M20 148H220"/>
+                  <path class="qrmo-pricing-viz-grid qrmo-pricing-viz-grid--x" d="M20 12V148M70 12V148M120 12V148M170 12V148M220 12V148"/>
+                  <g mask="url(#qrmo-viz-mask-pro)">
+                    <path class="qrmo-pricing-viz-area" d="M20 148C70 148 90 111.96 120 111.96S170 75.92 220 75.92V154H20Z"/>
+                    <path class="qrmo-pricing-viz-stroke" d="M20 148C70 148 90 111.96 120 111.96S170 75.92 220 75.92"/>
+                  </g>
+                </svg>
+                <span class="qrmo-pricing-viz-dot qrmo-pricing-viz-dot--start"></span>
+                <span class="qrmo-pricing-viz-dot qrmo-pricing-viz-dot--end"></span>
+              </div>
             </article>
             <article class="qrmo-pricing-viz-card qrmo-pricing-viz-card--plus">
               <div class="qrmo-pricing-viz-meta">
                 <p class="qrmo-pricing-viz-name">Plus</p>
                 <p class="qrmo-pricing-viz-pct"><span data-qp-viz-n="83">83</span>%</p>
               </div>
-              <svg class="qrmo-pricing-viz-chart qrmo-pricing-viz-chart--wide" viewBox="0 0 360 120" fill="none" preserveAspectRatio="none" focusable="false">
-                <path class="qrmo-pricing-viz-grid" d="M10 35h340M10 60h340M10 85h340"/>
-                <path class="qrmo-pricing-viz-area qrmo-pricing-viz-area--plus" d="M10 110C105 110 139 68.5 180 68.5S275 27 350 27V118H10Z"/>
-                <path class="qrmo-pricing-viz-stroke qrmo-pricing-viz-stroke--plus" pathLength="100" d="M10 110C105 110 139 68.5 180 68.5S275 27 350 27"/>
-              </svg>
+              <div class="qrmo-pricing-viz-plot qrmo-pricing-viz-plot--wide">
+                <svg class="qrmo-pricing-viz-chart qrmo-pricing-viz-chart--wide" viewBox="0 0 240 160" fill="none" preserveAspectRatio="none" focusable="false">
+                  <defs>
+                    <mask id="qrmo-viz-mask-plus" maskUnits="userSpaceOnUse">
+                      <rect class="qrmo-pricing-viz-wipe" x="0" y="0" width="240" height="160" fill="#fff"/>
+                    </mask>
+                  </defs>
+                  <path class="qrmo-pricing-viz-grid qrmo-pricing-viz-grid--y" d="M20 12H220M20 46H220M20 80H220M20 114H220M20 148H220"/>
+                  <path class="qrmo-pricing-viz-grid qrmo-pricing-viz-grid--x" d="M20 12V148M70 12V148M120 12V148M170 12V148M220 12V148"/>
+                  <g mask="url(#qrmo-viz-mask-plus)">
+                    <path class="qrmo-pricing-viz-area qrmo-pricing-viz-area--plus" d="M20 148C70 148 90 91.56 120 91.56S170 35.12 220 35.12V154H20Z"/>
+                    <path class="qrmo-pricing-viz-stroke qrmo-pricing-viz-stroke--plus" d="M20 148C70 148 90 91.56 120 91.56S170 35.12 220 35.12"/>
+                  </g>
+                </svg>
+                <span class="qrmo-pricing-viz-dot qrmo-pricing-viz-dot--start"></span>
+                <span class="qrmo-pricing-viz-dot qrmo-pricing-viz-dot--end"></span>
+              </div>
             </article>
           </div>
           <p class="qrmo-pricing-viz-caption">Örnek görsel gösterge</p>

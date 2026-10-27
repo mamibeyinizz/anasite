@@ -339,45 +339,76 @@ body.qrmo-pricing-page {
   color: var(--qp-gold-light);
   font-weight: 600;
 }
-.qrmo-pricing-viz-chart {
-  display: block;
+.qrmo-pricing-viz-plot {
+  position: relative;
   flex: 1 1 auto;
   width: 100%;
   height: 108px;
   min-height: 88px;
-  overflow: hidden;
 }
-.qrmo-pricing-viz-chart--wide {
+.qrmo-pricing-viz-plot--wide {
   height: 80px;
   min-height: 64px;
 }
+.qrmo-pricing-viz-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
 .qrmo-pricing-viz-grid {
   fill: none;
-  stroke: rgba(13, 43, 34, .06);
+  stroke: rgba(13, 43, 34, .09);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 .qrmo-pricing-viz-card--plus .qrmo-pricing-viz-grid {
-  stroke: rgba(232, 199, 102, .12);
+  stroke: rgba(232, 199, 102, .18);
 }
 .qrmo-pricing-viz-area {
-  fill: rgba(201, 168, 76, .10);
+  fill: rgba(201, 168, 76, .07);
 }
 .qrmo-pricing-viz-area--plus {
-  fill: rgba(232, 199, 102, .12);
+  fill: rgba(232, 199, 102, .08);
 }
 .qrmo-pricing-viz-stroke {
   fill: none;
   stroke: var(--qp-gold);
-  stroke-width: 1.5;
+  stroke-width: 1.75;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
   vector-effect: non-scaling-stroke;
+}
+.qrmo-pricing-viz-wipe {
+  transform-box: fill-box;
+  transform-origin: 0 50%;
 }
 .qrmo-pricing-viz-stroke--plus {
   stroke: var(--qp-gold-light);
+}
+.qrmo-pricing-viz-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%;
+  background: var(--qp-gold);
+  box-shadow: 0 0 0 2px #fff;
+  pointer-events: none;
+}
+.qrmo-pricing-viz-dot--start {
+  left: 8.333%;
+  top: 92.5%;
+}
+.qrmo-pricing-viz-dot--end {
+  left: 91.667%;
+}
+.qrmo-pricing-viz-card--temel .qrmo-pricing-viz-dot--end { top: 69.55%; }
+.qrmo-pricing-viz-card--pro .qrmo-pricing-viz-dot--end { top: 47.45%; }
+.qrmo-pricing-viz-card--plus .qrmo-pricing-viz-dot--end { top: 21.95%; }
+.qrmo-pricing-viz-card--plus .qrmo-pricing-viz-dot {
+  background: var(--qp-gold-light);
+  box-shadow: 0 0 0 2px var(--qp-green-dark);
 }
 .qrmo-pricing-viz-caption {
   margin: 8px 0 0 !important;
@@ -436,11 +467,17 @@ body.qrmo-pricing-page {
   }
   .qrmo-pricing-viz-card--pro { animation-delay: .05s; }
   .qrmo-pricing-viz-card--plus { animation-delay: .1s; }
-  .qrmo-pricing-viz-stroke {
-    animation: qrmoPricingVizDraw .7s cubic-bezier(.22, 1, .36, 1) .12s both;
+  .qrmo-pricing-viz-wipe {
+    animation: qrmoPricingVizWipe .75s cubic-bezier(.22, 1, .36, 1) .12s both;
   }
   .qrmo-pricing-viz-area {
-    animation: qrmoPricingVizFill .7s ease .12s both;
+    animation: qrmoPricingVizFill .75s ease .12s both;
+  }
+  .qrmo-pricing-viz-dot--start {
+    animation: qrmoPricingVizFill .2s ease .12s both;
+  }
+  .qrmo-pricing-viz-dot--end {
+    animation: qrmoPricingVizFill .22s ease .78s both;
   }
 }
 
@@ -448,9 +485,9 @@ body.qrmo-pricing-page {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
-@keyframes qrmoPricingVizDraw {
-  from { stroke-dashoffset: 100; }
-  to { stroke-dashoffset: 0; }
+@keyframes qrmoPricingVizWipe {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 @keyframes qrmoPricingVizFill {
   from { opacity: 0; }
@@ -459,8 +496,9 @@ body.qrmo-pricing-page {
 
 @media (prefers-reduced-motion: reduce) {
   .qrmo-pricing-viz-card,
-  .qrmo-pricing-viz-stroke,
-  .qrmo-pricing-viz-area {
+  .qrmo-pricing-viz-wipe,
+  .qrmo-pricing-viz-area,
+  .qrmo-pricing-viz-dot {
     animation: none;
   }
 }
@@ -880,8 +918,8 @@ body.qrmo-pricing-page {
   .qrmo-pricing-hero-plan-copy { font-size: 15px; }
   .qrmo-pricing-viz { gap: 12px; }
   .qrmo-pricing-viz-pct { font-size: 28px; }
-  .qrmo-pricing-viz-chart { height: 140px; min-height: 124px; }
-  .qrmo-pricing-viz-chart--wide { height: 100px; min-height: 88px; }
+  .qrmo-pricing-viz-plot { height: 140px; min-height: 124px; }
+  .qrmo-pricing-viz-plot--wide { height: 100px; min-height: 88px; }
   .qrmo-pricing-hero-close { margin-top: 36px; margin-bottom: 12px; }
   .qrmo-pricing-hero-choose { font-size: 24px; }
 }
@@ -919,8 +957,8 @@ body.qrmo-pricing-page {
   .qrmo-pricing-viz-card { padding: 16px 16px 14px; }
   .qrmo-pricing-viz-card--plus { padding: 16px 18px 14px; }
   .qrmo-pricing-viz-pct { font-size: 30px; }
-  .qrmo-pricing-viz-chart { height: 160px; min-height: 144px; }
-  .qrmo-pricing-viz-chart--wide { height: 114px; min-height: 100px; }
+  .qrmo-pricing-viz-plot { height: 160px; min-height: 144px; }
+  .qrmo-pricing-viz-plot--wide { height: 114px; min-height: 100px; }
   .qrmo-pricing-hero-close { margin-top: 40px; margin-bottom: 16px; gap: 12px; }
   .qrmo-pricing-hero-choose { font-size: 26px; font-weight: 600; }
   .qrmo-pricing-hero-rule { width: min(32%, 240px); }
@@ -991,8 +1029,10 @@ body.qrmo-pricing-page {
   .qrmo-pricing-hero-plan-copy { font-size: 14px; line-height: 1.45; }
   .qrmo-pricing-viz-card { padding: 12px 12px 10px; border-radius: 16px; }
   .qrmo-pricing-viz-pct { font-size: 26px; }
-  .qrmo-pricing-viz-chart { height: 92px; min-height: 80px; }
-  .qrmo-pricing-viz-chart--wide { height: 70px; min-height: 60px; }
+  .qrmo-pricing-viz-plot { height: 92px; min-height: 80px; }
+  .qrmo-pricing-viz-plot--wide { height: 70px; min-height: 60px; }
+  .qrmo-pricing-viz-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; box-shadow: 0 0 0 1.5px #fff; }
+  .qrmo-pricing-viz-card--plus .qrmo-pricing-viz-dot { box-shadow: 0 0 0 1.5px var(--qp-green-dark); }
   .qrmo-pricing-hero-close { margin-top: 24px; margin-bottom: 6px; gap: 8px; }
   .qrmo-pricing-hero-choose { font-size: 22px; font-weight: 600; }
   .qrmo-pricing-desc,
