@@ -178,38 +178,69 @@
 <main class="qrmo-pricing" id="qrmo-pricing">
 
   <!-- =====================================================
-       1. HERO + DÖNEM SEÇİMİ
+       1. HERO
   ====================================================== -->
   <header class="qrmo-pricing-hero">
     <div class="qrmo-pricing-inner">
 
       <div class="qrmo-pricing-hero-grid">
         <div class="qrmo-pricing-hero-copy">
-          <p class="qrmo-pricing-eyebrow">QR MENU OFFICIAL • PAKETLER</p>
-          <h1 class="qrmo-pricing-title">Restoranınız için doğru dijital çözümü&nbsp;seçin.</h1>
-          <p class="qrmo-pricing-subtitle">Temel dijital menüyü yönetir. Pro masa servisini ekler. Plus veri araçlarını ekler. Üst paket, alt paketin özelliklerini de içerir.</p>
+          <p class="qrmo-pricing-eyebrow">PAKETLER</p>
+          <h1 class="qrmo-pricing-title">Her işletmeye uygun dijital bir çözüm var.</h1>
+          <p class="qrmo-pricing-subtitle">Dijital menüden masa servisine, akıllı işletme araçlarına kadar ihtiyaçlarınıza uygun paketi seçin.</p>
+          <ul class="qrmo-pricing-hero-tags">
+            <li><a href="../moduller/akilli-filtreleme/">Akıllı filtreleme</a></li>
+            <li><a href="../moduller/menu-asistani/">AI chatbot</a></li>
+            <li><a href="../moduller/qr-analytics/">Menü analitiği</a></li>
+            <li><a href="../moduller/qr-masa/">QR masa</a></li>
+            <li><a href="../moduller/coklu-dil/">Çoklu dil</a></li>
+          </ul>
+          <p class="qrmo-pricing-sr">Sağdaki grafikler örnek görsel göstergedir; doğrulanmış performans verisi değildir.</p>
         </div>
 
-        <div class="qrmo-pricing-hero-control">
-          <fieldset class="qrmo-pricing-period">
-            <legend class="qrmo-pricing-sr">Ödeme dönemi</legend>
-            <div class="qrmo-pricing-toggle">
-              <label>
-                <input type="radio" name="qrmo-pricing-period" value="monthly" checked aria-label="Aylık">
-                <span class="qrmo-pricing-toggle-opt"><strong>Aylık</strong></span>
-              </label>
-              <label>
-                <input type="radio" name="qrmo-pricing-period" value="annual" aria-label="Yıllık, 2 ay daha az">
-                <span class="qrmo-pricing-toggle-opt"><strong>Yıllık</strong><small data-qp-free>2 ay daha az</small></span>
-              </label>
-            </div>
-          </fieldset>
-          <p class="qrmo-pricing-period-note" id="qrmo-pricing-period-note" role="status" aria-live="polite">Karttaki tutar her ay tahsil edilir. Yıllık toplam, 10 aylık ücrete karşılık gelir.</p>
-          <div class="qrmo-pricing-hero-actions">
-            <a class="qrmo-pricing-btn qrmo-pricing-btn--primary" href="#paketler">Paketleri görün</a>
-            <a class="qrmo-pricing-textlink" href="#ihtiyac">Bana uygun paketi belirle</a>
+        <div class="qrmo-pricing-hero-visual" aria-hidden="true">
+          <div class="qrmo-pricing-viz">
+            <article class="qrmo-pricing-viz-card qrmo-pricing-viz-card--temel">
+              <div class="qrmo-pricing-viz-meta">
+                <p class="qrmo-pricing-viz-name">Temel</p>
+                <p class="qrmo-pricing-viz-pct"><span data-qp-viz-n="27">27</span>%</p>
+              </div>
+              <svg class="qrmo-pricing-viz-chart" viewBox="0 0 160 72" fill="none" preserveAspectRatio="none" focusable="false">
+                <path class="qrmo-pricing-viz-grid" d="M8 22h144M8 36h144M8 50h144"/>
+                <path class="qrmo-pricing-viz-area" d="M8 64C40 64 56 58.68 80 58.68S124 48.88 152 48.88V70H8Z"/>
+                <path class="qrmo-pricing-viz-stroke" pathLength="100" d="M8 64C40 64 56 58.68 80 58.68S124 48.88 152 48.88"/>
+              </svg>
+            </article>
+            <article class="qrmo-pricing-viz-card qrmo-pricing-viz-card--pro">
+              <div class="qrmo-pricing-viz-meta">
+                <p class="qrmo-pricing-viz-name">Pro</p>
+                <p class="qrmo-pricing-viz-pct"><span data-qp-viz-n="53">53</span>%</p>
+              </div>
+              <svg class="qrmo-pricing-viz-chart" viewBox="0 0 160 72" fill="none" preserveAspectRatio="none" focusable="false">
+                <path class="qrmo-pricing-viz-grid" d="M8 22h144M8 36h144M8 50h144"/>
+                <path class="qrmo-pricing-viz-area" d="M8 64C40 64 56 53.55 80 53.55S124 34.32 152 34.32V70H8Z"/>
+                <path class="qrmo-pricing-viz-stroke" pathLength="100" d="M8 64C40 64 56 53.55 80 53.55S124 34.32 152 34.32"/>
+              </svg>
+            </article>
+            <article class="qrmo-pricing-viz-card qrmo-pricing-viz-card--plus">
+              <div class="qrmo-pricing-viz-meta">
+                <p class="qrmo-pricing-viz-name">Plus</p>
+                <p class="qrmo-pricing-viz-pct"><span data-qp-viz-n="83">83</span>%</p>
+              </div>
+              <svg class="qrmo-pricing-viz-chart qrmo-pricing-viz-chart--wide" viewBox="0 0 320 56" fill="none" preserveAspectRatio="none" focusable="false">
+                <path class="qrmo-pricing-viz-grid" d="M8 18h304M8 28h304M8 38h304"/>
+                <path class="qrmo-pricing-viz-area qrmo-pricing-viz-area--plus" d="M8 48C80 48 112 36.31 160 36.31S256 14.8 312 14.8V54H8Z"/>
+                <path class="qrmo-pricing-viz-stroke qrmo-pricing-viz-stroke--plus" pathLength="100" d="M8 48C80 48 112 36.31 160 36.31S256 14.8 312 14.8"/>
+              </svg>
+            </article>
           </div>
+          <p class="qrmo-pricing-viz-caption">Örnek görsel gösterge</p>
         </div>
+      </div>
+
+      <div class="qrmo-pricing-hero-close">
+        <h2 class="qrmo-pricing-hero-choose" id="qrmo-pricing-hero-choose">Paketinizi belirleyin</h2>
+        <div class="qrmo-pricing-hero-rule" aria-hidden="true"><span></span></div>
       </div>
 
     </div>

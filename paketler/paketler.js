@@ -542,6 +542,28 @@
     if (h > 0) root.style.setProperty("--qp-sticky-top", h + "px");
   }
 
+  function initHeroViz() {
+    var nodes = root.querySelectorAll("[data-qp-viz-n]");
+    if (!nodes.length) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    nodes.forEach(function (n) {
+      var end = parseInt(n.getAttribute("data-qp-viz-n"), 10);
+      if (!end && end !== 0) return;
+      n.textContent = String(end);
+      if (reduce) return;
+      n.textContent = "0";
+      var start = performance.now();
+      var dur = 650;
+      function tick(now) {
+        var t = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - t, 3);
+        n.textContent = String(Math.round(end * eased));
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
   renderCards();
   renderTable();
   renderSwitcher();
@@ -549,6 +571,7 @@
   renderFinal();
   bindToggle();
   updatePrices(false);
+  initHeroViz();
   syncStickyOffset();
   window.addEventListener("resize", syncStickyOffset);
   if (typeof ResizeObserver !== "undefined") {
