@@ -694,14 +694,7 @@ body.qrmo-pricing-page {
 
 .qrmo-pricing-compare { padding: clamp(8px, 1.5vw, 16px) 0 clamp(36px, 4.5vw, 64px); }
 
-.qrmo-pricing-legend {
-  display: flex; flex-wrap: wrap; gap: 8px 22px;
-  margin: 0 0 16px; padding: 0;
-}
-.qrmo-pricing-legend li {
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--qp-green-dark); font-size: 15px; font-weight: 700;
-}
+.qrmo-pricing-compare .qrmo-pricing-head { margin-bottom: clamp(16px, 2vw, 24px); }
 
 #paketler, #karsilastirma, #ihtiyac, #sorular,
 #paket-temel, #paket-pro, #paket-plus { scroll-margin-top: calc(var(--qrmo-gh-h, 80px) + 12px); }
