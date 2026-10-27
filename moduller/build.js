@@ -687,10 +687,10 @@ function hubRailsScript() {
       </script>`;
 }
 
-function hubCloseFrames() {
-  const frames = ["e", "d", "c", "b", "a"].map((id) => `<span class="qrmo-mod-close-nest-sq qrmo-mod-close-nest-sq--${id}"><svg viewBox="0 0 100 100" overflow="visible" focusable="false"><rect x="1.5" y="1.5" width="97" height="97"/></svg></span>`).join("");
-  const side = (name) => `<div class="qrmo-mod-close-nest qrmo-mod-close-nest--${name}" aria-hidden="true">${frames}</div>`;
-  return side("l") + side("r");
+function hubCloseGlow() {
+  const orbs = ["a", "b", "c"].map((id) => `<span class="qrmo-mod-close-orb qrmo-mod-close-orb--${id}"></span>`).join("");
+  const sparks = [1, 2, 3, 4, 5, 6, 7].map((n) => `<span class="qrmo-mod-close-spark qrmo-mod-close-spark--${n}"></span>`).join("");
+  return `<div class="qrmo-mod-close-glow" aria-hidden="true">${orbs}${sparks}</div>`;
 }
 
 function hubCloseEnterScript() {
@@ -1226,7 +1226,7 @@ ${groups}${hubRailsScript()}
           <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">${esc(H.closingTitle)}</h2>
           <p class="qrmo-mod-text">${esc(H.closingText)}</p>
         </div>
-        ${hubCloseFrames()}
+        ${hubCloseGlow()}
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="${rel}paketler/#karsilastirma"><span>${esc(H.closingCta)}</span>${ICON.arrow}</a>
         </div>
