@@ -245,7 +245,7 @@
     return td;
   }
 
-  function appendFeatureRows(table, features, withFoot) {
+  function appendFeatureRows(table, features) {
     D.categories.forEach(function (cat) {
       var rows = features.filter(function (f) { return f.category === cat.id; });
       if (!rows.length) return;
@@ -259,49 +259,29 @@
       });
       table.appendChild(tb);
     });
-
-    if (!withFoot) return;
-    var fr = el("tr", null, el("td", { class: "qrmo-pricing-foot-label" }));
-    P.forEach(function (pkg) {
-      var variant = pkg.variant === "featured" ? "primary" : pkg.variant === "dark" ? "on-dark" : "outline";
-      fr.appendChild(el("td", { class: "qrmo-pricing-foot-cell" + colMark(pkg) },
-        cta(pkg, pkg.ctaLabel, variant)));
-    });
-    table.appendChild(el("tfoot", null, fr));
   }
 
-  function headerCell(pkg, withCta) {
-    var variant = pkg.variant === "featured" ? "primary" : pkg.variant === "dark" ? "on-dark" : "outline";
+  function headerCell(pkg) {
     var th = el("th", { scope: "col", class: "qrmo-pricing-th" + colMark(pkg) });
     th.appendChild(pkg.badge
       ? el("span", { class: "qrmo-pricing-th-badge", text: pkg.badge })
       : el("span", { class: "qrmo-pricing-th-badge is-empty", "aria-hidden": "true" }));
     th.appendChild(el("span", { class: "qrmo-pricing-th-name", text: pkg.name }));
-    if (pkg.variant === "dark") {
-      th.appendChild(el("span", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }));
-    }
-    th.appendChild(el("span", { class: "qrmo-pricing-th-price" },
-      el("span", { "data-qp": "short", "data-pkg": pkg.id }),
-      el("span", { class: "qrmo-pricing-th-unit", "data-qp": "qualifier", "data-pkg": pkg.id })
-    ));
-    if (withCta) {
-      th.appendChild(el("div", { class: "qrmo-pricing-th-cta" },
-        cta(pkg, pkg.ctaLabel, variant)));
-    }
+    th.appendChild(el("span", { class: "qrmo-pricing-th-role", text: "Paket" }));
     return th;
   }
 
-  function makeTable(features, caption, withFoot) {
-    var table = el("table", { class: "qrmo-pricing-table" + (withFoot ? " qrmo-pricing-table--main" : "") });
+  function makeTable(features, caption, isMain) {
+    var table = el("table", { class: "qrmo-pricing-table" + (isMain ? " qrmo-pricing-table--main" : "") });
     table.appendChild(el("caption", { class: "qrmo-pricing-sr", text: caption }));
     var colgroup = el("colgroup", null, el("col", { class: "qrmo-pricing-col-label" }));
     P.forEach(function () { colgroup.appendChild(el("col")); });
     table.appendChild(colgroup);
 
     var hr = el("tr", null, el("th", { scope: "col", class: "qrmo-pricing-th-label" }, el("span", { class: "qrmo-pricing-sr", text: "Özellik" })));
-    P.forEach(function (pkg) { hr.appendChild(headerCell(pkg, withFoot)); });
+    P.forEach(function (pkg) { hr.appendChild(headerCell(pkg)); });
     table.appendChild(el("thead", null, hr));
-    appendFeatureRows(table, features, withFoot);
+    appendFeatureRows(table, features);
     return table;
   }
 
