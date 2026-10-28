@@ -421,175 +421,306 @@
     wrap.appendChild(details);
   }
 
-  /* ---------- 3. MOBİL HALKA SEÇİCİ (<768px) ---------- */
+  /* ---------- 3. MOBİL PAKET TOGGLE (<768px) ---------- */
 
-  var ringBtns = {};
-  var ringEllipses = {};
-  var ringMarks = {};
-  var ringListEl = null;
-  var ringLiveEl = null;
-  var ringPainted = false;
-
-  function svgNode(tag, attrs) {
-    var n = document.createElementNS("http://www.w3.org/2000/svg", tag);
-    if (attrs) {
-      Object.keys(attrs).forEach(function (k) {
-        var v = attrs[k];
-        if (v === false || v == null) return;
-        n.setAttribute(k, v === true ? "" : v);
-      });
-    }
-    for (var i = 2; i < arguments.length; i++) {
-      var c = arguments[i];
-      if (c == null || c === false) continue;
-      n.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
-    }
-    return n;
-  }
+  var toggleRadios = {};
+  var toggleRoot = null;
+  var toggleSlider = null;
+  var toggleKnob = null;
+  var toggleListEl = null;
+  var toggleLiveEl = null;
+  var toggleKickerName = null;
+  var toggleKickerCount = null;
+  var togglePainted = false;
+  var togglePrevIds = [];
+  var toggleCountVal = 0;
+  var toggleDrag = null;
+  var toggleIgnoreClick = false;
 
   function reduceMotion() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
+  function includedFeatures(pkg) {
+    return D.features.filter(function (f) { return status(f, pkg).on; });
+  }
+
+  function isFreshFeature(f, pkg) {
+    var i = rank(pkg.id);
+    if (i <= 0) return false;
+    return !status(f, P[i - 1]).on;
+  }
+
+  function animateCount(node, from, to) {
+    if (!node) return;
+    if (from === to || reduceMotion()) {
+      node.textContent = String(to);
+      return;
+    }
+    var start = performance.now();
+    var dur = 380;
+    function tick(now) {
+      var t = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - t, 3);
+      node.textContent = String(Math.round(from + (to - from) * eased));
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
   function renderSwitcher() {
     var wrap = mount("switcher");
-    ringLiveEl = el("p", {
+    toggleLiveEl = el("p", {
       class: "qrmo-pricing-sr",
-      id: "qrmo-pricing-ring-live",
+      id: "qrmo-pricing-switch-live",
       "aria-live": "polite"
     });
-    ringListEl = el("ul", {
-      class: "qrmo-pricing-ring-list",
-      id: "qrmo-pricing-ring-list"
+
+    var panel = el("div", { class: "qrmo-pricing-switch-panel" });
+    var kicker = el("p", { class: "qrmo-pricing-switch-kicker" });
+    toggleKickerName = el("span", { class: "qrmo-pricing-switch-kicker-name" });
+    toggleKickerCount = el("span", { class: "qrmo-pricing-switch-kicker-count" });
+    kicker.appendChild(toggleKickerName);
+    kicker.appendChild(document.createTextNode(" · "));
+    kicker.appendChild(toggleKickerCount);
+    kicker.appendChild(document.createTextNode(" özellik"));
+
+    toggleListEl = el("ul", {
+      class: "qrmo-pricing-switch-list",
+      id: "qrmo-pricing-switch-list"
     });
 
-    var geometry = [
-      { cx: 86, cy: 54, rx: 70, ry: 48 },
-      { cx: 160, cy: 54, rx: 70, ry: 48 },
-      { cx: 234, cy: 54, rx: 70, ry: 48 }
-    ];
-
-    var svg = svgNode("svg", {
-      class: "qrmo-pricing-rings-svg",
-      viewBox: "0 0 320 148",
-      focusable: "false",
-      "aria-hidden": "true"
-    });
-    P.forEach(function (pkg, i) {
-      var g = geometry[i] || geometry[geometry.length - 1];
-      var ell = svgNode("ellipse", {
-        class: "qrmo-pricing-ring-oval",
-        cx: String(g.cx),
-        cy: String(g.cy),
-        rx: String(g.rx),
-        ry: String(g.ry)
-      });
-      var mark = svgNode("circle", {
-        class: "qrmo-pricing-ring-mark",
-        cx: String(g.cx),
-        cy: String(g.cy + g.ry - 11),
-        r: "3.5"
-      });
-      var label = svgNode("text", {
-        class: "qrmo-pricing-ring-label",
-        x: String(g.cx),
-        y: "128",
-        "text-anchor": "middle"
-      }, pkg.name);
-      svg.appendChild(ell);
-      svg.appendChild(mark);
-      svg.appendChild(label);
-      ringEllipses[pkg.id] = ell;
-      ringMarks[pkg.id] = mark;
-    });
-
-    var hits = el("div", { class: "qrmo-pricing-rings-hits" });
-    P.forEach(function (pkg) {
-      var b = el("button", {
-        class: "qrmo-pricing-ring-hit",
-        type: "button",
-        role: "radio",
-        id: "qrmo-pricing-ring-" + pkg.id,
-        "aria-controls": "qrmo-pricing-ring-list",
-        "aria-label": (pkg.badge ? pkg.name + " paketi, önerilen" : pkg.name + " paketi")
-      });
-      b.addEventListener("click", function () { selectTab(pkg.id, false); });
-      b.addEventListener("keydown", function (e) {
-        var i = rank(pkg.id), n = P.length, to = -1;
-        if (e.key === "ArrowRight") to = (i + 1) % n;
-        else if (e.key === "ArrowLeft") to = (i - 1 + n) % n;
-        else if (e.key === "Home") to = 0;
-        else if (e.key === "End") to = n - 1;
-        if (to < 0) return;
-        e.preventDefault();
-        selectTab(P[to].id, true);
-      });
-      ringBtns[pkg.id] = b;
-      hits.appendChild(b);
-    });
-
-    var rings = el("div", {
-      class: "qrmo-pricing-rings",
+    toggleRoot = el("div", {
+      class: "qrmo-pricing-toggle",
       role: "radiogroup",
       "aria-label": "Paket seçin"
-    }, svg, hits);
+    });
+    toggleRoot.style.setProperty("--qp-toggle-i", String(Math.max(0, rank(activePkg))));
 
-    wrap.appendChild(ringLiveEl);
-    wrap.appendChild(el("div", { class: "qrmo-pricing-ring-panel" }, ringListEl));
-    wrap.appendChild(rings);
-    updateSwitcher();
+    var track = el("div", { class: "qrmo-pricing-toggle-track" });
+    track.appendChild(el("span", { class: "qrmo-pricing-toggle-star", "aria-hidden": "true", style: "left:18%;top:28%" }));
+    track.appendChild(el("span", { class: "qrmo-pricing-toggle-star", "aria-hidden": "true", style: "left:46%;top:62%" }));
+    track.appendChild(el("span", { class: "qrmo-pricing-toggle-star", "aria-hidden": "true", style: "left:78%;top:22%" }));
+
+    toggleSlider = el("div", { class: "qrmo-pricing-toggle-slider", "aria-hidden": "true" });
+    toggleSlider.appendChild(el("span", { class: "qrmo-pricing-toggle-halo is-1" }));
+    toggleSlider.appendChild(el("span", { class: "qrmo-pricing-toggle-halo is-2" }));
+    toggleSlider.appendChild(el("span", { class: "qrmo-pricing-toggle-halo is-3" }));
+    toggleKnob = el("span", { class: "qrmo-pricing-toggle-knob" });
+    var motif = el("span", { class: "qrmo-pricing-toggle-motif" });
+    motif.appendChild(el("i"));
+    motif.appendChild(el("i"));
+    motif.appendChild(el("i"));
+    toggleKnob.appendChild(motif);
+    toggleSlider.appendChild(toggleKnob);
+    track.appendChild(toggleSlider);
+
+    var hits = el("div", { class: "qrmo-pricing-toggle-hits" });
+    var labels = el("div", { class: "qrmo-pricing-toggle-labels", "aria-hidden": "true" });
+    P.forEach(function (pkg, i) {
+      var b = el("button", {
+        class: "qrmo-pricing-toggle-hit",
+        type: "button",
+        role: "radio",
+        id: "qrmo-pricing-toggle-" + pkg.id,
+        "aria-controls": "qrmo-pricing-switch-list",
+        "aria-label": (pkg.badge ? pkg.name + " paketi, önerilen" : pkg.name + " paketi")
+      });
+      b.addEventListener("click", function () {
+        if (toggleIgnoreClick) return;
+        selectTab(pkg.id, false);
+      });
+      b.addEventListener("keydown", onToggleKey);
+      toggleRadios[pkg.id] = b;
+      hits.appendChild(b);
+      labels.appendChild(el("span", {
+        class: "qrmo-pricing-toggle-label",
+        "data-pkg": pkg.id,
+        text: pkg.name
+      }));
+      b.setAttribute("data-i", String(i));
+    });
+    track.appendChild(hits);
+    toggleRoot.appendChild(track);
+    toggleRoot.appendChild(labels);
+    bindToggleDrag(track);
+
+    var dock = el("div", { class: "qrmo-pricing-toggle-dock" }, toggleRoot);
+    panel.appendChild(kicker);
+    panel.appendChild(toggleListEl);
+    panel.appendChild(dock);
+
+    wrap.appendChild(toggleLiveEl);
+    wrap.appendChild(panel);
+    updateSwitcher(true);
+  }
+
+  function onToggleKey(e) {
+    var i = rank(activePkg);
+    var n = P.length;
+    var to = -1;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") to = Math.min(n - 1, i + 1);
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = Math.max(0, i - 1);
+    else if (e.key === "Home") to = 0;
+    else if (e.key === "End") to = n - 1;
+    else if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      selectTab(activePkg, false);
+      return;
+    }
+    if (to < 0 || to === i) return;
+    e.preventDefault();
+    selectTab(P[to].id, true);
+  }
+
+  function bindToggleDrag(track) {
+    function indexFromX(clientX) {
+      var r = track.getBoundingClientRect();
+      var x = clientX - r.left;
+      var t = r.width ? x / r.width : 0;
+      if (t < 1 / 3) return 0;
+      if (t < 2 / 3) return 1;
+      return 2;
+    }
+    function onMove(e) {
+      if (!toggleDrag) return;
+      var pt = e.touches ? e.touches[0] : e;
+      if (!pt) return;
+      var dx = Math.abs(pt.clientX - toggleDrag.x0);
+      if (dx > 8) toggleDrag.moved = true;
+      var i = indexFromX(pt.clientX);
+      toggleRoot.style.setProperty("--qp-toggle-i", String(i));
+      toggleDrag.hover = i;
+    }
+    function onUp(e) {
+      if (!toggleDrag) return;
+      var pt = (e.changedTouches && e.changedTouches[0]) || e;
+      var i = pt && typeof pt.clientX === "number" ? indexFromX(pt.clientX) : toggleDrag.hover;
+      if (i == null) i = rank(activePkg);
+      var id = P[i].id;
+      var moved = toggleDrag.moved;
+      toggleDrag = null;
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+      window.removeEventListener("touchmove", onMove);
+      window.removeEventListener("touchend", onUp);
+      if (moved) {
+        toggleIgnoreClick = true;
+        window.setTimeout(function () { toggleIgnoreClick = false; }, 280);
+        selectTab(id, false);
+      }
+    }
+    track.addEventListener("pointerdown", function (e) {
+      if (e.button != null && e.button !== 0) return;
+      toggleDrag = { x0: e.clientX, moved: false, hover: rank(activePkg) };
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", onUp);
+      window.addEventListener("pointercancel", onUp);
+    });
+    track.addEventListener("touchstart", function (e) {
+      var t = e.touches[0];
+      if (!t) return;
+      toggleDrag = { x0: t.clientX, moved: false, hover: rank(activePkg) };
+      window.addEventListener("touchmove", onMove, { passive: true });
+      window.addEventListener("touchend", onUp);
+    }, { passive: true });
   }
 
   function selectTab(id, focus) {
-    activePkg = id;
-    updateSwitcher();
-    if (focus && ringBtns[id]) ringBtns[id].focus();
+    if (id !== activePkg) {
+      activePkg = id;
+      updateSwitcher(false);
+    } else {
+      syncToggleChrome(true);
+    }
+    if (focus && toggleRadios[id]) toggleRadios[id].focus();
   }
 
-  function updateSwitcher() {
-    if (openTip) closeTip(openTip);
+  function syncToggleChrome(pop) {
     var pkg = pkgById(activePkg);
+    var i = Math.max(0, rank(activePkg));
+    toggleRoot.setAttribute("data-pkg", pkg.id);
+    toggleRoot.style.setProperty("--qp-toggle-i", String(i));
     P.forEach(function (p) {
       var on = p.id === activePkg;
-      var btn = ringBtns[p.id];
+      var btn = toggleRadios[p.id];
       if (btn) {
         btn.setAttribute("aria-checked", on ? "true" : "false");
         btn.tabIndex = on ? 0 : -1;
         btn.classList.toggle("is-active", on);
       }
-      if (ringEllipses[p.id]) ringEllipses[p.id].classList.toggle("is-active", on);
-      if (ringMarks[p.id]) ringMarks[p.id].classList.toggle("is-active", on);
     });
+    if (toggleKnob && pop && !reduceMotion()) {
+      toggleKnob.classList.remove("is-pop");
+      void toggleKnob.offsetWidth;
+      toggleKnob.classList.add("is-pop");
+    }
+  }
 
-    var included = D.features.filter(function (f) { return status(f, pkg).on; });
-    ringLiveEl.textContent = pkg.name + " paketi seçili. " + included.length + " özellik.";
-
-    function paintList() {
-      ringListEl.textContent = "";
-      D.categories.forEach(function (cat) {
-        var rows = included.filter(function (f) { return f.category === cat.id; });
-        if (!rows.length) return;
-        ringListEl.appendChild(el("li", { class: "qrmo-pricing-ring-cat" },
-          el("p", { class: "qrmo-pricing-ring-cat-title", text: cat.name })));
-        rows.forEach(function (f) {
-          ringListEl.appendChild(el("li", { class: "qrmo-pricing-ring-item" },
-            el("span", { class: "qrmo-pricing-check" }, icon("check")),
-            el("span", { class: "qrmo-pricing-ring-item-name" }, featLabel(f))
-          ));
+  function paintSwitchList(included, pkg, enterIds) {
+    toggleListEl.textContent = "";
+    var stagger = 0;
+    D.categories.forEach(function (cat) {
+      var rows = included.filter(function (f) { return f.category === cat.id; });
+      if (!rows.length) return;
+      toggleListEl.appendChild(el("li", { class: "qrmo-pricing-switch-cat" },
+        el("p", { class: "qrmo-pricing-switch-cat-title", text: cat.name })));
+      rows.forEach(function (f) {
+        var fresh = isFreshFeature(f, pkg);
+        var enter = enterIds && enterIds[f.id];
+        var row = el("li", {
+          class: "qrmo-pricing-switch-item" + (fresh ? " is-fresh" : "") + (enter ? " is-enter" : ""),
+          "data-feat": f.id
         });
+        if (enter) row.style.setProperty("--stagger", String(stagger++));
+        row.appendChild(el("span", { class: "qrmo-pricing-tick", "aria-hidden": "true" }, icon("check")));
+        row.appendChild(el("span", { class: "qrmo-pricing-switch-item-name" }, featLabel(f)));
+        toggleListEl.appendChild(row);
+      });
+    });
+  }
+
+  function updateSwitcher(first) {
+    if (openTip) closeTip(openTip);
+    var pkg = pkgById(activePkg);
+    syncToggleChrome(!first);
+    var included = includedFeatures(pkg);
+    var nextIds = included.map(function (f) { return f.id; });
+    var nextSet = {};
+    nextIds.forEach(function (id) { nextSet[id] = true; });
+    var enterIds = {};
+    if (togglePainted) {
+      nextIds.forEach(function (id) {
+        if (togglePrevIds.indexOf(id) < 0) enterIds[id] = true;
       });
     }
 
-    if (!ringPainted || reduceMotion()) {
-      paintList();
-      ringPainted = true;
+    toggleKickerName.textContent = pkg.name;
+    animateCount(toggleKickerCount, toggleCountVal, included.length);
+    toggleCountVal = included.length;
+    toggleLiveEl.textContent = pkg.name + " paketi seçildi, " + included.length + " özellik";
+
+    function commit() {
+      paintSwitchList(included, pkg, togglePainted && !reduceMotion() ? enterIds : null);
+      togglePrevIds = nextIds;
+      togglePainted = true;
+    }
+
+    if (first || !togglePainted || reduceMotion()) {
+      commit();
       return;
     }
-    ringListEl.classList.add("is-fading");
-    window.setTimeout(function () {
-      paintList();
-      ringListEl.classList.remove("is-fading");
-    }, 90);
+
+    var leaving = false;
+    Array.prototype.forEach.call(toggleListEl.children, function (li) {
+      var id = li.getAttribute("data-feat");
+      if (id && !nextSet[id]) {
+        li.classList.add("is-leave");
+        leaving = true;
+      }
+    });
+    window.setTimeout(commit, leaving ? 160 : 40);
   }
 
   /* ---------- 4. HANGİ PAKET ---------- */
