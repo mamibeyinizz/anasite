@@ -110,14 +110,15 @@
 
 .qrmo-gf-logo {
   display: block;
-  width: auto;
-  max-width: min(100%, 220px);
+  width: min(100%, 220px);
+  max-width: 100%;
   height: auto;
+  flex: 0 0 auto;
 }
 
 .qrmo-gf-logo--compact {
   display: none;
-  max-width: min(100%, 180px);
+  width: min(100%, 180px);
 }
 
 .qrmo-gf-brand-desc {
