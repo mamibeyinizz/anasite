@@ -752,85 +752,107 @@ body.qrmo-pricing-page {
 .qrmo-pricing-table-wrap { display: none; }
 .qrmo-pricing-switcher-wrap { display: block; }
 
-/* --- mobil: paket seçici (karşılaştırma aracı; ana sunum kartlardır, sticky değil) --- */
+/* --- mobil: özellik listesi + üç kesişen halka --- */
 .qrmo-pricing-switcher-wrap {
-  padding: 12px;
-  border: 1px solid var(--qp-line);
-  border-radius: 16px;
-  background: rgba(244, 241, 232, .45);
-}
-.qrmo-pricing-switcher {
-  position: static;
-  z-index: 1;
-  margin: 0 0 10px;
-  padding: 0;
+  padding: 4px 0 8px;
+  border: 0;
+  border-radius: 0;
   background: transparent;
-  border-bottom: 0;
 }
-.qrmo-pricing-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.qrmo-pricing-tab {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-  min-width: 0; min-height: 48px; padding: 8px 6px;
-  border: 1px solid var(--qp-line); border-radius: 12px; background: var(--qp-bg);
-  color: var(--qp-green-dark); font-family: inherit; cursor: pointer;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
+.qrmo-pricing-ring-panel { margin: 0 0 8px; }
+.qrmo-pricing-ring-list {
+  margin: 0;
+  padding: 0;
+  min-height: 12rem;
+  transition: opacity .14s ease;
 }
-.qrmo-pricing-tab-name { font-size: 14px; font-weight: 800; line-height: 1.2; }
-.qrmo-pricing-tab-badge { font-size: 10px; font-weight: 800; letter-spacing: .06em; line-height: 1.2; text-transform: uppercase; color: var(--qp-green-dark); }
-.qrmo-pricing-tab-price {
-  display: block;
-  max-width: 100%; font-size: 12.5px; font-weight: 700; line-height: 1.25;
-  color: var(--qp-text); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; text-align: center;
+.qrmo-pricing-ring-list.is-fading { opacity: .35; }
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-pricing-ring-list { transition: none; }
 }
-.qrmo-pricing-tab [data-qp="qualifier"] { display: none; }
-.qrmo-pricing-tab-state {
-  display: none;
-  font-size: 10px; font-weight: 800; letter-spacing: .07em; line-height: 1.2;
+.qrmo-pricing-ring-cat { list-style: none; padding: 14px 0 4px; }
+.qrmo-pricing-ring-cat:first-child { padding-top: 0; }
+.qrmo-pricing-ring-cat-title {
+  margin: 0;
+  color: var(--qp-green-dark);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
   text-transform: uppercase;
 }
-.qrmo-pricing-tab[aria-selected="true"] {
-  background: var(--qp-green-dark); border-color: var(--qp-gold); color: var(--qp-cream);
-  box-shadow: inset 0 3px 0 var(--qp-gold);
-}
-.qrmo-pricing-tab[aria-selected="true"] .qrmo-pricing-tab-price,
-.qrmo-pricing-tab[aria-selected="true"] .qrmo-pricing-tab-badge,
-.qrmo-pricing-tab[aria-selected="true"] .qrmo-pricing-tab-state { color: var(--qp-gold-light); }
-.qrmo-pricing-tab[aria-selected="true"] .qrmo-pricing-tab-state { display: block; }
-
-.qrmo-pricing-panel { padding-top: 0; }
-.qrmo-pricing-switch-intro {
-  margin: 0 0 10px !important;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border-left: 3px solid var(--qp-gold);
-  background: var(--qp-cream);
+.qrmo-pricing-ring-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  list-style: none;
+  min-height: 44px;
+  padding: 10px 0;
+  border-top: 1px solid var(--qp-gold-line);
   color: var(--qp-green-dark);
-  font-size: 14.5px; font-weight: 600; line-height: 1.4;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
 }
-
-.qrmo-pricing-acc { border-bottom: 1px solid var(--qp-line); }
-.qrmo-pricing-acc-h { font-size: inherit; }
-.qrmo-pricing-acc-btn {
-  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 12px 0;
-  border: 0; background: transparent; cursor: pointer; text-align: left;
-  color: var(--qp-green-dark); font-family: inherit;
+.qrmo-pricing-ring-item .qrmo-pricing-check { margin-top: 2px; flex: 0 0 auto; }
+.qrmo-pricing-ring-item-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
-.qrmo-pricing-acc-title { flex: 1 1 auto; min-width: 0; font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
-.qrmo-pricing-acc-count { flex: 0 0 auto; color: var(--qp-text-2); font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.qrmo-pricing-acc-btn .qrmo-pricing-ico { flex: 0 0 auto; width: 20px; height: 20px; transition: transform .2s ease; }
-.qrmo-pricing-acc-btn .qrmo-pricing-ico svg { display: block; width: 100%; height: 100%; }
-.qrmo-pricing-acc.is-open .qrmo-pricing-acc-btn .qrmo-pricing-ico { transform: rotate(180deg); }
-
-.qrmo-pricing-acc-list { padding: 0 0 12px; }
-.qrmo-pricing-acc-list li { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; padding: 10px 0; border-top: 1px solid var(--qp-gold-line); }
-.qrmo-pricing-acc-list li:first-child { border-top: 0; }
-.qrmo-pricing-acc-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-top: 1px; color: var(--qp-green-dark); font-size: 16px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
-.qrmo-pricing-acc-name .qrmo-pricing-feat-label { align-items: center; }
-.qrmo-pricing-acc-name small { font-size: 13.5px; font-weight: 600; color: var(--qp-text-2); }
-.qrmo-pricing-acc-list li.is-off .qrmo-pricing-acc-name > :first-child { color: var(--qp-text-2); }
-
-.qrmo-pricing-switch-cta { margin-top: 24px; }
-.qrmo-pricing-switch-cta .qrmo-pricing-btn { width: 100%; }
+.qrmo-pricing-rings {
+  position: relative;
+  width: min(100%, 360px);
+  margin: 12px auto 0;
+}
+.qrmo-pricing-rings-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.qrmo-pricing-ring-oval {
+  fill: none;
+  stroke: rgba(13, 43, 34, .28);
+  stroke-width: 1.35;
+}
+.qrmo-pricing-ring-oval.is-active {
+  fill: rgba(201, 168, 76, .2);
+  stroke: var(--qp-gold);
+  stroke-width: 2.35;
+}
+.qrmo-pricing-ring-mark {
+  fill: transparent;
+  stroke: none;
+}
+.qrmo-pricing-ring-mark.is-active { fill: var(--qp-gold); }
+.qrmo-pricing-ring-label {
+  fill: var(--qp-green-dark);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.qrmo-pricing-rings-hits {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 38.4% 23.2% 38.4%;
+}
+.qrmo-pricing-ring-hit {
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.qrmo-pricing-ring-hit:focus { outline: none; }
+.qrmo-pricing-ring-hit:focus-visible {
+  outline: 3px solid var(--qp-focus);
+  outline-offset: -6px;
+  border-radius: 999px;
+}
 
 @media (max-width: 767px) {
   .qrmo-pricing-tip-btn { width: 40px; height: 40px; }
@@ -1214,14 +1236,8 @@ body.qrmo-pricing-page {
   .qrmo-pricing-hero-step-copy { font-size: 13px; }
   .qrmo-pricing-answers { gap: 8px; }
   .qrmo-pricing-answers li { font-size: 15px; line-height: 1.4; }
-  .qrmo-pricing-tabs { gap: 6px; }
-  .qrmo-pricing-tab { min-height: 44px; padding: 6px 4px; }
-  .qrmo-pricing-tab-name { font-size: 13px; }
-  .qrmo-pricing-tab-price { font-size: 11.5px; }
-  .qrmo-pricing-tab-state { font-size: 9px; }
   .qrmo-pricing-amount { font-size: 28px; }
   .qrmo-pricing-card-name { font-size: 22px; }
-  .qrmo-pricing-switcher-wrap { padding: 10px; }
 }
 
 /* =========================================================
