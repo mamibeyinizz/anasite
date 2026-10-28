@@ -51,7 +51,8 @@
       check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
       dash:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M7 12h10"/></svg>',
       arrow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>',
-      chev:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>'
+      chev:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
+      info:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><path d="M12 8h.01"/></svg>'
     };
     s.innerHTML = map[kind];
     s.className = "qrmo-pricing-ico qrmo-pricing-ico-" + kind;
@@ -61,6 +62,117 @@
   function featName(f) {
     if (!f.page || !D.modulePagesBase) return el("span", { text: f.name });
     return el("a", { class: "qrmo-pricing-modlink", href: D.modulePagesBase + f.page + "/", text: f.name });
+  }
+
+  var tipSeq = 0;
+  var openTip = null;
+
+  function closeTip(box) {
+    if (!box) return;
+    var btn = box.querySelector(".qrmo-pricing-tip-btn");
+    var panel = box.querySelector(".qrmo-pricing-tip-panel");
+    if (btn) btn.setAttribute("aria-expanded", "false");
+    if (panel) panel.hidden = true;
+    box.classList.remove("is-open");
+    if (openTip === box) openTip = null;
+  }
+
+  function placeTip(box) {
+    var panel = box.querySelector(".qrmo-pricing-tip-panel");
+    if (!panel) return;
+    panel.style.left = "0";
+    panel.style.right = "auto";
+    panel.style.top = "calc(100% + 6px)";
+    panel.style.bottom = "auto";
+    var r = panel.getBoundingClientRect();
+    var pad = 10;
+    if (r.right > window.innerWidth - pad) {
+      panel.style.left = "auto";
+      panel.style.right = "0";
+    }
+    r = panel.getBoundingClientRect();
+    if (r.left < pad) {
+      panel.style.left = "0";
+      panel.style.right = "auto";
+    }
+    r = panel.getBoundingClientRect();
+    if (r.bottom > window.innerHeight - pad) {
+      panel.style.top = "auto";
+      panel.style.bottom = "calc(100% + 6px)";
+    }
+  }
+
+  function toggleTip(box) {
+    var btn = box.querySelector(".qrmo-pricing-tip-btn");
+    var isOpen = btn.getAttribute("aria-expanded") === "true";
+    if (openTip && openTip !== box) closeTip(openTip);
+    if (isOpen) {
+      closeTip(box);
+      return;
+    }
+    btn.setAttribute("aria-expanded", "true");
+    box.querySelector(".qrmo-pricing-tip-panel").hidden = false;
+    box.classList.add("is-open");
+    openTip = box;
+    placeTip(box);
+  }
+
+  function featLabel(f) {
+    var wrap = el("span", { class: "qrmo-pricing-feat-label" }, featName(f));
+    if (!f.blurb) return wrap;
+    tipSeq += 1;
+    var pid = "qrmo-pricing-tip-" + f.id + "-" + tipSeq;
+    var btn = el("button", {
+      class: "qrmo-pricing-tip-btn",
+      type: "button",
+      "aria-expanded": "false",
+      "aria-controls": pid,
+      "aria-label": f.name + " hakkında bilgi"
+    }, icon("info"));
+    var panel = el("div", {
+      class: "qrmo-pricing-tip-panel",
+      id: pid,
+      hidden: true,
+      role: "region"
+    });
+    panel.appendChild(el("p", { text: f.blurb }));
+    var closeBtn = el("button", {
+      class: "qrmo-pricing-tip-close",
+      type: "button",
+      "aria-label": f.name + " bilgisini kapat"
+    }, el("span", { "aria-hidden": "true", text: "Kapat" }));
+    closeBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeTip(box);
+      btn.focus();
+    });
+    panel.appendChild(closeBtn);
+    var box = el("span", { class: "qrmo-pricing-tip" }, btn, panel);
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleTip(box);
+    });
+    wrap.appendChild(box);
+    return wrap;
+  }
+
+  function bindTipChrome() {
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape" || !openTip) return;
+      var btn = openTip.querySelector(".qrmo-pricing-tip-btn");
+      closeTip(openTip);
+      if (btn) btn.focus();
+    });
+    document.addEventListener("pointerdown", function (e) {
+      if (!openTip) return;
+      if (openTip.contains(e.target)) return;
+      closeTip(openTip);
+    });
+    window.addEventListener("resize", function () {
+      if (openTip) placeTip(openTip);
+    });
   }
 
   function pkgById(id) { return P.filter(function (p) { return p.id === id; })[0]; }
@@ -253,7 +365,7 @@
       tb.appendChild(el("tr", { class: "qrmo-pricing-cat-row" },
         el("th", { scope: "colgroup", colspan: String(P.length + 1), text: cat.name.toLocaleUpperCase("tr") })));
       rows.forEach(function (f) {
-        var tr = el("tr", null, el("th", { scope: "row", class: "qrmo-pricing-feature" }, featName(f)));
+        var tr = el("tr", null, el("th", { scope: "row", class: "qrmo-pricing-feature" }, featLabel(f)));
         P.forEach(function (pkg) { tr.appendChild(statusCell(f, pkg)); });
         tb.appendChild(tr);
       });
@@ -390,6 +502,7 @@
   }
 
   function updateSwitcher() {
+    if (openTip) closeTip(openTip);
     var pkg = pkgById(activePkg), i = rank(pkg.id);
     P.forEach(function (p) {
       var on = p.id === activePkg;
@@ -419,7 +532,7 @@
             ? el("span", { class: "qrmo-pricing-check" }, icon("check"))
             : el("span", { class: "qrmo-pricing-cell-off" }, icon("dash")),
           el("span", { class: "qrmo-pricing-acc-name" },
-            featName(f),
+            featLabel(f),
             s.text ? el("small", { text: s.text }) : null,
             !s.on ? el("small", { text: "Bu pakette yok. " + pkgById(f.from).name + " ile başlar." }) : null,
             el("span", { class: "qrmo-pricing-sr", text: s.on ? " — dahil" : " — bu pakette yok" })
@@ -558,6 +671,7 @@
   renderCards();
   renderTable();
   renderSwitcher();
+  bindTipChrome();
   renderWhich();
   renderFinal();
   bindToggle();
