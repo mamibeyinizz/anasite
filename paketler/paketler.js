@@ -79,27 +79,27 @@
 
   function placeTip(box) {
     var panel = box.querySelector(".qrmo-pricing-tip-panel");
-    if (!panel) return;
-    panel.style.left = "0";
-    panel.style.right = "auto";
-    panel.style.top = "calc(100% + 6px)";
-    panel.style.bottom = "auto";
-    var r = panel.getBoundingClientRect();
+    var btn = box.querySelector(".qrmo-pricing-tip-btn");
+    if (!panel || !btn || panel.hidden) return;
     var pad = 10;
-    if (r.right > window.innerWidth - pad) {
-      panel.style.left = "auto";
-      panel.style.right = "0";
-    }
+    void panel.offsetWidth;
+    var br = btn.getBoundingClientRect();
+    panel.style.position = "fixed";
+    panel.style.right = "auto";
+    panel.style.bottom = "auto";
+    panel.style.left = "0px";
+    panel.style.top = (br.bottom + 6) + "px";
+    var r = panel.getBoundingClientRect();
+    var left = br.left;
+    if (left + r.width > window.innerWidth - pad) left = window.innerWidth - pad - r.width;
+    if (left < pad) left = pad;
+    panel.style.left = Math.round(left) + "px";
+    var top = br.bottom + 6;
     r = panel.getBoundingClientRect();
-    if (r.left < pad) {
-      panel.style.left = "0";
-      panel.style.right = "auto";
-    }
-    r = panel.getBoundingClientRect();
-    if (r.bottom > window.innerHeight - pad) {
-      panel.style.top = "auto";
-      panel.style.bottom = "calc(100% + 6px)";
-    }
+    if (top + r.height > window.innerHeight - pad) top = br.top - r.height - 6;
+    if (top + r.height > window.innerHeight - pad) top = window.innerHeight - pad - r.height;
+    if (top < pad) top = pad;
+    panel.style.top = Math.round(top) + "px";
   }
 
   function toggleTip(box) {
@@ -115,6 +115,7 @@
     box.classList.add("is-open");
     openTip = box;
     placeTip(box);
+    requestAnimationFrame(function () { if (openTip === box) placeTip(box); });
   }
 
   function featLabel(f) {
@@ -173,6 +174,9 @@
     window.addEventListener("resize", function () {
       if (openTip) placeTip(openTip);
     });
+    window.addEventListener("scroll", function () {
+      if (openTip) placeTip(openTip);
+    }, true);
   }
 
   function pkgById(id) { return P.filter(function (p) { return p.id === id; })[0]; }

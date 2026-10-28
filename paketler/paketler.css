@@ -651,14 +651,16 @@ body.qrmo-pricing-page {
   border-color: var(--qp-gold); background: var(--qp-cream);
 }
 .qrmo-pricing-tip-panel {
-  position: absolute; z-index: 20;
-  top: calc(100% + 6px); left: 0;
+  position: fixed; z-index: 40;
+  top: 0; left: 0;
   width: min(280px, calc(100vw - 32px));
+  max-width: calc(100vw - 32px);
   padding: 12px 14px 10px;
   border: 1px solid var(--qp-line); border-radius: 10px;
   background: #fff; color: var(--qp-text);
   box-shadow: 0 8px 24px rgba(13, 43, 34, .1);
   text-align: left; font-size: 14px; font-weight: 500; line-height: 1.45;
+  white-space: normal;
 }
 .qrmo-pricing-tip-panel p { margin: 0; }
 .qrmo-pricing-tip-close {
@@ -814,7 +816,7 @@ body.qrmo-pricing-page {
 
 @media (max-width: 767px) {
   .qrmo-pricing-tip-btn { width: 40px; height: 40px; }
-  .qrmo-pricing-tip-panel { width: min(100%, calc(100vw - 48px)); }
+  .qrmo-pricing-tip-panel { width: min(280px, calc(100vw - 32px)); }
 }
 
 /* --- ≥768: tablo (sticky değil) --- */
