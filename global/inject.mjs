@@ -9,7 +9,7 @@ const re = (name) => new RegExp(`<!-- QRMO:${name}:START -->[\\s\\S]*?<!-- QRMO:
 export function applyGlobal(html, { rel = "", current = "", skip = "icerik", exact = false } = {}) {
   const head = block(
     "HEAD",
-    `<link rel="stylesheet" href="${rel}global/dist/qrmo-global.css">\n<script src="${rel}global/dist/qrmo-conversion-config.js"></script>\n<script defer src="${rel}global/dist/qrmo-global.js"></script>`
+    `<link rel="icon" type="image/svg+xml" href="${rel}assets/brand/favicon.svg?v=4">\n<link rel="icon" type="image/png" sizes="32x32" href="${rel}assets/brand/favicon-32.png?v=4">\n<link rel="icon" type="image/png" sizes="16x16" href="${rel}assets/brand/favicon-16.png?v=4">\n<link rel="apple-touch-icon" href="${rel}assets/brand/apple-touch-icon.png?v=4">\n<link rel="stylesheet" href="${rel}global/dist/qrmo-global.css">\n<script src="${rel}global/dist/qrmo-conversion-config.js"></script>\n<script defer src="${rel}global/dist/qrmo-global.js"></script>`
   );
   const header = block("HEADER", renderHeader({ rel, current, skip, exact }));
   const footer = block("FOOTER", renderFooter({ rel, current }));

@@ -137,7 +137,7 @@ function renderFooterLink(rel, l, current) {
 }
 
 export function renderHeader({ rel = "", current = "", skip = "icerik", exact = false } = {}) {
-  const brand = `<a class="qrmo-gh-brand" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} ana sayfa"><img class="qrmo-gh-logo qrmo-gh-logo--full" src="${href(rel, SITE.logo)}" alt="${esc(SITE.brand)}" width="175" height="46" decoding="async" fetchpriority="high"><img class="qrmo-gh-logo qrmo-gh-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="153" height="41" decoding="async" fetchpriority="high"></a>`;
+  const brand = `<a class="qrmo-gh-brand" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} ana sayfa"><img class="qrmo-gh-logo qrmo-gh-logo--full" src="${href(rel, SITE.logo)}" alt="${esc(SITE.brand)}" width="175" height="52" decoding="async" fetchpriority="high"><img class="qrmo-gh-logo qrmo-gh-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="153" height="46" decoding="async" fetchpriority="high"></a>`;
 
   const desktopItems = NAV.map((n) => renderNavDesktopItem(rel, n, current, exact)).join("");
 
@@ -187,7 +187,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
   <div class="qrmo-gh-drawer" id="qrmo-gh-drawer" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
     <div class="qrmo-gh-drawer-top">
       <a class="qrmo-gh-drawer-brand" href="${href(rel, "")}">
-        <img src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="167" height="45" decoding="async">
+        <img src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="167" height="50" decoding="async">
       </a>
       <button class="qrmo-gh-drawer-close" type="button" aria-label="Menüyü kapat">×</button>
     </div>
@@ -226,8 +226,8 @@ const I_SOCIAL = {
 
 export function renderFooter({ rel = "", current = "" } = {}) {
   const brand = `<a class="qrmo-gf-brand-link" href="${href(rel, "")}" aria-label="${esc(SITE.brand)} ana sayfa">
-      <img class="qrmo-gf-logo qrmo-gf-logo--full" src="${href(rel, SITE.logo)}" alt="${esc(SITE.brand)}" width="220" height="58" decoding="async" loading="lazy">
-      <img class="qrmo-gf-logo qrmo-gf-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="180" height="49" decoding="async" loading="lazy">
+      <img class="qrmo-gf-logo qrmo-gf-logo--full" src="${href(rel, SITE.logo)}" alt="${esc(SITE.brand)}" width="220" height="65" decoding="async" loading="lazy">
+      <img class="qrmo-gf-logo qrmo-gf-logo--compact" src="${href(rel, SITE.logoCompact)}" alt="${esc(SITE.brand)}" width="180" height="54" decoding="async" loading="lazy">
     </a>`;
 
   const socials = FOOTER_SOCIAL.length
