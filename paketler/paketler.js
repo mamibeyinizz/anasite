@@ -119,10 +119,13 @@
   }
 
   function featLabel(f) {
-    var wrap = el("span", { class: "qrmo-pricing-feat-label" }, featName(f));
+    var wrap = el("span", { class: "qrmo-pricing-feat-label" },
+      el("span", { class: "qrmo-pricing-feat-name", text: f.name })
+    );
     if (!f.blurb) return wrap;
     tipSeq += 1;
     var pid = "qrmo-pricing-tip-" + f.id + "-" + tipSeq;
+    var titleId = pid + "-label";
     var btn = el("button", {
       class: "qrmo-pricing-tip-btn",
       type: "button",
@@ -134,8 +137,10 @@
       class: "qrmo-pricing-tip-panel",
       id: pid,
       hidden: true,
-      role: "region"
+      role: "region",
+      "aria-labelledby": titleId
     });
+    panel.appendChild(el("p", { class: "qrmo-pricing-sr", id: titleId, text: f.name }));
     panel.appendChild(el("p", { text: f.blurb }));
     var closeBtn = el("button", {
       class: "qrmo-pricing-tip-close",

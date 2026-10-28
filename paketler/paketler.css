@@ -632,8 +632,20 @@ body.qrmo-pricing-page {
 .qrmo-pricing-modlink:hover { text-decoration: underline; text-decoration-color: currentColor; text-underline-offset: 3px; }
 
 .qrmo-pricing-feat-label {
-  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 4px 6px;
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px 8px;
   min-width: 0; max-width: 100%;
+  text-decoration: none;
+}
+.qrmo-pricing-feat-name {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+.qrmo-pricing-feature .qrmo-pricing-feat-name,
+.qrmo-pricing-acc-name .qrmo-pricing-feat-name,
+.qrmo-pricing-feature .qrmo-pricing-modlink,
+.qrmo-pricing-acc-list .qrmo-pricing-modlink {
+  text-decoration: none;
 }
 .qrmo-pricing-tip { position: relative; display: inline-flex; flex: 0 0 auto; }
 .qrmo-pricing-tip.is-open { z-index: 21; }
