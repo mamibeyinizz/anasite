@@ -14,8 +14,6 @@
   var fmt = new Intl.NumberFormat("tr-TR");
   var period = D.defaultPeriod === "annual" ? "annual" : "monthly";
   var activePkg = P.length > 1 ? P[1].id : P[0].id;
-  var openCats = {};
-  D.categories.forEach(function (c, i) { openCats[c.id] = i === 0; });
 
   var freeMonths = D.annual.usedMonths - D.annual.payMonths;
   var modelHolds = P.every(function (p) {
@@ -423,32 +421,100 @@
     wrap.appendChild(details);
   }
 
-  /* ---------- 3. MOBİL SEÇİCİ (<768px) ---------- */
+  /* ---------- 3. MOBİL HALKA SEÇİCİ (<768px) ---------- */
 
-  var tabEls = {}, panelEl, introEl, ctaSlot, accLists = {}, accBtns = {};
+  var ringBtns = {};
+  var ringEllipses = {};
+  var ringMarks = {};
+  var ringListEl = null;
+  var ringLiveEl = null;
+  var ringPainted = false;
+
+  function svgNode(tag, attrs) {
+    var n = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        var v = attrs[k];
+        if (v === false || v == null) return;
+        n.setAttribute(k, v === true ? "" : v);
+      });
+    }
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (c == null || c === false) continue;
+      n.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+    }
+    return n;
+  }
+
+  function reduceMotion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
 
   function renderSwitcher() {
     var wrap = mount("switcher");
+    ringLiveEl = el("p", {
+      class: "qrmo-pricing-sr",
+      id: "qrmo-pricing-ring-live",
+      "aria-live": "polite"
+    });
+    ringListEl = el("ul", {
+      class: "qrmo-pricing-ring-list",
+      id: "qrmo-pricing-ring-list"
+    });
 
-    var tablist = el("div", { class: "qrmo-pricing-tabs", role: "tablist", "aria-label": "Karşılaştırılacak paket" });
+    var geometry = [
+      { cx: 86, cy: 54, rx: 70, ry: 48 },
+      { cx: 160, cy: 54, rx: 70, ry: 48 },
+      { cx: 234, cy: 54, rx: 70, ry: 48 }
+    ];
+
+    var svg = svgNode("svg", {
+      class: "qrmo-pricing-rings-svg",
+      viewBox: "0 0 320 148",
+      focusable: "false",
+      "aria-hidden": "true"
+    });
+    P.forEach(function (pkg, i) {
+      var g = geometry[i] || geometry[geometry.length - 1];
+      var ell = svgNode("ellipse", {
+        class: "qrmo-pricing-ring-oval",
+        cx: String(g.cx),
+        cy: String(g.cy),
+        rx: String(g.rx),
+        ry: String(g.ry)
+      });
+      var mark = svgNode("circle", {
+        class: "qrmo-pricing-ring-mark",
+        cx: String(g.cx),
+        cy: String(g.cy + g.ry - 11),
+        r: "3.5"
+      });
+      var label = svgNode("text", {
+        class: "qrmo-pricing-ring-label",
+        x: String(g.cx),
+        y: "128",
+        "text-anchor": "middle"
+      }, pkg.name);
+      svg.appendChild(ell);
+      svg.appendChild(mark);
+      svg.appendChild(label);
+      ringEllipses[pkg.id] = ell;
+      ringMarks[pkg.id] = mark;
+    });
+
+    var hits = el("div", { class: "qrmo-pricing-rings-hits" });
     P.forEach(function (pkg) {
-      var t = el("button", {
-        class: "qrmo-pricing-tab",
+      var b = el("button", {
+        class: "qrmo-pricing-ring-hit",
         type: "button",
-        role: "tab",
-        id: "qrmo-pricing-tab-" + pkg.id,
-        "aria-controls": "qrmo-pricing-panel"
-      },
-        el("span", { class: "qrmo-pricing-tab-name", text: pkg.name }),
-        pkg.badge ? el("span", { class: "qrmo-pricing-tab-badge", text: pkg.badge }) : null,
-        el("span", { class: "qrmo-pricing-tab-price" },
-          el("span", { "data-qp": "short", "data-pkg": pkg.id }),
-          el("span", { "data-qp": "qualifier", "data-pkg": pkg.id })
-        ),
-        el("span", { class: "qrmo-pricing-tab-state" })
-      );
-      t.addEventListener("click", function () { selectTab(pkg.id, false); });
-      t.addEventListener("keydown", function (e) {
+        role: "radio",
+        id: "qrmo-pricing-ring-" + pkg.id,
+        "aria-controls": "qrmo-pricing-ring-list",
+        "aria-label": (pkg.badge ? pkg.name + " paketi, önerilen" : pkg.name + " paketi")
+      });
+      b.addEventListener("click", function () { selectTab(pkg.id, false); });
+      b.addEventListener("keydown", function (e) {
         var i = rank(pkg.id), n = P.length, to = -1;
         if (e.key === "ArrowRight") to = (i + 1) % n;
         else if (e.key === "ArrowLeft") to = (i - 1 + n) % n;
@@ -458,102 +524,72 @@
         e.preventDefault();
         selectTab(P[to].id, true);
       });
-      tabEls[pkg.id] = t;
-      tablist.appendChild(t);
-    });
-    wrap.appendChild(el("div", { class: "qrmo-pricing-switcher" }, tablist));
-
-    introEl = el("p", { class: "qrmo-pricing-switch-intro" });
-    panelEl = el("div", { class: "qrmo-pricing-panel", role: "tabpanel", id: "qrmo-pricing-panel", tabindex: "0" });
-    panelEl.appendChild(introEl);
-
-    D.categories.forEach(function (cat) {
-      var bid = "qrmo-pricing-acc-btn-" + cat.id, pid = "qrmo-pricing-acc-panel-" + cat.id;
-      var btn = el("button", {
-        class: "qrmo-pricing-acc-btn",
-        type: "button",
-        id: bid,
-        "aria-controls": pid,
-        "aria-expanded": "false"
-      },
-        el("span", { class: "qrmo-pricing-acc-title", text: cat.name }),
-        el("span", { class: "qrmo-pricing-acc-count" }),
-        icon("chev"));
-      var body = el("div", { class: "qrmo-pricing-acc-panel", id: pid, role: "region", "aria-labelledby": bid, hidden: true });
-      var list = el("ul", { class: "qrmo-pricing-acc-list" });
-      body.appendChild(list);
-      btn.addEventListener("click", function () {
-        openCats[cat.id] = !openCats[cat.id];
-        syncAcc(cat.id);
-      });
-      accBtns[cat.id] = btn;
-      accLists[cat.id] = list;
-      panelEl.appendChild(el("div", { class: "qrmo-pricing-acc" }, el("h3", { class: "qrmo-pricing-acc-h" }, btn), body));
+      ringBtns[pkg.id] = b;
+      hits.appendChild(b);
     });
 
-    ctaSlot = el("div", { class: "qrmo-pricing-switch-cta" });
-    panelEl.appendChild(ctaSlot);
-    wrap.appendChild(panelEl);
+    var rings = el("div", {
+      class: "qrmo-pricing-rings",
+      role: "radiogroup",
+      "aria-label": "Paket seçin"
+    }, svg, hits);
+
+    wrap.appendChild(ringLiveEl);
+    wrap.appendChild(el("div", { class: "qrmo-pricing-ring-panel" }, ringListEl));
+    wrap.appendChild(rings);
     updateSwitcher();
-  }
-
-  function syncAcc(cid) {
-    var open = !!openCats[cid];
-    accBtns[cid].setAttribute("aria-expanded", open ? "true" : "false");
-    accBtns[cid].parentNode.parentNode.classList.toggle("is-open", open);
-    document.getElementById(accBtns[cid].getAttribute("aria-controls")).hidden = !open;
   }
 
   function selectTab(id, focus) {
     activePkg = id;
     updateSwitcher();
-    if (focus) tabEls[id].focus();
+    if (focus && ringBtns[id]) ringBtns[id].focus();
   }
 
   function updateSwitcher() {
     if (openTip) closeTip(openTip);
-    var pkg = pkgById(activePkg), i = rank(pkg.id);
+    var pkg = pkgById(activePkg);
     P.forEach(function (p) {
       var on = p.id === activePkg;
-      tabEls[p.id].setAttribute("aria-selected", on ? "true" : "false");
-      tabEls[p.id].tabIndex = on ? 0 : -1;
-      var state = tabEls[p.id].querySelector(".qrmo-pricing-tab-state");
-      if (state) state.textContent = on ? "Seçili" : "";
+      var btn = ringBtns[p.id];
+      if (btn) {
+        btn.setAttribute("aria-checked", on ? "true" : "false");
+        btn.tabIndex = on ? 0 : -1;
+        btn.classList.toggle("is-active", on);
+      }
+      if (ringEllipses[p.id]) ringEllipses[p.id].classList.toggle("is-active", on);
+      if (ringMarks[p.id]) ringMarks[p.id].classList.toggle("is-active", on);
     });
-    panelEl.setAttribute("aria-labelledby", "qrmo-pricing-tab-" + pkg.id);
 
-    var added = D.features.filter(function (f) {
-      return status(f, pkg).on && (i === 0 || !status(f, P[i - 1]).on);
-    }).length;
-    introEl.textContent = i === 0
-      ? pkg.name + " paketinde " + added + " özellik var."
-      : pkg.name + ", " + P[i - 1].name + " paketine " + added + " özellik ekler.";
+    var included = D.features.filter(function (f) { return status(f, pkg).on; });
+    ringLiveEl.textContent = pkg.name + " paketi seçili. " + included.length + " özellik.";
 
-    D.categories.forEach(function (cat) {
-      var feats = D.features.filter(function (f) { return f.category === cat.id; });
-      var list = accLists[cat.id], on = 0;
-      list.textContent = "";
-      feats.forEach(function (f) {
-        var s = status(f, pkg);
-        if (s.on) on++;
-        var li = el("li", { class: s.on ? "is-on" : "is-off" },
-          s.on
-            ? el("span", { class: "qrmo-pricing-check" }, icon("check"))
-            : el("span", { class: "qrmo-pricing-cell-off" }, icon("dash")),
-          el("span", { class: "qrmo-pricing-acc-name" },
-            featLabel(f),
-            s.text ? el("small", { text: s.text }) : null,
-            !s.on ? el("small", { text: "Bu pakette yok. " + pkgById(f.from).name + " ile başlar." }) : null,
-            el("span", { class: "qrmo-pricing-sr", text: s.on ? " — dahil" : " — bu pakette yok" })
+    function paintList() {
+      ringListEl.textContent = "";
+      D.categories.forEach(function (cat) {
+        var rows = included.filter(function (f) { return f.category === cat.id; });
+        if (!rows.length) return;
+        ringListEl.appendChild(el("li", { class: "qrmo-pricing-ring-cat" },
+          el("p", { class: "qrmo-pricing-ring-cat-title", text: cat.name })));
+        rows.forEach(function (f) {
+          ringListEl.appendChild(el("li", { class: "qrmo-pricing-ring-item" },
+            el("span", { class: "qrmo-pricing-check" }, icon("check")),
+            el("span", { class: "qrmo-pricing-ring-item-name" }, featLabel(f))
           ));
-        list.appendChild(li);
+        });
       });
-      accBtns[cat.id].querySelector(".qrmo-pricing-acc-count").textContent = on + " / " + feats.length;
-      syncAcc(cat.id);
-    });
+    }
 
-    ctaSlot.textContent = "";
-    ctaSlot.appendChild(cta(pkg, pkg.ctaLabel, pkg.variant === "featured" ? "primary" : pkg.variant === "dark" ? "on-dark" : "outline"));
+    if (!ringPainted || reduceMotion()) {
+      paintList();
+      ringPainted = true;
+      return;
+    }
+    ringListEl.classList.add("is-fading");
+    window.setTimeout(function () {
+      paintList();
+      ringListEl.classList.remove("is-fading");
+    }, 90);
   }
 
   /* ---------- 4. HANGİ PAKET ---------- */
