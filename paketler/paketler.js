@@ -423,6 +423,7 @@
 
   /* ---------- 3. MOBİL PAKET TOGGLE (<768px) ---------- */
 
+  var FLAT_KEY = "qrmo-pricing-compare-flat";
   var toggleRadios = {};
   var toggleRoot = null;
   var toggleListEl = null;
@@ -430,15 +431,18 @@
   var toggleSumName = null;
   var toggleSumCount = null;
   var toggleSumSub = null;
-  var toggleMeter = null;
+  var toggleDotsEl = null;
   var toggleMeterCount = null;
+  var toggleModeBtn = null;
+  var togglePanelEl = null;
   var toggleCatCounts = {};
-  var toggleRows = {};
-  var togglePainted = false;
+  var toggleOpenRow = null;
   var toggleCountVal = 0;
   var toggleExtraVal = 0;
   var toggleDrag = null;
   var toggleIgnoreClick = false;
+  var toggleFlat = false;
+  var toggleAccSeq = 0;
 
   function reduceMotion() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -459,6 +463,43 @@
     if (name === "Plus") return "Plus’ta";
     if (name === "Temel") return "Temel’de";
     return name + "’da";
+  }
+
+  function dative(name) {
+    if (name === "Pro") return "Pro’ya";
+    if (name === "Plus") return "Plus’a";
+    return name + "’e";
+  }
+
+  function readFlat() {
+    try { return sessionStorage.getItem(FLAT_KEY) === "1"; } catch (err) { return false; }
+  }
+
+  function writeFlat(on) {
+    try { sessionStorage.setItem(FLAT_KEY, on ? "1" : "0"); } catch (err) {}
+  }
+
+  function haptic() {
+    try { if (navigator.vibrate) navigator.vibrate(8); } catch (err) {}
+  }
+
+  function featuresFrom(pkgId) {
+    return D.features.filter(function (f) { return f.from === pkgId; });
+  }
+
+  function closeSwitchAcc() {
+    if (!toggleOpenRow) return;
+    toggleOpenRow.classList.remove("is-open");
+    var btn = toggleOpenRow.querySelector(".qrmo-pricing-switch-row");
+    if (btn) btn.setAttribute("aria-expanded", "false");
+    toggleOpenRow = null;
+  }
+
+  function scrollListStart() {
+    if (!togglePanelEl) return;
+    var sum = togglePanelEl.querySelector(".qrmo-pricing-switch-summary");
+    var y = (sum || togglePanelEl).getBoundingClientRect().top + window.scrollY - 88;
+    window.scrollTo(0, Math.max(0, y));
   }
 
   function extraVsLower(pkg) {
@@ -486,13 +527,14 @@
 
   function renderSwitcher() {
     var wrap = mount("switcher");
+    toggleFlat = readFlat();
     toggleLiveEl = el("p", {
       class: "qrmo-pricing-sr",
       id: "qrmo-pricing-switch-live",
       "aria-live": "polite"
     });
 
-    var panel = el("div", { class: "qrmo-pricing-switch-panel" });
+    togglePanelEl = el("div", { class: "qrmo-pricing-switch-panel" });
     var summary = el("div", { class: "qrmo-pricing-switch-summary" });
     var title = el("p", { class: "qrmo-pricing-switch-sum-title" });
     toggleSumName = el("span", { class: "qrmo-pricing-switch-sum-name" });
@@ -508,6 +550,17 @@
     toggleListEl = el("ul", {
       class: "qrmo-pricing-switch-list",
       id: "qrmo-pricing-switch-list"
+    });
+
+    toggleModeBtn = el("button", {
+      class: "qrmo-pricing-switch-mode",
+      type: "button"
+    });
+    toggleModeBtn.addEventListener("click", function () {
+      toggleFlat = !toggleFlat;
+      writeFlat(toggleFlat);
+      paintSwitchList();
+      updateSwitcher(true);
     });
 
     toggleRoot = el("div", {
@@ -543,21 +596,26 @@
     toggleRoot.appendChild(track);
     bindToggleDrag(track);
 
-    var meter = el("p", { class: "qrmo-pricing-toggle-meter" });
-    toggleMeter = el("span", { class: "qrmo-pricing-toggle-meter-name" });
+    var meter = el("div", { class: "qrmo-pricing-toggle-meter" });
+    toggleDotsEl = el("span", { class: "qrmo-pricing-toggle-dots", "aria-hidden": "true" });
+    D.features.forEach(function () {
+      toggleDotsEl.appendChild(el("i", { class: "qrmo-pricing-toggle-dot" }));
+    });
     toggleMeterCount = el("span", { class: "qrmo-pricing-toggle-meter-count" });
-    meter.appendChild(toggleMeter);
-    meter.appendChild(document.createTextNode(" · "));
-    meter.appendChild(toggleMeterCount);
-    meter.appendChild(document.createTextNode(" / " + D.features.length + " özellik"));
+    var meterTxt = el("span", { class: "qrmo-pricing-toggle-meter-txt" });
+    meterTxt.appendChild(toggleMeterCount);
+    meterTxt.appendChild(document.createTextNode(" / " + D.features.length + " özellik"));
+    meter.appendChild(toggleDotsEl);
+    meter.appendChild(meterTxt);
 
     var dock = el("div", { class: "qrmo-pricing-toggle-dock" }, toggleRoot, meter);
-    panel.appendChild(summary);
-    panel.appendChild(toggleListEl);
-    panel.appendChild(dock);
+    togglePanelEl.appendChild(summary);
+    togglePanelEl.appendChild(toggleListEl);
+    togglePanelEl.appendChild(toggleModeBtn);
+    togglePanelEl.appendChild(dock);
 
     wrap.appendChild(toggleLiveEl);
-    wrap.appendChild(panel);
+    wrap.appendChild(togglePanelEl);
     paintSwitchList();
     updateSwitcher(true);
   }
@@ -591,53 +649,43 @@
     }
     function onMove(e) {
       if (!toggleDrag) return;
-      var pt = e.touches ? e.touches[0] : e;
-      if (!pt) return;
-      var dx = Math.abs(pt.clientX - toggleDrag.x0);
+      var dx = Math.abs(e.clientX - toggleDrag.x0);
       if (dx > 8) toggleDrag.moved = true;
-      var i = indexFromX(pt.clientX);
+      var i = indexFromX(e.clientX);
       toggleRoot.style.setProperty("--qp-toggle-i", String(i));
       toggleDrag.hover = i;
     }
     function onUp(e) {
       if (!toggleDrag) return;
-      var pt = (e.changedTouches && e.changedTouches[0]) || e;
-      var i = pt && typeof pt.clientX === "number" ? indexFromX(pt.clientX) : toggleDrag.hover;
+      var i = typeof e.clientX === "number" ? indexFromX(e.clientX) : toggleDrag.hover;
       if (i == null) i = rank(activePkg);
       var id = P[i].id;
       var moved = toggleDrag.moved;
       toggleDrag = null;
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-      window.removeEventListener("pointercancel", onUp);
-      window.removeEventListener("touchmove", onMove);
-      window.removeEventListener("touchend", onUp);
+      try { track.releasePointerCapture(e.pointerId); } catch (err) {}
       if (moved) {
         toggleIgnoreClick = true;
         window.setTimeout(function () { toggleIgnoreClick = false; }, 280);
+        haptic();
         selectTab(id, false);
       }
     }
     track.addEventListener("pointerdown", function (e) {
       if (e.button != null && e.button !== 0) return;
       toggleDrag = { x0: e.clientX, moved: false, hover: rank(activePkg) };
-      window.addEventListener("pointermove", onMove);
-      window.addEventListener("pointerup", onUp);
-      window.addEventListener("pointercancel", onUp);
+      try { track.setPointerCapture(e.pointerId); } catch (err) {}
     });
-    track.addEventListener("touchstart", function (e) {
-      var t = e.touches[0];
-      if (!t) return;
-      toggleDrag = { x0: t.clientX, moved: false, hover: rank(activePkg) };
-      window.addEventListener("touchmove", onMove, { passive: true });
-      window.addEventListener("touchend", onUp);
-    }, { passive: true });
+    track.addEventListener("pointermove", onMove);
+    track.addEventListener("pointerup", onUp);
+    track.addEventListener("pointercancel", onUp);
   }
 
-  function selectTab(id, focus) {
+  function selectTab(id, focus, scrollStart) {
     if (id !== activePkg) {
       activePkg = id;
+      paintSwitchList();
       updateSwitcher(false);
+      if (scrollStart) scrollListStart();
     } else {
       syncToggleChrome();
     }
@@ -660,68 +708,180 @@
     });
   }
 
-  function paintSwitchList() {
-    toggleListEl.textContent = "";
-    toggleRows = {};
-    toggleCatCounts = {};
+  function catCountPair(cat, pkg) {
+    var total = D.features.filter(function (f) { return f.category === cat.id; }).length;
+    var on = D.features.filter(function (f) { return f.category === cat.id && status(f, pkg).on; }).length;
+    return on + "/" + total;
+  }
+
+  function appendCatBlock(parent, feats, pkg, startIndex) {
+    var idx = startIndex || 0;
     D.categories.forEach(function (cat) {
-      var rows = D.features.filter(function (f) { return f.category === cat.id; });
+      var rows = feats.filter(function (f) { return f.category === cat.id; });
       if (!rows.length) return;
-      var countEl = el("span", { class: "qrmo-pricing-switch-cat-count" });
-      toggleCatCounts[cat.id] = countEl;
-      var head = el("p", { class: "qrmo-pricing-switch-cat-title" },
-        el("span", { class: "qrmo-pricing-switch-cat-name", text: cat.name }),
-        countEl
-      );
-      toggleListEl.appendChild(el("li", { class: "qrmo-pricing-switch-cat" }, head));
+      parent.appendChild(el("li", { class: "qrmo-pricing-switch-cat" },
+        el("p", { class: "qrmo-pricing-switch-cat-title" },
+          el("span", { class: "qrmo-pricing-switch-cat-name", text: cat.name }),
+          el("span", { class: "qrmo-pricing-switch-cat-count", text: catCountPair(cat, pkg) })
+        )
+      ));
       rows.forEach(function (f) {
-        var fromPkg = pkgById(f.from) || P[0];
-        var mark = el("span", { class: "qrmo-pricing-switch-mark", "aria-hidden": "true" },
-          el("span", { class: "qrmo-pricing-tick" }, icon("check")),
-          el("span", { class: "qrmo-pricing-dash" }, icon("dash"))
-        );
-        var badge = el("span", { class: "qrmo-pricing-switch-new", text: "YENİ" });
-        var name = el("span", { class: "qrmo-pricing-switch-item-name" }, featLabel(f), badge);
-        var fromEl = el("span", { class: "qrmo-pricing-switch-from", text: locative(fromPkg.name) });
-        var row = el("li", {
-          class: "qrmo-pricing-switch-item",
-          "data-feat": f.id,
-          "data-cat": cat.id
-        }, mark, name, fromEl);
-        toggleRows[f.id] = row;
-        toggleListEl.appendChild(row);
+        parent.appendChild(makeFeatRow(f, pkg, idx++));
       });
+    });
+    return idx;
+  }
+
+  function makeFeatRow(f, pkg, index) {
+    toggleAccSeq += 1;
+    var pid = "qrmo-pricing-acc-" + f.id + "-" + toggleAccSeq;
+    var on = status(f, pkg).on;
+    var fresh = on && isFreshFeature(f, pkg);
+    var fromPkg = pkgById(f.from) || P[0];
+    var mark = el("span", { class: "qrmo-pricing-switch-mark", "aria-hidden": "true" },
+      el("span", { class: "qrmo-pricing-tick" }, icon("check")),
+      el("span", { class: "qrmo-pricing-dash" }, icon("dash"))
+    );
+    var name = el("span", { class: "qrmo-pricing-switch-item-name" },
+      el("span", { class: "qrmo-pricing-feat-name", text: f.name })
+    );
+    var fromEl = el("span", { class: "qrmo-pricing-switch-from", text: locative(fromPkg.name) });
+    if (!on) {
+      fromEl.setAttribute("role", "button");
+      fromEl.setAttribute("tabindex", "0");
+      fromEl.setAttribute("aria-label", fromPkg.name + " paketine geç");
+      function goFrom(ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        selectTab(fromPkg.id, false, true);
+      }
+      fromEl.addEventListener("click", goFrom);
+      fromEl.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter" || ev.key === " ") goFrom(ev);
+      });
+    }
+    var rowBtn = el(f.blurb ? "button" : "div", {
+      class: "qrmo-pricing-switch-row",
+      type: f.blurb ? "button" : undefined
+    }, mark, name);
+    if (f.blurb) {
+      rowBtn.setAttribute("aria-expanded", "false");
+      rowBtn.setAttribute("aria-controls", pid);
+    }
+    var main = el("div", { class: "qrmo-pricing-switch-main" }, rowBtn, fromEl);
+    var detailInner = el("div", { class: "qrmo-pricing-switch-detail-inner" });
+    if (f.blurb) detailInner.appendChild(el("p", { text: f.blurb }));
+    var detail = el("div", { class: "qrmo-pricing-switch-detail", id: pid }, detailInner);
+    var row = el("li", {
+      class: "qrmo-pricing-switch-item" + (fresh ? " is-new" : on ? " is-on" : " is-off"),
+      "data-feat": f.id
+    }, main, detail);
+    row.style.setProperty("--i", String(Math.min(index, 21)));
+    if (f.blurb) {
+      rowBtn.addEventListener("click", function () {
+        var open = row.classList.contains("is-open");
+        closeSwitchAcc();
+        if (open) return;
+        row.classList.add("is-open");
+        rowBtn.setAttribute("aria-expanded", "true");
+        toggleOpenRow = row;
+      });
+    }
+    return row;
+  }
+
+  function makeFold(id, title, feats, pkg, open, locked, goPkg) {
+    var bodyId = "qrmo-pricing-fold-" + id;
+    var head = el("div", { class: "qrmo-pricing-switch-fold-bar" });
+    var tog = el("button", {
+      class: "qrmo-pricing-switch-fold-head",
+      type: "button",
+      "aria-expanded": open ? "true" : "false",
+      "aria-controls": bodyId
+    },
+      el("span", { class: "qrmo-pricing-switch-fold-title", text: title }),
+      el("span", { class: "qrmo-pricing-switch-fold-chev", "aria-hidden": "true" }, icon("chev"))
+    );
+    head.appendChild(tog);
+    if (goPkg) {
+      var go = el("button", {
+        class: "qrmo-pricing-switch-go",
+        type: "button",
+        text: dative(goPkg.name) + " geç"
+      });
+      go.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        selectTab(goPkg.id, false, true);
+      });
+      head.appendChild(go);
+    }
+    var inner = el("ul", { class: "qrmo-pricing-switch-fold-inner" });
+    appendCatBlock(inner, feats, pkg, 0);
+    var body = el("div", { class: "qrmo-pricing-switch-fold-body", id: bodyId }, inner);
+    var fold = el("li", {
+      class: "qrmo-pricing-switch-fold" + (open ? " is-open" : "") + (locked ? " is-locked" : "")
+    }, head, body);
+    tog.addEventListener("click", function () {
+      var on = fold.classList.toggle("is-open");
+      tog.setAttribute("aria-expanded", on ? "true" : "false");
+    });
+    return fold;
+  }
+
+  function paintDeltaList() {
+    toggleListEl.textContent = "";
+    toggleCatCounts = {};
+    var pkg = pkgById(activePkg);
+    var iSel = rank(activePkg);
+    toggleModeBtn.textContent = toggleFlat
+      ? "Paket farkına göre gör"
+      : "Tüm 21 özelliği tek listede gör";
+
+    if (toggleFlat) {
+      appendCatBlock(toggleListEl, D.features, pkg, 0);
+      return;
+    }
+
+    var extras = featuresFrom(pkg.id);
+    if (iSel === 0) {
+      appendCatBlock(toggleListEl, extras, pkg, 0);
+    } else {
+      P.slice(0, iSel).forEach(function (lower) {
+        var feats = featuresFrom(lower.id);
+        var label = lower.id === "temel"
+          ? "Temel’in tamamı · " + feats.length
+          : "Pro’nun tamamı · " + feats.length;
+        toggleListEl.appendChild(makeFold("lower-" + lower.id, label, feats, pkg, false, false, null));
+      });
+      var extraTitle = pkg.name.toLocaleUpperCase("tr") + " İLE GELEN · " + extras.length;
+      var extraWrap = el("li", { class: "qrmo-pricing-switch-incoming" });
+      extraWrap.appendChild(el("p", { class: "qrmo-pricing-switch-incoming-title", text: extraTitle }));
+      var extraList = el("ul", { class: "qrmo-pricing-switch-incoming-list" });
+      appendCatBlock(extraList, extras, pkg, 0);
+      extraWrap.appendChild(extraList);
+      toggleListEl.appendChild(extraWrap);
+    }
+
+    P.slice(iSel + 1).forEach(function (higher) {
+      var feats = featuresFrom(higher.id);
+      var title = locative(higher.name) + " · " + feats.length + " özellik";
+      toggleListEl.appendChild(makeFold("teaser-" + higher.id, title, feats, pkg, false, true, higher));
     });
   }
 
-  function applyRowState(pkg) {
-    var onCount = {};
-    D.categories.forEach(function (cat) { onCount[cat.id] = 0; });
-    D.features.forEach(function (f) {
-      var row = toggleRows[f.id];
-      if (!row) return;
-      var on = status(f, pkg).on;
-      var fresh = on && isFreshFeature(f, pkg);
-      row.classList.toggle("is-on", on && !fresh);
-      row.classList.toggle("is-new", fresh);
-      row.classList.toggle("is-off", !on);
-      if (on) onCount[f.category] = (onCount[f.category] || 0) + 1;
-    });
-    D.categories.forEach(function (cat) {
-      var n = D.features.filter(function (f) { return f.category === cat.id; }).length;
-      if (toggleCatCounts[cat.id]) {
-        toggleCatCounts[cat.id].textContent = (onCount[cat.id] || 0) + "/" + n;
-      }
-    });
+  function paintSwitchList() {
+    closeSwitchAcc();
+    paintDeltaList();
   }
 
   function updateSwitcher(first) {
+    closeSwitchAcc();
     if (openTip) closeTip(openTip);
     var pkg = pkgById(activePkg);
     syncToggleChrome();
     var included = includedFeatures(pkg);
     var extra = extraVsLower(pkg);
-    applyRowState(pkg);
 
     toggleSumName.textContent = pkg.name;
     animateCount(toggleSumCount, first ? included.length : toggleCountVal, included.length);
@@ -732,9 +892,7 @@
     } else {
       var lower = P[rank(pkg.id) - 1];
       toggleSumSub.textContent = "";
-      toggleSumSub.appendChild(document.createTextNode(
-        (lower.name === "Pro" ? "Pro’ya" : lower.name === "Plus" ? "Plus’a" : lower.name + "’e") + " ek "
-      ));
+      toggleSumSub.appendChild(document.createTextNode(dative(lower.name) + " ek "));
       var extraNode = el("span", { class: "qrmo-pricing-switch-sum-extra" });
       toggleSumSub.appendChild(extraNode);
       toggleSumSub.appendChild(document.createTextNode(" özellik"));
@@ -742,12 +900,14 @@
       toggleExtraVal = extra;
     }
 
-    toggleMeter.textContent = pkg.name;
+    var dots = toggleDotsEl.querySelectorAll(".qrmo-pricing-toggle-dot");
+    D.features.forEach(function (f, i) {
+      if (dots[i]) dots[i].classList.toggle("is-on", status(f, pkg).on);
+    });
     if (first || reduceMotion()) toggleMeterCount.textContent = String(included.length);
     else animateCount(toggleMeterCount, parseInt(toggleMeterCount.textContent, 10) || included.length, included.length);
 
     toggleLiveEl.textContent = pkg.name + " seçildi, " + included.length + " özellik";
-    togglePainted = true;
   }
 
   /* ---------- 4. HANGİ PAKET ---------- */
