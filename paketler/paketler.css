@@ -432,6 +432,12 @@ body.qrmo-pricing-page {
   background: var(--qp-gold-light);
   box-shadow: 0 0 0 2px var(--qp-green-dark);
 }
+.qrmo-pricing-choose {
+  padding: clamp(8px, 3vh, 28px) 0 0;
+}
+.qrmo-pricing-choose .qrmo-pricing-hero-close {
+  margin-bottom: 0;
+}
 .qrmo-pricing-hero-close {
   display: grid;
   justify-items: center;
@@ -736,11 +742,11 @@ body.qrmo-pricing-page {
    KARŞILAŞTIRMA
 ========================================================= */
 
-.qrmo-pricing-compare { padding: clamp(24px, 6.5vh, 80px) 0 clamp(28px, 6vh, 64px); }
+.qrmo-pricing-compare { padding: clamp(16px, 4vh, 48px) 0 clamp(28px, 6vh, 64px); }
 
 .qrmo-pricing-compare .qrmo-pricing-head { margin-bottom: clamp(16px, 2vw, 24px); }
 
-#paketler, #karsilastirma, #ihtiyac, #sorular,
+#paketler, #karsilastirma, #ihtiyac, #sorular, #qrmo-pricing-hero-choose,
 #paket-temel, #paket-pro, #paket-plus { scroll-margin-top: calc(var(--qrmo-gh-h, 80px) + 12px); }
 
 .qrmo-pricing-table-wrap { display: none; }
