@@ -946,11 +946,6 @@ body.qrmo-pricing-page {
   line-height: 1.3;
   text-transform: uppercase;
 }
-.qrmo-pricing-switch-cat-count {
-  letter-spacing: .06em;
-  font-variant-numeric: tabular-nums;
-  color: rgba(13, 43, 34, .55);
-}
 .qrmo-pricing-switch-item {
   display: flex;
   flex-direction: column;
@@ -1069,6 +1064,28 @@ body.qrmo-pricing-page {
   cursor: pointer;
 }
 .qrmo-pricing-switch-item.is-off .qrmo-pricing-switch-from { display: inline-flex; }
+.qrmo-pricing-switch-list { padding-bottom: 88px; }
+.qrmo-pricing-switch-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 12px 0 0;
+  color: rgba(13, 43, 34, .7);
+  font-size: 13px;
+  line-height: 1.3;
+}
+.qrmo-pricing-switch-key {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: -8px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.qrmo-pricing-switch-key.is-new { background: var(--qp-gold); }
+.qrmo-pricing-switch-key.is-on { background: var(--qp-green-dark); }
+.qrmo-pricing-switch-key.is-off { border: 1px solid rgba(13, 43, 34, .35); }
 .qrmo-pricing-switch-detail {
   display: grid;
   grid-template-rows: 0fr;
@@ -1090,116 +1107,17 @@ body.qrmo-pricing-page {
   padding-bottom: 12px;
 }
 
-.qrmo-pricing-switch-fold {
-  list-style: none;
-  margin: 8px 0;
-  border: 1px solid var(--qp-gold-line);
-  border-radius: 12px;
-  background: var(--qp-bg);
-}
-.qrmo-pricing-switch-fold-bar {
-  display: flex;
-  align-items: stretch;
-  gap: 4px;
-}
-.qrmo-pricing-switch-fold-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1 1 auto;
-  min-height: 48px;
-  min-width: 0;
-  padding: 8px 12px;
-  border: 0;
-  background: transparent;
-  color: var(--qp-green-dark);
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.3;
-  text-align: left;
-  cursor: pointer;
-}
-.qrmo-pricing-switch-fold-title { flex: 1 1 auto; min-width: 0; }
-.qrmo-pricing-switch-fold-chev {
-  display: inline-flex;
-  flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
-  transition: transform .25s ease;
-}
-.qrmo-pricing-switch-fold-chev .qrmo-pricing-ico,
-.qrmo-pricing-switch-fold-chev svg { display: block; width: 100%; height: 100%; }
-.qrmo-pricing-switch-fold.is-open .qrmo-pricing-switch-fold-chev { transform: rotate(180deg); }
-.qrmo-pricing-switch-go {
-  flex: 0 0 auto;
-  min-height: 44px;
-  min-width: 44px;
-  margin: 4px 8px 4px 0;
-  padding: 0 12px;
-  border: 1px solid rgba(201, 168, 76, .45);
-  border-radius: 999px;
-  background: rgba(201, 168, 76, .16);
-  color: var(--qp-green-dark);
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.qrmo-pricing-switch-fold-body {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows .25s ease;
-}
-.qrmo-pricing-switch-fold.is-open .qrmo-pricing-switch-fold-body { grid-template-rows: 1fr; }
-.qrmo-pricing-switch-fold-inner {
-  overflow: hidden;
-  min-height: 0;
-  margin: 0;
-  padding: 0 8px 8px;
-}
-.qrmo-pricing-switch-incoming { list-style: none; margin: 12px 0 4px; }
-.qrmo-pricing-switch-incoming-title {
-  margin: 0 0 6px;
-  color: var(--qp-olive);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: .18em;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-.qrmo-pricing-switch-incoming-list { margin: 0; padding: 0; }
-.qrmo-pricing-switch-mode {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 44px;
-  margin: 8px 0 var(--qp-dock-h);
-  padding: 8px 12px;
-  border: 0;
-  background: transparent;
-  color: var(--qp-green-dark);
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--qp-gold);
-  text-underline-offset: 4px;
-  cursor: pointer;
-}
-
 .qrmo-pricing-toggle-dock {
   position: sticky;
   bottom: 0;
   z-index: 24;
   margin-inline: calc(-1 * var(--qrmo-shell-gutter, 5vw));
-  padding: 12px max(16px, var(--qrmo-shell-gutter, 5vw)) calc(12px + env(safe-area-inset-bottom, 0px));
-  background: var(--qp-bg);
-  border-top: 1px solid rgba(201, 168, 76, .3);
-  box-shadow: 0 -8px 24px rgba(15, 58, 46, .08);
+  padding: 12px max(16px, var(--qrmo-shell-gutter, 5vw)) calc(14px + env(safe-area-inset-bottom, 0px));
+  background: transparent;
+  pointer-events: none;
 }
+.qrmo-pricing-toggle-dock .qrmo-pricing-toggle { pointer-events: auto; }
+.qrmo-pricing-toggle-track { box-shadow: 0 10px 28px rgba(13, 43, 34, .28); }
 .qrmo-pricing-toggle {
   --qp-toggle-i: 1;
   position: relative;
@@ -1260,42 +1178,11 @@ body.qrmo-pricing-page {
 .qrmo-pricing-toggle-hit.is-active { color: var(--qp-green-dark); }
 .qrmo-pricing-toggle-hit:focus { outline: none; }
 .qrmo-pricing-toggle-hit:focus-visible,
-.qrmo-pricing-switch-fold-head:focus-visible,
-.qrmo-pricing-switch-go:focus-visible,
 .qrmo-pricing-switch-row:focus-visible,
-.qrmo-pricing-switch-from:focus-visible,
-.qrmo-pricing-switch-mode:focus-visible {
+.qrmo-pricing-switch-from:focus-visible {
   outline: 2px solid var(--qp-gold);
   outline-offset: 3px;
 }
-.qrmo-pricing-toggle-meter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 8px 0 0 !important;
-  color: var(--qp-green-dark);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .02em;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-.qrmo-pricing-toggle-dots {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 3px;
-  max-width: 132px;
-}
-.qrmo-pricing-toggle-dot {
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: 1px solid var(--qp-gold);
-  background: transparent;
-}
-.qrmo-pricing-toggle-dot.is-on { background: var(--qp-gold); }
 
 @media (max-width: 767px) {
   .qrmo-pricing-tip-panel { width: min(280px, calc(100vw - 32px)); }
@@ -1305,9 +1192,7 @@ body.qrmo-pricing-page {
   .qrmo-pricing-switch-item,
   .qrmo-pricing-toggle-thumb,
   .qrmo-pricing-toggle-hit,
-  .qrmo-pricing-switch-fold-body,
-  .qrmo-pricing-switch-detail,
-  .qrmo-pricing-switch-fold-chev {
+  .qrmo-pricing-switch-detail {
     transition: none;
     transition-delay: 0s;
   }

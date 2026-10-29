@@ -618,7 +618,6 @@
 
   /* ---------- 3. MOBİL PAKET TOGGLE (<768px) ---------- */
 
-  var FLAT_KEY = "qrmo-pricing-compare-flat";
   var toggleRadios = {};
   var toggleRoot = null;
   var toggleListEl = null;
@@ -626,17 +625,11 @@
   var toggleSumName = null;
   var toggleSumCount = null;
   var toggleSumSub = null;
-  var toggleDotsEl = null;
-  var toggleMeterCount = null;
-  var toggleModeBtn = null;
   var togglePanelEl = null;
-  var toggleCatCounts = {};
   var toggleOpenRow = null;
   var toggleCountVal = 0;
-  var toggleExtraVal = 0;
   var toggleDrag = null;
   var toggleIgnoreClick = false;
-  var toggleFlat = false;
   var toggleAccSeq = 0;
 
   function reduceMotion() {
@@ -660,26 +653,8 @@
     return name + "’da";
   }
 
-  function dative(name) {
-    if (name === "Pro") return "Pro’ya";
-    if (name === "Plus") return "Plus’a";
-    return name + "’e";
-  }
-
-  function readFlat() {
-    try { return sessionStorage.getItem(FLAT_KEY) === "1"; } catch (err) { return false; }
-  }
-
-  function writeFlat(on) {
-    try { sessionStorage.setItem(FLAT_KEY, on ? "1" : "0"); } catch (err) {}
-  }
-
   function haptic() {
     try { if (navigator.vibrate) navigator.vibrate(8); } catch (err) {}
-  }
-
-  function featuresFrom(pkgId) {
-    return D.features.filter(function (f) { return f.from === pkgId; });
   }
 
   function closeSwitchAcc() {
@@ -722,7 +697,6 @@
 
   function renderSwitcher() {
     var wrap = mount("switcher");
-    toggleFlat = readFlat();
     toggleLiveEl = el("p", {
       class: "qrmo-pricing-sr",
       id: "qrmo-pricing-switch-live",
@@ -735,27 +709,19 @@
     toggleSumName = el("span", { class: "qrmo-pricing-switch-sum-name" });
     toggleSumCount = el("span", { class: "qrmo-pricing-switch-sum-count" });
     title.appendChild(toggleSumName);
-    title.appendChild(document.createTextNode(" · "));
-    title.appendChild(toggleSumCount);
-    title.appendChild(document.createTextNode(" özellik"));
+    title.appendChild(document.createTextNode(" paketi"));
     toggleSumSub = el("p", { class: "qrmo-pricing-switch-sum-sub" });
     summary.appendChild(title);
     summary.appendChild(toggleSumSub);
+    summary.appendChild(el("p", { class: "qrmo-pricing-switch-legend" },
+      el("span", { class: "qrmo-pricing-switch-key is-new", "aria-hidden": "true" }), "Bu pakette eklenen",
+      el("span", { class: "qrmo-pricing-switch-key is-on", "aria-hidden": "true" }), "Dahil",
+      el("span", { class: "qrmo-pricing-switch-key is-off", "aria-hidden": "true" }), "Üst pakette"
+    ));
 
     toggleListEl = el("ul", {
       class: "qrmo-pricing-switch-list",
       id: "qrmo-pricing-switch-list"
-    });
-
-    toggleModeBtn = el("button", {
-      class: "qrmo-pricing-switch-mode",
-      type: "button"
-    });
-    toggleModeBtn.addEventListener("click", function () {
-      toggleFlat = !toggleFlat;
-      writeFlat(toggleFlat);
-      paintSwitchList();
-      updateSwitcher(true);
     });
 
     toggleRoot = el("div", {
@@ -793,22 +759,9 @@
     toggleRoot.appendChild(track);
     bindToggleDrag(track);
 
-    var meter = el("div", { class: "qrmo-pricing-toggle-meter" });
-    toggleDotsEl = el("span", { class: "qrmo-pricing-toggle-dots", "aria-hidden": "true" });
-    D.features.forEach(function () {
-      toggleDotsEl.appendChild(el("i", { class: "qrmo-pricing-toggle-dot" }));
-    });
-    toggleMeterCount = el("span", { class: "qrmo-pricing-toggle-meter-count" });
-    var meterTxt = el("span", { class: "qrmo-pricing-toggle-meter-txt" });
-    meterTxt.appendChild(toggleMeterCount);
-    meterTxt.appendChild(document.createTextNode(" / " + D.features.length + " özellik"));
-    meter.appendChild(toggleDotsEl);
-    meter.appendChild(meterTxt);
-
-    var dock = el("div", { class: "qrmo-pricing-toggle-dock" }, toggleRoot, meter);
+    var dock = el("div", { class: "qrmo-pricing-toggle-dock" }, toggleRoot);
     togglePanelEl.appendChild(summary);
     togglePanelEl.appendChild(toggleListEl);
-    togglePanelEl.appendChild(toggleModeBtn);
     togglePanelEl.appendChild(dock);
 
     wrap.appendChild(toggleLiveEl);
@@ -905,21 +858,15 @@
     });
   }
 
-  function catCountPair(cat, pkg) {
-    var total = D.features.filter(function (f) { return f.category === cat.id; }).length;
-    var on = D.features.filter(function (f) { return f.category === cat.id && status(f, pkg).on; }).length;
-    return on + "/" + total;
-  }
-
   function appendCatBlock(parent, feats, pkg, startIndex) {
     var idx = startIndex || 0;
     D.categories.forEach(function (cat) {
-      var rows = feats.filter(function (f) { return f.category === cat.id; });
+      var rows = feats.filter(function (f) { return f.category === cat.id; })
+        .sort(function (a, b) { return rank(a.from) - rank(b.from); });
       if (!rows.length) return;
       parent.appendChild(el("li", { class: "qrmo-pricing-switch-cat" },
         el("p", { class: "qrmo-pricing-switch-cat-title" },
-          el("span", { class: "qrmo-pricing-switch-cat-name", text: cat.name }),
-          el("span", { class: "qrmo-pricing-switch-cat-count", text: catCountPair(cat, pkg) })
+          el("span", { class: "qrmo-pricing-switch-cat-name", text: cat.name })
         )
       ));
       rows.forEach(function (f) {
@@ -987,84 +934,9 @@
     return row;
   }
 
-  function makeFold(id, title, feats, pkg, open, locked, goPkg) {
-    var bodyId = "qrmo-pricing-fold-" + id;
-    var head = el("div", { class: "qrmo-pricing-switch-fold-bar" });
-    var tog = el("button", {
-      class: "qrmo-pricing-switch-fold-head",
-      type: "button",
-      "aria-expanded": open ? "true" : "false",
-      "aria-controls": bodyId
-    },
-      el("span", { class: "qrmo-pricing-switch-fold-title", text: title }),
-      el("span", { class: "qrmo-pricing-switch-fold-chev", "aria-hidden": "true" }, icon("chev"))
-    );
-    head.appendChild(tog);
-    if (goPkg) {
-      var go = el("button", {
-        class: "qrmo-pricing-switch-go",
-        type: "button",
-        text: dative(goPkg.name) + " geç"
-      });
-      go.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        ev.stopPropagation();
-        selectTab(goPkg.id, false, true);
-      });
-      head.appendChild(go);
-    }
-    var inner = el("ul", { class: "qrmo-pricing-switch-fold-inner" });
-    appendCatBlock(inner, feats, pkg, 0);
-    var body = el("div", { class: "qrmo-pricing-switch-fold-body", id: bodyId }, inner);
-    var fold = el("li", {
-      class: "qrmo-pricing-switch-fold" + (open ? " is-open" : "") + (locked ? " is-locked" : "")
-    }, head, body);
-    tog.addEventListener("click", function () {
-      var on = fold.classList.toggle("is-open");
-      tog.setAttribute("aria-expanded", on ? "true" : "false");
-    });
-    return fold;
-  }
-
   function paintDeltaList() {
     toggleListEl.textContent = "";
-    toggleCatCounts = {};
-    var pkg = pkgById(activePkg);
-    var iSel = rank(activePkg);
-    toggleModeBtn.textContent = toggleFlat
-      ? "Paket farkına göre gör"
-      : "Tüm 21 özelliği tek listede gör";
-
-    if (toggleFlat) {
-      appendCatBlock(toggleListEl, D.features, pkg, 0);
-      return;
-    }
-
-    var extras = featuresFrom(pkg.id);
-    if (iSel === 0) {
-      appendCatBlock(toggleListEl, extras, pkg, 0);
-    } else {
-      P.slice(0, iSel).forEach(function (lower) {
-        var feats = featuresFrom(lower.id);
-        var label = lower.id === "temel"
-          ? "Temel’in tamamı · " + feats.length
-          : "Pro’nun tamamı · " + feats.length;
-        toggleListEl.appendChild(makeFold("lower-" + lower.id, label, feats, pkg, false, false, null));
-      });
-      var extraTitle = pkg.name.toLocaleUpperCase("tr") + " İLE GELEN · " + extras.length;
-      var extraWrap = el("li", { class: "qrmo-pricing-switch-incoming" });
-      extraWrap.appendChild(el("p", { class: "qrmo-pricing-switch-incoming-title", text: extraTitle }));
-      var extraList = el("ul", { class: "qrmo-pricing-switch-incoming-list" });
-      appendCatBlock(extraList, extras, pkg, 0);
-      extraWrap.appendChild(extraList);
-      toggleListEl.appendChild(extraWrap);
-    }
-
-    P.slice(iSel + 1).forEach(function (higher) {
-      var feats = featuresFrom(higher.id);
-      var title = locative(higher.name) + " · " + feats.length + " özellik";
-      toggleListEl.appendChild(makeFold("teaser-" + higher.id, title, feats, pkg, false, true, higher));
-    });
+    appendCatBlock(toggleListEl, D.features, pkgById(activePkg), 0);
   }
 
   function paintSwitchList() {
@@ -1081,28 +953,12 @@
     var extra = extraVsLower(pkg);
 
     toggleSumName.textContent = pkg.name;
+    toggleSumSub.textContent = "";
+    toggleSumSub.appendChild(document.createTextNode(D.features.length + " özellikten "));
+    toggleSumSub.appendChild(toggleSumCount);
+    toggleSumSub.appendChild(document.createTextNode(" tanesi dahil" + (extra > 0 ? " · " + extra + " yeni" : "")));
     animateCount(toggleSumCount, first ? included.length : toggleCountVal, included.length);
     toggleCountVal = included.length;
-    if (rank(pkg.id) <= 0) {
-      toggleSumSub.textContent = "Başlangıç paketi";
-      toggleExtraVal = 0;
-    } else {
-      var lower = P[rank(pkg.id) - 1];
-      toggleSumSub.textContent = "";
-      toggleSumSub.appendChild(document.createTextNode(dative(lower.name) + " ek "));
-      var extraNode = el("span", { class: "qrmo-pricing-switch-sum-extra" });
-      toggleSumSub.appendChild(extraNode);
-      toggleSumSub.appendChild(document.createTextNode(" özellik"));
-      animateCount(extraNode, first ? extra : toggleExtraVal, extra);
-      toggleExtraVal = extra;
-    }
-
-    var dots = toggleDotsEl.querySelectorAll(".qrmo-pricing-toggle-dot");
-    D.features.forEach(function (f, i) {
-      if (dots[i]) dots[i].classList.toggle("is-on", status(f, pkg).on);
-    });
-    if (first || reduceMotion()) toggleMeterCount.textContent = String(included.length);
-    else animateCount(toggleMeterCount, parseInt(toggleMeterCount.textContent, 10) || included.length, included.length);
 
     toggleLiveEl.textContent = pkg.name + " seçildi, " + included.length + " özellik";
   }
