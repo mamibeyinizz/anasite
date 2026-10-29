@@ -427,8 +427,8 @@
         "data-pkg": pkg.id
       });
       btn.appendChild(el("span", { class: "qrmo-pricing-card-nav-name", text: pkg.name }));
-      if (pkg.cardBadge) {
-        btn.appendChild(el("span", { class: "qrmo-pricing-card-nav-mark", text: pkg.cardBadge }));
+      if (pkg.badge) {
+        btn.appendChild(el("span", { class: "qrmo-pricing-card-nav-mark", text: pkg.badge }));
       }
       btn.addEventListener("click", function () {
         carouselId = pkg.id;
@@ -508,13 +508,16 @@
       });
 
       var card = el("article", {
-        class: "qrmo-pricing-card qrmo-pricing-card--" + skin + (pkg.cardBadge ? " is-recommended" : ""),
+        class: "qrmo-pricing-card qrmo-pricing-card--" + skin + (pkg.badge ? " is-recommended" : ""),
         id: "paket-" + pkg.id,
         "data-pkg": pkg.id,
-        "aria-labelledby": "paket-" + pkg.id + "-name"
+        "aria-labelledby": "paket-" + pkg.id + "-name",
+        "aria-label": pkg.badge
+          ? pkg.name + " paketi, " + String(pkg.badge).toLocaleLowerCase("tr")
+          : pkg.name + " paketi"
       },
         el("header", { class: "qrmo-pricing-card-head" },
-          pkg.cardBadge ? el("p", { class: "qrmo-pricing-badge", text: pkg.cardBadge }) : null,
+          pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null,
           skin === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
           el("div", { class: "qrmo-pricing-card-title-row" },
             el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name })
@@ -780,7 +783,9 @@
         role: "radio",
         id: "qrmo-pricing-toggle-" + pkg.id,
         "aria-controls": "qrmo-pricing-switch-list",
-        "aria-label": (pkg.badge ? pkg.name + " paketi, önerilen" : pkg.name + " paketi"),
+        "aria-label": (pkg.badge
+          ? pkg.name + " paketi, " + String(pkg.badge).toLocaleLowerCase("tr")
+          : pkg.name + " paketi"),
         text: pkg.name
       });
       b.setAttribute("data-i", String(i));

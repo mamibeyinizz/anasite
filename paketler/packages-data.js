@@ -79,14 +79,13 @@ window.QRMO_PRICING = {
       subdomain: "pro.qrmenuofficial.com",
       price: { monthly: 1490, annual: 14900 },
       variant: "featured",
-      badge: "Önerilen",
       recommendReason: "Garson çağrısı, hesap talebi, sipariş ve servis paneli bu pakette Temel’in üzerine eklenir.",
       ctaLabel: "Pro için iletişime geçin",
       highlightsLead: "Temel’e ek olarak",
       highlights: ["garson-cagir", "hesap-iste", "qr-siparis", "servis-paneli", "personel-rolu", "oturum-guvenligi"],
       scenario: {
         title: "Masa ve servis akışımı kolaylaştırmak istiyorum.",
-        text: "Garson çağrısı, hesap talebi ve sipariş servis panelinde toplanacaksa önerilen paket Pro’dur. Temel’deki menü de açıktır."
+        text: "Garson çağrısı, hesap talebi ve sipariş servis panelinde toplanacaksa Pro yeterlidir. Temel'deki menü de açıktır."
       }
     },
     {
@@ -98,7 +97,7 @@ window.QRMO_PRICING = {
       subdomain: "plus.qrmenuofficial.com",
       price: { monthly: 2990, annual: 29900 },
       variant: "dark",
-      cardBadge: "En kapsamlı",
+      badge: "En kapsamlı",
       ctaLabel: "Plus için iletişime geçin",
       highlightsLead: "Pro’ya ek olarak",
       highlights: ["analytics", "geri-bildirim", "menu-muhendisligi", "maliyet-recete", "asistan"],
