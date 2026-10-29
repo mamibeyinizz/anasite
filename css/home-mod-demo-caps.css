@@ -1,9 +1,9 @@
 /* S3–S8 mobile demo scenes — headline above / line below the phone.
    Hidden on desktop and on short viewports so the device never shrinks
    or shifts. Tiers follow the free height around a 560px phone:
-   top headline from 830px, headline + line from 890px.
+   top headline from 780px, headline + line from 850px.
    Modules that already own a caption under the phone (S3, S6) get the
-   headline only, from 850px. */
+   headline only, from 810px. */
 
 html.qrmo-mod-story-v4 .qrmo-demo-cap {
   display: none;
@@ -47,19 +47,19 @@ html.qrmo-mod-story-v4 .qrmo-demo-cap {
   }
 }
 
-@media (max-width: 767px) and (min-height: 830px) {
+@media (max-width: 767px) and (min-height: 780px) {
   html.qrmo-mod-story-v4 .qrmo-demo-cap--top:not(.qrmo-demo-cap--solo) {
     display: block;
   }
 }
 
-@media (max-width: 767px) and (min-height: 850px) {
+@media (max-width: 767px) and (min-height: 810px) {
   html.qrmo-mod-story-v4 .qrmo-demo-cap--top.qrmo-demo-cap--solo {
     display: block;
   }
 }
 
-@media (max-width: 767px) and (min-height: 890px) {
+@media (max-width: 767px) and (min-height: 850px) {
   html.qrmo-mod-story-v4 .qrmo-demo-cap--bottom {
     display: block;
   }
