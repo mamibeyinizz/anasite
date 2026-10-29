@@ -36,6 +36,7 @@ body.qrmo-pricing-page {
   --qp-text-2: #2C4036;
   --qp-line: rgba(13, 43, 34, .16);
   --qp-gold-line: rgba(201, 168, 76, .25);
+  --qp-band: #F1EDE0;
   --qp-olive: #6e7a3d;
   --qp-gutter: var(--qrmo-shell-gutter, 5vw);
   --qp-focus: var(--qp-green-dark);
@@ -1222,15 +1223,24 @@ body.qrmo-pricing-page {
   .qrmo-pricing-switcher-wrap { display: none; }
 
   .qrmo-pricing-table {
+    --qp-label-w: 38%;
+    --qp-col-w: 20.666%;
+    --qp-rec-band: linear-gradient(
+      to right,
+      transparent calc(var(--qp-label-w) + var(--qp-col-w) * var(--qp-rec-i)),
+      rgba(201, 168, 76, .07) 0,
+      rgba(201, 168, 76, .07) calc(var(--qp-label-w) + var(--qp-col-w) * (var(--qp-rec-i) + 1)),
+      transparent 0
+    );
     width: 100%;
     min-width: 0;
     border-collapse: separate;
     border-spacing: 0;
     table-layout: fixed;
   }
-  .qrmo-pricing-col-label { width: 38%; }
-  .qrmo-pricing-table col:not(.qrmo-pricing-col-label) { width: 20.666%; }
-  .qrmo-pricing-table col.is-recommended { background: rgba(201, 168, 76, .07); }
+  .qrmo-pricing-col-label { width: var(--qp-label-w); }
+  .qrmo-pricing-table col:not(.qrmo-pricing-col-label) { width: var(--qp-col-w); }
+  .qrmo-pricing-table tbody { background-image: var(--qp-rec-band); }
 
   .qrmo-pricing-table thead { z-index: 4; }
   .qrmo-pricing-table thead th {
@@ -1238,14 +1248,30 @@ body.qrmo-pricing-page {
     top: var(--qrmo-header-h, var(--qrmo-gh-h, 94px));
     z-index: 5;
     padding: 16px 12px 18px;
-    background: #fff;
-    border-bottom: 1px solid rgba(13, 43, 34, .12);
+    background-color: var(--qp-band);
+    background-image: none;
+    border-bottom: 1px solid rgba(201, 168, 76, .45);
     text-align: center;
     vertical-align: top;
   }
-  .qrmo-pricing-th-label { background: #fff; }
+  .qrmo-pricing-th-label {
+    background-color: var(--qp-band);
+    text-align: left;
+    vertical-align: bottom;
+  }
+  .qrmo-pricing-th-legend {
+    display: block;
+    max-width: 16em;
+    color: var(--qp-text-2);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.35;
+    text-transform: none;
+  }
   .qrmo-pricing-table thead th.is-recommended {
-    background: #fbf9f2;
+    background-color: var(--qp-band);
+    background-image: linear-gradient(rgba(201, 168, 76, .14), rgba(201, 168, 76, .14));
     box-shadow: inset 0 2px 0 var(--qp-gold);
   }
   .qrmo-pricing-th-badge {
@@ -1290,19 +1316,23 @@ body.qrmo-pricing-page {
   .qrmo-pricing-table tbody th { background: transparent; }
 
   .qrmo-pricing-table tbody tr.is-alt { background: rgba(244, 241, 232, .6); }
-  .qrmo-pricing-table tbody tr.qrmo-pricing-cat-row { background: transparent; }
+  .qrmo-pricing-table tbody tr.qrmo-pricing-cat-row {
+    background-color: var(--qp-band);
+    background-image: var(--qp-rec-band);
+  }
 
-  .qrmo-pricing-cat-row th {
-    padding: 22px 12px 8px 0;
+  .qrmo-pricing-table tr.qrmo-pricing-cat-row th {
+    padding: 14px 12px 14px 22px;
     text-align: left;
-    vertical-align: bottom;
+    vertical-align: middle;
     color: var(--qp-green-dark);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: .14em;
     line-height: 1.3;
     background: transparent;
-    border-bottom: 1px solid rgba(13, 43, 34, .12);
+    border-top: 1px solid rgba(13, 43, 34, .1);
+    border-bottom: 1px solid rgba(13, 43, 34, .1);
   }
 
   .qrmo-pricing-feature {
@@ -1358,12 +1388,13 @@ body.qrmo-pricing-page {
   .qrmo-pricing-jump-row .qrmo-pricing-cell { border-bottom: 0; }
 
   @media (hover: hover) and (pointer: fine) {
-    .qrmo-pricing-table tbody tr:hover { background: rgba(13, 43, 34, .035); }
+    .qrmo-pricing-table tbody tr:hover:not(.qrmo-pricing-cat-row) {
+      background-color: rgba(13, 43, 34, .035);
+    }
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .qrmo-pricing-col-label { width: 36%; }
   .qrmo-pricing-th-name { font-size: 18px; }
 }
 

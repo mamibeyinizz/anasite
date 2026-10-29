@@ -428,7 +428,14 @@
     });
     table.appendChild(colgroup);
 
-    var hr = el("tr", null, el("th", { scope: "col", class: "qrmo-pricing-th-label" }, el("span", { class: "qrmo-pricing-sr", text: "Özellik" })));
+    var recI = -1;
+    P.forEach(function (pkg, i) { if (pkg.recommended) recI = i; });
+    if (recI >= 0) table.style.setProperty("--qp-rec-i", String(recI));
+
+    var hr = el("tr", null, el("th", { scope: "col", class: "qrmo-pricing-th-label" },
+      el("span", { class: "qrmo-pricing-sr", text: "Özellik" }),
+      el("span", { class: "qrmo-pricing-th-legend", text: "✓ Dahil · – Bu pakette yok" })
+    ));
     P.forEach(function (pkg) { hr.appendChild(headerCell(pkg)); });
     table.appendChild(el("thead", null, hr));
     appendFeatureRows(table, features);
