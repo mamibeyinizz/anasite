@@ -1,0 +1,85 @@
+/* Hero — mobile-only copy layer (≤767px).
+   Desktop and tablet keep the original copy: the .qrmo-hm-m variants are
+   hidden above 767px and the .qrmo-hm-d variants are hidden at or below it. */
+
+html .qrmo-hm-m {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  html .qrmo-hm-d {
+    display: none;
+  }
+
+  html span.qrmo-hm-m {
+    display: inline;
+  }
+
+  html svg.qrmo-hm-m {
+    display: block;
+  }
+
+  html a.qrmo-hm-m {
+    display: flex;
+  }
+
+  html .qrmo-hero-v3-content {
+    flex: 1 1 auto;
+    min-height: calc(100svh - var(--qrmo-gh-h, 76px) - 56px);
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  html .qrmo-hero-v3-eyebrow {
+    margin-bottom: 18px;
+  }
+
+  html .qrmo-hero-v3-title {
+    margin-bottom: 14px;
+    font-size: clamp(38px, 11vw, 48px);
+    line-height: 1.1;
+  }
+
+  html .qrmo-hero-v3-subtitle {
+    max-width: 22em;
+    margin: 0 auto clamp(22px, 4.5svh, 36px);
+    font-size: clamp(18px, 4.9vw, 21px);
+    font-weight: 500;
+    line-height: 1.38;
+  }
+
+  html .qrmo-hero-v3-features {
+    margin-bottom: clamp(24px, 4.5svh, 36px);
+  }
+
+  html .qrmo-hero-v3-feature-row {
+    padding: clamp(14px, 2.4svh, 20px) 0;
+  }
+
+  html .qrmo-hero-v3-feature-content strong {
+    font-size: 17px;
+    line-height: 1.28;
+  }
+
+  html .qrmo-hero-v3-feature-content small {
+    margin-top: 4px;
+    font-size: 14.5px;
+    line-height: 1.35;
+  }
+
+  html .qrmo-hero-v3-cta {
+    min-height: 56px;
+    font-size: 17px;
+  }
+
+  /* Mobile order: Asistan, Dil, Garson. Divider follows the visual order. */
+  html .qrmo-hero-v3-feature-row:nth-child(3) {
+    order: -1;
+    border-bottom: 1px solid rgba(201, 168, 76, .25);
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(2) {
+    border-bottom: none;
+  }
+}
