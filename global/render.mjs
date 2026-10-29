@@ -26,6 +26,7 @@ const svg = (d, w = 1.7) =>
 const I = {
   chev: svg('<path d="m6 9 6 6 6-6"/>', 2.3),
   arrow: svg('<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'),
+  mail: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path class="qrmo-gh-mail-flap" d="M3.5 7.5 12 13.5l8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="qrmo-gh-mail-ping" cx="20" cy="5" r="2.6" fill="currentColor"/></svg>`,
   qr: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 15H18V18H21V21H15V15ZM18 12V15M12 18H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   nav: {
     home: svg('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/>'),
@@ -62,7 +63,7 @@ function renderPrimaryCta(rel, { drawer = false } = {}) {
   const label = CTA.label || CONVERSION.primary.label;
   const url = CTA.href ? CTA.href : conversionTargetUrl(rel, "primary");
   const cls = `qrmo-gh-cta${drawer ? " qrmo-gh-cta--drawer" : ""}`;
-  const inner = `<span class="qrmo-gh-qr-icon">${I.qr}</span><span>${esc(label)}</span>${drawer ? '<span aria-hidden="true">→</span>' : ""}`;
+  const inner = `<span class="qrmo-gh-qr-icon">${I.mail}</span><span>${esc(label)}</span>${drawer ? '<span aria-hidden="true">→</span>' : ""}`;
   if (url) return `<a class="${cls}" href="${esc(url)}">${inner}</a>`;
   return `<button class="${cls} qrmo-gh-cta--pending" type="button" data-qrmo-cta="primary">${inner}</button>`;
 }
