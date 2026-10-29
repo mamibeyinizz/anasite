@@ -13,7 +13,8 @@
   var P = D.packages;
   var fmt = new Intl.NumberFormat("tr-TR");
   var period = D.defaultPeriod === "annual" ? "annual" : "monthly";
-  var activePkg = P.length > 1 ? P[1].id : P[0].id;
+  var recPkg = P.filter(function (p) { return p.recommended; })[0];
+  var activePkg = recPkg ? recPkg.id : P[0].id;
 
   var freeMonths = D.annual.usedMonths - D.annual.payMonths;
   var modelHolds = P.every(function (p) {
@@ -220,8 +221,12 @@
     };
   }
 
+  function includedFeatures(pkg) {
+    return D.features.filter(function (f) { return status(f, pkg).on; });
+  }
+
   function colMark(pkg) {
-    if (pkg.variant === "featured") return " is-featured";
+    if (pkg.recommended) return " is-recommended";
     if (pkg.variant === "dark") return " is-plus";
     return " is-temel";
   }
@@ -269,7 +274,7 @@
     var wrap = mount("cards");
     P.forEach(function (pkg) {
       var variant = pkg.variant || "plain";
-      var btnVariant = variant === "featured" ? "primary" : variant === "dark" ? "on-dark" : "outline";
+      var btnVariant = pkg.recommended ? "primary" : variant === "dark" ? "on-dark" : "outline";
 
       var previewCount = 3;
       var list = el("ul", { class: "qrmo-pricing-card-list", id: "paket-" + pkg.id + "-feats" });
@@ -295,8 +300,10 @@
         );
       }
 
+      var cardClass = "qrmo-pricing-card qrmo-pricing-card--" + variant;
+      if (pkg.recommended) cardClass += " qrmo-pricing-card--dark is-recommended";
       var card = el("article", {
-        class: "qrmo-pricing-card qrmo-pricing-card--" + variant,
+        class: cardClass,
         id: "paket-" + pkg.id,
         "aria-labelledby": "paket-" + pkg.id + "-name"
       },
@@ -371,10 +378,13 @@
       var tb = el("tbody");
       tb.appendChild(el("tr", { class: "qrmo-pricing-cat-row" },
         el("th", { scope: "colgroup", colspan: String(P.length + 1), text: cat.name.toLocaleUpperCase("tr") })));
+      var featI = 0;
       rows.forEach(function (f) {
-        var tr = el("tr", null, el("th", { scope: "row", class: "qrmo-pricing-feature" }, featLabel(f)));
+        var tr = el("tr", { class: featI % 2 === 1 ? "is-alt" : false },
+          el("th", { scope: "row", class: "qrmo-pricing-feature" }, featLabel(f)));
         P.forEach(function (pkg) { tr.appendChild(statusCell(f, pkg)); });
         tb.appendChild(tr);
+        featI += 1;
       });
       table.appendChild(tb);
     });
@@ -386,39 +396,49 @@
       ? el("span", { class: "qrmo-pricing-th-badge", text: pkg.badge })
       : el("span", { class: "qrmo-pricing-th-badge is-empty", "aria-hidden": "true" }));
     th.appendChild(el("span", { class: "qrmo-pricing-th-name", text: pkg.name }));
-    th.appendChild(el("span", { class: "qrmo-pricing-th-role", text: "Paket" }));
+    var n = includedFeatures(pkg).length;
+    th.appendChild(el("span", { class: "qrmo-pricing-th-role", text: n + " özellik" }));
     return th;
   }
 
-  function makeTable(features, caption, isMain) {
-    var table = el("table", { class: "qrmo-pricing-table" + (isMain ? " qrmo-pricing-table--main" : "") });
+  function appendJumpRow(table) {
+    var tb = el("tbody");
+    var tr = el("tr", { class: "qrmo-pricing-jump-row" },
+      el("th", { scope: "row", class: "qrmo-pricing-feature" },
+        el("span", { class: "qrmo-pricing-sr", text: "Paket kartına git" })));
+    P.forEach(function (pkg) {
+      var td = el("td", { class: "qrmo-pricing-cell" + colMark(pkg) });
+      td.appendChild(el("a", {
+        class: "qrmo-pricing-jump",
+        href: "#paket-" + pkg.id,
+        text: "→ " + pkg.name + " kartına git"
+      }));
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+    table.appendChild(tb);
+  }
+
+  function makeTable(features, caption) {
+    var table = el("table", { class: "qrmo-pricing-table qrmo-pricing-table--main" });
     table.appendChild(el("caption", { class: "qrmo-pricing-sr", text: caption }));
     var colgroup = el("colgroup", null, el("col", { class: "qrmo-pricing-col-label" }));
-    P.forEach(function () { colgroup.appendChild(el("col")); });
+    P.forEach(function (pkg) {
+      colgroup.appendChild(el("col", { class: colMark(pkg).trim() }));
+    });
     table.appendChild(colgroup);
 
     var hr = el("tr", null, el("th", { scope: "col", class: "qrmo-pricing-th-label" }, el("span", { class: "qrmo-pricing-sr", text: "Özellik" })));
     P.forEach(function (pkg) { hr.appendChild(headerCell(pkg)); });
     table.appendChild(el("thead", null, hr));
     appendFeatureRows(table, features);
+    appendJumpRow(table);
     return table;
   }
 
   function renderTable() {
     var wrap = mount("table");
-    var primary = D.features.filter(function (f) { return !f.secondary; });
-    var secondary = D.features.filter(function (f) { return f.secondary; });
-    wrap.appendChild(makeTable(primary, "Temel, Pro ve Plus özellik tablosu", true));
-    if (!secondary.length) return;
-
-    var details = el("details", { class: "qrmo-pricing-more" });
-    details.appendChild(el("summary", null, "Dijital menüdeki diğer özellikler"));
-    details.appendChild(el("p", {
-      class: "qrmo-pricing-more-note",
-      text: "Bu özellikler Temel paketten itibaren bütün paketlerde vardır."
-    }));
-    details.appendChild(makeTable(secondary, "Dijital menüdeki diğer özellikler", false));
-    wrap.appendChild(details);
+    wrap.appendChild(makeTable(D.features, "Temel, Pro ve Plus özellik tablosu"));
   }
 
   /* ---------- 3. MOBİL PAKET TOGGLE (<768px) ---------- */
@@ -446,10 +466,6 @@
 
   function reduceMotion() {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }
-
-  function includedFeatures(pkg) {
-    return D.features.filter(function (f) { return status(f, pkg).on; });
   }
 
   function isFreshFeature(f, pkg) {
@@ -580,7 +596,7 @@
         role: "radio",
         id: "qrmo-pricing-toggle-" + pkg.id,
         "aria-controls": "qrmo-pricing-switch-list",
-        "aria-label": (pkg.badge ? pkg.name + " paketi, önerilen" : pkg.name + " paketi"),
+        "aria-label": (pkg.recommended ? pkg.name + " paketi, önerilen" : pkg.name + " paketi"),
         text: pkg.name
       });
       b.setAttribute("data-i", String(i));
@@ -1006,7 +1022,10 @@
     var hdr = document.querySelector("[data-qrmo-gh]");
     if (!hdr) return;
     var h = Math.round(hdr.getBoundingClientRect().height);
-    if (h > 0) root.style.setProperty("--qp-sticky-top", h + "px");
+    if (h > 0) {
+      root.style.setProperty("--qp-sticky-top", h + "px");
+      root.style.setProperty("--qrmo-header-h", h + "px");
+    }
   }
 
   function initHeroViz() {

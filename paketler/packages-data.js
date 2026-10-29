@@ -10,7 +10,7 @@
                            Bir özellik, `from` paketinden itibaren tüm
                            üst paketlerde otomatik "dahil" sayılır.
    - Tek pakete özel     → features[].values  (opsiyonel)
-   - İkincil satır       → features[].secondary  (karşılaştırmada ayrıntı alanında)
+   - Önerilen paket      → packages[].recommended  (tek kaynak; kod paket adıyla aramaz)
    - Kart CTA hedefi     → cta.href  (boşsa satın alma adresi üretilmez;
                            düğme cta.finalHref ile iletişim formuna gider)
    - Yardım CTA hedefi   → cta.finalHref  (gerçek iletişim formu, #talep)
@@ -78,15 +78,13 @@ window.QRMO_PRICING = {
       audience: "Masa ve servis akışını düzenlemek isteyen işletmeler",
       subdomain: "pro.qrmenuofficial.com",
       price: { monthly: 1490, annual: 14900 },
-      variant: "featured",
-      badge: "Önerilen",
-      recommendReason: "Garson çağrısı, hesap talebi, sipariş ve servis paneli bu pakette Temel’in üzerine eklenir.",
+      variant: "plain",
       ctaLabel: "Pro için iletişime geçin",
       highlightsLead: "Temel’e ek olarak",
       highlights: ["garson-cagir", "hesap-iste", "qr-siparis", "servis-paneli", "personel-rolu", "oturum-guvenligi"],
       scenario: {
         title: "Masa ve servis akışımı kolaylaştırmak istiyorum.",
-        text: "Garson çağrısı, hesap talebi ve sipariş servis panelinde toplanacaksa önerilen paket Pro’dur. Temel’deki menü de açıktır."
+        text: "Garson çağrısı, hesap talebi ve sipariş servis panelinde toplanacaksa Pro uygundur. Temel’deki menü de açıktır."
       }
     },
     {
@@ -97,13 +95,16 @@ window.QRMO_PRICING = {
       audience: "İşletmesini veriyle geliştirmek isteyen işletmeler",
       subdomain: "plus.qrmenuofficial.com",
       price: { monthly: 2990, annual: 29900 },
-      variant: "dark",
+      variant: "featured",
+      recommended: true,
+      badge: "Önerilen",
+      recommendReason: "Menü analitiği, geri bildirim, maliyet, reçete ve menü asistanı bu pakette Pro’nun üzerine eklenir.",
       ctaLabel: "Plus için iletişime geçin",
       highlightsLead: "Pro’ya ek olarak",
       highlights: ["analytics", "geri-bildirim", "menu-muhendisligi", "maliyet-recete", "asistan"],
       scenario: {
         title: "İşletmemi verilerle geliştirmek istiyorum.",
-        text: "Menü analitiği, geri bildirim, maliyet, reçete ve menü asistanı da gerekiyorsa Plus, bu araçları Pro’nun üzerine ekler."
+        text: "Menü analitiği, geri bildirim, maliyet, reçete ve menü asistanı da gerekiyorsa önerilen paket Plus’tur. Pro’daki servis araçları da açıktır."
       }
     }
   ],
@@ -144,8 +145,8 @@ window.QRMO_PRICING = {
     { id: "coklu-dil", name: "Çoklu dil", category: "menu", from: "temel", page: "coklu-dil", blurb: "Menüde göstereceğiniz dilleri seçersiniz; çevirileri CSV ile toplu girebilirsiniz. Misafir dil seçiciyle menüyü kendi dilinde açar." },
     { id: "filtreler", name: "Akıllı filtreleme", category: "menu", from: "temel", page: "akilli-filtreleme", blurb: "Misafir menüde arar; alerjen hariç tutar, kalori ve fiyat aralığı seçer, ürüne göre süzer ve sıralar." },
     { id: "kampanya-combo", name: "Kampanya ve kombo", category: "menu", from: "temel", page: "restoran-menu", blurb: "Panelden toplu indirim veya zam uygular, menünün üstünde kampanya görselleri gösterirsiniz. Saatli otomatik kampanya bu sürümde yoktur." },
-    { id: "csv-aktar", name: "CSV ile ürün aktarma", category: "menu", from: "temel", page: "restoran-menu", secondary: true, blurb: "Örnek dosyayı indirip ürünlerinizi tabloda hazırlar ve yüklersiniz. Fiyatı geçersiz satırlar aktarımdan sonra bildirilir." },
-    { id: "porsiyon-ekstra", name: "Porsiyon ve ekstra", category: "menu", from: "temel", page: "restoran-menu", secondary: true, blurb: "Ürüne taban fiyat verilir; porsiyon farkları ve ekstralar bu fiyatın üzerine eklenir. Ekstra listeleri birden çok üründe kullanılabilir." },
-    { id: "rozetler", name: "Ürün rozetleri", category: "menu", from: "temel", page: "restoran-menu", secondary: true, blurb: "Popüler, Yeni, Önerilen ve İndirimli rozetleri hazır gelir; kendi rozetlerinizi de tanımlarsınız." }
+    { id: "csv-aktar", name: "CSV ile ürün aktarma", category: "menu", from: "temel", page: "restoran-menu", blurb: "Örnek dosyayı indirip ürünlerinizi tabloda hazırlar ve yüklersiniz. Fiyatı geçersiz satırlar aktarımdan sonra bildirilir." },
+    { id: "porsiyon-ekstra", name: "Porsiyon ve ekstra", category: "menu", from: "temel", page: "restoran-menu", blurb: "Ürüne taban fiyat verilir; porsiyon farkları ve ekstralar bu fiyatın üzerine eklenir. Ekstra listeleri birden çok üründe kullanılabilir." },
+    { id: "rozetler", name: "Ürün rozetleri", category: "menu", from: "temel", page: "restoran-menu", blurb: "Popüler, Yeni, Önerilen ve İndirimli rozetleri hazır gelir; kendi rozetlerinizi de tanımlarsınız." }
   ]
 };
