@@ -161,128 +161,81 @@
 #qrmo-product-map-v1 .qpm2-areas {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0;
+  column-gap: clamp(36px, 5vw, 72px);
   border-top: 1px solid var(--qpm2-line);
 }
 
 @media (min-width: 768px) {
   #qrmo-product-map-v1 .qpm2-areas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-top: none;
-    gap: clamp(3px, 0.4vw, 5px);
   }
 }
 
 #qrmo-product-map-v1 .qpm2-area {
   margin: 0;
-  padding: clamp(14px, 1.4vw, 18px) clamp(14px, 1.25vw, 18px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  padding: clamp(22px, 2.4vw, 32px) 0;
+  display: grid;
+  grid-template-columns: clamp(34px, 3.4vw, 48px) minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  column-gap: 4px;
+  align-items: start;
+  background: none;
   border: none;
-  box-shadow: none;
-  outline: 1px solid var(--qpm2-line);
-  outline-offset: 0;
-}
-
-#qrmo-product-map-v1 .qpm2-area--cream {
-  background: var(--qpm2-cream-area);
-}
-
-#qrmo-product-map-v1 .qpm2-area--emerald {
-  background: var(--qpm2-emerald-area);
-}
-
-@media (max-width: 767px) {
-  #qrmo-product-map-v1 .qpm2-areas {
-    gap: 3px;
-    border-top: none;
-  }
-
-  #qrmo-product-map-v1 .qpm2-area {
-    padding: 14px 14px 15px;
-    border-bottom: none;
-    border-radius: 0;
-  }
-}
-
-@media (max-width: 359px) {
-  #qrmo-product-map-v1 .qpm2-area {
-    padding: 13px 12px 14px;
-  }
-}
-
-@media (min-width: 768px) {
-  #qrmo-product-map-v1 .qpm2-area {
-    border-radius: clamp(4px, 0.4vw, 6px);
-    min-height: 100%;
-  }
+  border-bottom: 1px solid var(--qpm2-line);
 }
 
 #qrmo-product-map-v1 .qpm2-idx {
-  margin: 0 0 5px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--qpm2-gold);
+  grid-row: 1 / span 3;
+  margin: 0;
+  padding-top: 0.3em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
-}
-
-@media (min-width: 768px) {
-  #qrmo-product-map-v1 .qpm2-idx {
-    margin-bottom: 6px;
-    font-size: 11px;
-  }
+  color: var(--qpm2-gold);
 }
 
 #qrmo-product-map-v1 .qpm2-name {
-  margin: 0 0 5px;
-  font-size: clamp(17px, 1.28vw, 20px);
+  grid-column: 2;
+  margin: 0 0 8px;
+  font-size: clamp(20px, 1.6vw, 24px);
   font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   color: var(--qpm2-green);
 }
 
-@media (min-width: 768px) {
-  #qrmo-product-map-v1 .qpm2-name {
-    margin-bottom: 6px;
-  }
-}
-
 #qrmo-product-map-v1 .qpm2-benefit {
-  margin: 0 0 9px;
-  font-size: clamp(14px, 1.05vw, 15px);
-  line-height: 1.5;
+  grid-column: 2;
+  margin: 0 0 16px;
+  font-size: clamp(15px, 1.1vw, 16.5px);
+  line-height: 1.55;
   color: var(--qpm2-text);
-  max-width: none;
-}
-
-@media (min-width: 768px) {
-  #qrmo-product-map-v1 .qpm2-benefit {
-    margin-bottom: 10px;
-    line-height: 1.5;
-  }
 }
 
 #qrmo-product-map-v1 .qpm2-meta {
+  grid-column: 2;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35em 0.5em;
-  font-size: clamp(13px, 0.95vw, 13.5px);
-  line-height: 1.4;
-  letter-spacing: 0.015em;
+  gap: 8px;
+  font-size: 12.5px;
+  line-height: 1;
+  letter-spacing: 0.01em;
   color: var(--qpm2-meta);
-  max-width: none;
+}
+
+#qrmo-product-map-v1 .qpm2-meta > span:not(.qpm2-dot) {
+  padding: 7px 12px;
+  border: 1px solid var(--qpm2-line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
 
 #qrmo-product-map-v1 .qpm2-dot {
-  color: rgba(13, 43, 34, 0.70);
-  font-weight: 600;
-  user-select: none;
+  display: none;
 }
 
 .qrmo-home-anchor {
@@ -294,55 +247,37 @@
 
 @media (max-width: 767px) {
   #qrmo-product-map-v1.qpm2-wrap {
-    padding-top: clamp(18px, 4.8vw, 26px);
-    padding-bottom: clamp(14px, 3.5vw, 18px);
+    padding-top: clamp(28px, 7vw, 40px);
+    padding-bottom: clamp(20px, 5vw, 28px);
   }
 
   #qrmo-product-map-v1 .qpm2-head {
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 14px;
+    margin-bottom: 22px;
   }
 
   #qrmo-product-map-v1 .qpm2-kicker {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   #qrmo-product-map-v1 .qpm2-title {
-    font-size: clamp(34px, 9vw, 38px);
+    font-size: clamp(32px, 8.4vw, 38px);
     line-height: 1.1;
     letter-spacing: -0.024em;
   }
 
   #qrmo-product-map-v1 .qpm2-lede {
-    gap: 0.45em;
+    gap: 0.6em;
   }
 
   #qrmo-product-map-v1 .qpm2-desc {
-    font-size: 13.5px;
-    line-height: 1.42;
+    font-size: 15px;
+    line-height: 1.55;
   }
 
-  #qrmo-product-map-v1 .qpm2-idx {
-    margin-bottom: 3px;
-    font-size: 10px;
-  }
-
-  #qrmo-product-map-v1 .qpm2-name {
-    margin-bottom: 5px;
-    font-size: 17px;
-    letter-spacing: 0.04em;
-  }
-
-  #qrmo-product-map-v1 .qpm2-benefit {
-    margin-bottom: 8px;
-    font-size: 14.5px;
-    line-height: 1.48;
-  }
-
-  #qrmo-product-map-v1 .qpm2-meta {
-    font-size: 13px;
-    line-height: 1.38;
-    gap: 0.25em 0.45em;
+  #qrmo-product-map-v1 .qpm2-area {
+    grid-template-columns: 34px minmax(0, 1fr);
+    padding: 22px 0;
   }
 }
 
@@ -360,10 +295,6 @@
 
   #qrmo-product-map-v1 .qpm2-lede {
     max-width: 36em;
-  }
-
-  #qrmo-product-map-v1 .qpm2-area {
-    padding: 14px 14px 16px;
   }
 }
 </style>
