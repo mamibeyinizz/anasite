@@ -601,19 +601,7 @@
 
   function renderTable() {
     var wrap = mount("table");
-    var primary = D.features.filter(function (f) { return !f.secondary; });
-    var secondary = D.features.filter(function (f) { return f.secondary; });
-    wrap.appendChild(makeTable(primary, "Temel, Pro ve Plus özellik tablosu", true));
-    if (!secondary.length) return;
-
-    var details = el("details", { class: "qrmo-pricing-more" });
-    details.appendChild(el("summary", null, "Dijital menüdeki diğer özellikler"));
-    details.appendChild(el("p", {
-      class: "qrmo-pricing-more-note",
-      text: "Bu özellikler Temel paketten itibaren bütün paketlerde vardır."
-    }));
-    details.appendChild(makeTable(secondary, "Dijital menüdeki diğer özellikler", false));
-    wrap.appendChild(details);
+    wrap.appendChild(makeTable(D.features, "Temel, Pro ve Plus özellik tablosu", true));
   }
 
   /* ---------- 3. MOBİL PAKET TOGGLE (<768px) ---------- */
