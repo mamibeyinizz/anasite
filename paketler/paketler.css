@@ -617,7 +617,6 @@ body.qrmo-pricing-page {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.35;
-  opacity: .72;
   overflow-wrap: anywhere;
 }
 .qrmo-pricing-card-summary {
@@ -673,23 +672,26 @@ body.qrmo-pricing-page {
 .qrmo-pricing-card--dark .qrmo-pricing-btn--primary .qrmo-pricing-ico { color: var(--qp-green-dark); }
 
 @media (min-width: 901px) {
+  .qrmo-pricing-cards {
+    grid-template-rows: auto auto auto 1fr auto;
+    row-gap: 0;
+    column-gap: clamp(14px, 1.6vw, 22px);
+  }
   .qrmo-pricing-card {
     display: grid;
-    grid-template-rows: auto auto auto 1fr auto;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    row-gap: 0;
   }
   .qrmo-pricing-card-head,
   .qrmo-pricing-price,
   .qrmo-pricing-card-summary,
   .qrmo-pricing-card-body,
   .qrmo-pricing-card-actions { min-width: 0; }
-  .qrmo-pricing-card-head { padding-bottom: 12px; }
-  .qrmo-pricing-price { padding-bottom: 12px; }
-  .qrmo-pricing-card-summary { padding: 4px 0 14px; }
-  .qrmo-pricing-cards { grid-template-rows: auto auto auto 1fr auto; }
-  .qrmo-pricing-card {
-    grid-row: span 5;
-    grid-template-rows: subgrid;
-  }
+  .qrmo-pricing-card-head { padding-bottom: 16px; }
+  .qrmo-pricing-price { padding-top: 14px; padding-bottom: 10px; }
+  .qrmo-pricing-card-summary { padding: 4px 0 12px; }
+  .qrmo-pricing-card-lead { padding-top: 4px; }
 }
 
 @media (hover: hover) {
@@ -846,7 +848,7 @@ body.qrmo-pricing-page {
 .qrmo-pricing-card--dark .qrmo-pricing-card-summary,
 .qrmo-pricing-card--dark .qrmo-pricing-unit,
 .qrmo-pricing-card--dark .qrmo-pricing-price-sub { color: #F4F1E8; }
-.qrmo-pricing-card--dark .qrmo-pricing-card-sub,
+.qrmo-pricing-card--dark .qrmo-pricing-card-sub { color: var(--qp-cream); }
 .qrmo-pricing-card--dark .qrmo-pricing-label { color: rgba(244, 241, 232, .72); }
 .qrmo-pricing-card--dark .qrmo-pricing-card-tagline { color: rgba(232, 199, 102, .92); font-weight: 500; }
 .qrmo-pricing-card--dark .qrmo-pricing-price,
