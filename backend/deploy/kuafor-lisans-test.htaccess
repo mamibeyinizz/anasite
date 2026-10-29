@@ -1,0 +1,15 @@
+# Geçici test. Yalnız public_html/kuafor/lisans-test/.htaccess olarak kopyalanır.
+# Site kökündeki veya kuafor kökündeki .htaccess dosyasının yerine geçmez.
+RewriteEngine On
+
+RewriteRule ^backend(/|$) - [F]
+RewriteRule (^|/)config\.php$ - [F]
+RewriteRule \.(sql|env)$ - [F]
+
+RewriteRule ^api(/|$) qr-license-front.php [END,QSA]
+RewriteRule ^v1(/|$) qr-license-front.php [END,QSA]
+RewriteRule ^wp-json/qmls(/|$) qr-license-front.php [END,QSA]
+
+SetEnv QR_LICENSE_HOME /home/KULLANICI/qr-license-test
+SetEnv QR_LICENSE_CONFIG /home/KULLANICI/qr-license-test/backend/config.php
+SetEnv QR_LICENSE_BASE /kuafor/lisans-test

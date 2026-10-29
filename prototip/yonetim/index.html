@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#07110e">
+  <title>Yönetim paneli — QR Menu Official</title>
+  <link rel="stylesheet" href="yonetim.css">
+</head>
+<body>
+  <a class="skip" href="#sayfa">İçeriğe geç</a>
+  <div class="app" id="uygulama">
+    <aside id="yan-menu" class="yan">
+      <div class="yan-ust">
+        <img class="logo" src="../../assets/brand/qr-menu-official-logo-compact.svg" width="160" height="46" alt="QR Menu Official">
+        <p class="kicker">Yönetim</p>
+      </div>
+      <nav id="menu" aria-label="Yönetim bölümleri"></nav>
+      <p class="yan-not">Örnek kayıtlar bu oturumdadır. Sayfa yenilenince ilk listeye döner.</p>
+      <button type="button" class="yan-kapat" id="menu-kapat">Menüyü kapat</button>
+    </aside>
+    <div class="perde" id="perde" hidden></div>
+    <div class="icerik">
+      <header class="ust">
+        <button type="button" class="menu-ac" id="menu-ac" aria-expanded="false" aria-controls="yan-menu">Menü</button>
+        <div class="ust-metin">
+          <p class="ornek" role="status">Örnek veri. Bu panel veritabanına bağlı değildir.</p>
+          <h1 id="sayfa-baslik">Genel bakış</h1>
+        </div>
+      </header>
+      <main id="sayfa" tabindex="-1">
+        <p class="bos">Panel hazırlanıyor.</p>
+      </main>
+    </div>
+  </div>
+  <script src="yonetim.js"></script>
+</body>
+</html>
