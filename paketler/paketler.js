@@ -626,8 +626,6 @@
   var toggleSumName = null;
   var toggleSumCount = null;
   var toggleSumSub = null;
-  var toggleDotsEl = null;
-  var toggleMeterCount = null;
   var toggleModeBtn = null;
   var togglePanelEl = null;
   var toggleCatCounts = {};
@@ -793,19 +791,7 @@
     toggleRoot.appendChild(track);
     bindToggleDrag(track);
 
-    var meter = el("div", { class: "qrmo-pricing-toggle-meter" });
-    toggleDotsEl = el("span", { class: "qrmo-pricing-toggle-dots", "aria-hidden": "true" });
-    D.features.forEach(function () {
-      toggleDotsEl.appendChild(el("i", { class: "qrmo-pricing-toggle-dot" }));
-    });
-    toggleMeterCount = el("span", { class: "qrmo-pricing-toggle-meter-count" });
-    var meterTxt = el("span", { class: "qrmo-pricing-toggle-meter-txt" });
-    meterTxt.appendChild(toggleMeterCount);
-    meterTxt.appendChild(document.createTextNode(" / " + D.features.length + " özellik"));
-    meter.appendChild(toggleDotsEl);
-    meter.appendChild(meterTxt);
-
-    var dock = el("div", { class: "qrmo-pricing-toggle-dock" }, toggleRoot, meter);
+    var dock = el("div", { class: "qrmo-pricing-toggle-dock" }, toggleRoot);
     togglePanelEl.appendChild(summary);
     togglePanelEl.appendChild(toggleListEl);
     togglePanelEl.appendChild(toggleModeBtn);
@@ -911,17 +897,29 @@
     return on + "/" + total;
   }
 
-  function appendCatBlock(parent, feats, pkg, startIndex) {
+  function catsIn(feats) {
+    return D.categories.filter(function (cat) {
+      return feats.some(function (f) { return f.category === cat.id; });
+    });
+  }
+
+  function appendCatBlock(parent, feats, pkg, startIndex, opts) {
     var idx = startIndex || 0;
+    var showCount = !!(opts && opts.showCount);
+    var used = catsIn(feats);
+    var hideCat = used.length <= 1 && !(opts && opts.alwaysCat);
     D.categories.forEach(function (cat) {
       var rows = feats.filter(function (f) { return f.category === cat.id; });
       if (!rows.length) return;
-      parent.appendChild(el("li", { class: "qrmo-pricing-switch-cat" },
-        el("p", { class: "qrmo-pricing-switch-cat-title" },
-          el("span", { class: "qrmo-pricing-switch-cat-name", text: cat.name }),
-          el("span", { class: "qrmo-pricing-switch-cat-count", text: catCountPair(cat, pkg) })
-        )
-      ));
+      if (!hideCat) {
+        var title = el("p", { class: "qrmo-pricing-switch-cat-title" },
+          el("span", { class: "qrmo-pricing-switch-cat-name", text: cat.name })
+        );
+        if (showCount) {
+          title.appendChild(el("span", { class: "qrmo-pricing-switch-cat-count", text: catCountPair(cat, pkg) }));
+        }
+        parent.appendChild(el("li", { class: "qrmo-pricing-switch-cat" }, title));
+      }
       rows.forEach(function (f) {
         parent.appendChild(makeFeatRow(f, pkg, idx++));
       });
@@ -987,16 +985,17 @@
     return row;
   }
 
-  function makeFold(id, title, feats, pkg, open, locked, goPkg) {
+  function makeFold(id, titlePrefix, feats, pkg, open, locked, goPkg) {
     var bodyId = "qrmo-pricing-fold-" + id;
     var head = el("div", { class: "qrmo-pricing-switch-fold-bar" });
+    var titleEl = el("span", { class: "qrmo-pricing-switch-fold-title" });
     var tog = el("button", {
       class: "qrmo-pricing-switch-fold-head",
       type: "button",
       "aria-expanded": open ? "true" : "false",
       "aria-controls": bodyId
     },
-      el("span", { class: "qrmo-pricing-switch-fold-title", text: title }),
+      titleEl,
       el("span", { class: "qrmo-pricing-switch-fold-chev", "aria-hidden": "true" }, icon("chev"))
     );
     head.appendChild(tog);
@@ -1014,7 +1013,9 @@
       head.appendChild(go);
     }
     var inner = el("ul", { class: "qrmo-pricing-switch-fold-inner" });
-    appendCatBlock(inner, feats, pkg, 0);
+    appendCatBlock(inner, feats, pkg, 0, { showCount: false });
+    var n = inner.querySelectorAll(".qrmo-pricing-switch-item").length;
+    titleEl.textContent = titlePrefix + " · " + n;
     var body = el("div", { class: "qrmo-pricing-switch-fold-body", id: bodyId }, inner);
     var fold = el("li", {
       class: "qrmo-pricing-switch-fold" + (open ? " is-open" : "") + (locked ? " is-locked" : "")
@@ -1036,34 +1037,33 @@
       : "Tüm 21 özelliği tek listede gör";
 
     if (toggleFlat) {
-      appendCatBlock(toggleListEl, D.features, pkg, 0);
+      appendCatBlock(toggleListEl, D.features, pkg, 0, { showCount: true, alwaysCat: true });
       return;
     }
 
     var extras = featuresFrom(pkg.id);
     if (iSel === 0) {
-      appendCatBlock(toggleListEl, extras, pkg, 0);
+      appendCatBlock(toggleListEl, extras, pkg, 0, { showCount: false });
     } else {
       P.slice(0, iSel).forEach(function (lower) {
         var feats = featuresFrom(lower.id);
-        var label = lower.id === "temel"
-          ? "Temel’in tamamı · " + feats.length
-          : "Pro’nun tamamı · " + feats.length;
-        toggleListEl.appendChild(makeFold("lower-" + lower.id, label, feats, pkg, false, false, null));
+        var prefix = lower.id === "temel" ? "Temel’in tamamı" : lower.name + " ile gelen";
+        toggleListEl.appendChild(makeFold("lower-" + lower.id, prefix, feats, pkg, false, false, null));
       });
-      var extraTitle = pkg.name.toLocaleUpperCase("tr") + " İLE GELEN · " + extras.length;
       var extraWrap = el("li", { class: "qrmo-pricing-switch-incoming" });
-      extraWrap.appendChild(el("p", { class: "qrmo-pricing-switch-incoming-title", text: extraTitle }));
+      var extraTitleEl = el("p", { class: "qrmo-pricing-switch-incoming-title" });
+      extraWrap.appendChild(extraTitleEl);
       var extraList = el("ul", { class: "qrmo-pricing-switch-incoming-list" });
-      appendCatBlock(extraList, extras, pkg, 0);
+      appendCatBlock(extraList, extras, pkg, 0, { showCount: false });
+      extraTitleEl.textContent = pkg.name.toLocaleUpperCase("tr") + " İLE GELEN · " +
+        extraList.querySelectorAll(".qrmo-pricing-switch-item").length;
       extraWrap.appendChild(extraList);
       toggleListEl.appendChild(extraWrap);
     }
 
     P.slice(iSel + 1).forEach(function (higher) {
       var feats = featuresFrom(higher.id);
-      var title = locative(higher.name) + " · " + feats.length + " özellik";
-      toggleListEl.appendChild(makeFold("teaser-" + higher.id, title, feats, pkg, false, true, higher));
+      toggleListEl.appendChild(makeFold("teaser-" + higher.id, locative(higher.name), feats, pkg, false, true, higher));
     });
   }
 
@@ -1096,13 +1096,6 @@
       animateCount(extraNode, first ? extra : toggleExtraVal, extra);
       toggleExtraVal = extra;
     }
-
-    var dots = toggleDotsEl.querySelectorAll(".qrmo-pricing-toggle-dot");
-    D.features.forEach(function (f, i) {
-      if (dots[i]) dots[i].classList.toggle("is-on", status(f, pkg).on);
-    });
-    if (first || reduceMotion()) toggleMeterCount.textContent = String(included.length);
-    else animateCount(toggleMeterCount, parseInt(toggleMeterCount.textContent, 10) || included.length, included.length);
 
     toggleLiveEl.textContent = pkg.name + " seçildi, " + included.length + " özellik";
   }
