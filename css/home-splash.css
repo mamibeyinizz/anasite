@@ -1,6 +1,15 @@
 /* Ana sayfa splash. Yalnızca index.html bağlar.
    Zemin koyu orman, yazı krem, çizgi ve ışık sınırlı altın.
-   html.qrmo-splash yokken katman yoktur; kilit de yoktur. */
+   html.qrmo-splash-on yokken katman yoktur; kilit de yoktur. */
+
+@font-face {
+  font-family: "QRMO Splash";
+  src: url("../assets/fonts/manrope-latin-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 .qrmo-splash {
   --qrmo-splash-ease: cubic-bezier(0.22, 0.84, 0.28, 1);
@@ -41,7 +50,9 @@ html.qrmo-splash-on .qrmo-splash {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
-  animation: qrmo-splash-exit 0.9s var(--qrmo-splash-ease) 3.2s forwards;
+  transform: scale(1);
+  transform-origin: center center;
+  animation: qrmo-splash-exit 0.6s var(--qrmo-splash-ease) 2.2s forwards;
 }
 
 html.qrmo-splash-on .qrmo-splash.is-dismiss {
@@ -51,98 +62,172 @@ html.qrmo-splash-on .qrmo-splash.is-dismiss {
 
 .qrmo-splash__stage {
   box-sizing: border-box;
-  width: max-content;
-  min-width: 0;
+  width: min(80vw, 1100px);
   max-width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  container-type: inline-size;
   transform-origin: center center;
 }
 
 .qrmo-splash__word {
+  box-sizing: border-box;
+  width: 100%;
   margin: 0;
   color: #f4f1e8;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: clamp(22px, 7.2vw, 64px);
+  font-family: "QRMO Splash", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 18.128vw;
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  text-align: center;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+@supports (font-size: 1cqw) {
+  .qrmo-splash__word {
+    font-size: 22.66cqw;
+  }
 }
 
 .qrmo-splash__row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: 100%;
   white-space: nowrap;
 }
 
 .qrmo-splash__row--sub {
-  margin-top: 0.2em;
-  margin-right: -0.32em;
-  font-size: 0.62em;
-  line-height: 1;
-  letter-spacing: 0.32em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin-top: 0.18em;
+  font-size: 0.3em;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.qrmo-splash__mask {
+  display: block;
+  overflow: hidden;
+  line-height: 1.05;
 }
 
 .qrmo-splash__ch {
-  display: inline-block;
-  opacity: 0;
-  transform: translate3d(0, 8px, 0);
-  animation: qrmo-splash-in 0.4s var(--qrmo-splash-ease) forwards;
+  display: block;
+  line-height: 1.05;
+  transform: translateY(105%);
+  will-change: transform, opacity;
+  animation:
+    qrmo-splash-ch-in 0.5s var(--qrmo-splash-ease) forwards,
+    qrmo-splash-ch-rest 0s 1.15s forwards;
 }
 
-.qrmo-splash__ch--q { animation-delay: 0.05s; }
-.qrmo-splash__ch--r { animation-delay: 0.28s; }
-.qrmo-splash__ch--m { animation-delay: 0.5s; animation-duration: 0.38s; }
-.qrmo-splash__ch--e { animation-delay: 0.62s; animation-duration: 0.38s; }
-.qrmo-splash__ch--n { animation-delay: 0.74s; animation-duration: 0.38s; }
-.qrmo-splash__ch--u { animation-delay: 0.86s; animation-duration: 0.38s; }
-.qrmo-splash__ch--off { animation-delay: 1.05s; animation-duration: 0.55s; }
+.qrmo-splash__ch--q { animation-delay: 0s, 1.15s; }
+.qrmo-splash__ch--r { animation-delay: 0.06s, 1.15s; }
+.qrmo-splash__ch--m { animation-delay: 0.12s, 1.15s; }
+.qrmo-splash__ch--e { animation-delay: 0.18s, 1.15s; }
+.qrmo-splash__ch--n { animation-delay: 0.24s, 1.15s; }
+.qrmo-splash__ch--u { animation-delay: 0.3s, 1.15s; }
+
+.qrmo-splash__ch--off {
+  display: block;
+  opacity: 0;
+  transform: translateY(40%);
+  animation-name: qrmo-splash-off-in, qrmo-splash-ch-rest;
+  animation-duration: 0.55s, 0s;
+  animation-timing-function: var(--qrmo-splash-ease), linear;
+  animation-fill-mode: forwards, forwards;
+}
+
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(1) { animation-delay: 0.55s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(2) { animation-delay: 0.57s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(3) { animation-delay: 0.59s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(4) { animation-delay: 0.61s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(5) { animation-delay: 0.63s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(6) { animation-delay: 0.65s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(7) { animation-delay: 0.67s, 1.15s; }
+.qrmo-splash__row--sub .qrmo-splash__ch:nth-child(8) { animation-delay: 0.69s, 1.15s; }
 
 .qrmo-splash__sp {
-  display: inline-block;
-  width: 0.32em;
+  display: block;
+  flex: 0 0 0.2em;
+  width: 0.2em;
 }
 
-/* Çizgi, birincil satırın (QR MENU) genişliğidir. OFFICIAL daha dar ve ortalanmış kalır. */
 .qrmo-splash__rule {
   position: relative;
   display: block;
+  box-sizing: border-box;
   width: 100%;
   height: 2px;
   margin-top: 0.42em;
-  overflow: visible;
+  overflow: hidden;
   background: #c9a84c;
   transform: scaleX(0);
   transform-origin: left center;
-  animation: qrmo-splash-draw 0.8s var(--qrmo-splash-ease) 1.55s forwards;
+  animation: qrmo-splash-draw 0.6s linear 1s forwards;
+}
+
+@media (min-width: 768px) {
+  .qrmo-splash__rule {
+    height: 3px;
+  }
 }
 
 .qrmo-splash__sheen {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
-  width: 42%;
-  height: 8px;
-  background: radial-gradient(
-    ellipse 68% 100% at 50% 50%,
-    #e8c766 0%,
-    rgba(232, 199, 102, 0.72) 38%,
-    rgba(232, 199, 102, 0) 72%
+  width: 28%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(232, 199, 102, 0) 0%,
+    #e8c766 45%,
+    #e8c766 55%,
+    rgba(232, 199, 102, 0) 100%
   );
   opacity: 0;
-  transform: translate3d(-130%, -50%, 0);
-  animation: qrmo-splash-sheen 1.05s linear 2.22s forwards;
+  transform: translate3d(-120%, 0, 0);
+  animation: qrmo-splash-sheen 0.7s linear 1.5s forwards;
   pointer-events: none;
 }
 
-@keyframes qrmo-splash-in {
+@keyframes qrmo-splash-ch-in {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes qrmo-splash-off-in {
+  from {
+    opacity: 0;
+    transform: translateY(40%);
+  }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes qrmo-splash-ch-rest {
+  to {
+    will-change: auto;
   }
 }
 
 @keyframes qrmo-splash-draw {
+  from {
+    transform: scaleX(0);
+  }
   to {
     transform: scaleX(1);
   }
@@ -151,23 +236,28 @@ html.qrmo-splash-on .qrmo-splash.is-dismiss {
 @keyframes qrmo-splash-sheen {
   0% {
     opacity: 0;
-    transform: translate3d(-130%, -50%, 0);
+    transform: translate3d(-120%, 0, 0);
   }
-  14% {
+  16% {
     opacity: 1;
   }
-  76% {
+  82% {
     opacity: 1;
   }
   100% {
     opacity: 0;
-    transform: translate3d(360%, -50%, 0);
+    transform: translate3d(420%, 0, 0);
   }
 }
 
 @keyframes qrmo-splash-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
   to {
     opacity: 0;
+    transform: scale(1.04);
     visibility: hidden;
   }
 }
@@ -176,35 +266,6 @@ html.qrmo-splash-on .qrmo-splash.is-dismiss {
   to {
     opacity: 0;
     visibility: hidden;
-  }
-}
-
-@media (max-height: 500px) {
-  .qrmo-splash__word {
-    font-size: clamp(18px, 5vh, 36px);
-  }
-
-  .qrmo-splash__rule {
-    margin-top: 0.32em;
-  }
-}
-
-/* Masaüstü: kilit grubu orantılı büyütülür; harfler yatay esnetilmez. */
-@media (min-width: 768px) {
-  .qrmo-splash__stage {
-    transform: scale(1.18);
-  }
-}
-
-@media (min-width: 1024px) {
-  .qrmo-splash__stage {
-    transform: scale(1.26);
-  }
-}
-
-@media (min-width: 1366px) {
-  .qrmo-splash__stage {
-    transform: scale(1.3);
   }
 }
 
