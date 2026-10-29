@@ -227,9 +227,9 @@
   }
 
   function colMark(pkg) {
-    if (pkg.variant === "featured") return " is-featured";
-    if (pkg.variant === "dark") return " is-plus";
-    return " is-temel";
+    var mark = pkg.variant === "dark" ? " is-plus" : " is-temel";
+    if (pkg.badge) mark += " is-featured";
+    return mark;
   }
 
   /* Satın alma href'i boşsa düğme iletişim formuna gider. Sahte ödeme adresi üretilmez. */
@@ -294,7 +294,7 @@
     var tabs = cardNav.querySelectorAll(".qrmo-pricing-card-nav-btn");
     for (var i = 0; i < tabs.length; i++) {
       var on = tabs[i].getAttribute("data-pkg") === carouselId;
-      tabs[i].setAttribute("aria-selected", on ? "true" : "false");
+      tabs[i].setAttribute("aria-pressed", on ? "true" : "false");
       if (on) tabs[i].setAttribute("aria-current", "true");
       else tabs[i].removeAttribute("aria-current");
       tabs[i].tabIndex = on ? 0 : -1;
@@ -414,16 +414,14 @@
     if (!wrap || !wrap.parentNode) return;
     var nav = el("div", {
       class: "qrmo-pricing-card-nav",
-      role: "tablist",
-      "aria-label": "Paket kartları"
+      role: "group",
+      "aria-label": "Paket seç"
     });
     P.forEach(function (pkg) {
       var btn = el("button", {
         class: "qrmo-pricing-card-nav-btn",
         type: "button",
-        role: "tab",
         id: "qrmo-pricing-card-tab-" + pkg.id,
-        "aria-controls": "paket-" + pkg.id,
         "data-pkg": pkg.id
       });
       btn.appendChild(el("span", { class: "qrmo-pricing-card-nav-name", text: pkg.name }));
@@ -495,7 +493,7 @@
     renderCardNav();
     P.forEach(function (pkg) {
       var skin = pkg.variant === "dark" ? "dark" : "plain";
-      var btnVariant = pkg.variant === "dark" ? "primary" : pkg.variant === "featured" ? "strong" : "outline";
+      var btnVariant = pkg.variant === "dark" ? "primary" : pkg.ctaStyle === "strong" ? "strong" : "outline";
 
       var list = el("ul", { class: "qrmo-pricing-card-list", id: "paket-" + pkg.id + "-feats" });
       pkg.highlights.forEach(function (fid) {
@@ -511,10 +509,7 @@
         class: "qrmo-pricing-card qrmo-pricing-card--" + skin + (pkg.badge ? " is-recommended" : ""),
         id: "paket-" + pkg.id,
         "data-pkg": pkg.id,
-        "aria-labelledby": "paket-" + pkg.id + "-name",
-        "aria-label": pkg.badge
-          ? pkg.name + " paketi, " + String(pkg.badge).toLocaleLowerCase("tr")
-          : pkg.name + " paketi"
+        "aria-labelledby": "paket-" + pkg.id + "-name"
       },
         el("header", { class: "qrmo-pricing-card-head" },
           pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null,
