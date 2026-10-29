@@ -25,7 +25,7 @@ html .qrmo-hm-m {
 
   html .qrmo-hero-v3-content {
     flex: 1 1 auto;
-    min-height: calc(100svh - var(--qrmo-gh-h, 76px) - 56px);
+    min-height: calc(100svh - var(--qrmo-gh-h, 76px) - 124px);
     justify-content: center;
     padding-top: 0;
     padding-bottom: 0;
@@ -98,6 +98,7 @@ html .qrmo-hm-m {
     font-weight: 600;
     line-height: 1.32;
     letter-spacing: -.01em;
+    text-wrap: balance;
   }
 
   html .qrmo-hero-v3-feature-content small {
@@ -117,6 +118,23 @@ html .qrmo-hm-m {
   /* Mobile order: Asistan, Dil, Garson. Dividers follow the visual order. */
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     order: -1;
+  }
+
+  /* Lead item (Asistan): quiet gold marker + faint wash. */
+  html .qrmo-hero-v3-feature-row:nth-child(3) {
+    position: relative;
+    background: linear-gradient(90deg, rgba(201, 168, 76, .12), rgba(201, 168, 76, 0) 72%);
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 16%;
+    bottom: 16%;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #ecd486, #9a7b2a);
   }
 
   html .qrmo-hero-v3-feature-row:nth-child(2),
@@ -154,7 +172,7 @@ html .qrmo-hm-m {
       radial-gradient(120% 120% at 30% 15%, #14392d 0%, #0d2b22 60%) padding-box,
       linear-gradient(135deg, #ecd486 0%, #9a7b2a 48%, #e3c872 100%) border-box;
     box-shadow:
-      0 6px 16px -6px rgba(13, 43, 34, .45),
+      0 3px 8px -4px rgba(13, 43, 34, .28),
       inset 0 1px 0 rgba(236, 212, 134, .22);
     overflow: visible;
   }
