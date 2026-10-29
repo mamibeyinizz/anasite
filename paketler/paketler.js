@@ -14,6 +14,12 @@
   var fmt = new Intl.NumberFormat("tr-TR");
   var period = D.defaultPeriod === "annual" ? "annual" : "monthly";
   var activePkg = P.length > 1 ? P[1].id : P[0].id;
+  var cardsWrap = null;
+  var cardNav = null;
+  var carouselId = P.length > 1 ? P[1].id : P[0].id;
+  var cardIo = null;
+  var cardScrollRaf = 0;
+  var mqCarousel = window.matchMedia ? window.matchMedia("(max-width: 900px)") : { matches: false, addEventListener: function () {}, addListener: function () {} };
 
   var freeMonths = D.annual.usedMonths - D.annual.payMonths;
   var modelHolds = P.every(function (p) {
@@ -221,9 +227,9 @@
   }
 
   function colMark(pkg) {
-    if (pkg.variant === "featured") return " is-featured";
-    if (pkg.variant === "dark") return " is-plus";
-    return " is-temel";
+    var mark = pkg.variant === "dark" ? " is-plus" : " is-temel";
+    if (pkg.badge) mark += " is-featured";
+    return mark;
   }
 
   /* Satın alma href'i boşsa düğme iletişim formuna gider. Sahte ödeme adresi üretilmez. */
@@ -265,49 +271,250 @@
 
   /* ---------- 1. KARTLAR ---------- */
 
+  function isCarousel() {
+    return !!(mqCarousel && mqCarousel.matches);
+  }
+
+  function cardNode(id) {
+    return document.getElementById("paket-" + id);
+  }
+
+  function centerCard(id, instant) {
+    if (!cardsWrap || !isCarousel()) return;
+    var node = cardNode(id);
+    if (!node) return;
+    var left = node.offsetLeft - (cardsWrap.clientWidth - node.clientWidth) / 2;
+    if (left < 0) left = 0;
+    if (instant || reduceMotion()) cardsWrap.scrollLeft = left;
+    else cardsWrap.scrollTo({ left: left, behavior: "smooth" });
+  }
+
+  function syncCardNav() {
+    if (!cardNav) return;
+    var tabs = cardNav.querySelectorAll(".qrmo-pricing-card-nav-btn");
+    for (var i = 0; i < tabs.length; i++) {
+      var on = tabs[i].getAttribute("data-pkg") === carouselId;
+      tabs[i].setAttribute("aria-pressed", on ? "true" : "false");
+      tabs[i].classList.toggle("is-active", on);
+    }
+  }
+
+  function nearestCardId() {
+    if (!cardsWrap) return carouselId;
+    var cx = cardsWrap.scrollLeft + cardsWrap.clientWidth / 2;
+    var best = carouselId;
+    var bestDist = Infinity;
+    P.forEach(function (pkg) {
+      var node = cardNode(pkg.id);
+      if (!node) return;
+      var mid = node.offsetLeft + node.clientWidth / 2;
+      var dist = Math.abs(mid - cx);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = pkg.id;
+      }
+    });
+    return best;
+  }
+
+  function onCarouselScroll() {
+    if (cardScrollRaf) return;
+    cardScrollRaf = requestAnimationFrame(function () {
+      cardScrollRaf = 0;
+      if (!isCarousel()) return;
+      var id = nearestCardId();
+      if (id !== carouselId) {
+        carouselId = id;
+        syncCardNav();
+      }
+    });
+  }
+
+  function bindCardObserver() {
+    if (cardIo) {
+      cardIo.disconnect();
+      cardIo = null;
+    }
+    if (!cardsWrap || !isCarousel() || typeof IntersectionObserver === "undefined") return;
+    cardIo = new IntersectionObserver(function (entries) {
+      var best = null;
+      var ratio = 0;
+      entries.forEach(function (en) {
+        if (en.isIntersecting && en.intersectionRatio > ratio) {
+          ratio = en.intersectionRatio;
+          best = en.target;
+        }
+      });
+      if (!best || ratio < 0.5) return;
+      var id = best.getAttribute("data-pkg");
+      if (id && id !== carouselId) {
+        carouselId = id;
+        syncCardNav();
+      }
+    }, { root: cardsWrap, threshold: [0.45, 0.6, 0.75, 0.9] });
+    P.forEach(function (pkg) {
+      var node = cardNode(pkg.id);
+      if (node) cardIo.observe(node);
+    });
+  }
+
+  function syncCarouselChrome() {
+    if (!cardsWrap) return;
+    if (cardNav) {
+      if (isCarousel()) cardNav.removeAttribute("hidden");
+      else cardNav.setAttribute("hidden", "");
+    }
+    if (isCarousel()) {
+      cardsWrap.setAttribute("role", "group");
+      cardsWrap.setAttribute("aria-roledescription", "carousel");
+      cardsWrap.setAttribute("aria-label", "Paket kartları");
+      bindCardObserver();
+    } else {
+      cardsWrap.removeAttribute("role");
+      cardsWrap.removeAttribute("aria-roledescription");
+      cardsWrap.removeAttribute("aria-label");
+      if (cardIo) {
+        cardIo.disconnect();
+        cardIo = null;
+      }
+    }
+  }
+
+  function scheduleCenter(id, instant) {
+    function go() { centerCard(id, instant); }
+    go();
+    requestAnimationFrame(function () { requestAnimationFrame(go); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+  }
+
+  function onCardNavKey(e) {
+    var i = rank(carouselId);
+    var n = P.length;
+    var to = -1;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") to = Math.min(n - 1, i + 1);
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = Math.max(0, i - 1);
+    else if (e.key === "Home") to = 0;
+    else if (e.key === "End") to = n - 1;
+    if (to < 0 || to === i) return;
+    e.preventDefault();
+    carouselId = P[to].id;
+    syncCardNav();
+    centerCard(carouselId, reduceMotion());
+    if (cardNav) {
+      var next = cardNav.querySelector('[data-pkg="' + carouselId + '"]');
+      if (next) next.focus();
+    }
+  }
+
+  function renderCardNav() {
+    var wrap = mount("cards");
+    if (!wrap || !wrap.parentNode) return;
+    var nav = el("div", {
+      class: "qrmo-pricing-card-nav",
+      role: "group",
+      "aria-label": "Paket seç"
+    });
+    P.forEach(function (pkg) {
+      var btn = el("button", {
+        class: "qrmo-pricing-card-nav-btn",
+        type: "button",
+        id: "qrmo-pricing-card-tab-" + pkg.id,
+        "data-pkg": pkg.id
+      });
+      btn.appendChild(el("span", { class: "qrmo-pricing-card-nav-name", text: pkg.name }));
+      if (pkg.badge) {
+        btn.appendChild(el("span", { class: "qrmo-pricing-card-nav-mark", text: pkg.badge }));
+      }
+      btn.addEventListener("click", function () {
+        carouselId = pkg.id;
+        syncCardNav();
+        centerCard(pkg.id, reduceMotion());
+      });
+      btn.addEventListener("keydown", onCardNavKey);
+      nav.appendChild(btn);
+    });
+    wrap.parentNode.insertBefore(nav, wrap);
+    cardNav = nav;
+    syncCardNav();
+  }
+
+  function bindCardsCarousel() {
+    if (!cardsWrap) return;
+    cardsWrap.addEventListener("scroll", onCarouselScroll, { passive: true });
+    cardsWrap.addEventListener("focusin", function (e) {
+      if (!isCarousel()) return;
+      var card = e.target.closest(".qrmo-pricing-card");
+      if (!card) return;
+      var id = card.getAttribute("data-pkg");
+      if (!id) return;
+      carouselId = id;
+      syncCardNav();
+      centerCard(id, reduceMotion());
+    });
+    cardsWrap.addEventListener("keydown", function (e) {
+      if (!isCarousel()) return;
+      if (e.target.closest(".qrmo-pricing-card-nav")) return;
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (e.target.closest("input, textarea, select")) return;
+      var i = rank(carouselId);
+      var to = e.key === "ArrowRight" ? Math.min(P.length - 1, i + 1) : Math.max(0, i - 1);
+      if (to === i) return;
+      e.preventDefault();
+      carouselId = P[to].id;
+      syncCardNav();
+      centerCard(carouselId, reduceMotion());
+    });
+    function onViewport() {
+      syncCarouselChrome();
+      if (isCarousel()) scheduleCenter(carouselId, true);
+    }
+    if (mqCarousel.addEventListener) mqCarousel.addEventListener("change", onViewport);
+    else if (mqCarousel.addListener) mqCarousel.addListener(onViewport);
+    window.addEventListener("resize", function () {
+      if (!isCarousel()) return;
+      scheduleCenter(carouselId, true);
+    });
+    window.addEventListener("orientationchange", function () {
+      scheduleCenter(carouselId, true);
+    });
+    syncCarouselChrome();
+    scheduleCenter(carouselId, true);
+    window.addEventListener("load", function () {
+      if (isCarousel()) centerCard(carouselId, true);
+    });
+  }
+
   function renderCards() {
     var wrap = mount("cards");
+    cardsWrap = wrap;
+    renderCardNav();
     P.forEach(function (pkg) {
-      var variant = pkg.variant || "plain";
-      var btnVariant = variant === "featured" ? "primary" : variant === "dark" ? "on-dark" : "outline";
+      var skin = pkg.variant === "dark" ? "dark" : "plain";
+      var btnVariant = pkg.variant === "dark" ? "primary" : pkg.ctaStyle === "strong" ? "strong" : "outline";
 
-      var previewCount = 3;
       var list = el("ul", { class: "qrmo-pricing-card-list", id: "paket-" + pkg.id + "-feats" });
-      pkg.highlights.forEach(function (fid, idx) {
+      pkg.highlights.forEach(function (fid) {
         var f = D.features.filter(function (x) { return x.id === fid; })[0];
         if (!f) return;
-        list.appendChild(el("li", {
-          class: idx >= previewCount ? "qrmo-pricing-card-feat--rest" : false
-        }, el("span", { class: "qrmo-pricing-check" }, icon("check")), featName(f)));
+        list.appendChild(el("li", null,
+          el("span", { class: "qrmo-pricing-check" }, icon("check")),
+          featName(f)
+        ));
       });
 
-      var moreBtn = null;
-      if (pkg.highlights.length > previewCount) {
-        moreBtn = el("button", {
-          class: "qrmo-pricing-more-feats",
-          type: "button",
-          "aria-expanded": "false",
-          "aria-controls": list.id,
-          "aria-label": pkg.name + ": tüm özellikleri gör"
-        },
-          el("span", { class: "qrmo-pricing-more-feats-text", text: "Tüm özellikleri gör" }),
-          icon("chev")
-        );
-      }
-
       var card = el("article", {
-        class: "qrmo-pricing-card qrmo-pricing-card--" + variant,
+        class: "qrmo-pricing-card qrmo-pricing-card--" + skin + (pkg.badge ? " is-recommended" : ""),
         id: "paket-" + pkg.id,
+        "data-pkg": pkg.id,
         "aria-labelledby": "paket-" + pkg.id + "-name"
       },
         el("header", { class: "qrmo-pricing-card-head" },
-          variant === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
+          pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null,
+          skin === "dark" ? el("p", { class: "qrmo-pricing-sr", text: "Gelişmiş paket" }) : null,
           el("div", { class: "qrmo-pricing-card-title-row" },
-            el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name }),
-            pkg.badge ? el("p", { class: "qrmo-pricing-badge", text: pkg.badge }) : null
+            el("h3", { class: "qrmo-pricing-card-name", id: "paket-" + pkg.id + "-name", text: pkg.name })
           ),
-          el("p", { class: "qrmo-pricing-card-tagline", text: pkg.tagline }),
-          pkg.recommendReason ? el("p", { class: "qrmo-pricing-reason", text: pkg.recommendReason }) : null
+          el("p", { class: "qrmo-pricing-card-tagline", text: pkg.tagline })
         ),
         el("div", { class: "qrmo-pricing-price" },
           el("p", { class: "qrmo-pricing-price-row" },
@@ -321,8 +528,7 @@
         el("p", { class: "qrmo-pricing-card-summary", text: pkg.summary }),
         el("div", { class: "qrmo-pricing-card-body" },
           el("p", { class: "qrmo-pricing-label qrmo-pricing-card-lead", text: pkg.highlightsLead.toLocaleUpperCase("tr") }),
-          list,
-          moreBtn
+          list
         ),
         el("div", { class: "qrmo-pricing-card-actions" },
           cta(pkg, pkg.ctaLabel, btnVariant),
@@ -331,20 +537,9 @@
             : null
         )
       );
-      if (moreBtn) {
-        moreBtn.addEventListener("click", function () {
-          var open = card.classList.toggle("is-feats-open");
-          moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
-          moreBtn.setAttribute("aria-label", open
-            ? pkg.name + " özelliklerini gizle"
-            : pkg.name + ": tüm özellikleri gör");
-          moreBtn.querySelector(".qrmo-pricing-more-feats-text").textContent = open
-            ? "Gizle"
-            : "Tüm özellikleri gör";
-        });
-      }
       wrap.appendChild(card);
     });
+    bindCardsCarousel();
   }
 
   /* ---------- 2. TABLO (≥768px) ---------- */
@@ -580,7 +775,9 @@
         role: "radio",
         id: "qrmo-pricing-toggle-" + pkg.id,
         "aria-controls": "qrmo-pricing-switch-list",
-        "aria-label": (pkg.badge ? pkg.name + " paketi, önerilen" : pkg.name + " paketi"),
+        "aria-label": (pkg.badge
+          ? pkg.name + " paketi, " + String(pkg.badge).toLocaleLowerCase("tr")
+          : pkg.name + " paketi"),
         text: pkg.name
       });
       b.setAttribute("data-i", String(i));
@@ -954,6 +1151,7 @@
   }
 
   function updatePrices(animate) {
+    root.setAttribute("data-period", period);
     var byPkg = {};
     P.forEach(function (p) { byPkg[p.id] = price(p); });
 
@@ -996,6 +1194,7 @@
         if (!r.checked) return;
         period = r.value;
         updatePrices(true);
+        if (isCarousel()) centerCard(carouselId, true);
       });
     });
   }
