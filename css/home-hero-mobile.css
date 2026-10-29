@@ -31,55 +31,107 @@ html .qrmo-hm-m {
     padding-bottom: 0;
   }
 
+  /* Eyebrow: quiet, gold-ruled. */
   html .qrmo-hero-v3-eyebrow {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .24em;
+    color: rgba(13, 43, 34, .5);
   }
 
+  html .qrmo-hero-v3-eyebrow::before {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    margin: 0 auto 16px;
+    background: #c9a84c;
+  }
+
+  /* Title: one clear voice, balanced lines, no orphan. */
   html .qrmo-hero-v3-title {
-    margin-bottom: 14px;
-    font-size: clamp(38px, 11vw, 48px);
-    line-height: 1.1;
+    margin-bottom: 16px;
+    font-size: clamp(34px, 9.6vw, 42px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -.035em;
+    text-wrap: balance;
   }
 
+  /* Subtitle: supporting, lighter, narrower. */
   html .qrmo-hero-v3-subtitle {
-    max-width: 22em;
-    margin: 0 auto clamp(22px, 4.5svh, 36px);
-    font-size: clamp(18px, 4.9vw, 21px);
-    font-weight: 500;
-    line-height: 1.38;
+    max-width: 19em;
+    margin: 0 auto clamp(26px, 5svh, 40px);
+    font-size: 16.5px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(13, 43, 34, .66);
+    text-wrap: balance;
   }
 
   html .qrmo-hero-v3-features {
-    margin-bottom: clamp(24px, 4.5svh, 36px);
+    margin-bottom: clamp(28px, 5svh, 40px);
+    border-top: 1px solid rgba(201, 168, 76, .32);
   }
 
   html .qrmo-hero-v3-feature-row {
-    padding: clamp(14px, 2.4svh, 20px) 0;
+    gap: 14px;
+    padding: clamp(15px, 2.6svh, 20px) 2px;
+    border-bottom: 1px solid rgba(201, 168, 76, .32);
+  }
+
+  /* Icons: smaller, recessive tile. */
+  html .qrmo-hero-v3-feature-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  html .qrmo-hero-v3-feature-icon svg {
+    width: 18px;
+    height: 18px;
   }
 
   html .qrmo-hero-v3-feature-content strong {
-    font-size: 17px;
-    line-height: 1.28;
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: 1.32;
+    letter-spacing: -.01em;
   }
 
   html .qrmo-hero-v3-feature-content small {
-    margin-top: 4px;
-    font-size: 14.5px;
-    line-height: 1.35;
+    margin-top: 3px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: rgba(13, 43, 34, .56);
   }
 
   html .qrmo-hero-v3-cta {
-    min-height: 56px;
-    font-size: 17px;
+    min-height: 52px;
+    font-size: 15.5px;
+    font-weight: 600;
+    letter-spacing: .01em;
   }
 
-  /* Mobile order: Asistan, Dil, Garson. Divider follows the visual order. */
+  /* Mobile order: Asistan, Dil, Garson. Dividers follow the visual order. */
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     order: -1;
-    border-bottom: 1px solid rgba(201, 168, 76, .25);
   }
 
-  html .qrmo-hero-v3-feature-row:nth-child(2) {
-    border-bottom: none;
+  html .qrmo-hero-v3-feature-row:nth-child(2),
+  html .qrmo-hero-v3-feature-row:nth-child(3) {
+    border-bottom: 1px solid rgba(201, 168, 76, .32);
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(1) {
+    border-bottom: 1px solid rgba(201, 168, 76, .32);
+  }
+}
+
+@media (max-width: 380px) {
+  html .qrmo-hero-v3-eyebrow {
+    font-size: 9px;
+    letter-spacing: .18em;
   }
 }
