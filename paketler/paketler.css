@@ -1326,7 +1326,8 @@ body.qrmo-pricing-page {
     background: #fff;
     border: 1px solid rgba(13, 43, 34, .08);
     border-radius: 16px;
-    padding: 8px 20px 12px;
+    padding: 8px 0 12px;
+    --qp-tpad: 20px;
   }
   .qrmo-pricing-switcher-wrap { display: none; }
 
@@ -1390,7 +1391,7 @@ body.qrmo-pricing-page {
   .qrmo-pricing-modlink { overflow-wrap: anywhere; }
 
   .qrmo-pricing-cat-row th {
-    padding: 22px 12px 8px 0;
+    padding: 22px 12px 8px var(--qp-tpad, 20px);
     text-align: left;
     vertical-align: bottom;
     color: var(--qp-green-dark);
@@ -1403,7 +1404,7 @@ body.qrmo-pricing-page {
   }
 
   .qrmo-pricing-feature {
-    padding: 13px 16px 13px 0;
+    padding: 13px 16px 13px var(--qp-tpad, 20px);
     text-align: left;
     vertical-align: middle;
     color: var(--qp-green-dark);
@@ -1469,7 +1470,8 @@ body.qrmo-pricing-page {
     overflow-y: clip;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    padding: 8px 12px 12px;
+    padding: 8px 0 12px;
+    --qp-tpad: 12px;
   }
   .qrmo-pricing-col-label { width: 32%; }
   .qrmo-pricing-th-name { font-size: 18px; }
