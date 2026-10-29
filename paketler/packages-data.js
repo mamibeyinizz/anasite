@@ -42,8 +42,8 @@ window.QRMO_PRICING = {
   /* Modül sayfalarının kök yolu (bu sayfaya göre). */
   modulePagesBase: "../moduller/",
 
-  /* Kartlarda alt adres satırını göster (temel.qrmenuofficial.com). */
-  showSubdomain: true,
+  /* Kartlarda alt adres satırı (temel.qrmenuofficial.com) gizli. */
+  showSubdomain: false,
 
   /* Boş bırakılırsa gösterilmez. Örn: KDV / ödeme koşulu notu. */
   priceNote: "",
