@@ -1805,3 +1805,17 @@ body.qrmo-pricing-page {
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
+
+/* ---------- Kompakt hero: paket kartları ilk ekranda görünsün ---------- */
+.qrmo-pricing-hero { padding: clamp(20px, 3.5vh, 36px) 0 clamp(12px, 2vh, 20px); }
+.qrmo-pricing-hero-grid { grid-template-columns: 1fr; gap: 0; }
+.qrmo-pricing-hero .qrmo-pricing-title {
+  max-width: none;
+  margin-bottom: 8px !important;
+  font-size: clamp(28px, 3.2vw, 40px);
+}
+.qrmo-pricing-hero .qrmo-pricing-subtitle { max-width: 64ch; font-size: clamp(15px, 1.2vw, 16.5px); }
+.qrmo-pricing-packages { padding-top: clamp(12px, 2vh, 20px); }
+@media (min-width: 1081px) {
+  .qrmo-pricing-hero-grid { grid-template-columns: 1fr; }
+}
