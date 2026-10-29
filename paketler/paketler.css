@@ -314,10 +314,10 @@ body.qrmo-pricing-page {
   min-width: 0;
   min-height: 0;
   padding: 14px 14px 12px;
-  border: 1px solid rgba(13, 43, 34, .10);
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: 0 10px 28px -22px rgba(13, 43, 34, .35);
+  border: 1px solid rgba(13, 43, 34, .08);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fff 0%, #fdfbf6 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 2px rgba(13, 43, 34, .04), 0 18px 36px -24px rgba(13, 43, 34, .38);
 }
 .qrmo-pricing-viz-card--temel { grid-area: temel; }
 .qrmo-pricing-viz-card--pro {
@@ -327,10 +327,10 @@ body.qrmo-pricing-page {
 .qrmo-pricing-viz-card--plus {
   grid-area: plus;
   padding: 14px 16px 12px;
-  background: var(--qp-green-dark);
-  border-color: transparent;
+  background: radial-gradient(120% 140% at 85% 0%, rgba(232, 199, 102, .16) 0%, rgba(232, 199, 102, 0) 55%), linear-gradient(160deg, #123a2e 0%, var(--qp-green-dark) 70%);
+  border-color: rgba(232, 199, 102, .16);
   color: var(--qp-cream);
-  box-shadow: 0 12px 28px -20px rgba(13, 43, 34, .45);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .07) inset, 0 24px 44px -26px rgba(13, 43, 34, .6);
 }
 .qrmo-pricing-viz-meta {
   display: flex;
@@ -352,9 +352,9 @@ body.qrmo-pricing-page {
 }
 .qrmo-pricing-viz-pct {
   color: var(--qp-green-dark);
-  font-size: 21px;
+  font-size: 23px;
   font-weight: 500;
-  letter-spacing: -.02em;
+  letter-spacing: -.03em;
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
@@ -381,23 +381,24 @@ body.qrmo-pricing-page {
 }
 .qrmo-pricing-viz-grid {
   fill: none;
-  stroke: rgba(13, 43, 34, .09);
+  stroke: rgba(13, 43, 34, .07);
   stroke-width: 1;
+  stroke-dasharray: 1 5;
+  stroke-linecap: round;
   vector-effect: non-scaling-stroke;
 }
+.qrmo-pricing-viz-grid--x { opacity: .55; }
 .qrmo-pricing-viz-card--plus .qrmo-pricing-viz-grid {
-  stroke: rgba(232, 199, 102, .18);
+  stroke: rgba(232, 199, 102, .22);
 }
-.qrmo-pricing-viz-area {
-  fill: rgba(201, 168, 76, .07);
-}
-.qrmo-pricing-viz-area--plus {
-  fill: rgba(232, 199, 102, .08);
-}
+.qrmo-pricing-viz-card--temel .qrmo-pricing-viz-area { fill: url(#qrmo-viz-fill-temel); }
+.qrmo-pricing-viz-card--pro .qrmo-pricing-viz-area { fill: url(#qrmo-viz-fill-pro); }
+.qrmo-pricing-viz-area--plus { fill: url(#qrmo-viz-fill-plus) !important; }
 .qrmo-pricing-viz-stroke {
   fill: none;
   stroke: var(--qp-gold);
-  stroke-width: 1.75;
+  stroke-width: 2.25;
+  filter: drop-shadow(0 3px 5px rgba(201, 168, 76, .35));
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
@@ -406,8 +407,11 @@ body.qrmo-pricing-page {
   transform-box: fill-box;
   transform-origin: 0 50%;
 }
+.qrmo-pricing-viz-card--temel .qrmo-pricing-viz-stroke { stroke: url(#qrmo-viz-line-temel); }
+.qrmo-pricing-viz-card--pro .qrmo-pricing-viz-stroke { stroke: url(#qrmo-viz-line-pro); }
 .qrmo-pricing-viz-stroke--plus {
-  stroke: var(--qp-gold-light);
+  stroke: url(#qrmo-viz-line-plus) !important;
+  filter: drop-shadow(0 0 6px rgba(232, 199, 102, .55));
 }
 .qrmo-pricing-viz-dot {
   position: absolute;
@@ -416,7 +420,7 @@ body.qrmo-pricing-page {
   margin: -3.5px 0 0 -3.5px;
   border-radius: 50%;
   background: var(--qp-gold);
-  box-shadow: 0 0 0 2px #fff;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 6px rgba(201, 168, 76, .16), 0 3px 8px rgba(201, 168, 76, .45);
   pointer-events: none;
 }
 .qrmo-pricing-viz-dot--start {
@@ -431,8 +435,9 @@ body.qrmo-pricing-page {
 .qrmo-pricing-viz-card--plus .qrmo-pricing-viz-dot--end { top: 21.95%; }
 .qrmo-pricing-viz-card--plus .qrmo-pricing-viz-dot {
   background: var(--qp-gold-light);
-  box-shadow: 0 0 0 2px var(--qp-green-dark);
+  box-shadow: 0 0 0 2px var(--qp-green-dark), 0 0 0 6px rgba(232, 199, 102, .18), 0 0 14px rgba(232, 199, 102, .6);
 }
+.qrmo-pricing-viz-dot--start { transform: scale(.75); opacity: .85; }
 .qrmo-pricing-choose {
   padding: clamp(8px, 3vh, 28px) 0 0;
 }
