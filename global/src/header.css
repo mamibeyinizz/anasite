@@ -337,12 +337,26 @@ html:not(.qrmo-gh-js) .qrmo-gh {
 .qrmo-gh-qr-icon svg {
   width: 100%;
   height: 100%;
-  animation: qrmo-gh-qr-pulse 3.2s ease-in-out infinite;
-  will-change: transform, opacity;
+  overflow: visible;
 }
-@keyframes qrmo-gh-qr-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.75; }
-  50% { transform: scale(1.12); opacity: 1; }
+.qrmo-gh-mail-flap {
+  transform-origin: 12px 7.5px;
+  animation: qrmo-gh-mail-flap 4s ease-in-out infinite;
+}
+.qrmo-gh-mail-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: qrmo-gh-mail-ping 4s ease-in-out infinite;
+}
+@keyframes qrmo-gh-mail-flap {
+  0%, 70%, 100% { transform: scaleY(1); }
+  80% { transform: scaleY(0.78); }
+  90% { transform: scaleY(1); }
+}
+@keyframes qrmo-gh-mail-ping {
+  0%, 60%, 100% { transform: scale(1); opacity: 1; }
+  75% { transform: scale(1.5); opacity: 0.55; }
+  90% { transform: scale(1); opacity: 1; }
 }
 .qrmo-gh-in > .qrmo-gh-cta {
   display: none;
@@ -925,7 +939,8 @@ button.qrmo-gh-d-card--pending {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .qrmo-gh-qr-icon svg {
+  .qrmo-gh-mail-flap,
+  .qrmo-gh-mail-ping {
     animation: none;
   }
   .qrmo-gh *,
