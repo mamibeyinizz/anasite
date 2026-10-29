@@ -98,6 +98,7 @@ window.QRMO_PRICING = {
       subdomain: "plus.qrmenuofficial.com",
       price: { monthly: 2990, annual: 29900 },
       variant: "dark",
+      cardBadge: "En kapsamlı",
       ctaLabel: "Plus için iletişime geçin",
       highlightsLead: "Pro’ya ek olarak",
       highlights: ["analytics", "geri-bildirim", "menu-muhendisligi", "maliyet-recete", "asistan"],
