@@ -1809,9 +1809,9 @@
 }
 
 #qrmo-product-map-v1 .qpm2-idx {
-  grid-row: 1 / span 3;
+  grid-row: 1;
+  align-self: baseline;
   margin: 0;
-  padding-top: 0.3em;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1822,6 +1822,8 @@
 
 #qrmo-product-map-v1 .qpm2-name {
   grid-column: 2;
+  grid-row: 1;
+  align-self: baseline;
   margin: 0 0 8px;
   font-size: clamp(20px, 1.6vw, 24px);
   font-weight: 700;
@@ -1832,6 +1834,7 @@
 
 #qrmo-product-map-v1 .qpm2-benefit {
   grid-column: 2;
+  grid-row: 2;
   margin: 0 0 16px;
   font-size: clamp(15px, 1.1vw, 16.5px);
   line-height: 1.55;
@@ -1840,6 +1843,7 @@
 
 #qrmo-product-map-v1 .qpm2-meta {
   grid-column: 2;
+  grid-row: 3;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
