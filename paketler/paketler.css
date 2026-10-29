@@ -597,10 +597,6 @@ body.qrmo-pricing-page {
   text-transform: uppercase;
   box-shadow: 0 4px 12px rgba(13, 43, 34, .18);
 }
-.qrmo-pricing-reason {
-  margin: 6px 0 0 !important;
-  color: var(--qp-text-2); font-size: 13px; font-weight: 600; line-height: 1.35;
-}
 .qrmo-pricing-card-name {
   color: var(--qp-green-dark);
   font-size: clamp(28px, 2.6vw, 34px);
@@ -1626,11 +1622,12 @@ body.qrmo-pricing-page {
     color: var(--qp-cream);
   }
   .qrmo-pricing-card-nav-mark {
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: .06em;
+    letter-spacing: .02em;
     line-height: 1.2;
     text-transform: uppercase;
+    white-space: nowrap;
     color: var(--qp-green-dark);
   }
   .qrmo-pricing-card-nav-btn.is-active .qrmo-pricing-card-nav-mark {
@@ -1667,7 +1664,6 @@ body.qrmo-pricing-page {
   }
   .qrmo-pricing-card-name { font-size: 24px; }
   .qrmo-pricing-card-tagline { margin-top: 4px !important; font-size: 14px; }
-  .qrmo-pricing-reason { display: none; }
   .qrmo-pricing-price { margin-top: 0; padding-top: 10px; padding-bottom: 10px; }
   .qrmo-pricing-amount { font-size: 32px; }
   .qrmo-pricing-qualifier { margin-top: 4px !important; }
@@ -1756,6 +1752,7 @@ body.qrmo-pricing-page {
   .qrmo-pricing-answers li { font-size: 15px; line-height: 1.4; }
   .qrmo-pricing-amount { font-size: 28px; }
   .qrmo-pricing-card-name { font-size: 22px; }
+  .qrmo-pricing-card-nav-mark { letter-spacing: 0; }
 }
 
 /* =========================================================

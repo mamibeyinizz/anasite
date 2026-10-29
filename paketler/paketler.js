@@ -295,9 +295,6 @@
     for (var i = 0; i < tabs.length; i++) {
       var on = tabs[i].getAttribute("data-pkg") === carouselId;
       tabs[i].setAttribute("aria-pressed", on ? "true" : "false");
-      if (on) tabs[i].setAttribute("aria-current", "true");
-      else tabs[i].removeAttribute("aria-current");
-      tabs[i].tabIndex = on ? 0 : -1;
       tabs[i].classList.toggle("is-active", on);
     }
   }
