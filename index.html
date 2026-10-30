@@ -22484,41 +22484,80 @@
 .qrmo-setup-v2__link span { color: #A8862F; transition: transform .3s var(--qs-ease); }
 .qrmo-setup-v2__link:hover span { transform: translateX(4px); }
 
-/* Öne çıkan adım: 3 GÜN */
-.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__card {
-  border-color: rgba(201,168,76,.4);
-  background:
-    radial-gradient(110% 80% at 100% 0%, rgba(232,199,102,.22), rgba(232,199,102,0) 55%),
-    linear-gradient(160deg, #123A2C 0%, #0D2B22 60%, #0A231C 100%);
-  box-shadow: 0 26px 50px -24px rgba(13,43,34,.7);
+
+/* ---------- V2.1: kutusuz editoryal adımlar ---------- */
+.qrmo-setup-v2__card {
+  padding: 0 clamp(4px, 1vw, 18px) 0 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
 }
-
-.qrmo-setup-v2__step.is-hot h3 { color: #F4F1E8; }
-.qrmo-setup-v2__step.is-hot p { color: rgba(244,241,232,.74); }
-.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__num { -webkit-text-stroke-color: rgba(232,199,102,.45); }
-.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__out { background: rgba(232,199,102,.14); color: #F1DB94; }
-
-.qrmo-setup-v2__badge {
+.qrmo-setup-v2__top { position: relative; margin-bottom: 20px; }
+.qrmo-setup-v2__num {
   position: absolute;
-  top: -12px;
-  right: 18px;
-  padding: 6px 11px;
+  right: auto;
+  left: 58px;
+  top: 50%;
+  margin: 0;
+  transform: translateY(-50%);
+  font-size: clamp(54px, 5vw, 76px);
+  letter-spacing: -3px;
+  color: transparent;
+  -webkit-text-stroke: 0;
+  background: linear-gradient(180deg, rgba(201,168,76,.42), rgba(201,168,76,0) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  pointer-events: none;
+  z-index: -1;
+}
+.qrmo-setup-v2__top { isolation: isolate; }
+.qrmo-setup-v2__step h3 { padding-top: 2px; }
+.qrmo-setup-v2__out { background: none; padding: 0; color: #2E5A47; }
+.qrmo-setup-v2__link { margin-left: 0; }
+.qrmo-setup-v2__step + .qrmo-setup-v2__step .qrmo-setup-v2__card { border-left: 0; }
+
+/* 3. adım: kutu yok; altın vurgu */
+.qrmo-setup-v2__step.is-hot h3 {
+  background: linear-gradient(100deg, #8C6B22, #B8913A 50%, #7A5C1C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__ico {
+  color: #0D2B22;
+  background: linear-gradient(135deg, #F1DB94, #C9A84C);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 12px 24px -10px rgba(201,168,76,.8);
+}
+.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__ico .f { fill: rgba(255,255,255,.35); }
+.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__ico .g { stroke: #0D2B22; fill: rgba(13,43,34,.12); }
+.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__num { background-image: linear-gradient(180deg, rgba(201,168,76,.7), rgba(201,168,76,0) 92%); }
+.qrmo-setup-v2__badge {
+  position: static;
+  margin-left: auto;
+  align-self: center;
+  padding: 7px 12px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--qs-gold-light), var(--qs-gold));
-  color: var(--qs-green);
+  background: linear-gradient(135deg, #E8C766, #C9A84C);
+  color: #0D2B22;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.2px;
   line-height: 1;
   box-shadow: 0 8px 18px -8px rgba(201,168,76,.8);
 }
+.qrmo-setup-v2__link { display: flex; width: max-content; }
+.qrmo-setup-v2__step.is-hot .qrmo-setup-v2__node { border-color: #E8C766; box-shadow: 0 0 0 5px rgba(232,199,102,.25); }
 
 @media (hover: hover) {
-  .qrmo-setup-v2__card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(201,168,76,.45);
-    box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 28px 50px -26px rgba(13,43,34,.45), 0 0 0 4px rgba(201,168,76,.08);
-  }
+  .qrmo-setup-v2__card:hover { transform: translateY(-4px); box-shadow: none; border-color: transparent; }
+  .qrmo-setup-v2__card .qrmo-setup-v2__ico { transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+  .qrmo-setup-v2__card:hover .qrmo-setup-v2__ico { transform: rotate(-6deg) scale(1.06); }
+}
+@media (max-width: 767px) {
+  .qrmo-setup-v2__card { padding: 0 0 6px; }
+  .qrmo-setup-v2__node { top: 15px; }
+  .qrmo-setup-v2__num { font-size: 52px; }
 }
 
 /* ---------- Hareket ---------- */
