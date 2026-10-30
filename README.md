@@ -37,6 +37,7 @@ QR Menu Official'ın ana satış sitesi için çalışma alanı.
 | `section-9-transition.html` | **Aktif kaynak** (Section 9 — Geçiş Kararı) |
 | `section-10-installation.html` | **Aktif kaynak** (Section 10 — Kurulum) |
 | `section-11-faq.html` | **Aktif kaynak** (Section 11 — FAQ / İtirazlar) |
+| `section-8c-demo-cta.html` | **Aktif kaynak** (Section 8C — Demo CTA: modüllerden sonra, `/canli-menu/`; Section 12 tasarımını kullanır) |
 | `section-12-final-cta.html` | **Aktif kaynak** (Section 12 — Son CTA) |
 | `section-9-security.html` | **Arşiv / yetim kaynak.** Güvenlik artık homepage section'ı değildir; `index.html` bu dosyayı kullanmaz |
 
