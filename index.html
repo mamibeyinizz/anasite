@@ -22012,6 +22012,51 @@
 
 </section>
 
+<style>
+/* Section 8C — Canlı Demo CTA: uzun başlığa göre nesne yerleşimi.
+   Yalnızca ≥768 (masaüstü + tablet); mobil dokunulmadı. */
+@media (min-width: 768px) {
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__title {
+    font-size: clamp(36px, 3.5vw, 52px);
+  }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__lead {
+    max-width: 560px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-qr    { left: 3.5%; top: 9%; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-bell  { right: 3%; top: 7%; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-menu  { left: 3%; top: 56%; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-panel { right: 3%; top: 46%; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-lang  { left: 14%; top: 82%; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-bill  { right: 14%; top: 80%; }
+}
+
+/* 901–1099: yan boşluk başlığa yetmiyor → tabletteki üst sahne düzeni */
+@media (min-width: 901px) and (max-width: 1099px) {
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__body { padding-top: 220px; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-lang,
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-bill { display: none; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-qr    { left: 7%;  top: 26px; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-menu  { left: 25%; top: 58px; display: block; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-bell  { right: 7%; top: 22px; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-panel { right: 20%; top: 108px; }
+}
+
+/* 1100–1279: yan boşluk dar; kalabalık nesneler gizlenir */
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-menu,
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-lang { display: none; }
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__o-bill  { right: 3%; top: 76%; }
+}
+
+/* Tablet: üst sahne biraz daha yüksek, menü kartı eyebrow'a değmesin */
+@media (min-width: 768px) and (max-width: 900px) {
+  .qrmo-demo-cta-v1 .qrmo-final-cta-v1__body { padding-top: 220px; }
+}
+</style>
+
 <section id="qrmo-reviews-v1" class="qrmo-home-anchor" aria-labelledby="qrmo-reviews-v1-title" hidden>
   <div class="qrmo-rv__head">
     <div>
