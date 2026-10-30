@@ -3134,3 +3134,22 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 
 /* Grafik kartı başlıkları */
 .qrmo-mod--hub .qrmo-hubviz-title { font-weight: 600; }
+
+/* Çözümler hero: sol %60 / sağ %40, sol sütun tam genişlik */
+@media (min-width: 900px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero {
+    --qm-hero-gap: clamp(28px, 3.4vw, 48px);
+    grid-template-columns: calc(60% - var(--qm-hero-gap) * .6) calc(40% - var(--qm-hero-gap) * .4);
+    gap: var(--qm-hero-gap);
+  }
+  .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-h1 {
+    max-width: none;
+    font-size: clamp(40px, 3.7vw, 60px);
+    text-wrap: balance;
+  }
+  .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-lead,
+  .qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-note { max-width: none; }
+}
+@media (min-width: 1024px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero .qrmo-mod-hero-copy { align-self: center; }
+}
