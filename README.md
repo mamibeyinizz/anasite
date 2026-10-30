@@ -24,6 +24,9 @@ QR Menu Official'ın ana satış sitesi için çalışma alanı.
 - `canli-menu/` — `/canli-menu/` canlı demo sayfası: Temel/Pro/Plus sekmeleri, deneme görevleri, masaüstü/tablette masa kartı QR'ı, mobilde alt dock. Demo adresleri `canli-menu/index.html` içindeki bağlantılarda (temel → `temel.`, Pro → `test.`, Plus → `full.qrmenuofficial.com`); fiyat satırı `paketler/packages-data.js`'ten okunur. Adres değişirse `canli-menu/make-qr.py` (gerekir: `pip install segno`) ile `canli-menu/qr/*.svg` yeniden üretilir.
 - `yasal/` — Yasal sayfalar: `/gizlilik/` (Gizlilik Politikası + KVKK Aydınlatma Metni), `/cerez-politikasi/`, `/kullanim-sartlari/`. İçerik `yasal/legal-data.mjs`, tasarım `yasal/yasal.css`, üretim `node yasal/build.mjs`. Footer "Yasal Bilgiler" kolonu bunlara bağlanır. Metinler yalnızca sitenin gerçekte yaptığını anlatır (form e-posta taslağı hazırlar, sunucuya kaydetmez; çerez ve üçüncü taraf betik yok; yalnızca sessionStorage). **Siteye analiz/reklam aracı, form sunucusu veya çerez eklenirse ilgili metin aynı değişiklikte güncellenir.**
 - `sitemap-paketler-moduller.xml` — `build.js` çıktısı; repoda başka bir sitemap/robots yoktur, mevcut site haritasıyla birleştirme dağıtım tarafının işidir
+- `blog/` — `/blog/` blog ana sayfası + yazılar. İçerik `blog/posts.mjs` (tek kaynak); üretim `node blog/build.mjs` (header/footer `applyGlobal()` ile; `sitemap-blog.xml` ve `blog/feed.xml` de yazılır). Kapaklar özgün SVG sahnelerden `node blog/covers.mjs` ile `assets/blog/` altına WebP/JPG üretilir. Kontrol: `node blog/qa.mjs`. Yeni sıra: `node sss/build.mjs && node moduller/build.js && node global/build.mjs && node blog/build.mjs`.
+- `seo/` — Keyword araştırması (`keywords.csv`), 20 içerik takvimi (`content-calendar.csv`), yöntem notu (`README.md`).
+- `robots.txt`, `sitemap.xml` (index → `sitemap-paketler-moduller.xml` + `sitemap-blog.xml`)
 - `css/` — Stil dosyaları
 - `js/` — JavaScript dosyaları
 - `assets/` — Görsel ve statik dosyalar

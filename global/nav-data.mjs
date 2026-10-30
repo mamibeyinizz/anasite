@@ -67,7 +67,8 @@ export const NAV = [
     conversionSlot: "secondary",
     drawerSubtitle: "Demo menüyü telefonunuzda deneyin"
   },
-  { key: "sss", label: "S.S.S.", drawerLabel: "Sıkça Sorulan Sorular", path: "sss/", drawerSubtitle: "Karar vermeden önce sorulanlar" }
+  { key: "sss", label: "S.S.S.", drawerLabel: "Sıkça Sorulan Sorular", path: "sss/", drawerSubtitle: "Karar vermeden önce sorulanlar" },
+  { key: "blog", label: "Blog", drawerLabel: "Blog ve Rehberler", path: "blog/", drawerSubtitle: "Restoran ve kafe yönetimi rehberleri" }
   /* "Bize Ulaşın" burada yok: birincil CTA (İletişime Geçin) zaten /iletisim/'e gider; iki ayrı bağlantı aynı sayfaya gitmesin. */
 ];
 
@@ -138,7 +139,8 @@ export const FOOTER_GROUPS = [
       { label: "Ana Sayfa", path: "", key: "home" },
       { label: "Çözümler", path: "moduller/", key: "moduller" },
       { label: "Paketler & Fiyatlar", path: "paketler/", key: "paketler" },
-      { label: CONVERSION.secondary.label, conversionSlot: "secondary", key: "canli" }
+      { label: CONVERSION.secondary.label, conversionSlot: "secondary", key: "canli" },
+      { label: "Blog", path: "blog/", key: "blog" }
     ]
   },
   {

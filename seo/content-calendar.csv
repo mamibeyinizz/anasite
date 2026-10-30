@@ -1,0 +1,21 @@
+sira,hafta,baslik_taslagi,hedef_keyword,kume,arama_amaci,hedef_url,ic_baglanti_hedefleri,urun_yonlendirme,not
+1,2026-11 H1,QR Menü Programı Seçerken Sorulacak 12 Soru,qr menü programı / en iyi qr menü,QR menü,ticari araştırma,/blog/qr-menu-programi-secimi/,qr-menu-nedir; dijital-menu-nasil-hazirlanir,/paketler/,"rakip adı/fiyat yazılmayacak, kriter listesi"
+2,2026-11 H2,"QR ile Masadan Sipariş: Nasıl Çalışır, Kime Uygun?",masadan sipariş sistemi,Servis,ticari,/blog/qr-ile-masadan-siparis/,garson-cagirma-sistemi,/moduller/servis-paneli/,ödeme almadığı açıkça yazılacak
+3,2026-11 H3,Restoranda Ek Satış: Israrcı Olmadan Öneri Yapmanın Yolları,restoranda ek satış,Menü & Kârlılık,bilgi,/blog/restoranda-ek-satis/,menu-muhendisligi-nedir,/moduller/restoran-menu/ (rozet/porsiyon/ekstra),oran vaadi yok
+4,2026-11 H4,Reçete Maliyeti Nasıl Hesaplanır? (Fire Payı Dahil),reçete maliyet hesaplama,Menü & Kârlılık,bilgi/araç,/blog/recete-maliyeti-hesaplama/,menu-muhendisligi-nedir,/moduller/menu-muhendisligi/,hesap tablosu şablonu eklenebilir
+5,2026-12 H1,Menü Fiyatlandırma Yöntemleri,menü fiyatlandırma,Menü & Kârlılık,bilgi,/blog/menu-fiyatlandirma/,recete-maliyeti-hesaplama; menu-muhendisligi-nedir,/moduller/menu-muhendisligi/,
+6,2026-12 H2,PDF Menü mü Dijital Menü mü?,pdf menü qr kod,QR menü,bilgi,/blog/pdf-menu-mu-dijital-menu-mu/,qr-menu-nedir,/canli-menu/,
+7,2026-12 H3,Restoran Cirosunu Etkileyen 10 Operasyonel Kalem,restoran cirosu nasıl artırılır,Menü & Kârlılık,bilgi,/blog/restoran-cirosu-artirma/,restoranda-ek-satis; menu-muhendisligi-nedir,/paketler/,"garanti/oran yok, ölçüm odaklı"
+8,2026-12 H4,Turistlere Çok Dilli Menü: Çeviri Hataları ve Kontrol Listesi,çok dilli menü,QR menü,ticari,/blog/cok-dilli-menu/,dijital-menu-nasil-hazirlanir,/moduller/coklu-dil/,otomatik AI çeviri iddiası yok
+9,2027-01 H1,Menüde Alerjen Bilgisi: İşletme Ne Yapmalı?,alerjen bilgisi menü,Mevzuat,bilgi,/blog/menude-alerjen-bilgisi/,dijital-menu-nasil-hazirlanir,/moduller/akilli-filtreleme/,mevzuat birincil kaynaktan doğrulanmalı
+10,2027-01 H2,Ücretsiz QR Menü Araçlarının Sınırları,ücretsiz qr menü,QR menü,ticari,/blog/ucretsiz-qr-menu/,qr-menu-programi-secimi,/paketler/,rakip karalaması yok
+11,2027-01 H3,"Restoran Personel Yönetimi: Vardiya, Rol ve Sorumluluk",restoran personel yönetimi,Servis,bilgi,/blog/restoran-personel-yonetimi/,garson-cagirma-sistemi,/moduller/servis-paneli/ (servis rolü),
+12,2027-01 H4,Menü Tasarımında Okunabilirlik: Telefon Ekranı İçin 10 Kural,menü tasarımı ipuçları,QR menü,bilgi,/blog/menu-tasarimi/,dijital-menu-nasil-hazirlanir,/canli-menu/,
+13,2027-02 H1,Müşteri Geri Bildirimini Toplamak ve Yanıtlamak,restoran müşteri yorumları,Servis,bilgi,/blog/musteri-geri-bildirimi/,garson-cagirma-sistemi,/moduller/yorum-geri-bildirim/,review gating kararı netleşmeden yazılmamalı (README açık konu)
+14,2027-02 H2,QR Menü Güvenliği: Masa Oturumu Neyi Çözer Neyi Çözmez?,qr menü güvenliği,Servis,bilgi,/blog/qr-menu-guvenligi/,garson-cagirma-sistemi,/moduller/masa-oturum-guvenligi/,"""hacklenemez"" yok"
+15,2027-02 H3,Menü Analitiği: Tıklama Verisi Neyi Söyler Neyi Söylemez?,menü analizi,Menü & Kârlılık,bilgi,/blog/menu-analitigi/,menu-muhendisligi-nedir,/moduller/qr-analytics/,tıklama ≠ satış
+16,2027-02 H4,Kafe Açarken Menü Kurulumu Kontrol Listesi,kafe menü programı,QR menü,ticari,/blog/kafe-menu-kurulumu/,dijital-menu-nasil-hazirlanir,/paketler/,
+17,2027-03 H1,Kampanya ve Kombo Menü Nasıl Kurgulanır?,kombo menü,Menü & Kârlılık,bilgi,/blog/kombo-menu/,restoranda-ek-satis,/moduller/restoran-menu/,saatli otomatik kampanya yok (ürün sınırı)
+18,2027-03 H2,Menü Asistanı: Misafir Sorularını Kim Cevaplar?,restoran chatbot,Servis,bilgi,/blog/menu-asistani-nedir/,garson-cagirma-sistemi,/moduller/menu-asistani/,personel devri vurgulanacak
+19,2027-03 H3,Fiyat Güncellemesi: Basılı ve Dijital Menüyü Tutarlı Tutmak,menü fiyat güncelleme,Mevzuat,bilgi,/blog/menu-fiyat-guncelleme/,karekod-fiyat-listesi-yonetmeligi,/moduller/restoran-menu/,
+20,2027-03 H4,"Yoğun Saatte Servis Akışı: Çağrı, Sipariş ve Hesap",restoran servis akışı,Servis,bilgi,/blog/yogun-saat-servis-akisi/,garson-cagirma-sistemi; qr-ile-masadan-siparis,/moduller/servis-paneli/,
