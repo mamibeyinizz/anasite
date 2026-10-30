@@ -1,0 +1,352 @@
+/* =========================================================
+   QR MENU OFFICIAL — YASAL SAYFALAR (/gizlilik/ · /cerez-politikasi/ · /kullanim-sartlari/)
+   Namespace: .qrmo-legal-*
+   Renkler /iletisim/ ile aynıdır. Yatay boşluk global sistemdir: >560px 5vw · ≤560px 15px.
+   Bağlantılar altı çizili değildir (CLAUDE.md): renk + kalın ağırlık + ok ile ayrılır.
+   Kırılımlar: ≤1023 tek sütun (içindekiler üstte) · ≥1024 yapışkan içindekiler sütunu.
+========================================================= */
+
+html {
+  background: #FBF7EE;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(body.qrmo-legal-page) {
+    scroll-behavior: smooth;
+  }
+}
+
+body.qrmo-legal-page {
+  margin: 0;
+  color: #24312A;
+  background:
+    radial-gradient(120% 56rem at 50% -12rem, rgba(201, 168, 76, .10) 0%, rgba(201, 168, 76, .03) 42%, rgba(201, 168, 76, 0) 70%),
+    linear-gradient(176deg, #FDFBF5 0%, #F8F2E6 48%, #F3ECDD 100%);
+  background-color: #FBF7EE;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+.qrmo-legal,
+.qrmo-legal *,
+.qrmo-legal *::before,
+.qrmo-legal *::after {
+  box-sizing: border-box;
+}
+
+.qrmo-legal {
+  --ql-green-dark: #0D2B22;
+  --ql-green-hover: #1E3D2F;
+  --ql-gold: #C9A84C;
+  --ql-cream: #F4F1E8;
+  --ql-paper: #FFFDF8;
+  --ql-text: #24312A;
+  --ql-muted: #56625B;
+  --ql-link: #17684A;
+  --ql-line: rgba(13, 43, 34, .14);
+  color: var(--ql-text);
+}
+
+.qrmo-legal :where(p, h1, h2, ul, ol) {
+  margin: 0;
+}
+
+.qrmo-legal :where(ul, ol) {
+  padding: 0;
+  list-style: none;
+}
+
+.qrmo-legal a {
+  text-decoration: none;
+}
+
+.qrmo-legal :focus:not(:focus-visible) {
+  outline: none;
+}
+
+.qrmo-legal :focus-visible {
+  outline: 3px solid var(--ql-green-dark);
+  outline-offset: 3px;
+}
+
+.qrmo-legal-inner {
+  width: calc(100% - 2 * var(--qrmo-shell-gutter, 5vw));
+  margin-inline: var(--qrmo-shell-gutter, 5vw);
+}
+
+/* ---------- Üst alan ---------- */
+
+.qrmo-legal-hero {
+  padding: 40px 0 8px;
+}
+
+.qrmo-legal-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: var(--ql-green-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  line-height: 1.3;
+}
+
+.qrmo-legal-kicker span {
+  width: 28px;
+  height: 1px;
+  background: var(--ql-gold);
+}
+
+.qrmo-legal-h1 {
+  max-width: 18em;
+  color: var(--ql-green-dark);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.14;
+  text-wrap: balance;
+}
+
+.qrmo-legal-lead {
+  max-width: 40em;
+  margin-top: 14px;
+  color: var(--ql-muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.qrmo-legal-meta {
+  margin-top: 16px;
+  color: var(--ql-muted);
+  font-size: 14px;
+}
+
+/* ---------- Gövde ---------- */
+
+.qrmo-legal-body {
+  display: grid;
+  gap: 28px;
+  padding: 28px 0 40px;
+}
+
+.qrmo-legal-toc {
+  align-self: start;
+  padding: 18px 18px 16px;
+  background: var(--ql-paper);
+  border: 1px solid var(--ql-line);
+  border-radius: 16px;
+}
+
+.qrmo-legal-toc-title {
+  margin-bottom: 10px;
+  color: var(--ql-green-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.qrmo-legal-toc ol {
+  display: grid;
+  gap: 2px;
+  counter-reset: qrmo-toc;
+}
+
+.qrmo-legal-toc li {
+  counter-increment: qrmo-toc;
+}
+
+.qrmo-legal-toc a {
+  display: flex;
+  gap: 10px;
+  min-height: 44px;
+  align-items: center;
+  padding: 6px 8px;
+  color: var(--ql-text);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  border-radius: 10px;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.qrmo-legal-toc a::before {
+  content: counter(qrmo-toc, decimal-leading-zero);
+  flex: none;
+  color: var(--ql-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+.qrmo-legal-toc a:hover {
+  color: var(--ql-green-dark);
+  background: var(--ql-cream);
+}
+
+.qrmo-legal-article {
+  min-width: 0;
+  max-width: 46rem;
+}
+
+.qrmo-legal-sec {
+  padding: 26px 0;
+  border-top: 1px solid var(--ql-line);
+  scroll-margin-top: calc(var(--qrmo-gh-h, 76px) + 16px);
+}
+
+.qrmo-legal-sec:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.qrmo-legal-h2 {
+  margin-bottom: 12px;
+  color: var(--ql-green-dark);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+
+.qrmo-legal-sec p + p,
+.qrmo-legal-sec p + ul,
+.qrmo-legal-sec ul + p {
+  margin-top: 12px;
+}
+
+.qrmo-legal-sec p,
+.qrmo-legal-sec li {
+  color: var(--ql-text);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.qrmo-legal-sec strong {
+  color: var(--ql-green-dark);
+  font-weight: 700;
+}
+
+.qrmo-legal-sec ul {
+  display: grid;
+  gap: 10px;
+}
+
+.qrmo-legal-sec li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.qrmo-legal-sec li::before {
+  content: "";
+  position: absolute;
+  top: .72em;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  background: var(--ql-gold);
+  border-radius: 50%;
+}
+
+.qrmo-legal-sec a {
+  color: var(--ql-link);
+  font-weight: 700;
+  transition: color .18s ease;
+}
+
+.qrmo-legal-sec a:hover {
+  color: var(--ql-green-dark);
+}
+
+/* ---------- Diğer yasal metinler ---------- */
+
+.qrmo-legal-more {
+  padding: 8px 0 56px;
+}
+
+.qrmo-legal-more-title {
+  margin-bottom: 14px;
+  color: var(--ql-green-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.qrmo-legal-more-list {
+  display: grid;
+  gap: 10px;
+}
+
+.qrmo-legal-more-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 14px 18px;
+  color: var(--ql-green-dark);
+  font-weight: 700;
+  background: var(--ql-paper);
+  border: 1px solid var(--ql-line);
+  border-radius: 14px;
+  transition: background-color .18s ease, border-color .18s ease;
+}
+
+.qrmo-legal-more-link:hover {
+  background: var(--ql-cream);
+  border-color: rgba(13, 43, 34, .3);
+}
+
+.qrmo-legal-more-link span[aria-hidden="true"] {
+  color: var(--ql-gold);
+  font-size: 18px;
+}
+
+/* ---------- Kırılımlar ---------- */
+
+@media (min-width: 768px) {
+  .qrmo-legal-hero {
+    padding: 64px 0 8px;
+  }
+
+  .qrmo-legal-h1 {
+    font-size: 42px;
+  }
+
+  .qrmo-legal-body {
+    padding: 36px 0 56px;
+  }
+
+  .qrmo-legal-more-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .qrmo-legal-h1 {
+    font-size: 48px;
+  }
+
+  .qrmo-legal-body {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 64px;
+  }
+
+  .qrmo-legal-toc {
+    position: sticky;
+    top: calc(var(--qrmo-gh-h, 76px) + 24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-legal-toc a,
+  .qrmo-legal-sec a,
+  .qrmo-legal-more-link {
+    transition: none;
+  }
+}

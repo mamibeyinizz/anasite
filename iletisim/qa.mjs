@@ -57,8 +57,9 @@ check(!fs.readFileSync(path.join(here, "iletisim.css"), "utf8").includes("#7F641
 
 for (const href of [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => m[1])) {
   if (/^(https?:|mailto:|tel:|#)/.test(href)) continue;
-  let target = path.resolve(here, href);
-  if (href.endsWith("/")) target = path.join(target, "index.html");
+  const file = href.split("#")[0].split("?")[0]; /* #parça ve ?sürüm hedef dosyayı değiştirmez */
+  let target = path.resolve(here, file);
+  if (file.endsWith("/")) target = path.join(target, "index.html");
   check(target.startsWith(root) && fs.existsSync(target), `bağlantı ${href}`, target);
 }
 

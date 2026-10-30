@@ -32,16 +32,17 @@ const I = {
     home: svg('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/>'),
     moduller: svg('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h4v4h3v3h-7v-7ZM18 11v3"/>'),
     paketler: svg('<path d="M4 7h16M4 12h16M4 17h16"/><rect x="3" y="3" width="18" height="18" rx="2"/>'),
+    sss: svg('<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.6 1.2c0 1.6-2.4 2-2.4 3.5"/><path d="M12 17.2h.01"/>'),
     canli: svg('<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 5h6M10 18h4"/>'),
     iletisim: svg('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/>')
   },
   sol: [
-    svg('<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/>'),
-    svg('<path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h5M8 16h8"/>'),
-    svg('<path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/><path d="M16 16h4"/>'),
-    svg('<path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h4M8 17h8"/>'),
-    svg('<path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h8M8 17h5"/>'),
-    svg('<path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h6M8 17h8"/>')
+    svg('<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/>'),
+    svg('<path d="M6 17V11a6 6 0 0 1 12 0v6M4 17h16M10 20.5h4"/>'),
+    svg('<path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 9.5h7M8.5 12.5h4"/>'),
+    svg('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/>'),
+    svg('<path d="M5 20v-6M12 20V6M19 20v-10"/><path d="M3 20h18"/>'),
+    svg('<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>')
   ]
 };
 
@@ -98,7 +99,7 @@ function renderDrawerNavCard(rel, n, current, exact) {
       <span class="qrmo-gh-d-card-left">
         <span class="qrmo-gh-d-card-icon">${icon}</span>
         <span class="qrmo-gh-d-card-text">
-          <span class="qrmo-gh-d-card-title">${esc(n.label)}</span>
+          <span class="qrmo-gh-d-card-title">${esc(n.drawerLabel || n.label)}</span>
           ${sub}
         </span>
       </span>
@@ -125,6 +126,9 @@ function renderDrawerNavCard(rel, n, current, exact) {
 }
 
 function renderFooterLink(rel, l, current) {
+  if (l.url) {
+    return `<li><a href="${esc(l.url)}">${esc(l.label)}</a></li>`;
+  }
   if (l.conversionSlot) {
     const url = conversionTargetUrl(rel, l.conversionSlot);
     if (url) {

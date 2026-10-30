@@ -1300,7 +1300,7 @@ function validate(faqById) {
 
   /* Site haritası: mevcut bir dağıtım sistemi varsayılmaz; dosya yalnızca üretilir.
      robots.txt'e eklemek veya mevcut sitemap'e katmak dağıtım tarafının işidir. */
-  const urls = [`${MOD.site.baseUrl}/`, `${MOD.site.baseUrl}/paketler/`, `${MOD.site.baseUrl}/iletisim/`, `${MOD.site.baseUrl}/canli-menu/`, `${MOD.site.baseUrl}/moduller/`]
+  const urls = [`${MOD.site.baseUrl}/`, `${MOD.site.baseUrl}/paketler/`, `${MOD.site.baseUrl}/iletisim/`, `${MOD.site.baseUrl}/canli-menu/`, `${MOD.site.baseUrl}/gizlilik/`, `${MOD.site.baseUrl}/cerez-politikasi/`, `${MOD.site.baseUrl}/kullanim-sartlari/`, `${MOD.site.baseUrl}/moduller/`]
     .concat(MOD.modules.map((m) => `${MOD.site.baseUrl}/moduller/${m.slug}/`));
   fs.writeFileSync(path.join(ROOT, "..", "sitemap-paketler-moduller.xml"),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +

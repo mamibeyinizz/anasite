@@ -27,8 +27,8 @@ export const SITE = {
  *   secondary  — Canlı Menüyü Gör → /canli-menu/ (demo adresleri o sayfada)
  *   packagesLink — Paketleri İnceleyin (path)
  *   contact    — Bize Ulaşın → /iletisim/
- *   transition — Geçiş İçin Bilgi Alın (S9; ayrı hedef yok)
- *   final      — Geçiş İçin Bilgi Alın (S12; ayrı href verilebilir)
+ *   transition — Geçiş İçin Bilgi Alın → /iletisim/#talep (S9 kaldırıldı; slot yedek)
+ *   final      — Geçiş İçin Bilgi Alın (S12) → /iletisim/#talep (index.html'de doğrudan <a>)
  */
 export const CONVERSION = {
   primary: { label: "İletişime Geçin", href: "", path: "iletisim/" },
@@ -39,8 +39,8 @@ export const CONVERSION = {
     href: "",
     path: "iletisim/"
   },
-  transition: { label: "Geçiş İçin Bilgi Alın", href: "" },
-  final: { label: "Geçiş İçin Bilgi Alın", href: "" }
+  transition: { label: "Geçiş İçin Bilgi Alın", href: "", path: "iletisim/#talep" },
+  final: { label: "Geçiş İçin Bilgi Alın", href: "", path: "iletisim/#talep" }
 };
 
 /** Pending CTA tıklanınca gösterilen metinler (frontend; build ile qrmo-conversion-config.js). */
@@ -67,14 +67,9 @@ export const NAV = [
     conversionSlot: "secondary",
     drawerSubtitle: "Demo menüyü telefonunuzda deneyin"
   },
-  { key: "sss", label: "S.S.S.", path: "sss/", drawerSubtitle: "Karar vermeden önce sorulanlar" },
-  { key: "blog", label: "Blog", path: "blog/", drawerSubtitle: "Restoran ve kafe yönetimi rehberleri" },
-  {
-    key: "iletisim",
-    label: CONVERSION.contact.label,
-    conversionSlot: "contact",
-    drawerSubtitle: "Sorularınız için bizimle iletişime geçin"
-  }
+  { key: "sss", label: "S.S.S.", drawerLabel: "Sıkça Sorulan Sorular", path: "sss/", drawerSubtitle: "Karar vermeden önce sorulanlar" },
+  { key: "blog", label: "Blog", drawerLabel: "Blog ve Rehberler", path: "blog/", drawerSubtitle: "Restoran ve kafe yönetimi rehberleri" }
+  /* "Bize Ulaşın" burada yok: birincil CTA (İletişime Geçin) zaten /iletisim/'e gider; iki ayrı bağlantı aynı sayfaya gitmesin. */
 ];
 
 export const DRAWER = {
@@ -82,25 +77,27 @@ export const DRAWER = {
   titleLine1: "Restoranınızı",
   titleLine2: "Dijitalde Büyütün.",
   description:
-    "Daha iyi ürün sunumu, daha kolay menü yönetimi ve işletmenize özel akıllı çözümler.",
-  solutionsHeading: "Çözümlerimizi Keşfedin",
+    "Menü, masa ve servis tek sistemde: misafir kendi dilinde seçer, ekibiniz talepleri tek panelden yönetir.",
+  solutionsHeading: "Çözümlerimiz",
   trustTitle: "Neden QR Menu Official?",
   trustItems: [
-    "Mobil, tablet ve masaüstü uyumlu yapı",
-    "Kolay menü yönetimi ve hızlı güncelleme",
-    "Restoranınıza özel profesyonel dijital deneyim"
+    "Misafir uygulama indirmeden, tarayıcıdan açar",
+    "Fiyat ve ürünleri tek panelden güncellersiniz",
+    "Temel, Pro ve Plus: işletmenize uygun paket"
   ],
   bottomNote: ""
 };
 
-/* Drawer çözümler grid — modül slug'ları gerçek /moduller/<slug>/ yollarına gider */
+/* Drawer çözümler grid — modül slug'ları gerçek /moduller/<slug>/ yollarına gider.
+   Sıra satış önceliğidir; ad + açıklama hedef sayfanın gerçekte anlattığıyla eşleşir.
+   İkon sırası render.mjs I.sol ile aynıdır (menü, servis, asistan, dil, grafik, yorum). */
 export const DRAWER_SOLUTIONS = [
-  { name: "Premium QR Menü", desc: "Modern dijital menü deneyimi", slug: "restoran-menu" },
-  { name: "Akıllı Menü Yönetimi", desc: "Ürünlerinizi tek panelden yönetin", slug: "menu-muhendisligi" },
+  { name: "Dijital QR Menü", desc: "Ürün ve fiyatları tek panelden yönetin", slug: "restoran-menu" },
+  { name: "Garson & Hesap İsteme", desc: "Talepler servis paneline düşer", slug: "servis-paneli" },
   { name: "Menü Asistanı", desc: "Misafirin sorusunu menünüzden yanıtlar", slug: "menu-asistani" },
-  { name: "Çoklu Dil Desteği", desc: "Yabancı müşterilere kolay erişim", slug: "coklu-dil" },
-  { name: "Yorum & Geri Bildirim", desc: "Müşteri deneyimini geliştirin", slug: "yorum-geri-bildirim" },
-  { name: "Garson & Hesap İsteme", desc: "Servis süreçlerini kolaylaştırın", slug: "servis-paneli" }
+  { name: "Çoklu Dil", desc: "Menü misafirin dilinde açılır", slug: "coklu-dil" },
+  { name: "Menü Mühendisliği", desc: "Kârlı ürünü öne çıkarın", slug: "menu-muhendisligi" },
+  { name: "Yorum & Geri Bildirim", desc: "Puan ve yorumları panelde toplayın", slug: "yorum-geri-bildirim" }
 ];
 
 /* Çözümler menüsü: kategori → modüller (footer; gerçek /moduller/<slug>/ yolları) */
@@ -123,71 +120,56 @@ export const FOOTER = {
   ctaTitle: "Menünüzü dijitale taşıyın.",
   ctaDescription: "İşletmeniz için modern bir QR menü oluşturmak üzere ilk adımı atın.",
   ctaButton: CONVERSION.primary.label,
-  signature: "QR Menü Official"
+  signature: "QR Menu Official"
 };
 
 /** Sosyal URL repo'da tanımlı değilse boş dizi (placeholder üretilmez). */
 export const FOOTER_SOCIAL = [];
 
-/** Alt bilgi yasal sayfaları yok; yalnızca telif (sahte # link yok). */
+/** Alt satırda ayrı yasal bağlantı yok; yasal sayfalar "Yasal Bilgiler" kolonundadır. */
 export const FOOTER_LEGAL = [];
 
+/* Başlık = içerik: her kolon yalnızca adının vadettiği bağlantıları taşır; aynı hedef iki kez geçmez.
+   `url` verilirse (tel: gibi) olduğu gibi yazılır; aksi hâlde `path` sayfa derinliğine göre göreli olur. */
 export const FOOTER_GROUPS = [
   {
     id: "product",
-    title: "Ürünü Keşfedin",
+    title: "Ürün",
     links: [
       { label: "Ana Sayfa", path: "", key: "home" },
-      { label: "Modüller", path: "moduller/", key: "moduller" },
+      { label: "Çözümler", path: "moduller/", key: "moduller" },
+      { label: "Paketler & Fiyatlar", path: "paketler/", key: "paketler" },
       { label: CONVERSION.secondary.label, conversionSlot: "secondary", key: "canli" },
-      { label: "Sıkça Sorulan Sorular", path: "sss/" },
       { label: "Blog", path: "blog/", key: "blog" }
     ]
   },
   {
     id: "solutions",
-    title: "QR Menü Çözümleri",
+    title: "Çözümlerimiz",
     links: [
-      { label: "Paketler & Fiyatlar", path: "paketler/", key: "paketler" },
-      { label: "Tüm Modüller", path: "moduller/" },
-      { label: "Restoran Menü", path: "moduller/restoran-menu/" },
-      { label: "Servis Paneli", path: "moduller/servis-paneli/" }
+      { label: "Dijital QR Menü", path: "moduller/restoran-menu/" },
+      { label: "QR Masa", path: "moduller/qr-masa/" },
+      { label: "Servis Paneli", path: "moduller/servis-paneli/" },
+      { label: "Menü Asistanı", path: "moduller/menu-asistani/" },
+      { label: "Çoklu Dil", path: "moduller/coklu-dil/" }
     ]
   },
   {
     id: "support",
-    title: "Başlangıç ve Destek",
+    title: "Müşteri Hizmetleri",
     links: [
-      { label: "Paketleri İnceleyin", path: "paketler/" },
-      { label: "Sıkça Sorulan Sorular", path: "sss/" },
-      { label: CONVERSION.contact.label, conversionSlot: "contact", key: "iletisim" }
-    ]
-  },
-  {
-    id: "corporate",
-    title: "Kurumsal",
-    links: [
-      { label: "Modül Merkezi", path: "moduller/" },
-      { label: "Paket Karşılaştırma", path: "paketler/" },
-      { label: "Menü Asistanı", path: "moduller/menu-asistani/" },
-      { label: "Blog ve Rehberler", path: "blog/" }
+      { label: "İletişim", path: "iletisim/", key: "iletisim" },
+      { label: "Bilgi Talep Formu", path: "iletisim/#talep" },
+      { label: "Sıkça Sorulan Sorular", path: "sss/", key: "sss" }
     ]
   },
   {
     id: "legal",
     title: "Yasal Bilgiler",
     links: [
-      { label: "Güvenlik & Teknik (SSS)", path: "sss/" },
-      { label: "Paketler & Fiyatlar (SSS)", path: "sss/" }
-    ]
-  },
-  {
-    id: "contact",
-    title: "Bize Ulaşın",
-    links: [
-      { label: "Paketler & Başvuru", path: "paketler/" },
-      { label: "Sıkça Sorulan Sorular", path: "sss/" },
-      { label: CONVERSION.secondary.label, conversionSlot: "secondary" }
+      { label: "Gizlilik ve KVKK", path: "gizlilik/" },
+      { label: "Çerez Politikası", path: "cerez-politikasi/" },
+      { label: "Kullanım Şartları", path: "kullanim-sartlari/" }
     ]
   }
 ];
