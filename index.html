@@ -23808,7 +23808,7 @@
     var spot = s.querySelector('.qrmo-final-cta-v1__spot');
     var cta = s.querySelector('.qrmo-final-cta-v1__cta');
     var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    var W = 0, H = 0, raf = 0, last = 0, started = false, t0 = 0;
+    var W = 0, H = 0, raf = 0, last = 0, started = false, t0 = 0, clock = 0;
     var P = { on: false, x: 0, y: 0, nx: 0, ny: 0, sx: 0, sy: 0 };
     var M = { x: 0, y: 0, vx: 0, vy: 0 };
     var S = { x: 0, y: 0 };
@@ -23845,7 +23845,8 @@
     function frame(now) {
       raf = requestAnimationFrame(frame);
       var dt = Math.min(2.5, (now - last) / 16.67 || 1); last = now;
-      var t = now - t0;
+      clock += dt * 16.67;
+      var t = clock;
 
       P.sx += (P.nx - P.sx) * .06 * dt;
       P.sy += (P.ny - P.sy) * .06 * dt;
@@ -23913,14 +23914,6 @@
     panel.addEventListener('pointerleave', leave);
     panel.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') leave(); });
     panel.addEventListener('pointercancel', leave);
-
-    /* Scroll ataleti: nesneler sayfanın hareketine geriden gelir */
-    var sy0 = window.pageYOffset;
-    window.addEventListener('scroll', function () {
-      var y = window.pageYOffset, d = Math.max(-60, Math.min(60, y - sy0)); sy0 = y;
-      if (!started || !s.classList.contains('is-live')) return;
-      items.forEach(function (it) { it.vy += d * .05 * it.d; });
-    }, { passive: true });
 
     if ('ResizeObserver' in window) new ResizeObserver(measure).observe(panel);
     window.addEventListener('resize', measure);
