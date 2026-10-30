@@ -68,6 +68,7 @@ export const NAV = [
     drawerSubtitle: "Demo menüyü telefonunuzda deneyin"
   },
   { key: "sss", label: "S.S.S.", path: "sss/", drawerSubtitle: "Karar vermeden önce sorulanlar" },
+  { key: "blog", label: "Blog", path: "blog/", drawerSubtitle: "Restoran ve kafe yönetimi rehberleri" },
   {
     key: "iletisim",
     label: CONVERSION.contact.label,
