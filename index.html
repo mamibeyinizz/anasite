@@ -23666,39 +23666,105 @@
 
   <div class="qrmo-final-cta-v1__inner">
 
-    <div class="qrmo-final-cta-v1__panel">
+    <div class="qrmo-final-cta-v1__panel" data-r style="--i:0">
 
-      <div class="qrmo-final-cta-v1__eyebrow">
-        <span aria-hidden="true"></span>
-        <strong>QR MENU OFFICIAL</strong>
+      <!-- Dekoratif katman: aurora, ızgara, imleç ışığı, kenar kuyruklu yıldızı -->
+      <div class="qrmo-final-cta-v1__fx" aria-hidden="true">
+        <span class="qrmo-final-cta-v1__blob qrmo-final-cta-v1__blob--a"></span>
+        <span class="qrmo-final-cta-v1__blob qrmo-final-cta-v1__blob--b"></span>
+        <span class="qrmo-final-cta-v1__grid"></span>
+        <span class="qrmo-final-cta-v1__spot"></span>
+        <span class="qrmo-final-cta-v1__comet"></span>
       </div>
 
-      <h2 id="qrmo-final-cta-v1-title" class="qrmo-final-cta-v1__title">
-        Menü, masa ve servis<br class="qrmo-final-cta-v1__br">
-        tek akışta.
-      </h2>
+      <div class="qrmo-final-cta-v1__body">
 
-      <p class="qrmo-final-cta-v1__lead">
-        Müşteri menüyü kendi dilinde inceler, sorar, garsonu ya da hesabı çağırır;
-        talep masa bilgisiyle servis paneline düşer. Hepsi tek sistemin parçası.
-      </p>
+        <div class="qrmo-final-cta-v1__eyebrow" data-r style="--i:1">
+          <span aria-hidden="true"></span>
+          <strong>QR MENU OFFICIAL</strong>
+        </div>
 
-      <!-- =====================================================
-           CTA — HEDEF TBD
-           Section 9 CTA'sıyla aynı hedefe bağlanması beklenir.
-           Hedef doğrulandığında yalnızca bu elemana href eklenir.
-           href yokken link değildir; sahte hedefe gitmez.
-      ====================================================== -->
+        <h2 id="qrmo-final-cta-v1-title" class="qrmo-final-cta-v1__title" data-r style="--i:2">
+          Menü, masa ve servis<br class="qrmo-final-cta-v1__br">
+          <span class="qrmo-final-cta-v1__accent">tek akışta.</span>
+        </h2>
 
-      <div class="qrmo-final-cta-v1__action">
-        <button type="button" class="qrmo-final-cta-v1__cta" data-qrmo-cta="final">
-          <span>Geçiş İçin Bilgi Alın</span>
-          <b aria-hidden="true">→</b>
-        </button>
+        <p class="qrmo-final-cta-v1__lead" data-r style="--i:3">
+          Müşteri menüyü kendi dilinde inceler, sorar, garsonu ya da hesabı çağırır;
+          talep masa bilgisiyle servis paneline düşer. Hepsi tek sistemin parçası.
+        </p>
+
+        <!-- Akış şeridi: yalnızca görsel anlatım, başlıkla aynı içerik -->
+        <ul class="qrmo-final-cta-v1__flow" aria-hidden="true" data-r style="--i:4">
+          <li class="qrmo-final-cta-v1__node" style="--n:0">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h9"/></svg>
+            Menü
+          </li>
+          <li class="qrmo-final-cta-v1__link" style="--n:0"></li>
+          <li class="qrmo-final-cta-v1__node" style="--n:1">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2m4 0v4h-4m0-2h-2"/></svg>
+            Masa
+          </li>
+          <li class="qrmo-final-cta-v1__link" style="--n:1"></li>
+          <li class="qrmo-final-cta-v1__node" style="--n:2">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17V11a6 6 0 0 1 12 0v6M4 17h16M10 20.5h4"/></svg>
+            Servis
+          </li>
+        </ul>
+
+        <!-- =====================================================
+             CTA — HEDEF TBD
+             Section 9 CTA'sıyla aynı hedefe bağlanması beklenir.
+             Hedef doğrulandığında yalnızca bu elemana href eklenir.
+             href yokken link değildir; tıklama global/conversion.js
+             tarafından dürüst "henüz etkin değil" notuyla karşılanır.
+        ====================================================== -->
+
+        <div class="qrmo-final-cta-v1__action" data-r style="--i:5">
+          <button type="button" class="qrmo-final-cta-v1__cta" data-qrmo-cta="final">
+            <i class="qrmo-final-cta-v1__ring" aria-hidden="true"></i>
+            <span class="qrmo-final-cta-v1__shine" aria-hidden="true"></span>
+            <span class="qrmo-final-cta-v1__label">Geçiş İçin Bilgi Alın</span>
+            <b aria-hidden="true">→</b>
+          </button>
+        </div>
+
       </div>
+
     </div>
 
   </div>
+
+  <script>
+  (function () {
+    var s = document.currentScript && document.currentScript.parentElement;
+    if (!s || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    /* JS yoksa / reduced-motion'da her şey statik ve görünür kalır. */
+    s.classList.add('is-armed');
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) s.classList.add('is-in', 'is-live');
+        else s.classList.remove('is-live');   /* ekran dışında animasyonlar durur */
+      });
+    }, { threshold: 0.2 }).observe(s);
+
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var p = s.querySelector('.qrmo-final-cta-v1__panel');
+    var sp = s.querySelector('.qrmo-final-cta-v1__spot');
+    var raf = 0, x = 0, y = 0;
+    p.addEventListener('pointermove', function (e) {
+      var r = p.getBoundingClientRect();
+      x = e.clientX - r.left;
+      y = e.clientY - r.top;
+      if (!raf) raf = requestAnimationFrame(function () {
+        raf = 0;
+        sp.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+      });
+    }, { passive: true });
+  })();
+  </script>
 
 </section>
 
@@ -23706,11 +23772,15 @@
 <style>
 
 /* =========================================================
-   QR MENU OFFICIAL — SON CTA V1 (SECTION 12)
+   QR MENU OFFICIAL — SON CTA V2 (SECTION 12)
 
-   Sayfanın son content section'ı. Statik: JS / animasyon yok.
    Tek panel (koyu yeşil), tek birincil CTA. CTA hedefi TBD:
    href yok. Dış section arka plansız.
+
+   Hareket: yalnızca transform/opacity (compositor). Sonsuz
+   animasyonlar section ekrandayken (.is-live) çalışır.
+   prefers-reduced-motion'da hepsi kapalı, düzen statik.
+   Alt çizgi yok (proje kuralı).
 ========================================================= */
 
 .qrmo-final-cta-v1 {
@@ -23720,6 +23790,7 @@
   --qc-gold: #C9A84C;
   --qc-gold-light: #E8C766;
   --qc-cream: #F4F1E8;
+  --qc-ease: cubic-bezier(.2, .7, .2, 1);
 
   width: 100%;
   margin: 0;
@@ -23751,7 +23822,7 @@
 
 .qrmo-final-cta-v1__panel {
   position: relative;
-  padding: clamp(48px, 5.5vw, 84px) clamp(28px, 6vw, 96px);
+  isolation: isolate;
   overflow: hidden;
   border: 1px solid rgba(201,168,76,.18);
   border-radius: 21px;
@@ -23769,6 +23840,90 @@
     );
   color: var(--qc-cream);
   text-align: center;
+}
+
+.qrmo-final-cta-v1__body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(48px, 5.5vw, 84px) clamp(28px, 6vw, 96px);
+}
+
+
+/* =========================================================
+   FX — aurora, ızgara, imleç ışığı, kenar ışığı
+========================================================= */
+
+.qrmo-final-cta-v1__fx {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.qrmo-final-cta-v1__blob {
+  position: absolute;
+  width: min(62vw, 680px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.qrmo-final-cta-v1__blob--a {
+  top: -48%;
+  right: -12%;
+  background: radial-gradient(closest-side, rgba(232,199,102,.26), rgba(232,199,102,0));
+}
+
+.qrmo-final-cta-v1__blob--b {
+  bottom: -62%;
+  left: -10%;
+  background: radial-gradient(closest-side, rgba(70,150,108,.30), rgba(70,150,108,0));
+}
+
+.qrmo-final-cta-v1__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(244,241,232,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244,241,232,.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(70% 90% at 50% 45%, #000 15%, transparent 75%);
+  mask-image: radial-gradient(70% 90% at 50% 45%, #000 15%, transparent 75%);
+}
+
+.qrmo-final-cta-v1__spot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 440px;
+  height: 440px;
+  margin: -220px 0 0 -220px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(232,199,102,.16), rgba(232,199,102,0));
+  opacity: 0;
+  transition: opacity .5s ease;
+  will-change: transform;
+  display: none;
+}
+
+.qrmo-final-cta-v1__comet {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(232,199,102,0), var(--qc-gold-light));
+  box-shadow: 0 0 14px 1px rgba(232,199,102,.65);
+  offset-path: inset(0 round 21px);
+  offset-rotate: auto;
+  offset-anchor: 100% 0;
+  offset-distance: 0%;
+}
+
+@supports (offset-path: inset(0)) {
+  .qrmo-final-cta-v1__comet { display: block; }
 }
 
 
@@ -23789,6 +23944,7 @@
   height: 2px;
   flex: 0 0 auto;
   background: var(--qc-gold);
+  transform-origin: left center;
 }
 
 .qrmo-final-cta-v1__eyebrow strong {
@@ -23810,6 +23966,15 @@
   font-weight: 800;
 }
 
+.qrmo-final-cta-v1__accent {
+  padding-bottom: .12em;
+  color: var(--qc-gold-light);
+  background: linear-gradient(100deg, #F6E3A1 0%, var(--qc-gold-light) 40%, var(--qc-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .qrmo-final-cta-v1__lead {
   max-width: 600px;
   margin: 24px auto 0;
@@ -23819,33 +23984,145 @@
   font-weight: 500;
 }
 
+
+/* --- Akış şeridi (Menü → Masa → Servis) --- */
+
+.qrmo-final-cta-v1__flow {
+  list-style: none;
+  margin: 30px auto 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrmo-final-cta-v1__node {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid rgba(244,241,232,.14);
+  border-radius: 999px;
+  background: rgba(244,241,232,.05);
+  color: rgba(244,241,232,.88);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: .2px;
+}
+
+.qrmo-final-cta-v1__node::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--qc-gold-light);
+  border-radius: inherit;
+  box-shadow: 0 0 22px rgba(201,168,76,.28);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qrmo-final-cta-v1__node svg {
+  flex: 0 0 auto;
+  color: var(--qc-gold-light);
+}
+
+.qrmo-final-cta-v1__link {
+  position: relative;
+  flex: 0 0 clamp(18px, 4vw, 56px);
+  height: 1px;
+  background: rgba(244,241,232,.16);
+}
+
+.qrmo-final-cta-v1__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(232,199,102,0), var(--qc-gold-light));
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+
+/* --- CTA --- */
+
 .qrmo-final-cta-v1__action {
   margin-top: 34px;
 }
 
-/* CTA — hedef TBD. href yokken hover/pointer yok. */
 .qrmo-final-cta-v1__cta {
-  min-width: 245px;
-  min-height: 52px;
-  padding: 0 18px 0 20px;
+  position: relative;
+  min-width: 260px;
+  min-height: 56px;
+  padding: 0 14px 0 24px;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
   border: 0;
-  border-radius: 9px;
-  background: var(--qc-gold);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--qc-gold-light) 0%, var(--qc-gold) 100%);
+  box-shadow: 0 14px 34px -14px rgba(232,199,102,.65);
   color: var(--qc-green) !important;
   text-decoration: none !important;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1;
   font-weight: 750;
   font-family: inherit;
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
-  cursor: default;
-  transition: transform .2s ease, background-color .2s ease;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: transform .25s var(--qc-ease), box-shadow .25s ease;
+}
+
+.qrmo-final-cta-v1__label {
+  position: relative;
+}
+
+.qrmo-final-cta-v1__cta b {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(13,43,34,.12);
+  color: var(--qc-green);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 600;
+  transition: transform .25s var(--qc-ease), background-color .25s ease, color .25s ease;
+}
+
+.qrmo-final-cta-v1__ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--qc-gold-light);
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.qrmo-final-cta-v1__shine {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.qrmo-final-cta-v1__shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 46%;
+  background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0));
+  transform: translate3d(-130%, 0, 0) skewX(-18deg);
 }
 
 .qrmo-final-cta-v1__action .qrmo-cta-note {
@@ -23855,15 +24132,27 @@
   line-height: 1.45;
 }
 
-.qrmo-final-cta-v1__cta[href] {
-  cursor: pointer;
+@media (hover: hover) {
+
+  .qrmo-final-cta-v1__cta:hover {
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 18px 40px -14px rgba(232,199,102,.8);
+  }
+
+  .qrmo-final-cta-v1__cta:hover b {
+    transform: translate3d(3px, 0, 0);
+    background: var(--qc-green);
+    color: var(--qc-gold-light);
+  }
+
+  .qrmo-final-cta-v1__panel:hover .qrmo-final-cta-v1__spot {
+    opacity: 1;
+  }
+
 }
 
-.qrmo-final-cta-v1__cta[href]:hover {
-  color: var(--qc-green) !important;
-  text-decoration: none !important;
-  background: var(--qc-gold-light);
-  transform: translateY(-2px);
+.qrmo-final-cta-v1__cta:active {
+  transform: translate3d(0, 0, 0) scale(.98);
 }
 
 .qrmo-final-cta-v1__cta:focus-visible {
@@ -23871,19 +24160,141 @@
   outline-offset: 4px;
 }
 
-.qrmo-final-cta-v1__cta b {
-  color: var(--qc-green);
-  font-size: 22px;
-  font-weight: 500;
+
+/* =========================================================
+   MOTION — yalnızca JS hazırsa (.is-armed) ve hareket serbestse
+========================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+
+  .qrmo-final-cta-v1__spot {
+    display: block;
+  }
+
+  /* Giriş: kademeli reveal */
+  .qrmo-final-cta-v1.is-armed [data-r] {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity .75s var(--qc-ease) calc(var(--i, 0) * 90ms),
+      transform .85s var(--qc-ease) calc(var(--i, 0) * 90ms);
+  }
+
+  .qrmo-final-cta-v1.is-armed .qrmo-final-cta-v1__panel[data-r] {
+    transform: translate3d(0, 32px, 0) scale(.985);
+  }
+
+  .qrmo-final-cta-v1.is-armed.is-in [data-r] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .qrmo-final-cta-v1.is-armed .qrmo-final-cta-v1__eyebrow > span {
+    transform: scaleX(0);
+    transition: transform .7s var(--qc-ease) .25s;
+  }
+
+  .qrmo-final-cta-v1.is-armed.is-in .qrmo-final-cta-v1__eyebrow > span {
+    transform: scaleX(1);
+  }
+
+  /* Sonsuz animasyonlar: ekran dışında duraklar */
+  .qrmo-final-cta-v1__blob,
+  .qrmo-final-cta-v1__comet,
+  .qrmo-final-cta-v1__node::after,
+  .qrmo-final-cta-v1__link::after,
+  .qrmo-final-cta-v1__shine::after,
+  .qrmo-final-cta-v1__ring {
+    animation-play-state: paused;
+  }
+
+  .qrmo-final-cta-v1.is-live .qrmo-final-cta-v1__blob,
+  .qrmo-final-cta-v1.is-live .qrmo-final-cta-v1__comet,
+  .qrmo-final-cta-v1.is-live .qrmo-final-cta-v1__node::after,
+  .qrmo-final-cta-v1.is-live .qrmo-final-cta-v1__link::after,
+  .qrmo-final-cta-v1.is-live .qrmo-final-cta-v1__shine::after,
+  .qrmo-final-cta-v1.is-live .qrmo-final-cta-v1__ring {
+    animation-play-state: running;
+  }
+
+  .qrmo-final-cta-v1__blob--a {
+    animation: qrmo-fcta-drift-a 17s ease-in-out infinite alternate;
+  }
+
+  .qrmo-final-cta-v1__blob--b {
+    animation: qrmo-fcta-drift-b 21s ease-in-out infinite alternate;
+  }
+
+  .qrmo-final-cta-v1__comet {
+    animation: qrmo-fcta-comet 11s linear infinite;
+  }
+
+  .qrmo-final-cta-v1__node::after {
+    animation: qrmo-fcta-node 6s ease-in-out infinite;
+    animation-delay: calc(var(--n, 0) * 2s);
+  }
+
+  .qrmo-final-cta-v1__link::after {
+    animation: qrmo-fcta-link 6s ease-in-out infinite;
+    animation-delay: calc(var(--n, 0) * 2s + .9s);
+  }
+
+  .qrmo-final-cta-v1__shine::after {
+    animation: qrmo-fcta-shine 5.5s ease-in-out infinite 1.2s;
+  }
+
+  .qrmo-final-cta-v1__ring {
+    animation: qrmo-fcta-ring 3.4s ease-out infinite;
+  }
+
+  @keyframes qrmo-fcta-drift-a {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to   { transform: translate3d(-9%, 12%, 0) scale(1.15); }
+  }
+
+  @keyframes qrmo-fcta-drift-b {
+    from { transform: translate3d(0, 0, 0) scale(1.1); }
+    to   { transform: translate3d(12%, -10%, 0) scale(.95); }
+  }
+
+  @keyframes qrmo-fcta-comet {
+    to { offset-distance: 100%; }
+  }
+
+  /* 3 düğüm 2sn arayla sırayla yanar (6sn döngü) */
+  @keyframes qrmo-fcta-node {
+    0%, 4%   { opacity: 0; }
+    14%, 30% { opacity: 1; }
+    42%, 100% { opacity: 0; }
+  }
+
+  @keyframes qrmo-fcta-link {
+    0%       { transform: scaleX(0); opacity: 1; }
+    22%      { transform: scaleX(1); opacity: 1; }
+    38%, 100% { transform: scaleX(1); opacity: 0; }
+  }
+
+  @keyframes qrmo-fcta-shine {
+    0%, 55%  { transform: translate3d(-130%, 0, 0) skewX(-18deg); }
+    80%, 100% { transform: translate3d(330%, 0, 0) skewX(-18deg); }
+  }
+
+  @keyframes qrmo-fcta-ring {
+    0%       { transform: scale(1); opacity: .55; }
+    70%, 100% { transform: scale(1.12, 1.45); opacity: 0; }
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
 
-  .qrmo-final-cta-v1__cta {
+  .qrmo-final-cta-v1__cta,
+  .qrmo-final-cta-v1__cta b {
     transition: none;
   }
 
-  .qrmo-final-cta-v1__cta[href]:hover {
+  .qrmo-final-cta-v1__cta:hover,
+  .qrmo-final-cta-v1__cta:active {
     transform: none;
   }
 
@@ -23914,7 +24325,6 @@
     padding: 60px 0 56px;
   }
 
-
   .qrmo-final-cta-v1__title {
     font-size: 39px;
     letter-spacing: -1.5px;
@@ -23922,6 +24332,10 @@
 
   .qrmo-final-cta-v1__lead {
     font-size: 15px;
+  }
+
+  .qrmo-final-cta-v1__grid {
+    background-size: 36px 36px;
   }
 
 }
@@ -23939,8 +24353,16 @@
   }
 
   .qrmo-final-cta-v1__panel {
-    padding: 44px 22px 40px;
     border-radius: 18px;
+  }
+
+  .qrmo-final-cta-v1__comet {
+    offset-path: inset(0 round 18px);
+    width: 110px;
+  }
+
+  .qrmo-final-cta-v1__body {
+    padding: 44px 22px 40px;
   }
 
   .qrmo-final-cta-v1__title {
@@ -23953,13 +24375,21 @@
     margin-top: 20px;
   }
 
+  .qrmo-final-cta-v1__flow {
+    margin-top: 26px;
+  }
+
   .qrmo-final-cta-v1__action {
-    margin-top: 28px;
+    margin-top: 26px;
   }
 
   .qrmo-final-cta-v1__cta {
     width: 100%;
     min-width: 0;
+  }
+
+  .qrmo-final-cta-v1__blob {
+    width: 110vw;
   }
 
 }
@@ -23980,8 +24410,8 @@
   }
 
   .qrmo-final-cta-v1__eyebrow strong {
-    font-size: 8.5px;
-    letter-spacing: .9px;
+    font-size: 10px;
+    letter-spacing: 1px;
   }
 
   .qrmo-final-cta-v1__title {
@@ -24001,14 +24431,26 @@
     line-height: 1.52;
   }
 
+  .qrmo-final-cta-v1__node {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .qrmo-final-cta-v1__node svg {
+    display: none;
+  }
+
+  .qrmo-final-cta-v1__link {
+    flex-basis: 20px;
+  }
+
 }
 
 
 /* ≤480: Hero / Section 2–11 ile aynı 16px gutter */
 @media (max-width: 480px) {
 
-
-  .qrmo-final-cta-v1__panel {
+  .qrmo-final-cta-v1__body {
     padding: 40px 18px 36px;
   }
 
@@ -24023,6 +24465,14 @@
 
   .qrmo-final-cta-v1__title {
     font-size: 30px;
+  }
+
+  .qrmo-final-cta-v1__node {
+    padding: 8px 10px;
+  }
+
+  .qrmo-final-cta-v1__link {
+    flex-basis: 12px;
   }
 
 }
