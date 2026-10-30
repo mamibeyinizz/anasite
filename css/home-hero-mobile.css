@@ -127,7 +127,7 @@ html .qrmo-hm-m {
   /* Lead item (Asistan): quiet gold marker + faint wash. */
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     position: relative;
-    background: linear-gradient(90deg, rgba(201, 168, 76, .12), rgba(201, 168, 76, 0) 72%);
+    background: linear-gradient(90deg, rgba(31, 77, 61, .09), rgba(31, 77, 61, 0) 78%);
   }
 
   html .qrmo-hero-v3-feature-row:nth-child(3)::before {
