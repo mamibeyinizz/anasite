@@ -66,7 +66,7 @@ html .qrmo-hm-m {
   /* Subtitle: supporting, lighter, narrower. */
   html .qrmo-hero-v3-subtitle {
     max-width: 19em;
-    margin: 0 auto clamp(26px, 5svh, 40px);
+    margin: 0 auto clamp(18px, 3svh, 26px);
     font-size: 16.5px;
     font-weight: 400;
     line-height: 1.5;
@@ -75,7 +75,7 @@ html .qrmo-hm-m {
   }
 
   html .qrmo-hero-v3-features {
-    margin-bottom: clamp(28px, 5svh, 40px);
+    margin-bottom: clamp(18px, 3svh, 26px);
     border-top: 1px solid rgba(201, 168, 76, .32);
   }
 
@@ -128,7 +128,7 @@ html .qrmo-hm-m {
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     position: relative;
     z-index: 0;
-    padding-block: clamp(20px, 3.4svh, 28px);
+    padding-block: clamp(14px, 2.2svh, 20px);
   }
 
   /* Full-bleed wash: edge to edge, feathered top and bottom. */
@@ -335,5 +335,24 @@ html .qrmo-hm-m {
   html .qrmo-hero-v3-feature-row:nth-child(1),
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     border-bottom-color: transparent;
+  }
+}
+
+/* All three hooks share the featured typography. */
+@media (max-width: 767px) {
+  html .qrmo-hero-v3-feature-row {
+    padding-block: clamp(12px, 1.9svh, 16px);
+  }
+
+  html .qrmo-hero-v3-feature-row .qrmo-hero-v3-feature-content strong {
+    font-size: 17px;
+    line-height: 1.28;
+  }
+
+  html .qrmo-hero-v3-feature-row .qrmo-hero-v3-feature-content small {
+    margin-top: 4px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: rgba(13, 43, 34, .68);
   }
 }
