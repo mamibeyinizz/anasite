@@ -143,7 +143,7 @@ export const FOOTER_GROUPS = [
   },
   {
     id: "solutions",
-    title: "Popüler Çözümler",
+    title: "Çözümlerimiz",
     links: [
       { label: "Dijital QR Menü", path: "moduller/restoran-menu/" },
       { label: "QR Masa", path: "moduller/qr-masa/" },
@@ -154,11 +154,11 @@ export const FOOTER_GROUPS = [
   },
   {
     id: "support",
-    title: "Destek ve İletişim",
+    title: "Müşteri Hizmetleri",
     links: [
-      { label: "Sıkça Sorulan Sorular", path: "sss/", key: "sss" },
-      { label: "Talep Formu", path: "iletisim/#talep", key: "iletisim" },
-      { label: "0542 204 35 87", url: "tel:+905422043587" }
+      { label: "İletişim", path: "iletisim/", key: "iletisim" },
+      { label: "Bilgi Talep Formu", path: "iletisim/#talep" },
+      { label: "Sıkça Sorulan Sorular", path: "sss/", key: "sss" }
     ]
   },
   {
