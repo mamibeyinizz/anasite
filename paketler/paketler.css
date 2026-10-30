@@ -1,4 +1,4 @@
-/* =========================================================
+/* ==================================================
    QR MENU OFFICIAL — /paketler/
    Namespace: .qrmo-pricing-*  (ana sayfa stillerine dokunmaz)
    Token'lar Hero V3 / DESIGN_SYSTEM.md ile aynıdır.
@@ -1883,3 +1883,7 @@ body.qrmo-pricing-page {
 .qrmo-pricing a:focus-visible,
 .qrmo-pricing summary,
 .qrmo-pricing abbr { text-decoration: none !important; }
+=======
+/* Hero: tipografi ağırlığı (premium denge) */
+.qrmo-pricing-hero .qrmo-pricing-title { font-weight: 600; letter-spacing: -.03em; }
+.qrmo-pricing-hero .qrmo-pricing-eyebrow { font-weight: 700; }

@@ -3131,3 +3131,17 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
     animation: none;
   }
 }
+
+/* Hero + grafik kartları: tipografi ağırlığı (premium denge) */
+.qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-h1 { font-weight: 600; letter-spacing: -.03em; line-height: 1.06; }
+.qrmo-mod--hub .qrmo-hubviz-title { font-weight: 600; }
+.qrmo-mod--hub .qrmo-hubviz-sample,
+.qrmo-mod--hub .qrmo-hubviz-legend li,
+.qrmo-mod--hub .qrmo-hubviz-pills li,
+.qrmo-mod--hub .qrmo-hubviz-kpi strong,
+.qrmo-mod--hub .qrmo-hubviz-kpi span { font-weight: 600; }
+.qrmo-mod--hub .qrmo-hubviz-live,
+.qrmo-mod--hub .qrmo-hubviz-legend--stack li b,
+.qrmo-mod--hub .qrmo-hubviz-ringval strong { font-weight: 650; }
+.qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump strong { font-weight: 600; }
+.qrmo-mod--hub .qrmo-mod-hero .qrmo-mod-jump-n { font-weight: 700; }
