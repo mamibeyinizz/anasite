@@ -27,8 +27,8 @@ export const SITE = {
  *   secondary  — Canlı Menüyü Gör → /canli-menu/ (demo adresleri o sayfada)
  *   packagesLink — Paketleri İnceleyin (path)
  *   contact    — Bize Ulaşın → /iletisim/
- *   transition — Geçiş İçin Bilgi Alın (S9; ayrı hedef yok)
- *   final      — Geçiş İçin Bilgi Alın (S12; ayrı href verilebilir)
+ *   transition — Geçiş İçin Bilgi Alın → /iletisim/#talep (S9 kaldırıldı; slot yedek)
+ *   final      — Geçiş İçin Bilgi Alın (S12) → /iletisim/#talep (index.html'de doğrudan <a>)
  */
 export const CONVERSION = {
   primary: { label: "İletişime Geçin", href: "", path: "iletisim/" },
@@ -39,8 +39,8 @@ export const CONVERSION = {
     href: "",
     path: "iletisim/"
   },
-  transition: { label: "Geçiş İçin Bilgi Alın", href: "" },
-  final: { label: "Geçiş İçin Bilgi Alın", href: "" }
+  transition: { label: "Geçiş İçin Bilgi Alın", href: "", path: "iletisim/#talep" },
+  final: { label: "Geçiş İçin Bilgi Alın", href: "", path: "iletisim/#talep" }
 };
 
 /** Pending CTA tıklanınca gösterilen metinler (frontend; build ile qrmo-conversion-config.js). */
