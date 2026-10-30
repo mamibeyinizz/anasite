@@ -318,11 +318,11 @@ html:not(.qrmo-gh-js) .qrmo-gh {
   min-height: 44px;
   padding: 0 18px 0 22px;
   gap: 14px;
-  border: 1px solid rgba(244, 241, 232, 0.5);
+  border: 1px solid #f4f1e8;
   border-radius: 12px;
-  color: #f4f1e8 !important;
-  background: linear-gradient(135deg, rgba(244, 241, 232, 0.14), rgba(244, 241, 232, 0.03));
-  box-shadow: inset 0 1px 0 rgba(244, 241, 232, 0.14);
+  color: #15382d !important;
+  background: #f4f1e8;
+  box-shadow: inset 0 -1px 0 rgba(13, 43, 34, 0.08);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.7px;
@@ -374,15 +374,15 @@ html:not(.qrmo-gh-js) .qrmo-gh {
 @media (hover: hover) and (pointer: fine) {
   .qrmo-gh-cta:hover {
     color: #15382d !important;
-    border-color: #f4f1e8;
-    background: #f4f1e8;
+    border-color: #c9a84c;
+    background: #c9a84c;
   }
   .qrmo-gh-cta:hover > .qrmo-gh-qr-icon {
     transform: translateX(2px);
   }
 }
 .qrmo-gh-cta:focus-visible {
-  outline: 2px solid var(--qrmo-cream);
+  outline: 2px solid var(--qrmo-gold-light);
   outline-offset: 4px;
 }
 
