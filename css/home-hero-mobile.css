@@ -120,8 +120,30 @@ html .qrmo-hm-m {
   }
 
   /* Mobile order: Asistan, Dil, Garson. Dividers follow the visual order. */
+  html .qrmo-hero-v3-feature-row:nth-child(1) { order: 1; }
+  html .qrmo-hero-v3-feature-row:nth-child(3) { order: 2; }
+  html .qrmo-hero-v3-feature-row:nth-child(2) { order: 3; }
+
+  /* Lead hook (Asistan) sits in the middle as a light featured card. */
   html .qrmo-hero-v3-feature-row:nth-child(3) {
-    order: -1;
+    margin: 8px -6px;
+    padding: clamp(18px, 3svh, 24px) 16px;
+    border: 1px solid rgba(13, 43, 34, .08);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 24px -14px rgba(13, 43, 34, .22);
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-content strong {
+    font-size: 17px;
+    line-height: 1.28;
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-content small {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(13, 43, 34, .68);
   }
 
   html .qrmo-hero-v3-feature-row:nth-child(2),
