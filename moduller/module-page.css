@@ -3153,3 +3153,38 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 @media (min-width: 1024px) {
   .qrmo-mod--hub .qrmo-mod-hubhero .qrmo-mod-hero-copy { align-self: center; }
 }
+
+/* Hero: sol metin ve sağ grafik bloğu aynı üst/alt kenarda, eşit yükseklikte */
+@media (min-width: 1024px) {
+  .qrmo-mod--hub .qrmo-mod-hubhero { align-items: stretch; }
+  .qrmo-mod--hub .qrmo-mod-hubhero .qrmo-mod-hero-copy {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .qrmo-mod--hub .qrmo-mod-hubhero .qrmo-hubviz { align-self: stretch; gap: 14px; padding-bottom: 0; }
+  .qrmo-mod--hub .qrmo-hubviz-card--line { padding: 14px 16px 12px; }
+  .qrmo-mod--hub .qrmo-hubviz-chart { aspect-ratio: 320 / 70; height: auto; }
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-ring { width: 64px; height: 64px; }
+  .qrmo-mod--hub .qrmo-hubviz-card--masa,
+  .qrmo-mod--hub .qrmo-hubviz-card--perf { padding: 12px 14px 12px; }
+}
+/* Çizgi grafikteki uç nokta, yatay-dikey ölçek farkı yüzünden oval görünmesin */
+@media (min-width: 1024px) {
+  .qrmo-mod--hub .qrmo-hubviz-dot,
+  .qrmo-mod--hub .qrmo-hubviz-dot-halo { transform-box: fill-box; transform-origin: center; transform: scaleY(1.343); }
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .qrmo-mod--hub .qrmo-hubviz-card--masa .qrmo-hubviz-title,
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-title { font-size: 14px; white-space: nowrap; }
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li { font-size: 11px; }
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li b { padding-left: 4px; }
+  .qrmo-mod--hub .qrmo-hubviz-card--masa,
+  .qrmo-mod--hub .qrmo-hubviz-card--perf { padding-inline: 12px; }
+}
+@media (min-width: 376px) and (max-width: 420px) {
+  .qrmo-mod--hub .qrmo-hubviz-card--perf { padding-inline: 11px; }
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li { gap: 5px; }
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li b { padding-left: 2px; }
+}
