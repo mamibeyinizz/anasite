@@ -340,3 +340,22 @@ html .qrmo-hm-m {
   76%, 94% { opacity: 1; transform: scale(1); }
   100% { opacity: 0; transform: scale(.6); }
 }
+
+/* Icon glyphs and accents in the site's cream (#f4f1e8). Tile stays emerald. */
+@media (max-width: 767px) {
+  html .qrmo-hero-v3-feature-icon {
+    color: #f4f1e8;
+  }
+
+  html .qrmo-hero-glyph {
+    color: #f4f1e8;
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-icon::after {
+    background: #f4f1e8;
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::after {
+    background: #f4f1e8;
+  }
+}
