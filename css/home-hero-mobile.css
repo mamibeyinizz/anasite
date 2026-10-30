@@ -124,23 +124,6 @@ html .qrmo-hm-m {
     order: -1;
   }
 
-  /* Lead item (Asistan): quiet gold marker + faint wash. */
-  html .qrmo-hero-v3-feature-row:nth-child(3) {
-    position: relative;
-    background: linear-gradient(90deg, rgba(31, 77, 61, .09), rgba(31, 77, 61, 0) 78%);
-  }
-
-  html .qrmo-hero-v3-feature-row:nth-child(3)::before {
-    content: "";
-    position: absolute;
-    left: -6px;
-    top: 16%;
-    bottom: 16%;
-    width: 2px;
-    border-radius: 2px;
-    background: linear-gradient(180deg, #ecd486, #9a7b2a);
-  }
-
   html .qrmo-hero-v3-feature-row:nth-child(2),
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     border-bottom: 1px solid rgba(201, 168, 76, .32);
