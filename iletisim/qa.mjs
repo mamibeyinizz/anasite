@@ -34,7 +34,7 @@ check(html.includes("muhammedulusoyresmi@gmail.com"), "e-posta metni");
 check(!/whatsapp|wa\.me/i.test(html), "uydurma WhatsApp yok");
 check(!/href="#"/.test(html), 'href="#" yok');
 check(html.includes('src="iletisim.js"'), "form betiği bağlı");
-check(html.includes("Canlı menü adresi henüz tanımlı değil"), "canlı menü notu");
+check(html.includes("demo menüleri Canlı Menü sayfasında"), "canlı menü notu");
 check(html.includes("Bu düğme mesajı bize ulaştırmaz"), "mailto sınırı yazılı");
 check(/name="consent"[^>]*required/.test(html), "yanıtlama onayı zorunlu");
 check(!/id="qrmo-contact-marketing"[^>]*required/.test(html), "pazarlama onayı zorunlu değil");
@@ -323,9 +323,8 @@ if (!pw) {
     check(visibleAsides === 1, "masaüstünde tek iletişim sütunu", String(visibleAsides));
     const railHidden = await deskPage.locator('[data-qrmo-contact-aside="rail"]').getAttribute("aria-hidden");
     check(railHidden === "false", "masaüstünde rail erişilebilir", railHidden);
-    await deskPage.locator(".qrmo-gh-nav button[data-qrmo-cta=\"secondary\"]").click();
-    const pendingNote = await deskPage.locator(".qrmo-gh-in .qrmo-cta-note").innerText();
-    check(pendingNote.includes("Canlı menü adresi henüz tanımlanmadı"), "demo CTA pending metni", pendingNote);
+    const liveHref = await deskPage.locator(".qrmo-gh-nav a", { hasText: "Canlı Menüyü Gör" }).getAttribute("href");
+    check(liveHref === "../canli-menu/", "Canlı Menüyü Gör /canli-menu/ adresine gider", liveHref);
     await desk.close();
   } finally {
     await browser.close();

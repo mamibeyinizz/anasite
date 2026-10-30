@@ -24,7 +24,7 @@ export const SITE = {
  *
  * Slot → kullanım:
  *   primary    — İletişime Geçin (header, hero, footer) → /iletisim/
- *   secondary  — Canlı Menüyü Gör (demo adresi yok; bağlı değil)
+ *   secondary  — Canlı Menüyü Gör → /canli-menu/ (demo adresleri o sayfada)
  *   packagesLink — Paketleri İnceleyin (path)
  *   contact    — Bize Ulaşın → /iletisim/
  *   transition — Geçiş İçin Bilgi Alın (S9; ayrı hedef yok)
@@ -32,7 +32,7 @@ export const SITE = {
  */
 export const CONVERSION = {
   primary: { label: "İletişime Geçin", href: "", path: "iletisim/" },
-  secondary: { label: "Canlı Menüyü Gör", href: "" },
+  secondary: { label: "Canlı Menüyü Gör", href: "", path: "canli-menu/" },
   packagesLink: { label: "Paketleri İnceleyin", path: "paketler/" },
   contact: {
     label: "Bize Ulaşın",
@@ -64,9 +64,8 @@ export const NAV = [
   {
     key: "canli",
     label: CONVERSION.secondary.label,
-    path: null,
-    ctaPlaceholder: "secondary",
-    drawerSubtitle: ""
+    conversionSlot: "secondary",
+    drawerSubtitle: "Demo menüyü telefonunuzda deneyin"
   },
   {
     key: "iletisim",
@@ -138,7 +137,7 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Ana Sayfa", path: "", key: "home" },
       { label: "Modüller", path: "moduller/", key: "moduller" },
-      { label: CONVERSION.secondary.label, path: null, key: "canli", ctaPlaceholder: "secondary" },
+      { label: CONVERSION.secondary.label, conversionSlot: "secondary", key: "canli" },
       { label: "Sıkça Sorulan Sorular", path: "sss/" }
     ]
   },
@@ -184,7 +183,7 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Paketler & Başvuru", path: "paketler/" },
       { label: "Sıkça Sorulan Sorular", path: "sss/" },
-      { label: CONVERSION.secondary.label, path: null, ctaPlaceholder: "secondary" }
+      { label: CONVERSION.secondary.label, conversionSlot: "secondary" }
     ]
   }
 ];

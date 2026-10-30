@@ -274,32 +274,15 @@ html:not(.qrmo-gh-js) .qrmo-gh {
   white-space: nowrap;
   transition: color 0.25s ease, transform 0.25s ease;
 }
-.qrmo-gh-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 3px;
-  height: 2px;
-  border-radius: 10px;
-  background: var(--qrmo-gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.25s ease;
-}
+/* Etkin sayfa alt çizgiyle değil, renk ve ağırlıkla ayrılır (CLAUDE.md) */
 .qrmo-gh-link[aria-current] {
   color: var(--qrmo-gold-light);
-}
-.qrmo-gh-link[aria-current]::after {
-  transform: scaleX(1);
+  font-weight: 800;
 }
 @media (hover: hover) and (pointer: fine) {
   .qrmo-gh-link:hover {
     color: var(--qrmo-gold-light);
     transform: translateY(-1px);
-  }
-  .qrmo-gh-link:hover::after {
-    transform: scaleX(1);
   }
 }
 .qrmo-gh-link:focus-visible {

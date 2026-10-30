@@ -57,10 +57,6 @@
     }
   }
 
-  document.querySelectorAll('[data-qrmo-cta="secondary"]').forEach(function (btn) {
-    btn.setAttribute("title", "Canlı menü adresi henüz tanımlı değil");
-  });
-
   syncContactAsides();
   if (typeof asideMedia.addEventListener === "function") {
     asideMedia.addEventListener("change", syncContactAsides);
