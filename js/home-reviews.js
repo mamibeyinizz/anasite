@@ -1,7 +1,9 @@
 /* Müşteri yorumları — veri + render + kaydırıcı.
    KURAL: Yalnızca `verified: true` olan yorumlar canlıda görünür.
    Hiçbiri doğrulanmamışsa bölüm gizli kalır. Taslak yorumları görmek için
-   adrese ?yorum-onizleme=1 ekleyin (kartlar "ÖRNEK" etiketi taşır). */
+   adrese ?yorum-onizleme=1 ekleyin (kartlar "ÖRNEK" etiketi taşır).
+   Profil fotoğrafı: yalnızca gerçek müşterinin yazılı izniyle `photo: "assets/reviews/ad.webp"`
+   ekleyin. Yoksa isim baş harfi gösterilir. Stok/uydurma fotoğraf kullanmayın. */
 (function () {
   "use strict";
 
@@ -53,7 +55,11 @@
       '<svg class="qrmo-rv__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14.4C0 6.2 4.6 1.2 12 0l1.2 3.6C8.6 5 6.6 7.6 6.4 11H13v13H0Zm19 0V14.4C19 6.2 23.6 1.2 31 0l1 3.6c-4.4 1.4-6.4 4-6.6 7.4H32v13H19Z" fill="currentColor"/></svg>' +
       '<blockquote class="qrmo-rv__quote"><p>' + esc(r.text) + "</p></blockquote>" +
       '<figcaption class="qrmo-rv__who">' +
-        '<span class="qrmo-rv__avatar" aria-hidden="true">' + esc(r.name.charAt(0)) + "</span>" +
+        '<span class="qrmo-rv__avatar"' + (r.photo ? "" : ' aria-hidden="true"') + ">" +
+          (r.photo
+            ? '<img src="' + esc(r.photo) + '" alt="' + esc(r.name) + '" width="44" height="44" loading="lazy" decoding="async">'
+            : esc(r.name.charAt(0))) +
+        "</span>" +
         '<span class="qrmo-rv__meta"><strong>' + esc(r.name) + "</strong><small>" + esc(r.role) + " · " + esc(r.place) + "</small></span>" +
         '<span class="qrmo-rv__tag">' + esc(r.module) + "</span>" +
       "</figcaption></figure>";
