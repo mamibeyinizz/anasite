@@ -1,67 +1,52 @@
-/* Shared premium champagne-gold underline.
-   Use .qrmo-gold-underline on body proof/sell spans in any module section.
-   Type inherits from parent copy. Color + underline only. */
+/* Modül vurgu cümlesi — premium "marker" vurgu (kullanıcı isteği: alt
+   çizgi efekti korunur ama klasik çizgi yerine yumuşak şampanya bant).
+   Açık zeminde sarı metin yerine koyu zümrüt metin; bant cümle görünür
+   olunca soldan sağa çizilir (scroll-driven, destek yoksa sabit). */
 
+html .qrmo-gold-underline,
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
-  --qgu-ink: #8A6F42;
-  --qgu-mid: #A58B55;
-  --qgu-hi: #C2AC76;
+  display: inline;
+  position: relative;
+  padding: 0 .14em;
+  margin: 0 -.04em;
+  border-radius: .18em;
+  color: #123A2C;
+  -webkit-text-fill-color: currentColor;
+  font-weight: 650;
   font-size: inherit;
-  font-weight: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   font-family: inherit;
-  display: inline;
-  position: relative;
-  padding: 0 0 0.22em;
-  color: var(--qgu-mid);
-  background-image:
-    linear-gradient(
-      105deg,
-      var(--qgu-ink) 0%,
-      var(--qgu-mid) 26%,
-      var(--qgu-hi) 48%,
-      var(--qgu-mid) 74%,
-      var(--qgu-ink) 100%
-    ),
+  text-decoration: none;
+  text-shadow: none;
+  filter: none;
+  background:
     linear-gradient(
       90deg,
-      var(--qgu-ink) 0%,
-      var(--qgu-hi) 48%,
-      var(--qgu-ink) 100%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(244, 236, 214, 0) 0%,
-      rgba(244, 236, 214, 0.55) 50%,
-      rgba(244, 236, 214, 0) 100%
-    );
-  background-size: 100% 1.12em, 100% 1px, 36% 1px;
-  background-position: 0 0, 0 calc(100% - 1px), -40% calc(100% - 1px);
-  background-repeat: no-repeat;
-  -webkit-background-clip: text, padding-box, padding-box;
-  background-clip: text, padding-box, padding-box;
-  -webkit-text-fill-color: transparent;
+      rgba(232, 199, 102, .18) 0%,
+      rgba(225, 190, 98, .46) 12%,
+      rgba(214, 178, 90, .40) 88%,
+      rgba(232, 199, 102, .14) 100%
+    ) 0 86% / 100% .46em no-repeat;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  filter: none;
-  text-shadow: none;
-  text-decoration: none;
-  animation: qrmo-gold-underline-lux 11s linear infinite;
+  animation: none;
 }
 
-@keyframes qrmo-gold-underline-lux {
-  0% {
-    background-position: 0 0, 0 calc(100% - 1px), -45% calc(100% - 1px);
-  }
-  100% {
-    background-position: 0 0, 0 calc(100% - 1px), 145% calc(100% - 1px);
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    html .qrmo-gold-underline,
+    html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
+      animation: qrmo-gold-mark linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
-    animation: none;
-    background-position: 0 0, 0 calc(100% - 1px), 28% calc(100% - 1px);
-  }
+@keyframes qrmo-gold-mark {
+  from { background-size: 0% .46em; }
+  to   { background-size: 100% .46em; }
 }

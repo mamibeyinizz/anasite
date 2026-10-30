@@ -63,15 +63,6 @@ html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__lead-nl {
   display: none;
 }
 
-@media (min-width: 768px) {
-  html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-tables-v5__lead-nl {
-    display: block;
-  }
-
-  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__description > .qrmo-gold-underline {
-    white-space: nowrap;
-  }
-}
 
 html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__card {
   animation: qrmo-s6-card 3.5s ease-in-out infinite both;
