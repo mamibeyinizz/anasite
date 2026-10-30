@@ -1883,3 +1883,106 @@ body.qrmo-pricing-page {
 .qrmo-pricing a:focus-visible,
 .qrmo-pricing summary,
 .qrmo-pricing abbr { text-decoration: none !important; }
+
+/* =========================================================
+   Paket kartları — derinlik, orta kart tonu, buton hiyerarşisi
+   Temel: çerçeveli · Pro: dolu zümrüt · Plus: altın
+========================================================= */
+
+.qrmo-pricing-card {
+  box-shadow:
+    0 1px 2px rgba(13, 43, 34, .05),
+    0 8px 18px -8px rgba(13, 43, 34, .12),
+    0 28px 48px -28px rgba(13, 43, 34, .22);
+}
+
+/* Orta kart: bir ton daha yeşilimsi krem, biraz daha belirgin kenar ve gölge */
+.qrmo-pricing-card[data-pkg="pro"] {
+  border-color: rgba(13, 43, 34, .22);
+  background: linear-gradient(180deg, #f3f2e8 0%, #eceee2 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .7),
+    0 1px 2px rgba(13, 43, 34, .06),
+    0 12px 24px -10px rgba(13, 43, 34, .18),
+    0 34px 56px -30px rgba(13, 43, 34, .32);
+}
+
+.qrmo-pricing-card--dark {
+  box-shadow:
+    inset 0 1px 0 rgba(244, 241, 232, .08),
+    0 2px 4px rgba(13, 43, 34, .14),
+    0 18px 36px -12px rgba(13, 43, 34, .34),
+    0 40px 64px -32px rgba(13, 43, 34, .5),
+    0 0 32px rgba(201, 168, 76, .14);
+}
+
+@media (hover: hover) {
+  .qrmo-pricing-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 2px 4px rgba(13, 43, 34, .06),
+      0 14px 26px -10px rgba(13, 43, 34, .18),
+      0 36px 56px -28px rgba(13, 43, 34, .3);
+  }
+
+  .qrmo-pricing-card[data-pkg="pro"]:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .7),
+      0 2px 4px rgba(13, 43, 34, .08),
+      0 16px 30px -10px rgba(13, 43, 34, .22),
+      0 40px 62px -30px rgba(13, 43, 34, .36);
+  }
+}
+
+/* Butonlar: aynı ölçü, net hiyerarşi */
+.qrmo-pricing-card-actions .qrmo-pricing-btn {
+  min-height: 54px;
+  padding: 14px 20px;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: .005em;
+  text-wrap: balance;
+  border-radius: 12px;
+}
+
+.qrmo-pricing-card-actions .qrmo-pricing-btn:focus-visible {
+  outline: 2px solid var(--qp-gold);
+  outline-offset: 3px;
+}
+
+/* Pro: dolu zümrüt */
+.qrmo-pricing-card[data-pkg="pro"] .qrmo-pricing-btn {
+  color: var(--qp-cream);
+  border-color: var(--qp-green-dark);
+  background: linear-gradient(180deg, #1f4d3d, var(--qp-green-dark));
+  box-shadow:
+    inset 0 1px 0 rgba(244, 241, 232, .14),
+    0 8px 18px -8px rgba(13, 43, 34, .5);
+}
+
+.qrmo-pricing-card[data-pkg="pro"] .qrmo-pricing-btn .qrmo-pricing-ico {
+  color: var(--qp-gold-light);
+}
+
+/* Plus: altın, iç parlama */
+.qrmo-pricing-card--dark .qrmo-pricing-btn--primary {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .35),
+    0 10px 22px -8px rgba(201, 168, 76, .55);
+}
+
+@media (hover: hover) {
+  .qrmo-pricing-card[data-pkg="pro"] .qrmo-pricing-btn:hover {
+    color: #fff;
+    background: linear-gradient(180deg, #276049, #11342a);
+    box-shadow:
+      inset 0 1px 0 rgba(244, 241, 232, .18),
+      0 14px 26px -10px rgba(13, 43, 34, .55);
+  }
+
+  .qrmo-pricing-card--dark .qrmo-pricing-btn--primary:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, .4),
+      0 16px 28px -10px rgba(201, 168, 76, .65);
+  }
+}
