@@ -980,8 +980,20 @@
         else if (state !== "IDLE") cancelGesture();
       }
     });
+    /* Zone tamamen viewport'un üstündeyken (S9+ / footer) native scroll
+       anchoring açılır. S3–S8 100dvh: tarayıcı araç çubuğu açılıp kapanınca
+       her sahne boyu değişir; anchoring kapalıyken alttaki tüm içerik
+       6 × Δ kadar zıplıyordu. Zone içi zaten overflow-anchor: none. */
+    var zoneEl = document.querySelector(".qrmo-home-mod-zone");
+    function syncAnchor() {
+      if (!zoneEl) return;
+      html.classList.toggle("qrmo-story-v4-below", zoneEl.getBoundingClientRect().bottom <= 0);
+    }
+    syncAnchor();
+
     /* Scroll events, including those from scrollToY, never commit a scene. */
     window.addEventListener("scroll", function () {
+      syncAnchor();
       if (scrollWrite > 0) return;
       if (state === "TRANSITIONING" || state === "COMMITTED" || state === "SETTLE") return;
     }, { passive: true });
@@ -999,6 +1011,7 @@
 
     var resizeTimer = 0;
     window.addEventListener("resize", function () {
+      syncAnchor();
       window.clearTimeout(resizeTimer);
       resizeTimer = window.setTimeout(onResize, 90);
     }, { passive: true });

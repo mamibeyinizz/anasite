@@ -17,6 +17,12 @@ html.qrmo-mod-story-v4.qrmo-story-v4-lock {
   overscroll-behavior-y: none;
 }
 
+/* S9+ / footer: zone viewport'un tamamen üstündeyken anchoring açık (JS sınıfı).
+   Araç çubuğu kaynaklı 100dvh değişimleri alttaki içeriği zıplatmaz. */
+html.qrmo-mod-story-v4.qrmo-story-v4-below {
+  overflow-anchor: auto;
+}
+
 html.qrmo-mod-story-v4 body {
   overflow-x: clip;
 }
