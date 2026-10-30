@@ -98,23 +98,19 @@
 
 #qrmo-product-map-v1 .qpm2-head {
   display: block;
-  margin-bottom: clamp(28px, 3.4vw, 48px);
+  margin-bottom: clamp(28px, 3.6vw, 52px);
 }
 
 #qrmo-product-map-v1 .qpm2-kicker {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 9px;
-  margin: 0 0 clamp(14px, 1.6vw, 20px);
-  padding: 7px 14px 7px 12px;
-  border: 1px solid rgba(201, 168, 76, 0.38);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
+  gap: 10px;
+  margin: 0 0 clamp(14px, 1.5vw, 20px);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--qpm2-meta);
+  color: var(--qpm2-muted);
 }
 
 #qrmo-product-map-v1 .qpm2-kicker::before {
@@ -123,7 +119,6 @@
   height: 6px;
   border-radius: 50%;
   background: var(--qpm2-gold);
-  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.22);
 }
 
 #qrmo-product-map-v1 .qpm2-title {
@@ -140,102 +135,65 @@
 #qrmo-product-map-v1 .qpm2-areas {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(14px, 1.4vw, 20px);
+  column-gap: clamp(40px, 6vw, 96px);
+  border-top: 1px solid var(--qpm2-line);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 768px) {
   #qrmo-product-map-v1 .qpm2-areas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1180px) {
-  #qrmo-product-map-v1 .qpm2-areas {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
 #qrmo-product-map-v1 .qpm2-area {
-  position: relative;
   margin: 0;
-  padding: clamp(22px, 2vw, 30px);
+  padding: clamp(26px, 2.8vw, 40px) 0;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: clamp(40px, 3.8vw, 56px) minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
-  column-gap: 14px;
-  align-items: center;
-  overflow: hidden;
-  isolation: isolate;
-  border: 1px solid rgba(13, 43, 34, 0.09);
-  border-radius: 24px;
-  background: linear-gradient(180deg, #fffdf8 0%, var(--qpm2-cream-area) 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 1px 2px rgba(13, 43, 34, 0.04),
-    0 20px 40px -28px rgba(13, 43, 34, 0.38);
-  transition: transform 0.35s var(--qpm2-ease), box-shadow 0.35s var(--qpm2-ease);
-}
-
-#qrmo-product-map-v1 .qpm2-area--emerald {
-  border-color: rgba(232, 199, 102, 0.16);
-  background:
-    radial-gradient(120% 90% at 100% 0%, rgba(232, 199, 102, 0.16) 0%, rgba(232, 199, 102, 0) 55%),
-    linear-gradient(160deg, #123a2e 0%, var(--qpm2-green) 72%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.07) inset,
-    0 26px 46px -28px rgba(13, 43, 34, 0.6);
+  column-gap: 4px;
+  align-items: start;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--qpm2-line);
 }
 
 #qrmo-product-map-v1 .qpm2-idx {
-  grid-column: 1;
   grid-row: 1;
-  align-self: center;
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
+  align-self: baseline;
   margin: 0;
-  border: 1px solid rgba(201, 168, 76, 0.55);
-  border-radius: 12px;
-  background: rgba(201, 168, 76, 0.1);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  color: #8a6f1f;
-}
-
-#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-idx {
-  border-color: rgba(232, 199, 102, 0.5);
-  background: rgba(232, 199, 102, 0.12);
-  color: #e8c766;
+  color: #9a7b25;
 }
 
 #qrmo-product-map-v1 .qpm2-name {
   grid-column: 2;
   grid-row: 1;
-  align-self: center;
-  margin: 0;
-  font-size: clamp(20px, 1.5vw, 23px);
+  align-self: baseline;
+  margin: 0 0 10px;
+  font-size: clamp(22px, 1.8vw, 28px);
   font-weight: 650;
   line-height: 1.2;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.02em;
   color: var(--qpm2-green);
 }
 
 #qrmo-product-map-v1 .qpm2-benefit {
-  grid-column: 1 / -1;
+  grid-column: 2;
   grid-row: 2;
-  align-self: start;
-  margin: clamp(16px, 1.6vw, 22px) 0 clamp(18px, 1.8vw, 24px);
-  font-size: clamp(15px, 1.05vw, 16.5px);
+  margin: 0 0 clamp(18px, 1.8vw, 24px);
+  max-width: 34em;
+  font-size: clamp(15.5px, 1.1vw, 17px);
   line-height: 1.55;
   color: var(--qpm2-text);
 }
 
 #qrmo-product-map-v1 .qpm2-meta {
-  grid-column: 1 / -1;
+  grid-column: 2;
   grid-row: 3;
   margin: 0;
   display: flex;
@@ -248,38 +206,15 @@
 }
 
 #qrmo-product-map-v1 .qpm2-meta > span:not(.qpm2-dot) {
-  padding: 7px 12px;
-  border: 1px solid var(--qpm2-line);
+  padding: 7px 13px;
+  border: 1px solid rgba(13, 43, 34, 0.14);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.55);
   white-space: nowrap;
-}
-
-#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-name { color: #f4f1e8; }
-#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-benefit { color: rgba(244, 241, 232, 0.78); }
-#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-meta { color: rgba(244, 241, 232, 0.82); }
-#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-meta > span:not(.qpm2-dot) {
-  border-color: rgba(244, 241, 232, 0.2);
-  background: rgba(244, 241, 232, 0.07);
 }
 
 #qrmo-product-map-v1 .qpm2-dot {
   display: none;
-}
-
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  #qrmo-product-map-v1 .qpm2-area:hover {
-    transform: translateY(-4px);
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.9) inset,
-      0 2px 4px rgba(13, 43, 34, 0.05),
-      0 30px 52px -26px rgba(13, 43, 34, 0.5);
-  }
-  #qrmo-product-map-v1 .qpm2-area--emerald:hover {
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.07) inset,
-      0 34px 56px -26px rgba(13, 43, 34, 0.7);
-  }
 }
 
 .qrmo-home-anchor {
@@ -306,8 +241,40 @@
   }
 
   #qrmo-product-map-v1 .qpm2-area {
-    padding: 22px 20px;
-    border-radius: 22px;
+    grid-template-columns: 34px minmax(0, 1fr);
+    padding: 22px 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1099px) {
+  #qrmo-product-map-v1 .qpm2-areas {
+    grid-template-columns: 1fr;
+  }
+
+  #qrmo-product-map-v1 .qpm2-area {
+    grid-template-columns: 56px minmax(0, 1fr) minmax(190px, 240px);
+    grid-template-rows: auto 1fr;
+    column-gap: 4px;
+    padding: 30px 0;
+  }
+
+  #qrmo-product-map-v1 .qpm2-name {
+    margin-bottom: 8px;
+  }
+
+  #qrmo-product-map-v1 .qpm2-benefit {
+    grid-row: 2;
+    margin: 0;
+    max-width: 30em;
+  }
+
+  #qrmo-product-map-v1 .qpm2-meta {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-left: 24px;
   }
 }
 </style>
