@@ -23987,6 +23987,14 @@
   background: transparent !important;
   position: relative;
   font-family: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+/* Her karede transform alan katmanlar anchor seçilmesin: seçilirse Chrome
+   scroll anchoring'i bastırır, sayfa araç çubuğu açılıp kapanınca zıplar. */
+.qrmo-final-cta-v1__fx,
+.qrmo-final-cta-v1__fx *,
+.qrmo-final-cta-v1__cta,
+.qrmo-final-cta-v1__cta * {
   overflow-anchor: none;
 }
 
