@@ -102,6 +102,9 @@
     var s = step() || 1;
     var max = track.scrollWidth - track.clientWidth;
     var idx = Math.min(cards.length, Math.round(track.scrollLeft / s) + 1);
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].classList.toggle("is-active", i === idx - 1);
+    }
     if (count) count.textContent = (idx < 10 ? "0" : "") + idx + " / " + (cards.length < 10 ? "0" : "") + cards.length;
     if (prev) prev.disabled = track.scrollLeft <= 2;
     if (next) next.disabled = track.scrollLeft >= max - 2;

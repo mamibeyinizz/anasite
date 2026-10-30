@@ -220,16 +220,15 @@
 }
 
 .qrmo-rv__who {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  display: flex;
   align-items: center;
-  gap: 4px 14px;
+  gap: 14px;
   padding-top: 20px;
   border-top: 1px solid var(--rv-line);
 }
 
 .qrmo-rv__avatar {
-  grid-row: span 2;
+  flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -375,36 +374,72 @@
   }
 }
 
-/* Öne çıkan ilk yorum: koyu zümrüt kart. */
-.qrmo-rv__card:first-child {
-  border-color: rgba(244, 241, 232, .14);
+/* Aktif kart (soldaki, kaydırdıkça değişir): koyu zümrüt. */
+.qrmo-rv__card {
+  isolation: isolate;
+  transition: transform .35s cubic-bezier(.22, .84, .28, 1), box-shadow .35s ease, border-color .4s ease, color .4s ease;
+}
+
+.qrmo-rv__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
   background: radial-gradient(110% 120% at 15% 0%, #17402f 0%, #11342a 45%, #0d2b22 100%);
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.qrmo-rv__card.is-active {
+  border-color: rgba(244, 241, 232, .14);
   color: #f4f1e8;
   box-shadow: 0 24px 44px -26px rgba(13, 43, 34, .6);
 }
 
-.qrmo-rv__card:first-child .qrmo-rv__rest {
+.qrmo-rv__card.is-active::before {
+  opacity: 1;
+}
+
+.qrmo-rv__rest,
+.qrmo-rv__meta strong,
+.qrmo-rv__tag,
+.qrmo-rv__who {
+  transition: color .4s ease, background-color .4s ease, border-color .4s ease;
+}
+
+.qrmo-rv__card.is-active .qrmo-rv__rest {
   color: rgba(244, 241, 232, .74);
 }
 
-.qrmo-rv__card:first-child .qrmo-rv__pull {
-  font-size: clamp(21px, .8vw + 1.05rem, 25px);
-}
-
-.qrmo-rv__card:first-child .qrmo-rv__who {
-  border-top-color: rgba(244, 241, 232, .16);
-}
-
-.qrmo-rv__card:first-child .qrmo-rv__meta strong {
+.qrmo-rv__card.is-active .qrmo-rv__pull {
   color: #f4f1e8;
 }
 
-.qrmo-rv__card:first-child .qrmo-rv__tag {
+.qrmo-rv__card.is-active .qrmo-rv__who {
+  border-top-color: rgba(244, 241, 232, .16);
+}
+
+.qrmo-rv__card.is-active .qrmo-rv__meta strong {
+  color: #f4f1e8;
+}
+
+.qrmo-rv__card.is-active .qrmo-rv__tag {
   border-color: rgba(244, 241, 232, .22);
   background: rgba(244, 241, 232, .08);
   color: #f4f1e8;
 }
 
-.qrmo-rv__card:first-child .qrmo-rv__avatar {
+.qrmo-rv__card.is-active .qrmo-rv__avatar {
   border-color: rgba(201, 168, 76, .6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-rv__card::before,
+  .qrmo-rv__rest,
+  .qrmo-rv__meta strong,
+  .qrmo-rv__tag,
+  .qrmo-rv__who {
+    transition: none;
+  }
 }
