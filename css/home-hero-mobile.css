@@ -23,6 +23,10 @@ html .qrmo-hm-m {
     display: flex;
   }
 
+  html p.qrmo-hm-m {
+    display: block;
+  }
+
   html .qrmo-hero-v3-content {
     flex: 1 1 auto;
     min-height: calc(100svh - var(--qrmo-gh-h, 76px) - 124px);
@@ -129,7 +133,7 @@ html .qrmo-hm-m {
   html .qrmo-hero-v3-feature-row:nth-child(3)::before {
     content: "";
     position: absolute;
-    left: -12px;
+    left: -6px;
     top: 16%;
     bottom: 16%;
     width: 2px;
@@ -174,8 +178,7 @@ html .qrmo-hm-m {
       radial-gradient(85% 85% at 30% 18%, #1f4d3d 0%, #11342a 48%, #0b241c 100%);
     box-shadow:
       inset 0 1px 0 rgba(244, 241, 232, .16),
-      inset 0 -8px 14px -8px rgba(0, 0, 0, .35),
-      0 0 0 5px rgba(13, 43, 34, .05);
+      inset 0 -8px 14px -8px rgba(0, 0, 0, .35);
     overflow: visible;
     transform: none;
   }
@@ -187,16 +190,8 @@ html .qrmo-hm-m {
     overflow: visible;
   }
 
-  /* Orbiting dot on the outer edge. */
   html .qrmo-hero-v3-feature-icon::before {
-    content: "";
-    position: absolute;
-    inset: -6px;
-    z-index: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 0, rgba(201, 168, 76, 1) 0 2.4px, rgba(201, 168, 76, 0) 3.2px);
-    opacity: .9;
-    pointer-events: none;
+    content: none;
   }
 
   html .qrmo-hero-v3-feature-icon::after {
@@ -244,13 +239,6 @@ html .qrmo-hm-m {
   html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(1) .qrmo-ico .d { animation-delay: .5s; }
   html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-ico .d { animation-delay: .65s; }
 
-  html .qrmo-hero-v3-feature-icon::before {
-    animation: qrmo-hero-orbit 9s linear infinite;
-  }
-
-  html .qrmo-hero-v3-feature-row:nth-child(1) .qrmo-hero-v3-feature-icon::before { animation-delay: -3s; animation-duration: 11s; }
-  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::before { animation-delay: -6s; animation-duration: 10s; }
-
   /* Asistan — small spark breathes */
   html .qrmo-ico .s-sm { animation: qrmo-hero-spark 4.8s ease-in-out 2s infinite; }
 
@@ -271,10 +259,6 @@ html .qrmo-hm-m {
 @keyframes qrmo-hero-draw {
   from { stroke-dashoffset: 1; }
   to { stroke-dashoffset: 0; }
-}
-
-@keyframes qrmo-hero-orbit {
-  to { transform: rotate(360deg); }
 }
 
 @keyframes qrmo-hero-spark {
@@ -301,4 +285,24 @@ html .qrmo-hm-m {
   0%, 58% { opacity: 0; }
   64% { opacity: .95; }
   82%, 100% { opacity: 0; }
+}
+
+/* Mobile showcase: quieter section title, one-line caption under the phone. */
+@media (max-width: 767px) {
+  html .qrmo-hero-v3-showcase-kicker {
+    font-size: clamp(24px, 6.8vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    text-wrap: balance;
+  }
+
+  html .qrmo-hero-v3-phone-cap {
+    margin: 10px 0 24px;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(13, 43, 34, .6);
+    text-wrap: balance;
+  }
 }
