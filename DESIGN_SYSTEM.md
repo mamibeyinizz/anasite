@@ -399,3 +399,16 @@ Kurallar:
 - **Temsili arayüzler** tek `role="img"` kapsayıcısında çizilir; ekran okuyucu yalnızca veri dosyasındaki açıklamayı duyar. Örnek sayılar "Örnek veri" rozeti taşır; her görselin altında "temsili arayüz / örnek içerik" notu bulunur.
 - **Etiket tasarrufu:** Küçük büyük harfli altın etiket (kicker) yalnızca anlatı bölümlerinde kullanılır; ayrıntılar, ilgili modüller ve kapanış bölümleri etiketsizdir.
 
+
+---
+
+## 22. `/blog/` Sayfa Sistemi — Uygulanmış Değerler
+
+`blog/blog.css` yalnızca bu dosyada doğrulanmış token'ları kullanır:
+- **Kenar boşluğu:** `--qrmo-shell-gutter` (>560px `5vw`, ≤560px `15px`); kapsayıcıda `max-width` yoktur, sol/sağ kenar header ile birebir aynıdır. `.qb-wrap` = `calc(100% - 2 × gutter)`; `blog/qa.mjs` her genişlikte header kenarıyla hizayı ölçer.
+- **Okuma sütunu:** yazı gövdesi `max-width: 760px` — sayfa genişliği değil, satır ölçüsüdür.
+- **Font:** site sans-serif stack'i, ağırlık 700/800. H1 `clamp(32px, 5vw, 58px)`, line-height `1.14`, letter-spacing `-.025em`; eyebrow `11px / 800 / .19em`.
+- **Radius:** `11px` etiket · `12px` CTA, filtre, tablo, not · `20px` kart, panel, kapak.
+- **CTA:** `#1E3D2F → #0D2B22` gradient + `1.5px` altın kenar + `12px`.
+- **Zemin sayfaya aittir:** hero krem zeminde; koyu bloklar (kısa cevap, kapanış paneli) kenar boşluğu içinde 20px radius'lu paneldir.
+- **Kırılımlar (min-width):** 600 · 900 · 1024 · 1600.

@@ -69,9 +69,15 @@ if (pw) {
           const b = e.getBoundingClientRect();
           return b.width && b.height && b.height < 24 && getComputedStyle(e).display !== "inline";
         }).map((e) => e.textContent.trim().slice(0, 30));
-        return { over: sw - cw, under, small };
+        const h = document.querySelector(".qrmo-gh-in")?.getBoundingClientRect();
+        const edge = h ? [...document.querySelectorAll(".qb-wrap")].filter((e) => {
+          const b = e.getBoundingClientRect();
+          return Math.abs(b.left - h.left) > 1 || Math.abs(b.right - h.right) > 1;
+        }).length : 0;
+        return { over: sw - cw, under, small, edge };
       });
       if (r.over > 0) fail(`${w}px ${rp}: yatay taşma ${r.over}px`);
+      if (r.edge) fail(`${w}px ${rp}: ${r.edge} kapsayıcı header kenarıyla hizasız`);
       if (r.under) fail(`${w}px ${rp}: ${r.under} altı çizili öğe`);
       if (r.small.length) fail(`${w}px ${rp}: küçük dokunma hedefi ${r.small.join(", ")}`);
     }
