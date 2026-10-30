@@ -142,7 +142,10 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
 
   const desktopItems = NAV.map((n) => renderNavDesktopItem(rel, n, current, exact)).join("");
 
-  const drawerLinks = NAV.map((n) => renderDrawerNavCard(rel, n, current, exact)).join("");
+  /* Ana sayfadayken drawer'da kendine giden "Ana Sayfa" kartı gösterilmez */
+  const drawerLinks = NAV.filter((n) => !(n.key === "home" && current === "home"))
+    .map((n) => renderDrawerNavCard(rel, n, current, exact))
+    .join("");
 
   const solutionCards = DRAWER_SOLUTIONS.map(
     (s, i) => `

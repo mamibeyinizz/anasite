@@ -96,7 +96,7 @@ export const DRAWER = {
 export const DRAWER_SOLUTIONS = [
   { name: "Premium QR Menü", desc: "Modern dijital menü deneyimi", slug: "restoran-menu" },
   { name: "Akıllı Menü Yönetimi", desc: "Ürünlerinizi tek panelden yönetin", slug: "menu-muhendisligi" },
-  { name: "AI Chatbot", desc: "Müşterilerinizle akıllı iletişim", slug: "menu-asistani" },
+  { name: "Menü Asistanı", desc: "Misafirin sorusunu menünüzden yanıtlar", slug: "menu-asistani" },
   { name: "Çoklu Dil Desteği", desc: "Yabancı müşterilere kolay erişim", slug: "coklu-dil" },
   { name: "Yorum & Geri Bildirim", desc: "Müşteri deneyimini geliştirin", slug: "yorum-geri-bildirim" },
   { name: "Garson & Hesap İsteme", desc: "Servis süreçlerini kolaylaştırın", slug: "servis-paneli" }
