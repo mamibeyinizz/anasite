@@ -206,6 +206,19 @@
   font-weight: 700;
 }
 
+.qrmo-rv__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.qrmo-rv__avatar:has(img) {
+  overflow: hidden;
+  padding: 0;
+}
+
 .qrmo-rv__meta {
   display: flex;
   flex-direction: column;
