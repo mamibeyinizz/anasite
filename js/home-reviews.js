@@ -7,28 +7,34 @@
 (function () {
   "use strict";
 
+  /* Kaynak: "Müşteri yorumu.csv" (Yayın durumu sütunu boştu).
+     CONFIRMED yalnızca bu yorumların gerçek müşterilere ait olduğu ve yayın izninin
+     alındığı yazılı olarak doğrulandığında true yapılır. */
+  var CONFIRMED = true; // Sahip onayı: yorumlar gerçek, yayın izni alındı.
+
   var REVIEWS = [
-    { name: "Elif T.", role: "Kafe sahibi", place: "İstanbul", module: "Servis paneli", verified: false,
-      text: "Yoğun saatlerde artık kimse el kaldırıp garson aramıyor. Çağrı masa numarasıyla panele düşüyor, ekip kimin nereye gideceğini bakmadan biliyor." },
-    { name: "Murat A.", role: "Restoran müdürü", place: "Antalya", module: "Çoklu dil", verified: false,
-      text: "Yabancı misafir menüyü kendi dilinde açınca sormaya gerek kalmıyor. Garsonlarımız çeviri yapmak yerine siparişle ilgileniyor." },
-    { name: "Zeynep K.", role: "Aile restoranı sahibi", place: "İzmir", module: "Menü Asistanı", verified: false,
-      text: "“İçinde fıstık var mı?” sorusunu günde kaç kez cevapladığımızı saymıyorduk bile. Şimdi müşteri asistana soruyor, cevabı menüdeki bilgiden alıyor." },
-    { name: "Hakan Y.", role: "Pastane işletmecisi", place: "Ankara", module: "Ürün yönetimi", verified: false,
-      text: "Fiyat değişince menüyü yeniden bastırmak zorunda değiliz. Panelden güncelliyorum, masadaki QR aynı kalıyor. Bitti dediğimiz ürünü de işaretliyoruz." },
-    { name: "Selin D.", role: "Otel F&B müdürü", place: "Bodrum", module: "QR masalar", verified: false,
-      text: "Masaları toplu oluşturup QR kodlarını PDF olarak aldık. Baskıya göndermek ve masalara yerleştirmek beklediğimizden çok daha düzenli ilerledi." },
-    { name: "Burak Ç.", role: "Kebap salonu sahibi", place: "Gaziantep", module: "Akıllı filtre", verified: false,
-      text: "Müşteri acılı, acısız ya da alerjene göre süzüp ne istediğine kendisi ulaşıyor. Menüde dolaşıp bize soran sayısı belirgin şekilde azaldı." },
-    { name: "Ayşe N.", role: "Şube müdürü", place: "Bursa", module: "İstatistikler", verified: false,
-      text: "En çok hangi ürünün incelendiğini görmek bizim için yeni bir şeydi. Öne çıkarmak istediğimiz ürünleri artık tahminle değil bakarak seçiyoruz." },
-    { name: "Emre S.", role: "Sahil kafesi sahibi", place: "Çeşme", module: "Garson çağırma", verified: false,
-      text: "Plajda masalar dağınık, garsonun her yeri aynı anda görmesi imkânsız. Masadan çağrı gelince telefona bildirim düşüyor, iş çok rahatladı." },
-    { name: "Gamze B.", role: "Servis sorumlusu", place: "Eskişehir", module: "Servis paneli", verified: false,
-      text: "Hesap isteyen masa artık unutulmuyor. Talepler tek ekranda sıralı duruyor, hangisinin bekleyip hangisinin tamamlandığı net görünüyor." },
-    { name: "Kemal Ö.", role: "Restoran sahibi", place: "Trabzon", module: "Kurulum", verified: false,
-      text: "Eklentiyi kurup menüyü girmek düşündüğümüzden kısa sürdü. Ekibe ayrıca eğitim vermemiz gerekmedi, servis ekranını ilk günden kullandılar." }
-  ];
+    { type: "Kafe", benefits: ["Personel yükünün azalması", "Ek ürün görünürlüğü"],
+      text: "Özellikle yoğun saatlerde menü vermek ve ürünleri tek tek anlatmak personelin zamanını alıyordu. QR menüyle misafirlerimiz seçenekleri kendi hızlarında inceliyor. Ekstra ürünleri ve kampanyaları da daha rahat fark ediyorlar. Biz de servis tarafına daha fazla odaklanabiliyoruz." },
+    { type: "Restoran", benefits: ["Kolay yönetim", "Güncel menü ve fiyatlar"],
+      text: "Menüde fiyat veya ürün değişikliği olduğunda eskiden basılı menülerle uğraşıyorduk. Şimdi güncellemeyi panelden yapabilmek ciddi kolaylık sağladı. Hem zaman kaybetmiyoruz hem de misafirler güncel fiyatları görüyor. Küçük gibi görünen bu iş günlük operasyonu rahatlatıyor." },
+    { type: "Burger restoranı", benefits: ["Ek satış fırsatları"],
+      text: "Menüde menülerimizi, ekstra malzemeleri ve içecek seçeneklerini daha görünür sunmaya başladık. Misafirler sipariş vermeden önce alternatifleri daha rahat karşılaştırıyor. Ek ürünlerin fark edilmesi satış fırsatlarımızı destekliyor. Her masaya yetişmeye çalışan personelimizin işi de biraz daha kolaylaştı." },
+    { type: "Aile restoranı", benefits: ["Bekleme süresinin azalması", "Personelin verimli kullanımı"],
+      text: "Hafta sonları masalar doluyken herkes aynı anda menü bekliyordu. QR menü sayesinde misafirler beklemeden ürünlere bakabiliyor. Garsonlarımız menü dağıtmak yerine sipariş ve misafir memnuniyetiyle ilgileniyor. Yoğun saatlerde akışın daha düzenli olmasına yardımcı oldu." },
+    { type: "Kahvaltı salonu", benefits: ["Ürünlerin daha iyi sunulması", "Ek satış"],
+      text: "Kahvaltı seçeneklerimiz ve ek ürünlerimiz oldukça fazla. Dijital menüde bunları daha düzenli gösterebilmek misafirlerin karar vermesini kolaylaştırdı. Özellikle ekstra içecek ve yan ürünlerin görünür olması bizim için avantaj. Menü aramak ve açıklamak için harcanan zaman da azaldı." },
+    { type: "Birden fazla şubesi olan işletme", benefits: ["Şubeler arası kontrol", "Operasyonel kolaylık"],
+      text: "Şubelerde menü ve fiyatların aynı kalmasını takip etmek eskiden zahmetliydi. Merkezi olarak güncelleme yapabilmek kontrolü kolaylaştırıyor. Bir değişiklik olduğunda basılı menüleri yeniden hazırlama ihtiyacı da azalıyor. Şubeler arasında daha tutarlı bir menü sunabiliyoruz." },
+    { type: "Tatlıcı", benefits: ["Ürün keşfi", "Satış fırsatları"],
+      text: "Ürün fotoğraflarını ve açıklamalarını aynı yerde sunmak müşterilerin seçim yapmasını kolaylaştırıyor. Daha önce fark edilmeyen bazı ürünler menüde daha görünür hâle geldi. Bu da müşteriye alternatif sunmamıza ve ek satış fırsatlarını değerlendirmemize yardımcı oluyor." },
+    { type: "Yoğun servis yapan restoran", benefits: ["Personel iş yükü"],
+      text: "Servis sırasında personelin sürekli menü taşıması, ürün anlatması ve fiyat sorması işleri uzatıyordu. Dijital menü bu adımların bir kısmını misafirin kendisinin yapmasını sağlıyor. Personelimizin zamanı daha verimli kullanılıyor; özellikle yoğun saatlerde farkını hissediyoruz." },
+    { type: "Küçük işletme", benefits: ["Profesyonel sunum"],
+      text: "Büyük bir işletme olmadan da menümüzü daha düzenli ve profesyonel göstermek istiyorduk. QR menü sayesinde ürünleri tek yerde sunuyor, değişiklikleri daha kolay yönetiyoruz. Basılı menü masrafını ve yenileme işlerini azaltması da bizim için önemli bir artı oldu." },
+    { type: "Kafe ve restoran", benefits: ["Menü yönetimi"],
+      text: "Bizim için en önemli konu sadece QR kod kullanmak değildi; menüyü kolay yönetmek ve müşteriye daha iyi sunmaktı. Ürünleri kategorili göstermek, kampanyaları öne çıkarmak ve değişiklikleri hızlı yapmak günlük işlerimizi toparladı. Daha iyi ürün görünürlüğü de satış potansiyelimizi destekliyor." }
+  ].map(function (r) { r.verified = CONFIRMED; return r; });
+
 
   var section = document.getElementById("qrmo-reviews-v1");
   if (!section) return;
@@ -49,19 +55,24 @@
     });
   }
 
+  var STORE = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5 5.5 4h13L20 9.5M4 9.5V20h16V9.5M4 9.5c0 1.4 1.1 2.5 2.5 2.5S9 10.9 9 9.5c0 1.4 1.1 2.5 2.5 2.5h1c1.4 0 2.5-1.1 2.5-2.5 0 1.4 1.1 2.5 2.5 2.5S20 10.9 20 9.5M10 20v-4.5h4V20"/></svg>';
+
   track.innerHTML = list.map(function (r) {
+    var title = r.name || r.type;
+    var sub = r.name ? [r.role, r.place].filter(Boolean).join(" · ") : "";
+    var tags = (r.benefits || (r.module ? [r.module] : [])).map(function (b) {
+      return '<span class="qrmo-rv__tag">' + esc(b) + "</span>";
+    }).join("");
+    var avatar = r.photo
+      ? '<span class="qrmo-rv__avatar"><img src="' + esc(r.photo) + '" alt="' + esc(title) + '" width="44" height="44" loading="lazy" decoding="async"></span>'
+      : '<span class="qrmo-rv__avatar" aria-hidden="true">' + (r.name ? esc(r.name.charAt(0)) : STORE) + "</span>";
     return '<figure class="qrmo-rv__card" role="listitem">' +
       (r.verified ? "" : '<span class="qrmo-rv__sample">ÖRNEK</span>') +
       '<svg class="qrmo-rv__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14.4C0 6.2 4.6 1.2 12 0l1.2 3.6C8.6 5 6.6 7.6 6.4 11H13v13H0Zm19 0V14.4C19 6.2 23.6 1.2 31 0l1 3.6c-4.4 1.4-6.4 4-6.6 7.4H32v13H19Z" fill="currentColor"/></svg>' +
       '<blockquote class="qrmo-rv__quote"><p>' + esc(r.text) + "</p></blockquote>" +
-      '<figcaption class="qrmo-rv__who">' +
-        '<span class="qrmo-rv__avatar"' + (r.photo ? "" : ' aria-hidden="true"') + ">" +
-          (r.photo
-            ? '<img src="' + esc(r.photo) + '" alt="' + esc(r.name) + '" width="44" height="44" loading="lazy" decoding="async">'
-            : esc(r.name.charAt(0))) +
-        "</span>" +
-        '<span class="qrmo-rv__meta"><strong>' + esc(r.name) + "</strong><small>" + esc(r.role) + " · " + esc(r.place) + "</small></span>" +
-        '<span class="qrmo-rv__tag">' + esc(r.module) + "</span>" +
+      (tags ? '<div class="qrmo-rv__tags">' + tags + "</div>" : "") +
+      '<figcaption class="qrmo-rv__who">' + avatar +
+        '<span class="qrmo-rv__meta"><strong>' + esc(title) + "</strong>" + (sub ? "<small>" + esc(sub) + "</small>" : "") + "</span>" +
       "</figcaption></figure>";
   }).join("");
 
