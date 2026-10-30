@@ -160,6 +160,18 @@
     });
   }
 
+  Array.prototype.forEach.call(
+    document.querySelectorAll("[data-qrmo-faq-suggest]"),
+    function (btn) {
+      btn.addEventListener("click", function () {
+        if (!searchInput) return;
+        searchInput.value = btn.getAttribute("data-qrmo-faq-suggest");
+        applySearch(searchInput.value);
+        searchInput.focus({ preventScroll: true });
+      });
+    }
+  );
+
   document.addEventListener("keydown", function (e) {
     if (e.key === "/" && !e.metaKey && !e.ctrlKey && !e.altKey) {
       var t = e.target;
