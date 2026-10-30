@@ -92,9 +92,10 @@ function buildPanels() {
     const items = FAQ_ITEMS.filter((x) => x.categoryId === cat.id);
     const list = items
       .map(
-        (item) => `
+        (item, ii) => `
           <details class="qrmo-faq-item" id="${escapeHtml(item.id)}" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">${String(ii + 1).padStart(2, "0")}</span>
               <span class="qrmo-faq-item__q-text">${escapeHtml(item.question)}</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -106,7 +107,10 @@ function buildPanels() {
       .join("");
     return `
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-${escapeHtml(cat.id)}" data-qrmo-faq-panel="${escapeHtml(cat.id)}" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-${escapeHtml(cat.id)}"${ci === 0 ? "" : ' hidden'}>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-${escapeHtml(cat.id)}">${escapeHtml(cat.title)}</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-${escapeHtml(cat.id)}">${escapeHtml(cat.title)}</h2>
+            <span class="qrmo-faq-panel__count">${items.length} soru</span>
+          </div>
           <div class="qrmo-faq-list">
             ${list}
           </div>
@@ -153,16 +157,24 @@ function renderPage(rel, assets) {
 
 <main class="qrmo-faq" id="qrmo-faq-main">
   <header class="qrmo-faq-hero">
-    <div class="qrmo-faq-inner qrmo-faq-hero-grid">
-      <div class="qrmo-faq-hero-copy">
-        <p class="qrmo-faq-eyebrow">QR MENU OFFICIAL • SSS</p>
-        <h1 class="qrmo-faq-title">Sık sorulan sorular</h1>
-        <p class="qrmo-faq-lead">Menü, masa, sipariş, dil, asistan, analytics ve paketler hakkında kısa cevaplar. Kategorilere göz atın veya arama kutusunu kullanın.</p>
-      </div>
+    <div class="qrmo-faq-inner">
+      <p class="qrmo-faq-eyebrow"><span aria-hidden="true"></span>QR MENU OFFICIAL • S.S.S.</p>
+      <h1 class="qrmo-faq-title">Sorunuzun cevabı<br>burada.</h1>
+      <p class="qrmo-faq-lead">Menü, masa, sipariş, dil, asistan ve paketler hakkında kısa, net cevaplar.</p>
+
       <div class="qrmo-faq-search-wrap">
-        <label class="qrmo-faq-search-label" for="qrmo-faq-search">SSS ara</label>
-        <input type="search" id="qrmo-faq-search" class="qrmo-faq-search" name="q" autocomplete="off" spellcheck="false" placeholder="Örn. ödeme, çeviri, QR kod…" aria-controls="qrmo-faq-results-status" data-qrmo-faq-search>
-        <p class="qrmo-faq-search-hint" id="qrmo-faq-search-hint"><kbd>/</kbd> ile aramaya odaklan</p>
+        <label class="qrmo-faq-sr" for="qrmo-faq-search">SSS ara</label>
+        <div class="qrmo-faq-search-box">
+          <svg class="qrmo-faq-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="qrmo-faq-search" class="qrmo-faq-search" name="q" autocomplete="off" spellcheck="false" placeholder="Soru ya da konu yazın…" aria-controls="qrmo-faq-results-status" data-qrmo-faq-search>
+          <kbd class="qrmo-faq-kbd" aria-hidden="true">/</kbd>
+        </div>
+        <div class="qrmo-faq-suggest" aria-label="Sık aranan konular">
+          <span>Sık aranan:</span>
+          ${["Fiyat", "Kurulum", "Alerjen", "Çoklu dil", "QR kod", "Garson çağırma"]
+            .map((t) => `<button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="${escapeHtml(t)}">${escapeHtml(t)}</button>`)
+            .join("\n          ")}
+        </div>
         <p class="qrmo-faq-sr" id="qrmo-faq-results-status" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -185,9 +197,18 @@ function renderPage(rel, assets) {
     </div>
   </div>
 
-  <footer class="qrmo-faq-foot qrmo-faq-inner">
-    <p>Cevabını bulamadınız mı? <a href="${link("/paketler/")}">Paketleri inceleyin</a> veya satış ekibinizle iletişime geçin.</p>
-  </footer>
+  <section class="qrmo-faq-cta qrmo-faq-inner" aria-labelledby="qrmo-faq-cta-title">
+    <div class="qrmo-faq-cta__panel">
+      <div>
+        <h2 id="qrmo-faq-cta-title" class="qrmo-faq-cta__title">Cevabı bulamadınız mı?</h2>
+        <p class="qrmo-faq-cta__text">Ekibimiz işletmenize uygun çözümü birlikte netleştirsin.</p>
+      </div>
+      <div class="qrmo-faq-cta__actions">
+        <a class="qrmo-faq-btn qrmo-faq-btn--solid" href="${link("/iletisim/")}">İletişime Geçin</a>
+        <a class="qrmo-faq-btn qrmo-faq-btn--ghost" href="${link("/paketler/")}">Paketleri İnceleyin</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 </body>
