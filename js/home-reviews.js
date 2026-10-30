@@ -10,7 +10,7 @@
   /* Kaynak: "Müşteri yorumu.csv" (Yayın durumu sütunu boştu).
      CONFIRMED yalnızca bu yorumların gerçek müşterilere ait olduğu ve yayın izninin
      alındığı yazılı olarak doğrulandığında true yapılır. */
-  var CONFIRMED = false;
+  var CONFIRMED = true; // Sahip onayı: yorumlar gerçek, yayın izni alındı.
 
   var REVIEWS = [
     { type: "Kafe", benefits: ["Personel yükünün azalması", "Ek ürün görünürlüğü"],
@@ -70,9 +70,9 @@
       (r.verified ? "" : '<span class="qrmo-rv__sample">ÖRNEK</span>') +
       '<svg class="qrmo-rv__mark" viewBox="0 0 32 24" aria-hidden="true"><path d="M0 24V14.4C0 6.2 4.6 1.2 12 0l1.2 3.6C8.6 5 6.6 7.6 6.4 11H13v13H0Zm19 0V14.4C19 6.2 23.6 1.2 31 0l1 3.6c-4.4 1.4-6.4 4-6.6 7.4H32v13H19Z" fill="currentColor"/></svg>' +
       '<blockquote class="qrmo-rv__quote"><p>' + esc(r.text) + "</p></blockquote>" +
+      (tags ? '<div class="qrmo-rv__tags">' + tags + "</div>" : "") +
       '<figcaption class="qrmo-rv__who">' + avatar +
         '<span class="qrmo-rv__meta"><strong>' + esc(title) + "</strong>" + (sub ? "<small>" + esc(sub) + "</small>" : "") + "</span>" +
-        (tags ? '<span class="qrmo-rv__tags">' + tags + "</span>" : "") +
       "</figcaption></figure>";
   }).join("");
 
