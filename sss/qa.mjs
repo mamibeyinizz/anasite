@@ -46,7 +46,7 @@ function runBuild() {
 
 runBuild();
 assertFaqData();
-pass("faq-data assert (50 items, categories)");
+pass("faq-data assert (min 20 per category)");
 
 if (!fs.existsSync(htmlPath)) {
   fail("sss.html exists");
@@ -57,8 +57,8 @@ if (!fs.existsSync(htmlPath)) {
 const html = fs.readFileSync(htmlPath, "utf8");
 
 /* CONTENT */
-if (FAQ_ITEMS.length === 50) pass("50 questions in data");
-else fail("50 questions in data", String(FAQ_ITEMS.length));
+if (FAQ_ITEMS.length >= 180) pass(`${FAQ_ITEMS.length} questions in data`);
+else fail("at least 180 questions in data", String(FAQ_ITEMS.length));
 
 const h1Count = (html.match(/<h1\b/gi) || []).length;
 if (h1Count === 1) pass("H1 count = 1");
@@ -105,8 +105,8 @@ else {
   }
   if (ld) {
     const entities = ld.mainEntity || [];
-    if (entities.length === 50) pass("JSON-LD 50 entities");
-    else fail("JSON-LD 50 entities", String(entities.length));
+    if (entities.length === FAQ_ITEMS.length) pass(`JSON-LD ${entities.length} entities`);
+    else fail("JSON-LD entities match FAQ_ITEMS", String(entities.length));
 
     for (const item of FAQ_ITEMS) {
       const ent = entities.find((e) => e.name === item.question);
