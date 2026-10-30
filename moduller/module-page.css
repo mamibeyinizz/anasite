@@ -2848,7 +2848,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   white-space: nowrap;
 }
 .qrmo-mod--hub .qrmo-hubviz-chart,
-.qrmo-mod--hub .qrmo-hubviz-spark { display: block; width: 100%; height: auto; }
+.qrmo-mod--hub .qrmo-hubviz-spark { display: block; width: 100%; height: auto; overflow: visible; }
 .qrmo-mod--hub .qrmo-hubviz-area { fill: url(#qrmo-hv-fill); }
 .qrmo-mod--hub .qrmo-hubviz-grid { fill: none; stroke: rgba(13, 43, 34, .07); stroke-width: 1; stroke-dasharray: 1 5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .qrmo-mod--hub .qrmo-hubviz-dot { fill: var(--qm-gold); stroke: #fff; stroke-width: 2; }
@@ -2982,8 +2982,22 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-ringwrap { align-self: center; }
 .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li { width: 100%; white-space: nowrap; }
 .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li span:nth-of-type(2) { overflow: hidden; text-overflow: ellipsis; }
-/* 900px: hero iki kolon, sağ iz ~300px → alt kart ~130px. Yatay lejant taşar. */
+@media (max-width: 375px) {
+  .qrmo-mod--hub .qrmo-hubviz {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "line" "masa" "perf";
+  }
+}
+@media (max-width: 420px) {
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li { font-size: 11px; }
+  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li b { padding-left: 4px; }
+}
+/* 900px: hero iki kolon, sağ iz ~300px → alt kartlar tek sütuna iner. */
 @media (min-width: 900px) and (max-width: 1023px) {
+  .qrmo-mod--hub .qrmo-hubviz {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "line" "masa" "perf";
+  }
   .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-perf {
     flex-direction: column;
     align-items: flex-start;
