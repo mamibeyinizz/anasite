@@ -66,7 +66,7 @@ html .qrmo-hm-m {
   /* Subtitle: supporting, lighter, narrower. */
   html .qrmo-hero-v3-subtitle {
     max-width: 19em;
-    margin: 0 auto clamp(26px, 5svh, 40px);
+    margin: 0 auto clamp(18px, 3svh, 26px);
     font-size: 16.5px;
     font-weight: 400;
     line-height: 1.5;
@@ -75,7 +75,7 @@ html .qrmo-hm-m {
   }
 
   html .qrmo-hero-v3-features {
-    margin-bottom: clamp(28px, 5svh, 40px);
+    margin-bottom: clamp(18px, 3svh, 26px);
     border-top: 1px solid rgba(201, 168, 76, .32);
   }
 
@@ -120,25 +120,48 @@ html .qrmo-hm-m {
   }
 
   /* Mobile order: Asistan, Dil, Garson. Dividers follow the visual order. */
-  html .qrmo-hero-v3-feature-row:nth-child(3) {
-    order: -1;
-  }
+  html .qrmo-hero-v3-feature-row:nth-child(1) { order: 1; }
+  html .qrmo-hero-v3-feature-row:nth-child(3) { order: 2; }
+  html .qrmo-hero-v3-feature-row:nth-child(2) { order: 3; }
 
-  /* Lead item (Asistan): quiet gold marker + faint wash. */
+  /* Lead hook (Asistan) sits in the middle, marked by a faint emerald wash only. */
   html .qrmo-hero-v3-feature-row:nth-child(3) {
     position: relative;
-    background: linear-gradient(90deg, rgba(201, 168, 76, .12), rgba(201, 168, 76, 0) 72%);
+    z-index: 0;
+    padding-block: clamp(14px, 2.2svh, 20px);
   }
 
+  /* Full-bleed wash: edge to edge, feathered top and bottom. */
   html .qrmo-hero-v3-feature-row:nth-child(3)::before {
     content: "";
     position: absolute;
-    left: -6px;
-    top: 16%;
-    bottom: 16%;
-    width: 2px;
-    border-radius: 2px;
-    background: linear-gradient(180deg, #ecd486, #9a7b2a);
+    z-index: -1;
+    top: -14px;
+    bottom: -14px;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(31, 77, 61, 0) 0%,
+      rgba(31, 77, 61, .075) 30%,
+      rgba(31, 77, 61, .075) 70%,
+      rgba(31, 77, 61, 0) 100%
+    );
+  }
+
+
+  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-content strong {
+    font-size: 17px;
+    line-height: 1.28;
+  }
+
+  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-content small {
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(13, 43, 34, .68);
   }
 
   html .qrmo-hero-v3-feature-row:nth-child(2),
@@ -304,5 +327,32 @@ html .qrmo-hm-m {
     line-height: 1.45;
     color: rgba(13, 43, 34, .6);
     text-wrap: balance;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hairlines around the featured row would cut the feathered edge. */
+  html .qrmo-hero-v3-feature-row:nth-child(1),
+  html .qrmo-hero-v3-feature-row:nth-child(3) {
+    border-bottom-color: transparent;
+  }
+}
+
+/* All three hooks share the featured typography. */
+@media (max-width: 767px) {
+  html .qrmo-hero-v3-feature-row {
+    padding-block: clamp(12px, 1.9svh, 16px);
+  }
+
+  html .qrmo-hero-v3-feature-row .qrmo-hero-v3-feature-content strong {
+    font-size: 17px;
+    line-height: 1.28;
+  }
+
+  html .qrmo-hero-v3-feature-row .qrmo-hero-v3-feature-content small {
+    margin-top: 4px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: rgba(13, 43, 34, .68);
   }
 }
