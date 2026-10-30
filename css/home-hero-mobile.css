@@ -156,98 +156,78 @@ html .qrmo-hm-m {
 
 /* =========================================================
    Hero feature icons — mobile only (≤767px)
-   Frame: emerald tile, gold gradient edge, breathing glow.
-   Motion: transform/opacity only, one accent per icon, staggered.
+   Glass disc, hairline cream ring, thin-line glyphs (1.4px),
+   no drop shadow. One orbiting dot, one accent per icon.
+   transform/opacity/stroke-dashoffset only.
 ========================================================= */
 
 @media (max-width: 767px) {
   html .qrmo-hero-v3-feature-icon {
     position: relative;
     isolation: isolate;
-    width: 52px;
-    height: 52px;
-    border-radius: 15px;
-    border: 1px solid transparent;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 241, 232, .22);
+    color: #f4f1e8;
     background:
-      radial-gradient(120% 120% at 30% 15%, #14392d 0%, #0d2b22 60%) padding-box,
-      linear-gradient(135deg, #ecd486 0%, #9a7b2a 48%, #e3c872 100%) border-box;
+      radial-gradient(85% 85% at 30% 18%, #1f4d3d 0%, #11342a 48%, #0b241c 100%);
     box-shadow:
-      0 3px 8px -4px rgba(13, 43, 34, .28),
-      inset 0 1px 0 rgba(236, 212, 134, .22);
+      inset 0 1px 0 rgba(244, 241, 232, .16),
+      inset 0 -8px 14px -8px rgba(0, 0, 0, .35),
+      0 0 0 5px rgba(13, 43, 34, .05);
+    overflow: visible;
+    transform: none;
+  }
+
+  html .qrmo-hero-v3-feature-icon svg.qrmo-ico {
+    display: block;
+    width: 26px;
+    height: 26px;
     overflow: visible;
   }
 
-  html .qrmo-hero-v3-feature-icon svg {
-    width: 24px;
-    height: 24px;
-    transform-origin: 50% 50%;
-  }
-
+  /* Orbiting dot on the outer edge. */
   html .qrmo-hero-v3-feature-icon::before {
     content: "";
     position: absolute;
-    inset: -8px;
-    z-index: -1;
+    inset: -6px;
+    z-index: 1;
     border-radius: 50%;
-    background: radial-gradient(closest-side, rgba(201, 168, 76, .30), rgba(201, 168, 76, 0));
-    opacity: .55;
+    background: radial-gradient(circle at 50% 0, rgba(201, 168, 76, 1) 0 2.4px, rgba(201, 168, 76, 0) 3.2px);
+    opacity: .9;
     pointer-events: none;
   }
 
   html .qrmo-hero-v3-feature-icon::after {
-    content: "";
-    position: absolute;
-    pointer-events: none;
+    content: none;
   }
 
-  /* 1 · Asistan — star turns and twinkles, a small star blinks beside it */
-  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-icon::after {
-    top: -4px;
-    right: -4px;
-    width: 11px;
-    height: 11px;
-    background: #ecd486;
-    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
-    opacity: 0;
+  html .qrmo-ico .d {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
   }
 
-  /* 2 · Dil — A / 文 crossfade */
-  html .qrmo-hero-glyph {
-    position: relative;
-    display: block;
-    width: 28px;
-    height: 28px;
-    color: #ecd486;
-    font: 700 22px/28px "Source Sans 3", "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
-    text-align: center;
+  html .qrmo-ico .g-mer,
+  html .qrmo-ico .b-sw,
+  html .qrmo-ico .s-sm {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
   }
 
-  html .qrmo-hero-glyph b {
-    position: absolute;
-    inset: 0;
-    font-weight: 700;
+  html .qrmo-ico .b-sw {
+    transform-box: view-box;
+    transform-origin: 14px 3px;
   }
 
-  html .qrmo-hero-glyph b:nth-child(2) {
-    opacity: 0;
-    font-size: 20px;
-  }
-
-  /* 3 · Garson — bell swings, a notification dot pulses */
-  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::after {
-    top: 8px;
-    right: 9px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #ecd486;
-    box-shadow: 0 0 0 2px #0d2b22;
+  html .qrmo-ico .b-w1,
+  html .qrmo-ico .b-w2 {
     opacity: 0;
   }
 }
 
 @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
-  /* Entrance: starts after the splash is gone. */
+  /* Entrance (after splash): row fades in, glyph draws itself. */
   html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row {
     animation: qrmo-hero-row-in .7s cubic-bezier(.22, .84, .28, 1) both;
   }
@@ -256,41 +236,31 @@ html .qrmo-hm-m {
   html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(1) { animation-delay: .3s; }
   html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(2) { animation-delay: .45s; }
 
+  html:not(.qrmo-splash-on) .qrmo-ico .d {
+    animation: qrmo-hero-draw 1.3s cubic-bezier(.45, .05, .25, 1) both;
+  }
+
+  html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-ico .d { animation-delay: .35s; }
+  html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(1) .qrmo-ico .d { animation-delay: .5s; }
+  html:not(.qrmo-splash-on) .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-ico .d { animation-delay: .65s; }
+
   html .qrmo-hero-v3-feature-icon::before {
-    animation: qrmo-hero-glow 4.2s ease-in-out infinite;
+    animation: qrmo-hero-orbit 9s linear infinite;
   }
 
-  html .qrmo-hero-v3-feature-row:nth-child(1) .qrmo-hero-v3-feature-icon::before { animation-delay: 1.4s; }
-  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::before { animation-delay: 2.8s; }
+  html .qrmo-hero-v3-feature-row:nth-child(1) .qrmo-hero-v3-feature-icon::before { animation-delay: -3s; animation-duration: 11s; }
+  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::before { animation-delay: -6s; animation-duration: 10s; }
 
-  /* Asistan */
-  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-icon svg {
-    animation: qrmo-hero-star 6s ease-in-out infinite;
-  }
+  /* Asistan — small spark breathes */
+  html .qrmo-ico .s-sm { animation: qrmo-hero-spark 4.8s ease-in-out 2s infinite; }
 
-  html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-icon::after {
-    animation: qrmo-hero-twinkle 6s ease-in-out infinite;
-  }
+  /* Dil — meridian turns like a globe */
+  html .qrmo-ico .g-mer { animation: qrmo-hero-globe 6s ease-in-out 2s infinite; }
 
-  /* Dil */
-  html .qrmo-hero-glyph b:nth-child(1) { animation: qrmo-hero-glyph-a 5s ease-in-out 1.2s infinite; }
-  html .qrmo-hero-glyph b:nth-child(2) { animation: qrmo-hero-glyph-b 5s ease-in-out 1.2s infinite; }
-
-  /* Garson */
-  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon svg {
-    transform-origin: 50% 12%;
-    animation: qrmo-hero-bell 6s ease-in-out 2s infinite;
-  }
-
-  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::after {
-    animation: qrmo-hero-dot 6s ease-in-out 2s infinite;
-  }
-}
-
-@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
-  html .qrmo-hero-v3-feature-row:nth-child(2) .qrmo-hero-v3-feature-icon::after {
-    opacity: 1;
-  }
+  /* Garson — bell rings, waves answer */
+  html .qrmo-ico .b-sw { animation: qrmo-hero-bell 6s ease-in-out 2.4s infinite; }
+  html .qrmo-ico .b-w1 { animation: qrmo-hero-wave 6s ease-out 2.4s infinite; }
+  html .qrmo-ico .b-w2 { animation: qrmo-hero-wave 6s ease-out 2.55s infinite; }
 }
 
 @keyframes qrmo-hero-row-in {
@@ -298,45 +268,37 @@ html .qrmo-hm-m {
   to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-@keyframes qrmo-hero-glow {
-  0%, 100% { opacity: .4; transform: scale(.94); }
-  50% { opacity: .85; transform: scale(1.06); }
+@keyframes qrmo-hero-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
 }
 
-@keyframes qrmo-hero-star {
-  0%, 62%, 100% { transform: rotate(0) scale(1); }
-  74% { transform: rotate(90deg) scale(1.14); }
-  86% { transform: rotate(90deg) scale(1); }
+@keyframes qrmo-hero-orbit {
+  to { transform: rotate(360deg); }
 }
 
-@keyframes qrmo-hero-twinkle {
-  0%, 66%, 100% { opacity: 0; transform: scale(.3) rotate(0); }
-  76% { opacity: 1; transform: scale(1) rotate(45deg); }
-  90% { opacity: 0; transform: scale(.4) rotate(90deg); }
+@keyframes qrmo-hero-spark {
+  0%, 55%, 100% { opacity: 1; transform: scale(1) rotate(0); }
+  70% { opacity: .35; transform: scale(.55) rotate(45deg); }
+  85% { opacity: 1; transform: scale(1.12) rotate(90deg); }
 }
 
-@keyframes qrmo-hero-glyph-a {
-  0%, 38%, 100% { opacity: 1; transform: scale(1); }
-  46%, 90% { opacity: 0; transform: scale(.8); }
-}
-
-@keyframes qrmo-hero-glyph-b {
-  0%, 38%, 100% { opacity: 0; transform: scale(.8); }
-  46%, 90% { opacity: 1; transform: scale(1); }
+@keyframes qrmo-hero-globe {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(.12); }
 }
 
 @keyframes qrmo-hero-bell {
-  0%, 60%, 100% { transform: rotate(0); }
-  64% { transform: rotate(16deg); }
-  68% { transform: rotate(-13deg); }
-  72% { transform: rotate(9deg); }
-  76% { transform: rotate(-5deg); }
-  80% { transform: rotate(0); }
+  0%, 58%, 100% { transform: rotate(0); }
+  62% { transform: rotate(14deg); }
+  66% { transform: rotate(-11deg); }
+  70% { transform: rotate(7deg); }
+  74% { transform: rotate(-3deg); }
+  78% { transform: rotate(0); }
 }
 
-@keyframes qrmo-hero-dot {
-  0%, 62% { opacity: 0; transform: scale(0); }
-  68% { opacity: 1; transform: scale(1.35); }
-  76%, 94% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(.6); }
+@keyframes qrmo-hero-wave {
+  0%, 58% { opacity: 0; }
+  64% { opacity: .95; }
+  82%, 100% { opacity: 0; }
 }
