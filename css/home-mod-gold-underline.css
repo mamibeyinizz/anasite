@@ -7,9 +7,10 @@ html .qrmo-gold-underline,
 html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
   display: inline;
   position: relative;
-  padding: 0 .14em;
-  margin: 0 -.04em;
-  border-radius: .18em;
+  /* Yatay padding yok: alt satıra kayan kısım paragrafla aynı hizada başlar */
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
   color: #123A2C;
   -webkit-text-fill-color: currentColor;
   font-weight: 650;
@@ -30,8 +31,8 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
     ) 0 86% / 100% .46em no-repeat;
   -webkit-background-clip: border-box;
   background-clip: border-box;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  box-decoration-break: slice;
+  -webkit-box-decoration-break: slice;
   animation: none;
 }
 
