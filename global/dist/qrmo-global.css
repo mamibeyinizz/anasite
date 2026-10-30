@@ -316,18 +316,27 @@ html:not(.qrmo-gh-js) .qrmo-gh {
   justify-content: center;
   flex: 0 0 auto;
   min-height: 44px;
-  padding: 0 26px;
-  gap: 10px;
-  border: 1px solid #c9a84c;
-  border-radius: 999px;
-  color: #c9a84c !important;
-  background: linear-gradient(135deg, rgba(201, 168, 76, 0.16), rgba(201, 168, 76, 0.03));
+  padding: 0 18px 0 22px;
+  gap: 14px;
+  border: 1px solid rgba(244, 241, 232, 0.5);
+  border-radius: 12px;
+  color: #f4f1e8 !important;
+  background: linear-gradient(135deg, rgba(244, 241, 232, 0.14), rgba(244, 241, 232, 0.03));
+  box-shadow: inset 0 1px 0 rgba(244, 241, 232, 0.14);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.7px;
   text-transform: uppercase;
   white-space: nowrap;
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+/* Label left, icon right. */
+.qrmo-gh-cta > .qrmo-gh-qr-icon {
+  order: 2;
+  transition: transform 0.3s ease;
+}
+.qrmo-gh-cta > span:not(.qrmo-gh-qr-icon) {
+  order: 1;
 }
 .qrmo-gh-qr-icon {
   display: inline-flex;
@@ -365,7 +374,11 @@ html:not(.qrmo-gh-js) .qrmo-gh {
 @media (hover: hover) and (pointer: fine) {
   .qrmo-gh-cta:hover {
     color: #15382d !important;
-    background: #c9a84c;
+    border-color: #f4f1e8;
+    background: #f4f1e8;
+  }
+  .qrmo-gh-cta:hover > .qrmo-gh-qr-icon {
+    transform: translateX(2px);
   }
 }
 .qrmo-gh-cta:focus-visible {
@@ -753,9 +766,16 @@ html:not(.qrmo-gh-js) .qrmo-gh-burger {
 .qrmo-gh-cta--drawer {
   width: 100%;
   min-height: 54px;
+  justify-content: space-between;
+  padding: 0 20px 0 24px;
+  border-radius: 14px;
   font-size: 13px;
   color: #15382d !important;
-  background: #c9a84c;
+  border-color: #f4f1e8;
+  background: #f4f1e8;
+}
+.qrmo-gh-cta--drawer > span[aria-hidden="true"] {
+  display: none;
 }
 .qrmo-gh-drawer-note {
   margin: 12px 0 0;
