@@ -1808,3 +1808,7 @@ body.qrmo-pricing-page {
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
+
+/* Hero: tipografi ağırlığı (premium denge) */
+.qrmo-pricing-hero .qrmo-pricing-title { font-weight: 600; letter-spacing: -.03em; }
+.qrmo-pricing-hero .qrmo-pricing-eyebrow { font-weight: 700; }
