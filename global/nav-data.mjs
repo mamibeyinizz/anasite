@@ -67,6 +67,7 @@ export const NAV = [
     conversionSlot: "secondary",
     drawerSubtitle: "Demo menüyü telefonunuzda deneyin"
   },
+  { key: "sss", label: "Sıkça Sorulan Sorular", path: "sss/", drawerSubtitle: "Karar vermeden önce sorulanlar" },
   {
     key: "iletisim",
     label: CONVERSION.contact.label,
