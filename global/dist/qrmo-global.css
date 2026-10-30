@@ -743,8 +743,14 @@ html:not(.qrmo-gh-js) .qrmo-gh-burger {
   font-weight: 900;
 }
 
+/* Birincil CTA kaydırmadan bağımsız her zaman görünür (mobilde header'da CTA yok). */
 .qrmo-gh-drawer-bottom {
-  padding: 23px 25px 28px;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 18px 25px calc(18px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(180deg, rgba(4, 22, 17, 0) 0, #041611 14px);
+  border-top: 1px solid rgba(212, 180, 91, 0.17);
 }
 .qrmo-gh-cta--drawer {
   width: 100%;
@@ -835,7 +841,8 @@ html:not(.qrmo-gh-js) .qrmo-gh-in > .qrmo-gh-cta {
     width: 136px;
   }
   .qrmo-gh-burger {
-    min-height: 42px;
+    min-height: 44px;
+    min-width: 44px;
     padding: 0 11px;
   }
   .qrmo-gh-burger-label {
@@ -1227,7 +1234,7 @@ button.qrmo-gf-cta-btn {
 
 .qrmo-gf-nav {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px;
   padding: 52px 0 48px;
 }
@@ -1398,13 +1405,6 @@ button.qrmo-gf-cta-btn {
   line-height: 1.4;
   text-align: right;
   text-transform: uppercase;
-}
-
-@media (max-width: 1240px) {
-  .qrmo-gf-nav {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 40px;
-  }
 }
 
 @media (max-width: 820px) {

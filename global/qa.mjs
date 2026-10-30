@@ -34,6 +34,10 @@ const PAGES = [
   { url: "/", file: "index.html" },
   { url: "/paketler/", file: "paketler/index.html" },
   { url: "/iletisim/", file: "iletisim/index.html" },
+  { url: "/canli-menu/", file: "canli-menu/index.html" },
+  { url: "/gizlilik/", file: "gizlilik/index.html" },
+  { url: "/cerez-politikasi/", file: "cerez-politikasi/index.html" },
+  { url: "/kullanim-sartlari/", file: "kullanim-sartlari/index.html" },
   { url: "/sss/", file: "sss/index.html" },
   { url: "/sss.html", file: "sss.html" },
   { url: "/moduller/", file: "moduller/index.html" },
@@ -66,8 +70,8 @@ for (const pg of PAGES) {
   const rel = "../".repeat(depth);
   for (const m of seg.matchAll(/href="([^"]*)"/g)) {
     const h = m[1];
-    if (h.startsWith("#")) continue;
-    let t = h === "./" ? "index.html" : h;
+    if (h.startsWith("#") || /^(tel|mailto):/.test(h)) continue;
+    let t = h === "./" ? "index.html" : h.split("#")[0]; /* #parça hedefi dosya değildir */
     if (rel && t.startsWith(rel)) t = t.slice(rel.length); else if (rel) { check(false, `${pg.file} bağlantı göreli kök`, h); continue; }
     if (t === "") t = "index.html";
     if (t.endsWith("/")) t += "index.html";
@@ -183,7 +187,7 @@ else {
           order.some((x) => x.includes("Çözümler")) &&
           order.some((x) => x.includes("Paketler")) &&
           order.some((x) => x.includes("Canlı Menü")) &&
-          order.some((x) => x.includes("Bize Ulaşın")),
+          order.some((x) => x.includes("S.S.S.")),
         "klavye Tab sırası (V3 nav)",
         order.join(" > ")
       );
@@ -275,7 +279,7 @@ else {
       await page.click(".qrmo-gf-col:nth-child(2) > summary");
       check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) >= 2, "375: footer akordeon tıkla açılır");
       await page.setViewportSize({ width: 700, height: 800 }); await page.waitForTimeout(100);
-      check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) === 6, "700: footer kolonları hep açık");
+      check((await page.$$eval(".qrmo-gf-col", (c) => c.filter((d) => d.open).length)) === 4, "700: footer kolonları hep açık");
       await ctx.close();
     }
 
