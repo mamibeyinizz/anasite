@@ -126,9 +126,31 @@ html .qrmo-hm-m {
 
   /* Lead hook (Asistan) sits in the middle, marked by a faint emerald wash only. */
   html .qrmo-hero-v3-feature-row:nth-child(3) {
-    padding-block: clamp(18px, 3svh, 24px);
-    background: linear-gradient(90deg, rgba(31, 77, 61, .09), rgba(31, 77, 61, 0) 80%);
+    position: relative;
+    z-index: 0;
+    padding-block: clamp(20px, 3.4svh, 28px);
   }
+
+  /* Full-bleed wash: edge to edge, feathered top and bottom. */
+  html .qrmo-hero-v3-feature-row:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -14px;
+    bottom: -14px;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(31, 77, 61, 0) 0%,
+      rgba(31, 77, 61, .075) 30%,
+      rgba(31, 77, 61, .075) 70%,
+      rgba(31, 77, 61, 0) 100%
+    );
+  }
+
 
   html .qrmo-hero-v3-feature-row:nth-child(3) .qrmo-hero-v3-feature-content strong {
     font-size: 17px;
@@ -305,5 +327,13 @@ html .qrmo-hm-m {
     line-height: 1.45;
     color: rgba(13, 43, 34, .6);
     text-wrap: balance;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Hairlines around the featured row would cut the feathered edge. */
+  html .qrmo-hero-v3-feature-row:nth-child(1),
+  html .qrmo-hero-v3-feature-row:nth-child(3) {
+    border-bottom-color: transparent;
   }
 }
