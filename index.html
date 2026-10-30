@@ -21697,6 +21697,26 @@
 </script>
 
 
+<!-- QRMO:REVIEWS:START — doğrulanmış yorum yoksa gizli kalır (js/home-reviews.js) -->
+<section id="qrmo-reviews-v1" class="qrmo-home-anchor" aria-labelledby="qrmo-reviews-v1-title" hidden>
+  <div class="qrmo-rv__head">
+    <div>
+      <p class="qrmo-rv__eyebrow">QR Menu Official • İşletmeciler</p>
+      <h2 id="qrmo-reviews-v1-title" class="qrmo-rv__title">Kullanan işletmeler ne diyor?</h2>
+      <p class="qrmo-rv__lead">Garson, menü ve servis tarafında günlük işleyişin nasıl değiştiğini onlardan dinleyin.</p>
+    </div>
+    <div class="qrmo-rv__ctrl">
+      <span class="qrmo-rv__count" data-rv-count aria-live="polite"></span>
+      <span class="qrmo-rv__btns">
+        <button type="button" class="qrmo-rv__btn" data-rv-prev aria-label="Önceki yorum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button type="button" class="qrmo-rv__btn" data-rv-next aria-label="Sonraki yorum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </span>
+    </div>
+  </div>
+  <div class="qrmo-rv__track" data-rv-track role="list" tabindex="0" aria-label="Müşteri yorumları"></div>
+</section>
+<!-- QRMO:REVIEWS:END -->
+
 <section class="qrmo-transition-v1" aria-labelledby="qrmo-transition-v1-title" data-qrmo-transition>
 
   <div class="qrmo-transition-v1__inner">
@@ -24842,6 +24862,7 @@
 <link rel="stylesheet" href="css/home-mod-demo-caps.css">
 <link rel="stylesheet" href="css/home-hero-mobile.css">
 <link rel="stylesheet" href="css/home-hero-phone-v2.css">
+<link rel="stylesheet" href="css/home-reviews.css">
 <link rel="stylesheet" href="css/home-mod-s6-icons.css">
 <style>
 /* S7 — personel kartı telefonun kalan yüksekliğini yutmasın.
@@ -25316,5 +25337,6 @@ html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__a
 }
 </style>
 <link rel="stylesheet" href="css/home-mod-gold-underline.css">
+<script defer src="js/home-reviews.js"></script>
 </body>
 </html>
