@@ -1,0 +1,30 @@
+/* Hero phone mockup v2 (SVG). Callouts are part of the desktop/tablet
+   artwork (aspect 1200:920), so it needs a wider box than the old
+   1312:1199 bitmap to keep the phone at the same size.
+   ≤767px swaps to the phone-only artwork via <picture>. */
+
+html .qrmo-hero-v3-image {
+  max-width: 640px;
+  aspect-ratio: 920 / 985;
+}
+
+@media (min-width: 901px) and (max-width: 1279px) {
+  html .qrmo-hero-v3-image {
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  html .qrmo-hero-v3-mobile-showcase .qrmo-hero-v3-image {
+    max-width: 600px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  html .qrmo-hero-v3-mobile-showcase .qrmo-hero-v3-image {
+    width: min(350px, 88vw);
+    max-width: none;
+    aspect-ratio: 530 / 960;
+  }
+}
