@@ -192,20 +192,19 @@
 
 <main class="qrmo-faq" id="qrmo-faq-main">
   <header class="qrmo-faq-hero">
-    <div class="qrmo-faq-inner">
-      <p class="qrmo-faq-eyebrow"><span aria-hidden="true"></span>QR MENU OFFICIAL • S.S.S.</p>
-      <h1 class="qrmo-faq-title">Sorunuzun cevabı<br>burada.</h1>
-      <p class="qrmo-faq-lead">Menü, masa, sipariş, dil, asistan ve paketler hakkında kısa, net cevaplar.</p>
+    <div class="qrmo-faq-hero__inner">
+      <span class="qrmo-faq-hero__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="6" height="6" rx="1.2"/><rect x="14.5" y="3.5" width="6" height="6" rx="1.2"/><rect x="3.5" y="14.5" width="6" height="6" rx="1.2"/><path d="M14.5 14.5h2.5v2.5h-2.5zM20.5 14.5v2.5M14.5 20.5h2.5M20 20.5h.5"/></svg></span>
+      <h1 class="qrmo-faq-title">Sıkça sorulan sorular</h1>
+      <p class="qrmo-faq-lead">QR Menu Official hakkında en çok sorulan soruların kısa cevapları. Aradığınızı bulamazsanız ekibimiz yardımcı olur.</p>
 
       <div class="qrmo-faq-search-wrap">
         <label class="qrmo-faq-sr" for="qrmo-faq-search">SSS ara</label>
         <div class="qrmo-faq-search-box">
           <svg class="qrmo-faq-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-          <input type="search" id="qrmo-faq-search" class="qrmo-faq-search" name="q" autocomplete="off" spellcheck="false" placeholder="Soru ya da konu yazın…" aria-controls="qrmo-faq-results-status" data-qrmo-faq-search>
+          <input type="search" id="qrmo-faq-search" class="qrmo-faq-search" name="q" autocomplete="off" spellcheck="false" placeholder="Soru ya da konu arayın…" aria-controls="qrmo-faq-results-status" data-qrmo-faq-search>
           <kbd class="qrmo-faq-kbd" aria-hidden="true">/</kbd>
         </div>
         <div class="qrmo-faq-suggest" aria-label="Sık aranan konular">
-          <span>Sık aranan:</span>
           <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Fiyat">Fiyat</button>
           <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Kurulum">Kurulum</button>
           <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Alerjen">Alerjen</button>
@@ -218,77 +217,71 @@
     </div>
   </header>
 
-  <div class="qrmo-faq-chips-wrap qrmo-faq-inner" aria-label="Kategori seçimi">
-    <div class="qrmo-faq-chips" data-qrmo-faq-chips>
-      
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="qr-nedir" aria-controls="qrmo-faq-panel-qr-nedir" aria-current="true">QR Menü Nedir?</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="menu-urun" aria-controls="qrmo-faq-panel-menu-urun">Menü &amp; Ürün Yönetimi</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="qr-masa" aria-controls="qrmo-faq-panel-qr-masa">QR Kod &amp; Masa Yönetimi</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="siparis-servis" aria-controls="qrmo-faq-panel-siparis-servis">Sipariş &amp; Servis</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="dil-alerjen" aria-controls="qrmo-faq-panel-dil-alerjen">Dil, Alerjen &amp; Filtreler</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="menu-asistani" aria-controls="qrmo-faq-panel-menu-asistani">Menü Asistanı &amp; AI</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="analytics-muhendislik" aria-controls="qrmo-faq-panel-analytics-muhendislik">QR Analytics &amp; Menü Mühendisliği</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="guvenlik-teknik" aria-controls="qrmo-faq-panel-guvenlik-teknik">Güvenlik &amp; Teknik</button>
-        <button type="button" class="qrmo-faq-chip" data-qrmo-faq-cat="paketler-fiyat" aria-controls="qrmo-faq-panel-paketler-fiyat">Paketler &amp; Fiyatlar</button>
-    </div>
-  </div>
-
   <div class="qrmo-faq-layout qrmo-faq-inner">
     <nav class="qrmo-faq-nav" aria-label="SSS kategorileri">
       <ul class="qrmo-faq-nav__list" data-qrmo-faq-nav>
         
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="qr-nedir" aria-controls="qrmo-faq-panel-qr-nedir" id="qrmo-faq-nav-qr-nedir" aria-current="true">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="6" height="6" rx="1.2"/><rect x="14.5" y="3.5" width="6" height="6" rx="1.2"/><rect x="3.5" y="14.5" width="6" height="6" rx="1.2"/><path d="M14.5 14.5h2.5v2.5h-2.5zM20.5 14.5v2.5M14.5 20.5h2.5M20 20.5h.5"/></svg></span>
             <span class="qrmo-faq-nav__label">QR Menü Nedir?</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">6</span>
+            <span class="qrmo-faq-nav__count">6 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="menu-urun" aria-controls="qrmo-faq-panel-menu-urun" id="qrmo-faq-nav-menu-urun">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h11a3 3 0 0 1 3 3V20H8a3 3 0 0 1-3-3V4.5Z"/><path d="M9 9h6M9 12.5h6"/></svg></span>
             <span class="qrmo-faq-nav__label">Menü &amp; Ürün Yönetimi</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">7</span>
+            <span class="qrmo-faq-nav__count">7 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="qr-masa" aria-controls="qrmo-faq-panel-qr-masa" id="qrmo-faq-nav-qr-masa">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h16M6 9.5V19M18 9.5V19M3.5 9.5l1.5-4h14l1.5 4"/></svg></span>
             <span class="qrmo-faq-nav__label">QR Kod &amp; Masa Yönetimi</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">6</span>
+            <span class="qrmo-faq-nav__count">6 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="siparis-servis" aria-controls="qrmo-faq-panel-siparis-servis" id="qrmo-faq-nav-siparis-servis">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.9 17.1a23.8 23.8 0 0 0 5.4-1.3A9 9 0 0 1 18 9.8V9A6 6 0 0 0 6 9v.8a9 9 0 0 1-2.3 6c1.7.7 3.6 1.1 5.5 1.3m5.7 0a24 24 0 0 1-5.7 0m5.7 0a3 3 0 1 1-5.7 0"/></svg></span>
             <span class="qrmo-faq-nav__label">Sipariş &amp; Servis</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">6</span>
+            <span class="qrmo-faq-nav__count">6 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="dil-alerjen" aria-controls="qrmo-faq-panel-dil-alerjen" id="qrmo-faq-nav-dil-alerjen">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><ellipse cx="12" cy="12" rx="3.6" ry="8.5"/><path d="M3.5 12h17M5 7.6h14M5 16.4h14"/></svg></span>
             <span class="qrmo-faq-nav__label">Dil, Alerjen &amp; Filtreler</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">6</span>
+            <span class="qrmo-faq-nav__count">6 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="menu-asistani" aria-controls="qrmo-faq-panel-menu-asistani" id="qrmo-faq-nav-menu-asistani">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.8 15.9 9 18.75l-.8-2.85a4.5 4.5 0 0 0-3.1-3.1L2.25 12l2.85-.8a4.5 4.5 0 0 0 3.1-3.1L9 5.25l.8 2.85a4.5 4.5 0 0 0 3.1 3.1l2.85.8-2.85.8a4.5 4.5 0 0 0-3.1 3.1Z"/><path d="M18.3 8.7 18 9.75l-.3-1.05a3.4 3.4 0 0 0-2.4-2.45L14.25 6l1.05-.3a3.4 3.4 0 0 0 2.4-2.45L18 2.25l.3 1.05a3.4 3.4 0 0 0 2.45 2.4L21.75 6l-1.05.3a3.4 3.4 0 0 0-2.4 2.4Z"/></svg></span>
             <span class="qrmo-faq-nav__label">Menü Asistanı &amp; AI</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">5</span>
+            <span class="qrmo-faq-nav__count">5 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="analytics-muhendislik" aria-controls="qrmo-faq-panel-analytics-muhendislik" id="qrmo-faq-nav-analytics-muhendislik">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg></span>
             <span class="qrmo-faq-nav__label">QR Analytics &amp; Menü Mühendisliği</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">6</span>
+            <span class="qrmo-faq-nav__count">6 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="guvenlik-teknik" aria-controls="qrmo-faq-panel-guvenlik-teknik" id="qrmo-faq-nav-guvenlik-teknik">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 5 6v5.5c0 4.2 2.9 7.4 7 9 4.1-1.6 7-4.8 7-9V6l-7-2.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
             <span class="qrmo-faq-nav__label">Güvenlik &amp; Teknik</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">4</span>
+            <span class="qrmo-faq-nav__count">4 soru</span>
           </button>
         </li>
         <li>
           <button type="button" class="qrmo-faq-nav__btn" data-qrmo-faq-cat="paketler-fiyat" aria-controls="qrmo-faq-panel-paketler-fiyat" id="qrmo-faq-nav-paketler-fiyat">
+            <span class="qrmo-faq-nav__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.2V5a1.5 1.5 0 0 1 1.5-1.5h7.2l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-5.9 5.9a1.5 1.5 0 0 1-2.1 0L3.5 12.2Z"/><circle cx="8" cy="8" r="1.2"/></svg></span>
             <span class="qrmo-faq-nav__label">Paketler &amp; Fiyatlar</span>
-            <span class="qrmo-faq-nav__count" aria-hidden="true">4</span>
+            <span class="qrmo-faq-nav__count">4 soru</span>
           </button>
         </li>
       </ul>
@@ -879,12 +872,11 @@
     </div>
   </div>
 
-  <section class="qrmo-faq-cta qrmo-faq-inner" aria-labelledby="qrmo-faq-cta-title">
+  <section class="qrmo-faq-cta" aria-labelledby="qrmo-faq-cta-title">
     <div class="qrmo-faq-cta__panel">
-      <div>
-        <h2 id="qrmo-faq-cta-title" class="qrmo-faq-cta__title">Cevabı bulamadınız mı?</h2>
-        <p class="qrmo-faq-cta__text">Ekibimiz işletmenize uygun çözümü birlikte netleştirsin.</p>
-      </div>
+      <span class="qrmo-faq-hero__mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16v10H9l-5 4v-14Z"/><path d="M8.5 10h7"/></svg></span>
+      <h2 id="qrmo-faq-cta-title" class="qrmo-faq-cta__title">Cevabı bulamadınız mı?</h2>
+      <p class="qrmo-faq-cta__text">Ekibimiz işletmenize uygun çözümü birlikte netleştirsin.</p>
       <div class="qrmo-faq-cta__actions">
         <a class="qrmo-faq-btn qrmo-faq-btn--solid" href="iletisim/">İletişime Geçin</a>
         <a class="qrmo-faq-btn qrmo-faq-btn--ghost" href="paketler/">Paketleri İnceleyin</a>
