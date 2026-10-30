@@ -192,16 +192,27 @@
 
 <main class="qrmo-faq" id="qrmo-faq-main">
   <header class="qrmo-faq-hero">
-    <div class="qrmo-faq-inner qrmo-faq-hero-grid">
-      <div class="qrmo-faq-hero-copy">
-        <p class="qrmo-faq-eyebrow">QR MENU OFFICIAL • SSS</p>
-        <h1 class="qrmo-faq-title">Sık sorulan sorular</h1>
-        <p class="qrmo-faq-lead">Menü, masa, sipariş, dil, asistan, analytics ve paketler hakkında kısa cevaplar. Kategorilere göz atın veya arama kutusunu kullanın.</p>
-      </div>
+    <div class="qrmo-faq-inner">
+      <p class="qrmo-faq-eyebrow"><span aria-hidden="true"></span>QR MENU OFFICIAL • S.S.S.</p>
+      <h1 class="qrmo-faq-title">Sorunuzun cevabı<br>burada.</h1>
+      <p class="qrmo-faq-lead">Menü, masa, sipariş, dil, asistan ve paketler hakkında kısa, net cevaplar.</p>
+
       <div class="qrmo-faq-search-wrap">
-        <label class="qrmo-faq-search-label" for="qrmo-faq-search">SSS ara</label>
-        <input type="search" id="qrmo-faq-search" class="qrmo-faq-search" name="q" autocomplete="off" spellcheck="false" placeholder="Örn. ödeme, çeviri, QR kod…" aria-controls="qrmo-faq-results-status" data-qrmo-faq-search>
-        <p class="qrmo-faq-search-hint" id="qrmo-faq-search-hint"><kbd>/</kbd> ile aramaya odaklan</p>
+        <label class="qrmo-faq-sr" for="qrmo-faq-search">SSS ara</label>
+        <div class="qrmo-faq-search-box">
+          <svg class="qrmo-faq-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="qrmo-faq-search" class="qrmo-faq-search" name="q" autocomplete="off" spellcheck="false" placeholder="Soru ya da konu yazın…" aria-controls="qrmo-faq-results-status" data-qrmo-faq-search>
+          <kbd class="qrmo-faq-kbd" aria-hidden="true">/</kbd>
+        </div>
+        <div class="qrmo-faq-suggest" aria-label="Sık aranan konular">
+          <span>Sık aranan:</span>
+          <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Fiyat">Fiyat</button>
+          <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Kurulum">Kurulum</button>
+          <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Alerjen">Alerjen</button>
+          <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Çoklu dil">Çoklu dil</button>
+          <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="QR kod">QR kod</button>
+          <button type="button" class="qrmo-faq-suggest__btn" data-qrmo-faq-suggest="Garson çağırma">Garson çağırma</button>
+        </div>
         <p class="qrmo-faq-sr" id="qrmo-faq-results-status" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -285,11 +296,15 @@
     <div class="qrmo-faq-panels" data-qrmo-faq-panels>
       
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-qr-nedir" data-qrmo-faq-panel="qr-nedir" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-qr-nedir">
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-qr-nedir">QR Menü Nedir?</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-qr-nedir">QR Menü Nedir?</h2>
+            <span class="qrmo-faq-panel__count">6 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-qr-menu-nedir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR menü nedir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -299,6 +314,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-sistem-nedir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">QR Menu Official tam olarak ne sunar?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -308,6 +324,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-nasil-calisir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">QR menü nasıl çalışır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -317,6 +334,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-nasil-olusturulur" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">Restoran için QR menü nasıl oluşturulur?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -326,6 +344,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-uygulama-gerekir-mi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">QR menü kullanmak için uygulama gerekir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -335,6 +354,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-telefondan-acilir-mi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">06</span>
               <span class="qrmo-faq-item__q-text">QR menü telefondan açılır mı?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -345,11 +365,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-menu-urun" data-qrmo-faq-panel="menu-urun" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-menu-urun" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-menu-urun">Menü &amp; Ürün Yönetimi</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-menu-urun">Menü &amp; Ürün Yönetimi</h2>
+            <span class="qrmo-faq-panel__count">7 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-urun-nasil-eklenir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR menüde ürün nasıl eklenir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -359,6 +383,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-fiyat-nasil-degistirilir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">QR menüde fiyat nasıl değiştirilir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -368,6 +393,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-csv-aktarim" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">Menüye CSV ile ürün aktarılabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -377,6 +403,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-tukendi-urun" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">Tükenen ürün menüde nasıl gösterilir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -386,6 +413,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-kampanya-yonetimi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">Kampanya ve indirimler nasıl yönetilir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -395,6 +423,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-arama-siralama" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">06</span>
               <span class="qrmo-faq-item__q-text">Menüde arama ve sıralama var mı?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -404,6 +433,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-porsiyon-ekstra" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">07</span>
               <span class="qrmo-faq-item__q-text">Porsiyon ve ekstra seçenekleri nasıl tanımlanır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -414,11 +444,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-qr-masa" data-qrmo-faq-panel="qr-masa" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-qr-masa" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-qr-masa">QR Kod &amp; Masa Yönetimi</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-qr-masa">QR Kod &amp; Masa Yönetimi</h2>
+            <span class="qrmo-faq-panel__count">6 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-qr-kod-olusturma" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">Menü QR kodu nasıl oluşturulur?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -428,6 +462,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-her-masa-ayri-qr" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">Her masa için ayrı QR kod oluşturulabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -437,6 +472,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-masa-ad-degisince" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">Masa adını değiştirince QR kod bozulur mu?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -446,6 +482,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-qr-hangi-adres" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">QR kod hangi adrese yönlendirir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -455,6 +492,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-masa-kapatma" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">Masayı kapatmak oturumu ne yapar?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -464,6 +502,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-masa-sayisi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">06</span>
               <span class="qrmo-faq-item__q-text">Kaç masa tanımlanabilir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -474,11 +513,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-siparis-servis" data-qrmo-faq-panel="siparis-servis" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-siparis-servis" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-siparis-servis">Sipariş &amp; Servis</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-siparis-servis">Sipariş &amp; Servis</h2>
+            <span class="qrmo-faq-panel__count">6 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-siparis-alinir-mi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR menü ile sipariş alınabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -488,6 +531,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-sepet-kapatma" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">Sepet özelliği kapatılabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -497,6 +541,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-garson-cagir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">QR menü ile garson çağrılabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -506,6 +551,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-hesap-iste" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">QR menü ile hesap istenebilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -515,6 +561,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-online-odeme" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">QR menü üzerinden ödeme alınabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -524,6 +571,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-siparis-servis-paneli" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">06</span>
               <span class="qrmo-faq-item__q-text">Sipariş ve çağrılar ekibe nasıl ulaşır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -534,11 +582,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-dil-alerjen" data-qrmo-faq-panel="dil-alerjen" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-dil-alerjen" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-dil-alerjen">Dil, Alerjen &amp; Filtreler</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-dil-alerjen">Dil, Alerjen &amp; Filtreler</h2>
+            <span class="qrmo-faq-panel__count">6 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-coklu-dil" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR menüde birden fazla dil kullanılabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -548,6 +600,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-otomatik-ceviri" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">Menü çevirileri otomatik mi yapılır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -557,6 +610,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-ceviri-csv" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">Çeviri CSV ile yüklenebilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -566,6 +620,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-alerjen-gosterimi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">QR menüde alerjen bilgileri gösterilebilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -575,6 +630,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-vegan-filtre" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">QR menüde vegan ürünler filtrelenebilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -584,6 +640,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-filtre-veri" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">06</span>
               <span class="qrmo-faq-item__q-text">Filtreler hangi verilere dayanır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -594,11 +651,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-menu-asistani" data-qrmo-faq-panel="menu-asistani" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-menu-asistani" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-menu-asistani">Menü Asistanı &amp; AI</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-menu-asistani">Menü Asistanı &amp; AI</h2>
+            <span class="qrmo-faq-panel__count">5 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-menu-asistani-nedir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">Menü Asistanı nedir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -608,6 +669,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-asistan-hangi-sorular" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">Menü Asistanı hangi soruları cevaplayabilir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -617,6 +679,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-asistan-limitleri" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">Menü Asistanı kullanım limitleri nelerdir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -626,6 +689,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-personel-devralma" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">Personel sohbeti devralabilir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -635,6 +699,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-gemini-kullanimi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">Menü Asistanı hangi AI altyapısını kullanır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -645,11 +710,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-analytics-muhendislik" data-qrmo-faq-panel="analytics-muhendislik" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-analytics-muhendislik" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-analytics-muhendislik">QR Analytics &amp; Menü Mühendisliği</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-analytics-muhendislik">QR Analytics &amp; Menü Mühendisliği</h2>
+            <span class="qrmo-faq-panel__count">6 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-analytics-nedir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR Analytics nedir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -659,6 +728,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-hangi-veriler" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">QR menüde hangi veriler takip edilebilir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -668,6 +738,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-pos-verisi-mi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">Analytics verisi POS’tan mı gelir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -677,6 +748,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-menu-muhendisligi-nedir" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">Menü mühendisliği nedir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -686,6 +758,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-maliyet-gerekli-mi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">05</span>
               <span class="qrmo-faq-item__q-text">Menü mühendisliği için maliyet girmek gerekir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -695,6 +768,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-analytics-siparis" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">06</span>
               <span class="qrmo-faq-item__q-text">QR Analytics sipariş sayılarını gösterir mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -705,11 +779,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-guvenlik-teknik" data-qrmo-faq-panel="guvenlik-teknik" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-guvenlik-teknik" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-guvenlik-teknik">Güvenlik &amp; Teknik</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-guvenlik-teknik">Güvenlik &amp; Teknik</h2>
+            <span class="qrmo-faq-panel__count">4 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-guvenli-mi" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR menü güvenli mi?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -719,6 +797,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-oturum-dogrulama" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">Masa oturumu nasıl doğrulanır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -728,6 +807,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-kurulum" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">QR Menu Official nasıl kurulur?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -737,6 +817,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-modul-lisans" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">Hangi modüller lisansa bağlıdır?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -747,11 +828,15 @@
           </div>
         </section>
         <section class="qrmo-faq-panel" id="qrmo-faq-panel-paketler-fiyat" data-qrmo-faq-panel="paketler-fiyat" role="tabpanel" aria-labelledby="qrmo-faq-panel-title-paketler-fiyat" hidden>
-          <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-paketler-fiyat">Paketler &amp; Fiyatlar</h2>
+          <div class="qrmo-faq-panel__head">
+            <h2 class="qrmo-faq-panel__title" id="qrmo-faq-panel-title-paketler-fiyat">Paketler &amp; Fiyatlar</h2>
+            <span class="qrmo-faq-panel__count">4 soru</span>
+          </div>
           <div class="qrmo-faq-list">
             
           <details class="qrmo-faq-item" id="qrmo-faq-q-fiyatlar" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">01</span>
               <span class="qrmo-faq-item__q-text">QR menü fiyatları ne kadar?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -761,6 +846,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-hangi-paket" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">02</span>
               <span class="qrmo-faq-item__q-text">Hangi QR menü paketi bana uygun?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -770,6 +856,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-yillik-indirim" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">03</span>
               <span class="qrmo-faq-item__q-text">Yıllık ödeme indirimi var mı?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -779,6 +866,7 @@
           </details>
           <details class="qrmo-faq-item" id="qrmo-faq-q-paket-farki" data-qrmo-faq-item>
             <summary class="qrmo-faq-item__q">
+              <span class="qrmo-faq-item__no" aria-hidden="true">04</span>
               <span class="qrmo-faq-item__q-text">Paketler arasındaki temel fark nedir?</span>
               <span class="qrmo-faq-item__icon" aria-hidden="true"></span>
             </summary>
@@ -791,9 +879,18 @@
     </div>
   </div>
 
-  <footer class="qrmo-faq-foot qrmo-faq-inner">
-    <p>Cevabını bulamadınız mı? <a href="../paketler/">Paketleri inceleyin</a> veya satış ekibinizle iletişime geçin.</p>
-  </footer>
+  <section class="qrmo-faq-cta qrmo-faq-inner" aria-labelledby="qrmo-faq-cta-title">
+    <div class="qrmo-faq-cta__panel">
+      <div>
+        <h2 id="qrmo-faq-cta-title" class="qrmo-faq-cta__title">Cevabı bulamadınız mı?</h2>
+        <p class="qrmo-faq-cta__text">Ekibimiz işletmenize uygun çözümü birlikte netleştirsin.</p>
+      </div>
+      <div class="qrmo-faq-cta__actions">
+        <a class="qrmo-faq-btn qrmo-faq-btn--solid" href="../iletisim/">İletişime Geçin</a>
+        <a class="qrmo-faq-btn qrmo-faq-btn--ghost" href="../paketler/">Paketleri İnceleyin</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- QRMO:FOOTER:START -->
