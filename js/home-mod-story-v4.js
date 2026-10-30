@@ -502,6 +502,12 @@
     if (aligned >= 0) {
       var room = unreadRoom(aligned, dir);
       if (room > SCENE_SLACK) return { type: "pan", room: room };
+      /* Sahnenin ortasındayken (üstüne hizalı değil) yukarı jest önce o
+         sahnenin başına döner. Aksi hâlde S8 altındaki CTA'dan yukarı
+         kaydırınca S8 atlanıp doğrudan S7'ye gidiliyordu. */
+      if (dir < 0 && pos - scenes[aligned].top > ALIGN) {
+        return { type: "commit", to: aligned };
+      }
       if ((aligned === 0 && dir < 0) || (aligned === last && dir > 0)) {
         return { type: "native", edge: true };
       }
