@@ -1765,29 +1765,100 @@ body.qrmo-pricing-page {
    SSS
 ========================================================= */
 
-.qrmo-pricing-faq { padding: 0 0 clamp(28px, 4vw, 48px); }
-.qrmo-pricing-faq-item { border-bottom: 1px solid var(--qp-line); }
-.qrmo-pricing-faq-item:first-of-type { border-top: 1px solid var(--qp-line); }
+.qrmo-pricing-faq { padding: clamp(8px, 2vw, 24px) 0 clamp(36px, 5vw, 64px); }
+.qrmo-pricing-faq-wrap { display: grid; gap: clamp(24px, 4vw, 40px); }
+.qrmo-pricing-faq-lead { max-width: 40ch; margin-bottom: 0 !important; color: var(--qp-text); font-size: 16px; line-height: 1.55; }
+.qrmo-pricing-faq-help {
+  display: none; margin-top: 28px; padding: 24px; border-radius: 20px;
+  color: #F4F1E8; background: linear-gradient(145deg, #0D2B22, #173226);
+  box-shadow: 0 18px 40px -22px rgba(13, 43, 34, .55);
+}
+.qrmo-pricing-faq-help-t { margin: 0 0 4px !important; font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+.qrmo-pricing-faq-help-d { margin: 0 0 18px !important; color: rgba(244, 241, 232, .74); font-size: 14.5px; line-height: 1.5; }
+.qrmo-pricing-faq-help-btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px;
+  border: 1px solid #C9A84C; border-radius: 999px; color: #C9A84C !important;
+  font-size: 13px; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+  transition: background-color .25s ease, color .25s ease;
+}
+.qrmo-pricing-faq-help-btn:hover { background: #C9A84C; color: #0D2B22 !important; }
+.qrmo-pricing-faq-help-btn:focus-visible { outline: 3px solid #E8C766; outline-offset: 3px; }
+
+.qrmo-pricing-faq-list { display: grid; gap: 12px; align-content: start; }
+.qrmo-pricing-faq-item {
+  border: 1px solid var(--qp-line); border-radius: 20px;
+  background: rgba(255, 255, 255, .72);
+  transition: border-color .3s ease, background-color .3s ease, box-shadow .3s ease;
+}
+@media (hover: hover) { .qrmo-pricing-faq-item:not([open]):hover { border-color: rgba(201, 168, 76, .55); background: #fff; } }
+.qrmo-pricing-faq-item[open] {
+  border-color: rgba(201, 168, 76, .6); background: #fff;
+  box-shadow: 0 16px 36px -24px rgba(13, 43, 34, .35);
+}
 .qrmo-pricing-faq-q {
-  display: flex; align-items: center; gap: 12px;
-  min-height: 52px; padding: 12px 0; cursor: pointer;
-  color: var(--qp-green-dark); list-style: none;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(12px, 2vw, 20px);
+  min-height: 68px; padding: 14px clamp(16px, 2.4vw, 24px); border-radius: 20px;
+  cursor: pointer; list-style: none; color: var(--qp-green-dark);
 }
 .qrmo-pricing-faq-q::-webkit-details-marker { display: none; }
+.qrmo-pricing-faq-q:focus-visible { outline: 3px solid var(--qp-focus); outline-offset: 2px; }
+.qrmo-pricing-faq-n {
+  color: #C9A84C; font-size: 13px; font-weight: 800; letter-spacing: .08em; font-variant-numeric: tabular-nums;
+}
+.qrmo-pricing-faq-qt { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; min-width: 0; }
 .qrmo-pricing-faq-q h3 {
-  flex: 1 1 auto; margin: 0; font-size: clamp(16.5px, 1.8vw, 18px);
-  font-weight: 800; line-height: 1.35; letter-spacing: -.015em;
+  margin: 0; font-size: clamp(16px, 1.6vw, 18px); font-weight: 700; line-height: 1.35; letter-spacing: -.012em;
+  text-wrap: balance;
 }
-.qrmo-pricing-faq-q::after {
-  content: ""; flex: 0 0 auto; width: 10px; height: 10px;
-  border-right: 2px solid var(--qp-green-dark); border-bottom: 2px solid var(--qp-green-dark);
-  transform: rotate(45deg); margin-top: -4px;
+.qrmo-pricing-faq-tag {
+  padding: 3px 10px; border-radius: 999px; background: rgba(201, 168, 76, .14);
+  color: #7a6320; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
 }
-.qrmo-pricing-faq-item[open] .qrmo-pricing-faq-q::after { transform: rotate(225deg); margin-top: 4px; }
-.qrmo-pricing-faq-q:focus-visible { outline: 3px solid var(--qp-focus); outline-offset: 3px; }
-.qrmo-pricing-faq-a { padding: 0 0 16px; max-width: 68ch; color: var(--qp-text); font-size: 16px; line-height: 1.6; }
-.qrmo-pricing-faq-a a { color: var(--qp-green-dark); font-weight: 700; }
-.qrmo-pricing-faq-more { margin-top: 16px !important; }
+.qrmo-pricing-faq-ico {
+  position: relative; flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--qp-line); transition: background-color .3s ease, border-color .3s ease, transform .35s ease;
+}
+.qrmo-pricing-faq-ico::before, .qrmo-pricing-faq-ico::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.8px; margin: -.9px 0 0 -6px;
+  border-radius: 2px; background: var(--qp-green-dark); transition: transform .35s ease, background-color .3s ease;
+}
+.qrmo-pricing-faq-ico::after { transform: rotate(90deg); }
+.qrmo-pricing-faq-item[open] .qrmo-pricing-faq-ico { background: #0D2B22; border-color: #0D2B22; }
+.qrmo-pricing-faq-item[open] .qrmo-pricing-faq-ico::before,
+.qrmo-pricing-faq-item[open] .qrmo-pricing-faq-ico::after { background: #C9A84C; }
+.qrmo-pricing-faq-item[open] .qrmo-pricing-faq-ico::after { transform: rotate(0deg); }
+.qrmo-pricing-faq-a {
+  padding: 0 clamp(16px, 2.4vw, 24px) 22px calc(clamp(16px, 2.4vw, 24px) + 13px + clamp(12px, 2vw, 20px) + 12px);
+  max-width: none; color: var(--qp-text); font-size: 16px; line-height: 1.65;
+}
+.qrmo-pricing-faq-a p { max-width: 64ch; }
+.qrmo-pricing-faq-a a { color: var(--qp-green-dark); font-weight: 700; text-decoration-color: #C9A84C; text-underline-offset: 3px; }
+.qrmo-pricing-faq-more { margin-top: 18px !important; }
+
+@supports (interpolate-size: allow-keywords) {
+  .qrmo-pricing-faq-item { interpolate-size: allow-keywords; }
+  .qrmo-pricing-faq-item::details-content {
+    block-size: 0; overflow: clip;
+    transition: block-size .38s cubic-bezier(.2, .7, .2, 1), content-visibility .38s allow-discrete;
+  }
+  .qrmo-pricing-faq-item[open]::details-content { block-size: auto; }
+}
+
+@media (max-width: 560px) {
+  .qrmo-pricing-faq-q { grid-template-columns: 1fr auto; }
+  .qrmo-pricing-faq-n { display: none; }
+  .qrmo-pricing-faq-a { padding-left: clamp(16px, 2.4vw, 24px); font-size: 15.5px; }
+  .qrmo-pricing-faq-ico { width: 32px; height: 32px; }
+}
+@media (min-width: 1024px) {
+  .qrmo-pricing-faq-wrap { grid-template-columns: minmax(260px, 4fr) minmax(0, 8fr); align-items: start; }
+  .qrmo-pricing-faq-side { position: sticky; top: calc(var(--qrmo-h, 84px) + 24px); }
+  .qrmo-pricing-faq-help { display: block; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-pricing-faq-item, .qrmo-pricing-faq-item::details-content,
+  .qrmo-pricing-faq-ico, .qrmo-pricing-faq-ico::before, .qrmo-pricing-faq-ico::after { transition: none !important; }
+}
 
 /* =========================================================
    REDUCED MOTION
@@ -1807,18 +1878,4 @@ body.qrmo-pricing-page {
 
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
-}
-
-/* ---------- Kompakt hero: paket kartları ilk ekranda görünsün ---------- */
-.qrmo-pricing-hero { padding: clamp(20px, 3.5vh, 36px) 0 clamp(12px, 2vh, 20px); }
-.qrmo-pricing-hero-grid { grid-template-columns: 1fr; gap: 0; }
-.qrmo-pricing-hero .qrmo-pricing-title {
-  max-width: none;
-  margin-bottom: 8px !important;
-  font-size: clamp(28px, 3.2vw, 40px);
-}
-.qrmo-pricing-hero .qrmo-pricing-subtitle { max-width: 64ch; font-size: clamp(15px, 1.2vw, 16.5px); }
-.qrmo-pricing-packages { padding-top: clamp(12px, 2vh, 20px); }
-@media (min-width: 1081px) {
-  .qrmo-pricing-hero-grid { grid-template-columns: 1fr; }
 }

@@ -2777,7 +2777,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
   grid-template-areas: "line line" "masa perf";
   gap: 16px;
-  align-items: start;
+  align-items: stretch;
   justify-self: stretch;
   width: 100%;
   min-width: 0;
@@ -2787,10 +2787,11 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 .qrmo-mod--hub .qrmo-hubviz-card {
   min-width: 0;
   max-width: 100%;
-  background: #fff;
+  background: linear-gradient(180deg, #fff 0%, #fdfbf6 100%);
   border: 1px solid var(--qm-line);
-  box-shadow: 0 16px 32px -26px rgba(13, 43, 34, .55);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 1px 2px rgba(13, 43, 34, .04), 0 22px 40px -28px rgba(13, 43, 34, .5);
 }
+.qrmo-mod--hub .qrmo-hubviz-card--masa { display: flex; flex-direction: column; }
 .qrmo-mod--hub .qrmo-hubviz-card--line {
   grid-area: line;
   position: relative;
@@ -2848,8 +2849,13 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 .qrmo-mod--hub .qrmo-hubviz-chart,
 .qrmo-mod--hub .qrmo-hubviz-spark { display: block; width: 100%; height: auto; }
-.qrmo-mod--hub .qrmo-hubviz-area { fill: rgba(201, 168, 76, .14); }
-.qrmo-mod--hub .qrmo-hubviz-dot { fill: var(--qm-gold); }
+.qrmo-mod--hub .qrmo-hubviz-area { fill: url(#qrmo-hv-fill); }
+.qrmo-mod--hub .qrmo-hubviz-grid { fill: none; stroke: rgba(13, 43, 34, .07); stroke-width: 1; stroke-dasharray: 1 5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.qrmo-mod--hub .qrmo-hubviz-dot { fill: var(--qm-gold); stroke: #fff; stroke-width: 2; }
+.qrmo-mod--hub .qrmo-hubviz-dot-halo { fill: rgba(201, 168, 76, .18); }
+.qrmo-mod--hub .qrmo-hubviz-kpi { display: flex; align-items: baseline; gap: 8px; margin: 0 0 4px; }
+.qrmo-mod--hub .qrmo-hubviz-kpi strong { color: var(--qm-green-dark); font-size: 26px; font-weight: 700; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.qrmo-mod--hub .qrmo-hubviz-kpi span { color: var(--qm-muted); font-size: 12px; font-weight: 600; }
 .qrmo-mod--hub .qrmo-hubviz-stroke {
   fill: none;
   stroke-linecap: round;
@@ -2857,7 +2863,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   stroke-dasharray: 100;
   stroke-dashoffset: 0;
 }
-.qrmo-mod--hub .qrmo-hubviz-stroke--main { stroke: var(--qm-gold); stroke-width: 2.4; }
+.qrmo-mod--hub .qrmo-hubviz-stroke--main { stroke: url(#qrmo-hv-line); stroke-width: 2.6; filter: drop-shadow(0 3px 5px rgba(201, 168, 76, .35)); }
 .qrmo-mod--hub .qrmo-hubviz-stroke--compare { stroke: var(--qm-muted); stroke-width: 1.75; }
 .qrmo-mod--hub .qrmo-hubviz-stroke--masa { stroke: var(--qm-gold-ink); stroke-width: 1.75; }
 .qrmo-mod--hub .qrmo-hubviz-stroke--masa2 { stroke: var(--qm-gold); stroke-width: 1.25; opacity: .85; }
@@ -2901,7 +2907,11 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 .qrmo-mod--hub .qrmo-hubviz-swatch--view { background: var(--qm-green-dark); }
 .qrmo-mod--hub .qrmo-hubviz-swatch--cart { background: var(--qm-gold); }
-.qrmo-mod--hub .qrmo-hubviz-swatch--order { background: var(--qm-gold-light); }
+.qrmo-mod--hub .qrmo-hubviz-swatch--order { background: #8fa89a; }
+.qrmo-mod--hub .qrmo-hubviz-legend--stack li b { margin-left: auto; padding-left: 10px; color: var(--qm-ink); font-weight: 800; font-variant-numeric: tabular-nums; }
+.qrmo-mod--hub .qrmo-hubviz-ringwrap { position: relative; flex: 0 0 auto; display: grid; place-items: center; }
+.qrmo-mod--hub .qrmo-hubviz-ringval { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; }
+.qrmo-mod--hub .qrmo-hubviz-ringval strong { color: var(--qm-green-dark); font-size: 15px; font-weight: 800; letter-spacing: -.02em; }
 .qrmo-mod--hub .qrmo-hubviz-live {
   display: flex;
   flex-wrap: wrap;
@@ -2945,7 +2955,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   border-radius: 50%;
   background: var(--qm-gold-ink);
 }
-.qrmo-mod--hub .qrmo-hubviz-spark { margin-top: 8px; }
+.qrmo-mod--hub .qrmo-hubviz-spark { margin-top: auto; padding-top: 10px; }
 .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-perf {
   display: flex;
   flex: 1 1 auto;
@@ -2968,17 +2978,10 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   width: 100%;
   justify-content: center;
 }
-@media (min-width: 480px) {
-  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-perf {
-    flex-direction: row;
-    align-items: center;
-    gap: 10px 12px;
-  }
-  .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack {
-    width: auto;
-    flex: 1 1 0;
-  }
-}
+.qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-perf { align-items: stretch; gap: 12px; }
+.qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-ringwrap { align-self: center; }
+.qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li { width: 100%; white-space: nowrap; }
+.qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-legend--stack li span:nth-of-type(2) { overflow: hidden; text-overflow: ellipsis; }
 /* 900px: hero iki kolon, sağ iz ~300px → alt kart ~130px. Yatay lejant taşar. */
 @media (min-width: 900px) and (max-width: 1023px) {
   .qrmo-mod--hub .qrmo-hubviz-card--perf .qrmo-hubviz-perf {
@@ -2998,7 +3001,7 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
 }
 .qrmo-mod--hub .qrmo-hubviz-arc--a { stroke: var(--qm-green-dark); stroke-dasharray: 42 58; stroke-dashoffset: 0; }
 .qrmo-mod--hub .qrmo-hubviz-arc--b { stroke: var(--qm-gold); stroke-dasharray: 30 70; stroke-dashoffset: -44; }
-.qrmo-mod--hub .qrmo-hubviz-arc--c { stroke: var(--qm-gold-light); stroke-dasharray: 22 78; stroke-dashoffset: -76; }
+.qrmo-mod--hub .qrmo-hubviz-arc--c { stroke: #8fa89a; stroke-dasharray: 22 78; stroke-dashoffset: -76; }
 
 @media (min-width: 768px) {
   .qrmo-mod--hub .qrmo-hubviz { gap: 20px; }
