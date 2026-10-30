@@ -22696,6 +22696,18 @@
         Sistemin ne yaptığını ve ne yapmadığını kısa cevaplarla topladık.
       </p>
 
+      <div class="qrmo-faq-v1__cta">
+        <span class="qrmo-faq-v1__cta-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="f" d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5Z"/><path class="g" d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/><path d="m7.8 5.3 8.4 4.5"/></svg>
+        </span>
+        <h3 class="qrmo-faq-v1__cta-title">Hangi paket size uygun?</h3>
+        <p class="qrmo-faq-v1__cta-text">Modülleri ve kapsamı yan yana görün; işletmenize uygun paketi seçin, kurulumu biz yapalım.</p>
+        <a class="qrmo-faq-v1__cta-btn" href="paketler/">
+          <span>Paketleri İnceleyin</span>
+          <b aria-hidden="true">→</b>
+        </a>
+      </div>
+
     </div>
 
 
@@ -23160,6 +23172,169 @@
 
 }
 
+
+
+/* =========================================================
+   FAQ V2 — kart akordeon + sol CTA kutusu (referans tasarım)
+========================================================= */
+
+.qrmo-faq-v1__cta {
+  position: relative;
+  overflow: hidden;
+  margin-top: clamp(28px, 3vw, 40px);
+  max-width: 460px;
+  padding: clamp(24px, 2.4vw, 34px);
+  border-radius: 24px;
+  border: 1px solid rgba(201,168,76,.22);
+  background:
+    radial-gradient(90% 80% at 0% 0%, rgba(232,199,102,.16), rgba(232,199,102,0) 60%),
+    radial-gradient(70% 70% at 100% 100%, rgba(23,61,47,.08), rgba(23,61,47,0) 60%),
+    #FFFFFF;
+  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 24px 48px -30px rgba(13,43,34,.35);
+}
+
+.qrmo-faq-v1__cta-ico {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  color: #F1DB94;
+  background:
+    radial-gradient(120% 90% at 28% 0%, rgba(232,199,102,.28), rgba(232,199,102,0) 55%),
+    linear-gradient(155deg, #1C4635 0%, #0D2B22 55%, #08201A 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 14px 26px -14px rgba(13,43,34,.75), 0 0 0 6px rgba(201,168,76,.10);
+}
+.qrmo-faq-v1__cta-ico .f { fill: #0F3227; }
+.qrmo-faq-v1__cta-ico .g { stroke: #E8C766; fill: rgba(232,199,102,.2); }
+
+.qrmo-faq-v1__cta-title {
+  margin: 22px 0 0;
+  color: var(--qf-green);
+  font-size: clamp(22px, 1.9vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -.6px;
+  font-weight: 800;
+}
+
+.qrmo-faq-v1__cta-text {
+  margin: 10px 0 0;
+  color: var(--qf-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.qrmo-faq-v1__cta-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  margin-top: 24px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1E4A38 0%, #0D2B22 100%);
+  color: #F4F1E8 !important;
+  font-size: 15px;
+  font-weight: 750;
+  text-decoration: none !important;
+  box-shadow: 0 16px 30px -16px rgba(13,43,34,.8), inset 0 1px 0 rgba(255,255,255,.14);
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
+}
+.qrmo-faq-v1__cta-btn b { color: #E8C766; font-weight: 600; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.qrmo-faq-v1__cta-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(255,255,255,0), rgba(255,255,255,.14), rgba(255,255,255,0));
+  transform: translate3d(-130%, 0, 0) skewX(-18deg);
+  transition: transform .9s cubic-bezier(.2,.7,.2,1);
+}
+.qrmo-faq-v1__cta-btn:focus-visible { outline: 2px solid var(--qf-gold); outline-offset: 4px; }
+
+@media (hover: hover) {
+  .qrmo-faq-v1__cta-btn:hover { transform: translateY(-2px); box-shadow: 0 20px 34px -16px rgba(201,168,76,.55), inset 0 1px 0 rgba(255,255,255,.14); }
+  .qrmo-faq-v1__cta-btn:hover b { transform: translateX(4px); }
+  .qrmo-faq-v1__cta-btn:hover::after { transform: translate3d(330%, 0, 0) skewX(-18deg); }
+}
+
+/* Akordeon: kartlar */
+.qrmo-faq-v1__list {
+  border-top: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.qrmo-faq-v1__item {
+  border: 1px solid rgba(13,43,34,.07);
+  border-radius: 20px;
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 12px 28px -24px rgba(13,43,34,.35);
+  transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+.qrmo-faq-v1__item:has([aria-expanded="true"]) {
+  border-color: rgba(201,168,76,.28);
+  background:
+    radial-gradient(80% 120% at 100% 0%, rgba(232,199,102,.12), rgba(232,199,102,0) 60%),
+    #FFFFFF;
+  box-shadow: 0 1px 0 rgba(255,255,255,.9) inset, 0 22px 44px -28px rgba(13,43,34,.4);
+}
+
+.qrmo-faq-v1__trigger {
+  min-height: 70px;
+  padding: 20px 22px 20px 26px;
+}
+
+.qrmo-faq-v1__trigger i {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(13,43,34,.05);
+  transition: background-color .3s ease, transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.qrmo-faq-v1__trigger i::before,
+.qrmo-faq-v1__trigger i::after {
+  left: 10px;
+  width: 14px;
+  background: var(--qf-green);
+  transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.qrmo-faq-v1__trigger[aria-expanded="true"] i {
+  background: linear-gradient(135deg, #E8C766, #C9A84C);
+  transform: rotate(180deg);
+}
+
+.qrmo-faq-v1__a { padding: 0 64px 24px 26px; }
+
+@media (hover: hover) {
+  .qrmo-faq-v1__item:hover { border-color: rgba(201,168,76,.3); }
+  .qrmo-faq-v1__item:hover .qrmo-faq-v1__trigger i { background: rgba(201,168,76,.18); }
+  .qrmo-faq-v1__item:hover .qrmo-faq-v1__trigger[aria-expanded="true"] i { background: linear-gradient(135deg, #E8C766, #C9A84C); }
+}
+
+@media (min-width: 768px) {
+  .qrmo-faq-v1__head { position: sticky; top: 120px; }
+}
+
+@media (max-width: 767px) {
+  .qrmo-faq-v1__cta { margin-inline: auto; text-align: left; }
+  .qrmo-faq-v1__trigger { min-height: 62px; padding: 16px 16px 16px 18px; }
+  .qrmo-faq-v1__trigger i { width: 30px; height: 30px; }
+  .qrmo-faq-v1__trigger i::before, .qrmo-faq-v1__trigger i::after { left: 8px; }
+  .qrmo-faq-v1__a { padding: 0 18px 20px 18px; }
+  .qrmo-faq-v1__item { border-radius: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-faq-v1__item, .qrmo-faq-v1__trigger i, .qrmo-faq-v1__trigger i::before, .qrmo-faq-v1__trigger i::after,
+  .qrmo-faq-v1__cta-btn, .qrmo-faq-v1__cta-btn b, .qrmo-faq-v1__cta-btn::after { transition: none; }
+}
 </style>
 
 
