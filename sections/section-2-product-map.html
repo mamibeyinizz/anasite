@@ -7,10 +7,6 @@
           Menünüzü İşletmenizin Dijital Merkezine Dönüştürün.
         </h2>
       </div>
-      <div class="qpm2-lede">
-        <p class="qpm2-desc">Müşteriniz beklemesin, garsonlarınız masaya ve satışa odaklansın, işletmeniz daha çok satsın.</p>
-        <p class="qpm2-desc">QR menüyü sadece menü olarak değil, işletmenizin satış ve servis gücünü artıran bir sistem olarak kullanın.</p>
-      </div>
     </header>
 
     <div class="qpm2-areas">
@@ -101,124 +97,145 @@
 }
 
 #qrmo-product-map-v1 .qpm2-head {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(14px, 2vw, 22px);
-  margin-bottom: clamp(20px, 2.6vw, 32px);
-}
-
-@media (min-width: 960px) {
-  #qrmo-product-map-v1 .qpm2-head {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    gap: clamp(28px, 3vw, 44px);
-    align-items: start;
-    margin-bottom: clamp(22px, 2.8vw, 34px);
-  }
+  display: block;
+  margin-bottom: clamp(28px, 3.4vw, 48px);
 }
 
 #qrmo-product-map-v1 .qpm2-kicker {
-  margin: 0 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 clamp(14px, 1.6vw, 20px);
+  padding: 7px 14px 7px 12px;
+  border: 1px solid rgba(201, 168, 76, 0.38);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--qpm2-muted);
+  color: var(--qpm2-meta);
+}
+
+#qrmo-product-map-v1 .qpm2-kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--qpm2-gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.22);
 }
 
 #qrmo-product-map-v1 .qpm2-title {
   margin: 0;
-  font-size: clamp(32px, 2.6vw + 0.85rem, 53px);
-  font-weight: 750;
-  line-height: 1.07;
-  letter-spacing: -0.03em;
+  max-width: 19em;
+  font-size: clamp(32px, 2.6vw + 0.85rem, 56px);
+  font-weight: 650;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
   color: var(--qpm2-green);
-  max-width: 13.4em;
-  text-wrap: pretty;
-}
-
-#qrmo-product-map-v1 .qpm2-lede {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6em;
-  max-width: none;
-}
-
-@media (min-width: 960px) {
-  #qrmo-product-map-v1 .qpm2-lede {
-    padding-top: calc(11px + 10px);
-    max-width: 34em;
-    gap: 0.7em;
-  }
-}
-
-#qrmo-product-map-v1 .qpm2-desc {
-  margin: 0;
-  font-size: clamp(15.5px, 1.15vw, 17.5px);
-  line-height: 1.52;
-  color: rgba(13, 43, 34, 0.70);
+  text-wrap: balance;
 }
 
 #qrmo-product-map-v1 .qpm2-areas {
   display: grid;
   grid-template-columns: 1fr;
-  column-gap: clamp(36px, 5vw, 72px);
-  border-top: 1px solid var(--qpm2-line);
+  gap: clamp(14px, 1.4vw, 20px);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 720px) {
   #qrmo-product-map-v1 .qpm2-areas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (min-width: 1180px) {
+  #qrmo-product-map-v1 .qpm2-areas {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 #qrmo-product-map-v1 .qpm2-area {
+  position: relative;
   margin: 0;
-  padding: clamp(22px, 2.4vw, 32px) 0;
+  padding: clamp(22px, 2vw, 30px);
   display: grid;
-  grid-template-columns: clamp(34px, 3.4vw, 48px) minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr);
   grid-template-rows: auto 1fr auto;
-  column-gap: 4px;
-  align-items: start;
-  background: none;
-  border: none;
-  border-bottom: 1px solid var(--qpm2-line);
+  column-gap: 14px;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(13, 43, 34, 0.09);
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fffdf8 0%, var(--qpm2-cream-area) 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 1px 2px rgba(13, 43, 34, 0.04),
+    0 20px 40px -28px rgba(13, 43, 34, 0.38);
+  transition: transform 0.35s var(--qpm2-ease), box-shadow 0.35s var(--qpm2-ease);
+}
+
+#qrmo-product-map-v1 .qpm2-area--emerald {
+  border-color: rgba(232, 199, 102, 0.16);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(232, 199, 102, 0.16) 0%, rgba(232, 199, 102, 0) 55%),
+    linear-gradient(160deg, #123a2e 0%, var(--qpm2-green) 72%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 26px 46px -28px rgba(13, 43, 34, 0.6);
 }
 
 #qrmo-product-map-v1 .qpm2-idx {
+  grid-column: 1;
   grid-row: 1;
-  align-self: baseline;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
   margin: 0;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  border: 1px solid rgba(201, 168, 76, 0.55);
+  border-radius: 12px;
+  background: rgba(201, 168, 76, 0.1);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
   line-height: 1;
-  color: var(--qpm2-gold);
+  color: #8a6f1f;
+}
+
+#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-idx {
+  border-color: rgba(232, 199, 102, 0.5);
+  background: rgba(232, 199, 102, 0.12);
+  color: #e8c766;
 }
 
 #qrmo-product-map-v1 .qpm2-name {
   grid-column: 2;
   grid-row: 1;
-  align-self: baseline;
-  margin: 0 0 8px;
-  font-size: clamp(20px, 1.6vw, 24px);
-  font-weight: 700;
+  align-self: center;
+  margin: 0;
+  font-size: clamp(20px, 1.5vw, 23px);
+  font-weight: 650;
   line-height: 1.2;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.018em;
   color: var(--qpm2-green);
 }
 
 #qrmo-product-map-v1 .qpm2-benefit {
-  grid-column: 2;
+  grid-column: 1 / -1;
   grid-row: 2;
-  margin: 0 0 16px;
-  font-size: clamp(15px, 1.1vw, 16.5px);
+  align-self: start;
+  margin: clamp(16px, 1.6vw, 22px) 0 clamp(18px, 1.8vw, 24px);
+  font-size: clamp(15px, 1.05vw, 16.5px);
   line-height: 1.55;
   color: var(--qpm2-text);
 }
 
 #qrmo-product-map-v1 .qpm2-meta {
-  grid-column: 2;
+  grid-column: 1 / -1;
   grid-row: 3;
   margin: 0;
   display: flex;
@@ -234,12 +251,35 @@
   padding: 7px 12px;
   border: 1px solid var(--qpm2-line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6);
   white-space: nowrap;
+}
+
+#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-name { color: #f4f1e8; }
+#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-benefit { color: rgba(244, 241, 232, 0.78); }
+#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-meta { color: rgba(244, 241, 232, 0.82); }
+#qrmo-product-map-v1 .qpm2-area--emerald .qpm2-meta > span:not(.qpm2-dot) {
+  border-color: rgba(244, 241, 232, 0.2);
+  background: rgba(244, 241, 232, 0.07);
 }
 
 #qrmo-product-map-v1 .qpm2-dot {
   display: none;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  #qrmo-product-map-v1 .qpm2-area:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.9) inset,
+      0 2px 4px rgba(13, 43, 34, 0.05),
+      0 30px 52px -26px rgba(13, 43, 34, 0.5);
+  }
+  #qrmo-product-map-v1 .qpm2-area--emerald:hover {
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.07) inset,
+      0 34px 56px -26px rgba(13, 43, 34, 0.7);
+  }
 }
 
 .qrmo-home-anchor {
@@ -256,49 +296,18 @@
   }
 
   #qrmo-product-map-v1 .qpm2-head {
-    gap: 14px;
     margin-bottom: 22px;
   }
 
-  #qrmo-product-map-v1 .qpm2-kicker {
-    margin-bottom: 10px;
-  }
-
   #qrmo-product-map-v1 .qpm2-title {
-    font-size: clamp(32px, 8.4vw, 38px);
-    line-height: 1.1;
-    letter-spacing: -0.024em;
-  }
-
-  #qrmo-product-map-v1 .qpm2-lede {
-    gap: 0.6em;
-  }
-
-  #qrmo-product-map-v1 .qpm2-desc {
-    font-size: 15px;
-    line-height: 1.55;
+    font-size: clamp(30px, 8vw, 36px);
+    line-height: 1.12;
+    letter-spacing: -0.026em;
   }
 
   #qrmo-product-map-v1 .qpm2-area {
-    grid-template-columns: 34px minmax(0, 1fr);
-    padding: 22px 0;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 959px) {
-  #qrmo-product-map-v1 .qpm2-head {
-    margin-bottom: 22px;
-    gap: 16px;
-  }
-
-  #qrmo-product-map-v1 .qpm2-title {
-    font-size: clamp(34px, 4.5vw, 42px);
-    letter-spacing: -0.028em;
-    max-width: 12.5em;
-  }
-
-  #qrmo-product-map-v1 .qpm2-lede {
-    max-width: 36em;
+    padding: 22px 20px;
+    border-radius: 22px;
   }
 }
 </style>
