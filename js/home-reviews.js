@@ -66,6 +66,8 @@
   }).join("");
 
   section.hidden = false;
+  section.setAttribute("data-count", String(list.length));
+  var ctrl = section.querySelector(".qrmo-rv__ctrl");
 
   var cards = track.children;
   var ticking = false;
@@ -85,6 +87,8 @@
     if (count) count.textContent = (idx < 10 ? "0" : "") + idx + " / " + (cards.length < 10 ? "0" : "") + cards.length;
     if (prev) prev.disabled = track.scrollLeft <= 2;
     if (next) next.disabled = track.scrollLeft >= max - 2;
+    // Tüm kartlar sığıyorsa gezinme kontrolleri gereksiz.
+    if (ctrl) ctrl.hidden = max <= 2;
   }
 
   function go(dir) {
