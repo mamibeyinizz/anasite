@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /sections/
+
+Sitemap: https://qrmenuofficial.com/sitemap.xml

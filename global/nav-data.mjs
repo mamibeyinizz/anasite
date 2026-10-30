@@ -139,7 +139,8 @@ export const FOOTER_GROUPS = [
       { label: "Ana Sayfa", path: "", key: "home" },
       { label: "Modüller", path: "moduller/", key: "moduller" },
       { label: CONVERSION.secondary.label, conversionSlot: "secondary", key: "canli" },
-      { label: "Sıkça Sorulan Sorular", path: "sss/" }
+      { label: "Sıkça Sorulan Sorular", path: "sss/" },
+      { label: "Blog", path: "blog/", key: "blog" }
     ]
   },
   {
@@ -167,7 +168,8 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Modül Merkezi", path: "moduller/" },
       { label: "Paket Karşılaştırma", path: "paketler/" },
-      { label: "Menü Asistanı", path: "moduller/menu-asistani/" }
+      { label: "Menü Asistanı", path: "moduller/menu-asistani/" },
+      { label: "Blog ve Rehberler", path: "blog/" }
     ]
   },
   {
