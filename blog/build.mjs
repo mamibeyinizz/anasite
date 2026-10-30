@@ -79,7 +79,7 @@ function cardHtml(p, r, { large = false, eager = false } = {}) {
   const c = cat(p.category);
   return `<article class="qb-card${large ? " qb-card--featured" : ""}" data-cat="${p.category}">
   <a class="qb-card__link" href="${r}blog/${p.slug}/">
-    <span class="qb-card__media"><img src="${r}assets/blog/${p.cover}-720.webp" srcset="${r}assets/blog/${p.cover}-720.webp 720w, ${r}assets/blog/${p.cover}-1200.webp 1200w" sizes="${large ? "(min-width: 960px) 58vw, 100vw" : "(min-width: 960px) 30vw, (min-width: 620px) 46vw, 100vw"}" width="720" height="378" alt="${esc(p.coverAlt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></span>
+    <span class="qb-card__media"><img src="${r}assets/blog/${p.cover}-720.webp" srcset="${r}assets/blog/${p.cover}-720.webp 720w, ${r}assets/blog/${p.cover}-1200.webp 1200w" sizes="${large ? "(min-width: 900px) 52vw, 90vw" : "(min-width: 1024px) 30vw, (min-width: 600px) 45vw, 90vw"}" width="720" height="378" alt="${esc(p.coverAlt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async"></span>
     <span class="qb-card__body">
       <span class="qb-meta"><span class="qb-chip">${esc(c.name)}</span><span>${p.readMin} dk okuma</span></span>
       <${large ? "h2" : "h3"} class="qb-card__title">${esc(p.title)}</${large ? "h2" : "h3"}>
@@ -97,8 +97,8 @@ const PRODUCT_CARDS = [
 ];
 
 function cta(r) {
-  return `<section class="qb-cta" aria-labelledby="qb-cta-title">
-  <div class="qb-cta__in">
+  return `<section class="qb-wrap qb-cta-wrap" aria-labelledby="qb-cta-title">
+  <div class="qb-cta">
     <p class="qb-eyebrow">Demo</p>
     <h2 id="qb-cta-title">Okuduklarınızı kendi menünüzde düşünün.</h2>
     <p>Temel, Pro ve Plus paketlerinin demo menülerini telefonunuzda açın; sorularınız için bize ulaşın.</p>
@@ -210,10 +210,12 @@ function renderPost(p) {
   <article class="qb-article">
     <header class="qb-article__head qb-wrap">
       <nav class="qb-crumbs" aria-label="Sayfa yolu"><ol><li><a href="${r}">Ana Sayfa</a></li><li><a href="${r}blog/">Blog</a></li><li aria-current="page">${esc(p.title)}</li></ol></nav>
-      <p class="qb-meta"><span class="qb-chip">${esc(c.name)}</span><time datetime="${p.date}">${fmtDate(p.date)}</time><span>${p.readMin} dk okuma</span></p>
-      <h1>${esc(p.title)}</h1>
-      <p class="qb-article__lead">${esc(p.excerpt)}</p>
-      <figure class="qb-article__cover"><img src="${r}assets/blog/${p.cover}-1200.webp" srcset="${r}assets/blog/${p.cover}-720.webp 720w, ${r}assets/blog/${p.cover}-1200.webp 1200w" sizes="(min-width: 1180px) 1080px, 100vw" width="1200" height="630" alt="${esc(p.coverAlt)}" fetchpriority="high" decoding="async"></figure>
+      <div class="qb-article__intro">
+        <p class="qb-meta"><span class="qb-chip">${esc(c.name)}</span><time datetime="${p.date}">${fmtDate(p.date)}</time><span>${p.readMin} dk okuma</span></p>
+        <h1>${esc(p.title)}</h1>
+        <p class="qb-article__lead">${esc(p.excerpt)}</p>
+      </div>
+      <figure class="qb-article__cover"><img src="${r}assets/blog/${p.cover}-1200.webp" srcset="${r}assets/blog/${p.cover}-720.webp 720w, ${r}assets/blog/${p.cover}-1200.webp 1200w" sizes="(min-width: 1024px) 45vw, 90vw" width="1200" height="630" alt="${esc(p.coverAlt)}" fetchpriority="high" decoding="async"></figure>
     </header>
 
     <div class="qb-wrap qb-article__layout">
