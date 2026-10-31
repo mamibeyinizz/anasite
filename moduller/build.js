@@ -722,7 +722,7 @@ function hubCloseEnterScript() {
    ORTAK SAYFA PARÇALARI
 ========================================================= */
 
-function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) {
+function head({ title, description, url, breadcrumb, cssPath, extraHead = "", graph = [] }) {
   const ld = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: breadcrumb.map((b, i) => ({ "@type": "ListItem", position: i + 1, name: b[0], item: b[1] }))
@@ -734,7 +734,7 @@ function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#FDFBF5">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="${esc(url)}">
@@ -744,8 +744,11 @@ function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) 
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
 <link rel="stylesheet" href="${cssPath}">
-${extraHead ? extraHead + "\n" : ""}<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>
+${extraHead ? extraHead + "\n" : ""}<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>${graph.length ? `\n<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>` : ""}
 </head>`;
 }
 
@@ -761,12 +764,19 @@ function crumbs(items) {
 const kicker = (t, extra = "") => `<p class="qrmo-mod-kicker${extra}">${esc(t)}</p>`;
 const caveat = (t) => (t ? `<p class="qrmo-mod-caveat">${ICON.info}<span>${esc(t)}</span></p>` : "");
 
-function ctaRow(rel, back, { dark = false, modulesLabel } = {}) {
+function ctaRow(rel, back, { dark = false, modulesLabel, secondary } = {}) {
+  const second = secondary ? { href: rel + secondary.path, label: secondary.label } : { href: back, label: modulesLabel || MOD.site.modulesLabel };
   return `<div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta${dark ? " qrmo-mod-cta--ondark" : ""}" href="${rel}paketler/"><span>${esc(MOD.site.pricingLabel)}</span>${ICON.arrow}</a>
-          <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${back}">${esc(modulesLabel || MOD.site.modulesLabel)}</a>
+          <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${second.href}"><span>${esc(second.label)}</span>${ICON.arrow}</a>
         </div>`;
 }
+
+/* SSS cevap parçaları → düz metin / HTML. Bağlantılar kökten ("/moduller/x/") gelir; sayfa derinliğine göre göreli yapılır. */
+const faqText = (q) => q.answer.map((p) => (p.type === "link" ? p.label : p.value)).join("");
+const faqHtml = (q, rel) => q.answer.map((p) => (p.type === "link"
+  ? `<a href="${esc(p.href.startsWith("/") ? rel + p.href.slice(1) : p.href)}">${esc(p.label)}</a>`
+  : esc(p.value))).join("");
 
 /* Modül Design V2: numaralı bölüm işaretçileri (yalnızca designV2 modüllerde). */
 const V2_MARKER_LABEL = { story: "story", stage: "stage", capabilities: "capabilities", details: "AYRINTILAR" };
@@ -853,11 +863,54 @@ const SECTION = {
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
         <p class="qrmo-mod-lead">${esc(h.lead)}</p>
         <ul class="qrmo-mod-proof">${join(h.proof, (p) => `<li>${ICON.check}<span>${esc(p)}</span></li>`)}</ul>
-        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel })}
+        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary })}
       </div>
       <div class="qrmo-mod-hero-visual">
       ${figure(h.visual, { caption: MOD.mockCaption, cls: "qrmo-mod-fig--hero" })}
       </div>
+    </div>
+  </section>`;
+  },
+
+  answer(m) {
+    const a = m.answer;
+    return `
+  <section class="qrmo-mod-sec qrmo-mod-answer" aria-labelledby="qrmo-mod-ans-h">
+    <div class="qrmo-mod-inner qrmo-mod-answer-grid">
+      <header class="qrmo-mod-answer-head">
+        ${kicker(a.kicker)}
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-ans-h">${esc(a.title)}</h2>
+        <p class="qrmo-mod-text">${esc(a.text)}</p>
+      </header>
+      <dl class="qrmo-mod-ans-facts">${join(a.facts, (f) => `
+        <div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`)}
+      </dl>
+    </div>
+  </section>`;
+  },
+
+  gaps(m, ctx) {
+    const g = m.gaps;
+    return `
+  <section class="qrmo-mod-sec qrmo-mod-gaps" aria-labelledby="qrmo-mod-gaps-h">
+    <div class="qrmo-mod-inner">
+      <header class="qrmo-mod-sechead">
+        ${kicker(g.kicker)}
+        <h2 class="qrmo-mod-h2 qrmo-mod-h2--xl" id="qrmo-mod-gaps-h">${esc(g.title)}</h2>
+        <p class="qrmo-mod-text">${esc(g.text)}</p>
+      </header>
+      <div class="qrmo-mod-shift-cols" aria-hidden="true"><span>${esc(g.cols[0])}</span><span>${esc(g.cols[1])}</span></div>
+      <ol class="qrmo-mod-shift-list">${join(g.rows, (r) => `
+        <li>
+          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">${esc(g.cols[0])}</span>${esc(r.now)}</p>
+          <span class="qrmo-mod-shift-arrow" aria-hidden="true">${ICON.arrow}</span>
+          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">${esc(g.cols[1])}</span>${esc(r.next)}</p>
+        </li>`)}
+      </ol>${g.cta ? `
+      <div class="qrmo-mod-gaps-cta">
+        <p>${esc(g.cta.note)}</p>
+        <a class="qrmo-mod-cta" href="${ctx.rel}${g.cta.path}"><span>${esc(g.cta.label)}</span>${ICON.arrow}</a>
+      </div>` : ""}
     </div>
   </section>`;
   },
@@ -1008,7 +1061,7 @@ const SECTION = {
     const faq = (m.faq || []).map((id) => {
       const q = ctx.faqById[id];
       if (!q) { problems.push(`${m.slug}: SSS kimliği yok: ${id}`); return ""; }
-      return `<li><a href="${ctx.rel}sss/#${esc(id)}">${esc(q.question)}</a></li>`;
+      return `<li><details class="qrmo-mod-faq-item"><summary>${esc(q.question)}<span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary><p>${faqHtml(q, ctx.rel)} <a class="qrmo-mod-faq-more" href="${ctx.rel}sss/#${esc(id)}">SSS’de gör</a></p></details></li>`;
     }).join("");
     const innerOpen = m.designV2
       ? v2InnerOpen(m, ctx, "details", "", "qrmo-mod-details-grid")
@@ -1026,6 +1079,7 @@ const SECTION = {
         <div class="qrmo-mod-faqlinks">
           <h3>Sık sorulanlar</h3>
           <ul>${faq}</ul>
+          <a class="qrmo-mod-faq-all" href="${ctx.rel}sss/"><span>Tüm soruları görün</span>${ICON.arrow}</a>
         </div>` : ""}
       </div>
       <div class="qrmo-mod-acc">${join(m.groups, (g) => `
@@ -1052,7 +1106,11 @@ const SECTION = {
         return `
         <li><a class="qrmo-mod-tile" href="../${rm.slug}/">${cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
       })}
-      </ul>
+      </ul>${m.guides ? `
+      <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>
+      <ul class="qrmo-mod-guides">${join(m.guides, (g) => `
+        <li><a href="../../${g.path}"><span class="qrmo-mod-guides-t">${esc(g.t)}</span><span class="qrmo-mod-guides-d">${esc(g.d)}</span></a></li>`)}
+      </ul>` : ""}
     </div>
   </section>`;
   },
@@ -1076,7 +1134,7 @@ const SECTION = {
         </div>
         <ol class="qrmo-mod-tiers" aria-label="Paketlere göre ${esc(m.name)}">${tiers}
         </ol>
-        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel })}
+        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel, secondary: m.closing && m.closing.secondary })}
       </div>
     </div>
   </section>`;
@@ -1097,7 +1155,23 @@ function renderModule(m, faqById) {
     return SECTION[key](m, ctx);
   }).join("\n");
 
+  const ORG = { "@type": "Organization", "@id": `${MOD.site.baseUrl}/#org`, name: MOD.site.brand, url: `${MOD.site.baseUrl}/`, logo: `${MOD.site.baseUrl}/assets/brand/apple-touch-icon.png` };
+  const graph = [
+    ORG,
+    { "@type": "WebPage", "@id": `${url}#webpage`, url, name: m.seo.title, description: m.seo.description, inLanguage: "tr-TR", isPartOf: { "@type": "WebSite", name: MOD.site.brand, url: `${MOD.site.baseUrl}/` }, about: { "@id": `${url}#app` } },
+    {
+      "@type": "SoftwareApplication", "@id": `${url}#app`, name: `${MOD.site.brand} — ${m.name}`, description: m.seo.description, url,
+      applicationCategory: "BusinessApplication", operatingSystem: "Web", inLanguage: "tr-TR", publisher: { "@id": ORG["@id"] },
+      audience: { "@type": "BusinessAudience", audienceType: "Restoran ve kafe işletmeleri", geographicArea: { "@type": "Country", name: "Türkiye" } }
+    }
+  ];
+  const faqItems = (m.faq || []).map((id) => faqById[id]).filter(Boolean);
+  if (faqItems.length) {
+    graph.push({ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqItems.map((q) => ({ "@type": "Question", name: q.question, acceptedAnswer: { "@type": "Answer", text: faqText(q) } })) });
+  }
+
   return head({
+    graph,
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",

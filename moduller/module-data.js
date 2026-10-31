@@ -95,16 +95,52 @@
         tagline: "Fiyat ve ürünleri tek panelden güncelleyin; menü baskısız güncel kalsın.",
         featureIds: ["qr-menu", "menu-yonetimi", "csv-aktar", "porsiyon-ekstra", "kampanya-combo", "rozetler"],
         seo: {
-          title: "Restoran Menü — Dijital QR Menü Yönetimi",
-          description: "Kategori, ürün, fiyat, alerjen, porsiyon ve kampanyaları tek panelden yönetin; menünüz müşterinin telefonunda aranabilir ve filtrelenebilir açılsın."
+          title: "Restoran ve Kafe İçin QR Menü Programı",
+          description: "Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde."
         },
-        faq: ["qrmo-faq-q-urun-nasil-eklenir", "qrmo-faq-q-tukendi-urun", "qrmo-faq-q-csv-aktarim"],
-        order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        faq: ["qrmo-faq-q-urun-nasil-eklenir", "qrmo-faq-q-fiyat-nasil-degistirilir", "qrmo-faq-q-tukendi-urun", "qrmo-faq-q-csv-aktarim", "qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-uygulama-gerekir-mi"],
+        order: ["hero", "answer", "gaps", "story", "stage", "capabilities", "details", "related", "closing"],
+        cta: { secondary: { label: "Canlı menüyü görün", path: "canli-menu/" } },
+        closing: {
+          title: "Restoran Menü tüm paketlerde: işletmenize uygun planı seçin.",
+          text: "Menü yönetimi Temel, Pro ve Plus paketlerinin üçünde de var. Paketleri karşılaştırın ya da menünüzü birlikte gözden geçirmek için demo talep edin.",
+          secondary: { label: "Demo talep edin", path: "iletisim/#talep" }
+        },
+
+        answer: {
+          kicker: "KISACA",
+          title: "Restoran Menü modülü nedir?",
+          text: "Restoran Menü, QR Menu Official’ın menü yönetim modülüdür. Restoran veya kafe sahibi kategori, ürün, fiyat, alerjen, porsiyon ve kampanyayı tek panelden yönetir; misafir masadaki QR kodu okutur ve güncel menüyü uygulama indirmeden telefonunun tarayıcısında açar.",
+          facts: [
+            { k: "Kimler için", v: "Türkiye’deki restoran, kafe ve benzeri yeme-içme işletmeleri; fiyatlar TL ile girilir." },
+            { k: "Misafir tarafı", v: "Uygulama indirmeden tarayıcıda açılır; arama, filtre ve sıralama kullanılır." },
+            { k: "Yönetim", v: "Fiyat, stok durumu, servis saati ve kampanya panelden değişir; baskı gerekmez." },
+            { k: "Hangi paketlerde", v: "Temel, Pro ve Plus paketlerinin üçünde de yer alır." },
+            { k: "Sayfaya ekleme", v: "Menü sitenize kısa kod veya Elementor bileşeniyle eklenir." }
+          ]
+        },
+
+        gaps: {
+          kicker: "EKSİĞİ GÖRÜN",
+          title: "Menünüzde bunlar yaşanıyorsa, eksik olan bir yönetim paneli.",
+          text: "Basılı menü ya da sabit bir PDF ile çalışan işletmelerde aynı sorunlar tekrar eder. Aşağıdakilerden birkaçı tanıdıksa Restoran Menü tam bu işi yapar.",
+          cols: ["BUGÜN YAŞADIĞINIZ", "RESTORAN MENÜ İLE"],
+          rows: [
+            { now: "Fiyat değişince menüler yeniden basılıyor.", next: "Fiyatı panelde güncellersiniz; misafir bir sonraki açılışta yeni fiyatı görür." },
+            { now: "Biten ürünü misafir sipariş etmeye çalışıyor.", next: "Ürünü tükendi işaretlersiniz; menüde etiketiyle kalır, sepete eklenemez. İsterseniz belirlediğiniz saatte yeniden satışa açılır." },
+            { now: "Alerjen, kalori ve içerik soruları garsona düşüyor.", next: "Ürün detayında 14 alerjen tanımı, kalori, gramaj ve hazırlanış süresi görünür. Bilgiyi siz girersiniz." },
+            { now: "Kahvaltı ve öğle menüsünü saatine göre elle açıp kapatıyorsunuz.", next: "Kategoriye saat kuralını bir kez yazarsınız; saat dışındaki ürün etiketiyle görünür, sepete eklenemez." },
+            { now: "Kampanya başlatmak da geri almak da zahmetli.", next: "Toplu indirim uygularsınız; kaldırdığınızda fiyatlar eskisine döner." },
+            { now: "Yüzlerce ürünü tek tek girmek günler alıyor.", next: "Ürünleri tabloda hazırlar, CSV ile tek seferde yüklersiniz." },
+            { now: "Misafir uzun menüde aradığını bulamıyor.", next: "Arama, alerjen–kalori–fiyat filtresi ve sıralama menüyle birlikte gelir." }
+          ],
+          cta: { label: "Menünüz için demo talep edin", path: "iletisim/#talep", note: "Menünüzdeki eksikleri birlikte gözden geçirelim." }
+        },
 
         hero: {
           layout: "center",
-          h1: "Menünüzü tek panelden yönetin.",
-          lead: "Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; müşteri menüyü QR ile telefonunda güncel haliyle açar.",
+          h1: "Restoran ve kafeniz için QR menüyü tek panelden yönetin.",
+          lead: "Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; misafir QR kodu okutup menüyü telefonunda güncel haliyle açar. Basılı menü ve PDF yenileme derdi biter.",
           proof: ["Tükendi ve servis saati etiketleri", "Porsiyon, ekstra ve kombin", "CSV ile toplu aktarım"],
           visual: {
             frame: "scene", layout: "duo",
@@ -248,6 +284,11 @@
           { slug: "qr-masa", why: "Her masanın QR kodu bu menüye açılır." },
           { slug: "akilli-filtreleme", why: "Menüdeki arama ve filtre paneli." },
           { slug: "coklu-dil", why: "Menüyü misafirin dilinde sunun." }
+        ],
+        guides: [
+          { path: "blog/qr-menu-nedir/", t: "QR Menü Nedir? Restoran ve Kafeler İçin Kapsamlı Rehber", d: "QR menünün nasıl çalıştığını ve nelere dikkat edileceğini okuyun." },
+          { path: "blog/dijital-menu-nasil-hazirlanir/", t: "Dijital Menü Nasıl Hazırlanır?", d: "Menüyü sıfırdan hazırlarken izlenecek adımlar." },
+          { path: "blog/karekod-fiyat-listesi-yonetmeligi/", t: "Karekodla Fiyat Listesi: Yönetmelik Rehberi", d: "Fiyat listesini karekodla sunarken bilmeniz gerekenler." }
         ]
       },
 
