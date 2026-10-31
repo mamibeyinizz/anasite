@@ -50,8 +50,8 @@ check(html.includes('href="../paketler/"') && html.includes("Paketleri incele"),
 check(html.includes('href="../moduller/"') && html.includes("Çözümleri keşfet"), "çözümler kartı");
 check(html.includes('href="../sss/"') && html.includes("Soruların yanıtlarını gör"), "sss kartı");
 check(!html.includes("Talep formuna geç") && !html.includes('href="#talep"'), "hero talep bağlantısı yok");
-check((html.match(/Bizi arayın/g) || []).length === 2, "telefon CTA metni");
-check((html.match(/E-posta gönderin/g) || []).length === 2, "e-posta CTA metni");
+check((html.match(/Bizi arayın/g) || []).length === 1, "telefon CTA metni");
+check((html.match(/E-posta gönderin/g) || []).length === 1, "e-posta CTA metni");
 check(!html.includes("Aramayı başlat") && !html.includes("E-posta yaz"), "eski kanal CTA yok");
 check(!fs.readFileSync(path.join(here, "iletisim.css"), "utf8").includes("#7F6419"), "kahverengi gold-ink yok");
 
@@ -125,7 +125,7 @@ if (!pw) {
         const h1 = document.querySelector("h1");
         const form = document.getElementById("qrmo-contact-form");
         const panel = document.getElementById("talep");
-        const aside = [...document.querySelectorAll(".qrmo-contact-aside")].find((el) => getComputedStyle(el).display !== "none");
+        const intro = document.querySelector(".qrmo-contact-intro");
         const controls = [...main.querySelectorAll("a, button, input, select, textarea")];
         const small = [];
         controls.forEach((el) => {
@@ -138,8 +138,8 @@ if (!pw) {
         });
         const inner = document.querySelector(".qrmo-contact-inner");
         const panelBox = panel.getBoundingClientRect();
-        const asideBox = aside.getBoundingClientRect();
-        const split = vw >= 1000 ? asideBox.left > panelBox.right - 2 : asideBox.top < panelBox.top;
+        const introBox = intro.getBoundingClientRect();
+        const split = vw >= 1000 ? panelBox.left > introBox.right - 2 : introBox.top < panelBox.top;
         const edge = (el) => {
           const b = el.getBoundingClientRect();
           const s = getComputedStyle(el);
@@ -188,7 +188,7 @@ if (!pw) {
       else if (width < 561) check(result.gutter === 20, `@${width} oluk 20px`, String(result.gutter));
       else check(Math.abs(result.gutter - Math.round(width * 0.05)) <= 1, `@${width} oluk 5vw`, String(result.gutter));
       check(Math.abs(result.h1Left - result.contactLeft) <= 1, `@${width} h1 sol ızgara`, `${result.h1Left}/${result.contactLeft}`);
-      check(Math.abs(result.formLeft - result.contactLeft) <= 1, `@${width} form sol ızgara`, `${result.formLeft}/${result.contactLeft}`);
+      if (width < 1000) check(Math.abs(result.formLeft - result.contactLeft) <= 1, `@${width} form sol ızgara`, `${result.formLeft}/${result.contactLeft}`);
       check(Math.abs(result.guideLeft - result.contactLeft) <= 1, `@${width} karar sol ızgara`, `${result.guideLeft}/${result.contactLeft}`);
       check(result.cardCount === 3, `@${width} üç karar kartı`, String(result.cardCount));
       check(result.cardLayout, `@${width} karar kart düzeni`);
@@ -279,7 +279,7 @@ if (!pw) {
     check(await burger.getAttribute("aria-expanded") === "true", "mobil menü açıldı");
     await page.keyboard.press("Escape");
     check(await burger.getAttribute("aria-expanded") === "false", "mobil menü kapandı");
-    await page.locator(".qrmo-contact-aside--stack a[href='tel:+905422043587']").focus();
+    await page.locator(".qrmo-contact-channel[href='tel:+905422043587']").focus();
     await page.keyboard.press("Tab");
     const mobileNext = await page.evaluate(() => document.activeElement.getAttribute("href"));
     check(mobileNext === "mailto:muhammedulusoyresmi@gmail.com", "mobilde sekme e-posta kartına gider", mobileNext);
@@ -288,13 +288,13 @@ if (!pw) {
     const desk = await browser.newContext({ viewport: { width: 1280, height: 900 } });
     const deskPage = await desk.newPage();
     await deskPage.goto(`http://127.0.0.1:${port}/iletisim/`, { waitUntil: "load" });
-    const phoneCard = deskPage.locator('.qrmo-contact-aside--rail a[href="tel:+905422043587"]');
+    const phoneCard = deskPage.locator('.qrmo-contact-channel[href="tel:+905422043587"]');
     const loadRing = await phoneCard.evaluate((el) => ({
       active: document.activeElement === el,
       style: getComputedStyle(el).outlineStyle
     }));
     check(!loadRing.active && loadRing.style === "none", "yüklemede telefon odağı yok", JSON.stringify(loadRing));
-    await deskPage.locator("#qrmo-contact-submit").focus();
+    await deskPage.locator(".qrmo-contact-crumbs a").focus();
     await deskPage.keyboard.press("Tab");
     const keyRing = await phoneCard.evaluate((el) => ({
       active: document.activeElement === el,
@@ -312,18 +312,13 @@ if (!pw) {
       style: getComputedStyle(el).outlineStyle
     }));
     check(!mouseRing.focusVisible && mouseRing.style === "none", "fare tıklamasında telefon çerçevesi yok", JSON.stringify(mouseRing));
-    await deskPage.evaluate(() => {
-      const panel = document.getElementById("talep");
-      panel.setAttribute("tabindex", "-1");
-      panel.focus();
-    });
+    await deskPage.locator(".qrmo-contact-channel[href^='mailto:']").focus();
     await deskPage.keyboard.press("Tab");
     const deskNext = await deskPage.evaluate(() => document.activeElement.id);
-    check(deskNext === "qrmo-contact-name", "masaüstünde sekme forma gider", deskNext);
-    const visibleAsides = await deskPage.locator(".qrmo-contact-aside").evaluateAll((els) => els.filter((el) => getComputedStyle(el).display !== "none").length);
-    check(visibleAsides === 1, "masaüstünde tek iletişim sütunu", String(visibleAsides));
-    const railHidden = await deskPage.locator('[data-qrmo-contact-aside="rail"]').getAttribute("aria-hidden");
-    check(railHidden === "false", "masaüstünde rail erişilebilir", railHidden);
+    check(deskNext === "qrmo-contact-name", "masaüstünde e-posta kartından sonra forma gider", deskNext);
+    const introLeft = await deskPage.locator(".qrmo-contact-intro").evaluate((el) => el.getBoundingClientRect().left);
+    const panelLeft = await deskPage.locator("#talep").evaluate((el) => el.getBoundingClientRect().left);
+    check(introLeft < panelLeft, "sol: siz bize ulaşın, sağ: biz size ulaşalım");
     const liveHref = await deskPage.locator(".qrmo-gh-nav a", { hasText: "Canlı Menüyü Gör" }).getAttribute("href");
     check(liveHref === "../canli-menu/", "Canlı Menüyü Gör /canli-menu/ adresine gider", liveHref);
     await desk.close();
