@@ -559,6 +559,7 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
 }
 .qrmo-mod-tiers li.is-in { background: rgba(244, 241, 232, .06); border-color: rgba(232, 199, 102, .45); }
 .qrmo-mod-tier-n { color: #FBF8F0; font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+.qrmo-mod-tier-t b { color: #FBF8F0; font-weight: 800; }
 .qrmo-mod-tier-t { grid-column: 1; color: rgba(244, 241, 232, .66); font-size: 13.5px; line-height: 1.4; }
 .qrmo-mod-tier-s { grid-column: 2; grid-row: 1 / span 2; display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; white-space: nowrap; }
 .qrmo-mod-tier-s svg { width: 22px; height: 22px; padding: 4px; border-radius: 50%; }

@@ -764,10 +764,11 @@ function crumbs(items) {
 const kicker = (t, extra = "") => `<p class="qrmo-mod-kicker${extra}">${esc(t)}</p>`;
 const caveat = (t) => (t ? `<p class="qrmo-mod-caveat">${ICON.info}<span>${esc(t)}</span></p>` : "");
 
-function ctaRow(rel, back, { dark = false, modulesLabel, secondary } = {}) {
+function ctaRow(rel, back, { dark = false, modulesLabel, secondary, primary } = {}) {
   const second = secondary ? { href: rel + secondary.path, label: secondary.label } : { href: back, label: modulesLabel || MOD.site.modulesLabel };
+  const first = primary ? { href: rel + primary.path, label: primary.label } : { href: rel + "paketler/", label: MOD.site.pricingLabel };
   return `<div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta${dark ? " qrmo-mod-cta--ondark" : ""}" href="${rel}paketler/"><span>${esc(MOD.site.pricingLabel)}</span>${ICON.arrow}</a>
+          <a class="qrmo-mod-cta${dark ? " qrmo-mod-cta--ondark" : ""}" href="${first.href}"><span>${esc(first.label)}</span>${ICON.arrow}</a>
           <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${second.href}"><span>${esc(second.label)}</span>${ICON.arrow}</a>
         </div>`;
 }
@@ -932,7 +933,7 @@ const SECTION = {
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
         <p class="qrmo-mod-lead">${esc(h.lead)}</p>
-        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary })}
+        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary, primary: m.cta && m.cta.primary })}
       </div>
       <div class="qrmo-v3-hero-visual">
         ${showcase(m, { mode: "auto", chips: (h.proof || []).slice(0, 2), id: "hero", phoneFirst: true })}
@@ -1237,7 +1238,7 @@ const SECTION = {
     const tiers = join(PKG.packages, (p, i) => {
       const inc = i >= ctx.minIdx;
       return `
-            <li class="${inc ? "is-in" : "is-out"}"><span class="qrmo-mod-tier-n">${esc(p.name)}</span><span class="qrmo-mod-tier-t">${esc(p.tagline)}</span><span class="qrmo-mod-tier-s">${inc ? ICON.check : ICON.dash}${inc ? "Dahil" : "Dahil değil"}</span></li>`;
+            <li class="${inc ? "is-in" : "is-out"}"><span class="qrmo-mod-tier-n">${esc(p.name)}</span><span class="qrmo-mod-tier-t">${esc(p.tagline)}${m.closing && m.closing.showPrice ? ` · <b>${p.price.monthly.toLocaleString("tr-TR")} ₺/ay</b>` : ""}</span><span class="qrmo-mod-tier-s">${inc ? ICON.check : ICON.dash}${inc ? "Dahil" : "Dahil değil"}</span></li>`;
     });
     return `
   <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
@@ -1249,7 +1250,7 @@ const SECTION = {
         </div>
         <ol class="qrmo-mod-tiers" aria-label="Paketlere göre ${esc(m.name)}">${tiers}
         </ol>
-        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel, secondary: m.closing && m.closing.secondary })}
+        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel, secondary: m.closing && m.closing.secondary, primary: m.closing && m.closing.primary })}
       </div>
     </div>
   </section>`;
@@ -1265,7 +1266,7 @@ function renderModule(m, faqById) {
   const ctx = { rel, minIdx, faqById, v3: true };
 
   /* V3: tüm modüller aynı iskeleti kullanır; veri olmayan bölüm atlanır. */
-  const V3_ORDER = ["hero", "answer", "gaps", "flow", "details", "related", "closing"];
+  const V3_ORDER = m.v3Order || ["hero", "answer", "gaps", "flow", "details", "related", "closing"];
   const order = V3_ORDER.filter((k) => ["hero", "details", "related", "closing"].includes(k) || (k === "flow" ? m.flow : m[k]));
 
   const body = order.map((key) => {

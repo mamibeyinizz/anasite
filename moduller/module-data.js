@@ -116,11 +116,17 @@
           { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
           { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
-        cta: { secondary: { label: "Canlı menüyü görün", path: "canli-menu/" } },
+        v3Order: ["hero", "gaps", "answer", "flow", "details", "related", "closing"],
+        cta: {
+          primary: { label: "Demo talep edin", path: "iletisim/#talep" },
+          secondary: { label: "Canlı menüyü görün", path: "canli-menu/" }
+        },
         closing: {
           title: "Restoran Menü tüm paketlerde: işletmenize uygun planı seçin.",
-          text: "Menü yönetimi Temel, Pro ve Plus paketlerinin üçünde de var. Paketleri karşılaştırın ya da menünüzü birlikte gözden geçirmek için demo talep edin.",
-          secondary: { label: "Demo talep edin", path: "iletisim/#talep" }
+          text: "Menü yönetimi üç paketin üçünde de var. Fiyatlar aylık; yıllık ödemede 12 aylık kullanım 10 aylık ücrete denk gelir. Sepetle sipariş Pro ve Plus paketindedir. Hangisinin size uyduğundan emin değilseniz menünüzü birlikte gözden geçirelim.",
+          showPrice: true,
+          primary: { label: "Demo talep edin", path: "iletisim/#talep" },
+          secondary: { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" }
         },
 
         answer: {
