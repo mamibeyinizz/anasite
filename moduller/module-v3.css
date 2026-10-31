@@ -359,3 +359,93 @@ html.v3-ready .qrmo-v3-map-lines { display: block; }
 @media (hover: hover) and (pointer: fine) { .qrmo-v3-spoke--f:hover { transform: none; border-color: var(--qm-gold-line); } }
 @media (min-width: 900px) { .qrmo-v3-map { grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr); } .qrmo-v3-spokes { gap: 12px; } }
 .qrmo-v3-sec.qrmo-mod-related .qrmo-mod-guides-h { margin-top: 36px; }
+
+/* =========================================================
+   TİPOGRAFİ ÖLÇEĞİ — tek kaynak. Her boyut bir kez burada tanımlanır.
+   Kurallar: H1 her genişlikte H2'den büyük · gövde ≥16px (kart açıklaması ≥15px) ·
+   etiket ≥12.5px · satır uzunluğu ≤ ~68 karakter · ekran büyüdükçe yalnız
+   başlıklar ve okuma metni büyür, etiketler sabit kalır.
+   Hero iki sütuna geçtiğinde (768+) metin sütunu daraldığı için H1 küçülür.
+========================================================= */
+
+body.qrmo-v3 {
+  --fs-label: 12.5px;   /* eyebrow, sayı, kart etiketi */
+  --fs-meta: 13.5px;    /* etiket, kırıntı, yüzen çip, dipnot */
+  --fs-small: 15px;     /* kart açıklaması, not listesi */
+  --fs-body: 16px;      /* okuma metni */
+  --fs-lead: 17px;      /* giriş cümlesi */
+  --fs-card: 17px;      /* kart / soru başlığı */
+  --fs-step: 20px;      /* adım başlığı */
+  --fs-hub: 22px;       /* merkez kart başlığı */
+  --fs-h2: 26px;
+  --fs-h1: clamp(30px, 8vw, 40px);
+  --lh-body: 1.62;
+}
+@media (min-width: 600px) {
+  body.qrmo-v3 { --fs-lead: 18px; --fs-card: 18px; --fs-step: 22px; --fs-hub: 24px; --fs-h2: clamp(28px, 4.2vw, 32px); }
+}
+@media (min-width: 768px) {
+  body.qrmo-v3 { --fs-h1: clamp(34px, 4.6vw, 42px); --fs-h2: clamp(28px, 3.6vw, 34px); --fs-step: 22px; }
+}
+@media (min-width: 1024px) {
+  body.qrmo-v3 {
+    --fs-small: 15.5px; --fs-body: 17px; --fs-lead: 19.5px; --fs-card: 18px; --fs-step: clamp(24px, 2vw, 28px); --fs-hub: 28px;
+    --fs-h1: clamp(42px, 4vw, 56px); --fs-h2: clamp(32px, 2.8vw, 40px);
+  }
+}
+
+/* Başlıklar */
+body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-h1 { font-size: var(--fs-h1); line-height: 1.08; }
+body.qrmo-v3 .qrmo-v3-h2 { font-size: var(--fs-h2); line-height: 1.16; }
+body.qrmo-v3 .qrmo-mod-close h2, body.qrmo-v3 .qrmo-mod-close .qrmo-mod-h2 { font-size: var(--fs-h2); line-height: 1.16; }
+body.qrmo-v3 .qrmo-v3-step h3 { font-size: var(--fs-step); line-height: 1.25; }
+body.qrmo-v3 .qrmo-v3-hub h3 { font-size: var(--fs-hub); }
+
+/* Okuma metni: gövde ve giriş, satır uzunluğu sınırlı */
+body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { font-size: var(--fs-lead); line-height: 1.6; max-width: 34em; }
+body.qrmo-v3 .qrmo-v3-p { font-size: var(--fs-lead); line-height: 1.65; max-width: 38em; }
+body.qrmo-v3 .qrmo-v3-step p,
+body.qrmo-v3 .qrmo-v3-hub p,
+body.qrmo-v3 .qrmo-v3-q p,
+body.qrmo-v3 .qrmo-v3-pain-now,
+body.qrmo-v3 .qrmo-mod-close .qrmo-mod-text,
+body.qrmo-v3 .qrmo-v3-all-body strong { font-size: var(--fs-body); line-height: var(--lh-body); }
+body.qrmo-v3 .qrmo-v3-step p, body.qrmo-v3 .qrmo-v3-q p, body.qrmo-v3 .qrmo-v3-p { max-width: 62ch; }
+
+/* Kart başlıkları ve soru satırları */
+body.qrmo-v3 .qrmo-v3-pain-fix,
+body.qrmo-v3 .qrmo-v3-q summary,
+body.qrmo-v3 .qrmo-v3-all summary,
+body.qrmo-v3 .qrmo-v3-spoke-b strong,
+body.qrmo-v3 .qrmo-mod-tile-t,
+body.qrmo-v3 .qrmo-mod-guides-t { font-size: var(--fs-card); line-height: 1.32; }
+body.qrmo-v3 .qrmo-v3-pain-fix { font-weight: 700; line-height: 1.45; }
+
+/* Kart açıklamaları ve notlar */
+body.qrmo-v3 .qrmo-v3-spoke-b > span:not(.qrmo-v3-meta),
+body.qrmo-v3 .qrmo-mod-tile-d,
+body.qrmo-v3 .qrmo-mod-guides-d,
+body.qrmo-v3 .qrmo-v3-notes li,
+body.qrmo-v3 .qrmo-v3-all-body li span { font-size: var(--fs-small); line-height: 1.55; }
+body.qrmo-v3 .qrmo-v3-notes h3 { font-size: var(--fs-small); }
+
+/* Etiketler: tek boyut, geniş harf aralığı */
+body.qrmo-v3 .qrmo-v3-eyebrow,
+body.qrmo-v3 .qrmo-v3-step-n,
+body.qrmo-v3 .qrmo-v3-pain span,
+body.qrmo-v3 .qrmo-mod-guides-h,
+body.qrmo-v3 .qrmo-v3-all-body h3,
+body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-kicker { font-size: var(--fs-label); line-height: 1.3; }
+body.qrmo-v3 .qrmo-v3-meta,
+body.qrmo-v3 .qrmo-v3-chip,
+body.qrmo-v3 .qrmo-mod-crumbs li,
+body.qrmo-v3 .qrmo-mod-tier-t,
+body.qrmo-v3 .qrmo-v3-note,
+body.qrmo-v3 .qrmo-mod-kicker-pkg { font-size: var(--fs-meta); }
+body.qrmo-v3 .qrmo-v3-live { font-size: var(--fs-small); }
+body.qrmo-v3 .qrmo-v3-spoke--f .qrmo-v3-meta { font-size: var(--fs-label); }
+
+/* Düğmeler: dokunma hedefi ve okunurluk */
+body.qrmo-v3 .qrmo-mod-cta { font-size: 16px; }
+body.qrmo-v3 .qrmo-mod-textlink { font-size: 16px; }
+@media (min-width: 1024px) { body.qrmo-v3 .qrmo-mod-cta, body.qrmo-v3 .qrmo-mod-textlink { font-size: 17px; } }
