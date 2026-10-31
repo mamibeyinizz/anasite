@@ -5,3 +5,5 @@ node_modules/
 qr-menu-suite/
 sss/node_modules/
 sss/.qa-screenshots/
+backend/config.php
+backend/storage/

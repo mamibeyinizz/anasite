@@ -95,16 +95,68 @@
         tagline: "Fiyat ve ürünleri tek panelden güncelleyin; menü baskısız güncel kalsın.",
         featureIds: ["qr-menu", "menu-yonetimi", "csv-aktar", "porsiyon-ekstra", "kampanya-combo", "rozetler"],
         seo: {
-          title: "Restoran Menü — Dijital QR Menü Yönetimi",
-          description: "Kategori, ürün, fiyat, alerjen, porsiyon ve kampanyaları tek panelden yönetin; menünüz müşterinin telefonunda aranabilir ve filtrelenebilir açılsın."
+          title: "Restoran ve Kafe İçin QR Menü Programı",
+          description: "Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde."
         },
-        faq: ["qrmo-faq-q-urun-nasil-eklenir", "qrmo-faq-q-tukendi-urun", "qrmo-faq-q-csv-aktarim"],
-        order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        faq: ["qrmo-faq-q-urun-nasil-eklenir", "qrmo-faq-q-fiyat-nasil-degistirilir", "qrmo-faq-q-tukendi-urun", "qrmo-faq-q-csv-aktarim", "qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-uygulama-gerekir-mi"],
+        order: ["hero", "answer", "gaps", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Menünüzü yönetin, misafir güncel halini görsün",
+          steps: [
+            { screen: 0, t: "Panelde ürünü düzenleyin", d: "Fiyatı, kalorisini ve alerjenlerini yazın, kaydedin." },
+            { screen: 1, t: "Misafir menüyü telefonunda açar", d: "QR kodu okutur; uygulama indirmeden güncel menüyü görür." },
+            { screen: 2, t: "Aradığını kolayca bulur", d: "Arar, filtreler; biten ürünü etiketinden anlar." },
+            { screen: 3, t: "Ürünün ayrıntısına bakar", d: "Kalori, alerjen, porsiyon ve ekstralar tek ekranda." }
+          ]
+        },
+        features: [
+          { ico: "list", tag: "Menü içeriği", t: "Ürün ve fiyatlar tek panelde", d: "Kategori, ürün, fiyat ve bilgileri panelden güncelleyin; yüzlerce ürünü CSV ile tek seferde yükleyin." },
+          { ico: "clock", tag: "Stok", t: "Tükendi ve servis saati", d: "Biten ürün etiketiyle kalır, sepete eklenemez; kahvaltı gibi menüler kendi saatinde açılır." },
+          { ico: "tag", tag: "Fiyat", t: "Porsiyon, ekstra ve kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” tanımlayın ya da iki ürünü tek fiyatla sunun." },
+          { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
+          { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
+        ],
+        cta: { secondary: { label: "Canlı menüyü görün", path: "canli-menu/" } },
+        closing: {
+          title: "Restoran Menü tüm paketlerde: işletmenize uygun planı seçin.",
+          text: "Menü yönetimi Temel, Pro ve Plus paketlerinin üçünde de var. Paketleri karşılaştırın ya da menünüzü birlikte gözden geçirmek için demo talep edin.",
+          secondary: { label: "Demo talep edin", path: "iletisim/#talep" }
+        },
+
+        answer: {
+          kicker: "KISACA",
+          title: "Restoran Menü modülü nedir?",
+          text: "Restoran Menü, QR Menu Official’ın menü yönetim modülüdür. Restoran veya kafe sahibi kategori, ürün, fiyat, alerjen, porsiyon ve kampanyayı tek panelden yönetir; misafir masadaki QR kodu okutur ve güncel menüyü uygulama indirmeden telefonunun tarayıcısında açar.",
+          facts: [
+            { k: "Kimler için", v: "Türkiye’deki restoran, kafe ve benzeri yeme-içme işletmeleri; fiyatlar TL ile girilir." },
+            { k: "Misafir tarafı", v: "Uygulama indirmeden tarayıcıda açılır; arama, filtre ve sıralama kullanılır." },
+            { k: "Yönetim", v: "Fiyat, stok durumu, servis saati ve kampanya panelden değişir; baskı gerekmez." },
+            { k: "Hangi paketlerde", v: "Temel, Pro ve Plus paketlerinin üçünde de yer alır." },
+            { k: "Sayfaya ekleme", v: "Menü sitenize kısa kod veya Elementor bileşeniyle eklenir." }
+          ]
+        },
+
+        gaps: {
+          kicker: "EKSİĞİ GÖRÜN",
+          title: "Menünüzde bunlar yaşanıyorsa, eksik olan bir yönetim paneli.",
+          text: "Basılı menü ya da sabit bir PDF ile çalışan işletmelerde aynı sorunlar tekrar eder. Aşağıdakilerden birkaçı tanıdıksa Restoran Menü tam bu işi yapar.",
+          cols: ["BUGÜN YAŞADIĞINIZ", "RESTORAN MENÜ İLE"],
+          rows: [
+            { now: "Fiyat değişince menüler yeniden basılıyor.", next: "Fiyatı panelde güncellersiniz; misafir bir sonraki açılışta yeni fiyatı görür." },
+            { now: "Biten ürünü misafir sipariş etmeye çalışıyor.", next: "Ürünü tükendi işaretlersiniz; menüde etiketiyle kalır, sepete eklenemez. İsterseniz belirlediğiniz saatte yeniden satışa açılır." },
+            { now: "Alerjen, kalori ve içerik soruları garsona düşüyor.", next: "Ürün detayında 14 alerjen tanımı, kalori, gramaj ve hazırlanış süresi görünür. Bilgiyi siz girersiniz." },
+            { now: "Kahvaltı ve öğle menüsünü saatine göre elle açıp kapatıyorsunuz.", next: "Kategoriye saat kuralını bir kez yazarsınız; saat dışındaki ürün etiketiyle görünür, sepete eklenemez." },
+            { now: "Kampanya başlatmak da geri almak da zahmetli.", next: "Toplu indirim uygularsınız; kaldırdığınızda fiyatlar eskisine döner." },
+            { now: "Yüzlerce ürünü tek tek girmek günler alıyor.", next: "Ürünleri tabloda hazırlar, CSV ile tek seferde yüklersiniz." },
+            { now: "Misafir uzun menüde aradığını bulamıyor.", next: "Arama, alerjen–kalori–fiyat filtresi ve sıralama menüyle birlikte gelir." }
+          ],
+          cta: { label: "Menünüz için demo talep edin", path: "iletisim/#talep", note: "Menünüzdeki eksikleri birlikte gözden geçirelim." }
+        },
 
         hero: {
           layout: "center",
-          h1: "Menünüzü tek panelden yönetin.",
-          lead: "Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; müşteri menüyü QR ile telefonunda güncel haliyle açar.",
+          h1: "Restoran ve kafeniz için QR menüyü tek panelden yönetin.",
+          lead: "Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; misafir QR kodu okutup menüyü telefonunda güncel haliyle açar. Basılı menü ve PDF yenileme derdi biter.",
           proof: ["Tükendi ve servis saati etiketleri", "Porsiyon, ekstra ve kombin", "CSV ile toplu aktarım"],
           visual: {
             frame: "scene", layout: "duo",
@@ -248,6 +300,11 @@
           { slug: "qr-masa", why: "Her masanın QR kodu bu menüye açılır." },
           { slug: "akilli-filtreleme", why: "Menüdeki arama ve filtre paneli." },
           { slug: "coklu-dil", why: "Menüyü misafirin dilinde sunun." }
+        ],
+        guides: [
+          { path: "blog/qr-menu-nedir/", t: "QR Menü Nedir? Restoran ve Kafeler İçin Kapsamlı Rehber", d: "QR menünün nasıl çalıştığını ve nelere dikkat edileceğini okuyun." },
+          { path: "blog/dijital-menu-nasil-hazirlanir/", t: "Dijital Menü Nasıl Hazırlanır?", d: "Menüyü sıfırdan hazırlarken izlenecek adımlar." },
+          { path: "blog/karekod-fiyat-listesi-yonetmeligi/", t: "Karekodla Fiyat Listesi: Yönetmelik Rehberi", d: "Fiyat listesini karekodla sunarken bilmeniz gerekenler." }
         ]
       },
 
@@ -267,6 +324,22 @@
         },
         faq: ["qrmo-faq-q-her-masa-ayri-qr", "qrmo-faq-q-masa-ad-degisince", "qrmo-faq-q-qr-hangi-adres"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
+        flow: {
+          title: "Masalarınız dakikalar içinde hazır",
+          steps: [
+            { screen: 2, t: "Masaları toplu açın", d: "Masa sayısını yazın; hepsi bir seferde oluşur, var olanlar bozulmaz." },
+            { screen: 0, t: "Her masanın QR kodu hazır", d: "Masaya özel kodu görün ve indirin." },
+            { screen: 1, t: "Yazdırın, masaya koyun", d: "PNG, PDF ya da tek dosyada tüm masalar." },
+            { screen: 3, t: "Masa adı değişse de kod aynı kalır", d: "Masaya konmuş basılı QR kod çalışmaya devam eder." }
+          ]
+        },
+        features: [
+          { ico: "grid", tag: "Masa tanımı", t: "Tek tek ya da toplu masa", d: "Masa adını yazın ya da bir aralık girip tek seferde açın (en fazla 200 masa)." },
+          { ico: "qr", tag: "QR kod", t: "Her masaya özel QR kod", d: "Her masa için QR kodunu PNG ya da PDF olarak indirin." },
+          { ico: "download", tag: "Yazdırma", t: "Tüm masalar tek dosyada", d: "Her masa kendi adıyla bir sayfada, hepsi tek PDF'te." },
+          { ico: "shield", tag: "Baskı güvencesi", t: "Masa adı değişse de kod aynı kalır", d: "Masaya konmuş basılı QR kod aynı masayı göstermeye devam eder." },
+          { ico: "bell", tag: "Servis", t: "Masa bilgisi servise taşınır", d: "Misafir hangi masada olduğunu görür; garson çağrısı ve sipariş o masa adıyla gelir." }
+        ],
 
         hero: {
           layout: "split",
@@ -401,6 +474,21 @@
         },
         faq: ["qrmo-faq-q-coklu-dil", "qrmo-faq-q-otomatik-ceviri", "qrmo-faq-q-ceviri-csv"],
         order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafir kendi dilinde okur",
+          steps: [
+            { screen: 0, t: "Misafir dilini seçer", d: "Menü ve arayüz seçtiği dilde açılır." },
+            { screen: 1, t: "Çevirileri tek dosyada yönetin", d: "Dosyayı indirin, doldurun, geri yükleyin." },
+            { screen: 1, t: "Eksik kalan yer boş görünmez", d: "Çevirisi girilmemiş alan Türkçe haliyle görünür." }
+          ]
+        },
+        features: [
+          { ico: "globe", tag: "Diller", t: "30 dil", d: "Türkçe, English, Deutsch dahil 30 dil; Arapça, İbranice ve Farsça sağdan sola yazılır." },
+          { ico: "flag", tag: "Dil seçici", t: "Misafir kendi dilini seçer", d: "Bayrak ya da bayrak ve dil adı gösteren seçici; renkleri sizin ayarınız." },
+          { ico: "list", tag: "Çeviri", t: "Neler çevrilir?", d: "Ürünler, kategoriler, alerjenler ve menünün sabit yazıları." },
+          { ico: "download", tag: "CSV", t: "Çeviriler tek dosyada", d: "Dosyayı indirin, dil sütunlarını doldurun, geri yükleyin." },
+          { ico: "chart", tag: "Takip", t: "Durum ve arama motorları", d: "Her dil için kaç çeviri yazıldığını görün; dil adreste yer alır, alternatif dil etiketleri yayınlanır." }
+        ],
 
         hero: {
           layout: "split",
@@ -532,6 +620,21 @@
         },
         faq: ["qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-arama-siralama"],
         order: ["hero", "shift", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafir aradığını saniyeler içinde bulur",
+          steps: [
+            { screen: 0, t: "Misafir filtreyi açar", d: "Alerjen, kalori, fiyat ve ürün özelliğine göre daraltır." },
+            { screen: 1, t: "Alerjenini hariç tutar", d: "Seçtiği alerjeni içeren ürünler listeden çıkar." },
+            { screen: 2, t: "Seçimlerini görür", d: "Uygulanan filtreler etiket olarak durur; tek dokunuşla sıfırlanır." }
+          ]
+        },
+        features: [
+          { ico: "filter", tag: "Alerjen", t: "Alerjenini hariç tutar", d: "14 alerjenden seçtiğini içeren ürünler listeden çıkar." },
+          { ico: "sliders", tag: "Aralık", t: "Kalori ve fiyat aralığı", d: "En az ve en çok değeri yazar; kampanyalı üründe geçerli fiyata bakılır." },
+          { ico: "tag", tag: "Etiket", t: "Özellik ve diyet etiketleri", d: "Popüler, Yeni, Önerilen, İndirimli; Vegan, Vejetaryen ve Glütensiz." },
+          { ico: "search", tag: "Arama", t: "Arama ve 8 sıralama", d: "Ürün arama kutusu; A→Z, fiyat, protein, karbonhidrat ve acılığa göre sıralama." },
+          { ico: "check", tag: "Kolaylık", t: "Seçimler görünür, tek dokunuşla sıfırlanır", d: "Uygulanan filtreler menüde etiket olarak durur." }
+        ],
 
         hero: {
           layout: "split",
@@ -666,6 +769,21 @@
         },
         faq: ["qrmo-faq-q-menu-asistani-nedir", "qrmo-faq-q-personel-devralma", "qrmo-faq-q-gemini-kullanimi"],
         order: ["hero", "stage", "story", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafirin sorusu garson beklemeden yanıtlanır",
+          steps: [
+            { screen: 0, t: "Misafir menü hakkında soru sorar", d: "Asistan yalnızca sizin menü bilginizle yanıt verir." },
+            { screen: 1, t: "Bilmediği soruları siz görürsünüz", d: "Cevaplanamayan sorular listeye düşer; eksik bilgiyi menüye eklersiniz." },
+            { screen: 2, t: "Gerekirse ekibiniz devralır", d: "Garson çağrısı ya da hesap isteği servis ekibine iletilebilir." }
+          ]
+        },
+        features: [
+          { ico: "chat", tag: "Yanıt", t: "Menünüze göre yanıtlar", d: "Yanıtlar ürün, fiyat ve açıklamalarınıza ve restoran bilginize dayanır." },
+          { ico: "star", tag: "Takip", t: "Bilmediğini söyler", d: "Yanıtlayamadığı sorular listeye düşer; eksik bilgiyi menüye siz eklersiniz." },
+          { ico: "bell", tag: "Servis", t: "Ürün önerir, garson çağırır", d: "Menüden ürün önerir; sohbetten garson çağrısı ve hesap isteği servis ekibine iletilebilir." },
+          { ico: "cart", tag: "Sipariş", t: "Siparişi adım adım alır", d: "Ürün, adet ve toplam özetiyle, müşterinin açık onayıyla ilerler." },
+          { ico: "sliders", tag: "Kontrol", t: "Her şey sizin kontrolünüzde", d: "Adını, karşılama mesajını ve görünümünü belirleyin; geçmişi inceleyin, gerekirse sohbeti devralın." }
+        ],
 
         hero: {
           layout: "split",
@@ -818,6 +936,21 @@
         },
         faq: ["qrmo-faq-q-garson-cagir", "qrmo-faq-q-siparis-servis-paneli", "qrmo-faq-q-online-odeme"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
+        flow: {
+          title: "Her talep doğru ekibin önünde",
+          steps: [
+            { screen: 1, t: "Misafir telefonundan talep gönderir", d: "Garson çağrısı, hesap isteği ya da sipariş." },
+            { screen: 0, t: "Tüm talepler tek ekranda", d: "Sipariş, garson çağrısı ve hesap isteği türüne göre ayrılır." },
+            { screen: 2, t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner." }
+          ]
+        },
+        features: [
+          { ico: "grid", tag: "Panel", t: "Üç talep tek ekranda", d: "Sipariş, garson çağrısı ve hesap isteği aynı panelde; türüne ve masaya göre süzün." },
+          { ico: "kanban", tag: "Takip", t: "Durumu karttan güncelleyin", d: "Bekliyor, Hazırlanıyor, Serviste, Tamamlandı: ekip durumu düğmeyle günceller." },
+          { ico: "clock", tag: "Uyarı", t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner; süreleri siz belirlersiniz." },
+          { ico: "bell", tag: "Bildirim", t: "Ses ve tarayıcı bildirimi", d: "Yeni kayıtta sesli uyarı; izin verilirse tarayıcı bildirimi." },
+          { ico: "users", tag: "Erişim", t: "Misafir ve personel tarafı", d: "Misafir tek dokunuşla garson çağırır; garson ve mutfak için sınırlı servis rolü vardır." }
+        ],
 
         hero: {
           layout: "split",
@@ -956,6 +1089,21 @@
         },
         faq: ["qrmo-faq-q-analytics-nedir", "qrmo-faq-q-pos-verisi-mi", "qrmo-faq-q-analytics-siparis"],
         order: ["hero", "story", "stage", "details", "related", "closing"],
+        flow: {
+          title: "Menünüzün nasıl kullanıldığını görün",
+          steps: [
+            { screen: 0, t: "Genel durumu görün", d: "Menü görüntüleme ve ürün tıklamalarını tarih aralığına göre izleyin." },
+            { screen: 1, t: "Hangi masa hareketli, hangisi sessiz", d: "Hiç okutulmayan masalar listede ayrı görünür." },
+            { screen: 2, t: "Sepetten siparişe giden yol", d: "Sipariş özelliğini (Pro) kullanıyorsanız her adımı görürsünüz." }
+          ]
+        },
+        features: [
+          { ico: "chart", tag: "Genel bakış", t: "Menü ne kadar görülüyor?", d: "Menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa; günlük, haftalık, aylık." },
+          { ico: "trend", tag: "Ürünler", t: "Hangi ürün ilgi görüyor?", d: "En çok ve en az tıklanan ürünler ile kategori dağılımı." },
+          { ico: "grid", tag: "Masalar", t: "Hangi masa hareketli?", d: "Masaya göre hareket; hiç okutulmayan masalar ayrı görünür." },
+          { ico: "cart", tag: "Sipariş", t: "Sepetten siparişe giden yol", d: "Sepete eklenen, gönderilen ve terk edilen siparişler; tükendi yüzünden engellenenler ayrı raporlanır (Pro)." },
+          { ico: "download", tag: "Veri", t: "CSV ve saklama süresi", d: "Raporları CSV indirin; kayıtların kaç gün saklanacağını siz belirleyin." }
+        ],
 
         hero: {
           layout: "center",
@@ -1086,6 +1234,22 @@
         },
         faq: ["qrmo-faq-q-guvenli-mi", "qrmo-faq-q-oturum-dogrulama"],
         order: ["hero", "shift", "story", "proof", "details", "related", "closing"],
+        flow: {
+          title: "Masa oturumu kontrolünüzde kalır",
+          steps: [
+            { screen: 0, t: "Kayıtlı masada her şey açık", d: "Garson çağırma, sipariş ve sohbet çalışır." },
+            { screen: 1, t: "Kayıtsız adreste menü yine açık", d: "Menü herkese açık kalır; masa özellikleri açılmaz." },
+            { screen: 2, t: "Oturumu panelde görün", d: "Masanın oturum durumu panelde yer alır." },
+            { screen: 3, t: "Süre sınırını siz belirlersiniz", d: "Süre ya da hareketsizlik limiti dolunca oturum kapanır." }
+          ]
+        },
+        features: [
+          { ico: "shield", tag: "Güvenlik", t: "İmzalı masa oturumu", d: "Müşteri adresi değiştirip başka bir masa adına oturum açamaz." },
+          { ico: "clock", tag: "Süre", t: "Oturum süresi sınırlı", d: "QR okutulduktan sonra oturum en çok 90 dakika sürer (varsayılan; siz değiştirirsiniz)." },
+          { ico: "lock", tag: "Limit", t: "Hareketsizlikte kilitlenir", d: "Belirlenen süre işlem yapılmazsa oturum kilitlenir (varsayılan 30 dakika)." },
+          { ico: "qr", tag: "Kilit ekranı", t: "Kayıtsız adreste kilit ekranı", d: "Kayıtlı olmayan masa adresinde kilit ekranı açılır; menü herkese açık kalır." },
+          { ico: "chat", tag: "Kapsam", t: "Mesaj limiti ve masa silme", d: "Oturum başına asistan mesajı sınırlanır (25); masa silinince açık oturumlar kapanır." }
+        ],
 
         hero: {
           layout: "split",
@@ -1215,6 +1379,21 @@
         },
         faq: [],
         order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafirin deneyimini sistemli öğrenin",
+          steps: [
+            { screen: 0, t: "Misafir puan verir, yorum yazar", d: "Kısa bir formla görüşünü iletir." },
+            { screen: 1, t: "Yayın kararı sizde", d: "Olumlu ve olumsuz yorumlar ayrı sekmelerde; hangisinin yayına çıkacağına siz karar verirsiniz." },
+            { screen: 2, t: "Raporlarla eksiği görün", d: "Kriter, masa ve saate göre dağılımı inceleyin." }
+          ]
+        },
+        features: [
+          { ico: "star", tag: "Puanlama", t: "Beş kriterli puan", d: "Yemek, hizmet, temizlik gibi beş kriteri siz adlandırırsınız; misafir puan ve yorum yazar." },
+          { ico: "check", tag: "Yönetim", t: "Yayın kararı sizde", d: "Yorumları yayınlar, kaldırır ya da silersiniz; olumlu ve olumsuz sekmeleri ayrıdır." },
+          { ico: "form", tag: "Formlar", t: "Kendi formlarınız", d: "İletişim formu ve form oluşturucuyla kendi geri bildirim formlarınızı kurun." },
+          { ico: "chart", tag: "Rapor", t: "Raporlar", d: "Kriter ortalamaları, masaya ve saat dilimine göre dağılım." },
+          { ico: "download", tag: "Veri", t: "Veri ve izin araçları", d: "CSV indirme, onay metni ve kişisel veri dışa aktarma ile silme araçları." }
+        ],
 
         hero: {
           layout: "split",
@@ -1353,6 +1532,21 @@
         },
         faq: ["qrmo-faq-q-menu-muhendisligi-nedir", "qrmo-faq-q-maliyet-gerekli-mi"],
         order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Hangi ürün gerçekten kazandırıyor?",
+          steps: [
+            { screen: 1, t: "Ürünün maliyetini girin", d: "Reçeteden ürünün maliyeti hesaplanır." },
+            { screen: 0, t: "Ürünleri matriste görün", d: "Çok satanı ve kârlıyı yan yana görün. Maliyeti girilmeyen ürün matrise alınmaz." },
+            { screen: 1, t: "Fiyat değişince maliyet güncellenir", d: "Malzeme fiyatı değişince reçeteli ürünlerin maliyeti yeniden hesaplanır." }
+          ]
+        },
+        features: [
+          { ico: "calc", tag: "Maliyet", t: "Ürün maliyetini girin", d: "Maliyeti doğrudan yazın ya da reçeteden hesaplatın." },
+          { ico: "list", tag: "Reçete", t: "Reçete ve fire", d: "Malzeme fiyatlarından reçete maliyeti çıkar; fire yüzdesi eklenir." },
+          { ico: "grid", tag: "Matris", t: "Dört gruplu menü matrisi", d: "Yıldız, Çok Satan, Gizli Fırsat dahil dört grup yan yana görünür." },
+          { ico: "spark", tag: "Öneri", t: "Ne yapılacağını söyler", d: "Her grup için kısa bir yönlendirme cümlesi yazılır." },
+          { ico: "chart", tag: "Rapor", t: "Rapor ve eksik maliyetler", d: "Dönem ve kategoriye göre rapor ve CSV; maliyeti girilmeyen ürünler ayrı listelenir." }
+        ],
 
         hero: {
           layout: "center",

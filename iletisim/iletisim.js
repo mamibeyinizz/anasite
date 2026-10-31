@@ -32,17 +32,8 @@
   var messageInput = form.elements.message;
   var messageCount = document.getElementById("qrmo-contact-message-count");
   var messageCountNum = messageCount ? messageCount.querySelector(".qrmo-contact-count-num") : null;
-  var asideStack = document.querySelector('[data-qrmo-contact-aside="stack"]');
-  var asideRail = document.querySelector('[data-qrmo-contact-aside="rail"]');
-  var asideMedia = window.matchMedia("(min-width: 1000px)");
 
   form.noValidate = true;
-
-  function syncContactAsides() {
-    var desktop = asideMedia.matches;
-    if (asideStack) asideStack.setAttribute("aria-hidden", desktop ? "true" : "false");
-    if (asideRail) asideRail.setAttribute("aria-hidden", desktop ? "false" : "true");
-  }
 
   function updateMessageCount() {
     if (!messageInput || !messageCountNum) return;
@@ -57,12 +48,6 @@
     }
   }
 
-  syncContactAsides();
-  if (typeof asideMedia.addEventListener === "function") {
-    asideMedia.addEventListener("change", syncContactAsides);
-  } else if (typeof asideMedia.addListener === "function") {
-    asideMedia.addListener(syncContactAsides);
-  }
   updateMessageCount();
 
   function oneLine(value) {

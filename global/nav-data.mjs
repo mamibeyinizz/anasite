@@ -90,14 +90,18 @@ export const DRAWER = {
 
 /* Drawer çözümler grid — modül slug'ları gerçek /moduller/<slug>/ yollarına gider.
    Sıra satış önceliğidir; ad + açıklama hedef sayfanın gerçekte anlattığıyla eşleşir.
-   İkon sırası render.mjs I.sol ile aynıdır (menü, servis, asistan, dil, grafik, yorum). */
+   İkon sırası render.mjs I.sol ile aynıdır (menü, servis, asistan, dil, grafik, yorum, qr masa, filtre, analytics, güvenlik). */
 export const DRAWER_SOLUTIONS = [
   { name: "Dijital QR Menü", desc: "Ürün ve fiyatları tek panelden yönetin", slug: "restoran-menu" },
   { name: "Garson & Hesap İsteme", desc: "Talepler servis paneline düşer", slug: "servis-paneli" },
   { name: "Menü Asistanı", desc: "Misafirin sorusunu menünüzden yanıtlar", slug: "menu-asistani" },
   { name: "Çoklu Dil", desc: "Menü misafirin dilinde açılır", slug: "coklu-dil" },
   { name: "Menü Mühendisliği", desc: "Kârlı ürünü öne çıkarın", slug: "menu-muhendisligi" },
-  { name: "Yorum & Geri Bildirim", desc: "Puan ve yorumları panelde toplayın", slug: "yorum-geri-bildirim" }
+  { name: "Yorum & Geri Bildirim", desc: "Puan ve yorumları panelde toplayın", slug: "yorum-geri-bildirim" },
+  { name: "QR Masa", desc: "Her masaya özel QR kodu üretin", slug: "qr-masa" },
+  { name: "Akıllı Filtreleme", desc: "Alerjen ve kaloriye göre ürün bulun", slug: "akilli-filtreleme" },
+  { name: "QR Analytics", desc: "Menü görüntüleme ve tıklamaları izleyin", slug: "qr-analytics" },
+  { name: "Masa Oturum Güvenliği", desc: "İmzalı, süreli masa oturumu açın", slug: "masa-oturum-guvenligi" }
 ];
 
 /* Çözümler menüsü: kategori → modüller (footer; gerçek /moduller/<slug>/ yolları) */

@@ -1573,3 +1573,114 @@ button.qrmo-gf-cta-btn {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Ziyaret ölçümü onay çubuğu (.qrmo-consent) — global/src/analytics.js oluşturur.
+   Bağlantılar renk, ağırlık ve ok ile ayırt edilir; alt çizgi kullanılmaz (CLAUDE.md). */
+.qrmo-consent {
+  position: fixed;
+  left: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 100001;
+  box-sizing: border-box;
+  width: min(420px, calc(100vw - 32px));
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(212, 180, 91, 0.28);
+  border-radius: 12px;
+  background: #0d2b22;
+  color: #f8f3e7;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 0 18px 48px rgba(6, 31, 25, 0.38);
+  animation: qrmo-consent-in 0.28s ease-out both;
+}
+
+.qrmo-consent__title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0d887;
+}
+
+.qrmo-consent__text {
+  margin: 0 0 14px;
+  color: rgba(248, 243, 231, 0.82);
+}
+
+.qrmo-consent__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.qrmo-consent__btn {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 11px;
+  border: 1px solid #d4b45b;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.qrmo-consent__btn--accept {
+  background: #d4b45b;
+  color: #0d2b22;
+}
+
+.qrmo-consent__btn--accept:hover {
+  background: #f0d887;
+}
+
+.qrmo-consent__btn--reject {
+  background: transparent;
+  color: #f8f3e7;
+}
+
+.qrmo-consent__btn--reject:hover {
+  background: rgba(248, 243, 231, 0.1);
+}
+
+.qrmo-consent__btn:focus-visible,
+.qrmo-consent__more:focus-visible {
+  outline: 2px solid #f0d887;
+  outline-offset: 2px;
+}
+
+.qrmo-consent__more {
+  display: inline-block;
+  margin-top: 12px;
+  color: #f0d887;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.qrmo-consent__more:hover {
+  color: #fff;
+}
+
+@media (max-width: 560px) {
+  .qrmo-consent {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+}
+
+@keyframes qrmo-consent-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-consent {
+    animation: none;
+  }
+}

@@ -722,7 +722,7 @@ function hubCloseEnterScript() {
    ORTAK SAYFA PARÇALARI
 ========================================================= */
 
-function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) {
+function head({ title, description, url, breadcrumb, cssPath, extraHead = "", graph = [] }) {
   const ld = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: breadcrumb.map((b, i) => ({ "@type": "ListItem", position: i + 1, name: b[0], item: b[1] }))
@@ -734,7 +734,7 @@ function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta name="theme-color" content="#FDFBF5">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="${esc(url)}">
@@ -744,8 +744,11 @@ function head({ title, description, url, breadcrumb, cssPath, extraHead = "" }) 
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${esc(url)}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(description)}">
 <link rel="stylesheet" href="${cssPath}">
-${extraHead ? extraHead + "\n" : ""}<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>
+${extraHead ? extraHead + "\n" : ""}<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>${graph.length ? `\n<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>` : ""}
 </head>`;
 }
 
@@ -761,12 +764,19 @@ function crumbs(items) {
 const kicker = (t, extra = "") => `<p class="qrmo-mod-kicker${extra}">${esc(t)}</p>`;
 const caveat = (t) => (t ? `<p class="qrmo-mod-caveat">${ICON.info}<span>${esc(t)}</span></p>` : "");
 
-function ctaRow(rel, back, { dark = false, modulesLabel } = {}) {
+function ctaRow(rel, back, { dark = false, modulesLabel, secondary } = {}) {
+  const second = secondary ? { href: rel + secondary.path, label: secondary.label } : { href: back, label: modulesLabel || MOD.site.modulesLabel };
   return `<div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta${dark ? " qrmo-mod-cta--ondark" : ""}" href="${rel}paketler/"><span>${esc(MOD.site.pricingLabel)}</span>${ICON.arrow}</a>
-          <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${back}">${esc(modulesLabel || MOD.site.modulesLabel)}</a>
+          <a class="qrmo-mod-textlink${dark ? " qrmo-mod-textlink--ondark" : ""}" href="${second.href}"><span>${esc(second.label)}</span>${ICON.arrow}</a>
         </div>`;
 }
+
+/* SSS cevap parçaları → düz metin / HTML. Bağlantılar kökten ("/moduller/x/") gelir; sayfa derinliğine göre göreli yapılır. */
+const faqText = (q) => q.answer.map((p) => (p.type === "link" ? p.label : p.value)).join("");
+const faqHtml = (q, rel) => q.answer.map((p) => (p.type === "link"
+  ? `<a href="${esc(p.href.startsWith("/") ? rel + p.href.slice(1) : p.href)}">${esc(p.label)}</a>`
+  : esc(p.value))).join("");
 
 /* Modül Design V2: numaralı bölüm işaretçileri (yalnızca designV2 modüllerde). */
 const V2_MARKER_LABEL = { story: "story", stage: "stage", capabilities: "capabilities", details: "AYRINTILAR" };
@@ -841,10 +851,95 @@ function moduleContextNav(_m) {
    MODÜL SAYFASI BÖLÜMLERİ
 ========================================================= */
 
+/* =========================================================
+   V3 ŞABLON — cihaz vitrini (telefon / panel), tek bileşen, her sayfada aynı.
+   Ekranlar mevcut mock verisinden (hero, stage, story, proof) toplanır.
+========================================================= */
+
+function flatDevices(v, out) {
+  if (!v) return;
+  if (v.frame === "scene") (v.items || []).forEach((i) => flatDevices(i, out));
+  else if (!out.includes(v)) out.push(v);
+}
+function devicesOf(m) {
+  const out = [];
+  [m.hero.visual, m.stage && m.stage.visual, m.story && m.story.visual, m.proof && m.proof.visual].forEach((v) => flatDevices(v, out));
+  return out;
+}
+const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "Sizin yönetim ekranınız", card: "Basılı çıktı" };
+const deviceCap = (d) => d.label || DEVICE_CAP[d.frame] || "Örnek ekran";
+
+function showcase(m, { mode = "auto", chips = [], id, phoneFirst = false }) {
+  const devs = devicesOf(m);
+  if (!devs.length) return "";
+  const start = phoneFirst ? Math.max(0, devs.findIndex((d) => d.frame === "phone")) : 0;
+  const sid = `qrmo-v3-${id}`;
+  return `<div class="qrmo-v3-show" data-v3-show="${mode}" id="${sid}">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">${join(devs, (d, i) => `
+          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: temsili ekran ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
+            <div class="qrmo-v3-fit">${frame(d)}</div>
+          </figure>`)}
+        </div>${chips.map((c, i) => `
+        <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[i]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi">${join(devs, (d, i) => `<button type="button" class="qrmo-v3-dot${i === start ? " is-active" : ""}" data-v3-dot="${i}" aria-label="${esc(`Ekran ${i + 1} / ${devs.length}: ${deviceCap(d)}`)}" aria-pressed="${i === start}"><i></i></button>`)}</div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">${esc(deviceCap(devs[start]))}</p>
+        </div>
+        <p class="qrmo-v3-note">${esc(MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
+      </div>`;
+}
+
+/* Özellik kartı ikonları (24×24, çizgi) */
+const FEAT_ICON = Object.fromEntries(Object.entries({
+  list: '<path d="M8 6h12M8 12h12M8 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  tag: '<path d="M3 12V4h8l10 10-8 8z"/><path d="M7.5 8h.01"/>',
+  spark: '<path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/>',
+  filter: '<path d="M4 5h16l-6 8v6l-4-2v-4z"/>',
+  qr: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3h3M14 20h.01M20 20h.01"/>',
+  grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+  flag: '<path d="M5 21V4M5 5h12l-2 4 2 4H5"/>',
+  download: '<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',
+  chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
+  sliders: '<path d="M4 8h10M18 8h2M4 16h2M10 16h10"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="16" r="2"/>',
+  search: '<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/>',
+  chat: '<path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/>',
+  cart: '<path d="M3 4h2l2 12h11l2-8H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/>',
+  users: '<circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 3-6 6-6s6 2.5 6 6"/><path d="M16 5a3.5 3.5 0 0 1 0 6M18 14c2 .8 3 3 3 6"/>',
+  kanban: '<rect x="4" y="4" width="4.5" height="16" rx="1"/><rect x="9.8" y="4" width="4.5" height="11" rx="1"/><rect x="15.5" y="4" width="4.5" height="7" rx="1"/>',
+  lock: '<rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V8a4 4 0 0 1 8 0v2"/>',
+  star: '<path d="m12 4 2.4 5 5.4.7-4 3.8 1 5.4L12 16.3 7.2 18.9l1-5.4-4-3.8 5.4-.7z"/>',
+  form: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+  calc: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',
+  trend: '<path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/>'
+}).map(([k, d]) => [k, `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`]));
+
 const SECTION = {
 
   hero(m, ctx) {
     const h = m.hero;
+    if (ctx.v3) {
+      return `
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
+        <p class="qrmo-mod-lead">${esc(h.lead)}</p>
+        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary })}
+      </div>
+      <div class="qrmo-v3-hero-visual">
+        ${showcase(m, { mode: "auto", chips: (h.proof || []).slice(0, 2), id: "hero", phoneFirst: true })}
+      </div>
+    </div>
+  </section>`;
+    }
     return `
   <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--${h.layout}${m.designV2 ? " qrmo-mod-hero--v2" : ""}" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-mod-inner qrmo-mod-hero-grid">
@@ -853,11 +948,78 @@ const SECTION = {
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
         <p class="qrmo-mod-lead">${esc(h.lead)}</p>
         <ul class="qrmo-mod-proof">${join(h.proof, (p) => `<li>${ICON.check}<span>${esc(p)}</span></li>`)}</ul>
-        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel })}
+        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary })}
       </div>
       <div class="qrmo-mod-hero-visual">
       ${figure(h.visual, { caption: MOD.mockCaption, cls: "qrmo-mod-fig--hero" })}
       </div>
+    </div>
+  </section>`;
+  },
+
+  flow(m, ctx) {
+    const f = m.flow;
+    const n = devicesOf(m).length;
+    return `
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          <p class="qrmo-v3-eyebrow">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">${esc(f.title)}</h2>
+        </header>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">${join(f.steps, (st, i) => {
+            if (st.screen >= n) problems.push(`${m.slug}: flow adımı ${i + 1} ekran ${st.screen} yok (${n} ekran)`);
+            return `
+            <li class="qrmo-v3-step${i === 0 ? " is-active" : ""}" data-v3-step="${st.screen}" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}</span>
+              <h3>${esc(st.t)}</h3>
+              <p>${esc(st.d)}</p>
+            </li>`;
+          })}
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            ${showcase(m, { mode: "ctrl", id: "flow" })}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+  },
+
+  answer(m) {
+    const a = m.answer;
+    return `
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-intro" aria-labelledby="qrmo-mod-ans-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-ans-h">${esc(a.title)}</h2>
+        <p class="qrmo-v3-p">${esc(a.text)}</p>
+      </div>
+    </div>
+  </section>`;
+  },
+
+  gaps(m, ctx) {
+    const g = m.gaps;
+    const rows = g.rows.slice(0, 3);
+    return `
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
+    <div class="qrmo-mod-inner">
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">${esc(g.kicker)}</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">${esc(g.title)}</h2>
+      </header>
+      <ul class="qrmo-v3-pains">${join(rows, (r) => `
+        <li class="qrmo-v3-pain">
+          <p class="qrmo-v3-pain-now"><span>${esc(g.cols[0])}</span>${esc(r.now)}</p>
+          <p class="qrmo-v3-pain-fix"><span>${esc(g.cols[1])}</span>${esc(r.next)}</p>
+        </li>`)}
+      </ul>${g.cta ? `
+      <div class="qrmo-v3-sec-cta">
+        <a class="qrmo-mod-cta" href="${ctx.rel}${g.cta.path}"><span>${esc(g.cta.label)}</span>${ICON.arrow}</a>
+      </div>` : ""}
     </div>
   </section>`;
   },
@@ -1008,51 +1170,62 @@ const SECTION = {
     const faq = (m.faq || []).map((id) => {
       const q = ctx.faqById[id];
       if (!q) { problems.push(`${m.slug}: SSS kimliği yok: ${id}`); return ""; }
-      return `<li><a href="${ctx.rel}sss/#${esc(id)}">${esc(q.question)}</a></li>`;
+      return `<details class="qrmo-v3-q"><summary><span>${esc(q.question)}</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary><p>${faqHtml(q, ctx.rel)}</p></details>`;
     }).join("");
-    const innerOpen = m.designV2
-      ? v2InnerOpen(m, ctx, "details", "", "qrmo-mod-details-grid")
-      : `<div class="qrmo-mod-inner qrmo-mod-details-grid">`;
-    const innerClose = m.designV2 ? `</div>${v2InnerClose(m, "details")}` : "</div>";
     return `
-  <section class="qrmo-mod-sec qrmo-mod-details${v2SecClass(m, "details")}" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    ${innerOpen}
-      <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">${esc(m.detailsTitle || "Tüm özellikler ve sınırlar")}</h2>
-        <div class="qrmo-mod-know">
-          <h3>Bilmeniz gerekenler</h3>
-          <ul>${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul>
-        </div>${faq ? `
-        <div class="qrmo-mod-faqlinks">
-          <h3>Sık sorulanlar</h3>
-          <ul>${faq}</ul>
-        </div>` : ""}
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
+        <div class="qrmo-v3-faq">${faq}</div>${(m.notes || []).length ? `
+        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul>${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul></aside>` : ""}
+        <details class="qrmo-v3-all">
+          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary>
+          <div class="qrmo-v3-all-body">${join(m.groups, (g) => `
+            <section><h3>${esc(g.title)}</h3><ul>${join(g.items, (it) => `<li><strong>${esc(it.t)}</strong><span>${esc(it.d)}</span></li>`)}</ul></section>`)}
+          </div>
+        </details>
       </div>
-      <div class="qrmo-mod-acc">${join(m.groups, (g) => `
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>${esc(g.title)}</h3><span class="qrmo-mod-acc-count">${g.items.length}<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary>
-          <ul>${join(g.items, (it) => `
-            <li><h4>${esc(it.t)}</h4><p>${esc(it.d)}</p></li>`)}
-          </ul>
-        </details>`)}
-      </div>
-    ${innerClose}
+    </div>
   </section>`;
   },
 
-  related(m) {
+  related(m, ctx) {
+    const pk = (mod) => pkgShort(modulePackage(mod).index);
+    if (!m.features || m.features.length !== 5) problems.push(`${m.slug}: features 5 madde olmalı`);
     return `
-  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">${esc(m.relatedTitle || "Birlikte çalıştığı modüller")}</h2>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">ÖZELLİKLER</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.name)} ile neler yapabilirsiniz?</h2>
       </header>
+      <div class="qrmo-v3-map" data-v3-map>
+        <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
+        <div class="qrmo-v3-hub" data-v3-hub>
+          ${cue(m.cue)}
+          <h3>${esc(m.name)}</h3>
+          <p>${esc(m.tagline)}</p>
+          <span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(m))}</span></span>
+        </div>
+        <ul class="qrmo-v3-spokes">${join(m.features, (f) => `
+          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
+            <span class="qrmo-v3-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
+            <span class="qrmo-v3-spoke-b"><strong>${esc(f.t)}</strong><span>${esc(f.d)}</span><span class="qrmo-v3-meta"><span>${esc(f.tag)}</span></span></span>
+          </div></li>`)}
+        </ul>
+      </div>
+      <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
         return `
         <li><a class="qrmo-mod-tile" href="../${rm.slug}/">${cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
       })}
-      </ul>
+      </ul>${m.guides ? `
+      <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>
+      <ul class="qrmo-mod-guides">${join(m.guides, (g) => `
+        <li><a href="../../${g.path}"><span class="qrmo-mod-guides-t">${esc(g.t)}</span><span class="qrmo-mod-guides-d">${esc(g.d)}</span></a></li>`)}
+      </ul>` : ""}
     </div>
   </section>`;
   },
@@ -1076,7 +1249,7 @@ const SECTION = {
         </div>
         <ol class="qrmo-mod-tiers" aria-label="Paketlere göre ${esc(m.name)}">${tiers}
         </ol>
-        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel })}
+        ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel, secondary: m.closing && m.closing.secondary })}
       </div>
     </div>
   </section>`;
@@ -1089,21 +1262,41 @@ function renderModule(m, faqById) {
   const rel = "../../";
   const { index: minIdx } = modulePackage(m);
   const url = `${MOD.site.baseUrl}/moduller/${m.slug}/`;
-  const ctx = { rel, minIdx, faqById };
+  const ctx = { rel, minIdx, faqById, v3: true };
 
-  const body = m.order.map((key) => {
+  /* V3: tüm modüller aynı iskeleti kullanır; veri olmayan bölüm atlanır. */
+  const V3_ORDER = ["hero", "answer", "gaps", "flow", "details", "related", "closing"];
+  const order = V3_ORDER.filter((k) => ["hero", "details", "related", "closing"].includes(k) || (k === "flow" ? m.flow : m[k]));
+
+  const body = order.map((key) => {
     if (!SECTION[key]) throw new Error(`[${m.slug}] bilinmeyen bölüm: ${key}`);
     if (!["hero", "details", "related", "closing"].includes(key) && !m[key]) throw new Error(`[${m.slug}] order içinde "${key}" var ama veri yok`);
     return SECTION[key](m, ctx);
   }).join("\n");
 
+  const ORG = { "@type": "Organization", "@id": `${MOD.site.baseUrl}/#org`, name: MOD.site.brand, url: `${MOD.site.baseUrl}/`, logo: `${MOD.site.baseUrl}/assets/brand/apple-touch-icon.png` };
+  const graph = [
+    ORG,
+    { "@type": "WebPage", "@id": `${url}#webpage`, url, name: m.seo.title, description: m.seo.description, inLanguage: "tr-TR", isPartOf: { "@type": "WebSite", name: MOD.site.brand, url: `${MOD.site.baseUrl}/` }, about: { "@id": `${url}#app` } },
+    {
+      "@type": "SoftwareApplication", "@id": `${url}#app`, name: `${MOD.site.brand} — ${m.name}`, description: m.seo.description, url,
+      applicationCategory: "BusinessApplication", operatingSystem: "Web", inLanguage: "tr-TR", publisher: { "@id": ORG["@id"] },
+      audience: { "@type": "BusinessAudience", audienceType: "Restoran ve kafe işletmeleri", geographicArea: { "@type": "Country", name: "Türkiye" } }
+    }
+  ];
+  const faqItems = (m.faq || []).map((id) => faqById[id]).filter(Boolean);
+  if (faqItems.length) {
+    graph.push({ "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqItems.map((q) => ({ "@type": "Question", name: q.question, acceptedAnswer: { "@type": "Answer", text: faqText(q) } })) });
+  }
+
   return head({
+    graph,
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",
-    extraHead: '<script defer src="../module-page.js"></script>'
+    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>'
   }) + `
-<body class="qrmo-mod-page qrmo-mod-page--detail${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 ${moduleContextNav(m)}
   ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
