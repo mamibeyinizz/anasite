@@ -8,6 +8,9 @@ if (preg_match('#^/(api(/|$)|v1/validate/?$|wp-json/qmls/v1/validate/?$|blog/?$|
 	require dirname(__DIR__, 2) . '/api/index.php';
 	return true;
 }
+if (str_starts_with($path, '/yonetim')) {
+	header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
+}
 if (preg_match('#^/(backend|tools|seo)(/|$)#', $path) === 1 || preg_match('#\.(sql|env|mjs)$#', $path) === 1) {
 	http_response_code(403);
 	return true;

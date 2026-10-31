@@ -144,6 +144,7 @@ final class Blog
 				);
 			}, $list->fetchAll()),
 			'categories' => $this->categories(),
+			'covers' => $this->covers(),
 		));
 	}
 

@@ -5,8 +5,8 @@
 
    GitHub Pages Node çalıştırmaz; bu betik yerelde çalıştırılır ve SONUCU
    repoya commit edilir:
-     global/dist/qrmo-global.css   src/header.css + src/footer.css
-     global/dist/qrmo-global.js    src/header.js  + src/footer.js
+     global/dist/qrmo-global.css   src/header.css + src/footer.css + src/consent.css
+     global/dist/qrmo-global.js    src/header.js  + src/footer.js + src/conversion.js + src/analytics.js
      global/dist/qrmo-header.html  başvuru parçası (kök dizin sayfası için)
      global/dist/qrmo-footer.html  başvuru parçası
    ve statik sayfalara header/footer HTML'i doğrudan yazılır:
@@ -28,14 +28,14 @@ const read = (p) => fs.readFileSync(path.join(here, p), "utf8");
 const write = (p, s) => fs.writeFileSync(path.join(here, p), s);
 
 fs.mkdirSync(path.join(here, "dist"), { recursive: true });
-write("dist/qrmo-global.css", `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.css) */\n${read("src/header.css")}\n${read("src/footer.css")}`);
+write("dist/qrmo-global.css", `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.css) */\n${read("src/header.css")}\n${read("src/footer.css")}\n${read("src/consent.css")}`);
 write(
   "dist/qrmo-conversion-config.js",
   `/* Üretilmiştir: node global/build.mjs — kaynak: global/nav-data.mjs */\nwindow.QRMO_CONVERSION=${JSON.stringify({ pending: CONVERSION_PENDING })};\n`
 );
 write(
   "dist/qrmo-global.js",
-  `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.js) */\n${read("src/header.js")}\n${read("src/footer.js")}\n${read("src/conversion.js")}`
+  `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.js) */\n${read("src/header.js")}\n${read("src/footer.js")}\n${read("src/conversion.js")}\n${read("src/analytics.js")}`
 );
 write("dist/qrmo-header.html", renderHeader({ rel: "", current: "home" }) + "\n");
 write("dist/qrmo-footer.html", renderFooter({ rel: "", current: "home" }) + "\n");
