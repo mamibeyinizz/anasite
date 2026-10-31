@@ -1173,13 +1173,24 @@ const SECTION = {
       if (!q) { problems.push(`${m.slug}: SSS kimliği yok: ${id}`); return ""; }
       return `<details class="qrmo-v3-q"><summary><span>${esc(q.question)}</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary><p>${faqHtml(q, ctx.rel)}</p></details>`;
     }).join("");
-    return `
+    const hasNotes = (m.notes || []).length > 0;
+    const notesBox = `<aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul>${join(m.notes || [], (n) => `<li>${esc(n)}</li>`)}</ul></aside>`;
+    const notesSec = m.notesSection && hasNotes ? `
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-notes-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-notes-h">Satın almadan önce bilmeniz gerekenler</h2>
+        <ul class="qrmo-v3-notes-list">${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul>
+      </div>
+    </div>
+  </section>` : "";
+    return notesSec + `
   <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-narrow">
         <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
-        <div class="qrmo-v3-faq">${faq}</div>${(m.notes || []).length ? `
-        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul>${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul></aside>` : ""}
+        <div class="qrmo-v3-faq">${faq}</div>${hasNotes && !m.notesSection ? `
+        ${notesBox}` : ""}
         <details class="qrmo-v3-all">
           <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary>
           <div class="qrmo-v3-all-body">${join(m.groups, (g) => `

@@ -116,6 +116,7 @@
           { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
           { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
+        notesSection: true,
         v3Order: ["hero", "gaps", "answer", "flow", "details", "related", "closing"],
         cta: {
           primary: { label: "Demo talep edin", path: "iletisim/#talep" },
