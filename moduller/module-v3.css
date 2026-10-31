@@ -73,7 +73,7 @@ body.qrmo-v3 {
 /* JS yoksa yalnızca ilk ekran görünür, diğerleri akışta yer tutmaz */
 html:not(.v3-ready) .qrmo-v3-screen:not(:first-child) { display: none; }
 
-.qrmo-v3-fit { position: absolute; top: 0; left: 50%; width: var(--w, 312px); margin-left: calc(var(--w, 312px) / -2); transform-origin: top center; transform: scale(var(--s, 1)); }
+.qrmo-v3-fit { position: absolute; top: 0; left: 50%; width: var(--w, 312px); margin-left: calc(var(--w, 312px) / -2); transform-origin: top center; transform: translateY(var(--y, 0px)) scale(var(--s, 1)); }
 .qrmo-v3-screen[data-kind="phone"] { --w: 312px; }
 .qrmo-v3-screen[data-kind="window"] { --w: 560px; }
 .qrmo-v3-screen[data-kind="card"] { --w: 360px; }
@@ -129,7 +129,7 @@ html:not(.v3-ready) .qrmo-v3-screen:not(:first-child) { display: none; }
 .qrmo-v3-show[data-playing="1"] .qrmo-v3-dot.is-active i::after { animation: v3Prog var(--v3-dur, 4200ms) linear forwards; }
 @keyframes v3Prog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .qrmo-v3-dot:focus-visible { outline: 2px solid var(--qm-focus); outline-offset: -4px; border-radius: 12px; }
-.qrmo-v3-live { margin: 0; color: var(--qm-ink); font-size: 14px; font-weight: 800; letter-spacing: .01em; }
+.qrmo-v3-live { margin: 0; min-height: 1.5em; white-space: nowrap; color: var(--qm-ink); font-size: 14px; font-weight: 800; letter-spacing: .01em; }
 .qrmo-v3-note { position: relative; z-index: 2; margin: 0; color: var(--qm-muted); font-size: 12px; letter-spacing: .04em; }
 .qrmo-v3-show[data-count="1"] .qrmo-v3-dots { display: none; }
 

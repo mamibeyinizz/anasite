@@ -29,7 +29,7 @@
         if (!nw || !nh) return;
         var s = Math.min(1, W / nw, H / nh);
         f.style.setProperty("--s", s.toFixed(4));
-        f.style.top = Math.max(0, (H - nh * s) / 2) + "px";
+        f.style.setProperty("--y", Math.max(0, (H - nh * s) / 2).toFixed(1) + "px");
       });
     }
 
