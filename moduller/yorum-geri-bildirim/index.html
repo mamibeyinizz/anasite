@@ -19,6 +19,8 @@
 <meta name="twitter:title" content="Yorum &amp; Geri Bildirim — Puanlama ve Form Modülü | QR Menu Official">
 <meta name="twitter:description" content="Çoklu kriterli puanlama formu, iletişim formu ve kendi geri bildirim formlarınız. Gelen yorumları siz yayınlar, yayından kaldırır ya da silersiniz.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../module-v3.css">
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
@@ -228,7 +230,6 @@
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>AKILLI İŞLETME</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Müşterinin deneyimini sistemli öğrenin.</h1>
         <p class="qrmo-mod-lead">Müşteri lezzeti, hizmet hızını ve diğer kriterleri menünün içinden puanlar; yorum panelinize düşer. Hangisinin yayında görüneceğine siz karar verirsiniz.</p>
-        <ul class="qrmo-mod-proof"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Beş kriter, adlarını siz belirlersiniz</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Kendi geri bildirim formlarınız</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Kriter, masa ve saate göre rapor</span></li></ul>
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
@@ -264,8 +265,8 @@
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">
-          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Misafirin deneyimini sistemli öğrenin</h2>
+          <p class="qrmo-v3-eyebrow">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">Misafirin deneyimini sistemli öğrenin</h2>
         </header>
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
@@ -311,92 +312,30 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--pipeline" aria-labelledby="qrmo-mod-story-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead qrmo-mod-sechead--center">
-        <p class="qrmo-mod-kicker">GERİ BİLDİRİM YOLCULUĞU</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">Masadan panele, panelden karara.</h2>
-        
-      </header>
-      <ol class="qrmo-mod-pipe qrmo-mod-pipe--4">
-        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">01</span><h3>Puanlar</h3><p>Müşteri kriterleri puanlar, yorum yazar; ayar açıksa görsel ekler.</p></li>
-        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">02</span><h3>Panele düşer</h3><p>Yorum puanına göre Olumlu ya da Olumsuz sekmesinde görünür.</p></li>
-        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">03</span><h3>Siz karar verirsiniz</h3><p>Yayınlar, yayından kaldırır ya da silersiniz.</p></li>
-        <li><span class="qrmo-mod-pipe-n" aria-hidden="true">04</span><h3>Raporda izlersiniz</h3><p>Kriter ortalamaları, masaya ve saat dilimine göre dağılım.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-caps" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-caps-grid">
-      <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">FORMLAR</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">Sormak istediğinizi siz sorun.</h2>
-      </header>
-      <ul class="qrmo-mod-caps-list">
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">01</span><h3>Form oluşturucu</h3><p>Metin, e-posta, telefon, sayı, puan, tarih, seçim ve onay kutusu alanlarıyla kendi formlarınızı kurarsınız.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">02</span><h3>İletişim formu</h3><p>Kısa kodla sayfanıza eklenir; gönderimler panelde listelenir.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">03</span><h3>Kişisel veri araçları</h3><p>Onay metni, aydınlatma sayfası bağlantısı, dışa aktarma ve silme araçları.</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-details-grid">
-      <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
-        <div class="qrmo-mod-know">
-          <h3>Bilmeniz gerekenler</h3>
-          <ul><li>Yorumlar ve form gönderimleri müşteri verisi içerebilir; aydınlatma ve saklama yükümlülükleri işletmenin sorumluluğundadır.</li><li>Google yorum bağlantısı ve indirim kodu isteğe bağlıdır; kullanımı ilgili platformun politikalarına ve mevzuata uygun olmalıdır, bu sorumluluk işletmeye aittir.</li><li>Raporlar, gelen yorum sayısı kadar anlamlıdır; az yorumda ortalamalar sınırlı bilgi verir.</li></ul>
-        </div>
-      </div>
-      <div class="qrmo-mod-acc">
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Yorum formu</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Çoklu kriterli puanlama</h4><p>Beş puanlama kriteri vardır (varsayılan: Yemek Lezzeti, Hizmet Hızı, Temizlik, Atmosfer, Fiyat / Performans). Adlarını değiştirir, istediğinizi kapatırsınız.</p></li>
-            <li><h4>Yorum ve görsel</h4><p>Müşteri puanın yanında yorum yazar. Yorum formuna görsel yükleme seçeneği ayrıca açılabilir (varsayılan olarak kapalıdır).</p></li>
-            <li><h4>Yorum listesi</h4><p>Yayınlanan yorumlar kısa kodla sayfanızda listelenebilir.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Yönetim</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Yorum yönetimi</h4><p>Gelen yorumları okur; yayınlar, yayından kaldırır ya da silersiniz. Bekleyen ve yayındaki yorum sayıları görünür.</p></li>
-            <li><h4>Olumlu ve olumsuz sekmeleri</h4><p>Yorum listesinde puana göre Olumlu ve Olumsuz sekmeleri bulunur; ayrım eşiği varsayılan olarak 3,0’dır.</p></li>
-            <li><h4>Onay ve spam koruması</h4><p>Yorumların yayına alınma biçimini ayarlarsınız; form basit bir doğrulama sorusuyla spam’e karşı korunur.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Formlar</h3><span class="qrmo-mod-acc-count">2<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>İletişim formu</h4><p>Kısa kodla sayfanıza eklenen bir iletişim formu vardır.</p></li>
-            <li><h4>Form oluşturucu</h4><p>Kendi geri bildirim formlarınızı oluşturursunuz: metin, uzun metin, e-posta, telefon, sayı, puan, tarih, seçim ve onay kutusu alanları. Gönderimler panelde listelenir.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>İsteğe bağlı ek ayarlar</h3><span class="qrmo-mod-acc-count">2<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Google yorum bağlantısı</h4><p>Modülde, müşteriye Google yorum sayfasına giden bir bağlantı gösteren isteğe bağlı bir ayar ekranı vardır; adresi siz girersiniz.</p></li>
-            <li><h4>İndirim kodu</h4><p>Müşteriye kod verilebilen ve kodların yönetildiği isteğe bağlı bir ekran vardır.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Raporlar ve veri</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Raporlar</h4><p>Kriter bazlı puan ortalamaları, masaya göre dağılım ve saat dilimine göre yorum sayısı ile ortalama puan gösterilir.</p></li>
-            <li><h4>CSV dışa aktarma</h4><p>Yorumlar ve form gönderimleri CSV olarak indirilebilir.</p></li>
-            <li><h4>Kişisel veri araçları</h4><p>Onay metni ve aydınlatma sayfası bağlantısı eklenebilir; kişisel veri dışa aktarma ve silme araçları bulunur.</p></li>
-          </ul>
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
+        <div class="qrmo-v3-faq"></div>
+        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Yorumlar ve form gönderimleri müşteri verisi içerebilir; aydınlatma ve saklama yükümlülükleri işletmenin sorumluluğundadır.</li><li>Google yorum bağlantısı ve indirim kodu isteğe bağlıdır; kullanımı ilgili platformun politikalarına ve mevzuata uygun olmalıdır, bu sorumluluk işletmeye aittir.</li><li>Raporlar, gelen yorum sayısı kadar anlamlıdır; az yorumda ortalamalar sınırlı bilgi verir.</li></ul></aside>
+        <details class="qrmo-v3-all">
+          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <div class="qrmo-v3-all-body">
+            <section><h3>Yorum formu</h3><ul><li><strong>Çoklu kriterli puanlama</strong><span>Beş puanlama kriteri vardır (varsayılan: Yemek Lezzeti, Hizmet Hızı, Temizlik, Atmosfer, Fiyat / Performans). Adlarını değiştirir, istediğinizi kapatırsınız.</span></li><li><strong>Yorum ve görsel</strong><span>Müşteri puanın yanında yorum yazar. Yorum formuna görsel yükleme seçeneği ayrıca açılabilir (varsayılan olarak kapalıdır).</span></li><li><strong>Yorum listesi</strong><span>Yayınlanan yorumlar kısa kodla sayfanızda listelenebilir.</span></li></ul></section>
+            <section><h3>Yönetim</h3><ul><li><strong>Yorum yönetimi</strong><span>Gelen yorumları okur; yayınlar, yayından kaldırır ya da silersiniz. Bekleyen ve yayındaki yorum sayıları görünür.</span></li><li><strong>Olumlu ve olumsuz sekmeleri</strong><span>Yorum listesinde puana göre Olumlu ve Olumsuz sekmeleri bulunur; ayrım eşiği varsayılan olarak 3,0’dır.</span></li><li><strong>Onay ve spam koruması</strong><span>Yorumların yayına alınma biçimini ayarlarsınız; form basit bir doğrulama sorusuyla spam’e karşı korunur.</span></li></ul></section>
+            <section><h3>Formlar</h3><ul><li><strong>İletişim formu</strong><span>Kısa kodla sayfanıza eklenen bir iletişim formu vardır.</span></li><li><strong>Form oluşturucu</strong><span>Kendi geri bildirim formlarınızı oluşturursunuz: metin, uzun metin, e-posta, telefon, sayı, puan, tarih, seçim ve onay kutusu alanları. Gönderimler panelde listelenir.</span></li></ul></section>
+            <section><h3>İsteğe bağlı ek ayarlar</h3><ul><li><strong>Google yorum bağlantısı</strong><span>Modülde, müşteriye Google yorum sayfasına giden bir bağlantı gösteren isteğe bağlı bir ayar ekranı vardır; adresi siz girersiniz.</span></li><li><strong>İndirim kodu</strong><span>Müşteriye kod verilebilen ve kodların yönetildiği isteğe bağlı bir ekran vardır.</span></li></ul></section>
+            <section><h3>Raporlar ve veri</h3><ul><li><strong>Raporlar</strong><span>Kriter bazlı puan ortalamaları, masaya göre dağılım ve saat dilimine göre yorum sayısı ile ortalama puan gösterilir.</span></li><li><strong>CSV dışa aktarma</strong><span>Yorumlar ve form gönderimleri CSV olarak indirilebilir.</span></li><li><strong>Kişisel veri araçları</strong><span>Onay metni ve aydınlatma sayfası bağlantısı eklenebilir; kişisel veri dışa aktarma ve silme araçları bulunur.</span></li></ul></section>
+          </div>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
       </header>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../qr-analytics/"><span class="qrmo-mod-cue qrmo-mod-cue--chart" aria-hidden="true"><i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:45%"></i><i style="--h:85%"></i><i style="--h:70%"></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">QR Analytics</span><span class="qrmo-mod-tile-d">Yorum ve form gönderimleri etkileşim raporunda sayılır.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>

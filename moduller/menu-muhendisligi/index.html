@@ -19,6 +19,8 @@
 <meta name="twitter:title" content="Menü Mühendisliği — Maliyet ve Menü Matrisi | QR Menu Official">
 <meta name="twitter:description" content="Ürün maliyetlerinizi ve reçetelerinizi girin; satış verisiyle birleştirilerek her ürün Yıldız, Çok Satan, Gizli Fırsat ya da Zayıf Performans grubuna yerleşir.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../module-v3.css">
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
@@ -228,7 +230,6 @@
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>AKILLI İŞLETME</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Hangi ürün gerçekten kazandırıyor?</h1>
         <p class="qrmo-mod-lead">Ürün maliyetlerinizi girin; satış verisiyle birleşsin. Her ürün popülerlik ve kârlılığa göre dört gruptan birine yerleşir, yanında bir aksiyon cümlesi yazar.</p>
-        <ul class="qrmo-mod-proof"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Kasavana–Smith matrisi</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Reçeteden maliyet hesabı</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Maliyeti girilmeyen ürün matrise alınmaz</span></li></ul>
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
@@ -261,8 +262,8 @@
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">
-          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Hangi ürün gerçekten kazandırıyor?</h2>
+          <p class="qrmo-v3-eyebrow">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">Hangi ürün gerçekten kazandırıyor?</h2>
         </header>
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
@@ -305,102 +306,28 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--pairs" aria-labelledby="qrmo-mod-story-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">KARAR</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">En çok satan, en çok kazandıran olmayabilir.</h2>
-        <p class="qrmo-mod-text">Matris ürünü hem satış payına hem birim katkı payına (fiyat − maliyet) göre değerlendirir. Her grup farklı bir karar ister.</p>
-      </header>
-      <div class="qrmo-mod-pairs">
-        <div class="qrmo-mod-pairs-head" aria-hidden="true"><span></span><span>NE ANLATIR</span><span>ÖRNEK YÖNLENDİRME</span></div>
-        <ul class="qrmo-mod-pairs-list">
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Yıldız</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">NE ANLATIR</span>Çok satıyor, çok kazandırıyor.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">ÖRNEK YÖNLENDİRME</span>Menünün en güçlü ürünleri; hangilerinin bu grupta olduğunu net görürsünüz.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Çok Satan</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">NE ANLATIR</span>Çok satıyor ama az kazandırıyor.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">ÖRNEK YÖNLENDİRME</span>Maliyeti düşürmek ya da küçük bir zam denemek.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Gizli Fırsat</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">NE ANLATIR</span>Kârlı ama az satıyor.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">ÖRNEK YÖNLENDİRME</span>Menüde görünürlüğünü artırmak.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Zayıf Performans</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">NE ANLATIR</span>Ne satıyor ne kazandırıyor.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">ÖRNEK YÖNLENDİRME</span>Rapor bu ürünler için de bir yönlendirme cümlesi yazar; karar sizindir.</p>
-          </li>
-        </ul>
-      </div><p class="qrmo-mod-caveat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg><span>Aksiyon cümleleri genel yönlendirmedir; sonuç garantisi vermez.</span></p>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-caps" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-caps-grid">
-      <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">RAPOR</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">Rapor, eksikleriyle birlikte.</h2>
-      </header>
-      <ul class="qrmo-mod-caps-list">
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">01</span><h3>Dönem ve kategori</h3><p>Raporu döneme ve kategoriye göre süzer, ürün ayrıntısına iner, CSV olarak indirirsiniz.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">02</span><h3>Eksik maliyet listesi</h3><p>Fiyatı ya da maliyeti girilmemiş ürünler ayrı listelenir; oradan tamamlarsınız.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">03</span><h3>Az satışta açık uyarı</h3><p>Toplam satış 20 adedin altındaysa popülerlik görüntülenme ve sepet verisiyle tahmin edilir; rapor bunu ekranda belirtir.</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-details-grid">
-      <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
-        <div class="qrmo-mod-know">
-          <h3>Bilmeniz gerekenler</h3>
-          <ul><li>Bu modül veri girişi gerektirir: maliyeti veya fiyatı girilmeyen ürün matrise alınmaz.</li><li>Satış verisi sipariş akışından gelir. Toplam satış 20 adedin altındaysa popülerlik görüntülenme ve sepete ekleme verisiyle tahmin edilir; rapor bunu ekranda açıkça belirtir.</li><li>Aksiyon cümleleri genel yönlendirmedir; sonuç garantisi vermez. Karar sizindir.</li></ul>
-        </div>
-        <div class="qrmo-mod-faqlinks">
-          <h3>Sık sorulanlar</h3>
-          <ul><li><details class="qrmo-mod-faq-item"><summary>Menü mühendisliği nedir?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Ürünlerin menüdeki performansını popülerlik ve kârlılık eksenlerinde sınıflandırmanıza yardımcı olan analizdir (yıldız, çok satan, gizli fırsat, zayıf performans gibi gruplar). Satış verisi yetersizse görüntülenme ve sepet sinyalleriyle desteklenebilir. <a href="../../moduller/menu-muhendisligi/">Menü mühendisliği</a> modülünde anlatılır. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-menu-muhendisligi-nedir">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>Menü mühendisliği için maliyet girmek gerekir mi?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Kârlılık hesabı için ürün maliyetlerini siz girersiniz; sistem maliyeti bilmeden otomatik kâr iddiasında bulunmaz. Maliyet verisi güncellendikçe matris anlamlı hale gelir. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-maliyet-gerekli-mi">SSS’de gör</a></p></details></li></ul>
-          <a class="qrmo-mod-faq-all" href="../../sss/"><span>Tüm soruları görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-        </div>
-      </div>
-      <div class="qrmo-mod-acc">
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Maliyet girişi</h3><span class="qrmo-mod-acc-count">4<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Manuel maliyet</h4><p>Ürünün birim maliyetini doğrudan girersiniz.</p></li>
-            <li><h4>Reçeteden maliyet</h4><p>Ürünün reçetesine malzeme ve miktar satırları girersiniz; maliyet malzeme birim fiyatlarından hesaplanır.</p></li>
-            <li><h4>Malzeme fiyatları</h4><p>Malzemelerin birim fiyatı kg, litre veya adet üzerinden girilir; reçetede gram, ml veya adet yazılır. Fiyat değiştiğinde reçeteli ürünlerin maliyeti yeniden hesaplanır.</p></li>
-            <li><h4>Fire yüzdesi</h4><p>Reçete maliyetine eklenmek üzere fire yüzdesi (0–50) ayarlanır.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Matris</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>İki eksen</h4><p>Popülerlik: ürünün satış adedinin menü içindeki payı. Kârlılık: birim katkı payı (fiyat − maliyet). Popülerlik eşiği eşit dağılımın %70’idir (0,5–1,0 arasında ayarlanır); kârlılık eşiği adetle ağırlıklı ortalama katkı payıdır.</p></li>
-            <li><h4>Dört grup</h4><p>Yıldız (çok satıyor, çok kazandırıyor), Çok Satan (çok satıyor, az kazandırıyor), Gizli Fırsat (kârlı ama az satıyor) ve Zayıf Performans.</p></li>
-            <li><h4>Aksiyon cümlesi</h4><p>Her grup için genel bir yönlendirme yazılır; örneğin Gizli Fırsat için görünürlüğü artırmak, Çok Satan için maliyeti düşürmek ya da küçük bir zam denemek.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Rapor</h3><span class="qrmo-mod-acc-count">2<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Menü performansı raporu</h4><p>Dönem ve kategoriye göre süzülür; ürün ayrıntısı ve CSV dışa aktarma bulunur.</p></li>
-            <li><h4>Eksik maliyet listesi</h4><p>Fiyatı veya maliyeti girilmemiş ürünler ayrı listelenir; “Eksik maliyetleri gir” ile tamamlanır.</p></li>
-          </ul>
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
+        <div class="qrmo-v3-faq"><details class="qrmo-v3-q"><summary><span>Menü mühendisliği nedir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Ürünlerin menüdeki performansını popülerlik ve kârlılık eksenlerinde sınıflandırmanıza yardımcı olan analizdir (yıldız, çok satan, gizli fırsat, zayıf performans gibi gruplar). Satış verisi yetersizse görüntülenme ve sepet sinyalleriyle desteklenebilir. <a href="../../moduller/menu-muhendisligi/">Menü mühendisliği</a> modülünde anlatılır.</p></details><details class="qrmo-v3-q"><summary><span>Menü mühendisliği için maliyet girmek gerekir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Kârlılık hesabı için ürün maliyetlerini siz girersiniz; sistem maliyeti bilmeden otomatik kâr iddiasında bulunmaz. Maliyet verisi güncellendikçe matris anlamlı hale gelir.</p></details></div>
+        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Bu modül veri girişi gerektirir: maliyeti veya fiyatı girilmeyen ürün matrise alınmaz.</li><li>Satış verisi sipariş akışından gelir. Toplam satış 20 adedin altındaysa popülerlik görüntülenme ve sepete ekleme verisiyle tahmin edilir; rapor bunu ekranda açıkça belirtir.</li><li>Aksiyon cümleleri genel yönlendirmedir; sonuç garantisi vermez. Karar sizindir.</li></ul></aside>
+        <details class="qrmo-v3-all">
+          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <div class="qrmo-v3-all-body">
+            <section><h3>Maliyet girişi</h3><ul><li><strong>Manuel maliyet</strong><span>Ürünün birim maliyetini doğrudan girersiniz.</span></li><li><strong>Reçeteden maliyet</strong><span>Ürünün reçetesine malzeme ve miktar satırları girersiniz; maliyet malzeme birim fiyatlarından hesaplanır.</span></li><li><strong>Malzeme fiyatları</strong><span>Malzemelerin birim fiyatı kg, litre veya adet üzerinden girilir; reçetede gram, ml veya adet yazılır. Fiyat değiştiğinde reçeteli ürünlerin maliyeti yeniden hesaplanır.</span></li><li><strong>Fire yüzdesi</strong><span>Reçete maliyetine eklenmek üzere fire yüzdesi (0–50) ayarlanır.</span></li></ul></section>
+            <section><h3>Matris</h3><ul><li><strong>İki eksen</strong><span>Popülerlik: ürünün satış adedinin menü içindeki payı. Kârlılık: birim katkı payı (fiyat − maliyet). Popülerlik eşiği eşit dağılımın %70’idir (0,5–1,0 arasında ayarlanır); kârlılık eşiği adetle ağırlıklı ortalama katkı payıdır.</span></li><li><strong>Dört grup</strong><span>Yıldız (çok satıyor, çok kazandırıyor), Çok Satan (çok satıyor, az kazandırıyor), Gizli Fırsat (kârlı ama az satıyor) ve Zayıf Performans.</span></li><li><strong>Aksiyon cümlesi</strong><span>Her grup için genel bir yönlendirme yazılır; örneğin Gizli Fırsat için görünürlüğü artırmak, Çok Satan için maliyeti düşürmek ya da küçük bir zam denemek.</span></li></ul></section>
+            <section><h3>Rapor</h3><ul><li><strong>Menü performansı raporu</strong><span>Dönem ve kategoriye göre süzülür; ürün ayrıntısı ve CSV dışa aktarma bulunur.</span></li><li><strong>Eksik maliyet listesi</strong><span>Fiyatı veya maliyeti girilmemiş ürünler ayrı listelenir; “Eksik maliyetleri gir” ile tamamlanır.</span></li></ul></section>
+          </div>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
       </header>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../qr-analytics/"><span class="qrmo-mod-cue qrmo-mod-cue--chart" aria-hidden="true"><i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:45%"></i><i style="--h:85%"></i><i style="--h:70%"></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">QR Analytics</span><span class="qrmo-mod-tile-d">Satış ve etkileşim verisi bu raporlardan gelir.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>

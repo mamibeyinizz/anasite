@@ -19,6 +19,8 @@
 <meta name="twitter:title" content="Restoran ve Kafe İçin QR Menü Programı | QR Menu Official">
 <meta name="twitter:description" content="Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../module-v3.css">
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
@@ -228,7 +230,6 @@
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MENÜ</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Restoran ve kafeniz için QR menüyü tek panelden yönetin.</h1>
         <p class="qrmo-mod-lead">Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; misafir QR kodu okutup menüyü telefonunda güncel haliyle açar. Basılı menü ve PDF yenileme derdi biter.</p>
-        <ul class="qrmo-mod-proof"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Tükendi ve servis saati etiketleri</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Porsiyon, ekstra ve kombin</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>CSV ile toplu aktarım</span></li></ul>
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           <a class="qrmo-mod-textlink" href="../../canli-menu/"><span>Canlı menüyü görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
@@ -263,70 +264,36 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-answer" aria-labelledby="qrmo-mod-ans-h">
-    <div class="qrmo-mod-inner qrmo-mod-answer-grid">
-      <header class="qrmo-mod-answer-head">
-        <p class="qrmo-mod-kicker">KISACA</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-ans-h">Restoran Menü modülü nedir?</h2>
-        <p class="qrmo-mod-text">Restoran Menü, QR Menu Official’ın menü yönetim modülüdür. Restoran veya kafe sahibi kategori, ürün, fiyat, alerjen, porsiyon ve kampanyayı tek panelden yönetir; misafir masadaki QR kodu okutur ve güncel menüyü uygulama indirmeden telefonunun tarayıcısında açar.</p>
-      </header>
-      <dl class="qrmo-mod-ans-facts">
-        <div><dt>Kimler için</dt><dd>Türkiye’deki restoran, kafe ve benzeri yeme-içme işletmeleri; fiyatlar TL ile girilir.</dd></div>
-        <div><dt>Misafir tarafı</dt><dd>Uygulama indirmeden tarayıcıda açılır; arama, filtre ve sıralama kullanılır.</dd></div>
-        <div><dt>Yönetim</dt><dd>Fiyat, stok durumu, servis saati ve kampanya panelden değişir; baskı gerekmez.</dd></div>
-        <div><dt>Hangi paketlerde</dt><dd>Temel, Pro ve Plus paketlerinin üçünde de yer alır.</dd></div>
-        <div><dt>Sayfaya ekleme</dt><dd>Menü sitenize kısa kod veya Elementor bileşeniyle eklenir.</dd></div>
-      </dl>
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-intro" aria-labelledby="qrmo-mod-ans-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-ans-h">Restoran Menü modülü nedir?</h2>
+        <p class="qrmo-v3-p">Restoran Menü, QR Menu Official’ın menü yönetim modülüdür. Restoran veya kafe sahibi kategori, ürün, fiyat, alerjen, porsiyon ve kampanyayı tek panelden yönetir; misafir masadaki QR kodu okutur ve güncel menüyü uygulama indirmeden telefonunun tarayıcısında açar.</p>
+      </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-gaps" aria-labelledby="qrmo-mod-gaps-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">EKSİĞİ GÖRÜN</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--xl" id="qrmo-mod-gaps-h">Menünüzde bunlar yaşanıyorsa, eksik olan bir yönetim paneli.</h2>
-        <p class="qrmo-mod-text">Basılı menü ya da sabit bir PDF ile çalışan işletmelerde aynı sorunlar tekrar eder. Aşağıdakilerden birkaçı tanıdıksa Restoran Menü tam bu işi yapar.</p>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">EKSİĞİ GÖRÜN</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">Menünüzde bunlar yaşanıyorsa, eksik olan bir yönetim paneli.</h2>
       </header>
-      <div class="qrmo-mod-shift-cols" aria-hidden="true"><span>BUGÜN YAŞADIĞINIZ</span><span>RESTORAN MENÜ İLE</span></div>
-      <ol class="qrmo-mod-shift-list">
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Fiyat değişince menüler yeniden basılıyor.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Fiyatı panelde güncellersiniz; misafir bir sonraki açılışta yeni fiyatı görür.</p>
+      <ul class="qrmo-v3-pains">
+        <li class="qrmo-v3-pain">
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Fiyat değişince menüler yeniden basılıyor.</p>
+          <p class="qrmo-v3-pain-fix"><span>RESTORAN MENÜ İLE</span>Fiyatı panelde güncellersiniz; misafir bir sonraki açılışta yeni fiyatı görür.</p>
         </li>
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Biten ürünü misafir sipariş etmeye çalışıyor.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Ürünü tükendi işaretlersiniz; menüde etiketiyle kalır, sepete eklenemez. İsterseniz belirlediğiniz saatte yeniden satışa açılır.</p>
+        <li class="qrmo-v3-pain">
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Biten ürünü misafir sipariş etmeye çalışıyor.</p>
+          <p class="qrmo-v3-pain-fix"><span>RESTORAN MENÜ İLE</span>Ürünü tükendi işaretlersiniz; menüde etiketiyle kalır, sepete eklenemez. İsterseniz belirlediğiniz saatte yeniden satışa açılır.</p>
         </li>
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Alerjen, kalori ve içerik soruları garsona düşüyor.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Ürün detayında 14 alerjen tanımı, kalori, gramaj ve hazırlanış süresi görünür. Bilgiyi siz girersiniz.</p>
+        <li class="qrmo-v3-pain">
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Alerjen, kalori ve içerik soruları garsona düşüyor.</p>
+          <p class="qrmo-v3-pain-fix"><span>RESTORAN MENÜ İLE</span>Ürün detayında 14 alerjen tanımı, kalori, gramaj ve hazırlanış süresi görünür. Bilgiyi siz girersiniz.</p>
         </li>
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Kahvaltı ve öğle menüsünü saatine göre elle açıp kapatıyorsunuz.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Kategoriye saat kuralını bir kez yazarsınız; saat dışındaki ürün etiketiyle görünür, sepete eklenemez.</p>
-        </li>
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Kampanya başlatmak da geri almak da zahmetli.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Toplu indirim uygularsınız; kaldırdığınızda fiyatlar eskisine döner.</p>
-        </li>
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Yüzlerce ürünü tek tek girmek günler alıyor.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Ürünleri tabloda hazırlar, CSV ile tek seferde yüklersiniz.</p>
-        </li>
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">BUGÜN YAŞADIĞINIZ</span>Misafir uzun menüde aradığını bulamıyor.</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">RESTORAN MENÜ İLE</span>Arama, alerjen–kalori–fiyat filtresi ve sıralama menüyle birlikte gelir.</p>
-        </li>
-      </ol>
-      <div class="qrmo-mod-gaps-cta">
-        <p>Menünüzdeki eksikleri birlikte gözden geçirelim.</p>
+      </ul>
+      <div class="qrmo-v3-sec-cta">
         <a class="qrmo-mod-cta" href="../../iletisim/#talep"><span>Menünüz için demo talep edin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -336,8 +303,8 @@
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">
-          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Menünüzü yönetin, misafir güncel halini görsün</h2>
+          <p class="qrmo-v3-eyebrow">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">Menünüzü yönetin, misafir güncel halini görsün</h2>
         </header>
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
@@ -391,132 +358,31 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--pairs" aria-labelledby="qrmo-mod-story-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">TEK MERKEZ</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">Panelde değiştirin, menüde görünsün.</h2>
-        <p class="qrmo-mod-text">Menüdeki her değişiklik aynı panelden yapılır. Müşteri bir sonraki açılışta güncel menüyü görür.</p>
-      </header>
-      <div class="qrmo-mod-pairs">
-        <div class="qrmo-mod-pairs-head" aria-hidden="true"><span></span><span>PANELDE</span><span>MÜŞTERİNİN MENÜSÜNDE</span></div>
-        <ul class="qrmo-mod-pairs-list">
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Fiyat</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">PANELDE</span>Fiyatı güncellersiniz.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">MÜŞTERİNİN MENÜSÜNDE</span>Menü yeni fiyatla açılır; baskı gerekmez.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Stok</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">PANELDE</span>Ürünü tükendi işaretlersiniz; isterseniz belirlediğiniz saatte satışa döner.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">MÜŞTERİNİN MENÜSÜNDE</span>Ürün menüde kalır, etiketi görünür ve sepete eklenemez.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Porsiyon &amp; ekstra</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">PANELDE</span>“Büyük +40 ₺” ya da “sos +10 ₺” gibi seçenekler tanımlarsınız.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">MÜŞTERİNİN MENÜSÜNDE</span>Seçenekler ürünün taban fiyatının üzerine eklenir.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Kampanya &amp; kombin</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">PANELDE</span>Toplu indirim uygular ya da iki ürünü tek fiyatla sunarsınız.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">MÜŞTERİNİN MENÜSÜNDE</span>İndirimi kaldırdığınızda fiyatlar eskisine döner.</p>
-          </li>
-          <li>
-            <h3 class="qrmo-mod-pairs-k">Servis saati</h3>
-            <p class="qrmo-mod-pairs-a"><span class="qrmo-mod-pairs-lbl">PANELDE</span>Kategoriye “Kahvaltı 07:00–11:00” kuralını bir kez yazarsınız.</p>
-            <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">MÜŞTERİNİN MENÜSÜNDE</span>Saat dışındaki ürün etiketiyle görünür, sepete eklenemez.</p>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-caps" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-caps-grid">
-      <header class="qrmo-mod-sechead">
-        <p class="qrmo-mod-kicker">ALTYAPI</p>
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">Bir kez kurun, sonra yalnızca güncelleyin.</h2>
-      </header>
-      <ul class="qrmo-mod-caps-list">
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">01</span><h3>CSV ile toplu aktarım</h3><p>Ürünleri örnek tabloda hazırlayıp tek dosyayla yüklersiniz; fiyatı geçersiz satırlar size bildirilir.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">02</span><h3>JSON ile yedek</h3><p>Menünün tamamını dışa aktarır, gerektiğinde geri yüklersiniz.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">03</span><h3>Size ait görünüm</h3><p>Beş hazır renk paleti, yazı tipi ve renk ayarları. Menü sayfaya kısa kod ya da Elementor bileşeniyle eklenir.</p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-details-grid">
-      <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
-        <div class="qrmo-mod-know">
-          <h3>Bilmeniz gerekenler</h3>
-          <ul><li>Ürün, fiyat, alerjen ve besin bilgilerini siz girersiniz; sistem bu bilgileri kendiliğinden üretmez.</li><li>Kampanyalar panelden başlatılır ve geri alınır; saat veya güne göre otomatik başlayıp biten kampanya bu sürümde çalışmaz.</li><li>Sepetle sipariş Pro paketindeki QR sipariş özelliğidir.</li></ul>
-        </div>
-        <div class="qrmo-mod-faqlinks">
-          <h3>Sık sorulanlar</h3>
-          <ul><li><details class="qrmo-mod-faq-item"><summary>QR menüde ürün nasıl eklenir?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Yönetim panelinde kategori seçilir veya oluşturulur; ardından ürün kartına ad, açıklama, fiyat ve isteğe bağlı alerjen, görsel gibi alanlar girilir. Kaydettiğiniz anda dijital menüde görünür (gizli veya tükendi işaretli değilse). <a href="../../moduller/restoran-menu/">Restoran Menü</a> modülünde adım adım anlatılır. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-urun-nasil-eklenir">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>QR menüde fiyat nasıl değiştirilir?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Ürünün paneldeki fiyat alanı güncellenir; baskı menüye gerek kalmadan müşteri yeni fiyatı görür. Porsiyon ve ekstra farkları ayrı tanımlanabilir; kampanya veya indirim rozetleri de panelden yönetilir. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-fiyat-nasil-degistirilir">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>Tükenen ürün menüde nasıl gösterilir?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Ürün panelde tükendi olarak işaretlenebilir; menüde görünür kalır ancak sepete eklenemez ve müşteriye uygun etiket gösterilir. İsterseniz ürünü tamamen gizleyerek menüden kaldırabilirsiniz. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-tukendi-urun">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>Menüye CSV ile ürün aktarılabilir mi?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Ürün listesi noktalı virgül veya virgül ayraçlı CSV ile toplu yüklenebilir; aynı başlık ve kategori anahtarıyla eşleşen satırlar güncellenir, yeni satırlar eklenir. Geçersiz fiyatlı satırlar atlanır; sonuç ekranında kaç kaydın eklendiği veya güncellendiği bildirilir. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-csv-aktarim">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>QR menüde alerjen bilgileri gösterilebilir mi?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Ürünlere tanımlı alerjenler menüde gösterilebilir; bilgi tamamen sizin girdiğiniz veriye dayanır. Yanlış veya eksik alerjen riski için mutfak ve menü verinizi düzenli güncellemeniz gerekir. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-alerjen-gosterimi">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>QR menü kullanmak için uygulama gerekir mi?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Müşteri tarafında uygulama indirmek gerekmez. Menü, telefonun kamerası veya QR okuyucusuyla tarayıcıda açılır. İşletme tarafında yönetim WordPress yönetim paneli üzerinden yapılır; servis ekibi için ayrı servis paneli ekranı kullanılır. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-uygulama-gerekir-mi">SSS’de gör</a></p></details></li></ul>
-          <a class="qrmo-mod-faq-all" href="../../sss/"><span>Tüm soruları görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-        </div>
-      </div>
-      <div class="qrmo-mod-acc">
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Menü içeriği</h3><span class="qrmo-mod-acc-count">6<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Kategoriler ve ürünler</h4><p>Menü bölümlerini ve ürünleri panelden ekler, düzenler, gizler veya silersiniz. Gizlenen ürün menüden tamamen kalkar.</p></li>
-            <li><h4>Ürün bilgileri</h4><p>Açıklama, fiyat, kalori, gramaj, protein–karbonhidrat–yağ, hazırlanış süresi, acılık seviyesi ve et menşei girilir; alkol ve domuz türevi içerdiğini işaretleyebilirsiniz. Bu bilgiler ürün detayında gösterilir.</p></li>
-            <li><h4>Alerjenler ve malzemeler</h4><p>14 hazır alerjen tanımı ürünlere atanır; malzemeleri ayrıca tanımlarsınız. Gösterilen alerjen bilgisi sizin girdiğiniz veriye dayanır.</p></li>
-            <li><h4>Porsiyon ve ekstralar</h4><p>Ürüne tek bir taban fiyat verilir; “Büyük +40 ₺” gibi porsiyon farkları ve “sos +10 ₺” gibi ekstralar bu fiyatın üzerine eklenir. Ekstra listeleri birden çok üründe yeniden kullanılır.</p></li>
-            <li><h4>Rozetler</h4><p>Popüler, Yeni, Önerilen ve İndirimli rozetleri hazır gelir; “Hızlı Servis” gibi kendi rozetlerinizi de tanımlarsınız.</p></li>
-            <li><h4>Kombin ürün</h4><p>İki ürünü seçip tek bir kombin fiyatıyla sunarsınız.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Stok ve servis saatleri</h3><span class="qrmo-mod-acc-count">4<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Tükendi</h4><p>Tükendi işaretlenen ürün menüde görünmeye devam eder; üzerine etiket basılır ve sipariş/tıklama akışı kapanır.</p></li>
-            <li><h4>Belirlediğiniz saatte yeniden satışa açma</h4><p>Tükenen ürünü belirlediğiniz saate kadar tükendi bırakırsınız; süre dolunca yeniden satışa açılır. Zamanlama WordPress’in zamanlanmış görev sistemine dayanır.</p></li>
-            <li><h4>Malzeme bazlı tükendi</h4><p>Bir malzeme bittiğinde, onu kullanan ürünleri aynı anda belirlediğiniz saate kadar tükendi işaretlersiniz.</p></li>
-            <li><h4>Kategori servis saatleri</h4><p>“Kahvaltı 07:00–11:00, hafta içi” gibi bir kural kategoriye bir kez yazılır; tek ürün için ezilebilir. Servis dışındaki ürün menüden kalkmaz; saat etiketi görünür ve sepete eklenemez.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Fiyat ve kampanyalar</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Toplu fiyat kampanyası</h4><p>Kapsamdaki ürünlere toplu indirim veya zam uygularsınız. İndirim orijinal fiyatı değiştirmez; kaldırdığınızda fiyatlar eskisine döner. Zam ise fiyatı kalıcı olarak günceller.</p></li>
-            <li><h4>Kampanya görselleri</h4><p>Sayfanın en üstünde kendi kendine dönen kampanya görselleri gösterirsiniz; geçiş süresi ayarlanır.</p></li>
-            <li><h4>Öne çıkanlar</h4><p>Menünün üstünde kayan bir şeritte öne çıkarmak istediğiniz ürünleri gösterirsiniz.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Sepet ve sipariş</h3><span class="qrmo-mod-acc-count">1<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Sepet ile sipariş</h4><p>Menüde sepet ile sipariş, Diğer Ayarlar’dan etkinleştirilir; müşteri ürünleri sepete ekleyip siparişi gönderir. Bu, Pro paketindeki QR sipariş özelliğidir ve siparişler Servis Paneli’ne düşer.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Arama, filtre ve sıralama</h3><span class="qrmo-mod-acc-count">2<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Arama ve filtre paneli</h4><p>Müşteri menüde ürün arar; alerjen, kalori, fiyat ve ürün özelliği filtrelerini uygular. Ayrıntılar Akıllı Filtreleme sayfasında.</p></li>
-            <li><h4>Sıralama</h4><p>Önerilen sıra, A–Z, fiyat, protein, karbonhidrat ve acılık ölçütleriyle sıralanır.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Aktarma, yedekleme ve görünüm</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>CSV ile toplu ürün aktarımı</h4><p>Örnek dosyayı indirir, ürünlerinizi tabloda hazırlar ve yüklersiniz. Fiyatı geçersiz satırlar aktarımdan sonra bildirilir.</p></li>
-            <li><h4>JSON ile yedekleme</h4><p>Tüm menü ürünlerini JSON olarak dışa aktarır, geri yüklerken ürün kimliğiyle eşleşen kayıtların üzerine yazarsınız.</p></li>
-            <li><h4>Görünüm</h4><p>Beş hazır renk paleti (Premium Altın, Klasik Turuncu, Koyu Tema, Modern Mavi, Doğal Yeşil), yazı tipi ve renk ayarları vardır. Menü sayfaya kısa kod veya Elementor bileşeniyle eklenir.</p></li>
-          </ul>
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
+        <div class="qrmo-v3-faq"><details class="qrmo-v3-q"><summary><span>QR menüde ürün nasıl eklenir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Yönetim panelinde kategori seçilir veya oluşturulur; ardından ürün kartına ad, açıklama, fiyat ve isteğe bağlı alerjen, görsel gibi alanlar girilir. Kaydettiğiniz anda dijital menüde görünür (gizli veya tükendi işaretli değilse). <a href="../../moduller/restoran-menu/">Restoran Menü</a> modülünde adım adım anlatılır.</p></details><details class="qrmo-v3-q"><summary><span>QR menüde fiyat nasıl değiştirilir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Ürünün paneldeki fiyat alanı güncellenir; baskı menüye gerek kalmadan müşteri yeni fiyatı görür. Porsiyon ve ekstra farkları ayrı tanımlanabilir; kampanya veya indirim rozetleri de panelden yönetilir.</p></details><details class="qrmo-v3-q"><summary><span>Tükenen ürün menüde nasıl gösterilir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Ürün panelde tükendi olarak işaretlenebilir; menüde görünür kalır ancak sepete eklenemez ve müşteriye uygun etiket gösterilir. İsterseniz ürünü tamamen gizleyerek menüden kaldırabilirsiniz.</p></details><details class="qrmo-v3-q"><summary><span>Menüye CSV ile ürün aktarılabilir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Ürün listesi noktalı virgül veya virgül ayraçlı CSV ile toplu yüklenebilir; aynı başlık ve kategori anahtarıyla eşleşen satırlar güncellenir, yeni satırlar eklenir. Geçersiz fiyatlı satırlar atlanır; sonuç ekranında kaç kaydın eklendiği veya güncellendiği bildirilir.</p></details><details class="qrmo-v3-q"><summary><span>QR menüde alerjen bilgileri gösterilebilir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Ürünlere tanımlı alerjenler menüde gösterilebilir; bilgi tamamen sizin girdiğiniz veriye dayanır. Yanlış veya eksik alerjen riski için mutfak ve menü verinizi düzenli güncellemeniz gerekir.</p></details><details class="qrmo-v3-q"><summary><span>QR menü kullanmak için uygulama gerekir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Müşteri tarafında uygulama indirmek gerekmez. Menü, telefonun kamerası veya QR okuyucusuyla tarayıcıda açılır. İşletme tarafında yönetim WordPress yönetim paneli üzerinden yapılır; servis ekibi için ayrı servis paneli ekranı kullanılır.</p></details></div>
+        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Ürün, fiyat, alerjen ve besin bilgilerini siz girersiniz; sistem bu bilgileri kendiliğinden üretmez.</li><li>Kampanyalar panelden başlatılır ve geri alınır; saat veya güne göre otomatik başlayıp biten kampanya bu sürümde çalışmaz.</li><li>Sepetle sipariş Pro paketindeki QR sipariş özelliğidir.</li></ul></aside>
+        <details class="qrmo-v3-all">
+          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <div class="qrmo-v3-all-body">
+            <section><h3>Menü içeriği</h3><ul><li><strong>Kategoriler ve ürünler</strong><span>Menü bölümlerini ve ürünleri panelden ekler, düzenler, gizler veya silersiniz. Gizlenen ürün menüden tamamen kalkar.</span></li><li><strong>Ürün bilgileri</strong><span>Açıklama, fiyat, kalori, gramaj, protein–karbonhidrat–yağ, hazırlanış süresi, acılık seviyesi ve et menşei girilir; alkol ve domuz türevi içerdiğini işaretleyebilirsiniz. Bu bilgiler ürün detayında gösterilir.</span></li><li><strong>Alerjenler ve malzemeler</strong><span>14 hazır alerjen tanımı ürünlere atanır; malzemeleri ayrıca tanımlarsınız. Gösterilen alerjen bilgisi sizin girdiğiniz veriye dayanır.</span></li><li><strong>Porsiyon ve ekstralar</strong><span>Ürüne tek bir taban fiyat verilir; “Büyük +40 ₺” gibi porsiyon farkları ve “sos +10 ₺” gibi ekstralar bu fiyatın üzerine eklenir. Ekstra listeleri birden çok üründe yeniden kullanılır.</span></li><li><strong>Rozetler</strong><span>Popüler, Yeni, Önerilen ve İndirimli rozetleri hazır gelir; “Hızlı Servis” gibi kendi rozetlerinizi de tanımlarsınız.</span></li><li><strong>Kombin ürün</strong><span>İki ürünü seçip tek bir kombin fiyatıyla sunarsınız.</span></li></ul></section>
+            <section><h3>Stok ve servis saatleri</h3><ul><li><strong>Tükendi</strong><span>Tükendi işaretlenen ürün menüde görünmeye devam eder; üzerine etiket basılır ve sipariş/tıklama akışı kapanır.</span></li><li><strong>Belirlediğiniz saatte yeniden satışa açma</strong><span>Tükenen ürünü belirlediğiniz saate kadar tükendi bırakırsınız; süre dolunca yeniden satışa açılır. Zamanlama WordPress’in zamanlanmış görev sistemine dayanır.</span></li><li><strong>Malzeme bazlı tükendi</strong><span>Bir malzeme bittiğinde, onu kullanan ürünleri aynı anda belirlediğiniz saate kadar tükendi işaretlersiniz.</span></li><li><strong>Kategori servis saatleri</strong><span>“Kahvaltı 07:00–11:00, hafta içi” gibi bir kural kategoriye bir kez yazılır; tek ürün için ezilebilir. Servis dışındaki ürün menüden kalkmaz; saat etiketi görünür ve sepete eklenemez.</span></li></ul></section>
+            <section><h3>Fiyat ve kampanyalar</h3><ul><li><strong>Toplu fiyat kampanyası</strong><span>Kapsamdaki ürünlere toplu indirim veya zam uygularsınız. İndirim orijinal fiyatı değiştirmez; kaldırdığınızda fiyatlar eskisine döner. Zam ise fiyatı kalıcı olarak günceller.</span></li><li><strong>Kampanya görselleri</strong><span>Sayfanın en üstünde kendi kendine dönen kampanya görselleri gösterirsiniz; geçiş süresi ayarlanır.</span></li><li><strong>Öne çıkanlar</strong><span>Menünün üstünde kayan bir şeritte öne çıkarmak istediğiniz ürünleri gösterirsiniz.</span></li></ul></section>
+            <section><h3>Sepet ve sipariş</h3><ul><li><strong>Sepet ile sipariş</strong><span>Menüde sepet ile sipariş, Diğer Ayarlar’dan etkinleştirilir; müşteri ürünleri sepete ekleyip siparişi gönderir. Bu, Pro paketindeki QR sipariş özelliğidir ve siparişler Servis Paneli’ne düşer.</span></li></ul></section>
+            <section><h3>Arama, filtre ve sıralama</h3><ul><li><strong>Arama ve filtre paneli</strong><span>Müşteri menüde ürün arar; alerjen, kalori, fiyat ve ürün özelliği filtrelerini uygular. Ayrıntılar Akıllı Filtreleme sayfasında.</span></li><li><strong>Sıralama</strong><span>Önerilen sıra, A–Z, fiyat, protein, karbonhidrat ve acılık ölçütleriyle sıralanır.</span></li></ul></section>
+            <section><h3>Aktarma, yedekleme ve görünüm</h3><ul><li><strong>CSV ile toplu ürün aktarımı</strong><span>Örnek dosyayı indirir, ürünlerinizi tabloda hazırlar ve yüklersiniz. Fiyatı geçersiz satırlar aktarımdan sonra bildirilir.</span></li><li><strong>JSON ile yedekleme</strong><span>Tüm menü ürünlerini JSON olarak dışa aktarır, geri yüklerken ürün kimliğiyle eşleşen kayıtların üzerine yazarsınız.</span></li><li><strong>Görünüm</strong><span>Beş hazır renk paleti (Premium Altın, Klasik Turuncu, Koyu Tema, Modern Mavi, Doğal Yeşil), yazı tipi ve renk ayarları vardır. Menü sayfaya kısa kod veya Elementor bileşeniyle eklenir.</span></li></ul></section>
+          </div>
         </details>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
       </header>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../qr-masa/"><span class="qrmo-mod-cue qrmo-mod-cue--qr" aria-hidden="true"><svg class="qm-qr" viewBox="-1 -1 15 15" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect x="-1" y="-1" width="15" height="15" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM12 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM12 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM12 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM12 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM12 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM0 7h1v1h-1zM6 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM0 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM12 9h1v1h-1zM0 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM0 11h1v1h-1zM6 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1z" fill="currentColor"/></svg></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">QR Masa</span><span class="qrmo-mod-tile-d">Her masanın QR kodu bu menüye açılır.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>

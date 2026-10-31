@@ -7,6 +7,17 @@
    Kırılımlar: <640 mobil · 640–899 tablet · ≥900 masaüstü · ≥1280 geniş.
 ========================================================= */
 
+/* =========================================================
+   YAZI TİPİ — Manrope (marka yazı tipi), kendi sunucumuzdan.
+   Cihaz fontuna düşmez; Türkçe karakterler (ı İ ş ğ ₺) latin-ext dosyasında.
+========================================================= */
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("../assets/fonts/manrope-var-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("../assets/fonts/manrope-var-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+body.qrmo-v3,
+body.qrmo-v3 :where(h1, h2, h3, h4, p, a, li, span, button, summary, input, textarea, dt, dd, small, strong, em, b, i, figcaption, div, nav, header, footer) {
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
 body.qrmo-v3 {
   --v3-ease: cubic-bezier(.22, .84, .28, 1);
   --v3-radius: 28px;
@@ -183,7 +194,7 @@ html:not(.v3-ready) .qrmo-v3-screen:not(:first-child) { display: none; }
   .qrmo-v3-flow .qrmo-v3-note { display: block; }
   .qrmo-v3-flow .qrmo-v3-show { --v3-h: min(600px, calc(100dvh - var(--qrmo-gh-h, 76px) - 120px)); }
   .qrmo-v3-steps { gap: 0; }
-  .qrmo-v3-step { min-height: 34vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 18px; padding: 28px 28px 30px; }
+  .qrmo-v3-step { min-height: 26vh; display: flex; flex-direction: column; justify-content: center; margin-bottom: 18px; padding: 28px 28px 30px; }
   .qrmo-v3-step:last-child { margin-bottom: 0; }
   .qrmo-v3-step h3 { font-size: clamp(22px, 2.2vw, 30px); }
 }
@@ -214,3 +225,64 @@ html:not(.v3-ready) .qrmo-v3-screen:not(:first-child) { display: none; }
   .qrmo-v3-screen.is-active .qm-item:first-of-type, .qrmo-v3-screen.is-active .qm-field:first-child, .qrmo-v3-screen.is-active .qm-tr:nth-child(2) { animation: none; }
   .qrmo-v3-show[data-playing="1"] .qrmo-v3-dot.is-active i::after { animation: none; }
 }
+
+
+/* =========================================================
+   SADE HİYERARŞİ — her sayfada aynı üç seviye:
+   1) H1 (sayfanın tek büyük başlığı)  2) H2 (bölüm başlığı, hep aynı boyut)
+   3) kart/adım başlığı. Küçük "eyebrow" etiketi yalnızca bölümün adını söyler.
+========================================================= */
+
+.qrmo-v3-sec { padding-block: clamp(44px, 7vw, 88px); }
+.qrmo-v3-narrow { max-width: 760px; margin-inline: auto; }
+.qrmo-v3-head { max-width: 640px; margin: 0 0 clamp(24px, 4vw, 40px); }
+.qrmo-v3-eyebrow { margin: 0 0 12px; color: var(--qm-gold-ink); font-size: 12.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.qrmo-v3-h2 { margin: 0; color: var(--qm-ink); font-size: clamp(26px, 5.4vw, 40px); font-weight: 800; line-height: 1.14; letter-spacing: -.025em; text-wrap: balance; }
+.qrmo-v3-p { margin: 16px 0 0; color: var(--qm-text); font-size: clamp(17px, 2.2vw, 20px); line-height: 1.65; text-wrap: pretty; }
+.qrmo-v3-sec-cta { margin-top: 28px; }
+
+/* Hero: tek büyük başlık, kısa metin, iki düğme */
+.qrmo-v3-hero .qrmo-mod-h1 { font-size: clamp(32px, 7.6vw, 48px); line-height: 1.08; letter-spacing: -.03em; }
+.qrmo-v3-hero .qrmo-mod-lead { font-size: clamp(17px, 2.2vw, 19px); }
+@media (min-width: 768px) { .qrmo-v3-hero .qrmo-mod-h1 { font-size: clamp(32px, 4.2vw, 40px); } }
+@media (min-width: 900px) { .qrmo-v3-hero .qrmo-mod-h1 { font-size: clamp(38px, 3.9vw, 54px); } }
+
+/* Tanıdık geliyor mu: üç sade kart */
+.qrmo-v3-pains { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.qrmo-v3-pain { display: grid; gap: 18px; align-content: start; padding: 24px; border: 1px solid var(--qm-line); border-radius: 24px; background: rgba(255, 255, 255, .78); }
+.qrmo-v3-pain p { margin: 0; }
+.qrmo-v3-pain span { display: block; margin-bottom: 6px; font-size: 11.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.qrmo-v3-pain-now { color: var(--qm-muted); font-size: 16px; line-height: 1.5; }
+.qrmo-v3-pain-now span { color: var(--qm-muted); }
+.qrmo-v3-pain-fix { padding-top: 18px; border-top: 1px solid var(--qm-gold-line); color: var(--qm-ink); font-size: 18px; font-weight: 700; line-height: 1.45; }
+.qrmo-v3-pain-fix span { color: var(--qm-gold-ink); }
+@media (min-width: 768px) { .qrmo-v3-pains { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } .qrmo-v3-pain { padding: 28px; } }
+
+/* Nasıl çalışır: başlık aynı ölçek */
+.qrmo-v3-flow .qrmo-v3-h2 { color: var(--qm-cream); }
+.qrmo-v3-flow .qrmo-v3-eyebrow { color: var(--qm-gold-light); }
+.qrmo-v3-flow-head { max-width: 40rem; }
+
+/* SSS + ayrıntılar */
+.qrmo-v3-faq { margin-top: 24px; border-top: 1px solid var(--qm-line); }
+.qrmo-v3-q { border-bottom: 1px solid var(--qm-line); }
+.qrmo-v3-q summary, .qrmo-v3-all summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 60px; padding: 14px 0; cursor: pointer; list-style: none; color: var(--qm-ink); font-size: 17px; font-weight: 700; line-height: 1.4; }
+.qrmo-v3-q summary::-webkit-details-marker, .qrmo-v3-all summary::-webkit-details-marker { display: none; }
+.qrmo-v3-q[open] .qrmo-mod-acc-chev, .qrmo-v3-all[open] > summary .qrmo-mod-acc-chev { transform: rotate(180deg); }
+.qrmo-v3-q p { margin: 0; padding: 0 0 18px; color: var(--qm-text); font-size: 16px; line-height: 1.65; }
+.qrmo-v3-q p a { color: var(--qm-gold-ink); font-weight: 800; text-decoration: none; }
+.qrmo-v3-q summary:focus-visible, .qrmo-v3-all summary:focus-visible { outline: 2px solid var(--qm-focus); outline-offset: 2px; border-radius: 8px; }
+.qrmo-v3-notes { margin-top: 28px; padding: 20px 22px; border-radius: 20px; background: rgba(201, 168, 76, .12); border: 1px solid var(--qm-gold-line); }
+.qrmo-v3-notes h3 { margin: 0 0 8px; color: var(--qm-ink); font-size: 15px; font-weight: 800; }
+.qrmo-v3-notes ul { display: grid; gap: 6px; margin: 0; padding-left: 18px; color: var(--qm-text); font-size: 15px; line-height: 1.55; }
+.qrmo-v3-all { margin-top: 20px; border: 1px solid var(--qm-line); border-radius: 20px; background: rgba(255, 255, 255, .6); }
+.qrmo-v3-all > summary { padding: 14px 22px; min-height: 64px; }
+.qrmo-v3-all-body { display: grid; gap: 22px; padding: 4px 22px 24px; }
+.qrmo-v3-all-body h3 { margin: 0 0 8px; color: var(--qm-gold-ink); font-size: 12.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.qrmo-v3-all-body ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.qrmo-v3-all-body li { display: grid; gap: 2px; }
+.qrmo-v3-all-body strong { color: var(--qm-ink); font-size: 16px; font-weight: 800; }
+.qrmo-v3-all-body li span { color: var(--qm-text); font-size: 15px; line-height: 1.55; }
+
+.qrmo-v3-sec.qrmo-mod-related .qrmo-mod-sechead { margin-bottom: 20px; }
+.qrmo-v3-sec.qrmo-mod-related .qrmo-mod-guides-h { margin-top: 32px; }

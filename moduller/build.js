@@ -903,7 +903,6 @@ const SECTION = {
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
         <p class="qrmo-mod-lead">${esc(h.lead)}</p>
-        <ul class="qrmo-mod-proof">${join(h.proof, (p) => `<li>${ICON.check}<span>${esc(p)}</span></li>`)}</ul>
         ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary })}
       </div>
       <div class="qrmo-v3-hero-visual">
@@ -937,8 +936,8 @@ const SECTION = {
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">
-          ${kicker("NASIL ÇALIŞIR")}
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">${esc(f.title)}</h2>
+          <p class="qrmo-v3-eyebrow">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">${esc(f.title)}</h2>
         </header>
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">${join(f.steps, (st, i) => {
@@ -963,40 +962,33 @@ const SECTION = {
   answer(m) {
     const a = m.answer;
     return `
-  <section class="qrmo-mod-sec qrmo-mod-answer" aria-labelledby="qrmo-mod-ans-h">
-    <div class="qrmo-mod-inner qrmo-mod-answer-grid">
-      <header class="qrmo-mod-answer-head">
-        ${kicker(a.kicker)}
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-ans-h">${esc(a.title)}</h2>
-        <p class="qrmo-mod-text">${esc(a.text)}</p>
-      </header>
-      <dl class="qrmo-mod-ans-facts">${join(a.facts, (f) => `
-        <div><dt>${esc(f.k)}</dt><dd>${esc(f.v)}</dd></div>`)}
-      </dl>
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-intro" aria-labelledby="qrmo-mod-ans-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-ans-h">${esc(a.title)}</h2>
+        <p class="qrmo-v3-p">${esc(a.text)}</p>
+      </div>
     </div>
   </section>`;
   },
 
   gaps(m, ctx) {
     const g = m.gaps;
+    const rows = g.rows.slice(0, 3);
     return `
-  <section class="qrmo-mod-sec qrmo-mod-gaps" aria-labelledby="qrmo-mod-gaps-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead">
-        ${kicker(g.kicker)}
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--xl" id="qrmo-mod-gaps-h">${esc(g.title)}</h2>
-        <p class="qrmo-mod-text">${esc(g.text)}</p>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">${esc(g.kicker)}</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">${esc(g.title)}</h2>
       </header>
-      <div class="qrmo-mod-shift-cols" aria-hidden="true"><span>${esc(g.cols[0])}</span><span>${esc(g.cols[1])}</span></div>
-      <ol class="qrmo-mod-shift-list">${join(g.rows, (r) => `
-        <li>
-          <p class="qrmo-mod-shift-now"><span class="qrmo-mod-shift-lbl">${esc(g.cols[0])}</span>${esc(r.now)}</p>
-          <span class="qrmo-mod-shift-arrow" aria-hidden="true">${ICON.arrow}</span>
-          <p class="qrmo-mod-shift-next"><span class="qrmo-mod-shift-lbl">${esc(g.cols[1])}</span>${esc(r.next)}</p>
+      <ul class="qrmo-v3-pains">${join(rows, (r) => `
+        <li class="qrmo-v3-pain">
+          <p class="qrmo-v3-pain-now"><span>${esc(g.cols[0])}</span>${esc(r.now)}</p>
+          <p class="qrmo-v3-pain-fix"><span>${esc(g.cols[1])}</span>${esc(r.next)}</p>
         </li>`)}
-      </ol>${g.cta ? `
-      <div class="qrmo-mod-gaps-cta">
-        <p>${esc(g.cta.note)}</p>
+      </ul>${g.cta ? `
+      <div class="qrmo-v3-sec-cta">
         <a class="qrmo-mod-cta" href="${ctx.rel}${g.cta.path}"><span>${esc(g.cta.label)}</span>${ICON.arrow}</a>
       </div>` : ""}
     </div>
@@ -1149,45 +1141,32 @@ const SECTION = {
     const faq = (m.faq || []).map((id) => {
       const q = ctx.faqById[id];
       if (!q) { problems.push(`${m.slug}: SSS kimliği yok: ${id}`); return ""; }
-      return `<li><details class="qrmo-mod-faq-item"><summary>${esc(q.question)}<span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary><p>${faqHtml(q, ctx.rel)} <a class="qrmo-mod-faq-more" href="${ctx.rel}sss/#${esc(id)}">SSS’de gör</a></p></details></li>`;
+      return `<details class="qrmo-v3-q"><summary><span>${esc(q.question)}</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary><p>${faqHtml(q, ctx.rel)}</p></details>`;
     }).join("");
-    const innerOpen = m.designV2
-      ? v2InnerOpen(m, ctx, "details", "", "qrmo-mod-details-grid")
-      : `<div class="qrmo-mod-inner qrmo-mod-details-grid">`;
-    const innerClose = m.designV2 ? `</div>${v2InnerClose(m, "details")}` : "</div>";
     return `
-  <section class="qrmo-mod-sec qrmo-mod-details${v2SecClass(m, "details")}" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    ${innerOpen}
-      <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">${esc(m.detailsTitle || "Tüm özellikler ve sınırlar")}</h2>
-        <div class="qrmo-mod-know">
-          <h3>Bilmeniz gerekenler</h3>
-          <ul>${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul>
-        </div>${faq ? `
-        <div class="qrmo-mod-faqlinks">
-          <h3>Sık sorulanlar</h3>
-          <ul>${faq}</ul>
-          <a class="qrmo-mod-faq-all" href="${ctx.rel}sss/"><span>Tüm soruları görün</span>${ICON.arrow}</a>
-        </div>` : ""}
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
+        <div class="qrmo-v3-faq">${faq}</div>${(m.notes || []).length ? `
+        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul>${join(m.notes, (n) => `<li>${esc(n)}</li>`)}</ul></aside>` : ""}
+        <details class="qrmo-v3-all">
+          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary>
+          <div class="qrmo-v3-all-body">${join(m.groups, (g) => `
+            <section><h3>${esc(g.title)}</h3><ul>${join(g.items, (it) => `<li><strong>${esc(it.t)}</strong><span>${esc(it.d)}</span></li>`)}</ul></section>`)}
+          </div>
+        </details>
       </div>
-      <div class="qrmo-mod-acc">${join(m.groups, (g) => `
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>${esc(g.title)}</h3><span class="qrmo-mod-acc-count">${g.items.length}<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary>
-          <ul>${join(g.items, (it) => `
-            <li><h4>${esc(it.t)}</h4><p>${esc(it.d)}</p></li>`)}
-          </ul>
-        </details>`)}
-      </div>
-    ${innerClose}
+    </div>
   </section>`;
   },
 
   related(m) {
     return `
-  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">${esc(m.relatedTitle || "Birlikte çalıştığı modüller")}</h2>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.relatedTitle || "Birlikte çalıştığı modüller")}</h2>
       </header>
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
@@ -1238,7 +1217,7 @@ function renderModule(m, faqById) {
   const ctx = { rel, minIdx, faqById, v3: true };
 
   /* V3: tüm modüller aynı iskeleti kullanır; veri olmayan bölüm atlanır. */
-  const V3_ORDER = ["hero", "answer", "gaps", "shift", "flow", "story", "capabilities", "proof", "details", "related", "closing"];
+  const V3_ORDER = ["hero", "answer", "gaps", "flow", "details", "related", "closing"];
   const order = V3_ORDER.filter((k) => ["hero", "details", "related", "closing"].includes(k) || (k === "flow" ? m.flow : m[k]));
 
   const body = order.map((key) => {
@@ -1267,7 +1246,7 @@ function renderModule(m, faqById) {
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",
-    extraHead: '<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>'
+    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>'
   }) + `
 <body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">

@@ -19,6 +19,8 @@
 <meta name="twitter:title" content="Çoklu Dil — Çok Dilli Dijital Menü | QR Menu Official">
 <meta name="twitter:description" content="30 dil arasından menünüzde göstereceğiniz dilleri seçin; çevirileri CSV ile toplu girin. Müşteri dil seçiciyle menüyü kendi dilinde açar.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../module-v3.css">
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
@@ -228,7 +230,6 @@
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MENÜ</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menünüz misafirin dilinde.</h1>
         <p class="qrmo-mod-lead">Menüde göstereceğiniz dilleri 30 dil arasından seçin. Müşteri dil seçiciyle kendi diline geçer; ürün, kategori ve alerjenler o dilde görünür.</p>
-        <ul class="qrmo-mod-proof"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>30 dil, sağdan sola diller dahil</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Ürün, kategori, alerjen ve arayüz metinleri</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Çeviri kontrolü sizde</span></li></ul>
         <div class="qrmo-mod-actions">
           <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
@@ -261,8 +262,8 @@
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">
-          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Misafir kendi dilinde okur</h2>
+          <p class="qrmo-v3-eyebrow">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">Misafir kendi dilinde okur</h2>
         </header>
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
@@ -305,99 +306,29 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--compare qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-story-h">
-    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">01 — AYNI ÜRÜN</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main">
-      <header class="qrmo-mod-sechead">
-        
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-story-h">Misafir, ürünü kendi dilinde okur.</h2>
-        <p class="qrmo-mod-text">Çevirisi girilmiş her alan seçilen dilde görünür. Fiyat aynı kalır; sayı ayracı dile göre değişir.</p>
-      </header>
-      <figure class="qrmo-mod-fig qrmo-mod-compare-fig">
-        <div class="qrmo-mod-shot qrmo-mod-compare" role="img" aria-label="Temsili çizim: aynı ürün kartı Türkçe · orijinal, İngilizce, Arapça · sağdan sola dillerinde; ürün adı, kategori, porsiyon, alerjen ve fiyat seçilen dilde.">
-          <div class="qm-lcard"><span class="qm-lcard-lbl">Türkçe · orijinal</span>
-            <div class="qm-lcard-in"><span class="qm-detail-img"></span><small>Kahvaltı</small><strong>Serpme Kahvaltı</strong><span class="qm-lcard-m">2 kişilik</span><span class="qm-lcard-a">Süt / Laktoz, Yumurta</span><b>1.250,00 ₺</b></div>
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
+        <div class="qrmo-v3-faq"><details class="qrmo-v3-q"><summary><span>QR menüde birden fazla dil kullanılabilir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Desteklemek istediğiniz diller panelden tanımlanır; müşteri menüyü bu dillerden biriyle görüntüler. <a href="../../moduller/coklu-dil/">Çoklu dil modülü</a> CSV veya elle çeviri girişini anlatır.</p></details><details class="qrmo-v3-q"><summary><span>Menü çevirileri otomatik mi yapılır?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Hayır. Sistem harici bir çeviri API’sine bağlanarak menüyü kendiliğinden çevirmez. Metinleri siz girersiniz veya CSV ile yüklersiniz; böylece mutfak terimleri ve marka diliniz kontrolünüzde kalır.</p></details><details class="qrmo-v3-q"><summary><span>Çeviri CSV ile yüklenebilir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Çeviri modülü metinleri dışa aktarıp CSV ile toplu güncellemenize izin verir. Yükleme sonrası menü, seçilen dilde kaydettiğiniz metinleri gösterir.</p></details></div>
+        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Bu modül otomatik makine çevirisi yapmaz. Çevirileri siz veya çevirmeniniz CSV’ye yazarsınız; çeviri kalitesi girdiğiniz metne bağlıdır.</li><li>Çevirisi girilmeyen alan Türkçe (orijinal) haliyle görünür.</li></ul></aside>
+        <details class="qrmo-v3-all">
+          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
+          <div class="qrmo-v3-all-body">
+            <section><h3>Diller</h3><ul><li><strong>30 dil</strong><span>Türkçe, English, Deutsch, Français, Español, Italiano, Русский, العربية, 中文, 日本語, 한국어 dahil 30 dil arasından menüde göstereceklerinizi seçersiniz. Türkçe orijinal dildir.</span></li><li><strong>Dil seçici</strong><span>Yalnızca bayrak ya da bayrak ve dil adı gösteren iki seçici vardır; buton renkleri ayarlanır.</span></li><li><strong>Sağdan sola diller</strong><span>Arapça, İbranice ve Farsça sağdan sola yazılır.</span></li><li><strong>Fiyat biçimi</strong><span>Sayı ayracı dile göre değişir (1.234,56 veya 1,234.56). Tek para birimi kullanılır; kur çevrimi yoktur.</span></li></ul></section>
+            <section><h3>Neler çevrilir?</h3><ul><li><strong>Menü içeriği</strong><span>Menü ürünleri, kategoriler ve alerjenler; ayrıca seçtiğiniz sayfalar başlıklarıyla birlikte çevrilir.</span></li><li><strong>Sabit arayüz metinleri</strong><span>“Filtrele”, “Sırala”, “Ürün ara…” gibi menünün sabit metinleri hazır bir listeyle gelir; ek metinleri elle listeye yazabilirsiniz.</span></li><li><strong>Metin toplama</strong><span>Sitede henüz çevrilmemiş sabit metinleri bulur ve listeye ekler; sonraki dışa aktarımda CSV’ye çıkar.</span></li><li><strong>Tema ve eklenti metinleri</strong><span>İsterseniz tema ve diğer eklentilerin bastığı sabit metinler (alt bilgi, formlar gibi) de çevrilir.</span></li></ul></section>
+            <section><h3>CSV ile çalışma</h3><ul><li><strong>CSV dışa aktar</strong><span>Çeviri dosyasını indirir, yalnızca dil sütunlarını doldurursunuz. Virgül veya noktalı virgül ayracıyla indirilir (Google E-Tablolar için virgül).</span></li><li><strong>CSV içe aktar</strong><span>Doldurduğunuz dosyayı yüklersiniz; ayraç otomatik algılanır.</span></li><li><strong>Sistem durumu</strong><span>Her dil için kaç çeviri yazıldığı, hangilerinin eskidiği veya yetim kaldığı görünür.</span></li></ul></section>
+            <section><h3>Arama motorları</h3><ul><li><strong>Dil adreste görünür</strong><span>Seçilen dil adreste yer alır (?lang=en) ve alternatif dil etiketleri (hreflang) yayınlanır; çevrilmiş sayfaların arama motorlarınca ayrı adres olarak görülmesi için.</span></li></ul></section>
           </div>
-          <div class="qm-lcard"><span class="qm-lcard-lbl">İngilizce</span>
-            <div class="qm-lcard-in"><span class="qm-detail-img"></span><small>Breakfast</small><strong>Turkish Breakfast Spread</strong><span class="qm-lcard-m">For 2</span><span class="qm-lcard-a">Milk / Lactose, Egg</span><b>1,250.00 ₺</b></div>
-          </div>
-          <div class="qm-lcard"><span class="qm-lcard-lbl">Arapça · sağdan sola</span>
-            <div class="qm-lcard-in" dir="rtl" lang="ar"><span class="qm-detail-img"></span><small>الفطور</small><strong>فطور تركي مشكّل</strong><span class="qm-lcard-m">لشخصين</span><span class="qm-lcard-a">الحليب / اللاكتوز، البيض</span><b>1,250.00 ₺</b></div>
-          </div>
-        </div>
-        <figcaption class="qrmo-mod-cap">Örnek çeviriler. Çevirileri siz ya da çevirmeniniz girersiniz.</figcaption>
-      </figure>
-    </div></div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-caps qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">02 — MENÜNÜN ÖTESİ</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-caps-grid">
-      <header class="qrmo-mod-sechead">
-        
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">Menüyle birlikte arayüz de çevrilir.</h2>
-      </header>
-      <ul class="qrmo-mod-caps-list">
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">01</span><h3>Arayüz metinleri</h3><p>“Filtrele”, “Sırala”, “Ürün ara…” gibi sabit metinler hazır listeyle gelir; metin toplama henüz çevrilmemiş olanları bulur.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">02</span><h3>Dil seçici</h3><p>Yalnızca bayrak ya da bayrak ve dil adı gösteren iki seçici; buton renklerini siz ayarlarsınız.</p></li>
-        <li><span class="qrmo-mod-caps-i" aria-hidden="true">03</span><h3>Arama motorları</h3><p>Seçilen dil adreste görünür (?lang=en) ve alternatif dil etiketleri (hreflang) yayınlanır.</p></li>
-      </ul>
-    </div></div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-details qrmo-mod-v2-sec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">03 — AYRINTILAR</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-details-grid">
-      <div class="qrmo-mod-details-side">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
-        <div class="qrmo-mod-know">
-          <h3>Bilmeniz gerekenler</h3>
-          <ul><li>Bu modül otomatik makine çevirisi yapmaz. Çevirileri siz veya çevirmeniniz CSV’ye yazarsınız; çeviri kalitesi girdiğiniz metne bağlıdır.</li><li>Çevirisi girilmeyen alan Türkçe (orijinal) haliyle görünür.</li></ul>
-        </div>
-        <div class="qrmo-mod-faqlinks">
-          <h3>Sık sorulanlar</h3>
-          <ul><li><details class="qrmo-mod-faq-item"><summary>QR menüde birden fazla dil kullanılabilir mi?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Desteklemek istediğiniz diller panelden tanımlanır; müşteri menüyü bu dillerden biriyle görüntüler. <a href="../../moduller/coklu-dil/">Çoklu dil modülü</a> CSV veya elle çeviri girişini anlatır. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-coklu-dil">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>Menü çevirileri otomatik mi yapılır?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Hayır. Sistem harici bir çeviri API’sine bağlanarak menüyü kendiliğinden çevirmez. Metinleri siz girersiniz veya CSV ile yüklersiniz; böylece mutfak terimleri ve marka diliniz kontrolünüzde kalır. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-otomatik-ceviri">SSS’de gör</a></p></details></li><li><details class="qrmo-mod-faq-item"><summary>Çeviri CSV ile yüklenebilir mi?<span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Çeviri modülü metinleri dışa aktarıp CSV ile toplu güncellemenize izin verir. Yükleme sonrası menü, seçilen dilde kaydettiğiniz metinleri gösterir. <a class="qrmo-mod-faq-more" href="../../sss/#qrmo-faq-q-ceviri-csv">SSS’de gör</a></p></details></li></ul>
-          <a class="qrmo-mod-faq-all" href="../../sss/"><span>Tüm soruları görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-        </div>
-      </div>
-      <div class="qrmo-mod-acc">
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Diller</h3><span class="qrmo-mod-acc-count">4<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>30 dil</h4><p>Türkçe, English, Deutsch, Français, Español, Italiano, Русский, العربية, 中文, 日本語, 한국어 dahil 30 dil arasından menüde göstereceklerinizi seçersiniz. Türkçe orijinal dildir.</p></li>
-            <li><h4>Dil seçici</h4><p>Yalnızca bayrak ya da bayrak ve dil adı gösteren iki seçici vardır; buton renkleri ayarlanır.</p></li>
-            <li><h4>Sağdan sola diller</h4><p>Arapça, İbranice ve Farsça sağdan sola yazılır.</p></li>
-            <li><h4>Fiyat biçimi</h4><p>Sayı ayracı dile göre değişir (1.234,56 veya 1,234.56). Tek para birimi kullanılır; kur çevrimi yoktur.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Neler çevrilir?</h3><span class="qrmo-mod-acc-count">4<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Menü içeriği</h4><p>Menü ürünleri, kategoriler ve alerjenler; ayrıca seçtiğiniz sayfalar başlıklarıyla birlikte çevrilir.</p></li>
-            <li><h4>Sabit arayüz metinleri</h4><p>“Filtrele”, “Sırala”, “Ürün ara…” gibi menünün sabit metinleri hazır bir listeyle gelir; ek metinleri elle listeye yazabilirsiniz.</p></li>
-            <li><h4>Metin toplama</h4><p>Sitede henüz çevrilmemiş sabit metinleri bulur ve listeye ekler; sonraki dışa aktarımda CSV’ye çıkar.</p></li>
-            <li><h4>Tema ve eklenti metinleri</h4><p>İsterseniz tema ve diğer eklentilerin bastığı sabit metinler (alt bilgi, formlar gibi) de çevrilir.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>CSV ile çalışma</h3><span class="qrmo-mod-acc-count">3<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>CSV dışa aktar</h4><p>Çeviri dosyasını indirir, yalnızca dil sütunlarını doldurursunuz. Virgül veya noktalı virgül ayracıyla indirilir (Google E-Tablolar için virgül).</p></li>
-            <li><h4>CSV içe aktar</h4><p>Doldurduğunuz dosyayı yüklersiniz; ayraç otomatik algılanır.</p></li>
-            <li><h4>Sistem durumu</h4><p>Her dil için kaç çeviri yazıldığı, hangilerinin eskidiği veya yetim kaldığı görünür.</p></li>
-          </ul>
-        </details>
-        <details class="qrmo-mod-acc-item">
-          <summary><h3>Arama motorları</h3><span class="qrmo-mod-acc-count">1<span class="qrmo-mod-sr"> madde</span></span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <ul>
-            <li><h4>Dil adreste görünür</h4><p>Seçilen dil adreste yer alır (?lang=en) ve alternatif dil etiketleri (hreflang) yayınlanır; çevrilmiş sayfaların arama motorlarınca ayrı adres olarak görülmesi için.</p></li>
-          </ul>
         </details>
       </div>
-    </div></div></div>
+    </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">Birlikte çalıştığı modüller</h2>
       </header>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../restoran-menu/"><span class="qrmo-mod-cue qrmo-mod-cue--menu" aria-hidden="true"><i></i><i></i><i class="off"></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">Restoran Menü</span><span class="qrmo-mod-tile-d">Çevrilen menü içeriği burada tutulur.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
