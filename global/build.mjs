@@ -19,7 +19,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { renderHeader, renderFooter } from "./render.mjs";
-import { applyGlobal } from "./inject.mjs";
+import { applyGlobal, headLinks } from "./inject.mjs";
 import { CONVERSION_PENDING } from "./nav-data.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -39,6 +39,15 @@ write(
 );
 write("dist/qrmo-header.html", renderHeader({ rel: "", current: "home" }) + "\n");
 write("dist/qrmo-footer.html", renderFooter({ rel: "", current: "home" }) + "\n");
+
+/* PHP blog oluşturucusu (backend/src/Site/BlogView.php) için derinliğe özel parçalar:
+   /blog/ → ../ , /blog/<slug>/ → ../../ ; üst menüde "Blog" işaretli. */
+fs.mkdirSync(path.join(here, "dist/partials"), { recursive: true });
+for (const [d, rel] of [["d1", "../"], ["d2", "../../"]]) {
+  write(`dist/partials/head-${d}.html`, headLinks(rel) + "\n");
+  write(`dist/partials/header-${d}.html`, renderHeader({ rel, current: "blog", skip: "icerik" }) + "\n");
+  write(`dist/partials/footer-${d}.html`, renderFooter({ rel, current: "blog" }) + "\n");
+}
 
 const PAGES = [
   { file: "index.html", rel: "", current: "home", skip: "icerik" },
