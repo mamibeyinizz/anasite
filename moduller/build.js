@@ -890,6 +890,35 @@ function showcase(m, { mode = "auto", chips = [], id, phoneFirst = false }) {
       </div>`;
 }
 
+/* Özellik kartı ikonları (24×24, çizgi) */
+const FEAT_ICON = Object.fromEntries(Object.entries({
+  list: '<path d="M8 6h12M8 12h12M8 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  tag: '<path d="M3 12V4h8l10 10-8 8z"/><path d="M7.5 8h.01"/>',
+  spark: '<path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/>',
+  filter: '<path d="M4 5h16l-6 8v6l-4-2v-4z"/>',
+  qr: '<rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3h3M14 20h.01M20 20h.01"/>',
+  grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/>',
+  shield: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+  flag: '<path d="M5 21V4M5 5h12l-2 4 2 4H5"/>',
+  download: '<path d="M12 4v11M7 11l5 5 5-5M5 20h14"/>',
+  chart: '<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
+  sliders: '<path d="M4 8h10M18 8h2M4 16h2M10 16h10"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="16" r="2"/>',
+  search: '<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/>',
+  check: '<circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/>',
+  chat: '<path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/>',
+  cart: '<path d="M3 4h2l2 12h11l2-8H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/>',
+  users: '<circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 3-6 6-6s6 2.5 6 6"/><path d="M16 5a3.5 3.5 0 0 1 0 6M18 14c2 .8 3 3 3 6"/>',
+  kanban: '<rect x="4" y="4" width="4.5" height="16" rx="1"/><rect x="9.8" y="4" width="4.5" height="11" rx="1"/><rect x="15.5" y="4" width="4.5" height="7" rx="1"/>',
+  lock: '<rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V8a4 4 0 0 1 8 0v2"/>',
+  star: '<path d="m12 4 2.4 5 5.4.7-4 3.8 1 5.4L12 16.3 7.2 18.9l1-5.4-4-3.8 5.4-.7z"/>',
+  form: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+  calc: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/>',
+  trend: '<path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/>'
+}).map(([k, d]) => [k, `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${d}</svg>`]));
+
 const SECTION = {
 
   hero(m, ctx) {
@@ -1163,12 +1192,13 @@ const SECTION = {
 
   related(m, ctx) {
     const pk = (mod) => pkgShort(modulePackage(mod).index);
+    if (!m.features || m.features.length !== 5) problems.push(`${m.slug}: features 5 madde olmalı`);
     return `
   <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-v3-head">
-        <p class="qrmo-v3-eyebrow">BİRLİKTE ÇALIŞIR</p>
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.relatedTitle || `${m.name}, diğer modüllerle birlikte güçlenir.`)}</h2>
+        <p class="qrmo-v3-eyebrow">ÖZELLİKLER</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.name)} ile neler yapabilirsiniz?</h2>
       </header>
       <div class="qrmo-v3-map" data-v3-map>
         <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
@@ -1178,17 +1208,20 @@ const SECTION = {
           <p>${esc(m.tagline)}</p>
           <span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(m))}</span></span>
         </div>
-        <ul class="qrmo-v3-spokes">${join(m.related, (r) => {
-          const rm = bySlug[r.slug];
-          return `
-          <li data-v3-spoke><a class="qrmo-v3-spoke" href="../${rm.slug}/">
-            ${cue(rm.cue)}
-            <span class="qrmo-v3-spoke-b"><strong>${esc(rm.name)}</strong><span>${esc(r.why)}</span><span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(rm))}</span></span></span>
-            <span class="qrmo-v3-spoke-go" aria-hidden="true">${ICON.arrow}</span>
-          </a></li>`;
-        })}
+        <ul class="qrmo-v3-spokes">${join(m.features, (f) => `
+          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
+            <span class="qrmo-v3-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
+            <span class="qrmo-v3-spoke-b"><strong>${esc(f.t)}</strong><span>${esc(f.d)}</span><span class="qrmo-v3-meta"><span>${esc(f.tag)}</span></span></span>
+          </div></li>`)}
         </ul>
-      </div>${m.guides ? `
+      </div>
+      <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
+      <ul class="qrmo-mod-rel">${join(m.related, (r) => {
+        const rm = bySlug[r.slug];
+        return `
+        <li><a class="qrmo-mod-tile" href="../${rm.slug}/">${cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
+      })}
+      </ul>${m.guides ? `
       <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>
       <ul class="qrmo-mod-guides">${join(m.guides, (g) => `
         <li><a href="../../${g.path}"><span class="qrmo-mod-guides-t">${esc(g.t)}</span><span class="qrmo-mod-guides-d">${esc(g.d)}</span></a></li>`)}

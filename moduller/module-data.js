@@ -109,6 +109,13 @@
             { screen: 3, t: "Ürünün ayrıntısına bakar", d: "Kalori, alerjen, porsiyon ve ekstralar tek ekranda." }
           ]
         },
+        features: [
+          { ico: "list", tag: "Menü içeriği", t: "Ürün ve fiyatlar tek panelde", d: "Kategori, ürün, fiyat ve bilgileri panelden güncelleyin; yüzlerce ürünü CSV ile tek seferde yükleyin." },
+          { ico: "clock", tag: "Stok", t: "Tükendi ve servis saati", d: "Biten ürün etiketiyle kalır, sepete eklenemez; kahvaltı gibi menüler kendi saatinde açılır." },
+          { ico: "tag", tag: "Fiyat", t: "Porsiyon, ekstra ve kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” tanımlayın ya da iki ürünü tek fiyatla sunun." },
+          { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
+          { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
+        ],
         cta: { secondary: { label: "Canlı menüyü görün", path: "canli-menu/" } },
         closing: {
           title: "Restoran Menü tüm paketlerde: işletmenize uygun planı seçin.",
@@ -326,6 +333,13 @@
             { screen: 3, t: "Masa adı değişse de kod aynı kalır", d: "Masaya konmuş basılı QR kod çalışmaya devam eder." }
           ]
         },
+        features: [
+          { ico: "grid", tag: "Masa tanımı", t: "Tek tek ya da toplu masa", d: "Masa adını yazın ya da bir aralık girip tek seferde açın (en fazla 200 masa)." },
+          { ico: "qr", tag: "QR kod", t: "Her masaya özel QR kod", d: "Her masa için QR kodunu PNG ya da PDF olarak indirin." },
+          { ico: "download", tag: "Yazdırma", t: "Tüm masalar tek dosyada", d: "Her masa kendi adıyla bir sayfada, hepsi tek PDF'te." },
+          { ico: "shield", tag: "Baskı güvencesi", t: "Masa adı değişse de kod aynı kalır", d: "Masaya konmuş basılı QR kod aynı masayı göstermeye devam eder." },
+          { ico: "bell", tag: "Servis", t: "Masa bilgisi servise taşınır", d: "Misafir hangi masada olduğunu görür; garson çağrısı ve sipariş o masa adıyla gelir." }
+        ],
 
         hero: {
           layout: "split",
@@ -468,6 +482,13 @@
             { screen: 1, t: "Eksik kalan yer boş görünmez", d: "Çevirisi girilmemiş alan Türkçe haliyle görünür." }
           ]
         },
+        features: [
+          { ico: "globe", tag: "Diller", t: "30 dil", d: "Türkçe, English, Deutsch dahil 30 dil; Arapça, İbranice ve Farsça sağdan sola yazılır." },
+          { ico: "flag", tag: "Dil seçici", t: "Misafir kendi dilini seçer", d: "Bayrak ya da bayrak ve dil adı gösteren seçici; renkleri sizin ayarınız." },
+          { ico: "list", tag: "Çeviri", t: "Neler çevrilir?", d: "Ürünler, kategoriler, alerjenler ve menünün sabit yazıları." },
+          { ico: "download", tag: "CSV", t: "Çeviriler tek dosyada", d: "Dosyayı indirin, dil sütunlarını doldurun, geri yükleyin." },
+          { ico: "chart", tag: "Takip", t: "Durum ve arama motorları", d: "Her dil için kaç çeviri yazıldığını görün; dil adreste yer alır, alternatif dil etiketleri yayınlanır." }
+        ],
 
         hero: {
           layout: "split",
@@ -607,6 +628,13 @@
             { screen: 2, t: "Seçimlerini görür", d: "Uygulanan filtreler etiket olarak durur; tek dokunuşla sıfırlanır." }
           ]
         },
+        features: [
+          { ico: "filter", tag: "Alerjen", t: "Alerjenini hariç tutar", d: "14 alerjenden seçtiğini içeren ürünler listeden çıkar." },
+          { ico: "sliders", tag: "Aralık", t: "Kalori ve fiyat aralığı", d: "En az ve en çok değeri yazar; kampanyalı üründe geçerli fiyata bakılır." },
+          { ico: "tag", tag: "Etiket", t: "Özellik ve diyet etiketleri", d: "Popüler, Yeni, Önerilen, İndirimli; Vegan, Vejetaryen ve Glütensiz." },
+          { ico: "search", tag: "Arama", t: "Arama ve 8 sıralama", d: "Ürün arama kutusu; A→Z, fiyat, protein, karbonhidrat ve acılığa göre sıralama." },
+          { ico: "check", tag: "Kolaylık", t: "Seçimler görünür, tek dokunuşla sıfırlanır", d: "Uygulanan filtreler menüde etiket olarak durur." }
+        ],
 
         hero: {
           layout: "split",
@@ -749,6 +777,13 @@
             { screen: 2, t: "Gerekirse ekibiniz devralır", d: "Garson çağrısı ya da hesap isteği servis ekibine iletilebilir." }
           ]
         },
+        features: [
+          { ico: "chat", tag: "Yanıt", t: "Menünüze göre yanıtlar", d: "Yanıtlar ürün, fiyat ve açıklamalarınıza ve restoran bilginize dayanır." },
+          { ico: "star", tag: "Takip", t: "Bilmediğini söyler", d: "Yanıtlayamadığı sorular listeye düşer; eksik bilgiyi menüye siz eklersiniz." },
+          { ico: "bell", tag: "Servis", t: "Ürün önerir, garson çağırır", d: "Menüden ürün önerir; sohbetten garson çağrısı ve hesap isteği servis ekibine iletilebilir." },
+          { ico: "cart", tag: "Sipariş", t: "Siparişi adım adım alır", d: "Ürün, adet ve toplam özetiyle, müşterinin açık onayıyla ilerler." },
+          { ico: "sliders", tag: "Kontrol", t: "Her şey sizin kontrolünüzde", d: "Adını, karşılama mesajını ve görünümünü belirleyin; geçmişi inceleyin, gerekirse sohbeti devralın." }
+        ],
 
         hero: {
           layout: "split",
@@ -909,6 +944,13 @@
             { screen: 2, t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner." }
           ]
         },
+        features: [
+          { ico: "grid", tag: "Panel", t: "Üç talep tek ekranda", d: "Sipariş, garson çağrısı ve hesap isteği aynı panelde; türüne ve masaya göre süzün." },
+          { ico: "kanban", tag: "Takip", t: "Durumu karttan güncelleyin", d: "Bekliyor, Hazırlanıyor, Serviste, Tamamlandı: ekip durumu düğmeyle günceller." },
+          { ico: "clock", tag: "Uyarı", t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner; süreleri siz belirlersiniz." },
+          { ico: "bell", tag: "Bildirim", t: "Ses ve tarayıcı bildirimi", d: "Yeni kayıtta sesli uyarı; izin verilirse tarayıcı bildirimi." },
+          { ico: "users", tag: "Erişim", t: "Misafir ve personel tarafı", d: "Misafir tek dokunuşla garson çağırır; garson ve mutfak için sınırlı servis rolü vardır." }
+        ],
 
         hero: {
           layout: "split",
@@ -1055,6 +1097,13 @@
             { screen: 2, t: "Sepetten siparişe giden yol", d: "Sipariş özelliğini (Pro) kullanıyorsanız her adımı görürsünüz." }
           ]
         },
+        features: [
+          { ico: "chart", tag: "Genel bakış", t: "Menü ne kadar görülüyor?", d: "Menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa; günlük, haftalık, aylık." },
+          { ico: "trend", tag: "Ürünler", t: "Hangi ürün ilgi görüyor?", d: "En çok ve en az tıklanan ürünler ile kategori dağılımı." },
+          { ico: "grid", tag: "Masalar", t: "Hangi masa hareketli?", d: "Masaya göre hareket; hiç okutulmayan masalar ayrı görünür." },
+          { ico: "cart", tag: "Sipariş", t: "Sepetten siparişe giden yol", d: "Sepete eklenen, gönderilen ve terk edilen siparişler; tükendi yüzünden engellenenler ayrı raporlanır (Pro)." },
+          { ico: "download", tag: "Veri", t: "CSV ve saklama süresi", d: "Raporları CSV indirin; kayıtların kaç gün saklanacağını siz belirleyin." }
+        ],
 
         hero: {
           layout: "center",
@@ -1194,6 +1243,13 @@
             { screen: 3, t: "Süre sınırını siz belirlersiniz", d: "Süre ya da hareketsizlik limiti dolunca oturum kapanır." }
           ]
         },
+        features: [
+          { ico: "shield", tag: "Güvenlik", t: "İmzalı masa oturumu", d: "Müşteri adresi değiştirip başka bir masa adına oturum açamaz." },
+          { ico: "clock", tag: "Süre", t: "Oturum süresi sınırlı", d: "QR okutulduktan sonra oturum en çok 90 dakika sürer (varsayılan; siz değiştirirsiniz)." },
+          { ico: "lock", tag: "Limit", t: "Hareketsizlikte kilitlenir", d: "Belirlenen süre işlem yapılmazsa oturum kilitlenir (varsayılan 30 dakika)." },
+          { ico: "qr", tag: "Kilit ekranı", t: "Kayıtsız adreste kilit ekranı", d: "Kayıtlı olmayan masa adresinde kilit ekranı açılır; menü herkese açık kalır." },
+          { ico: "chat", tag: "Kapsam", t: "Mesaj limiti ve masa silme", d: "Oturum başına asistan mesajı sınırlanır (25); masa silinince açık oturumlar kapanır." }
+        ],
 
         hero: {
           layout: "split",
@@ -1331,6 +1387,13 @@
             { screen: 2, t: "Raporlarla eksiği görün", d: "Kriter, masa ve saate göre dağılımı inceleyin." }
           ]
         },
+        features: [
+          { ico: "star", tag: "Puanlama", t: "Beş kriterli puan", d: "Yemek, hizmet, temizlik gibi beş kriteri siz adlandırırsınız; misafir puan ve yorum yazar." },
+          { ico: "check", tag: "Yönetim", t: "Yayın kararı sizde", d: "Yorumları yayınlar, kaldırır ya da silersiniz; olumlu ve olumsuz sekmeleri ayrıdır." },
+          { ico: "form", tag: "Formlar", t: "Kendi formlarınız", d: "İletişim formu ve form oluşturucuyla kendi geri bildirim formlarınızı kurun." },
+          { ico: "chart", tag: "Rapor", t: "Raporlar", d: "Kriter ortalamaları, masaya ve saat dilimine göre dağılım." },
+          { ico: "download", tag: "Veri", t: "Veri ve izin araçları", d: "CSV indirme, onay metni ve kişisel veri dışa aktarma ile silme araçları." }
+        ],
 
         hero: {
           layout: "split",
@@ -1477,6 +1540,13 @@
             { screen: 1, t: "Fiyat değişince maliyet güncellenir", d: "Malzeme fiyatı değişince reçeteli ürünlerin maliyeti yeniden hesaplanır." }
           ]
         },
+        features: [
+          { ico: "calc", tag: "Maliyet", t: "Ürün maliyetini girin", d: "Maliyeti doğrudan yazın ya da reçeteden hesaplatın." },
+          { ico: "list", tag: "Reçete", t: "Reçete ve fire", d: "Malzeme fiyatlarından reçete maliyeti çıkar; fire yüzdesi eklenir." },
+          { ico: "grid", tag: "Matris", t: "Dört gruplu menü matrisi", d: "Yıldız, Çok Satan, Gizli Fırsat dahil dört grup yan yana görünür." },
+          { ico: "spark", tag: "Öneri", t: "Ne yapılacağını söyler", d: "Her grup için kısa bir yönlendirme cümlesi yazılır." },
+          { ico: "chart", tag: "Rapor", t: "Rapor ve eksik maliyetler", d: "Dönem ve kategoriye göre rapor ve CSV; maliyeti girilmeyen ürünler ayrı listelenir." }
+        ],
 
         hero: {
           layout: "center",
