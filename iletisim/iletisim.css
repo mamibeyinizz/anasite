@@ -766,6 +766,97 @@ body.qrmo-contact-page {
   transition: transform .18s ease;
 }
 
+/* ---------- kapanış CTA ---------- */
+
+.qrmo-contact-cta {
+  padding: 48px 0 0;
+}
+
+.qrmo-contact-cta-box {
+  display: grid;
+  gap: 24px;
+  padding: 28px 22px;
+  color: var(--qc-cream);
+  background: linear-gradient(135deg, var(--qc-green-hover), var(--qc-green-dark));
+  border: 1px solid var(--qc-gold);
+  border-radius: 20px;
+}
+
+.qrmo-contact-cta-title {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.qrmo-contact-cta-points {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.qrmo-contact-cta-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--qc-cream);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.qrmo-contact-cta-points svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  color: var(--qc-gold-light);
+}
+
+.qrmo-contact-cta-actions {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+}
+
+.qrmo-contact-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 20px;
+  color: var(--qc-cream);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid rgba(244, 241, 232, .5);
+  border-radius: 12px;
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.qrmo-contact-cta-btn:hover {
+  background: rgba(244, 241, 232, .1);
+  border-color: var(--qc-cream);
+}
+
+.qrmo-contact-cta-btn--primary {
+  color: var(--qc-green-dark);
+  background: var(--qc-gold-light);
+  border-color: var(--qc-gold-light);
+}
+
+.qrmo-contact-cta-btn--primary:hover {
+  background: #F0D27E;
+  border-color: #F0D27E;
+  transform: translateY(-2px);
+}
+
+.qrmo-contact-cta .qrmo-contact-cta-btn:focus-visible {
+  outline-color: var(--qc-gold-light);
+}
+
 /* ---------- kırılımlar ---------- */
 
 @media (max-width: 420px) {
@@ -808,6 +899,19 @@ body.qrmo-contact-page {
   .qrmo-contact-guide-lead,
   .qrmo-contact-guide-list p {
     font-size: 17px;
+  }
+}
+
+@media (min-width: 768px) {
+  .qrmo-contact-cta-box {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 40px;
+    padding: 40px 40px;
+  }
+
+  .qrmo-contact-cta-title {
+    font-size: 32px;
   }
 }
 
@@ -905,6 +1009,7 @@ body.qrmo-contact-page .qrmo-gf-in .qrmo-cta-note {
 
   .qrmo-contact-submit:hover,
   .qrmo-contact-submit:active,
+  .qrmo-contact-cta-btn--primary:hover,
   .qrmo-contact-channel:hover .qrmo-contact-channel-arrow,
   .qrmo-contact-social-link:hover {
     transform: none;
