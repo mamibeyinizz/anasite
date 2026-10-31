@@ -19,7 +19,10 @@
 <meta name="twitter:title" content="Restoran ve Kafe İçin QR Menü Programı | QR Menu Official">
 <meta name="twitter:description" content="Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="stylesheet" href="../module-v3.css">
+<script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
+<script defer src="../module-v3.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"Restoran Menü","item":"https://qrmenuofficial.com/moduller/restoran-menu/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/restoran-menu/#webpage","url":"https://qrmenuofficial.com/moduller/restoran-menu/","name":"Restoran ve Kafe İçin QR Menü Programı","description":"Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/restoran-menu/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/restoran-menu/#app","name":"QR Menu Official — Restoran Menü","description":"Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde.","url":"https://qrmenuofficial.com/moduller/restoran-menu/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/restoran-menu/#faq","mainEntity":[{"@type":"Question","name":"QR menüde ürün nasıl eklenir?","acceptedAnswer":{"@type":"Answer","text":"Yönetim panelinde kategori seçilir veya oluşturulur; ardından ürün kartına ad, açıklama, fiyat ve isteğe bağlı alerjen, görsel gibi alanlar girilir. Kaydettiğiniz anda dijital menüde görünür (gizli veya tükendi işaretli değilse). Restoran Menü modülünde adım adım anlatılır."}},{"@type":"Question","name":"QR menüde fiyat nasıl değiştirilir?","acceptedAnswer":{"@type":"Answer","text":"Ürünün paneldeki fiyat alanı güncellenir; baskı menüye gerek kalmadan müşteri yeni fiyatı görür. Porsiyon ve ekstra farkları ayrı tanımlanabilir; kampanya veya indirim rozetleri de panelden yönetilir."}},{"@type":"Question","name":"Tükenen ürün menüde nasıl gösterilir?","acceptedAnswer":{"@type":"Answer","text":"Ürün panelde tükendi olarak işaretlenebilir; menüde görünür kalır ancak sepete eklenemez ve müşteriye uygun etiket gösterilir. İsterseniz ürünü tamamen gizleyerek menüden kaldırabilirsiniz."}},{"@type":"Question","name":"Menüye CSV ile ürün aktarılabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Ürün listesi noktalı virgül veya virgül ayraçlı CSV ile toplu yüklenebilir; aynı başlık ve kategori anahtarıyla eşleşen satırlar güncellenir, yeni satırlar eklenir. Geçersiz fiyatlı satırlar atlanır; sonuç ekranında kaç kaydın eklendiği veya güncellendiği bildirilir."}},{"@type":"Question","name":"QR menüde alerjen bilgileri gösterilebilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Ürünlere tanımlı alerjenler menüde gösterilebilir; bilgi tamamen sizin girdiğiniz veriye dayanır. Yanlış veya eksik alerjen riski için mutfak ve menü verinizi düzenli güncellemeniz gerekir."}},{"@type":"Question","name":"QR menü kullanmak için uygulama gerekir mi?","acceptedAnswer":{"@type":"Answer","text":"Müşteri tarafında uygulama indirmek gerekmez. Menü, telefonun kamerası veya QR okuyucusuyla tarayıcıda açılır. İşletme tarafında yönetim WordPress yönetim paneli üzerinden yapılır; servis ekibi için ayrı servis paneli ekranı kullanılır."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -32,7 +35,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -218,9 +221,10 @@
 
   <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">Restoran Menü</li></ol></nav>
 
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--center" aria-labelledby="qrmo-mod-h1">
-    <div class="qrmo-mod-inner qrmo-mod-hero-grid">
-      <div class="qrmo-mod-hero-copy">
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MENÜ</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Restoran ve kafeniz için QR menüyü tek panelden yönetin.</h1>
         <p class="qrmo-mod-lead">Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; misafir QR kodu okutup menüyü telefonunda güncel haliyle açar. Basılı menü ve PDF yenileme derdi biter.</p>
@@ -230,11 +234,31 @@
           <a class="qrmo-mod-textlink" href="../../canli-menu/"><span>Canlı menüyü görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="qrmo-mod-hero-visual">
-      <figure class="qrmo-mod-fig qrmo-mod-fig--hero">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: solda ürün düzenleme ekranında Mercimek Çorbası’nın fiyatı, kategorisi, alerjeni ve rozetleri; sağda aynı ürünün müşteri telefonundaki menüde görünümü."><div class="qm-scene qm-scene--duo"><div class="qm-si qm-si1"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Ürünler › Ürün düzenle</span></div><div class="qm-win-body"><div class="qm-head"><strong>Mercimek Çorbası</strong><em class="qm-pill">Yayında</em></div><div class="qm-fields"><span class="qm-field"><small>Fiyat (₺)</small><b>95</b></span><span class="qm-field"><small>Kategori</small><b>Çorbalar</b></span><span class="qm-field"><small>Kalori (kcal)</small><b>180</b></span><span class="qm-field"><small>Hazırlanış (dk)</small><b>10</b></span></div><div class="qm-chips"><span class="qm-lbl">Alerjenler</span><div class="qm-chip-row"><span class="qm-chip">Glüten</span><span class="qm-chip">Süt / Laktoz</span><span class="qm-chip on">Kereviz</span><span class="qm-chip">Hardal</span></div></div><div class="qm-toggles"><span class="qm-tg on"><i></i>Popüler</span><span class="qm-tg on"><i></i>Vegan</span><span class="qm-tg"><i></i>Tükendi</span></div><div class="qm-btns"><span class="qm-btn">Önizle</span><span class="qm-btn solid">Güncelle</span></div></div></div></div><div class="qm-si qm-si2"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 12</small></span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ürün ara…</span></div><div class="qm-tabs"><span class="on">Çorbalar</span><span>Ana Yemek</span><span>Tatlı</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal · 10 dk</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popüler</em></span></div><div class="qm-item off"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Ezogelin Çorbası</strong><small>Menüde kalır, sepete eklenemez</small></span><span class="qm-item-s"><b>85 ₺</b><em class="warn">Tükendi</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Çorba + Pide</strong><small>İki ürün, tek fiyat</small></span><span class="qm-item-s"><b>120 ₺</b><em>Kombin</em></span></div></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz çizimi; örnek içerik kullanılmıştır, gerçek ekran görüntüsü değildir.</figcaption>
-      </figure>
+      <div class="qrmo-v3-hero-visual">
+        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Ürünler › Ürün düzenle</span></div><div class="qm-win-body"><div class="qm-head"><strong>Mercimek Çorbası</strong><em class="qm-pill">Yayında</em></div><div class="qm-fields"><span class="qm-field"><small>Fiyat (₺)</small><b>95</b></span><span class="qm-field"><small>Kategori</small><b>Çorbalar</b></span><span class="qm-field"><small>Kalori (kcal)</small><b>180</b></span><span class="qm-field"><small>Hazırlanış (dk)</small><b>10</b></span></div><div class="qm-chips"><span class="qm-lbl">Alerjenler</span><div class="qm-chip-row"><span class="qm-chip">Glüten</span><span class="qm-chip">Süt / Laktoz</span><span class="qm-chip on">Kereviz</span><span class="qm-chip">Hardal</span></div></div><div class="qm-toggles"><span class="qm-tg on"><i></i>Popüler</span><span class="qm-tg on"><i></i>Vegan</span><span class="qm-tg"><i></i>Tükendi</span></div><div class="qm-btns"><span class="qm-btn">Önizle</span><span class="qm-btn solid">Güncelle</span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="1" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 2 / 4">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 12</small></span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ürün ara…</span></div><div class="qm-tabs"><span class="on">Çorbalar</span><span>Ana Yemek</span><span>Tatlı</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal · 10 dk</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popüler</em></span></div><div class="qm-item off"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Ezogelin Çorbası</strong><small>Menüde kalır, sepete eklenemez</small></span><span class="qm-item-s"><b>85 ₺</b><em class="warn">Tükendi</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Çorba + Pide</strong><small>İki ürün, tek fiyat</small></span><span class="qm-item-s"><b>120 ₺</b><em>Kombin</em></span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 3 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 12</small></span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ürün ara…</span></div><div class="qm-h" data-hot="1"><div class="qm-btns"><span class="qm-btn">Filtrele</span><span class="qm-btn">Sırala</span></div></div><div class="qm-tabs"><span>Kahvaltı</span><span class="on">Çorbalar</span><span>Tatlı</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal · 10 dk</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popüler</em></span></div><div class="qm-h" data-hot="2"><div class="qm-item off"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Ezogelin Çorbası</strong><small>Menüde kalır, sepete eklenemez</small></span><span class="qm-item-s"><b>85 ₺</b><em class="warn">Tükendi</em></span></div></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Yayla Çorbası</strong><small>210 kcal · 12 dk</small></span><span class="qm-item-s"><b>90 ₺</b><em>Yeni</em></span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="3" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 4 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-h" data-hot="3"><div class="qm-detail"><span class="qm-detail-img"></span><div class="qm-detail-h"><span><strong>Mercimek Çorbası</strong><small>Çorbalar</small></span><b>95 ₺</b></div><div class="qm-kv"><span><small>Kalori</small><b>180 kcal</b></span><span><small>Gramaj</small><b>300 g</b></span><span><small>Protein</small><b>9 g</b></span><span><small>Hazırlanış</small><b>10 dk</b></span><span><small>Acılık</small><b>Acısız</b></span></div><div class="qm-chip-row"><span class="qm-chip on">Vegan</span><span class="qm-chip on">Alerjen: Kereviz</span></div></div></div><div class="qm-chips"><span class="qm-lbl">Porsiyon</span><div class="qm-chip-row"><span class="qm-chip on">Normal</span><span class="qm-chip">Büyük +40 ₺</span></div></div><div class="qm-chips"><span class="qm-lbl">Ekstra</span><div class="qm-chip-row"><span class="qm-chip">Ekstra ekmek +10 ₺</span><span class="qm-chip">Limon</span></div></div></div></div></div>
+          </figure>
+        </div>
+        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Tükendi ve servis saati etiketleri</span></span>
+        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Porsiyon, ekstra ve kombin</span></span>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot" data-v3-dot="0" aria-label="Ekran 1 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="1" aria-label="Ekran 2 / 4: Misafirin telefonunda" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 4: Misafirin telefonunda" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="3" aria-label="Ekran 4 / 4: Misafirin telefonunda" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Misafirin telefonunda</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
       </div>
     </div>
   </section>
@@ -308,6 +332,65 @@
     </div>
   </section>
 
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Menünüzü yönetin, misafir güncel halini görsün</h2>
+        </header>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">
+            <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <h3>Panelde ürünü düzenleyin</h3>
+              <p>Fiyatı, kalorisini ve alerjenlerini yazın, kaydedin.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <h3>Misafir menüyü telefonunda açar</h3>
+              <p>QR kodu okutur; uygulama indirmeden güncel menüyü görür.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="2" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <h3>Aradığını kolayca bulur</h3>
+              <p>Arar, filtreler; biten ürünü etiketinden anlar.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="3" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">04</span>
+              <h3>Ürünün ayrıntısına bakar</h3>
+              <p>Kalori, alerjen, porsiyon ve ekstralar tek ekranda.</p>
+            </li>
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            <div class="qrmo-v3-show" data-v3-show="ctrl" id="qrmo-v3-flow">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 4">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Ürünler › Ürün düzenle</span></div><div class="qm-win-body"><div class="qm-head"><strong>Mercimek Çorbası</strong><em class="qm-pill">Yayında</em></div><div class="qm-fields"><span class="qm-field"><small>Fiyat (₺)</small><b>95</b></span><span class="qm-field"><small>Kategori</small><b>Çorbalar</b></span><span class="qm-field"><small>Kalori (kcal)</small><b>180</b></span><span class="qm-field"><small>Hazırlanış (dk)</small><b>10</b></span></div><div class="qm-chips"><span class="qm-lbl">Alerjenler</span><div class="qm-chip-row"><span class="qm-chip">Glüten</span><span class="qm-chip">Süt / Laktoz</span><span class="qm-chip on">Kereviz</span><span class="qm-chip">Hardal</span></div></div><div class="qm-toggles"><span class="qm-tg on"><i></i>Popüler</span><span class="qm-tg on"><i></i>Vegan</span><span class="qm-tg"><i></i>Tükendi</span></div><div class="qm-btns"><span class="qm-btn">Önizle</span><span class="qm-btn solid">Güncelle</span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 2 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 12</small></span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ürün ara…</span></div><div class="qm-tabs"><span class="on">Çorbalar</span><span>Ana Yemek</span><span>Tatlı</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal · 10 dk</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popüler</em></span></div><div class="qm-item off"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Ezogelin Çorbası</strong><small>Menüde kalır, sepete eklenemez</small></span><span class="qm-item-s"><b>85 ₺</b><em class="warn">Tükendi</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Çorba + Pide</strong><small>İki ürün, tek fiyat</small></span><span class="qm-item-s"><b>120 ₺</b><em>Kombin</em></span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 3 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 12</small></span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ürün ara…</span></div><div class="qm-h" data-hot="1"><div class="qm-btns"><span class="qm-btn">Filtrele</span><span class="qm-btn">Sırala</span></div></div><div class="qm-tabs"><span>Kahvaltı</span><span class="on">Çorbalar</span><span>Tatlı</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal · 10 dk</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popüler</em></span></div><div class="qm-h" data-hot="2"><div class="qm-item off"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Ezogelin Çorbası</strong><small>Menüde kalır, sepete eklenemez</small></span><span class="qm-item-s"><b>85 ₺</b><em class="warn">Tükendi</em></span></div></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Yayla Çorbası</strong><small>210 kcal · 12 dk</small></span><span class="qm-item-s"><b>90 ₺</b><em>Yeni</em></span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="3" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 4 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-h" data-hot="3"><div class="qm-detail"><span class="qm-detail-img"></span><div class="qm-detail-h"><span><strong>Mercimek Çorbası</strong><small>Çorbalar</small></span><b>95 ₺</b></div><div class="qm-kv"><span><small>Kalori</small><b>180 kcal</b></span><span><small>Gramaj</small><b>300 g</b></span><span><small>Protein</small><b>9 g</b></span><span><small>Hazırlanış</small><b>10 dk</b></span><span><small>Acılık</small><b>Acısız</b></span></div><div class="qm-chip-row"><span class="qm-chip on">Vegan</span><span class="qm-chip on">Alerjen: Kereviz</span></div></div></div><div class="qm-chips"><span class="qm-lbl">Porsiyon</span><div class="qm-chip-row"><span class="qm-chip on">Normal</span><span class="qm-chip">Büyük +40 ₺</span></div></div><div class="qm-chips"><span class="qm-lbl">Ekstra</span><div class="qm-chip-row"><span class="qm-chip">Ekstra ekmek +10 ₺</span><span class="qm-chip">Limon</span></div></div></div></div></div>
+          </figure>
+        </div>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 4: Sizin yönetim ekranınız" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 4: Misafirin telefonunda" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 4: Misafirin telefonunda" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="3" aria-label="Ekran 4 / 4: Misafirin telefonunda" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Sizin yönetim ekranınız</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="qrmo-mod-sec qrmo-mod-story qrmo-mod-story--pairs" aria-labelledby="qrmo-mod-story-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-mod-sechead">
@@ -344,30 +427,6 @@
             <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">MÜŞTERİNİN MENÜSÜNDE</span>Saat dışındaki ürün etiketiyle görünür, sepete eklenemez.</p>
           </li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
-    <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-stage qrmo-mod-stage--dark qrmo-mod-stage--split">
-        <header class="qrmo-mod-stage-head">
-          <p class="qrmo-mod-kicker">MÜŞTERİ TARAFI</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Müşterinin telefonunda menü.</h2>
-          <p class="qrmo-mod-text">Menü uygulama indirmeden tarayıcıda açılır. Müşteri arar, filtreler, ürünün ayrıntısına iner.</p>
-          
-        </header>
-        <div class="qrmo-mod-stage-visual">
-        <figure class="qrmo-mod-fig">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: müşteri telefonunda menü listesi (arama, filtre, rozet ve tükendi etiketi) ve Mercimek Çorbası’nın besin, alerjen ve porsiyon bilgisini gösteren ürün detayı."><div class="qm-scene qm-scene--pair"><div class="qm-si qm-si1"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 12</small></span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ürün ara…</span></div><div class="qm-h" data-hot="1"><div class="qm-btns"><span class="qm-btn">Filtrele</span><span class="qm-btn">Sırala</span></div></div><div class="qm-tabs"><span>Kahvaltı</span><span class="on">Çorbalar</span><span>Tatlı</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal · 10 dk</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popüler</em></span></div><div class="qm-h" data-hot="2"><div class="qm-item off"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Ezogelin Çorbası</strong><small>Menüde kalır, sepete eklenemez</small></span><span class="qm-item-s"><b>85 ₺</b><em class="warn">Tükendi</em></span></div></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Yayla Çorbası</strong><small>210 kcal · 12 dk</small></span><span class="qm-item-s"><b>90 ₺</b><em>Yeni</em></span></div></div></div></div><div class="qm-si qm-si2"><div class="qm-phone"><div class="qm-screen"><div class="qm-h" data-hot="3"><div class="qm-detail"><span class="qm-detail-img"></span><div class="qm-detail-h"><span><strong>Mercimek Çorbası</strong><small>Çorbalar</small></span><b>95 ₺</b></div><div class="qm-kv"><span><small>Kalori</small><b>180 kcal</b></span><span><small>Gramaj</small><b>300 g</b></span><span><small>Protein</small><b>9 g</b></span><span><small>Hazırlanış</small><b>10 dk</b></span><span><small>Acılık</small><b>Acısız</b></span></div><div class="qm-chip-row"><span class="qm-chip on">Vegan</span><span class="qm-chip on">Alerjen: Kereviz</span></div></div></div><div class="qm-chips"><span class="qm-lbl">Porsiyon</span><div class="qm-chip-row"><span class="qm-chip on">Normal</span><span class="qm-chip">Büyük +40 ₺</span></div></div><div class="qm-chips"><span class="qm-lbl">Ekstra</span><div class="qm-chip-row"><span class="qm-chip">Ekstra ekmek +10 ₺</span><span class="qm-chip">Limon</span></div></div></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
-      </figure>
-        </div>
-        <ol class="qrmo-mod-callouts">
-          <li><span class="qrmo-mod-num" aria-hidden="true">1</span><h3>Arama, filtre ve sıralama</h3><p>Müşteri ürün arar, filtre uygular, menüyü sıralar.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">2</span><h3>Durum etiketleri</h3><p>Tükendi ya da servis saati dışındaki ürün menüde kalır, etiketiyle görünür.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>Ürün detayı</h3><p>Kalori, besin değerleri, hazırlanış süresi, acılık, alerjen, porsiyon ve ekstralar tek ekranda.</p></li>
-        </ol>
       </div>
     </div>
   </section>

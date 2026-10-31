@@ -19,7 +19,10 @@
 <meta name="twitter:title" content="QR Analytics — Menü, Ürün ve Masa Raporları | QR Menu Official">
 <meta name="twitter:description" content="Menü görüntüleme, tekil ziyaretçi, ürün tıklaması, masa hareketi ve sepet verilerini Bugün, Son 7 gün, Bu ay ya da özel aralıkla raporlayın.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="stylesheet" href="../module-v3.css">
+<script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
+<script defer src="../module-v3.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"QR Analytics","item":"https://qrmenuofficial.com/moduller/qr-analytics/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/qr-analytics/#webpage","url":"https://qrmenuofficial.com/moduller/qr-analytics/","name":"QR Analytics — Menü, Ürün ve Masa Raporları","description":"Menü görüntüleme, tekil ziyaretçi, ürün tıklaması, masa hareketi ve sepet verilerini Bugün, Son 7 gün, Bu ay ya da özel aralıkla raporlayın.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/qr-analytics/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/qr-analytics/#app","name":"QR Menu Official — QR Analytics","description":"Menü görüntüleme, tekil ziyaretçi, ürün tıklaması, masa hareketi ve sepet verilerini Bugün, Son 7 gün, Bu ay ya da özel aralıkla raporlayın.","url":"https://qrmenuofficial.com/moduller/qr-analytics/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/qr-analytics/#faq","mainEntity":[{"@type":"Question","name":"QR Analytics nedir?","acceptedAnswer":{"@type":"Answer","text":"Menüdeki davranışları (görüntüleme, tıklama, sepet, sipariş gönderimi, asistan mesajları vb.) kaydeden raporlama katmanıdır. Veriler QR menü etkileşimlerinden gelir; harici POS entegrasyonu şart değildir. QR Analytics modülüne bakın."}},{"@type":"Question","name":"Analytics verisi POS’tan mı gelir?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Kayıtlar müşterinin QR menüde yaptığı işlemlerden oluşur. Kasa POS cironuz ayrı sistemlerde kalır; buradaki sipariş sayıları menüden gönderilen sipariş olaylarına dayanır."}},{"@type":"Question","name":"QR Analytics sipariş sayılarını gösterir mi?","acceptedAnswer":{"@type":"Answer","text":"Menüden gönderilen sipariş olayları (order_sent) raporlanabilir; bu, mutfak POS fiş adediyle birebir aynı olmayabilir. Amaç QR kanalındaki talebi görmek, tüm mağaza cirosunu tek başına yansıtmak değildir."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -32,7 +35,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -218,9 +221,10 @@
 
   <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">QR Analytics</li></ol></nav>
 
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--center" aria-labelledby="qrmo-mod-h1">
-    <div class="qrmo-mod-inner qrmo-mod-hero-grid">
-      <div class="qrmo-mod-hero-copy">
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>AKILLI İŞLETME</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menünüzün nasıl kullanıldığını görün.</h1>
         <p class="qrmo-mod-lead">Menü görüntüleme, ürün tıklaması, masa hareketi ve sepet verisi tek raporda. Kasa satışı değil; QR menünüzdeki kullanım verisi.</p>
@@ -230,11 +234,79 @@
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="qrmo-mod-hero-visual">
-      <figure class="qrmo-mod-fig qrmo-mod-fig--hero">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz, örnek veri: İstatistikler genel bakış ekranı; Son 7 gün seçili, menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa göstergeleri, saatlik hareket grafiği ve en çok tıklanan ürünler listesi."><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Genel Bakış</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-tabs"><span>Bugün</span><span class="on">Son 7 gün</span><span>Bu ay</span><span>Özel</span></div><div class="qm-kpis"><span class="qm-kpi"><small>Menü görüntüleme</small><strong>1.284</strong><em>+6%</em></span><span class="qm-kpi"><small>Ürün tıklama</small><strong>412</strong><em>+4%</em></span><span class="qm-kpi"><small>Tekil ziyaretçi</small><strong>356</strong><em>+3%</em></span><span class="qm-kpi"><small>Aktif masa</small><strong>14</strong></span></div><div class="qm-cols qm-cols--wide"><div class="qm-col-in"><div class="qm-chart"><span class="qm-lbl">Zaman içindeki hareket</span><svg class="qm-bars" viewBox="0 0 332 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="s1" d="M0 94h4.5v6h-4.5zM14 91h4.5v9h-4.5zM28 94h4.5v6h-4.5zM42 97h4.5v3h-4.5zM56 97h4.5v3h-4.5zM70 94h4.5v6h-4.5zM84 85h4.5v15h-4.5zM98 73h4.5v27h-4.5zM112 64h4.5v36h-4.5zM126 70h4.5v30h-4.5zM140 58h4.5v42h-4.5zM154 33h4.5v67h-4.5zM168 9h4.5v91h-4.5zM182 21h4.5v79h-4.5zM196 55h4.5v45h-4.5zM210 67h4.5v33h-4.5zM224 64h4.5v36h-4.5zM238 45h4.5v55h-4.5zM252 21h4.5v79h-4.5zM266 6h4.5v94h-4.5zM280 18h4.5v82h-4.5zM294 42h4.5v58h-4.5zM308 70h4.5v30h-4.5zM322 85h4.5v15h-4.5z"/><path class="s2" d="M5.5 97h4.5v3h-4.5zM19.5 97h4.5v3h-4.5zM33.5 97h4.5v3h-4.5zM47.5 98h4.5v2h-4.5zM61.5 98h4.5v2h-4.5zM75.5 97h4.5v3h-4.5zM89.5 94h4.5v6h-4.5zM103.5 88h4.5v12h-4.5zM117.5 85h4.5v15h-4.5zM131.5 88h4.5v12h-4.5zM145.5 82h4.5v18h-4.5zM159.5 73h4.5v27h-4.5zM173.5 61h4.5v39h-4.5zM187.5 67h4.5v33h-4.5zM201.5 82h4.5v18h-4.5zM215.5 85h4.5v15h-4.5zM229.5 85h4.5v15h-4.5zM243.5 76h4.5v24h-4.5zM257.5 67h4.5v33h-4.5zM271.5 61h4.5v39h-4.5zM285.5 64h4.5v36h-4.5zM299.5 76h4.5v24h-4.5zM313.5 88h4.5v12h-4.5zM327.5 94h4.5v6h-4.5z"/></svg><div class="qm-axis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span></div><div class="qm-legend"><span class="l1">Menü görüntüleme</span><span class="l2">Ürün tıklama</span></div></div></div><div class="qm-col-in"><div class="qm-rank"><span class="qm-lbl">En çok ilgi görenler</span><div class="qm-rk"><span class="qm-rk-l">Izgara Tavuk<small>Ana Yemek</small></span><b>71</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Serpme Kahvaltı<small>Kahvaltı</small></span><b>52</b><i style="--w:73%"></i></div><div class="qm-rk"><span class="qm-rk-l">Filtre Kahve<small>İçecek</small></span><b>44</b><i style="--w:62%"></i></div><div class="qm-rk"><span class="qm-rk-l">Künefe<small>Tatlı</small></span><b>31</b><i style="--w:44%"></i></div></div></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz çizimi; örnek içerik kullanılmıştır, gerçek ekran görüntüsü değildir.</figcaption>
-      </figure>
+      <div class="qrmo-v3-hero-visual">
+        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 3">
+            <div class="qrmo-v3-fit"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Genel Bakış</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-tabs"><span>Bugün</span><span class="on">Son 7 gün</span><span>Bu ay</span><span>Özel</span></div><div class="qm-kpis"><span class="qm-kpi"><small>Menü görüntüleme</small><strong>1.284</strong><em>+6%</em></span><span class="qm-kpi"><small>Ürün tıklama</small><strong>412</strong><em>+4%</em></span><span class="qm-kpi"><small>Tekil ziyaretçi</small><strong>356</strong><em>+3%</em></span><span class="qm-kpi"><small>Aktif masa</small><strong>14</strong></span></div><div class="qm-cols qm-cols--wide"><div class="qm-col-in"><div class="qm-chart"><span class="qm-lbl">Zaman içindeki hareket</span><svg class="qm-bars" viewBox="0 0 332 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="s1" d="M0 94h4.5v6h-4.5zM14 91h4.5v9h-4.5zM28 94h4.5v6h-4.5zM42 97h4.5v3h-4.5zM56 97h4.5v3h-4.5zM70 94h4.5v6h-4.5zM84 85h4.5v15h-4.5zM98 73h4.5v27h-4.5zM112 64h4.5v36h-4.5zM126 70h4.5v30h-4.5zM140 58h4.5v42h-4.5zM154 33h4.5v67h-4.5zM168 9h4.5v91h-4.5zM182 21h4.5v79h-4.5zM196 55h4.5v45h-4.5zM210 67h4.5v33h-4.5zM224 64h4.5v36h-4.5zM238 45h4.5v55h-4.5zM252 21h4.5v79h-4.5zM266 6h4.5v94h-4.5zM280 18h4.5v82h-4.5zM294 42h4.5v58h-4.5zM308 70h4.5v30h-4.5zM322 85h4.5v15h-4.5z"/><path class="s2" d="M5.5 97h4.5v3h-4.5zM19.5 97h4.5v3h-4.5zM33.5 97h4.5v3h-4.5zM47.5 98h4.5v2h-4.5zM61.5 98h4.5v2h-4.5zM75.5 97h4.5v3h-4.5zM89.5 94h4.5v6h-4.5zM103.5 88h4.5v12h-4.5zM117.5 85h4.5v15h-4.5zM131.5 88h4.5v12h-4.5zM145.5 82h4.5v18h-4.5zM159.5 73h4.5v27h-4.5zM173.5 61h4.5v39h-4.5zM187.5 67h4.5v33h-4.5zM201.5 82h4.5v18h-4.5zM215.5 85h4.5v15h-4.5zM229.5 85h4.5v15h-4.5zM243.5 76h4.5v24h-4.5zM257.5 67h4.5v33h-4.5zM271.5 61h4.5v39h-4.5zM285.5 64h4.5v36h-4.5zM299.5 76h4.5v24h-4.5zM313.5 88h4.5v12h-4.5zM327.5 94h4.5v6h-4.5z"/></svg><div class="qm-axis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span></div><div class="qm-legend"><span class="l1">Menü görüntüleme</span><span class="l2">Ürün tıklama</span></div></div></div><div class="qm-col-in"><div class="qm-rank"><span class="qm-lbl">En çok ilgi görenler</span><div class="qm-rk"><span class="qm-rk-l">Izgara Tavuk<small>Ana Yemek</small></span><b>71</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Serpme Kahvaltı<small>Kahvaltı</small></span><b>52</b><i style="--w:73%"></i></div><div class="qm-rk"><span class="qm-rk-l">Filtre Kahve<small>İçecek</small></span><b>44</b><i style="--w:62%"></i></div><div class="qm-rk"><span class="qm-rk-l">Künefe<small>Tatlı</small></span><b>31</b><i style="--w:44%"></i></div></div></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Masalar</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Grup</span><span>Hareket</span></div><div class="qm-tr"><span>Masa 4</span><span>Salon</span><span>38</span></div><div class="qm-tr"><span>bahce-2</span><span>Bahçe</span><span>12</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>VIP</span><span>Hiç okutulmadı</span></div><div class="qm-tr"><span>Doğrudan erişim</span><span>Masasız</span><span>21</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">CSV indir</span></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 3 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Sepet &amp; Sipariş</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="2"><div class="qm-funnel"><div class="qm-fn"><span>Sepete eklenen</span><i style="--w:100%"></i><b>100</b></div><div class="qm-fn"><span>Gönderilen</span><i style="--w:64%"></i><b>64</b></div><div class="qm-fn"><span>Terk edilen</span><i style="--w:36%"></i><b>36</b></div></div></div></div></div></div>
+          </figure>
+        </div>
+        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Bugün, son 7 gün, bu ay ya da özel aralık</span></span>
+        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masaya göre hareket</span></span>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 3: Sizin yönetim ekranınız" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Sizin yönetim ekranınız</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Menünüzün nasıl kullanıldığını görün</h2>
+        </header>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">
+            <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <h3>Genel durumu görün</h3>
+              <p>Menü görüntüleme ve ürün tıklamalarını tarih aralığına göre izleyin.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <h3>Hangi masa hareketli, hangisi sessiz</h3>
+              <p>Hiç okutulmayan masalar listede ayrı görünür.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="2" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <h3>Sepetten siparişe giden yol</h3>
+              <p>Sipariş özelliğini (Pro) kullanıyorsanız her adımı görürsünüz.</p>
+            </li>
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            <div class="qrmo-v3-show" data-v3-show="ctrl" id="qrmo-v3-flow">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 3">
+            <div class="qrmo-v3-fit"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Genel Bakış</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-tabs"><span>Bugün</span><span class="on">Son 7 gün</span><span>Bu ay</span><span>Özel</span></div><div class="qm-kpis"><span class="qm-kpi"><small>Menü görüntüleme</small><strong>1.284</strong><em>+6%</em></span><span class="qm-kpi"><small>Ürün tıklama</small><strong>412</strong><em>+4%</em></span><span class="qm-kpi"><small>Tekil ziyaretçi</small><strong>356</strong><em>+3%</em></span><span class="qm-kpi"><small>Aktif masa</small><strong>14</strong></span></div><div class="qm-cols qm-cols--wide"><div class="qm-col-in"><div class="qm-chart"><span class="qm-lbl">Zaman içindeki hareket</span><svg class="qm-bars" viewBox="0 0 332 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="s1" d="M0 94h4.5v6h-4.5zM14 91h4.5v9h-4.5zM28 94h4.5v6h-4.5zM42 97h4.5v3h-4.5zM56 97h4.5v3h-4.5zM70 94h4.5v6h-4.5zM84 85h4.5v15h-4.5zM98 73h4.5v27h-4.5zM112 64h4.5v36h-4.5zM126 70h4.5v30h-4.5zM140 58h4.5v42h-4.5zM154 33h4.5v67h-4.5zM168 9h4.5v91h-4.5zM182 21h4.5v79h-4.5zM196 55h4.5v45h-4.5zM210 67h4.5v33h-4.5zM224 64h4.5v36h-4.5zM238 45h4.5v55h-4.5zM252 21h4.5v79h-4.5zM266 6h4.5v94h-4.5zM280 18h4.5v82h-4.5zM294 42h4.5v58h-4.5zM308 70h4.5v30h-4.5zM322 85h4.5v15h-4.5z"/><path class="s2" d="M5.5 97h4.5v3h-4.5zM19.5 97h4.5v3h-4.5zM33.5 97h4.5v3h-4.5zM47.5 98h4.5v2h-4.5zM61.5 98h4.5v2h-4.5zM75.5 97h4.5v3h-4.5zM89.5 94h4.5v6h-4.5zM103.5 88h4.5v12h-4.5zM117.5 85h4.5v15h-4.5zM131.5 88h4.5v12h-4.5zM145.5 82h4.5v18h-4.5zM159.5 73h4.5v27h-4.5zM173.5 61h4.5v39h-4.5zM187.5 67h4.5v33h-4.5zM201.5 82h4.5v18h-4.5zM215.5 85h4.5v15h-4.5zM229.5 85h4.5v15h-4.5zM243.5 76h4.5v24h-4.5zM257.5 67h4.5v33h-4.5zM271.5 61h4.5v39h-4.5zM285.5 64h4.5v36h-4.5zM299.5 76h4.5v24h-4.5zM313.5 88h4.5v12h-4.5zM327.5 94h4.5v6h-4.5z"/></svg><div class="qm-axis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span></div><div class="qm-legend"><span class="l1">Menü görüntüleme</span><span class="l2">Ürün tıklama</span></div></div></div><div class="qm-col-in"><div class="qm-rank"><span class="qm-lbl">En çok ilgi görenler</span><div class="qm-rk"><span class="qm-rk-l">Izgara Tavuk<small>Ana Yemek</small></span><b>71</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Serpme Kahvaltı<small>Kahvaltı</small></span><b>52</b><i style="--w:73%"></i></div><div class="qm-rk"><span class="qm-rk-l">Filtre Kahve<small>İçecek</small></span><b>44</b><i style="--w:62%"></i></div><div class="qm-rk"><span class="qm-rk-l">Künefe<small>Tatlı</small></span><b>31</b><i style="--w:44%"></i></div></div></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Masalar</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Grup</span><span>Hareket</span></div><div class="qm-tr"><span>Masa 4</span><span>Salon</span><span>38</span></div><div class="qm-tr"><span>bahce-2</span><span>Bahçe</span><span>12</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>VIP</span><span>Hiç okutulmadı</span></div><div class="qm-tr"><span>Doğrudan erişim</span><span>Masasız</span><span>21</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">CSV indir</span></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 3 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Sepet &amp; Sipariş</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="2"><div class="qm-funnel"><div class="qm-fn"><span>Sepete eklenen</span><i style="--w:100%"></i><b>100</b></div><div class="qm-fn"><span>Gönderilen</span><i style="--w:64%"></i><b>64</b></div><div class="qm-fn"><span>Terk edilen</span><i style="--w:36%"></i><b>36</b></div></div></div></div></div></div>
+          </figure>
+        </div>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 3: Sizin yönetim ekranınız" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Sizin yönetim ekranınız</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -270,30 +342,6 @@
             <p class="qrmo-mod-pairs-b"><span class="qrmo-mod-pairs-lbl">RAPOR</span>Asistan mesajları, yorum ve form gönderimleri, dil seçimi dağılımı.</p>
           </li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
-    <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-stage qrmo-mod-stage--light qrmo-mod-stage--split">
-        <header class="qrmo-mod-stage-head">
-          <p class="qrmo-mod-kicker">MASALAR VE SEPET</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Salonun hangi köşesi menüyü kullanıyor?</h2>
-          <p class="qrmo-mod-text">Hareket kaydetmeyen masalar listede ayrı görünür. Sepet hunisi, sipariş özelliği açıkken eklenen, gönderilen ve terk edilen sepetleri gösterir.</p>
-          
-        </header>
-        <div class="qrmo-mod-stage-visual">
-        <figure class="qrmo-mod-fig">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz, örnek veri: masalara göre hareket tablosunda VIP Salon’un hiç okutulmadığı görülüyor; yanında sepete eklenen, gönderilen ve terk edilen siparişleri gösteren sepet hunisi."><div class="qm-scene qm-scene--stack"><div class="qm-si qm-si1"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Masalar</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Grup</span><span>Hareket</span></div><div class="qm-tr"><span>Masa 4</span><span>Salon</span><span>38</span></div><div class="qm-tr"><span>bahce-2</span><span>Bahçe</span><span>12</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>VIP</span><span>Hiç okutulmadı</span></div><div class="qm-tr"><span>Doğrudan erişim</span><span>Masasız</span><span>21</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">CSV indir</span></div></div></div></div></div><div class="qm-si qm-si2"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Sepet &amp; Sipariş</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="2"><div class="qm-funnel"><div class="qm-fn"><span>Sepete eklenen</span><i style="--w:100%"></i><b>100</b></div><div class="qm-fn"><span>Gönderilen</span><i style="--w:64%"></i><b>64</b></div><div class="qm-fn"><span>Terk edilen</span><i style="--w:36%"></i><b>36</b></div></div></div></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
-      </figure>
-        </div>
-        <ol class="qrmo-mod-callouts">
-          <li><span class="qrmo-mod-num" aria-hidden="true">1</span><h3>Hiç okutulmayan masa</h3><p>Hareket kaydetmeyen masalar ve masasız erişim listede ayrı görünür.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">2</span><h3>Sepet hunisi</h3><p>Sipariş özelliği (Pro) kullanılıyorsa dolar; tükendi yüzünden engellenen siparişler ayrıca raporlanır.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>CSV</h3><p>Rapor sayfalarını CSV olarak indirirsiniz.</p></li>
-        </ol>
       </div>
     </div>
   </section>

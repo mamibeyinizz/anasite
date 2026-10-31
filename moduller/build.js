@@ -851,10 +851,67 @@ function moduleContextNav(_m) {
    MODÜL SAYFASI BÖLÜMLERİ
 ========================================================= */
 
+/* =========================================================
+   V3 ŞABLON — cihaz vitrini (telefon / panel), tek bileşen, her sayfada aynı.
+   Ekranlar mevcut mock verisinden (hero, stage, story, proof) toplanır.
+========================================================= */
+
+function flatDevices(v, out) {
+  if (!v) return;
+  if (v.frame === "scene") (v.items || []).forEach((i) => flatDevices(i, out));
+  else if (!out.includes(v)) out.push(v);
+}
+function devicesOf(m) {
+  const out = [];
+  [m.hero.visual, m.stage && m.stage.visual, m.story && m.story.visual, m.proof && m.proof.visual].forEach((v) => flatDevices(v, out));
+  return out;
+}
+const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "Sizin yönetim ekranınız", card: "Basılı çıktı" };
+const deviceCap = (d) => d.label || DEVICE_CAP[d.frame] || "Örnek ekran";
+
+function showcase(m, { mode = "auto", chips = [], id, phoneFirst = false }) {
+  const devs = devicesOf(m);
+  if (!devs.length) return "";
+  const start = phoneFirst ? Math.max(0, devs.findIndex((d) => d.frame === "phone")) : 0;
+  const sid = `qrmo-v3-${id}`;
+  return `<div class="qrmo-v3-show" data-v3-show="${mode}" id="${sid}">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">${join(devs, (d, i) => `
+          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: temsili ekran ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
+            <div class="qrmo-v3-fit">${frame(d)}</div>
+          </figure>`)}
+        </div>${chips.map((c, i) => `
+        <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[i]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi">${join(devs, (d, i) => `<button type="button" class="qrmo-v3-dot${i === start ? " is-active" : ""}" data-v3-dot="${i}" aria-label="${esc(`Ekran ${i + 1} / ${devs.length}: ${deviceCap(d)}`)}" aria-pressed="${i === start}"><i></i></button>`)}</div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">${esc(deviceCap(devs[start]))}</p>
+        </div>
+        <p class="qrmo-v3-note">${esc(MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
+      </div>`;
+}
+
 const SECTION = {
 
   hero(m, ctx) {
     const h = m.hero;
+    if (ctx.v3) {
+      return `
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
+        <p class="qrmo-mod-lead">${esc(h.lead)}</p>
+        <ul class="qrmo-mod-proof">${join(h.proof, (p) => `<li>${ICON.check}<span>${esc(p)}</span></li>`)}</ul>
+        ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary })}
+      </div>
+      <div class="qrmo-v3-hero-visual">
+        ${showcase(m, { mode: "auto", chips: (h.proof || []).slice(0, 2), id: "hero", phoneFirst: true })}
+      </div>
+    </div>
+  </section>`;
+    }
     return `
   <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--${h.layout}${m.designV2 ? " qrmo-mod-hero--v2" : ""}" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-mod-inner qrmo-mod-hero-grid">
@@ -867,6 +924,37 @@ const SECTION = {
       </div>
       <div class="qrmo-mod-hero-visual">
       ${figure(h.visual, { caption: MOD.mockCaption, cls: "qrmo-mod-fig--hero" })}
+      </div>
+    </div>
+  </section>`;
+  },
+
+  flow(m, ctx) {
+    const f = m.flow;
+    const n = devicesOf(m).length;
+    return `
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          ${kicker("NASIL ÇALIŞIR")}
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">${esc(f.title)}</h2>
+        </header>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">${join(f.steps, (st, i) => {
+            if (st.screen >= n) problems.push(`${m.slug}: flow adımı ${i + 1} ekran ${st.screen} yok (${n} ekran)`);
+            return `
+            <li class="qrmo-v3-step${i === 0 ? " is-active" : ""}" data-v3-step="${st.screen}" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}</span>
+              <h3>${esc(st.t)}</h3>
+              <p>${esc(st.d)}</p>
+            </li>`;
+          })}
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            ${showcase(m, { mode: "ctrl", id: "flow" })}
+          </div>
+        </div>
       </div>
     </div>
   </section>`;
@@ -1147,9 +1235,13 @@ function renderModule(m, faqById) {
   const rel = "../../";
   const { index: minIdx } = modulePackage(m);
   const url = `${MOD.site.baseUrl}/moduller/${m.slug}/`;
-  const ctx = { rel, minIdx, faqById };
+  const ctx = { rel, minIdx, faqById, v3: true };
 
-  const body = m.order.map((key) => {
+  /* V3: tüm modüller aynı iskeleti kullanır; veri olmayan bölüm atlanır. */
+  const V3_ORDER = ["hero", "answer", "gaps", "shift", "flow", "story", "capabilities", "proof", "details", "related", "closing"];
+  const order = V3_ORDER.filter((k) => ["hero", "details", "related", "closing"].includes(k) || (k === "flow" ? m.flow : m[k]));
+
+  const body = order.map((key) => {
     if (!SECTION[key]) throw new Error(`[${m.slug}] bilinmeyen bölüm: ${key}`);
     if (!["hero", "details", "related", "closing"].includes(key) && !m[key]) throw new Error(`[${m.slug}] order içinde "${key}" var ama veri yok`);
     return SECTION[key](m, ctx);
@@ -1175,9 +1267,9 @@ function renderModule(m, faqById) {
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",
-    extraHead: '<script defer src="../module-page.js"></script>'
+    extraHead: '<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>'
   }) + `
-<body class="qrmo-mod-page qrmo-mod-page--detail${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 ${moduleContextNav(m)}
   ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}

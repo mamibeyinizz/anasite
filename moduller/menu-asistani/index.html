@@ -19,7 +19,10 @@
 <meta name="twitter:title" content="Menü Asistanı — Menü Sorularını Yanıtlayan Asistan | QR Menu Official">
 <meta name="twitter:description" content="Google Gemini tabanlı Menü Asistanı, menünüzdeki ürünlere dayanarak soruları yanıtlar; garson, hesap ve açık onaylı sipariş akışlarıyla birlikte çalışır.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="stylesheet" href="../module-v3.css">
+<script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
+<script defer src="../module-v3.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"Menü Asistanı","item":"https://qrmenuofficial.com/moduller/menu-asistani/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/menu-asistani/#webpage","url":"https://qrmenuofficial.com/moduller/menu-asistani/","name":"Menü Asistanı — Menü Sorularını Yanıtlayan Asistan","description":"Google Gemini tabanlı Menü Asistanı, menünüzdeki ürünlere dayanarak soruları yanıtlar; garson, hesap ve açık onaylı sipariş akışlarıyla birlikte çalışır.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/menu-asistani/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/menu-asistani/#app","name":"QR Menu Official — Menü Asistanı","description":"Google Gemini tabanlı Menü Asistanı, menünüzdeki ürünlere dayanarak soruları yanıtlar; garson, hesap ve açık onaylı sipariş akışlarıyla birlikte çalışır.","url":"https://qrmenuofficial.com/moduller/menu-asistani/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/menu-asistani/#faq","mainEntity":[{"@type":"Question","name":"Menü Asistanı nedir?","acceptedAnswer":{"@type":"Answer","text":"Menüdeki ürün ve açıklamalara dayanarak müşterinin sorularını yanıtlayan sohbet asistanıdır. Menü dışı veya veride olmayan konularda sınırlı kalır; cevaplayamadığı sorular raporlanabilir. Menü Asistanı modülü Plus paket kapsamındadır."}},{"@type":"Question","name":"Personel sohbeti devralabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Asistan yanıt veremediğinde veya müşteri insan desteği istediğinde personel görüşmeyi devralabilir; böylece tam otomasyon yerine bot + ekip hibrit modeli oluşur."}},{"@type":"Question","name":"Menü Asistanı hangi AI altyapısını kullanır?","acceptedAnswer":{"@type":"Answer","text":"Yanıtlar Google Gemini API anahtarı tanımlandığında bu servis üzerinden üretilir; anahtar ve model yönetim panelinden yapılandırılır. Menü çevirisi için aynı API kullanılmaz — çeviri ayrı, manuel/CSV sürecindedir."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -32,7 +35,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -218,9 +221,10 @@
 
   <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">Menü Asistanı</li></ol></nav>
 
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--split" aria-labelledby="qrmo-mod-h1">
-    <div class="qrmo-mod-inner qrmo-mod-hero-grid">
-      <div class="qrmo-mod-hero-copy">
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>AKILLI İŞLETME</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menü sorusu için garson beklenmez.</h1>
         <p class="qrmo-mod-lead">Menü Asistanı, menünüzdeki ürün ve bilgilere dayanarak soruları yanıtlar ve ürün önerir. Bilmediği soruyu size bırakır.</p>
@@ -230,35 +234,79 @@
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="qrmo-mod-hero-visual">
-      <figure class="qrmo-mod-fig qrmo-mod-fig--hero">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: Menü Asistanı sohbeti; müşteri acı olmayan bir ana yemek soruyor, asistan menüden Izgara Tavuk’u öneriyor. Altta hazır soru kısayolları."><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Çevrimiçi</small></span></div><div class="qm-chat"><div class="qm-msg bot"><p>Merhaba! Menü hakkında ne öğrenmek istersiniz?</p></div><div class="qm-msg user"><p>Acı olmayan bir ana yemek önerir misiniz?</p></div><div class="qm-msg bot"><p>Acılık seviyesi “Acısız” girilmiş ürünlerden Izgara Tavuk’u önerebilirim.</p><span class="qm-mcard"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Izgara Tavuk</strong><small>Ana Yemek · Acısız</small></span><b>260 ₺</b></span></div></div><div class="qm-quick"><span>İçinde ne var?</span><span>Tatlı önerisi</span><span>Garson çağır</span></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz çizimi; örnek içerik kullanılmıştır, gerçek ekran görüntüsü değildir.</figcaption>
-      </figure>
+      <div class="qrmo-v3-hero-visual">
+        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 1 / 3">
+            <div class="qrmo-v3-fit"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Çevrimiçi</small></span></div><div class="qm-chat"><div class="qm-msg bot"><p>Merhaba! Menü hakkında ne öğrenmek istersiniz?</p></div><div class="qm-msg user"><p>Acı olmayan bir ana yemek önerir misiniz?</p></div><div class="qm-msg bot"><p>Acılık seviyesi “Acısız” girilmiş ürünlerden Izgara Tavuk’u önerebilirim.</p><span class="qm-mcard"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Izgara Tavuk</strong><small>Ana Yemek · Acısız</small></span><b>260 ₺</b></span></div></div><div class="qm-quick"><span>İçinde ne var?</span><span>Tatlı önerisi</span><span>Garson çağır</span></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Menü Asistanı › Yönetim</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Cevaplanamayan</span><span>Canlı Sohbet</span><span>Geçmiş</span></div><div class="qm-h" data-hot="1"><div class="qm-list"><span class="qm-li"><strong>Bu çorbada süt var mı?</strong><small>Masa 7 · bugün</small></span><span class="qm-li"><strong>Glütensiz ekmek var mı?</strong><small>Masa 3 · bugün</small></span><span class="qm-li"><strong>Tatlılar ev yapımı mı?</strong><small>Masa 11 · dün</small></span></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">Menü bilgisini tamamla</span><span class="qm-btn solid">Sohbeti devral</span></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 3 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Masa 7</small></span></div><div class="qm-chat"><div class="qm-msg user"><p>Bu çorbada süt var mı?</p></div><div class="qm-msg bot"><p>Bu bilgi menüde girilmemiş. Garsonumuza danışabilirsiniz.</p></div><div class="qm-msg user"><p>Garson çağırır mısınız?</p></div><div class="qm-h" data-hot="2"><div class="qm-msg bot"><p>Garson talebiniz iletildi.</p></div></div></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
+          </figure>
+        </div>
+        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menü verinize dayanır</span></span>
+        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cevaplanamayan sorular listede</span></span>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 3: Misafirin telefonunda" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 3: Misafirin telefonunda" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Misafirin telefonunda</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
     <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-stage qrmo-mod-stage--dark qrmo-mod-stage--split">
-        <header class="qrmo-mod-stage-head">
-          <p class="qrmo-mod-kicker">İKİ TARAF</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Bilmediğini söyler, soruyu size bırakır.</h2>
-          <p class="qrmo-mod-text">Asistan yanıtlarını menünüzdeki ürün, fiyat ve açıklamalara dayandırır. Menüde karşılığı olmayan soruda bilmediğini söyler; soru listenize düşer, gerekirse ekibiniz sohbeti devralır.</p>
-          
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Misafirin sorusu garson beklemeden yanıtlanır</h2>
         </header>
-        <div class="qrmo-mod-stage-visual">
-        <figure class="qrmo-mod-fig">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: müşteri sohbetinde menüde bilgisi olmayan bir soruya asistanın “bu bilgi menüde girilmemiş” yanıtı ve garson talebi; yanında işletme panelinde Cevaplanamayan Sorular listesi ve Canlı Sohbet sekmesi."><div class="qm-scene qm-scene--duo"><div class="qm-si qm-si1"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Menü Asistanı › Yönetim</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Cevaplanamayan</span><span>Canlı Sohbet</span><span>Geçmiş</span></div><div class="qm-h" data-hot="1"><div class="qm-list"><span class="qm-li"><strong>Bu çorbada süt var mı?</strong><small>Masa 7 · bugün</small></span><span class="qm-li"><strong>Glütensiz ekmek var mı?</strong><small>Masa 3 · bugün</small></span><span class="qm-li"><strong>Tatlılar ev yapımı mı?</strong><small>Masa 11 · dün</small></span></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">Menü bilgisini tamamla</span><span class="qm-btn solid">Sohbeti devral</span></div></div></div></div></div><div class="qm-si qm-si2"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Masa 7</small></span></div><div class="qm-chat"><div class="qm-msg user"><p>Bu çorbada süt var mı?</p></div><div class="qm-msg bot"><p>Bu bilgi menüde girilmemiş. Garsonumuza danışabilirsiniz.</p></div><div class="qm-msg user"><p>Garson çağırır mısınız?</p></div><div class="qm-h" data-hot="2"><div class="qm-msg bot"><p>Garson talebiniz iletildi.</p></div></div></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
-      </figure>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">
+            <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <h3>Misafir menü hakkında soru sorar</h3>
+              <p>Asistan yalnızca sizin menü bilginizle yanıt verir.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <h3>Bilmediği soruları siz görürsünüz</h3>
+              <p>Cevaplanamayan sorular listeye düşer; eksik bilgiyi menüye eklersiniz.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="2" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <h3>Gerekirse ekibiniz devralır</h3>
+              <p>Garson çağrısı ya da hesap isteği servis ekibine iletilebilir.</p>
+            </li>
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            <div class="qrmo-v3-show" data-v3-show="ctrl" id="qrmo-v3-flow">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 1 / 3">
+            <div class="qrmo-v3-fit"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Çevrimiçi</small></span></div><div class="qm-chat"><div class="qm-msg bot"><p>Merhaba! Menü hakkında ne öğrenmek istersiniz?</p></div><div class="qm-msg user"><p>Acı olmayan bir ana yemek önerir misiniz?</p></div><div class="qm-msg bot"><p>Acılık seviyesi “Acısız” girilmiş ürünlerden Izgara Tavuk’u önerebilirim.</p><span class="qm-mcard"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Izgara Tavuk</strong><small>Ana Yemek · Acısız</small></span><b>260 ₺</b></span></div></div><div class="qm-quick"><span>İçinde ne var?</span><span>Tatlı önerisi</span><span>Garson çağır</span></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Menü Asistanı › Yönetim</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Cevaplanamayan</span><span>Canlı Sohbet</span><span>Geçmiş</span></div><div class="qm-h" data-hot="1"><div class="qm-list"><span class="qm-li"><strong>Bu çorbada süt var mı?</strong><small>Masa 7 · bugün</small></span><span class="qm-li"><strong>Glütensiz ekmek var mı?</strong><small>Masa 3 · bugün</small></span><span class="qm-li"><strong>Tatlılar ev yapımı mı?</strong><small>Masa 11 · dün</small></span></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">Menü bilgisini tamamla</span><span class="qm-btn solid">Sohbeti devral</span></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 3 / 3" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Masa 7</small></span></div><div class="qm-chat"><div class="qm-msg user"><p>Bu çorbada süt var mı?</p></div><div class="qm-msg bot"><p>Bu bilgi menüde girilmemiş. Garsonumuza danışabilirsiniz.</p></div><div class="qm-msg user"><p>Garson çağırır mısınız?</p></div><div class="qm-h" data-hot="2"><div class="qm-msg bot"><p>Garson talebiniz iletildi.</p></div></div></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
+          </figure>
         </div>
-        <ol class="qrmo-mod-callouts">
-          <li><span class="qrmo-mod-num" aria-hidden="true">1</span><h3>Cevaplanamayan sorular</h3><p>Menüde karşılığı olmayan soru listeye düşer; eksik bilgiyi menüye eklersiniz.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">2</span><h3>Servis talebi</h3><p>Sohbetten garson çağrısı ya da hesap isteği Servis Paneli’ne iletilebilir.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>Ekip devralır</h3><p>İnsan desteği gereken görüşmeyi canlı sohbetten devralırsınız.</p></li>
-        </ol>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 3: Misafirin telefonunda" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 3: Misafirin telefonunda" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Misafirin telefonunda</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

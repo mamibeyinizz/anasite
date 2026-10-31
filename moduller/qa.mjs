@@ -198,8 +198,8 @@ async function browserQa() {
       await page.keyboard.press("Escape");
       check((await page.getAttribute(".qrmo-gh-burger", "aria-expanded")) === "false", "390: Esc menüyü kapatır");
       check(await page.evaluate(() => document.activeElement.matches(".qrmo-gh-burger")), "390: Esc sonrası odak hamburger'da");
-      const anim = await page.evaluate(() => getComputedStyle(document.querySelector(".qrmo-mod-hero-visual")).animationName);
-      check(anim === "none", "reduced-motion: hero animasyonu yok", anim);
+      const anim = await page.evaluate(() => getComputedStyle(document.querySelector(".qrmo-v3-glow")).animationName);
+      check(anim === "none", "reduced-motion: vitrin animasyonu yok", anim);
       await ctx.close();
     }
     {

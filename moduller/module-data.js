@@ -100,6 +100,15 @@
         },
         faq: ["qrmo-faq-q-urun-nasil-eklenir", "qrmo-faq-q-fiyat-nasil-degistirilir", "qrmo-faq-q-tukendi-urun", "qrmo-faq-q-csv-aktarim", "qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-uygulama-gerekir-mi"],
         order: ["hero", "answer", "gaps", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Menünüzü yönetin, misafir güncel halini görsün",
+          steps: [
+            { screen: 0, t: "Panelde ürünü düzenleyin", d: "Fiyatı, kalorisini ve alerjenlerini yazın, kaydedin." },
+            { screen: 1, t: "Misafir menüyü telefonunda açar", d: "QR kodu okutur; uygulama indirmeden güncel menüyü görür." },
+            { screen: 2, t: "Aradığını kolayca bulur", d: "Arar, filtreler; biten ürünü etiketinden anlar." },
+            { screen: 3, t: "Ürünün ayrıntısına bakar", d: "Kalori, alerjen, porsiyon ve ekstralar tek ekranda." }
+          ]
+        },
         cta: { secondary: { label: "Canlı menüyü görün", path: "canli-menu/" } },
         closing: {
           title: "Restoran Menü tüm paketlerde: işletmenize uygun planı seçin.",
@@ -308,6 +317,15 @@
         },
         faq: ["qrmo-faq-q-her-masa-ayri-qr", "qrmo-faq-q-masa-ad-degisince", "qrmo-faq-q-qr-hangi-adres"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
+        flow: {
+          title: "Masalarınız dakikalar içinde hazır",
+          steps: [
+            { screen: 2, t: "Masaları toplu açın", d: "Masa sayısını yazın; hepsi bir seferde oluşur, var olanlar bozulmaz." },
+            { screen: 0, t: "Her masanın QR kodu hazır", d: "Masaya özel kodu görün ve indirin." },
+            { screen: 1, t: "Yazdırın, masaya koyun", d: "PNG, PDF ya da tek dosyada tüm masalar." },
+            { screen: 3, t: "Masa adı değişse de kod aynı kalır", d: "Masaya konmuş basılı QR kod çalışmaya devam eder." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -442,6 +460,14 @@
         },
         faq: ["qrmo-faq-q-coklu-dil", "qrmo-faq-q-otomatik-ceviri", "qrmo-faq-q-ceviri-csv"],
         order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafir kendi dilinde okur",
+          steps: [
+            { screen: 0, t: "Misafir dilini seçer", d: "Menü ve arayüz seçtiği dilde açılır." },
+            { screen: 1, t: "Çevirileri tek dosyada yönetin", d: "Dosyayı indirin, doldurun, geri yükleyin." },
+            { screen: 1, t: "Eksik kalan yer boş görünmez", d: "Çevirisi girilmemiş alan Türkçe haliyle görünür." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -573,6 +599,14 @@
         },
         faq: ["qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-arama-siralama"],
         order: ["hero", "shift", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafir aradığını saniyeler içinde bulur",
+          steps: [
+            { screen: 0, t: "Misafir filtreyi açar", d: "Alerjen, kalori, fiyat ve ürün özelliğine göre daraltır." },
+            { screen: 1, t: "Alerjenini hariç tutar", d: "Seçtiği alerjeni içeren ürünler listeden çıkar." },
+            { screen: 2, t: "Seçimlerini görür", d: "Uygulanan filtreler etiket olarak durur; tek dokunuşla sıfırlanır." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -707,6 +741,14 @@
         },
         faq: ["qrmo-faq-q-menu-asistani-nedir", "qrmo-faq-q-personel-devralma", "qrmo-faq-q-gemini-kullanimi"],
         order: ["hero", "stage", "story", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafirin sorusu garson beklemeden yanıtlanır",
+          steps: [
+            { screen: 0, t: "Misafir menü hakkında soru sorar", d: "Asistan yalnızca sizin menü bilginizle yanıt verir." },
+            { screen: 1, t: "Bilmediği soruları siz görürsünüz", d: "Cevaplanamayan sorular listeye düşer; eksik bilgiyi menüye eklersiniz." },
+            { screen: 2, t: "Gerekirse ekibiniz devralır", d: "Garson çağrısı ya da hesap isteği servis ekibine iletilebilir." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -859,6 +901,14 @@
         },
         faq: ["qrmo-faq-q-garson-cagir", "qrmo-faq-q-siparis-servis-paneli", "qrmo-faq-q-online-odeme"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
+        flow: {
+          title: "Her talep doğru ekibin önünde",
+          steps: [
+            { screen: 1, t: "Misafir telefonundan talep gönderir", d: "Garson çağrısı, hesap isteği ya da sipariş." },
+            { screen: 0, t: "Tüm talepler tek ekranda", d: "Sipariş, garson çağrısı ve hesap isteği türüne göre ayrılır." },
+            { screen: 2, t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -997,6 +1047,14 @@
         },
         faq: ["qrmo-faq-q-analytics-nedir", "qrmo-faq-q-pos-verisi-mi", "qrmo-faq-q-analytics-siparis"],
         order: ["hero", "story", "stage", "details", "related", "closing"],
+        flow: {
+          title: "Menünüzün nasıl kullanıldığını görün",
+          steps: [
+            { screen: 0, t: "Genel durumu görün", d: "Menü görüntüleme ve ürün tıklamalarını tarih aralığına göre izleyin." },
+            { screen: 1, t: "Hangi masa hareketli, hangisi sessiz", d: "Hiç okutulmayan masalar listede ayrı görünür." },
+            { screen: 2, t: "Sepetten siparişe giden yol", d: "Sipariş özelliğini (Pro) kullanıyorsanız her adımı görürsünüz." }
+          ]
+        },
 
         hero: {
           layout: "center",
@@ -1127,6 +1185,15 @@
         },
         faq: ["qrmo-faq-q-guvenli-mi", "qrmo-faq-q-oturum-dogrulama"],
         order: ["hero", "shift", "story", "proof", "details", "related", "closing"],
+        flow: {
+          title: "Masa oturumu kontrolünüzde kalır",
+          steps: [
+            { screen: 0, t: "Kayıtlı masada her şey açık", d: "Garson çağırma, sipariş ve sohbet çalışır." },
+            { screen: 1, t: "Kayıtsız adreste menü yine açık", d: "Menü herkese açık kalır; masa özellikleri açılmaz." },
+            { screen: 2, t: "Oturumu panelde görün", d: "Masanın oturum durumu panelde yer alır." },
+            { screen: 3, t: "Süre sınırını siz belirlersiniz", d: "Süre ya da hareketsizlik limiti dolunca oturum kapanır." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -1256,6 +1323,14 @@
         },
         faq: [],
         order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Misafirin deneyimini sistemli öğrenin",
+          steps: [
+            { screen: 0, t: "Misafir puan verir, yorum yazar", d: "Kısa bir formla görüşünü iletir." },
+            { screen: 1, t: "Yayın kararı sizde", d: "Olumlu ve olumsuz yorumlar ayrı sekmelerde; hangisinin yayına çıkacağına siz karar verirsiniz." },
+            { screen: 2, t: "Raporlarla eksiği görün", d: "Kriter, masa ve saate göre dağılımı inceleyin." }
+          ]
+        },
 
         hero: {
           layout: "split",
@@ -1394,6 +1469,14 @@
         },
         faq: ["qrmo-faq-q-menu-muhendisligi-nedir", "qrmo-faq-q-maliyet-gerekli-mi"],
         order: ["hero", "story", "stage", "capabilities", "details", "related", "closing"],
+        flow: {
+          title: "Hangi ürün gerçekten kazandırıyor?",
+          steps: [
+            { screen: 1, t: "Ürünün maliyetini girin", d: "Reçeteden ürünün maliyeti hesaplanır." },
+            { screen: 0, t: "Ürünleri matriste görün", d: "Çok satanı ve kârlıyı yan yana görün. Maliyeti girilmeyen ürün matrise alınmaz." },
+            { screen: 1, t: "Fiyat değişince maliyet güncellenir", d: "Malzeme fiyatı değişince reçeteli ürünlerin maliyeti yeniden hesaplanır." }
+          ]
+        },
 
         hero: {
           layout: "center",

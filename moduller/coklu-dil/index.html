@@ -19,7 +19,10 @@
 <meta name="twitter:title" content="Çoklu Dil — Çok Dilli Dijital Menü | QR Menu Official">
 <meta name="twitter:description" content="30 dil arasından menünüzde göstereceğiniz dilleri seçin; çevirileri CSV ile toplu girin. Müşteri dil seçiciyle menüyü kendi dilinde açar.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="stylesheet" href="../module-v3.css">
+<script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
+<script defer src="../module-v3.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"Çoklu Dil","item":"https://qrmenuofficial.com/moduller/coklu-dil/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/coklu-dil/#webpage","url":"https://qrmenuofficial.com/moduller/coklu-dil/","name":"Çoklu Dil — Çok Dilli Dijital Menü","description":"30 dil arasından menünüzde göstereceğiniz dilleri seçin; çevirileri CSV ile toplu girin. Müşteri dil seçiciyle menüyü kendi dilinde açar.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/coklu-dil/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/coklu-dil/#app","name":"QR Menu Official — Çoklu Dil","description":"30 dil arasından menünüzde göstereceğiniz dilleri seçin; çevirileri CSV ile toplu girin. Müşteri dil seçiciyle menüyü kendi dilinde açar.","url":"https://qrmenuofficial.com/moduller/coklu-dil/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/coklu-dil/#faq","mainEntity":[{"@type":"Question","name":"QR menüde birden fazla dil kullanılabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Desteklemek istediğiniz diller panelden tanımlanır; müşteri menüyü bu dillerden biriyle görüntüler. Çoklu dil modülü CSV veya elle çeviri girişini anlatır."}},{"@type":"Question","name":"Menü çevirileri otomatik mi yapılır?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Sistem harici bir çeviri API’sine bağlanarak menüyü kendiliğinden çevirmez. Metinleri siz girersiniz veya CSV ile yüklersiniz; böylece mutfak terimleri ve marka diliniz kontrolünüzde kalır."}},{"@type":"Question","name":"Çeviri CSV ile yüklenebilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Çeviri modülü metinleri dışa aktarıp CSV ile toplu güncellemenize izin verir. Yükleme sonrası menü, seçilen dilde kaydettiğiniz metinleri gösterir."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -32,7 +35,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail" id="mod-v2-prototype">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3" id="mod-v2-prototype">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -218,9 +221,10 @@
 
   <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">Çoklu Dil</li></ol></nav>
 
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--split qrmo-mod-hero--v2" aria-labelledby="qrmo-mod-h1">
-    <div class="qrmo-mod-inner qrmo-mod-hero-grid">
-      <div class="qrmo-mod-hero-copy">
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MENÜ</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menünüz misafirin dilinde.</h1>
         <p class="qrmo-mod-lead">Menüde göstereceğiniz dilleri 30 dil arasından seçin. Müşteri dil seçiciyle kendi diline geçer; ürün, kategori ve alerjenler o dilde görünür.</p>
@@ -230,11 +234,73 @@
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="qrmo-mod-hero-visual">
-      <figure class="qrmo-mod-fig qrmo-mod-fig--hero">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: dil seçicide English seçili müşteri menüsü; arama kutusu, kategori sekmeleri ve ürün adları İngilizce."><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menu</strong><small>Table 12</small></span></div><div class="qm-langs"><span>TR</span><span class="on">EN</span><span>DE</span><span>AR</span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Search products…</span></div><div class="qm-tabs"><span class="on">Soups</span><span>Mains</span><span>Desserts</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Lentil Soup</strong><small>180 kcal · 10 min</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popular</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Yayla Soup</strong><small>Yogurt and mint</small></span><span class="qm-item-s"><b>90 ₺</b><em>New</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Tomato Soup</strong><small>160 kcal · 8 min</small></span><span class="qm-item-s"><b>85 ₺</b></span></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz çizimi; örnek içerik kullanılmıştır, gerçek ekran görüntüsü değildir.</figcaption>
-      </figure>
+      <div class="qrmo-v3-hero-visual">
+        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 1 / 2">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menu</strong><small>Table 12</small></span></div><div class="qm-langs"><span>TR</span><span class="on">EN</span><span>DE</span><span>AR</span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Search products…</span></div><div class="qm-tabs"><span class="on">Soups</span><span>Mains</span><span>Desserts</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Lentil Soup</strong><small>180 kcal · 10 min</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popular</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Yayla Soup</strong><small>Yogurt and mint</small></span><span class="qm-item-s"><b>90 ₺</b><em>New</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Tomato Soup</strong><small>160 kcal · 8 min</small></span><span class="qm-item-s"><b>85 ₺</b></span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 2" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Çoklu Dil › CSV</span></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c4"><div class="qm-tr qm-th"><span>Alan</span><span>Türkçe</span><span>English</span><span>Deutsch</span></div><div class="qm-tr"><span>Ürün</span><span>Mercimek Çorbası</span><span>Lentil Soup</span><span>Linsensuppe</span></div><div class="qm-tr"><span>Kategori</span><span>Çorbalar</span><span>Soups</span><span>Suppen</span></div><div class="qm-tr"><span>Alerjen</span><span>Kereviz</span><span>Celery</span><span>Sellerie</span></div><div class="qm-tr"><span>Arayüz</span><span>Ürün ara…</span><span>Search products…</span><span class="empty">—</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-rank"><span class="qm-lbl">Sistem durumu</span><div class="qm-rk"><span class="qm-rk-l">English</span><b>4 / 4</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Deutsch</span><b>3 / 4</b><i style="--w:75%"></i></div></div></div><div class="qm-h" data-hot="2"><div class="qm-btns"><span class="qm-btn">CSV dışa aktar</span><span class="qm-btn solid">CSV içe aktar</span></div></div></div></div></div>
+          </figure>
+        </div>
+        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>30 dil, sağdan sola diller dahil</span></span>
+        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Ürün, kategori, alerjen ve arayüz metinleri</span></span>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 2: Misafirin telefonunda" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 2: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Misafirin telefonunda</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Misafir kendi dilinde okur</h2>
+        </header>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">
+            <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <h3>Misafir dilini seçer</h3>
+              <p>Menü ve arayüz seçtiği dilde açılır.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <h3>Çevirileri tek dosyada yönetin</h3>
+              <p>Dosyayı indirin, doldurun, geri yükleyin.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <h3>Eksik kalan yer boş görünmez</h3>
+              <p>Çevirisi girilmemiş alan Türkçe haliyle görünür.</p>
+            </li>
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            <div class="qrmo-v3-show" data-v3-show="ctrl" id="qrmo-v3-flow">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 1 / 2">
+            <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menu</strong><small>Table 12</small></span></div><div class="qm-langs"><span>TR</span><span class="on">EN</span><span>DE</span><span>AR</span></div><div class="qm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Search products…</span></div><div class="qm-tabs"><span class="on">Soups</span><span>Mains</span><span>Desserts</span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Lentil Soup</strong><small>180 kcal · 10 min</small></span><span class="qm-item-s"><b>95 ₺</b><em>Popular</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Yayla Soup</strong><small>Yogurt and mint</small></span><span class="qm-item-s"><b>90 ₺</b><em>New</em></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Tomato Soup</strong><small>160 kcal · 8 min</small></span><span class="qm-item-s"><b>85 ₺</b></span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 2" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Çoklu Dil › CSV</span></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c4"><div class="qm-tr qm-th"><span>Alan</span><span>Türkçe</span><span>English</span><span>Deutsch</span></div><div class="qm-tr"><span>Ürün</span><span>Mercimek Çorbası</span><span>Lentil Soup</span><span>Linsensuppe</span></div><div class="qm-tr"><span>Kategori</span><span>Çorbalar</span><span>Soups</span><span>Suppen</span></div><div class="qm-tr"><span>Alerjen</span><span>Kereviz</span><span>Celery</span><span>Sellerie</span></div><div class="qm-tr"><span>Arayüz</span><span>Ürün ara…</span><span>Search products…</span><span class="empty">—</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-rank"><span class="qm-lbl">Sistem durumu</span><div class="qm-rk"><span class="qm-rk-l">English</span><b>4 / 4</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Deutsch</span><b>3 / 4</b><i style="--w:75%"></i></div></div></div><div class="qm-h" data-hot="2"><div class="qm-btns"><span class="qm-btn">CSV dışa aktar</span><span class="qm-btn solid">CSV içe aktar</span></div></div></div></div></div>
+          </figure>
+        </div>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 2: Misafirin telefonunda" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 2: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Misafirin telefonunda</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -263,32 +329,8 @@
     </div></div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-stage-h">
-    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">02 — ÇEVİRİ TABLOSU</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main">
-      <div class="qrmo-mod-stage qrmo-mod-stage--light qrmo-mod-stage--split">
-        <header class="qrmo-mod-stage-head">
-          
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Çeviriler tek dosyada, kontrol sizde.</h2>
-          <p class="qrmo-mod-text">Bu modül makine çevirisi yapmaz. Çeviri dosyasını indirirsiniz; dil sütunlarını siz ya da çevirmeniniz doldurur, CSV ile geri yüklersiniz.</p>
-          
-        </header>
-        <div class="qrmo-mod-stage-visual">
-        <figure class="qrmo-mod-fig">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: Alan, Türkçe, English ve Deutsch sütunlarından oluşan çeviri tablosu; bir arayüz metninin Almanca çevirisi boş. Altında her dil için yazılan çeviri sayısı."><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Çoklu Dil › CSV</span></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c4"><div class="qm-tr qm-th"><span>Alan</span><span>Türkçe</span><span>English</span><span>Deutsch</span></div><div class="qm-tr"><span>Ürün</span><span>Mercimek Çorbası</span><span>Lentil Soup</span><span>Linsensuppe</span></div><div class="qm-tr"><span>Kategori</span><span>Çorbalar</span><span>Soups</span><span>Suppen</span></div><div class="qm-tr"><span>Alerjen</span><span>Kereviz</span><span>Celery</span><span>Sellerie</span></div><div class="qm-tr"><span>Arayüz</span><span>Ürün ara…</span><span>Search products…</span><span class="empty">—</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-rank"><span class="qm-lbl">Sistem durumu</span><div class="qm-rk"><span class="qm-rk-l">English</span><b>4 / 4</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Deutsch</span><b>3 / 4</b><i style="--w:75%"></i></div></div></div><div class="qm-h" data-hot="2"><div class="qm-btns"><span class="qm-btn">CSV dışa aktar</span><span class="qm-btn solid">CSV içe aktar</span></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
-      </figure>
-        </div>
-        <ol class="qrmo-mod-callouts">
-          <li><span class="qrmo-mod-num" aria-hidden="true">1</span><h3>Eksik çeviri</h3><p>Çevirisi girilmemiş alan Türkçe haliyle görünür; menüde boşluk kalmaz.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">2</span><h3>Dışa aktar, doldur, yükle</h3><p>Dosya virgül ya da noktalı virgülle iner; yüklerken ayraç kendiliğinden algılanır.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>Sistem durumu</h3><p>Her dil için kaç çeviri yazıldığını, hangilerinin eskidiğini görürsünüz.</p></li>
-        </ol>
-      </div>
-    </div></div>
-  </section>
-
   <section class="qrmo-mod-sec qrmo-mod-caps qrmo-mod-v2-sec" aria-labelledby="qrmo-mod-caps-h">
-    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">03 — MENÜNÜN ÖTESİ</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-caps-grid">
+    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">02 — MENÜNÜN ÖTESİ</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-caps-grid">
       <header class="qrmo-mod-sechead">
         
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-caps-h">Menüyle birlikte arayüz de çevrilir.</h2>
@@ -302,7 +344,7 @@
   </section>
 
   <section class="qrmo-mod-sec qrmo-mod-details qrmo-mod-v2-sec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
-    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">04 — AYRINTILAR</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-details-grid">
+    <div class="qrmo-mod-inner qrmo-mod-v2-inner"><div class="qrmo-mod-v2-marker"><span class="qrmo-mod-v2-marker-t">03 — AYRINTILAR</span><span class="qrmo-mod-v2-marker-rule" aria-hidden="true"></span></div><div class="qrmo-mod-v2-main qrmo-mod-details-grid">
       <div class="qrmo-mod-details-side">
         <h2 class="qrmo-mod-h2 qrmo-mod-h2--m" id="qrmo-mod-det-h">Tüm özellikler ve sınırlar</h2>
         <div class="qrmo-mod-know">

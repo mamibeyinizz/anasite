@@ -19,7 +19,10 @@
 <meta name="twitter:title" content="QR Masa — Masa Bazlı QR Kod Oluşturma | QR Menu Official">
 <meta name="twitter:description" content="Masalarınızı tanımlayın, her biri için yazdırılabilir QR kod üretin. Müşteri hangi masadan okuttuğu bilgisiyle menüye girer.">
 <link rel="stylesheet" href="../module-page.css">
+<link rel="stylesheet" href="../module-v3.css">
+<script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
+<script defer src="../module-v3.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"QR Masa","item":"https://qrmenuofficial.com/moduller/qr-masa/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/qr-masa/#webpage","url":"https://qrmenuofficial.com/moduller/qr-masa/","name":"QR Masa — Masa Bazlı QR Kod Oluşturma","description":"Masalarınızı tanımlayın, her biri için yazdırılabilir QR kod üretin. Müşteri hangi masadan okuttuğu bilgisiyle menüye girer.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/qr-masa/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/qr-masa/#app","name":"QR Menu Official — QR Masa","description":"Masalarınızı tanımlayın, her biri için yazdırılabilir QR kod üretin. Müşteri hangi masadan okuttuğu bilgisiyle menüye girer.","url":"https://qrmenuofficial.com/moduller/qr-masa/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/qr-masa/#faq","mainEntity":[{"@type":"Question","name":"Her masa için ayrı QR kod oluşturulabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Her masanın kendi kodu ve sabit adres anahtarı (slug) vardır; sipariş ve çağrılar doğru masaya düşer. İsterseniz genel giriş QR’ı yerine masa bazlı dağıtım yapabilirsiniz."}},{"@type":"Question","name":"Masa adını değiştirince QR kod bozulur mu?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Görünen masa adı panelden güncellenir; yazdırılmış QR’daki teknik adres (slug) değişmez. Böylece basılı kodlar geçerliliğini korur, ekranda yeni masa adı görünür."}},{"@type":"Question","name":"QR kod hangi adrese yönlendirir?","acceptedAnswer":{"@type":"Answer","text":"Müşteri, sitenizde masa parametresiyle açılan menü sayfasına gider (örneğin masa slug’ı URL’de yer alır). Dil tercihi varsa ayrıca dil parametresi kullanılabilir."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -32,7 +35,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -218,9 +221,10 @@
 
   <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">QR Masa</li></ol></nav>
 
-  <section class="qrmo-mod-sec qrmo-mod-hero qrmo-mod-hero--split" aria-labelledby="qrmo-mod-h1">
-    <div class="qrmo-mod-inner qrmo-mod-hero-grid">
-      <div class="qrmo-mod-hero-copy">
+  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+    <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
+    <div class="qrmo-mod-inner qrmo-v3-hero-grid">
+      <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MASA &amp; SERVİS</span><span class="qrmo-mod-kicker-pkg">Tüm paketlerde</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Her masanın kendi QR’ı.</h1>
         <p class="qrmo-mod-lead">Masaları panelde tanımlayın, QR kodlarını PNG ya da PDF olarak indirin. Müşteri menüyü hangi masada olduğu bilgisiyle açar.</p>
@@ -230,11 +234,90 @@
           <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="qrmo-mod-hero-visual">
-      <figure class="qrmo-mod-fig qrmo-mod-fig--hero">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: “Masa 12” yazan, QR kodlu yazdırılabilir masa kartı ve arkasında masa adı, adresi ve PNG/PDF indirme seçenekleri olan QR kod listesi."><div class="qm-scene qm-scene--print"><div class="qm-si qm-si1"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › QR Kodlar</span></div><div class="qm-win-body"><div class="qm-head"><strong>QR Kodlar</strong><em class="qm-pill">24 masa</em></div><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span><span>İndir</span></div><div class="qm-tr hl"><span>Masa 12</span><span>/?masa=masa-12</span><span>PNG · PDF</span></div><div class="qm-tr"><span>ic-masa-3</span><span>/?masa=ic-masa-3</span><span>PNG · PDF</span></div><div class="qm-tr"><span>VIP Salon</span><span>/?masa=vip-salon</span><span>PNG · PDF</span></div><div class="qm-tr"><span>bahce-2</span><span>/?masa=bahce-2</span><span>PNG · PDF</span></div></div><div class="qm-btns"><span class="qm-btn solid">Tümünü yazdır (PDF)</span></div></div></div></div><div class="qm-si qm-si2"><div class="qm-card"><div class="qm-qrcard"><span class="qm-qrcard-n">Masa 12</span><svg class="qm-qr" viewBox="-1 -1 23 23" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect x="-1" y="-1" width="23" height="23" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM12 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM16 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM14 1h1v1h-1zM20 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h1v1h-1zM14 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM16 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM20 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM19 8h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM1 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM13 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM18 10h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM1 12h1v1h-1zM3 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM8 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM0 15h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM0 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM0 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM6 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM11 18h1v1h-1zM13 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM0 20h1v1h-1zM1 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1z" fill="currentColor"/></svg></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz çizimi; örnek içerik kullanılmıştır, gerçek ekran görüntüsü değildir.</figcaption>
-      </figure>
+      <div class="qrmo-v3-hero-visual">
+        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 4">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › QR Kodlar</span></div><div class="qm-win-body"><div class="qm-head"><strong>QR Kodlar</strong><em class="qm-pill">24 masa</em></div><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span><span>İndir</span></div><div class="qm-tr hl"><span>Masa 12</span><span>/?masa=masa-12</span><span>PNG · PDF</span></div><div class="qm-tr"><span>ic-masa-3</span><span>/?masa=ic-masa-3</span><span>PNG · PDF</span></div><div class="qm-tr"><span>VIP Salon</span><span>/?masa=vip-salon</span><span>PNG · PDF</span></div><div class="qm-tr"><span>bahce-2</span><span>/?masa=bahce-2</span><span>PNG · PDF</span></div></div><div class="qm-btns"><span class="qm-btn solid">Tümünü yazdır (PDF)</span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="card" role="img" aria-label="Basılı çıktı: temsili ekran 2 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-card"><div class="qm-qrcard"><span class="qm-qrcard-n">Masa 12</span><svg class="qm-qr" viewBox="-1 -1 23 23" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect x="-1" y="-1" width="23" height="23" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM12 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM16 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM14 1h1v1h-1zM20 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h1v1h-1zM14 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM16 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM20 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM19 8h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM1 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM13 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM18 10h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM1 12h1v1h-1zM3 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM8 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM0 15h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM0 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM0 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM6 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM11 18h1v1h-1zM13 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM0 20h1v1h-1zM1 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1z" fill="currentColor"/></svg></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 3 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masalar</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Toplu oluştur</span><span>Tek masa</span></div><div class="qm-h" data-hot="1"><div class="qm-fields qm-fields--3"><span class="qm-field"><small>Ön ek</small><b>ic-masa</b></span><span class="qm-field"><small>Başlangıç</small><b>1</b></span><span class="qm-field"><small>Bitiş</small><b>10</b></span></div></div><p class="qm-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>ic-masa-1 … ic-masa-10 · 10 masa oluşturulur</span></p><div class="qm-h" data-hot="2"><div class="qm-chips"><span class="qm-lbl">Gruplar</span><div class="qm-chip-row"><span class="qm-chip">Tümü</span><span class="qm-chip on">ic-masa</span><span class="qm-chip">bahce</span><span class="qm-chip">vip</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-table qm-c2"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span></div><div class="qm-tr"><span>ic-masa-1</span><span>/?masa=ic-masa-1</span></div><div class="qm-tr"><span>ic-masa-2</span><span>/?masa=ic-masa-2</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>/?masa=vip-salon</span></div></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="3" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 4 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masa düzenle</span></div><div class="qm-win-body"><div class="qm-fields"><span class="qm-field"><small>Masa adı</small><b>Teras 1</b></span><span class="qm-field"><small>Adres (değişmez)</small><b>/?masa=masa-31</b></span></div><p class="qm-note">Önceki ad: Masa 31</p><div class="qm-btns"><span class="qm-btn solid">Kaydet</span></div></div></div></div>
+          </figure>
+        </div>
+        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Tek tek ya da toplu oluşturma</span></span>
+        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>PNG, PDF ve tek dosyada tüm masalar</span></span>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 4: Sizin yönetim ekranınız" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 4: Basılı çıktı" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="3" aria-label="Ekran 4 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Sizin yönetim ekranınız</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-flow-panel">
+        <header class="qrmo-v3-flow-head">
+          <p class="qrmo-mod-kicker">NASIL ÇALIŞIR</p>
+          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-v3-flow-h">Masalarınız dakikalar içinde hazır</h2>
+        </header>
+        <div class="qrmo-v3-flow-grid">
+          <ol class="qrmo-v3-steps">
+            <li class="qrmo-v3-step is-active" data-v3-step="2" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <h3>Masaları toplu açın</h3>
+              <p>Masa sayısını yazın; hepsi bir seferde oluşur, var olanlar bozulmaz.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="0" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <h3>Her masanın QR kodu hazır</h3>
+              <p>Masaya özel kodu görün ve indirin.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <h3>Yazdırın, masaya koyun</h3>
+              <p>PNG, PDF ya da tek dosyada tüm masalar.</p>
+            </li>
+            <li class="qrmo-v3-step" data-v3-step="3" tabindex="0">
+              <span class="qrmo-v3-step-n" aria-hidden="true">04</span>
+              <h3>Masa adı değişse de kod aynı kalır</h3>
+              <p>Masaya konmuş basılı QR kod çalışmaya devam eder.</p>
+            </li>
+          </ol>
+          <div class="qrmo-v3-flow-dev">
+            <div class="qrmo-v3-show" data-v3-show="ctrl" id="qrmo-v3-flow">
+        <div class="qrmo-v3-glow" aria-hidden="true"></div>
+        <div class="qrmo-v3-stage">
+          <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 4">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › QR Kodlar</span></div><div class="qm-win-body"><div class="qm-head"><strong>QR Kodlar</strong><em class="qm-pill">24 masa</em></div><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span><span>İndir</span></div><div class="qm-tr hl"><span>Masa 12</span><span>/?masa=masa-12</span><span>PNG · PDF</span></div><div class="qm-tr"><span>ic-masa-3</span><span>/?masa=ic-masa-3</span><span>PNG · PDF</span></div><div class="qm-tr"><span>VIP Salon</span><span>/?masa=vip-salon</span><span>PNG · PDF</span></div><div class="qm-tr"><span>bahce-2</span><span>/?masa=bahce-2</span><span>PNG · PDF</span></div></div><div class="qm-btns"><span class="qm-btn solid">Tümünü yazdır (PDF)</span></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="card" role="img" aria-label="Basılı çıktı: temsili ekran 2 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-card"><div class="qm-qrcard"><span class="qm-qrcard-n">Masa 12</span><svg class="qm-qr" viewBox="-1 -1 23 23" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect x="-1" y="-1" width="23" height="23" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM12 0h1v1h-1zM14 0h1v1h-1zM15 0h1v1h-1zM16 0h1v1h-1zM17 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM14 1h1v1h-1zM20 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM16 2h1v1h-1zM17 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM12 3h1v1h-1zM14 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM11 4h1v1h-1zM12 4h1v1h-1zM14 4h1v1h-1zM16 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM10 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM14 5h1v1h-1zM20 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM17 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM19 8h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM8 9h1v1h-1zM10 9h1v1h-1zM15 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM1 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM13 10h1v1h-1zM15 10h1v1h-1zM17 10h1v1h-1zM18 10h1v1h-1zM5 11h1v1h-1zM8 11h1v1h-1zM11 11h1v1h-1zM13 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM1 12h1v1h-1zM3 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM16 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM8 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM20 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM4 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM10 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM0 15h1v1h-1zM6 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM20 15h1v1h-1zM0 16h1v1h-1zM2 16h1v1h-1zM3 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM18 16h1v1h-1zM20 16h1v1h-1zM0 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM4 17h1v1h-1zM6 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM0 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM6 18h1v1h-1zM8 18h1v1h-1zM9 18h1v1h-1zM11 18h1v1h-1zM13 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM12 19h1v1h-1zM13 19h1v1h-1zM16 19h1v1h-1zM18 19h1v1h-1zM0 20h1v1h-1zM1 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM11 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM19 20h1v1h-1z" fill="currentColor"/></svg></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 3 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masalar</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Toplu oluştur</span><span>Tek masa</span></div><div class="qm-h" data-hot="1"><div class="qm-fields qm-fields--3"><span class="qm-field"><small>Ön ek</small><b>ic-masa</b></span><span class="qm-field"><small>Başlangıç</small><b>1</b></span><span class="qm-field"><small>Bitiş</small><b>10</b></span></div></div><p class="qm-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>ic-masa-1 … ic-masa-10 · 10 masa oluşturulur</span></p><div class="qm-h" data-hot="2"><div class="qm-chips"><span class="qm-lbl">Gruplar</span><div class="qm-chip-row"><span class="qm-chip">Tümü</span><span class="qm-chip on">ic-masa</span><span class="qm-chip">bahce</span><span class="qm-chip">vip</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-table qm-c2"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span></div><div class="qm-tr"><span>ic-masa-1</span><span>/?masa=ic-masa-1</span></div><div class="qm-tr"><span>ic-masa-2</span><span>/?masa=ic-masa-2</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>/?masa=vip-salon</span></div></div></div></div></div></div>
+          </figure>
+          <figure class="qrmo-v3-screen" data-v3-screen="3" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 4 / 4" aria-hidden="true">
+            <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masa düzenle</span></div><div class="qm-win-body"><div class="qm-fields"><span class="qm-field"><small>Masa adı</small><b>Teras 1</b></span><span class="qm-field"><small>Adres (değişmez)</small><b>/?masa=masa-31</b></span></div><p class="qm-note">Önceki ad: Masa 31</p><div class="qm-btns"><span class="qm-btn solid">Kaydet</span></div></div></div></div>
+          </figure>
+        </div>
+        <div class="qrmo-v3-bar">
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 4: Sizin yönetim ekranınız" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 4: Basılı çıktı" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="3" aria-label="Ekran 4 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
+          <p class="qrmo-v3-live" data-v3-live aria-live="polite">Sizin yönetim ekranınız</p>
+        </div>
+        <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
+      </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -251,30 +334,6 @@
         <li><span class="qrmo-mod-pipe-n" aria-hidden="true">02</span><h3>QR</h3><p>Kodu PNG ya da PDF olarak indirir, tüm masaları tek PDF’te yazdırırsınız.</p></li>
         <li><span class="qrmo-mod-pipe-n" aria-hidden="true">03</span><h3>Menü</h3><p>Müşteri okutur; menü hangi masada olduğu bilgisiyle açılır.</p></li>
       </ol><div class="qrmo-mod-pipe-note"><p class="qrmo-mod-caveat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></svg><span>Garson çağrısı, hesap isteği ve sipariş (Pro) aynı masa bilgisiyle Servis Paneli’ne gelir.</span></p></div>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-mod-stage-sec" aria-labelledby="qrmo-mod-stage-h">
-    <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-stage qrmo-mod-stage--light qrmo-mod-stage--split">
-        <header class="qrmo-mod-stage-head">
-          <p class="qrmo-mod-kicker">TOPLU OLUŞTURMA</p>
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-stage-h">Onlarca masayı tek seferde açın.</h2>
-          <p class="qrmo-mod-text">Bir ön ek ve numara aralığı girersiniz; masalar QR adresleriyle birlikte oluşur. Ortak ön eke sahip masalar grup olarak listelenir.</p>
-          
-        </header>
-        <div class="qrmo-mod-stage-visual">
-        <figure class="qrmo-mod-fig">
-        <div class="qrmo-mod-shot" role="img" aria-label="Temsili arayüz: ön ek ic-masa, başlangıç 1, bitiş 10 girilmiş toplu masa oluşturma formu; sonuçta ic-masa-1 ile ic-masa-10 arası masalar ve gruplara göre süzülen masa listesi."><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">QR Masa › Masalar</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Toplu oluştur</span><span>Tek masa</span></div><div class="qm-h" data-hot="1"><div class="qm-fields qm-fields--3"><span class="qm-field"><small>Ön ek</small><b>ic-masa</b></span><span class="qm-field"><small>Başlangıç</small><b>1</b></span><span class="qm-field"><small>Bitiş</small><b>10</b></span></div></div><p class="qm-result"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>ic-masa-1 … ic-masa-10 · 10 masa oluşturulur</span></p><div class="qm-h" data-hot="2"><div class="qm-chips"><span class="qm-lbl">Gruplar</span><div class="qm-chip-row"><span class="qm-chip">Tümü</span><span class="qm-chip on">ic-masa</span><span class="qm-chip">bahce</span><span class="qm-chip">vip</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-table qm-c2"><div class="qm-tr qm-th"><span>Masa</span><span>Adres</span></div><div class="qm-tr"><span>ic-masa-1</span><span>/?masa=ic-masa-1</span></div><div class="qm-tr"><span>ic-masa-2</span><span>/?masa=ic-masa-2</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>/?masa=vip-salon</span></div></div></div></div></div></div>
-        <figcaption class="qrmo-mod-cap">Temsili arayüz · örnek içerik</figcaption>
-      </figure>
-        </div>
-        <ol class="qrmo-mod-callouts">
-          <li><span class="qrmo-mod-num" aria-hidden="true">1</span><h3>Ön ek ve aralık</h3><p>Tek seferde en fazla 200 masa açılır; var olan masalar atlanır.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">2</span><h3>Gruplar</h3><p>ic-masa, bahce gibi ortak ön ekler grup olur; listeyi gruba göre süzersiniz.</p></li>
-          <li><span class="qrmo-mod-num" aria-hidden="true">3</span><h3>Addan adres</h3><p>“VIP Salon” yazdığınızda adres vip-salon olarak üretilir.</p></li>
-        </ol>
-      </div>
     </div>
   </section>
 
