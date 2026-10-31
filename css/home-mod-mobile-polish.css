@@ -1,0 +1,65 @@
+/* Mobil (<=767px) modül özellik satırları: daha küçük ikon zemini,
+   hafif gölge, vurgu bandı yok. Tablet/masaüstü etkilenmez.
+   Sıra: tüm home-mod-* dosyalarından sonra yüklenir. */
+
+@media (max-width: 767px) {
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__check,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    flex-basis: 46px;
+    border-radius: 12px;
+    box-shadow:
+      0 2px 6px rgba(7, 28, 22, 0.12),
+      0 0 0 1px rgba(201, 168, 76, 0.28),
+      inset 0 1px 0 rgba(244, 241, 232, 0.14);
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__icon svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature-icon svg.qrmo-mod-3d,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar-icon svg.qrmo-mod-3d {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+    flex-basis: 32px;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__item,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__feature,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__pillar {
+    grid-template-columns: 46px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+
+  /* QR Masalar: satırlar diğer modüllerle aynı hizada ve nefes alır */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefits {
+    padding: 0;
+    gap: 0;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__benefit {
+    padding: 12px 0;
+  }
+
+  /* Vurgu: alt çizgi/bant yok; renk ve ağırlıkla ayrışır (CLAUDE.md). */
+  html .qrmo-gold-underline,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone .qrmo-gold-underline {
+    background: none;
+    animation: none;
+    text-decoration: none;
+    border-bottom: 0;
+  }
+}
