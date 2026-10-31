@@ -153,7 +153,39 @@
     });
   }
 
+  /* ---------- Harita: merkez kart → bağlı modül kartları (eğri çizgiler) ---------- */
+  function MapLines(el) {
+    var svg = el.querySelector(".qrmo-v3-map-lines");
+    var hub = el.querySelector("[data-v3-hub]");
+    var spokes = [].slice.call(el.querySelectorAll(".qrmo-v3-spoke"));
+    var wide = window.matchMedia("(min-width: 900px)");
+    if (!svg || !hub || !spokes.length) return;
+    function draw() {
+      if (!wide.matches) { svg.innerHTML = ""; return; }
+      var b = el.getBoundingClientRect(), h = hub.getBoundingClientRect();
+      var x1 = h.right - b.left, y1 = h.top + h.height / 2 - b.top, out = "";
+      svg.setAttribute("viewBox", "0 0 " + b.width + " " + b.height);
+      spokes.forEach(function (s, i) {
+        var r = s.getBoundingClientRect();
+        var x2 = r.left - b.left, y2 = r.top + r.height / 2 - b.top, dx = (x2 - x1) * 0.55;
+        out += '<path style="--i:' + i + '" pathLength="1" d="M' + x1 + " " + y1 + " C" + (x1 + dx) + " " + y1 + " " + (x2 - dx) + " " + y2 + " " + x2 + " " + y2 + '"/>';
+        out += '<circle cx="' + x2 + '" cy="' + y2 + '" r="4.5"/>';
+      });
+      out += '<circle cx="' + x1 + '" cy="' + y1 + '" r="5.5"/>';
+      svg.innerHTML = out;
+    }
+    if ("ResizeObserver" in window) new ResizeObserver(draw).observe(el); else window.addEventListener("resize", draw);
+    if (wide.addEventListener) wide.addEventListener("change", draw);
+    draw();
+    if (reduce || !("IntersectionObserver" in window)) { el.classList.add("is-in"); return; }
+    var io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { el.classList.add("is-in"); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(el);
+  }
+
   function init() {
+    [].slice.call(document.querySelectorAll("[data-v3-map]")).forEach(MapLines);
     [].slice.call(document.querySelectorAll("[data-v3-show]")).forEach(Show);
     [].slice.call(document.querySelectorAll("[data-v3-flow]")).forEach(Flow);
     root.classList.add("v3-ready");

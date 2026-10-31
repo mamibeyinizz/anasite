@@ -1161,19 +1161,34 @@ const SECTION = {
   </section>`;
   },
 
-  related(m) {
+  related(m, ctx) {
+    const pk = (mod) => pkgShort(modulePackage(mod).index);
     return `
   <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-mod-sechead qrmo-mod-sechead--tight">
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.relatedTitle || "Birlikte çalıştığı modüller")}</h2>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">BİRLİKTE ÇALIŞIR</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.relatedTitle || `${m.name}, diğer modüllerle birlikte güçlenir.`)}</h2>
       </header>
-      <ul class="qrmo-mod-rel">${join(m.related, (r) => {
-        const rm = bySlug[r.slug];
-        return `
-        <li><a class="qrmo-mod-tile" href="../${rm.slug}/">${cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
-      })}
-      </ul>${m.guides ? `
+      <div class="qrmo-v3-map" data-v3-map>
+        <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
+        <div class="qrmo-v3-hub" data-v3-hub>
+          ${cue(m.cue)}
+          <h3>${esc(m.name)}</h3>
+          <p>${esc(m.tagline)}</p>
+          <span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(m))}</span></span>
+        </div>
+        <ul class="qrmo-v3-spokes">${join(m.related, (r) => {
+          const rm = bySlug[r.slug];
+          return `
+          <li data-v3-spoke><a class="qrmo-v3-spoke" href="../${rm.slug}/">
+            ${cue(rm.cue)}
+            <span class="qrmo-v3-spoke-b"><strong>${esc(rm.name)}</strong><span>${esc(r.why)}</span><span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(rm))}</span></span></span>
+            <span class="qrmo-v3-spoke-go" aria-hidden="true">${ICON.arrow}</span>
+          </a></li>`;
+        })}
+        </ul>
+      </div>${m.guides ? `
       <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>
       <ul class="qrmo-mod-guides">${join(m.guides, (g) => `
         <li><a href="../../${g.path}"><span class="qrmo-mod-guides-t">${esc(g.t)}</span><span class="qrmo-mod-guides-d">${esc(g.d)}</span></a></li>`)}
