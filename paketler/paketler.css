@@ -299,6 +299,22 @@ body.qrmo-pricing-page {
   line-height: 1.45;
 }
 
+.qrmo-pricing-viz-head {
+  margin-bottom: 14px;
+}
+.qrmo-pricing-viz-title {
+  color: var(--qp-green-dark);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+}
+.qrmo-pricing-viz-sub {
+  margin-top: 3px !important;
+  color: var(--qp-text-2);
+  font-size: 13px;
+  line-height: 1.4;
+}
 .qrmo-pricing-viz {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -333,7 +349,7 @@ body.qrmo-pricing-page {
 }
 .qrmo-pricing-viz-meta {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 10px;
@@ -361,6 +377,34 @@ body.qrmo-pricing-page {
   color: var(--qp-gold-light);
   font-weight: 500;
 }
+.qrmo-pricing-viz-pct {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+.qrmo-pricing-viz-pct-l {
+  color: var(--qp-text-2);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.qrmo-pricing-viz-card--plus .qrmo-pricing-viz-pct-l {
+  color: rgba(244, 241, 232, .68);
+}
+.qrmo-pricing-viz-axis {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 0 4px;
+  color: var(--qp-text-2);
+  font-size: 11px;
+  line-height: 1.2;
+}
+.qrmo-pricing-viz-card--plus .qrmo-pricing-viz-axis {
+  color: rgba(244, 241, 232, .68);
+}
 .qrmo-pricing-viz-plot {
   position: relative;
   flex: 1 1 auto;
@@ -380,7 +424,7 @@ body.qrmo-pricing-page {
 }
 .qrmo-pricing-viz-grid {
   fill: none;
-  stroke: rgba(13, 43, 34, .07);
+  stroke: rgba(13, 43, 34, .13);
   stroke-width: 1;
   stroke-dasharray: 1 5;
   stroke-linecap: round;
@@ -1746,6 +1790,8 @@ body.qrmo-pricing-page {
   .qrmo-pricing-hero .qrmo-pricing-title { font-size: 30px; margin-bottom: 8px !important; }
   .qrmo-pricing-hero .qrmo-pricing-subtitle { font-size: 15px; margin-bottom: 0 !important; }
   .qrmo-pricing-viz-name { font-size: 11px; }
+  .qrmo-pricing-viz-pct-l, .qrmo-pricing-viz-axis { font-size: 10px; }
+  .qrmo-pricing-viz-sub { font-size: 12px; }
   .qrmo-pricing-viz-pct { font-size: 19px; }
   .qrmo-pricing-hero-steps { margin-top: 12px; }
   .qrmo-pricing-hero-steps li { padding: 8px 0; }
