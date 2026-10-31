@@ -481,10 +481,10 @@
     bar.className = "qrmo-consent";
     bar.setAttribute("data-qrmo-consent", "");
     bar.setAttribute("role", "region");
-    bar.setAttribute("aria-label", "Çerez ve ziyaret ölçümü tercihi");
+    bar.setAttribute("aria-label", "Çerez tercihi");
     bar.innerHTML =
-      '<p class="qrmo-consent__title">Ziyaretinizi ölçelim mi?</p>' +
-      '<p class="qrmo-consent__text">Hangi sayfaların ve düğmelerin kullanıldığını anlamak için bu tarayıcıda anonim bir ziyaretçi kimliği saklarız. Reddederseniz hiçbir şey saklanmaz ve gönderilmez; site aynen çalışır.</p>' +
+      '<p class="qrmo-consent__title">Çerezleri onaylıyor musunuz?</p>' +
+      '<p class="qrmo-consent__text">Siteyi geliştirmek için hangi sayfaların kullanıldığını anonim olarak ölçeriz. Kişisel bilgi toplamayız. Reddederseniz hiçbir şey kaydedilmez ve site aynen çalışır.</p>' +
       '<div class="qrmo-consent__actions">' +
       '<button type="button" class="qrmo-consent__btn qrmo-consent__btn--accept" data-act="accept">Kabul Et</button>' +
       '<button type="button" class="qrmo-consent__btn qrmo-consent__btn--reject" data-act="reject">Reddet</button>' +
