@@ -1,0 +1,26 @@
+# QR Menu Official — Apache / LiteSpeed kuralları (PHP + MySQL barındırma)
+Options -Indexes
+DirectoryIndex index.html index.php
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Sunucu kodu, yapılandırma ve ham veri dışarıya kapalı
+RewriteRule ^backend(/|$) - [F,L]
+RewriteRule (^|/)config\.php$ - [F,L]
+RewriteRule \.(sql|env|mjs)$ - [F,L]
+RewriteRule ^(tools|seo)(/|$) - [F,L]
+
+# Ziyaretçi toplama, yönetim API'si ve lisans doğrulama
+RewriteRule ^api(/|$) api/index.php [END,QSA]
+RewriteRule ^v1/validate/?$ api/index.php [END,QSA]
+# Eski WordPress eklentisinin adresi: kurulu müşteri eklentileri çalışmaya devam eder
+RewriteRule ^wp-json/qmls/v1/validate/?$ api/index.php [END,QSA]
+
+# Blog: veritabanından üretilir (veritabanı yoksa statik çıktıya düşer)
+RewriteRule ^blog/?$ api/index.php [END,QSA]
+RewriteRule ^blog/feed\.xml$ api/index.php [END,QSA]
+RewriteRule ^blog/([a-z0-9-]+)/?$ api/index.php [END,QSA]
+RewriteRule ^sitemap-blog\.xml$ api/index.php [END,QSA]
+</IfModule>
