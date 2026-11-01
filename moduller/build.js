@@ -875,7 +875,7 @@ function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneF
   if (!devs.length) return "";
   const start = phoneFirst ? Math.max(0, devs.findIndex((d) => d.frame === "phone")) : 0;
   const sid = `qrmo-v3-${id}`;
-  return `<div class="qrmo-v3-show" data-v3-show="${mode}"${screenChips ? ' data-v3-max="1.15"' : ""} id="${sid}">
+  return `<div class="qrmo-v3-show" data-v3-show="${mode}"${screenChips ? ' data-v3-max="1"' : ""} id="${sid}">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">${join(devs, (d, i) => `
           <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: temsili ekran ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
@@ -933,7 +933,8 @@ const SECTION = {
       <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
         <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${h.accent && h.h1.endsWith(h.accent) ? esc(h.h1.slice(0, -h.accent.length)) + `<span class="qrmo-v3-accent">${esc(h.accent)}</span>` : esc(h.h1)}</h1>
-        <p class="qrmo-mod-lead">${esc(h.lead)}</p>
+        <p class="qrmo-mod-lead">${esc(h.lead)}</p>${h.points ? `
+        <ul class="qrmo-v3-points">${h.points.map((pt) => `<li><span class="qrmo-v3-pt-ico" aria-hidden="true">${FEAT_ICON[pt.ico]}</span><span>${esc(pt.t)}</span></li>`).join("")}</ul>` : ""}
         ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary, primary: m.cta && m.cta.primary })}
       </div>
       <div class="qrmo-v3-hero-visual">
