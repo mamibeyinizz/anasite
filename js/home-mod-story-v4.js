@@ -605,8 +605,13 @@
     return d;
   }
 
+  /* Mobil menü (drawer) açıkken sahne geçişi/sayfa kaydırma yapılmaz. */
+  function menuLocked() {
+    return html.classList.contains("qrmo-gh-lock");
+  }
+
   function onWheel(e) {
-    if (reduced()) return;
+    if (reduced() || menuLocked()) return;
     if (programmaticNav > 0) {
       if (e.cancelable) e.preventDefault();
       return;
@@ -680,7 +685,7 @@
   }
 
   function onTouchStart(e) {
-    if (reduced() || !e.touches || !e.touches.length) return;
+    if (reduced() || menuLocked() || !e.touches || !e.touches.length) return;
     if (now() < bypassUntil || programmaticNav > 0) return;
     if (state === "TRANSITIONING" || state === "COMMITTED") {
       blockTouch = true;
@@ -696,7 +701,7 @@
   }
 
   function onTouchMove(e) {
-    if (reduced() || !e.touches || !e.touches.length) return;
+    if (reduced() || menuLocked() || !e.touches || !e.touches.length) return;
     if (now() < bypassUntil) {
       if (e.cancelable) e.preventDefault();
       return;
