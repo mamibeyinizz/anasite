@@ -500,3 +500,8 @@ body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { max-width: none; }
 }
 
 .qrmo-v3-pain-n, .qrmo-v3-pain-arr { display: none; }
+
+/* Kapanış: iptal ve iade güvenceleri */
+.qrmo-mod-assure { display: grid; gap: 10px; margin: 0 0 22px; padding: 18px 0 0; border-top: 1px solid rgba(244, 241, 232, .16); list-style: none; }
+.qrmo-mod-assure li { display: flex; align-items: flex-start; gap: 10px; color: var(--qm-cream); font-size: 15px; font-weight: 600; line-height: 1.4; }
+.qrmo-mod-assure svg { flex: 0 0 auto; width: 20px; height: 20px; padding: 4px; margin-top: 1px; border-radius: 50%; background: rgba(232, 199, 102, .18); color: var(--qm-gold-light); }
