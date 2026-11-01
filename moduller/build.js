@@ -1227,6 +1227,42 @@ const SECTION = {
       </div>
     </div>
   </section>` : "";
+    if ((m.pageClass || "").includes("qrmo-apple")) {
+      const cards = join(m.featureGrid || [], (f) => `
+          <li class="qrmo-v3-fcard">
+            <span class="qrmo-v3-fcard-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
+            <h3>${esc(f.t)}</h3>
+            <p>${esc(f.d)}</p>
+          </li>`);
+      const qa = (m.faq || []).map((id, i) => {
+        const q = ctx.faqById[id];
+        if (!q) return "";
+        return `
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">${pad(i + 1)}</span><span class="qrmo-v3-qa-q">${esc(q.question)}</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>${faqHtml(q, ctx.rel)}</p></details>`;
+      }).join("");
+      return `
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-features" id="ozellikler" aria-labelledby="qrmo-mod-feat-h">
+    <div class="qrmo-mod-inner">
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">TÜM ÖZELLİKLER</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-feat-h">${esc(m.name)} ile yapabildiğiniz her şey</h2>
+      </header>
+      <ul class="qrmo-v3-fgrid">${cards}
+      </ul>
+    </div>
+  </section>
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details qrmo-v3-faqsec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner qrmo-v3-faqgrid">
+      <header class="qrmo-v3-faqhead">
+        <p class="qrmo-v3-eyebrow">SIK SORULAN SORULAR</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Aklınıza takılanlar</h2>
+        <p class="qrmo-v3-faqlead">Cevabı burada bulamazsanız <a href="${ctx.rel}iletisim/">bize yazın</a>; menünüzü birlikte gözden geçirelim.</p>
+      </header>
+      <div class="qrmo-v3-qalist">${qa}
+      </div>
+    </div>
+  </section>`;
+    }
     return notesSec + `
   <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     <div class="qrmo-mod-inner">

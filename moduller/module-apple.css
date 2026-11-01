@@ -186,3 +186,63 @@ body.qrmo-apple #qrmo-reviews-v1 { width: 100%; margin: 0; padding: 0; font-fami
 body.qrmo-apple #qrmo-reviews-v1 :where(h2, p, a, span, strong, small, button, blockquote, figcaption) { font-family: inherit; }
 body.qrmo-apple .qrmo-v3-reviews { padding-block: var(--ap-pad); }
 body.qrmo-apple #qrmo-reviews-v1 .qrmo-rv__title { font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.03em; font-weight: 700; }
+
+/* ---------- Tüm özellikler: 6'lı kart ızgarası ---------- */
+body.qrmo-apple .qrmo-v3-fgrid { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+body.qrmo-apple .qrmo-v3-fcard {
+  position: relative; display: flex; flex-direction: column; gap: 14px; padding: clamp(22px, 2.4vw, 32px); border-radius: 24px; background: #fff;
+  box-shadow: 0 1px 0 rgba(13, 43, 34, .04), 0 30px 50px -42px rgba(13, 43, 34, .4); overflow: hidden;
+}
+body.qrmo-apple .qrmo-v3-fcard::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px; background: linear-gradient(90deg, var(--qm-gold), rgba(201, 168, 76, 0)); opacity: .0; transition: opacity .5s var(--v3-ease); }
+body.qrmo-apple .qrmo-v3-fcard-ico { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 14px; color: var(--qm-gold-light); background: linear-gradient(150deg, #173226, #0D2B22); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 12px 22px -14px rgba(13, 43, 34, .7); }
+body.qrmo-apple .qrmo-v3-fcard-ico svg { width: 24px; height: 24px; }
+body.qrmo-apple .qrmo-v3-fcard h3 { margin: 0; color: var(--qm-ink); font-size: clamp(18px, 1.5vw, 21px); font-weight: 700; line-height: 1.25; letter-spacing: -.015em; }
+body.qrmo-apple .qrmo-v3-fcard ul { display: grid; gap: 12px; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--qm-line); list-style: none; }
+body.qrmo-apple .qrmo-v3-fcard li { display: grid; gap: 2px; }
+body.qrmo-apple .qrmo-v3-fcard li strong { color: var(--qm-ink); font-size: 15px; font-weight: 700; line-height: 1.35; }
+body.qrmo-apple .qrmo-v3-fcard li span { color: var(--qm-text); font-size: 14.5px; line-height: 1.55; }
+@media (min-width: 640px) { body.qrmo-apple .qrmo-v3-fgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+@media (min-width: 1000px) { body.qrmo-apple .qrmo-v3-fgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; } }
+@media (hover: hover) and (pointer: fine) {
+  body.qrmo-apple .qrmo-v3-fcard { transition: transform .6s var(--v3-ease), box-shadow .6s var(--v3-ease); }
+  body.qrmo-apple .qrmo-v3-fcard:hover { transform: translateY(-4px); box-shadow: 0 1px 0 rgba(13, 43, 34, .04), 0 40px 60px -38px rgba(13, 43, 34, .5); }
+  body.qrmo-apple .qrmo-v3-fcard:hover::before { opacity: 1; }
+}
+
+/* ---------- SSS: sayfa genişliğinde, sol başlık + sağ akordeon ---------- */
+body.qrmo-apple .qrmo-v3-faqgrid { display: grid; gap: clamp(28px, 4vw, 56px); align-items: start; }
+body.qrmo-apple .qrmo-v3-faqhead { max-width: 30rem; }
+body.qrmo-apple .qrmo-v3-faqhead .qrmo-v3-eyebrow { margin-bottom: 14px; }
+body.qrmo-apple .qrmo-v3-faqlead { margin: 16px 0 0; color: var(--qm-text); font-size: 16px; line-height: 1.6; }
+body.qrmo-apple .qrmo-v3-faqlead a { color: var(--qm-gold-ink); font-weight: 800; text-decoration: none; }
+body.qrmo-apple .qrmo-v3-qalist { border-top: 1px solid var(--qm-gold-line); }
+body.qrmo-apple .qrmo-v3-qa { border-bottom: 1px solid var(--qm-line); }
+body.qrmo-apple .qrmo-v3-qa summary { display: grid; grid-template-columns: 36px minmax(0, 1fr) 28px; align-items: center; gap: 12px; min-height: 68px; padding: 16px 0; list-style: none; cursor: pointer; }
+body.qrmo-apple .qrmo-v3-qa summary::-webkit-details-marker { display: none; }
+body.qrmo-apple .qrmo-v3-qa-n { color: var(--qm-gold-ink); font-size: 12.5px; font-weight: 800; letter-spacing: .14em; font-variant-numeric: tabular-nums; }
+body.qrmo-apple .qrmo-v3-qa-q { color: var(--qm-ink); font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; line-height: 1.35; letter-spacing: -.01em; transition: color .3s; }
+body.qrmo-apple .qrmo-v3-qa-plus { position: relative; width: 28px; height: 28px; border-radius: 50%; background: rgba(201, 168, 76, .16); transition: background .3s, transform .5s var(--v3-ease); }
+body.qrmo-apple .qrmo-v3-qa-plus::before, body.qrmo-apple .qrmo-v3-qa-plus::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; margin: -1px 0 0 -6px; border-radius: 2px; background: var(--qm-gold-ink); transition: transform .5s var(--v3-ease); }
+body.qrmo-apple .qrmo-v3-qa-plus::after { transform: rotate(90deg); }
+body.qrmo-apple .qrmo-v3-qa[open] .qrmo-v3-qa-plus { background: var(--v3-forest); }
+body.qrmo-apple .qrmo-v3-qa[open] .qrmo-v3-qa-plus::before, body.qrmo-apple .qrmo-v3-qa[open] .qrmo-v3-qa-plus::after { background: var(--qm-gold-light); }
+body.qrmo-apple .qrmo-v3-qa[open] .qrmo-v3-qa-plus::after { transform: rotate(0); }
+body.qrmo-apple .qrmo-v3-qa p { margin: 0; padding: 0 40px 24px 48px; color: var(--qm-text); font-size: 16px; line-height: 1.65; max-width: 46rem; }
+body.qrmo-apple .qrmo-v3-qa p a { color: var(--qm-gold-ink); font-weight: 800; text-decoration: none; }
+body.qrmo-apple .qrmo-v3-qa summary:focus-visible { outline: 2px solid var(--qm-focus); outline-offset: 2px; border-radius: 8px; }
+@media (hover: hover) and (pointer: fine) { body.qrmo-apple .qrmo-v3-qa summary:hover .qrmo-v3-qa-q { color: var(--qm-gold-ink); } }
+@media (min-width: 900px) {
+  body.qrmo-apple .qrmo-v3-faqgrid { grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(48px, 7vw, 120px); }
+  body.qrmo-apple .qrmo-v3-faqhead { position: sticky; top: var(--v3-sticky); }
+}
+@media (max-width: 639px) { body.qrmo-apple .qrmo-v3-qa p { padding: 0 0 20px; } body.qrmo-apple .qrmo-v3-qa summary { grid-template-columns: 28px minmax(0, 1fr) 28px; } }
+@media (prefers-reduced-motion: reduce) { body.qrmo-apple .qrmo-v3-qa-plus, body.qrmo-apple .qrmo-v3-qa-plus::before, body.qrmo-apple .qrmo-v3-qa-plus::after, body.qrmo-apple .qrmo-v3-fcard { transition: none; } }
+
+/* 8'li kompakt kart ızgarası (önceki uzun kart kurallarını geçersiz kılar) */
+body.qrmo-apple .qrmo-v3-fcard { gap: 12px; padding: clamp(20px, 2vw, 26px); border-radius: 22px; }
+body.qrmo-apple .qrmo-v3-fcard-ico { width: 44px; height: 44px; border-radius: 13px; }
+body.qrmo-apple .qrmo-v3-fcard-ico svg { width: 22px; height: 22px; }
+body.qrmo-apple .qrmo-v3-fcard h3 { font-size: 17px; }
+body.qrmo-apple .qrmo-v3-fcard p { margin: 0; color: var(--qm-text); font-size: 14.5px; line-height: 1.55; }
+@media (min-width: 560px) { body.qrmo-apple .qrmo-v3-fgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { body.qrmo-apple .qrmo-v3-fgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
