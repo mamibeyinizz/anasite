@@ -231,6 +231,11 @@ function figure(spec, { caption = MOD.mockCaptionShort || "Temsili arayüz · ö
    MODÜL İŞARETİ (hub kartları, ilgili modüller) — dekoratif mini çizim
 ========================================================= */
 
+/* Gerçek ürün ekran görüntüsü (WebP). Alt metni yalnızca anlamlı görseller için yazılır. */
+function realImg(i, cls) {
+  return `<span class="${cls}"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="${esc(i.alt || "")}" loading="lazy" decoding="async"></span>`;
+}
+
 function cue(key) {
   const inner = {
     menu: "<i></i><i></i><i class=\"off\"></i>",
@@ -1223,14 +1228,14 @@ const SECTION = {
       <div class="qrmo-v3-map" data-v3-map>
         <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
         <div class="qrmo-v3-hub" data-v3-hub>
-          ${cue(m.cue)}
+          ${m.hubImg ? realImg(m.hubImg, "qrmo-v3-hub-img") : cue(m.cue)}
           <h3>${esc(m.name)}</h3>
           <p>${esc(m.tagline)}</p>
           <span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(m))}</span></span>
         </div>
         <ul class="qrmo-v3-spokes">${join(m.features, (f) => `
           <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
+            ${f.img ? realImg(f.img, "qrmo-v3-spoke-img") : `<span class="qrmo-v3-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>`}
             <span class="qrmo-v3-spoke-b"><strong>${esc(f.t)}</strong><span>${esc(f.d)}</span><span class="qrmo-v3-meta"><span>${esc(f.tag)}</span></span></span>
           </div></li>`)}
         </ul>
@@ -1239,7 +1244,7 @@ const SECTION = {
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
         return `
-        <li><a class="qrmo-mod-tile" href="../${rm.slug}/">${cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
+        <li><a class="qrmo-mod-tile${r.img ? " qrmo-mod-tile--img" : ""}" href="../${rm.slug}/">${r.img ? realImg(r.img, "qrmo-mod-tile-img") : cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
       })}
       </ul>${m.guides ? `
       <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>

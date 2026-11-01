@@ -110,13 +110,14 @@
           ]
         },
         features: [
-          { ico: "list", tag: "Menü içeriği", t: "Ürün ve fiyatlar tek panelde", d: "Kategori, ürün, fiyat ve bilgileri panelden güncelleyin; yüzlerce ürünü CSV ile tek seferde yükleyin." },
-          { ico: "clock", tag: "Stok", t: "Tükendi ve servis saati", d: "Biten ürün etiketiyle kalır, sepete eklenemez; kahvaltı gibi menüler kendi saatinde açılır." },
-          { ico: "tag", tag: "Fiyat", t: "Porsiyon, ekstra ve kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” tanımlayın ya da iki ürünü tek fiyatla sunun." },
-          { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
-          { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-urunler.webp", w: 2160, h: 860, alt: "Ürünler listesi: ürün adları, menüde göster ve tükendi anahtarları, kategoriler" }, ico: "list", tag: "Menü içeriği", t: "Ürün ve fiyatlar tek panelde", d: "Kategori, ürün, fiyat ve bilgileri panelden güncelleyin; yüzlerce ürünü CSV ile tek seferde yükleyin." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-tukenen.webp", w: 2160, h: 1160, alt: "Tükenen Ürünler ekranı: malzeme seçimi, manuel ve malzemeye bağlı tükenenler" }, ico: "clock", tag: "Stok", t: "Tükendi ve servis saati", d: "Biten ürün etiketiyle kalır, sepete eklenemez; kahvaltı gibi menüler kendi saatinde açılır." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-ekstra.webp", w: 2160, h: 1280, alt: "Ekstralar ve Ürün Rozetleri ekranı: sos ve ekstra grupları, fiyatları" }, ico: "tag", tag: "Fiyat", t: "Porsiyon, ekstra ve kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” tanımlayın ya da iki ürünü tek fiyatla sunun." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-kampanya.webp", w: 1040, h: 348, alt: "Kampanya görseli: menünün üstünde dönen kampanya bannerı" }, ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-alerjen.webp", w: 780, h: 440, alt: "Ürün detayı: öneri, glütensiz, acılık, süre, kalori ve besin değerleri" }, ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
         hideCrumbs: true,
+        hubImg: { src: "../../assets/modules/restoran-menu/hub-menu.webp", w: 780, h: 1000, alt: "Misafirin telefonunda açılan menü: kampanya görseli, arama ve öneri listesi" },
         shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
         notesSection: true,
@@ -294,9 +295,9 @@
           "Sepetle sipariş Pro paketindeki QR sipariş özelliğidir."
         ],
         related: [
-          { slug: "qr-masa", why: "Her masanın QR kodu bu menüye açılır." },
-          { slug: "akilli-filtreleme", why: "Menüdeki arama ve filtre paneli." },
-          { slug: "coklu-dil", why: "Menüyü misafirin dilinde sunun." }
+          { slug: "qr-masa", why: "Her masanın QR kodu bu menüye açılır.", img: { src: "../../assets/modules/restoran-menu/iliski-qr-masa.webp", w: 2160, h: 800, alt: "QR Kodlar ekranı: masa adları ve her masanın QR kodu" } },
+          { slug: "akilli-filtreleme", why: "Menüdeki arama ve filtre paneli.", img: { src: "../../assets/modules/restoran-menu/iliski-filtre.webp", w: 780, h: 1100, alt: "Misafir menüsünde Filtrele ve Sırala paneli" } },
+          { slug: "coklu-dil", why: "Menüyü misafirin dilinde sunun.", img: { src: "../../assets/modules/restoran-menu/iliski-dil.webp", w: 780, h: 1100, alt: "Misafir menüsünde dil seçici: Türkçe, English, Deutsch ve diğer diller" } }
         ],
         guides: [
           { path: "blog/qr-menu-nedir/", t: "QR Menü Nedir? Restoran ve Kafeler İçin Kapsamlı Rehber", d: "QR menünün nasıl çalıştığını ve nelere dikkat edileceğini okuyun." },
