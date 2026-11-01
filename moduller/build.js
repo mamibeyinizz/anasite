@@ -1228,12 +1228,11 @@ const SECTION = {
     </div>
   </section>` : "";
     if ((m.pageClass || "").includes("qrmo-apple")) {
-      const GICO = ["list", "clock", "tag", "cart", "search", "download"];
-      const cards = join(m.groups, (g, i) => `
+      const cards = join(m.featureGrid || [], (f) => `
           <li class="qrmo-v3-fcard">
-            <span class="qrmo-v3-fcard-ico" aria-hidden="true">${FEAT_ICON[GICO[i]] || FEAT_ICON.check}</span>
-            <h3>${esc(g.title)}</h3>
-            <ul>${join(g.items, (it) => `<li><strong>${esc(it.t)}</strong><span>${esc(it.d)}</span></li>`)}</ul>
+            <span class="qrmo-v3-fcard-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
+            <h3>${esc(f.t)}</h3>
+            <p>${esc(f.d)}</p>
           </li>`);
       const qa = (m.faq || []).map((id, i) => {
         const q = ctx.faqById[id];

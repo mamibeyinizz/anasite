@@ -118,6 +118,17 @@
           { img: { src: "../../assets/modules/restoran-menu/ozellik-alerjen.webp", w: 780, h: 440, alt: "Ürün detayı: öneri, glütensiz, acılık, süre, kalori ve besin değerleri" }, ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
         hideCrumbs: true,
+        /* "Tüm özellikler" 8'li kart ızgarası (groups listesinin kısa özeti) */
+        featureGrid: [
+          { ico: "list", t: "Kategori ve ürünler", d: "Bölümleri ve ürünleri panelden ekler, düzenler, gizlersiniz." },
+          { ico: "form", t: "Ürün bilgileri", d: "Kalori, gramaj, besin değerleri, hazırlanış süresi ve acılık." },
+          { ico: "shield", t: "Alerjen ve malzeme", d: "14 hazır alerjen tanımı; malzemeleri ayrıca tanımlarsınız." },
+          { ico: "tag", t: "Porsiyon, ekstra, kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” ve tek fiyatlı kombin ürün." },
+          { ico: "clock", t: "Tükendi ve servis saati", d: "Biten ürün etiketle kalır; kategoriye saat kuralı yazılır." },
+          { ico: "spark", t: "Kampanya ve rozetler", d: "Geri alınabilir toplu indirim; Popüler, Yeni gibi rozetler." },
+          { ico: "filter", t: "Arama, filtre, sıralama", d: "Misafir alerjen, kalori ve fiyata göre filtreler, sıralar." },
+          { ico: "download", t: "Aktarma, yedek, görünüm", d: "CSV aktarım, JSON yedek ve 5 hazır renk paleti." }
+        ],
         /* Müşteri yorumları: site sahibi gerçek müşteri olduklarını ve yayın izni alındığını bildirdi (CSV: qrmenu_restoran_menu_6_ornek_yorum). */
         reviews: [
                   {
