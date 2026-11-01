@@ -236,17 +236,6 @@ function realImg(i, cls) {
   return `<span class="${cls}"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="${esc(i.alt || "")}" loading="lazy" decoding="async"></span>`;
 }
 
-/* "Eksiği görün" satırları için küçük, döngülü canlı kanıtlar (dekoratif; metin zaten anlamı taşır) */
-function proofHtml(type) {
-  const body = {
-    price: `<span class="pf-side"><small>Panel</small><b class="pf-swap"><i>95 ₺</i><i>110 ₺</i></b></span><span class="pf-sync"></span><span class="pf-side"><small>Misafir menüsü</small><b class="pf-swap"><i>95 ₺</i><i>110 ₺</i></b></span>`,
-    stock: `<span class="pf-item"><span class="pf-name">Ezogelin Çorbası</span><em class="pf-tag">Tükendi</em></span><span class="pf-btn">Sepete ekle</span>`,
-    info: `<span class="pf-chip" style="--k:0">14 alerjen</span><span class="pf-chip" style="--k:1">180 kcal</span><span class="pf-chip" style="--k:2">300 g</span><span class="pf-chip" style="--k:3">10 dk</span>`
-  }[type];
-  return `
-          <div class="qrmo-v3-proof qrmo-v3-proof--${type}" aria-hidden="true">${body}<small class="pf-note">Örnek</small></div>`;
-}
-
 function cue(key) {
   const inner = {
     menu: "<i></i><i></i><i class=\"off\"></i>",
@@ -1037,16 +1026,14 @@ const SECTION = {
         <p class="qrmo-v3-eyebrow">${esc(g.kicker)}</p>
         <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">${esc(g.title)}</h2>
       </header>
-      ${g.stage ? '<div class="qrmo-v3-pains-wrap" data-v3-pains>' : ""}<ul class="qrmo-v3-pains">${join(rows, (r, i) => `
-        <li class="qrmo-v3-pain${i === 0 && g.stage ? " is-active" : ""}" data-v3-pain="${i}">
-          <span class="qrmo-v3-pain-n" aria-hidden="true">${pad(i + 1)}</span>
+      <ul class="qrmo-v3-pains">${join(rows, (r) => `
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">${pad(rows.indexOf(r) + 1)}</span>
           <p class="qrmo-v3-pain-now"><span>${esc(g.cols[0])}</span>${esc(r.now)}</p>
           <span class="qrmo-v3-pain-arr" aria-hidden="true">${ICON.arrow}</span>
-          <p class="qrmo-v3-pain-fix"><span>${esc(g.cols[1])}</span>${esc(r.next)}</p>${r.proof ? proofHtml(r.proof) : ""}
+          <p class="qrmo-v3-pain-fix"><span>${esc(g.cols[1])}</span>${esc(r.next)}</p>
         </li>`)}
-      </ul>${g.stage ? `
-      <div class="qrmo-v3-pains-stage" aria-hidden="true">${g.stage.map((im, i) => `<img class="qrmo-v3-pains-img${i === 0 ? " is-active" : ""}" src="${im.src}" width="${im.w}" height="${im.h}" alt="" loading="lazy" decoding="async">`).join("")}</div>
-      </div>` : ""}${g.cta ? `
+      </ul>${g.cta ? `
       <div class="qrmo-v3-sec-cta">
         <a class="qrmo-mod-cta" href="${ctx.rel}${g.cta.path}"><span>${esc(g.cta.label)}</span>${ICON.arrow}</a>
       </div>` : ""}

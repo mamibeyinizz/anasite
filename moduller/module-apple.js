@@ -47,29 +47,6 @@
   window.addEventListener("resize", queue);
   update();
 
-  /* Eksiği görün: kaydırmayla aktif satır ve sağdaki ekran değişir */
-  var wrap = document.querySelector("[data-v3-pains]");
-  if (wrap) {
-    var rows = [].slice.call(wrap.querySelectorAll("[data-v3-pain]"));
-    var imgs = [].slice.call(wrap.querySelectorAll(".qrmo-v3-pains-img"));
-    var cur = 0;
-    var spy = function () {
-      if (!window.matchMedia("(min-width: 900px)").matches) return;
-      var y = vh() * 0.5, best = 0, bd = Infinity;
-      rows.forEach(function (r, i) {
-        var b = r.getBoundingClientRect();
-        var d = y >= b.top && y <= b.bottom ? 0 : Math.min(Math.abs(y - b.top), Math.abs(y - b.bottom));
-        if (d < bd) { bd = d; best = i; }
-      });
-      if (best === cur) return;
-      cur = best;
-      rows.forEach(function (r, i) { r.classList.toggle("is-active", i === best); });
-      imgs.forEach(function (m, i) { m.classList.toggle("is-active", i === best); });
-    };
-    window.addEventListener("scroll", function () { requestAnimationFrame(spy); }, { passive: true });
-    spy();
-  }
-
   /* Bölüm girişleri */
   if ("IntersectionObserver" in window) {
     var targets = [].slice.call(document.querySelectorAll(".qrmo-v3-head, .qrmo-v3-flow-head, .qrmo-v3-pain, .qrmo-v3-hub, .qrmo-v3-spokes > li, .qrmo-v3-sec-cta, .qrmo-mod-close"));

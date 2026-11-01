@@ -152,15 +152,10 @@
           title: "Menünüzde bunlar yaşanıyorsa, eksik olan bir yönetim paneli.",
           text: "Basılı menü ya da sabit bir PDF ile çalışan işletmelerde aynı sorunlar tekrar eder. Aşağıdakilerden birkaçı tanıdıksa Restoran Menü tam bu işi yapar.",
           cols: ["BUGÜN YAŞADIĞINIZ", "RESTORAN MENÜ İLE"],
-          stage: [
-            { src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: fiyat alanı" },
-            { src: "../../assets/modules/restoran-menu/ozellik-tukenen.webp", w: 2160, h: 1160, alt: "Tükenen Ürünler ekranı" },
-            { src: "../../assets/modules/restoran-menu/menu-urun-detay.webp", w: 780, h: 1560, alt: "Misafir menüsünde ürün detayı: kalori, alerjen ve besin değerleri" }
-          ],
           rows: [
-            { proof: "price", now: "Fiyat değişince menüler yeniden basılıyor.", next: "Fiyatı panelde güncellersiniz; misafir bir sonraki açılışta yeni fiyatı görür." },
-            { proof: "stock", now: "Biten ürünü misafir sipariş etmeye çalışıyor.", next: "Ürünü tükendi işaretlersiniz; menüde etiketiyle kalır, sepete eklenemez. İsterseniz belirlediğiniz saatte yeniden satışa açılır." },
-            { proof: "info", now: "Alerjen, kalori ve içerik soruları garsona düşüyor.", next: "Ürün detayında 14 alerjen tanımı, kalori, gramaj ve hazırlanış süresi görünür. Bilgiyi siz girersiniz." },
+            { now: "Fiyat değişince menüler yeniden basılıyor.", next: "Fiyatı panelde güncellersiniz; misafir bir sonraki açılışta yeni fiyatı görür." },
+            { now: "Biten ürünü misafir sipariş etmeye çalışıyor.", next: "Ürünü tükendi işaretlersiniz; menüde etiketiyle kalır, sepete eklenemez. İsterseniz belirlediğiniz saatte yeniden satışa açılır." },
+            { now: "Alerjen, kalori ve içerik soruları garsona düşüyor.", next: "Ürün detayında 14 alerjen tanımı, kalori, gramaj ve hazırlanış süresi görünür. Bilgiyi siz girersiniz." },
             { now: "Kahvaltı ve öğle menüsünü saatine göre elle açıp kapatıyorsunuz.", next: "Kategoriye saat kuralını bir kez yazarsınız; saat dışındaki ürün etiketiyle görünür, sepete eklenemez." },
             { now: "Kampanya başlatmak da geri almak da zahmetli.", next: "Toplu indirim uygularsınız; kaldırdığınızda fiyatlar eskisine döner." },
             { now: "Yüzlerce ürünü tek tek girmek günler alıyor.", next: "Ürünleri tabloda hazırlar, CSV ile tek seferde yüklersiniz." },
