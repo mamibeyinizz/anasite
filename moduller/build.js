@@ -206,6 +206,12 @@ function frame(f) {
       return `<div class="qm-win${th}"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title)}</span>${f.badge ? `<em class="qm-pill qm-pill--demo">${esc(f.badge)}</em>` : ""}</div><div class="qm-win-body">${blocks(f.blocks)}</div></div>`;
     case "card":
       return `<div class="qm-card">${blocks(f.blocks)}</div>`;
+    case "shot": {
+      const img = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
+      return f.kind === "phone"
+        ? `<div class="qm-phone qm-phone--shot">${img}</div>`
+        : `<div class="qm-win qm-win--shot"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title || "")}</span></div>${img}</div>`;
+    }
     case "scene":
       return `<div class="qm-scene qm-scene--${f.layout}">${join(f.items, (it, i) => `<div class="qm-si qm-si${i + 1}">${frame(it)}${it.label ? `<span class="qm-si-label">${esc(it.label)}</span>` : ""}</div>`)}</div>`;
     default:
@@ -868,17 +874,17 @@ function devicesOf(m) {
   return out;
 }
 const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "Sizin yönetim ekranınız", card: "Basılı çıktı" };
-const deviceCap = (d) => d.label || DEVICE_CAP[d.frame] || "Örnek ekran";
+const deviceCap = (d) => d.label || DEVICE_CAP[d.kind || d.frame] || "Örnek ekran";
 
 function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneFirst = false }) {
   const devs = devicesOf(m);
   if (!devs.length) return "";
-  const start = phoneFirst ? Math.max(0, devs.findIndex((d) => d.frame === "phone")) : 0;
+  const start = phoneFirst ? Math.max(0, devs.findIndex((d) => (d.kind || d.frame) === "phone")) : 0;
   const sid = `qrmo-v3-${id}`;
   return `<div class="qrmo-v3-show" data-v3-show="${mode}"${screenChips ? ' data-v3-max="1"' : ""} id="${sid}">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">${join(devs, (d, i) => `
-          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: temsili ekran ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
+          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.kind || d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: ${d.frame === "shot" && d.alt ? d.alt + ", ekran" : "temsili ekran"} ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
             <div class="qrmo-v3-fit">${frame(d)}</div>${((screenChips && screenChips[i]) || []).slice(0, 2).map((c, k) => `
             <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[k]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
           </figure>`)}
@@ -888,7 +894,7 @@ function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneF
           <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi">${join(devs, (d, i) => `<button type="button" class="qrmo-v3-dot${i === start ? " is-active" : ""}" data-v3-dot="${i}" aria-label="${esc(`Ekran ${i + 1} / ${devs.length}: ${deviceCap(d)}`)}" aria-pressed="${i === start}"><i></i></button>`)}</div>
           <p class="qrmo-v3-live" data-v3-live aria-live="polite">${esc(deviceCap(devs[start]))}</p>
         </div>
-        <p class="qrmo-v3-note">${esc(MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
+        <p class="qrmo-v3-note">${esc(m.shotNote || MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
       </div>`;
 }
 

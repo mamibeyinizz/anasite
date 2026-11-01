@@ -117,6 +117,7 @@
           { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
         hideCrumbs: true,
+        shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
         notesSection: true,
         v3Order: ["hero", "answer", "gaps", "flow", "details", "related", "closing"],
@@ -185,21 +186,8 @@
             frame: "scene", layout: "duo",
             alt: "Temsili arayüz: solda ürün düzenleme ekranında Mercimek Çorbası’nın fiyatı, kategorisi, alerjeni ve rozetleri; sağda aynı ürünün müşteri telefonundaki menüde görünümü.",
             items: [
-              { frame: "window", theme: "light", title: "Ürünler › Ürün düzenle", blocks: [
-                { b: "head", title: "Mercimek Çorbası", badge: "Yayında" },
-                { b: "fields", items: [{ l: "Fiyat (₺)", v: "95" }, { l: "Kategori", v: "Çorbalar" }, { l: "Kalori (kcal)", v: "180" }, { l: "Hazırlanış (dk)", v: "10" }] },
-                { b: "chips", label: "Alerjenler", items: ["Glüten", "Süt / Laktoz", "Kereviz", "Hardal"], on: [2] },
-                { b: "toggles", items: [{ l: "Popüler", on: true }, { l: "Vegan", on: true }, { l: "Tükendi", on: false }] },
-                { b: "btns", items: ["Önizle", "Güncelle"], solid: 1 }
-              ] },
-              { frame: "phone", theme: "light", blocks: [
-                { b: "appbar", title: "Menü", sub: "Masa 12" },
-                { b: "search", text: "Ürün ara…" },
-                { b: "tabs", items: ["Çorbalar", "Ana Yemek", "Tatlı"], on: 0 },
-                { b: "item", n: "Mercimek Çorbası", m: "180 kcal · 10 dk", p: "95 ₺", tag: "Popüler" },
-                { b: "item", n: "Ezogelin Çorbası", m: "Menüde kalır, sepete eklenemez", p: "85 ₺", tag: "Tükendi", off: true },
-                { b: "item", n: "Çorba + Pide", m: "İki ürün, tek fiyat", p: "120 ₺", tag: "Kombin" }
-              ] }
+              { frame: "shot", kind: "window", src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: ürün adı, fiyat, kategori ve ürün fotoğrafı", title: "Menü Yönetimi › Ürünü düzenle" },
+              { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-liste.webp", w: 780, h: 1560, alt: "menü listesi: kampanya görseli, arama, filtre ve kategoriler" }
             ]
           }
         },
@@ -228,22 +216,8 @@
             frame: "scene", layout: "pair",
             alt: "Temsili arayüz: müşteri telefonunda menü listesi (arama, filtre, rozet ve tükendi etiketi) ve Mercimek Çorbası’nın besin, alerjen ve porsiyon bilgisini gösteren ürün detayı.",
             items: [
-              { frame: "phone", theme: "light", blocks: [
-                { b: "appbar", title: "Menü", sub: "Masa 12" },
-                { b: "search", text: "Ürün ara…" },
-                { b: "btns", items: ["Filtrele", "Sırala"], hot: 1 },
-                { b: "tabs", items: ["Kahvaltı", "Çorbalar", "Tatlı"], on: 1 },
-                { b: "item", n: "Mercimek Çorbası", m: "180 kcal · 10 dk", p: "95 ₺", tag: "Popüler" },
-                { b: "item", n: "Ezogelin Çorbası", m: "Menüde kalır, sepete eklenemez", p: "85 ₺", tag: "Tükendi", off: true, hot: 2 },
-                { b: "item", n: "Yayla Çorbası", m: "210 kcal · 12 dk", p: "90 ₺", tag: "Yeni" }
-              ] },
-              { frame: "phone", theme: "light", blocks: [
-                { b: "detail", n: "Mercimek Çorbası", c: "Çorbalar", p: "95 ₺", hot: 3,
-                  rows: [{ l: "Kalori", v: "180 kcal" }, { l: "Gramaj", v: "300 g" }, { l: "Protein", v: "9 g" }, { l: "Hazırlanış", v: "10 dk" }, { l: "Acılık", v: "Acısız" }],
-                  tags: ["Vegan", "Alerjen: Kereviz"] },
-                { b: "chips", label: "Porsiyon", items: ["Normal", "Büyük +40 ₺"], on: [0] },
-                { b: "chips", label: "Ekstra", items: ["Ekstra ekmek +10 ₺", "Limon"], on: [] }
-              ] }
+              { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-filtre.webp", w: 780, h: 1560, alt: "filtrele ve sırala paneli: sıralama ve alerjen seçenekleri" },
+              { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-urun-detay.webp", w: 780, h: 1560, alt: "ürün detayı: fotoğraf, fiyat, alerjen, kalori ve besin değerleri" }
             ]
           },
           callouts: [
