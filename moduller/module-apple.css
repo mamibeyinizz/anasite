@@ -145,8 +145,8 @@ body.qrmo-apple .qrmo-mod-tile-img img { display: block; width: 100%; height: 10
 }
 
 /* ---------- Nasıl çalışır: adım kartları (kim, ne yapar, 3 madde) ---------- */
-body.qrmo-apple .qrmo-v3-step { padding: 22px 24px 24px; border: 1px solid rgba(244, 241, 232, .1); border-radius: 20px; background: rgba(244, 241, 232, .03); }
-body.qrmo-apple .qrmo-v3-step.is-active { background: rgba(244, 241, 232, .08); border-color: rgba(232, 199, 102, .5); }
+body.qrmo-apple .qrmo-v3-step { padding: 8px 0 8px 22px; border: 0; border-left: 2px solid rgba(244, 241, 232, .14); border-radius: 0; background: none; }
+body.qrmo-apple .qrmo-v3-step.is-active { background: none; border-left-color: var(--qm-gold-light); }
 body.qrmo-apple .qrmo-v3-step-n { display: block; }
 body.qrmo-apple .qrmo-v3-step-who { color: rgba(244, 241, 232, .7); letter-spacing: .12em; }
 body.qrmo-apple .qrmo-v3-step h3 { font-size: clamp(20px, 1.9vw, 26px); }
@@ -155,7 +155,7 @@ body.qrmo-apple .qrmo-v3-step p { font-size: clamp(15px, 1.2vw, 17px); color: rg
 .qrmo-v3-step-pts li { display: flex; align-items: flex-start; gap: 10px; color: var(--qm-cream); font-size: 15px; font-weight: 600; line-height: 1.4; }
 .qrmo-v3-step-pts svg { flex: 0 0 auto; width: 20px; height: 20px; padding: 4px; margin-top: 1px; border-radius: 50%; background: rgba(232, 199, 102, .18); color: var(--qm-gold-light); }
 @media (min-width: 768px) {
-  body.qrmo-apple .qrmo-v3-step { min-height: 0; margin-bottom: 18px; justify-content: flex-start; }
+  body.qrmo-apple .qrmo-v3-step { min-height: 0; margin-bottom: 28px; justify-content: flex-start; }
   body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: start; }
   body.qrmo-apple .qrmo-v3-steps { align-content: center; min-height: min(600px, calc(100dvh - var(--qrmo-gh-h, 76px) - 96px)); position: sticky; top: var(--v3-sticky); }
 }
