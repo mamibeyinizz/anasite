@@ -870,16 +870,17 @@ function devicesOf(m) {
 const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "Sizin yönetim ekranınız", card: "Basılı çıktı" };
 const deviceCap = (d) => d.label || DEVICE_CAP[d.frame] || "Örnek ekran";
 
-function showcase(m, { mode = "auto", chips = [], id, phoneFirst = false }) {
+function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneFirst = false }) {
   const devs = devicesOf(m);
   if (!devs.length) return "";
   const start = phoneFirst ? Math.max(0, devs.findIndex((d) => d.frame === "phone")) : 0;
   const sid = `qrmo-v3-${id}`;
-  return `<div class="qrmo-v3-show" data-v3-show="${mode}" id="${sid}">
+  return `<div class="qrmo-v3-show" data-v3-show="${mode}"${screenChips ? ' data-v3-max="1.15"' : ""} id="${sid}">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">${join(devs, (d, i) => `
           <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: temsili ekran ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
-            <div class="qrmo-v3-fit">${frame(d)}</div>
+            <div class="qrmo-v3-fit">${frame(d)}</div>${((screenChips && screenChips[i]) || []).slice(0, 2).map((c, k) => `
+            <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[k]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
           </figure>`)}
         </div>${chips.map((c, i) => `
         <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[i]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
@@ -936,7 +937,7 @@ const SECTION = {
         ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary, primary: m.cta && m.cta.primary })}
       </div>
       <div class="qrmo-v3-hero-visual">
-        ${showcase(m, { mode: "auto", chips: (h.proof || []).slice(0, 2), id: "hero", phoneFirst: true })}
+        ${showcase(m, { mode: "auto", chips: h.screenChips ? [] : (h.proof || []).slice(0, 2), screenChips: h.screenChips, id: "hero", phoneFirst: true })}
       </div>
     </div>
   </section>`;

@@ -16,6 +16,7 @@
     var mode = el.getAttribute("data-v3-show");
     var cur = Math.max(0, screens.findIndex(function (s) { return s.classList.contains("is-active"); })), timer = 0, inView = true, hold = false;
 
+    var cap = parseFloat(el.getAttribute("data-v3-max")) || 1; /* hero: cihaz alanı doldurmak için büyütülebilir */
     el.setAttribute("data-count", String(screens.length));
     el.style.setProperty("--v3-dur", DUR + "ms");
 
@@ -27,7 +28,7 @@
         var nw = parseFloat(getComputedStyle(sc).getPropertyValue("--w")) || f.offsetWidth;
         var nh = f.offsetHeight;
         if (!nw || !nh) return;
-        var s = Math.min(1, W / nw, H / nh);
+        var s = Math.min(cap, W / nw, H / nh);
         f.style.setProperty("--s", s.toFixed(4));
         f.style.setProperty("--y", Math.max(0, (H - nh * s) / 2).toFixed(1) + "px");
       });
