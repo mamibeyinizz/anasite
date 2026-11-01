@@ -182,7 +182,6 @@
         hubImg: { src: "../../assets/modules/restoran-menu/hub-menu.webp", w: 780, h: 1000, alt: "Misafirin telefonunda açılan menü: kampanya görseli, arama ve öneri listesi" },
         shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
-        notesSection: true,
         v3Order: ["hero", "gaps", "flow", "reviews", "details", "related", "closing"],
         cta: {
           primary: { label: "Demo talep edin", path: "iletisim/#talep" },
