@@ -1041,6 +1041,33 @@ const SECTION = {
   </section>`;
   },
 
+  reviews(m) {
+    return `
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-reviews">
+    <div class="qrmo-mod-inner">
+      <script>window.QRMO_REVIEWS_OVERRIDE = ${JSON.stringify(m.reviews).replace(/</g, "\\u003c")};</script>
+      <section id="qrmo-reviews-v1" aria-labelledby="qrmo-reviews-v1-title" hidden>
+        <div class="qrmo-rv__head">
+          <div>
+            <p class="qrmo-rv__eyebrow">QR Menu Official • İşletmeciler</p>
+            <h2 id="qrmo-reviews-v1-title" class="qrmo-rv__title">Kullanan işletmeler ne diyor?</h2>
+            <p class="qrmo-rv__lead">Menü yönetiminde günlük işleyişin nasıl değiştiğini onlardan dinleyin.</p>
+            <p class="qrmo-rv__proof"><span aria-hidden="true"></span><strong data-rv-proof></strong></p>
+          </div>
+          <div class="qrmo-rv__ctrl">
+            <span class="qrmo-rv__count" data-rv-count aria-live="polite"></span>
+            <span class="qrmo-rv__btns">
+              <button type="button" class="qrmo-rv__btn" data-rv-prev aria-label="Önceki yorum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <button type="button" class="qrmo-rv__btn" data-rv-next aria-label="Sonraki yorum"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </span>
+          </div>
+        </div>
+        <div class="qrmo-rv__track" data-rv-track role="list" tabindex="0" aria-label="Müşteri yorumları"></div>
+      </section>
+    </div>
+  </section>`;
+  },
+
   shift(m) {
     const s = m.shift;
     return `
@@ -1323,7 +1350,7 @@ function renderModule(m, faqById) {
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",
-    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>' + ((m.pageClass || "").includes("qrmo-apple") ? '\n<link rel="stylesheet" href="../module-apple.css">\n<script defer src="../module-apple.js"></script>' : "")
+    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>' + (m.reviews ? '\n<link rel="stylesheet" href="../../css/home-reviews.css">\n<script defer src="../../js/home-reviews.js"></script>' : "") + ((m.pageClass || "").includes("qrmo-apple") ? '\n<link rel="stylesheet" href="../module-apple.css">\n<script defer src="../module-apple.js"></script>' : "")
   }) + `
 <body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">

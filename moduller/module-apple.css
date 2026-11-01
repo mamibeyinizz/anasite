@@ -180,3 +180,9 @@ body.qrmo-apple .qrmo-v3-step p { font-size: clamp(15px, 1.2vw, 17px); color: rg
   body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: start; }
   body.qrmo-apple .qrmo-v3-steps { align-content: center; min-height: min(600px, calc(100dvh - var(--qrmo-gh-h, 76px) - 96px)); position: sticky; top: var(--v3-sticky); }
 }
+
+/* ---------- Müşteri yorumları (ana sayfadaki bileşenin modül sayfası uyarlaması) ---------- */
+body.qrmo-apple #qrmo-reviews-v1 { width: 100%; margin: 0; padding: 0; font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+body.qrmo-apple #qrmo-reviews-v1 :where(h2, p, a, span, strong, small, button, blockquote, figcaption) { font-family: inherit; }
+body.qrmo-apple .qrmo-v3-reviews { padding-block: var(--ap-pad); }
+body.qrmo-apple #qrmo-reviews-v1 .qrmo-rv__title { font-size: clamp(26px, 3vw, 40px); line-height: 1.15; letter-spacing: -.03em; font-weight: 700; }

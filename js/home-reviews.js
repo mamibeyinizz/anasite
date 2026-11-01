@@ -35,6 +35,11 @@
       text: "Bizim için en önemli konu sadece QR kod kullanmak değildi; menüyü kolay yönetmek ve müşteriye daha iyi sunmaktı. Ürünleri kategorili göstermek, kampanyaları öne çıkarmak ve değişiklikleri hızlı yapmak günlük işlerimizi toparladı. Daha iyi ürün görünürlüğü de satış potansiyelimizi destekliyor." }
   ].map(function (r) { r.verified = CONFIRMED; return r; });
 
+  /* Modül sayfaları kendi doğrulanmış yorumlarını verir (moduller/module-data.js → reviews). */
+  if (window.QRMO_REVIEWS_OVERRIDE) {
+    REVIEWS = window.QRMO_REVIEWS_OVERRIDE.map(function (r) { r.verified = true; return r; });
+  }
+
 
   var section = document.getElementById("qrmo-reviews-v1");
   if (!section) return;

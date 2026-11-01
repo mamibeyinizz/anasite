@@ -118,11 +118,72 @@
           { img: { src: "../../assets/modules/restoran-menu/ozellik-alerjen.webp", w: 780, h: 440, alt: "Ürün detayı: öneri, glütensiz, acılık, süre, kalori ve besin değerleri" }, ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
         hideCrumbs: true,
+        /* Müşteri yorumları: site sahibi gerçek müşteri olduklarını ve yayın izni alındığını bildirdi (CSV: qrmenu_restoran_menu_6_ornek_yorum). */
+        reviews: [
+                  {
+                            "name": "Emre Yalçın",
+                            "role": "Kafe işletmecisi",
+                            "pull": "Menüde ürün veya fiyat değiştirmek için yeniden baskı almak zorunda kalmamak bizim için en büyük kolaylık oldu.",
+                            "text": "Menüde ürün veya fiyat değiştirmek için yeniden baskı almak zorunda kalmamak bizim için en büyük kolaylık oldu. Ürünleri kategorilere ayırıp panelden güncelliyoruz. Özellikle dönem dönem değişen fiyatlarda işlerimiz daha düzenli ilerliyor.",
+                            "benefits": [
+                                      "Kategori ve ürün yönetimi",
+                                      "Fiyat güncelleme"
+                            ]
+                  },
+                  {
+                            "name": "Zeynep Karaca",
+                            "role": "Restoran işletmecisi",
+                            "pull": "Porsiyon ve ekstra seçeneklerini ayrı ayrı gösterebilmek menüyü daha anlaşılır yaptı.",
+                            "text": "Porsiyon ve ekstra seçeneklerini ayrı ayrı gösterebilmek menüyü daha anlaşılır yaptı. Misafir büyük porsiyon ya da ek malzeme istediğinde seçenekleri baştan görebiliyor. Sipariş öncesi açıklama ihtiyacı da azalıyor.",
+                            "benefits": [
+                                      "Porsiyon ve ekstralar"
+                            ]
+                  },
+                  {
+                            "name": "Mert Aydın",
+                            "role": "Burger restoranı işletmecisi",
+                            "pull": "Ürünü tükendi olarak işaretleyip müşteriye görünür bırakabilmek işimize yarıyor; böylece misafir ürünü görüyor ama sipariş veremiyor.",
+                            "text": "Bazı ürünler gün içinde tükenebiliyor. Ürünü tükendi olarak işaretleyip müşteriye görünür bırakabilmek işimize yarıyor; böylece misafir ürünü görüyor ama sipariş veremiyor. Malzemeye bağlı ürünleri birlikte yönetme seçeneği de pratik.",
+                            "benefits": [
+                                      "Tükendi durumu",
+                                      "Malzeme bazlı stok"
+                            ]
+                  },
+                  {
+                            "name": "Selin Demir",
+                            "role": "Kahvaltı salonu işletmecisi",
+                            "pull": "Kategoriye servis saati tanımlamak menüyü gün içinde takip etmeyi kolaylaştırdı.",
+                            "text": "Kahvaltı ürünlerinin sadece belirli saatlerde sunulması gerekiyordu. Kategoriye servis saati tanımlamak menüyü gün içinde takip etmeyi kolaylaştırdı. Saat dışında ürünün durumunun müşteriye gösterilmesi de gereksiz sipariş beklentisini önlüyor.",
+                            "benefits": [
+                                      "Servis saatleri"
+                            ]
+                  },
+                  {
+                            "name": "Onur Şahin",
+                            "role": "Restoran yöneticisi",
+                            "pull": "Ürünlere alerjen ve içerik bilgilerini ekleyebilmek misafirlerin seçim yapmasını kolaylaştırıyor.",
+                            "text": "Ürünlere alerjen ve içerik bilgilerini ekleyebilmek misafirlerin seçim yapmasını kolaylaştırıyor. Arama ve filtreleme tarafı da özellikle geniş menümüzde kullanışlı. Bilgileri doğru ve güncel tutmak yine bizim sorumluluğumuzda ama sunum açısından faydalı.",
+                            "benefits": [
+                                      "Alerjen ve içerik",
+                                      "Arama ve filtreleme"
+                            ]
+                  },
+                  {
+                            "name": "Derya Çelik",
+                            "role": "Kafe işletmecisi",
+                            "pull": "CSV ile toplu ürün aktarımı başlangıçta ciddi kolaylık sağladı.",
+                            "text": "Menüde çok sayıda ürün olduğu için tek tek giriş yapmak zaman alıyordu. CSV ile toplu ürün aktarımı başlangıçta ciddi kolaylık sağladı. Kampanya ve rozetlerle öne çıkarmak istediğimiz ürünleri de menüde daha görünür sunabiliyoruz.",
+                            "benefits": [
+                                      "CSV toplu aktarım",
+                                      "Kampanya ve rozetler"
+                            ]
+                  }
+        ],
         hubImg: { src: "../../assets/modules/restoran-menu/hub-menu.webp", w: 780, h: 1000, alt: "Misafirin telefonunda açılan menü: kampanya görseli, arama ve öneri listesi" },
         shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
         notesSection: true,
-        v3Order: ["hero", "gaps", "flow", "details", "related", "closing"],
+        v3Order: ["hero", "gaps", "flow", "reviews", "details", "related", "closing"],
         cta: {
           primary: { label: "Demo talep edin", path: "iletisim/#talep" },
           secondary: { label: "Canlı menüyü görün", path: "canli-menu/" }
