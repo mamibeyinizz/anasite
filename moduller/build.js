@@ -1210,7 +1210,7 @@ const SECTION = {
   </section>`;
   },
 
-  details(m, ctx) {
+  details(m, ctx, part = "all") {
     const faq = (m.faq || []).map((id) => {
       const q = ctx.faqById[id];
       if (!q) { problems.push(`${m.slug}: SSS kimliği yok: ${id}`); return ""; }
@@ -1240,7 +1240,7 @@ const SECTION = {
         return `
           <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">${pad(i + 1)}</span><span class="qrmo-v3-qa-q">${esc(q.question)}</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>${faqHtml(q, ctx.rel)}</p></details>`;
       }).join("");
-      return `
+      const featHtml = `
   <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-features" id="ozellikler" aria-labelledby="qrmo-mod-feat-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-v3-head">
@@ -1250,8 +1250,9 @@ const SECTION = {
       <ul class="qrmo-v3-fgrid">${cards}
       </ul>
     </div>
-  </section>
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details qrmo-v3-faqsec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+  </section>`;
+      const faqSec = `
+    <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details qrmo-v3-faqsec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
     <div class="qrmo-mod-inner qrmo-v3-faqgrid">
       <header class="qrmo-v3-faqhead">
         <p class="qrmo-v3-eyebrow">SIK SORULAN SORULAR</p>
@@ -1262,6 +1263,9 @@ const SECTION = {
       </div>
     </div>
   </section>`;
+      if (part === "features") return featHtml;
+      if (part === "faq") return faqSec;
+      return featHtml + faqSec;
     }
     return notesSec + `
   <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
@@ -1281,12 +1285,10 @@ const SECTION = {
   </section>`;
   },
 
-  related(m, ctx) {
+  related(m, ctx, part = "all") {
     const pk = (mod) => pkgShort(modulePackage(mod).index);
     if (!m.features || m.features.length !== 5) problems.push(`${m.slug}: features 5 madde olmalı`);
-    return `
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
-    <div class="qrmo-mod-inner">
+    const topHtml = `
       <header class="qrmo-v3-head">
         <p class="qrmo-v3-eyebrow">ÖZELLİKLER</p>
         <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">${esc(m.name)} ile neler yapabilirsiniz?</h2>
@@ -1305,7 +1307,8 @@ const SECTION = {
             <span class="qrmo-v3-spoke-b"><strong>${esc(f.t)}</strong><span>${esc(f.d)}</span><span class="qrmo-v3-meta"><span>${esc(f.tag)}</span></span></span>
           </div></li>`)}
         </ul>
-      </div>
+      </div>`;
+    const bottomHtml = `
       <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
@@ -1316,10 +1319,21 @@ const SECTION = {
       <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>
       <ul class="qrmo-mod-guides">${join(m.guides, (g) => `
         <li><a href="../../${g.path}"><span class="qrmo-mod-guides-t">${esc(g.t)}</span><span class="qrmo-mod-guides-d">${esc(g.d)}</span></a></li>`)}
-      </ul>` : ""}
+      </ul>` : ""}`;
+    const wrap = (inner, label) => `
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" ${label}>
+    <div class="qrmo-mod-inner">${inner}
     </div>
   </section>`;
+    if (part === "showcase") return wrap(topHtml, 'aria-labelledby="qrmo-mod-rel-h"');
+    if (part === "more") return wrap(bottomHtml, 'aria-label="İlgili modüller ve rehberler"');
+    return wrap(topHtml + bottomHtml, 'aria-labelledby="qrmo-mod-rel-h"');
   },
+
+  showcase(m, ctx) { return SECTION.related(m, ctx, "showcase"); },
+  more(m, ctx) { return SECTION.related(m, ctx, "more"); },
+  features(m, ctx) { return SECTION.details(m, ctx, "features"); },
+  faq(m, ctx) { return SECTION.details(m, ctx, "faq"); },
 
   closing(m, ctx) {
     const where = pkgWhere(ctx.minIdx);
@@ -1330,6 +1344,38 @@ const SECTION = {
       return `
             <li class="${inc ? "is-in" : "is-out"}"><span class="qrmo-mod-tier-n">${esc(p.name)}</span><span class="qrmo-mod-tier-t">${esc(p.tagline)}${m.closing && m.closing.showPrice ? ` · <b>${p.price.monthly.toLocaleString("tr-TR")} ₺/ay</b>` : ""}</span><span class="qrmo-mod-tier-s">${inc ? ICON.check : ICON.dash}${inc ? "Dahil" : "Dahil değil"}</span></li>`;
     });
+    if ((m.pageClass || "").includes("qrmo-apple")) {
+      const [lead, accent] = title.includes(": ") ? [title.split(": ")[0] + ":", title.split(": ").slice(1).join(": ")] : [title, ""];
+      const chips = (m.closing && m.closing.chips) || [];
+      const pills = join(PKG.packages, (p, i) => {
+        const inc = i >= ctx.minIdx;
+        return `
+          <li class="${inc ? "is-in" : "is-out"}"><span class="qrmo-ap-pk-n">${esc(p.name)}</span><span class="qrmo-ap-pk-t">${esc(p.tagline)}</span>${m.closing && m.closing.showPrice ? `<b class="qrmo-ap-pk-p">${p.price.monthly.toLocaleString("tr-TR")} ₺<small>/ay</small></b>` : ""}<span class="qrmo-ap-pk-s">${ICON.check}<span>${inc ? "Dahil" : "Dahil değil"}</span></span></li>`;
+      });
+      const p1 = (m.closing && m.closing.primary) || { label: "Canlı menüyü görün", path: "canli-menu/" };
+      const p2 = (m.closing && m.closing.secondary) || { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" };
+      return `
+  <section class="qrmo-mod-sec qrmo-ap-cta" aria-labelledby="qrmo-mod-close-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-ap-cta-panel">
+        <div class="qrmo-ap-cta-bg" aria-hidden="true"></div>${chips.map((c, i) => `
+        <span class="qrmo-ap-chip qrmo-ap-chip--${i + 1}" aria-hidden="true"><span class="qrmo-ap-chip-ico">${ICON.check}</span><span><strong>${esc(c[0])}</strong><small>${esc(c[1])}</small></span></span>`).join("")}
+        <div class="qrmo-ap-cta-body">
+          <p class="qrmo-ap-cta-eyebrow"><span aria-hidden="true"></span>CANLI DEMO VE PAKETLER</p>
+          <h2 class="qrmo-ap-cta-h" id="qrmo-mod-close-h">${esc(lead)}${accent ? ` <span>${esc(accent)}</span>` : ""}</h2>
+          <p class="qrmo-ap-cta-p">${esc(closingText)}</p>
+          <ol class="qrmo-ap-pks" aria-label="Paketlere göre ${esc(m.name)}">${pills}
+          </ol>
+          <div class="qrmo-ap-cta-actions">
+            <a class="qrmo-ap-btn" href="${ctx.rel}${p1.path}"><span>${esc(p1.label)}</span><span class="qrmo-ap-btn-go" aria-hidden="true">${ICON.arrow}</span></a>
+            <a class="qrmo-ap-link" href="${ctx.rel}${p2.path}"><span>${esc(p2.label)}</span>${ICON.arrow}</a>
+          </div>
+          ${(MOD.site.assurances || []).length ? `<ul class="qrmo-ap-assure">${MOD.site.assurances.map((a) => `<li>${ICON.check}<span>${esc(a)}</span></li>`).join("")}</ul>` : ""}
+        </div>
+      </div>
+    </div>
+  </section>`;
+    }
     return `
   <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
@@ -1358,11 +1404,11 @@ function renderModule(m, faqById) {
 
   /* V3: tüm modüller aynı iskeleti kullanır; veri olmayan bölüm atlanır. */
   const V3_ORDER = m.v3Order || ["hero", "answer", "gaps", "flow", "details", "related", "closing"];
-  const order = V3_ORDER.filter((k) => ["hero", "details", "related", "closing"].includes(k) || (k === "flow" ? m.flow : m[k]));
+  const order = V3_ORDER.filter((k) => ["hero", "details", "related", "closing", "showcase", "more", "features", "faq"].includes(k) || (k === "flow" ? m.flow : m[k]));
 
   const body = order.map((key) => {
     if (!SECTION[key]) throw new Error(`[${m.slug}] bilinmeyen bölüm: ${key}`);
-    if (!["hero", "details", "related", "closing"].includes(key) && !m[key]) throw new Error(`[${m.slug}] order içinde "${key}" var ama veri yok`);
+    if (!["hero", "details", "related", "closing", "showcase", "more", "features", "faq"].includes(key) && !m[key]) throw new Error(`[${m.slug}] order içinde "${key}" var ama veri yok`);
     return SECTION[key](m, ctx);
   }).join("\n");
 

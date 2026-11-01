@@ -193,16 +193,17 @@
         hubImg: { src: "../../assets/modules/restoran-menu/hub-menu.webp", w: 780, h: 1000, alt: "Misafirin telefonunda açılan menü: kampanya görseli, arama ve öneri listesi" },
         shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
-        v3Order: ["hero", "gaps", "flow", "reviews", "details", "related", "closing"],
+        v3Order: ["hero", "gaps", "flow", "showcase", "features", "reviews", "faq", "more", "closing"],
         cta: {
-          primary: { label: "Demo talep edin", path: "iletisim/#talep" },
-          secondary: { label: "Canlı menüyü görün", path: "canli-menu/" }
+          primary: { label: "Canlı menüyü görün", path: "canli-menu/" },
+          secondary: { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" }
         },
         closing: {
+          chips: [["Fiyat güncellendi", "Panelden tek dokunuş"], ["Ürün tükendi", "Etiketle menüde kalır"], ["Alerjen bilgisi", "Ürün detayında görünür"], ["Masadaki QR", "Güncel menüyü açar"]],
           title: "Restoran Menü tüm paketlerde: işletmenize uygun planı seçin.",
           text: "Menü yönetimi üç paketin üçünde de var. Fiyatlar aylık; yıllık ödemede 12 aylık kullanım 10 aylık ücrete denk gelir. Sepetle sipariş Pro ve Plus paketindedir. Hangisinin size uyduğundan emin değilseniz menünüzü birlikte gözden geçirelim.",
           showPrice: true,
-          primary: { label: "Demo talep edin", path: "iletisim/#talep" },
+          primary: { label: "Canlı menüyü görün", path: "canli-menu/" },
           secondary: { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" }
         },
 

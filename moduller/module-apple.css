@@ -246,3 +246,77 @@ body.qrmo-apple .qrmo-v3-fcard h3 { font-size: 17px; }
 body.qrmo-apple .qrmo-v3-fcard p { margin: 0; color: var(--qm-text); font-size: 14.5px; line-height: 1.55; }
 @media (min-width: 560px) { body.qrmo-apple .qrmo-v3-fgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1000px) { body.qrmo-apple .qrmo-v3-fgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ---------- Kapanış CTA: canlı demo + paketler (ana sayfadaki CTA diliyle) ---------- */
+body.qrmo-apple .qrmo-ap-cta { padding-block: clamp(40px, 6vw, 96px); }
+.qrmo-ap-cta-panel {
+  position: relative; isolation: isolate; overflow: hidden; padding: clamp(40px, 6vw, 88px) clamp(20px, 4vw, 64px); border-radius: clamp(24px, 3vw, 36px); color: var(--qm-cream); text-align: center;
+  background: radial-gradient(60rem 30rem at 85% 0, rgba(201, 168, 76, .28), rgba(201, 168, 76, 0) 70%), linear-gradient(160deg, #173226 0%, #0A231B 100%);
+  box-shadow: 0 50px 90px -60px rgba(13, 43, 34, .8);
+}
+.qrmo-ap-cta-bg { position: absolute; inset: 0; z-index: -1; opacity: .5; background-image: linear-gradient(rgba(244, 241, 232, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(244, 241, 232, .05) 1px, transparent 1px); background-size: 44px 44px; -webkit-mask-image: radial-gradient(closest-side at 50% 50%, #000 40%, transparent 100%); mask-image: radial-gradient(closest-side at 50% 50%, #000 40%, transparent 100%); animation: apGlow 8s ease-in-out infinite alternate; }
+@keyframes apGlow { from { opacity: .3; } to { opacity: .6; } }
+.qrmo-ap-cta-body { position: relative; max-width: 760px; margin-inline: auto; }
+.qrmo-ap-cta-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 18px; color: var(--qm-gold-light); font-size: 12.5px; font-weight: 800; letter-spacing: .18em; }
+.qrmo-ap-cta-eyebrow span { width: 32px; height: 2px; background: var(--qm-gold); border-radius: 2px; }
+.qrmo-ap-cta-h { margin: 0 0 16px; color: var(--qm-cream); font-size: clamp(26px, 3.2vw, 42px); font-weight: 700; line-height: 1.15; letter-spacing: -.03em; text-wrap: balance; }
+.qrmo-ap-cta-h span { color: var(--qm-gold-light); }
+.qrmo-ap-cta-p { max-width: 38em; margin: 0 auto 28px; color: rgba(244, 241, 232, .82); font-size: clamp(15.5px, 1.3vw, 18px); line-height: 1.6; text-wrap: pretty; }
+
+.qrmo-ap-pks { display: grid; gap: 10px; margin: 0 0 32px; padding: 0; list-style: none; text-align: left; }
+.qrmo-ap-pks li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; align-items: center; padding: 14px 16px; border: 1px solid rgba(232, 199, 102, .28); border-radius: 16px; background: rgba(244, 241, 232, .04); }
+.qrmo-ap-pk-n { grid-column: 1; color: var(--qm-cream); font-size: 16px; font-weight: 800; }
+.qrmo-ap-pk-t { grid-column: 1; color: rgba(244, 241, 232, .7); font-size: 13px; line-height: 1.4; }
+.qrmo-ap-pk-p { grid-column: 2; grid-row: 1; justify-self: end; color: var(--qm-gold-light); font-size: 17px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.qrmo-ap-pk-p small { color: rgba(244, 241, 232, .6); font-size: 12px; font-weight: 600; }
+.qrmo-ap-pk-s { grid-column: 2; grid-row: 2; justify-self: end; display: inline-flex; align-items: center; gap: 6px; color: var(--qm-gold-light); font-size: 12.5px; font-weight: 700; }
+.qrmo-ap-pk-s svg { width: 16px; height: 16px; padding: 3px; border-radius: 50%; background: rgba(232, 199, 102, .22); }
+.qrmo-ap-pks li.is-out { opacity: .5; }
+@media (min-width: 720px) { .qrmo-ap-pks { grid-template-columns: repeat(3, minmax(0, 1fr)); } .qrmo-ap-pks li { grid-template-columns: 1fr; } .qrmo-ap-pk-p, .qrmo-ap-pk-s { grid-column: 1; grid-row: auto; justify-self: start; } .qrmo-ap-pk-s { margin-top: 6px; } }
+
+.qrmo-ap-cta-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 28px; }
+.qrmo-ap-btn {
+  position: relative; display: inline-flex; align-items: center; gap: 22px; min-height: 56px; padding: 8px 8px 8px 28px; overflow: hidden; border-radius: 16px; text-decoration: none;
+  background: linear-gradient(180deg, #F0CF73, #D9B54F); color: var(--qm-ink); font-size: 17px; font-weight: 800;
+  box-shadow: 0 18px 36px -16px rgba(232, 199, 102, .55), inset 0 1px 0 rgba(255, 255, 255, .5);
+  transition: transform .45s var(--v3-ease), box-shadow .45s var(--v3-ease);
+}
+.qrmo-ap-btn::after { content: ""; position: absolute; top: 0; bottom: 0; left: -40%; width: 30%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent); transform: skewX(-18deg); transition: left .8s var(--v3-ease); }
+.qrmo-ap-btn-go { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: rgba(13, 43, 34, .88); color: var(--qm-gold-light); transition: transform .45s var(--v3-ease); }
+.qrmo-ap-btn-go svg { width: 18px; height: 18px; }
+.qrmo-ap-btn:focus-visible, .qrmo-ap-link:focus-visible { outline: 2px solid var(--qm-gold-light); outline-offset: 4px; }
+.qrmo-ap-link { display: inline-flex; align-items: center; gap: 8px; color: var(--qm-cream); font-size: 16px; font-weight: 700; text-decoration: none; transition: color .3s; }
+.qrmo-ap-link svg { width: 18px; height: 18px; color: var(--qm-gold-light); transition: transform .4s var(--v3-ease); }
+@media (hover: hover) and (pointer: fine) {
+  .qrmo-ap-btn:hover { transform: translateY(-3px); box-shadow: 0 26px 44px -16px rgba(232, 199, 102, .7), inset 0 1px 0 rgba(255, 255, 255, .5); }
+  .qrmo-ap-btn:hover::after { left: 120%; }
+  .qrmo-ap-btn:hover .qrmo-ap-btn-go { transform: translateX(3px); }
+  .qrmo-ap-link:hover { color: var(--qm-gold-light); }
+  .qrmo-ap-link:hover svg { transform: translateX(4px); }
+}
+.qrmo-ap-btn:active { transform: translateY(0) scale(.98); }
+/* Boştayken düğmenin okuna nazik bir nabız */
+.qrmo-ap-btn-go { animation: apNudge 3.6s var(--v3-ease) 1.2s infinite; }
+@keyframes apNudge { 0%, 70%, 100% { transform: none; } 82% { transform: translateX(4px); } }
+
+.qrmo-ap-assure { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; margin: 30px 0 0; padding: 22px 0 0; border-top: 1px solid rgba(244, 241, 232, .14); list-style: none; }
+.qrmo-ap-assure li { display: inline-flex; align-items: center; gap: 8px; color: rgba(244, 241, 232, .88); font-size: 14px; font-weight: 600; text-align: left; }
+.qrmo-ap-assure svg { flex: 0 0 auto; width: 18px; height: 18px; padding: 3px; border-radius: 50%; background: rgba(232, 199, 102, .2); color: var(--qm-gold-light); }
+
+/* Yüzen ürün etiketleri (yalnız geniş ekranda) */
+.qrmo-ap-chip { position: absolute; z-index: 1; display: none; align-items: center; gap: 10px; padding: 10px 16px 10px 10px; border: 1px solid rgba(232, 199, 102, .3); border-radius: 18px; background: rgba(244, 241, 232, .08); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-align: left; box-shadow: 0 20px 40px -24px rgba(0, 0, 0, .6); animation: apFloat 7s ease-in-out infinite alternate; }
+.qrmo-ap-chip-ico { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(150deg, #E8C766, #C9A84C); color: var(--qm-ink); }
+.qrmo-ap-chip-ico svg { width: 17px; height: 17px; }
+.qrmo-ap-chip strong { display: block; color: var(--qm-cream); font-size: 14px; font-weight: 800; line-height: 1.2; }
+.qrmo-ap-chip small { display: block; color: rgba(244, 241, 232, .7); font-size: 12px; line-height: 1.3; }
+.qrmo-ap-chip--1 { top: 9%; left: 4%; rotate: -4deg; }
+.qrmo-ap-chip--2 { top: 14%; right: 4%; rotate: 3deg; animation-delay: -2s; }
+.qrmo-ap-chip--3 { bottom: 12%; left: 5%; rotate: 3deg; animation-delay: -4s; }
+.qrmo-ap-chip--4 { bottom: 9%; right: 5%; rotate: -3deg; animation-delay: -1s; }
+@keyframes apFloat { from { translate: 0 -6px; } to { translate: 0 8px; } }
+@media (min-width: 1100px) { .qrmo-ap-chip { display: inline-flex; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .qrmo-ap-cta-bg, .qrmo-ap-chip, .qrmo-ap-btn-go { animation: none; }
+  .qrmo-ap-btn, .qrmo-ap-btn::after, .qrmo-ap-btn-go, .qrmo-ap-link svg { transition: none; }
+}
