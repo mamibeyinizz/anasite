@@ -116,6 +116,7 @@
           { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
           { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
+        hideCrumbs: true,
         notesSection: true,
         v3Order: ["hero", "gaps", "answer", "flow", "details", "related", "closing"],
         cta: {
@@ -162,8 +163,10 @@
 
         hero: {
           layout: "center",
-          h1: "Restoran ve kafeniz için QR menüyü tek panelden yönetin.",
-          lead: "Fiyatı, stoğu ve ürün bilgisini panelde güncellersiniz; misafir QR kodu okutup menüyü telefonunda güncel haliyle açar. Basılı menü ve PDF yenileme derdi biter.",
+          kicker: "QR MENÜ YÖNETİMİ",
+          h1: "QR menünüz tek panelden, her an güncel.",
+          accent: "her an güncel.",
+          lead: "Fiyat, stok ve ürün bilgisini panelde değiştirin; misafir QR kodu okutunca güncel menüyü telefonunda görsün. Baskı yok, PDF yenileme yok.",
           proof: ["Tükendi ve servis saati etiketleri", "Porsiyon, ekstra ve kombin", "CSV ile toplu aktarım"],
           visual: {
             frame: "scene", layout: "duo",

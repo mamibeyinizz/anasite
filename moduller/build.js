@@ -931,7 +931,7 @@ const SECTION = {
     <div class="qrmo-mod-inner qrmo-v3-hero-grid">
       <div class="qrmo-v3-hero-copy">
         <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>${esc(h.kicker || up(catById[m.category].name))}</span><span class="qrmo-mod-kicker-pkg">${esc(pkgShort(ctx.minIdx))}</span></p>
-        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${esc(h.h1)}</h1>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">${h.accent && h.h1.endsWith(h.accent) ? esc(h.h1.slice(0, -h.accent.length)) + `<span class="qrmo-v3-accent">${esc(h.accent)}</span>` : esc(h.h1)}</h1>
         <p class="qrmo-mod-lead">${esc(h.lead)}</p>
         ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary, primary: m.cta && m.cta.primary })}
       </div>
@@ -1311,7 +1311,7 @@ function renderModule(m, faqById) {
 <body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 ${moduleContextNav(m)}
-  ${crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
+  ${m.hideCrumbs ? "" : crumbs([["Ana sayfa", rel], ["Modüller", "../"], [m.name]])}
 ${body}
 </main>
 </body>
