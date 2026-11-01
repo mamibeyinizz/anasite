@@ -168,6 +168,11 @@
           accent: "her an güncel.",
           lead: "Fiyat, stok ve ürün bilgisini panelde değiştirin; misafir QR kodu okutunca güncel menüyü telefonunda görsün. Baskı yok, PDF yenileme yok.",
           proof: ["Tükendi ve servis saati etiketleri", "Porsiyon, ekstra ve kombin", "CSV ile toplu aktarım"],
+          points: [
+            { ico: "list", t: "Ürün, fiyat ve kategori tek panelde" },
+            { ico: "tag", t: "Kampanya ve Popüler, Yeni gibi rozetler" },
+            { ico: "clock", t: "Kahvaltı gibi menüler kendi saatinde açılır" }
+          ],
           /* Hero vitrini: her ekranın kendi iki etiketi (ekran sırası = vitrindeki sıra) */
           screenChips: [
             ["Fiyat panelde değişir", "CSV ile toplu aktarım"],

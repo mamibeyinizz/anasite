@@ -457,7 +457,7 @@ body.qrmo-v3 .qrmo-mod-textlink { font-size: 16px; }
 /* Hero: daha dikkat çekici başlık, giriş ve çağrı (alt çizgi yok) */
 .qrmo-v3-accent { color: var(--qm-gold-ink); }
 body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-h1 { max-width: 12ch; font-weight: 800; letter-spacing: -.04em; }
-@media (min-width: 900px) { body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-h1 { font-size: clamp(48px, 6.4vw, 96px); line-height: 1.02; } }
+@media (min-width: 900px) { body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-h1 { font-size: clamp(36px, 3.7vw, 56px); line-height: 1.08; } }
 body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { color: var(--qm-ink); font-weight: 500; }
 body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-kicker { font-size: 13px; }
 body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-kicker > span:first-child { padding: 5px 12px; border-radius: 999px; background: var(--qm-ink); color: #f4e9c4; }
@@ -468,10 +468,19 @@ body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-h1,
 body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { max-width: none; }
 
 /* Ekrana özgü etiketler: ekranla birlikte girer/çıkar, sahnenin içinde kalır */
-.qrmo-v3-screen .qrmo-v3-chip { max-width: 190px; opacity: 0; transform: translateY(10px) scale(.96); transition: opacity .45s var(--v3-ease), transform .6s var(--v3-ease); }
+.qrmo-v3-screen .qrmo-v3-chip { max-width: 164px; opacity: 0; transform: translateY(10px) scale(.96); transition: opacity .45s var(--v3-ease), transform .6s var(--v3-ease); }
 .qrmo-v3-screen.is-active .qrmo-v3-chip { opacity: 1; transform: none; transition-delay: .5s; }
 .qrmo-v3-screen.is-active .qrmo-v3-chip--b { transition-delay: .8s; }
 /* a: sağ üst (uygulama çubuğunun boş tarafı), b: sol alt; ürün içeriğini kapatmaz */
-.qrmo-v3-screen .qrmo-v3-chip--a { top: 3%; right: 0; left: auto; bottom: auto; }
-.qrmo-v3-screen .qrmo-v3-chip--b { bottom: 4%; left: 0; right: auto; top: auto; }
+.qrmo-v3-screen .qrmo-v3-chip--a { top: 3%; right: -12px; left: auto; bottom: auto; }
+.qrmo-v3-screen .qrmo-v3-chip--b { bottom: 6%; left: -12px; right: auto; top: auto; }
 @media (prefers-reduced-motion: reduce) { .qrmo-v3-screen .qrmo-v3-chip { transition: none; animation: none; } }
+
+/* Hero tipografi hiyerarşisi: başlık > giriş > liste > bağlantı */
+@media (min-width: 900px) {
+  body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { font-size: clamp(17px, 1.3vw, 20px); line-height: 1.6; }
+}
+.qrmo-v3-points { display: grid; gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+.qrmo-v3-points li { display: flex; align-items: center; gap: 12px; color: var(--qm-ink); font-size: clamp(15px, 1.15vw, 17px); font-weight: 700; line-height: 1.35; }
+.qrmo-v3-pt-ico { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 11px; background: rgba(201, 168, 76, .18); border: 1px solid var(--qm-gold-line); color: var(--qm-gold-ink); }
+.qrmo-v3-pt-ico svg { width: 20px; height: 20px; }
