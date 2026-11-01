@@ -206,6 +206,12 @@ function frame(f) {
       return `<div class="qm-win${th}"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title)}</span>${f.badge ? `<em class="qm-pill qm-pill--demo">${esc(f.badge)}</em>` : ""}</div><div class="qm-win-body">${blocks(f.blocks)}</div></div>`;
     case "card":
       return `<div class="qm-card">${blocks(f.blocks)}</div>`;
+    case "shot": {
+      const img = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
+      return f.kind === "phone"
+        ? `<div class="qm-phone qm-phone--shot">${img}</div>`
+        : `<div class="qm-win qm-win--shot"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title || "")}</span></div>${img}</div>`;
+    }
     case "scene":
       return `<div class="qm-scene qm-scene--${f.layout}">${join(f.items, (it, i) => `<div class="qm-si qm-si${i + 1}">${frame(it)}${it.label ? `<span class="qm-si-label">${esc(it.label)}</span>` : ""}</div>`)}</div>`;
     default:
@@ -224,6 +230,11 @@ function figure(spec, { caption = MOD.mockCaptionShort || "Temsili arayüz · ö
 /* =========================================================
    MODÜL İŞARETİ (hub kartları, ilgili modüller) — dekoratif mini çizim
 ========================================================= */
+
+/* Gerçek ürün ekran görüntüsü (WebP). Alt metni yalnızca anlamlı görseller için yazılır. */
+function realImg(i, cls) {
+  return `<span class="${cls}"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="${esc(i.alt || "")}" loading="lazy" decoding="async"></span>`;
+}
 
 function cue(key) {
   const inner = {
@@ -868,17 +879,17 @@ function devicesOf(m) {
   return out;
 }
 const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "Sizin yönetim ekranınız", card: "Basılı çıktı" };
-const deviceCap = (d) => d.label || DEVICE_CAP[d.frame] || "Örnek ekran";
+const deviceCap = (d) => d.label || DEVICE_CAP[d.kind || d.frame] || "Örnek ekran";
 
 function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneFirst = false }) {
   const devs = devicesOf(m);
   if (!devs.length) return "";
-  const start = phoneFirst ? Math.max(0, devs.findIndex((d) => d.frame === "phone")) : 0;
+  const start = phoneFirst ? Math.max(0, devs.findIndex((d) => (d.kind || d.frame) === "phone")) : 0;
   const sid = `qrmo-v3-${id}`;
   return `<div class="qrmo-v3-show" data-v3-show="${mode}"${screenChips ? ' data-v3-max="1"' : ""} id="${sid}">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">${join(devs, (d, i) => `
-          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: temsili ekran ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
+          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.kind || d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: ${d.frame === "shot" && d.alt ? d.alt + ", ekran" : "temsili ekran"} ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
             <div class="qrmo-v3-fit">${frame(d)}</div>${((screenChips && screenChips[i]) || []).slice(0, 2).map((c, k) => `
             <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[k]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
           </figure>`)}
@@ -888,7 +899,7 @@ function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneF
           <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi">${join(devs, (d, i) => `<button type="button" class="qrmo-v3-dot${i === start ? " is-active" : ""}" data-v3-dot="${i}" aria-label="${esc(`Ekran ${i + 1} / ${devs.length}: ${deviceCap(d)}`)}" aria-pressed="${i === start}"><i></i></button>`)}</div>
           <p class="qrmo-v3-live" data-v3-live aria-live="polite">${esc(deviceCap(devs[start]))}</p>
         </div>
-        <p class="qrmo-v3-note">${esc(MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
+        <p class="qrmo-v3-note">${esc(m.shotNote || MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
       </div>`;
 }
 
@@ -1217,14 +1228,14 @@ const SECTION = {
       <div class="qrmo-v3-map" data-v3-map>
         <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
         <div class="qrmo-v3-hub" data-v3-hub>
-          ${cue(m.cue)}
+          ${m.hubImg ? realImg(m.hubImg, "qrmo-v3-hub-img") : cue(m.cue)}
           <h3>${esc(m.name)}</h3>
           <p>${esc(m.tagline)}</p>
           <span class="qrmo-v3-meta">${ICON.check}<span>${esc(pk(m))}</span></span>
         </div>
         <ul class="qrmo-v3-spokes">${join(m.features, (f) => `
           <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
+            ${f.img ? realImg(f.img, "qrmo-v3-spoke-img") : `<span class="qrmo-v3-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>`}
             <span class="qrmo-v3-spoke-b"><strong>${esc(f.t)}</strong><span>${esc(f.d)}</span><span class="qrmo-v3-meta"><span>${esc(f.tag)}</span></span></span>
           </div></li>`)}
         </ul>
@@ -1233,7 +1244,7 @@ const SECTION = {
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
         return `
-        <li><a class="qrmo-mod-tile" href="../${rm.slug}/">${cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
+        <li><a class="qrmo-mod-tile${r.img ? " qrmo-mod-tile--img" : ""}" href="../${rm.slug}/">${r.img ? realImg(r.img, "qrmo-mod-tile-img") : cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
       })}
       </ul>${m.guides ? `
       <h3 class="qrmo-mod-guides-h">Karar vermeden önce okuyun</h3>
@@ -1308,7 +1319,7 @@ function renderModule(m, faqById) {
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",
-    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>'
+    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>' + ((m.pageClass || "").includes("qrmo-apple") ? '\n<link rel="stylesheet" href="../module-apple.css">\n<script defer src="../module-apple.js"></script>' : "")
   }) + `
 <body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">

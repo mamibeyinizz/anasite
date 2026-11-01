@@ -110,15 +110,18 @@
           ]
         },
         features: [
-          { ico: "list", tag: "Menü içeriği", t: "Ürün ve fiyatlar tek panelde", d: "Kategori, ürün, fiyat ve bilgileri panelden güncelleyin; yüzlerce ürünü CSV ile tek seferde yükleyin." },
-          { ico: "clock", tag: "Stok", t: "Tükendi ve servis saati", d: "Biten ürün etiketiyle kalır, sepete eklenemez; kahvaltı gibi menüler kendi saatinde açılır." },
-          { ico: "tag", tag: "Fiyat", t: "Porsiyon, ekstra ve kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” tanımlayın ya da iki ürünü tek fiyatla sunun." },
-          { ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
-          { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-urunler.webp", w: 2160, h: 860, alt: "Ürünler listesi: ürün adları, menüde göster ve tükendi anahtarları, kategoriler" }, ico: "list", tag: "Menü içeriği", t: "Ürün ve fiyatlar tek panelde", d: "Kategori, ürün, fiyat ve bilgileri panelden güncelleyin; yüzlerce ürünü CSV ile tek seferde yükleyin." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-tukenen.webp", w: 2160, h: 1160, alt: "Tükenen Ürünler ekranı: malzeme seçimi, manuel ve malzemeye bağlı tükenenler" }, ico: "clock", tag: "Stok", t: "Tükendi ve servis saati", d: "Biten ürün etiketiyle kalır, sepete eklenemez; kahvaltı gibi menüler kendi saatinde açılır." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-ekstra.webp", w: 2160, h: 1280, alt: "Ekstralar ve Ürün Rozetleri ekranı: sos ve ekstra grupları, fiyatları" }, ico: "tag", tag: "Fiyat", t: "Porsiyon, ekstra ve kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” tanımlayın ya da iki ürünü tek fiyatla sunun." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-kampanya.webp", w: 1040, h: 348, alt: "Kampanya görseli: menünün üstünde dönen kampanya bannerı" }, ico: "spark", tag: "Kampanya", t: "Kampanya ve rozetler", d: "Toplu indirim uygulayın, kaldırınca fiyatlar eskisine döner; Popüler, Yeni gibi rozetler ekleyin." },
+          { img: { src: "../../assets/modules/restoran-menu/ozellik-alerjen.webp", w: 780, h: 440, alt: "Ürün detayı: öneri, glütensiz, acılık, süre, kalori ve besin değerleri" }, ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
         hideCrumbs: true,
+        hubImg: { src: "../../assets/modules/restoran-menu/hub-menu.webp", w: 780, h: 1000, alt: "Misafirin telefonunda açılan menü: kampanya görseli, arama ve öneri listesi" },
+        shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
+        pageClass: "qrmo-apple",
         notesSection: true,
-        v3Order: ["hero", "gaps", "answer", "flow", "details", "related", "closing"],
+        v3Order: ["hero", "answer", "gaps", "flow", "details", "related", "closing"],
         cta: {
           primary: { label: "Demo talep edin", path: "iletisim/#talep" },
           secondary: { label: "Canlı menüyü görün", path: "canli-menu/" }
@@ -184,21 +187,8 @@
             frame: "scene", layout: "duo",
             alt: "Temsili arayüz: solda ürün düzenleme ekranında Mercimek Çorbası’nın fiyatı, kategorisi, alerjeni ve rozetleri; sağda aynı ürünün müşteri telefonundaki menüde görünümü.",
             items: [
-              { frame: "window", theme: "light", title: "Ürünler › Ürün düzenle", blocks: [
-                { b: "head", title: "Mercimek Çorbası", badge: "Yayında" },
-                { b: "fields", items: [{ l: "Fiyat (₺)", v: "95" }, { l: "Kategori", v: "Çorbalar" }, { l: "Kalori (kcal)", v: "180" }, { l: "Hazırlanış (dk)", v: "10" }] },
-                { b: "chips", label: "Alerjenler", items: ["Glüten", "Süt / Laktoz", "Kereviz", "Hardal"], on: [2] },
-                { b: "toggles", items: [{ l: "Popüler", on: true }, { l: "Vegan", on: true }, { l: "Tükendi", on: false }] },
-                { b: "btns", items: ["Önizle", "Güncelle"], solid: 1 }
-              ] },
-              { frame: "phone", theme: "light", blocks: [
-                { b: "appbar", title: "Menü", sub: "Masa 12" },
-                { b: "search", text: "Ürün ara…" },
-                { b: "tabs", items: ["Çorbalar", "Ana Yemek", "Tatlı"], on: 0 },
-                { b: "item", n: "Mercimek Çorbası", m: "180 kcal · 10 dk", p: "95 ₺", tag: "Popüler" },
-                { b: "item", n: "Ezogelin Çorbası", m: "Menüde kalır, sepete eklenemez", p: "85 ₺", tag: "Tükendi", off: true },
-                { b: "item", n: "Çorba + Pide", m: "İki ürün, tek fiyat", p: "120 ₺", tag: "Kombin" }
-              ] }
+              { frame: "shot", kind: "window", src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: ürün adı, fiyat, kategori ve ürün fotoğrafı", title: "Menü Yönetimi › Ürünü düzenle" },
+              { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-liste.webp", w: 780, h: 1560, alt: "menü listesi: kampanya görseli, arama, filtre ve kategoriler" }
             ]
           }
         },
@@ -227,22 +217,8 @@
             frame: "scene", layout: "pair",
             alt: "Temsili arayüz: müşteri telefonunda menü listesi (arama, filtre, rozet ve tükendi etiketi) ve Mercimek Çorbası’nın besin, alerjen ve porsiyon bilgisini gösteren ürün detayı.",
             items: [
-              { frame: "phone", theme: "light", blocks: [
-                { b: "appbar", title: "Menü", sub: "Masa 12" },
-                { b: "search", text: "Ürün ara…" },
-                { b: "btns", items: ["Filtrele", "Sırala"], hot: 1 },
-                { b: "tabs", items: ["Kahvaltı", "Çorbalar", "Tatlı"], on: 1 },
-                { b: "item", n: "Mercimek Çorbası", m: "180 kcal · 10 dk", p: "95 ₺", tag: "Popüler" },
-                { b: "item", n: "Ezogelin Çorbası", m: "Menüde kalır, sepete eklenemez", p: "85 ₺", tag: "Tükendi", off: true, hot: 2 },
-                { b: "item", n: "Yayla Çorbası", m: "210 kcal · 12 dk", p: "90 ₺", tag: "Yeni" }
-              ] },
-              { frame: "phone", theme: "light", blocks: [
-                { b: "detail", n: "Mercimek Çorbası", c: "Çorbalar", p: "95 ₺", hot: 3,
-                  rows: [{ l: "Kalori", v: "180 kcal" }, { l: "Gramaj", v: "300 g" }, { l: "Protein", v: "9 g" }, { l: "Hazırlanış", v: "10 dk" }, { l: "Acılık", v: "Acısız" }],
-                  tags: ["Vegan", "Alerjen: Kereviz"] },
-                { b: "chips", label: "Porsiyon", items: ["Normal", "Büyük +40 ₺"], on: [0] },
-                { b: "chips", label: "Ekstra", items: ["Ekstra ekmek +10 ₺", "Limon"], on: [] }
-              ] }
+              { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-filtre.webp", w: 780, h: 1560, alt: "filtrele ve sırala paneli: sıralama ve alerjen seçenekleri" },
+              { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-urun-detay.webp", w: 780, h: 1560, alt: "ürün detayı: fotoğraf, fiyat, alerjen, kalori ve besin değerleri" }
             ]
           },
           callouts: [
@@ -319,9 +295,9 @@
           "Sepetle sipariş Pro paketindeki QR sipariş özelliğidir."
         ],
         related: [
-          { slug: "qr-masa", why: "Her masanın QR kodu bu menüye açılır." },
-          { slug: "akilli-filtreleme", why: "Menüdeki arama ve filtre paneli." },
-          { slug: "coklu-dil", why: "Menüyü misafirin dilinde sunun." }
+          { slug: "qr-masa", why: "Her masanın QR kodu bu menüye açılır.", img: { src: "../../assets/modules/restoran-menu/iliski-qr-masa.webp", w: 2160, h: 800, alt: "QR Kodlar ekranı: masa adları ve her masanın QR kodu" } },
+          { slug: "akilli-filtreleme", why: "Menüdeki arama ve filtre paneli.", img: { src: "../../assets/modules/restoran-menu/iliski-filtre.webp", w: 780, h: 1100, alt: "Misafir menüsünde Filtrele ve Sırala paneli" } },
+          { slug: "coklu-dil", why: "Menüyü misafirin dilinde sunun.", img: { src: "../../assets/modules/restoran-menu/iliski-dil.webp", w: 780, h: 1100, alt: "Misafir menüsünde dil seçici: Türkçe, English, Deutsch ve diğer diller" } }
         ],
         guides: [
           { path: "blog/qr-menu-nedir/", t: "QR Menü Nedir? Restoran ve Kafeler İçin Kapsamlı Rehber", d: "QR menünün nasıl çalıştığını ve nelere dikkat edileceğini okuyun." },

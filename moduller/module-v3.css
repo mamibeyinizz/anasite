@@ -484,3 +484,10 @@ body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { max-width: none; }
 .qrmo-v3-points li { display: flex; align-items: center; gap: 12px; color: var(--qm-ink); font-size: clamp(15px, 1.15vw, 17px); font-weight: 700; line-height: 1.35; }
 .qrmo-v3-pt-ico { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 11px; background: rgba(201, 168, 76, .18); border: 1px solid var(--qm-gold-line); color: var(--qm-gold-ink); }
 .qrmo-v3-pt-ico svg { width: 20px; height: 20px; }
+
+/* Gerçek ekran görüntüsü çerçeveleri (frame: "shot") */
+.qm-shot { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+.qrmo-v3-screen[data-kind="phone"] .qm-phone--shot { background: #0F1512; }
+.qrmo-v3-screen[data-kind="phone"] .qm-phone--shot .qm-shot { border-radius: 32px; }
+.qm-win--shot { overflow: hidden; background: #F4F1E8; }
+.qm-win--shot .qm-shot { border-bottom-left-radius: inherit; border-bottom-right-radius: inherit; }
