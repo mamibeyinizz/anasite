@@ -172,9 +172,24 @@
     padding-bottom: 12px;
   }
 
-  /* CTA ikincil stil (pilot: İç Görü): çerçeveli, etiket + ok bitişik, ortalı */
+  /* CTA ikincil stil (6 modül): çerçeveli, etiket + ok bitişik, ortalı */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta:link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta:link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:link,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:visited,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta:visited,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta:visited,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:visited,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:visited,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:visited {
     justify-content: center !important;
     gap: 8px;
@@ -184,25 +199,50 @@
     box-shadow: none;
   }
 
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:hover,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:active,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta:active,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta:active,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:active,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:active,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:active,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root a.qrmo-translation-v3-cta:focus-visible,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre a.qrmo-smart-filter-cta:focus-visible,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan a.qrmo-chatbot-feature__cta:focus-visible,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa a.qrmo-tables-v5__cta:focus-visible,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis a.qrmo-service-v2__cta:focus-visible,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:focus-visible {
     background: #0D2B22;
     color: #F4F1E8 !important;
   }
 
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-cta-text,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-cta-text,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__cta-text,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__cta-text,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta-text,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta-text {
     color: inherit;
     -webkit-text-fill-color: currentColor;
     flex: 0 0 auto !important;
   }
 
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-smart-filter-cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-asistan .qrmo-chatbot-feature__cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-masa .qrmo-tables-v5__cta-arrow,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-servis .qrmo-service-v2__cta-arrow,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta-arrow {
     color: currentColor;
     stroke: currentColor;
     margin-left: 0 !important;
   }
 
-  #qrmo-home-icgoru .qrmo-cta-long { display: none; }
-  #qrmo-home-icgoru .qrmo-cta-short { display: inline; }
+  .qrmo-cta-long { display: none; }
+  .qrmo-cta-short { display: inline; }
 }
