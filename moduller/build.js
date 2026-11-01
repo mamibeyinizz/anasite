@@ -1277,6 +1277,7 @@ const SECTION = {
         </div>
         <ol class="qrmo-mod-tiers" aria-label="Paketlere göre ${esc(m.name)}">${tiers}
         </ol>
+        ${(MOD.site.assurances || []).length ? `<ul class="qrmo-mod-assure">${MOD.site.assurances.map((a) => `<li>${ICON.check}<span>${esc(a)}</span></li>`).join("")}</ul>` : ""}
         ${ctaRow(ctx.rel, "../", { dark: true, modulesLabel: m.modulesLabel, secondary: m.closing && m.closing.secondary, primary: m.closing && m.closing.primary })}
       </div>
     </div>

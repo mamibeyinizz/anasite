@@ -14,7 +14,7 @@
    henüz repoda yoktur; sahibi eklemelidir (bkz. README "Bilinçli olarak açık kalan konular").
 ========================================================= */
 
-export const UPDATED = "31 Ekim 2026";
+export const UPDATED = "1 Kasım 2026";
 
 export const PAGES = [
   {
@@ -211,6 +211,18 @@ export const PAGES = [
         html: `
 <p><a href="{rel}paketler/">Paketler sayfasındaki</a> fiyatlar ve özellik listeleri bilgilendirme amaçlıdır; değişebilir ve bağlayıcı bir teklif ya da sözleşme oluşturmaz. Paket kapsamı, ücret ve ödeme koşulları, hizmet başlamadan önce ayrıca netleştirilir.</p>
 <p>Modüllerin hangisinin açık olacağı seçtiğiniz pakete ve lisansa göre belirlenir.</p>`
+      },
+      {
+        id: "iptal-iade",
+        h2: "İptal ve iade",
+        html: `
+<ul>
+<li><strong>Aylık üyelik:</strong> Taahhüt yoktur. İstediğiniz zaman iptal edebilirsiniz; iptal, içinde bulunulan ödeme döneminin sonunda geçerli olur.</li>
+<li><strong>Yıllık üyelik:</strong> Kurulum ücreti alınmaz.</li>
+<li><strong>İade:</strong> Hizmetin başlamasından itibaren ilk 14 gün içinde iade talep edebilirsiniz. Abonelik bedeli iade edilir; sizin adınıza alınmış alan adı ve hosting için yapılan gerçek maliyet iade tutarından düşülür.</li>
+</ul>
+<p>İptal ve iade talebinizi <a href="{rel}iletisim/">iletişim sayfasındaki</a> kanallardan iletebilirsiniz. Tüketici sıfatıyla sahip olduğunuz yasal haklar bu şartlardan etkilenmez.</p>
+<!-- TODO (site sahibi): 14 günlük iade süresi ve alan adı/hosting düşümü ticari karardır; yasal cayma süresi ve B2B/tüketici ayrımı için hukuki inceleme yapın. İade yöntemi (havale/kart iadesi) ve süreyi ekleyin. -->`
       },
       {
         id: "gorseller",

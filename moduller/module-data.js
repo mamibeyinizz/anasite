@@ -43,6 +43,7 @@
       baseUrl: "https://qrmenuofficial.com",
       brand: "QR Menu Official",
       tagline: "Masadan servise dijital restoran sistemi.",
+      assurances: ["Aylık üyelikte taahhüt yok, istediğiniz zaman iptal", "İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)", "Yıllık üyelikte kurulum ücreti yok"],
       pricingLabel: "Paketleri İnceleyin",
       modulesLabel: "Diğer modülleri görün"
     },
