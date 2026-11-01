@@ -25,6 +25,8 @@
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
 <script defer src="../module-v3.js"></script>
+<link rel="stylesheet" href="../module-apple.css">
+<script defer src="../module-apple.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"Restoran Menü","item":"https://qrmenuofficial.com/moduller/restoran-menu/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/restoran-menu/#webpage","url":"https://qrmenuofficial.com/moduller/restoran-menu/","name":"Restoran ve Kafe İçin QR Menü Programı","description":"Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/restoran-menu/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/restoran-menu/#app","name":"QR Menu Official — Restoran Menü","description":"Fiyat, stok, alerjen, porsiyon ve kampanyayı tek panelden yönetin; menü baskısız güncel kalsın, misafir telefonunda arasın ve filtrelesin. Tüm paketlerde.","url":"https://qrmenuofficial.com/moduller/restoran-menu/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/restoran-menu/#faq","mainEntity":[{"@type":"Question","name":"QR menüde ürün nasıl eklenir?","acceptedAnswer":{"@type":"Answer","text":"Yönetim panelinde kategori seçilir veya oluşturulur; ardından ürün kartına ad, açıklama, fiyat ve isteğe bağlı alerjen, görsel gibi alanlar girilir. Kaydettiğiniz anda dijital menüde görünür (gizli veya tükendi işaretli değilse). Restoran Menü modülünde adım adım anlatılır."}},{"@type":"Question","name":"QR menüde fiyat nasıl değiştirilir?","acceptedAnswer":{"@type":"Answer","text":"Ürünün paneldeki fiyat alanı güncellenir; baskı menüye gerek kalmadan müşteri yeni fiyatı görür. Porsiyon ve ekstra farkları ayrı tanımlanabilir; kampanya veya indirim rozetleri de panelden yönetilir."}},{"@type":"Question","name":"Tükenen ürün menüde nasıl gösterilir?","acceptedAnswer":{"@type":"Answer","text":"Ürün panelde tükendi olarak işaretlenebilir; menüde görünür kalır ancak sepete eklenemez ve müşteriye uygun etiket gösterilir. İsterseniz ürünü tamamen gizleyerek menüden kaldırabilirsiniz."}},{"@type":"Question","name":"Menüye CSV ile ürün aktarılabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Ürün listesi noktalı virgül veya virgül ayraçlı CSV ile toplu yüklenebilir; aynı başlık ve kategori anahtarıyla eşleşen satırlar güncellenir, yeni satırlar eklenir. Geçersiz fiyatlı satırlar atlanır; sonuç ekranında kaç kaydın eklendiği veya güncellendiği bildirilir."}},{"@type":"Question","name":"QR menüde alerjen bilgileri gösterilebilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Ürünlere tanımlı alerjenler menüde gösterilebilir; bilgi tamamen sizin girdiğiniz veriye dayanır. Yanlış veya eksik alerjen riski için mutfak ve menü verinizi düzenli güncellemeniz gerekir."}},{"@type":"Question","name":"QR menü kullanmak için uygulama gerekir mi?","acceptedAnswer":{"@type":"Answer","text":"Müşteri tarafında uygulama indirmek gerekmez. Menü, telefonun kamerası veya QR okuyucusuyla tarayıcıda açılır. İşletme tarafında yönetim WordPress yönetim paneli üzerinden yapılır; servis ekibi için ayrı servis paneli ekranı kullanılır."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -37,7 +39,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3 qrmo-apple">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -271,6 +273,15 @@
     </div>
   </section>
 
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-intro" aria-labelledby="qrmo-mod-ans-h">
+    <div class="qrmo-mod-inner">
+      <div class="qrmo-v3-narrow">
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-ans-h">Restoran Menü modülü nedir?</h2>
+        <p class="qrmo-v3-p">Restoran Menü, QR Menu Official’ın menü yönetim modülüdür. Restoran veya kafe sahibi kategori, ürün, fiyat, alerjen, porsiyon ve kampanyayı tek panelden yönetir; misafir masadaki QR kodu okutur ve güncel menüyü uygulama indirmeden telefonunun tarayıcısında açar.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
     <div class="qrmo-mod-inner">
       <header class="qrmo-v3-head">
@@ -293,15 +304,6 @@
       </ul>
       <div class="qrmo-v3-sec-cta">
         <a class="qrmo-mod-cta" href="../../iletisim/#talep"><span>Menünüz için demo talep edin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-intro" aria-labelledby="qrmo-mod-ans-h">
-    <div class="qrmo-mod-inner">
-      <div class="qrmo-v3-narrow">
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-ans-h">Restoran Menü modülü nedir?</h2>
-        <p class="qrmo-v3-p">Restoran Menü, QR Menu Official’ın menü yönetim modülüdür. Restoran veya kafe sahibi kategori, ürün, fiyat, alerjen, porsiyon ve kampanyayı tek panelden yönetir; misafir masadaki QR kodu okutur ve güncel menüyü uygulama indirmeden telefonunun tarayıcısında açar.</p>
       </div>
     </div>
   </section>

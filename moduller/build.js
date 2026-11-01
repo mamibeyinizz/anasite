@@ -1308,7 +1308,7 @@ function renderModule(m, faqById) {
     title: `${m.seo.title} | ${MOD.site.brand}`, description: m.seo.description, url,
     breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", MOD.site.baseUrl + "/moduller/"], [m.name, url]],
     cssPath: "../module-page.css",
-    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>'
+    extraHead: '<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>\n<link rel="stylesheet" href="../module-v3.css">\n<script>document.documentElement.classList.add("v3-js")</script>\n<script defer src="../module-page.js"></script>\n<script defer src="../module-v3.js"></script>' + ((m.pageClass || "").includes("qrmo-apple") ? '\n<link rel="stylesheet" href="../module-apple.css">\n<script defer src="../module-apple.js"></script>' : "")
   }) + `
 <body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3${m.pageClass ? " " + m.pageClass : ""}"${m.designV2 ? ' id="mod-v2-prototype"' : ""}>
 <main id="icerik" class="qrmo-mod" tabindex="-1">

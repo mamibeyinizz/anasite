@@ -117,8 +117,9 @@
           { ico: "filter", tag: "Misafir tarafı", t: "Alerjen, kalori ve filtre", d: "Ürün detayında 14 alerjen ve besin bilgisi görünür; misafir arar, filtreler, sıralar." }
         ],
         hideCrumbs: true,
+        pageClass: "qrmo-apple",
         notesSection: true,
-        v3Order: ["hero", "gaps", "answer", "flow", "details", "related", "closing"],
+        v3Order: ["hero", "answer", "gaps", "flow", "details", "related", "closing"],
         cta: {
           primary: { label: "Demo talep edin", path: "iletisim/#talep" },
           secondary: { label: "Canlı menüyü görün", path: "canli-menu/" }
