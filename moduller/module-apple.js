@@ -49,7 +49,7 @@
 
   /* Bölüm girişleri */
   if ("IntersectionObserver" in window) {
-    var targets = [].slice.call(document.querySelectorAll(".qrmo-v3-head, .qrmo-v3-flow-head, .qrmo-v3-pain, .qrmo-v3-hub, .qrmo-v3-spokes > li, .qrmo-v3-sec-cta, .qrmo-v3-fcard, .qrmo-v3-faqhead, .qrmo-v3-qa, .qrmo-mod-close"));
+    var targets = [].slice.call(document.querySelectorAll(".qrmo-v3-head, .qrmo-v3-flow-head, .qrmo-v3-pain, .qrmo-v3-hub, .qrmo-v3-spokes > li, .qrmo-v3-sec-cta, .qrmo-v3-fcard, .qrmo-v3-faqhead, .qrmo-v3-qa, .qrmo-mod-close, .qrmo-ap-cta-panel"));
     var seen = new Map();
     var io = new IntersectionObserver(function (en) {
       en.forEach(function (e) {
