@@ -160,8 +160,7 @@
             { now: "Kampanya başlatmak da geri almak da zahmetli.", next: "Toplu indirim uygularsınız; kaldırdığınızda fiyatlar eskisine döner." },
             { now: "Yüzlerce ürünü tek tek girmek günler alıyor.", next: "Ürünleri tabloda hazırlar, CSV ile tek seferde yüklersiniz." },
             { now: "Misafir uzun menüde aradığını bulamıyor.", next: "Arama, alerjen–kalori–fiyat filtresi ve sıralama menüyle birlikte gelir." }
-          ],
-          cta: { label: "Menünüz için demo talep edin", path: "iletisim/#talep", note: "Menünüzdeki eksikleri birlikte gözden geçirelim." }
+          ]
         },
 
         hero: {

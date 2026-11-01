@@ -1028,7 +1028,9 @@ const SECTION = {
       </header>
       <ul class="qrmo-v3-pains">${join(rows, (r) => `
         <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">${pad(rows.indexOf(r) + 1)}</span>
           <p class="qrmo-v3-pain-now"><span>${esc(g.cols[0])}</span>${esc(r.now)}</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true">${ICON.arrow}</span>
           <p class="qrmo-v3-pain-fix"><span>${esc(g.cols[1])}</span>${esc(r.next)}</p>
         </li>`)}
       </ul>${g.cta ? `

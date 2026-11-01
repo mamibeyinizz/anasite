@@ -498,3 +498,5 @@ body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { max-width: none; }
   .qrmo-v3-hero { --v3-h: 400px; }
   .qrmo-v3-flow .qrmo-v3-show { --v3-h: 300px; }
 }
+
+.qrmo-v3-pain-n, .qrmo-v3-pain-arr { display: none; }
