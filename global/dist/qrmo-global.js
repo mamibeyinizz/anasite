@@ -184,6 +184,7 @@
   var VID_KEY = "qrmo_vid";
   var SID_KEY = "qrmo_sid";
   var SEEN_KEY = "qrmo_seen";
+  var BAR_KEY = "qrmo_bar_shown";
   var CTX_KEY = "qrmo_ctx";
   var VERSION = 1;
   var SESSION_IDLE_MS = 30 * 60 * 1000;
@@ -232,6 +233,14 @@
     try {
       ls.setItem(CONSENT_KEY, JSON.stringify({ v: VERSION, a: accepted, t: Date.now() }));
     } catch (e) {}
+  }
+
+  function barShown() {
+    try { return !!(ls && ls.getItem(BAR_KEY)); } catch (e) { return false; }
+  }
+
+  function markBarShown() {
+    try { if (ls) ls.setItem(BAR_KEY, String(Date.now())); } catch (e) {}
   }
 
   function hex32() {
@@ -512,7 +521,12 @@
     if (optedOutSignal() || !ls || !ss) return;
     var c = readConsent();
     if (c && c.a) start();
-    else if (!c) showBar();
+    else if (!c && !barShown()) {
+      /* Çerez bildirimi kullanıcıya yalnızca bir kez gösterilir; karar vermese bile tekrar çıkmaz.
+         Tercih, "Çerez Politikası" sayfasındaki bağlantıdan her zaman değiştirilebilir. */
+      markBarShown();
+      showBar();
+    }
   }
 
   if (doc.readyState === "loading") doc.addEventListener("DOMContentLoaded", init);
