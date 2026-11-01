@@ -121,7 +121,7 @@
         shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
         notesSection: true,
-        v3Order: ["hero", "answer", "gaps", "flow", "details", "related", "closing"],
+        v3Order: ["hero", "gaps", "flow", "details", "related", "closing"],
         cta: {
           primary: { label: "Demo talep edin", path: "iletisim/#talep" },
           secondary: { label: "Canlı menüyü görün", path: "canli-menu/" }
