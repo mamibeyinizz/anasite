@@ -180,3 +180,57 @@ body.qrmo-apple .qrmo-v3-step p { font-size: clamp(15px, 1.2vw, 17px); color: rg
   body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: start; }
   body.qrmo-apple .qrmo-v3-steps { align-content: center; min-height: min(600px, calc(100dvh - var(--qrmo-gh-h, 76px) - 96px)); position: sticky; top: var(--v3-sticky); }
 }
+
+/* ---------- Eksiği görün: sol satırlar + sağda sabit gerçek ekran + satır içi canlı kanıt ---------- */
+.qrmo-v3-proof { display: none; }
+body.qrmo-apple .qrmo-v3-proof { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 18px; color: var(--qm-ink); font-size: 14px; font-weight: 700; }
+body.qrmo-apple .pf-note { order: 9; margin-left: auto; color: var(--qm-muted); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+body.qrmo-apple .pf-side { display: grid; gap: 2px; min-width: 96px; padding: 8px 12px; border-radius: 12px; background: rgba(201, 168, 76, .14); }
+body.qrmo-apple .pf-side small { color: var(--qm-muted); font-size: 11px; font-weight: 700; }
+body.qrmo-apple .pf-swap { position: relative; display: block; height: 1.3em; overflow: hidden; font-size: 16px; font-variant-numeric: tabular-nums; }
+body.qrmo-apple .pf-swap i { position: absolute; inset: 0; font-style: normal; animation: pfOld 6s var(--v3-ease) infinite; }
+body.qrmo-apple .pf-swap i + i { color: var(--qm-gold-ink); animation-name: pfNew; }
+body.qrmo-apple .pf-sync { width: 28px; height: 2px; border-radius: 2px; background: var(--qm-gold); transform-origin: left; animation: pfLine 6s var(--v3-ease) infinite; }
+@keyframes pfOld { 0%, 30% { transform: none; opacity: 1; } 40%, 92% { transform: translateY(-110%); opacity: 0; } 100% { transform: none; opacity: 1; } }
+@keyframes pfNew { 0%, 30% { transform: translateY(110%); opacity: 0; } 40%, 92% { transform: none; opacity: 1; } 100% { transform: translateY(110%); opacity: 0; } }
+@keyframes pfLine { 0%, 30% { transform: scaleX(0); } 40%, 92% { transform: scaleX(1); } 100% { transform: scaleX(0); } }
+body.qrmo-apple .pf-item { display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 12px; background: rgba(201, 168, 76, .14); animation: pfDim 6s var(--v3-ease) infinite; }
+body.qrmo-apple .pf-tag { padding: 2px 8px; border-radius: 99px; background: var(--v3-forest); color: var(--qm-gold-light); font-size: 11px; font-style: normal; font-weight: 800; animation: pfTag 6s var(--v3-ease) infinite; }
+body.qrmo-apple .pf-btn { padding: 8px 14px; border-radius: 99px; background: var(--v3-forest); color: var(--qm-cream); font-size: 13px; animation: pfBtn 6s var(--v3-ease) infinite; }
+@keyframes pfTag { 0%, 25% { opacity: 0; transform: translateX(-6px) scale(.9); } 35%, 92% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes pfDim { 0%, 25% { opacity: 1; } 35%, 92% { opacity: .6; } 100% { opacity: 1; } }
+@keyframes pfBtn { 0%, 25% { opacity: 1; } 35%, 92% { opacity: .35; } 100% { opacity: 1; } }
+body.qrmo-apple .pf-chip { padding: 6px 12px; border-radius: 99px; background: rgba(201, 168, 76, .16); border: 1px solid var(--qm-gold-line); animation: pfChip 6s var(--v3-ease) infinite; animation-delay: calc(var(--k) * 260ms); }
+@keyframes pfChip { 0%, 6% { opacity: 0; transform: translateY(8px); } 16%, 90% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+
+@media (min-width: 900px) {
+  body.qrmo-apple .qrmo-v3-pains-wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+  body.qrmo-apple .qrmo-v3-pains-wrap .qrmo-v3-pain { grid-template-columns: 48px minmax(0, 1fr); gap: 10px 20px; padding-block: clamp(28px, 4vw, 56px); transition: opacity .5s var(--v3-ease); }
+  body.qrmo-apple .qrmo-v3-pains-wrap .qrmo-v3-pain > :not(.qrmo-v3-pain-n) { grid-column: 2; }
+  body.qrmo-apple .qrmo-v3-pains-wrap .qrmo-v3-pain-n { grid-row: 1 / span 4; }
+  body.qrmo-apple .qrmo-v3-pains-wrap .qrmo-v3-pain-arr { display: none; }
+  body.qrmo-apple .qrmo-v3-pains-wrap .qrmo-v3-pain:not(.is-active) { opacity: .42; }
+  body.qrmo-apple .qrmo-v3-pains-stage {
+    position: sticky; top: var(--v3-sticky); height: min(600px, calc(100dvh - var(--qrmo-gh-h, 76px) - 96px)); overflow: hidden; border-radius: 28px;
+    background: radial-gradient(30rem 20rem at 70% 10%, rgba(201, 168, 76, .22), rgba(201, 168, 76, 0) 70%), #F0EBDC; box-shadow: 0 40px 70px -50px rgba(13, 43, 34, .55);
+  }
+  body.qrmo-apple .qrmo-v3-pains-img { position: absolute; inset: 0; width: 100%; height: 100%; padding: clamp(16px, 2vw, 28px); object-fit: contain; opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .6s var(--v3-ease), transform .8s var(--v3-ease); }
+  body.qrmo-apple .qrmo-v3-pains-img.is-active { opacity: 1; transform: none; }
+}
+@media (max-width: 899px) {
+  body.qrmo-apple .qrmo-v3-pains-stage { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.qrmo-apple .qrmo-v3-proof * { animation: none !important; }
+  body.qrmo-apple .pf-swap i:first-child { opacity: 0; }
+  body.qrmo-apple .pf-swap i + i { transform: none; opacity: 1; }
+  body.qrmo-apple .pf-sync { transform: none; }
+  body.qrmo-apple .pf-tag, body.qrmo-apple .pf-chip { opacity: 1; transform: none; }
+  body.qrmo-apple .qrmo-v3-pains-img { transition: none; }
+}
+
+/* Kanıt etiketleri: satır etiketi stilinden etkilenmesin */
+body.qrmo-apple .qrmo-v3-proof span, body.qrmo-apple .qrmo-v3-proof small, body.qrmo-apple .qrmo-v3-proof em { margin-bottom: 0; text-transform: none; letter-spacing: 0; }
+body.qrmo-apple .qrmo-v3-proof .pf-note { text-transform: uppercase; letter-spacing: .12em; }
+body.qrmo-apple .qrmo-v3-proof .pf-side small { font-size: 11px; }
+body.qrmo-apple .qrmo-v3-pains-wrap .qrmo-v3-pain-fix { margin-top: 14px; }
