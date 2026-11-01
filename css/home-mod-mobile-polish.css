@@ -2,6 +2,9 @@
    hafif gölge, vurgu bandı yok. Tablet/masaüstü etkilenmez.
    Sıra: tüm home-mod-* dosyalarından sonra yüklenir. */
 
+/* Kısa CTA etiketi yalnızca mobilde görünür (masaüstü/tablet değişmez) */
+.qrmo-cta-short { display: none; }
+
 @media (max-width: 767px) {
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-translation-v3-root .qrmo-translation-v3-benefit-icon,
   html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-filtre .qrmo-benefit-check,
@@ -168,4 +171,38 @@
     padding-top: 12px;
     padding-bottom: 12px;
   }
+
+  /* CTA ikincil stil (pilot: İç Görü): çerçeveli, etiket + ok bitişik, ortalı */
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:link,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:visited {
+    justify-content: center !important;
+    gap: 8px;
+    background: transparent;
+    color: #0D2B22 !important;
+    border: 1.5px solid #0D2B22 !important;
+    box-shadow: none;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:hover,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:active,
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru a.qrmo-analytics-v3__cta:focus-visible {
+    background: #0D2B22;
+    color: #F4F1E8 !important;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta-text {
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+    flex: 0 0 auto !important;
+  }
+
+  html.qrmo-mod-story-v4 .qrmo-home-mod-zone #qrmo-home-icgoru .qrmo-analytics-v3__cta-arrow {
+    color: currentColor;
+    stroke: currentColor;
+    margin-left: 0 !important;
+  }
+
+  #qrmo-home-icgoru .qrmo-cta-long { display: none; }
+  #qrmo-home-icgoru .qrmo-cta-short { display: inline; }
 }
