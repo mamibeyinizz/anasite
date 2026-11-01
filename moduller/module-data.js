@@ -168,6 +168,13 @@
           accent: "her an güncel.",
           lead: "Fiyat, stok ve ürün bilgisini panelde değiştirin; misafir QR kodu okutunca güncel menüyü telefonunda görsün. Baskı yok, PDF yenileme yok.",
           proof: ["Tükendi ve servis saati etiketleri", "Porsiyon, ekstra ve kombin", "CSV ile toplu aktarım"],
+          /* Hero vitrini: her ekranın kendi iki etiketi (ekran sırası = vitrindeki sıra) */
+          screenChips: [
+            ["Fiyat panelde değişir", "CSV ile toplu aktarım"],
+            ["QR okutunca menü açılır", "Uygulama indirmek gerekmez"],
+            ["Arama, filtre ve sıralama", "Biten ürün Tükendi etiketiyle kalır"],
+            ["Alerjen ve besin bilgisi", "Porsiyon, ekstra ve kombin"]
+          ],
           visual: {
             frame: "scene", layout: "duo",
             alt: "Temsili arayüz: solda ürün düzenleme ekranında Mercimek Çorbası’nın fiyatı, kategorisi, alerjeni ve rozetleri; sağda aynı ürünün müşteri telefonundaki menüde görünümü.",
