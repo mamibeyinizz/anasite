@@ -136,15 +136,24 @@
         hideCrumbs: true,
         /* "Tüm özellikler" 8'li kart ızgarası (groups listesinin kısa özeti) */
         featureGrid: [
-          { ico: "list", t: "Kategori ve ürünler", d: "Bölümleri ve ürünleri panelden ekler, düzenler, gizlersiniz." },
-          { ico: "form", t: "Ürün bilgileri", d: "Kalori, gramaj, besin değerleri, hazırlanış süresi ve acılık." },
-          { ico: "shield", t: "Alerjen ve malzeme", d: "14 hazır alerjen tanımı; malzemeleri ayrıca tanımlarsınız." },
-          { ico: "tag", t: "Porsiyon, ekstra, kombin", d: "“Büyük +40 ₺”, “sos +10 ₺” ve tek fiyatlı kombin ürün." },
-          { ico: "clock", t: "Tükendi ve servis saati", d: "Biten ürün etiketle kalır; kategoriye saat kuralı yazılır." },
-          { ico: "spark", t: "Kampanya ve rozetler", d: "Geri alınabilir toplu indirim; Popüler, Yeni gibi rozetler." },
-          { ico: "filter", t: "Arama, filtre, sıralama", d: "Misafir alerjen, kalori ve fiyata göre filtreler, sıralar." },
-          { ico: "download", t: "Aktarma, yedek, görünüm", d: "CSV aktarım, JSON yedek ve 5 hazır renk paleti." }
+          { ico: "list", t: "Kategori ve ürünler", d: "Menünüzü panelden kurar, düzenler, gizlersiniz; misafir her değişikliği baskısız görür.",
+            pts: ["Kategori ve ürün ekleyin; kategori sırasını siz belirleyin", "Göster/Gizle ile ürünü menüden kaldırın, istediğinizde geri açın", "Fotoğraf, kısa özet ve uzun açıklama ekleyin", "Öne çıkan ürünleri menünün üstünde kaydırmalı alanda gösterin", "Menüyü kısa kod ya da Elementor bileşeniyle sayfanıza yerleştirin"] },
+          { ico: "form", t: "Ürün bilgileri", d: "Misafirin garsona sorduğu şeyleri ürün detayına yazarsınız; bilgileri siz girersiniz, menü olduğu gibi gösterir.",
+            pts: ["Kalori, protein, karbonhidrat, yağ ve gramaj", "Hazırlanış süresi ve 5 kademeli acılık (Acısız’dan Çok Acı’ya)", "Et menşei, alkol ve domuz türevi uyarıları", "Vegan, vejetaryen, glütensiz ve şekersiz etiketleri"] },
+          { ico: "shield", t: "Alerjen ve malzeme", d: "14 hazır alerjen tanımı gelir; malzemeleri ayrıca tanımlarsınız.",
+            pts: ["Glüten, süt, yumurta, fındık, yer fıstığı, soya, balık, kabuklu deniz ürünleri, susam, kereviz, hardal, lupin, kükürt dioksit, yumuşakça", "Her ürüne birden fazla alerjen atayın; ürün detayında ikonlu etiket olarak görünür", "Malzemeleri ayrı tanımlayın; stok durumunu malzemeye bağlayın"] },
+          { ico: "tag", t: "Porsiyon, ekstra, kombin", d: "Tek taban fiyat, üstüne eklenen seçenekler: fiyat değişince hepsi birlikte güncellenir.",
+            pts: ["Porsiyon taban fiyata fark olarak eklenir: “Büyük +40 ₺”", "Soslar, İçecekler gibi ekstra gruplarını bir kez tanımlayıp birçok üründe kullanın; fiyatı tek yerden güncelleyin", "Yalnızca tek ürüne ait ekstra satırı da ekleyebilirsiniz", "İki ürünü tek fiyatlı kombin olarak sunun"] },
+          { ico: "clock", t: "Tükendi ve servis saati", d: "Biten ya da saati gelmemiş ürün menüden kaybolmaz; etiketle görünür, sipariş akışı kapanır.",
+            pts: ["Tükenen ürün etiketle kalır, sepete eklenemez", "Tükendi’yi belirlediğiniz saatte otomatik olarak yeniden satışa açın", "Bir malzeme biterse onu içeren ürünler birlikte tükendi olur", "Kategoriye gün ve saat yazın (ör. kahvaltı 07:00–11:00, hafta içi); saat dışında ürün “Servis dışı” etiketi alır, tek ürün için kuralı değiştirebilirsiniz"] },
+          { ico: "spark", t: "Kampanya ve rozetler", d: "Fiyat ve vitrin işlerini tek yerden yönetirsiniz.",
+            pts: ["Toplu indirim kayıtlı fiyata dokunmaz; kampanyayı kaldırınca fiyatlar anında eskisine döner", "Toplu zam da uygulayabilirsiniz; zam fiyata kalıcı yazılır", "Menünün üstünde dönen kampanya görselleri", "Popüler, Yeni, Önerilen, İndirimli rozetleri ve kendi tanımladığınız rozetler (ad, ikon, renk)"] },
+          { ico: "filter", t: "Arama, filtre, sıralama", d: "Uzun menüde misafir aradığını garsona sormadan bulur.",
+            pts: ["Menüde arama", "Vegan, vejetaryen, glütensiz, şekersiz ve rozet filtreleri; 300, 500, 700 kcal altı seçenekleri", "Seçtiği alerjeni içeren ürünleri listeden eler", "8 sıralama: Önerilen, A→Z, fiyat (artan, azalan), en proteinli, en az karbonhidratlı, en acı, en az acı"] },
+          { ico: "download", t: "Aktarma, yedek, görünüm", d: "Menüyü içeri alın, yedekleyin, markanıza uydurun.",
+            pts: ["CSV ile toplu ürün yükleme; örnek dosyayı panelden indirirsiniz", "Aynı dosyayı tekrar yüklemek ürünleri çoğaltmaz, günceller", "Menüyü JSON olarak yedekleyin ve geri yükleyin", "5 hazır renk paleti, renk seçici, yazı tipi ve kategori görünümü"] }
         ],
+        featureStats: [["14", "hazır alerjen"], ["8", "sıralama seçeneği"], ["5", "acılık kademesi"], ["24", "sütunluk CSV şablonu"], ["5", "hazır renk paleti"]],
         /* Müşteri yorumları: site sahibi gerçek müşteri olduklarını ve yayın izni alındığını bildirdi (CSV: qrmenu_restoran_menu_6_ornek_yorum). */
         reviews: [
                   {

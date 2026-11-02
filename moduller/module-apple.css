@@ -564,3 +564,17 @@ body.qrmo-apple .qrmo-v3-qa--feat p { padding: 0 40px 20px 52px; font-size: 15.5
   /* Sayfa genişliği: kapsayıcı header ile aynı; başlık üstte ortalı, liste 2 sütun (4+4). */
   body.qrmo-apple .qrmo-v3-qalist--feat { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 80px); align-items: start; }
 }
+
+/* Tüm özellikler: açıklama, rakam şeridi, madde listeleri */
+body.qrmo-apple .qrmo-v3-flead { max-width: 40rem; margin: 16px auto 0; color: var(--qm-text); font-size: 16px; line-height: 1.6; text-align: center; }
+body.qrmo-apple .qrmo-v3-flead a { color: var(--qm-gold-ink); font-weight: 800; text-decoration: none; }
+body.qrmo-apple .qrmo-v3-fstats { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 12px; margin: 0 0 clamp(24px, 3vw, 36px); padding: 0; list-style: none; }
+body.qrmo-apple .qrmo-v3-fstats li { display: inline-flex; align-items: baseline; gap: 8px; padding: 10px 16px; border-radius: 999px; background: rgba(201, 168, 76, .14); }
+body.qrmo-apple .qrmo-v3-fstats strong { color: var(--v3-forest); font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+body.qrmo-apple .qrmo-v3-fstats span { color: var(--qm-ink); font-size: 14px; font-weight: 600; }
+body.qrmo-apple .qrmo-v3-qa--feat .qrmo-v3-qa-body { padding: 0 40px 22px 52px; }
+body.qrmo-apple .qrmo-v3-qa--feat .qrmo-v3-qa-body p { margin: 0 0 12px; padding: 0; font-size: 15.5px; max-width: none; }
+body.qrmo-apple .qrmo-v3-qa-pts { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+body.qrmo-apple .qrmo-v3-qa-pts li { position: relative; padding-left: 22px; color: var(--qm-ink); font-size: 14.5px; line-height: 1.55; }
+body.qrmo-apple .qrmo-v3-qa-pts li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 10px; height: 6px; border-left: 2px solid var(--qm-gold-ink); border-bottom: 2px solid var(--qm-gold-ink); transform: rotate(-45deg) translateY(-2px); }
+@media (max-width: 639px) { body.qrmo-apple .qrmo-v3-qa--feat .qrmo-v3-qa-body { padding: 0 0 20px; } }
