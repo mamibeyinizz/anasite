@@ -104,7 +104,7 @@
       var sticky = getComputedStyle(dev).position === "sticky";
       /* Mobilde cihaz üstte sabit: odak çizgisi cihazın altındaki alanın üst üçte biri.
          Masaüstünde cihaz yanda: odak çizgisi görünümün ortası. */
-      return window.matchMedia("(min-width: 768px)").matches || !sticky ? vh * 0.5 : r.bottom + (vh - r.bottom) * 0.33;
+      return window.matchMedia("(min-width: 768px)").matches || !sticky || document.body.classList.contains("qrmo-apple") ? vh * 0.5 : r.bottom + (vh - r.bottom) * 0.33;
     }
 
     function update() {

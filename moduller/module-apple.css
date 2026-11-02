@@ -377,3 +377,19 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   .qrmo-v3-dot.is-active i { width: 18px; }
   body.qrmo-apple .qrmo-v3-flow-dev { padding-bottom: 6px; }
 }
+
+/* ---------- Mobil: telefon solda sabit, adımlar sağda akar ---------- */
+@media (max-width: 767px) {
+  body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: 150px minmax(0, 1fr); gap: 16px; align-items: start; }
+  body.qrmo-apple .qrmo-v3-flow-dev { order: -1; grid-column: 1; margin: 0; padding: 0; background: none; top: calc(var(--qrmo-gh-h, 76px) + 14px); align-self: start; }
+  body.qrmo-apple .qrmo-v3-flow-dev::after { display: none; }
+  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: 290px; max-width: none; }
+  .qrmo-v3-flow .qrmo-v3-glow { inset: 6% 0 14%; }
+  .qrmo-v3-dot { width: 20px; }
+  body.qrmo-apple .qrmo-v3-steps { gap: 0; grid-column: 2; }
+  body.qrmo-apple .qrmo-v3-step { min-height: 54vh; display: flex; flex-direction: column; justify-content: center; margin: 0; padding: 8px 0 8px 14px; }
+  body.qrmo-apple .qrmo-v3-step-n { font-size: 10.5px; letter-spacing: .1em; line-height: 1.5; }
+  body.qrmo-apple .qrmo-v3-step h3 { font-size: 18px; line-height: 1.25; }
+  body.qrmo-apple .qrmo-v3-step p { font-size: 14.5px; line-height: 1.55; }
+}
+@media (max-width: 767px) { body.qrmo-apple .qrmo-v3-step, body.qrmo-apple .qrmo-v3-step.is-active { border-left: 0; padding-left: 0; } }
