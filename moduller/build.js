@@ -986,6 +986,7 @@ const SECTION = {
           <h2 class="qrmo-v3-h2" id="qrmo-v3-flow-h">${esc(f.title)}</h2>
         </header>
         <div class="qrmo-v3-flow-grid">
+          <p class="qrmo-v3-fhint" aria-hidden="true">Kaydırın <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></p>
           <ol class="qrmo-v3-steps">${join(f.steps, (st, i) => {
             if (st.screen >= n) problems.push(`${m.slug}: flow adımı ${i + 1} ekran ${st.screen} yok (${n} ekran)`);
             return `
@@ -999,6 +1000,7 @@ const SECTION = {
           </ol>
           <div class="qrmo-v3-flow-dev">
             ${showcase(m, { mode: "ctrl", id: "flow" })}
+            <div class="qrmo-v3-fprog" aria-hidden="true"><span class="qrmo-v3-fprog-n"><b data-fprog-cur>01</b> / ${pad(f.steps.length)}</span><span class="qrmo-v3-fprog-bar"><i data-fprog-bar></i></span></div>
           </div>
         </div>
       </div>

@@ -57,19 +57,25 @@
     var fDots = [].slice.call(flowSec.querySelectorAll("[data-v3-dot]"));
     var fShow = flowSec.querySelector("[data-v3-show]");
     var fCur = -1;
+    var fBar = flowSec.querySelector("[data-fprog-bar]");
+    var fNum = flowSec.querySelector("[data-fprog-cur]");
     var ghVal = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 72;
     var ghH = function () { return ghVal; };
     var fRange = function () { return Math.max(1, flowSec.offsetHeight - fInner.offsetHeight); };
     var fPin = function () {
       if (!mqF.matches || !fSteps.length) return;
       var r = flowSec.getBoundingClientRect();
-      var p = clamp((ghH() - r.top) / fRange()) * fSteps.length;
+      var raw = clamp((ghH() - r.top) / fRange());
+      if (fBar) fBar.style.transform = "scaleX(" + raw.toFixed(3) + ")";
+      flowSec.classList.toggle("is-moved", raw > 0.04);
+      var p = raw * fSteps.length;
       var idx = Math.min(fSteps.length - 1, Math.floor(p));
       /* Sınırda gidip gelmeyi önle: komşu adıma geçmek için sınırı %12 aşmak gerekir */
       if (fCur > -1 && Math.abs(idx - fCur) === 1 && Math.abs(p - Math.max(idx, fCur)) < 0.12) return;
       if (idx === fCur) return;
       fCur = idx;
       fSteps.forEach(function (st, i) { st.classList.toggle("is-active", i === idx); });
+      if (fNum) fNum.textContent = (idx < 9 ? "0" : "") + (idx + 1);
       if (fShow && fShow.__v3) fShow.__v3.go(parseInt(fSteps[idx].getAttribute("data-v3-step"), 10) || 0);
     };
     var fTick = false;
