@@ -494,9 +494,8 @@ body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { max-width: none; }
 
 /* Mobil: telefon görüntüsü üstten kırpılır; sahne daha büyük ve okunur olur */
 @media (max-width: 639px) {
-  .qrmo-v3-screen[data-kind="phone"] .qm-phone--shot .qm-shot { aspect-ratio: 1 / 1.12; object-fit: cover; object-position: top center; }
-  .qrmo-v3-hero { --v3-h: 400px; }
-  .qrmo-v3-flow .qrmo-v3-show { --v3-h: 300px; }
+  .qrmo-v3-hero { --v3-h: 460px; }
+  .qrmo-v3-flow .qrmo-v3-show { --v3-h: 400px; }
 }
 
 .qrmo-v3-pain-n, .qrmo-v3-pain-arr { display: none; }

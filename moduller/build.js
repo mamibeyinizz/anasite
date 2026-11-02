@@ -207,7 +207,8 @@ function frame(f) {
     case "card":
       return `<div class="qm-card">${blocks(f.blocks)}</div>`;
     case "shot": {
-      const img = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
+      const base = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
+      const img = f.m ? `<picture><source media="(max-width: 639px)" srcset="${f.m.src}" width="${f.m.w}" height="${f.m.h}">${base}</picture>` : base;
       return f.kind === "phone"
         ? `<div class="qm-phone qm-phone--shot">${img}</div>`
         : `<div class="qm-win qm-win--shot"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title || "")}</span></div>${img}</div>`;
@@ -236,14 +237,6 @@ function realImg(i, cls) {
   const img = `<img src="${i.src}" width="${i.w}" height="${i.h}" alt="${esc(i.alt || "")}" loading="lazy" decoding="async">`;
   const pic = i.m ? `<picture><source media="(max-width: 899px)" srcset="${i.m.src}" width="${i.m.w}" height="${i.m.h}">${img}</picture>` : img;
   return `<span class="${cls}">${pic}</span>`;
-}
-
-/* Mobilde sabit cihaz yerine her adımın kendi dikey ekran görüntüsü (≤767px) */
-function stepShot(d) {
-  if (!d || d.frame !== "shot") return "";
-  const i = d.m || d;
-  return `
-              <span class="qrmo-v3-step-shot" aria-hidden="true"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="" loading="lazy" decoding="async"></span>`;
 }
 
 function cue(key) {
@@ -985,7 +978,7 @@ const SECTION = {
     const f = m.flow;
     const n = devicesOf(m).length;
     return `
-  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow style="--n:${f.steps.length}">
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">
@@ -997,9 +990,9 @@ const SECTION = {
             if (st.screen >= n) problems.push(`${m.slug}: flow adımı ${i + 1} ekran ${st.screen} yok (${n} ekran)`);
             return `
             <li class="qrmo-v3-step${i === 0 ? " is-active" : ""}" data-v3-step="${st.screen}" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}${st.who ? `<span class="qrmo-v3-step-who"> · ${esc(st.who)}</span>` : ""}</span>
-              <h3>${esc(st.t)}</h3>${stepShot(devicesOf(m)[st.screen])}
-              <p>${esc(st.d)}</p>${st.points ? `
+              <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}${st.who ? `<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>${esc(st.who)}</span>` : ""}</span>
+              <h3>${st.ms ? `<span class="qrmo-v3-dsk">${esc(st.t)}</span><span class="qrmo-v3-mob">${esc(st.ms.t)}</span>` : esc(st.t)}</h3>
+              <p>${st.ms ? `<span class="qrmo-v3-dsk">${esc(st.d)}</span><span class="qrmo-v3-mob">${esc(st.ms.d)}</span>` : esc(st.d)}</p>${st.points ? `
               <ul class="qrmo-v3-step-pts">${st.points.map((x) => `<li>${ICON.check}<span>${esc(x)}</span></li>`).join("")}</ul>` : ""}
             </li>`;
           })}

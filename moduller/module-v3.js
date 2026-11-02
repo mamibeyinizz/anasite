@@ -104,11 +104,13 @@
       var sticky = getComputedStyle(dev).position === "sticky";
       /* Mobilde cihaz üstte sabit: odak çizgisi cihazın altındaki alanın üst üçte biri.
          Masaüstünde cihaz yanda: odak çizgisi görünümün ortası. */
-      return window.matchMedia("(min-width: 768px)").matches || !sticky ? vh * 0.5 : r.bottom + (vh - r.bottom) * 0.33;
+      return window.matchMedia("(min-width: 768px)").matches || !sticky || document.body.classList.contains("qrmo-apple") ? vh * 0.5 : r.bottom + (vh - r.bottom) * 0.33;
     }
 
     function update() {
       raf = 0;
+      /* Mobil "sabitlenmiş sahne" (qrmo-apple): adım seçimini module-apple.js yönetir */
+      if (document.body.classList.contains("qrmo-apple") && window.matchMedia("(max-width: 767px)").matches) return;
       var y = focusY(), best = 0, bd = Infinity;
       steps.forEach(function (s, i) {
         var r = s.getBoundingClientRect();
