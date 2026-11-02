@@ -380,10 +380,10 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
 
 /* ---------- Mobil: telefon solda sabit, adımlar sağda akar ---------- */
 @media (max-width: 767px) {
-  body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: 150px minmax(0, 1fr); gap: 16px; align-items: start; }
+  body.qrmo-apple .qrmo-v3-flow-grid { align-items: start; }
   body.qrmo-apple .qrmo-v3-flow-dev { order: -1; grid-column: 1; margin: 0; padding: 0; background: none; top: calc(var(--qrmo-gh-h, 76px) + 14px); align-self: start; }
   body.qrmo-apple .qrmo-v3-flow-dev::after { display: none; }
-  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: 290px; max-width: none; }
+  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { max-width: none; }
   .qrmo-v3-flow .qrmo-v3-glow { inset: 6% 0 14%; }
   .qrmo-v3-dot { width: 20px; }
   body.qrmo-apple .qrmo-v3-steps { gap: 0; grid-column: 2; }
@@ -393,3 +393,27 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-step p { font-size: 14.5px; line-height: 1.55; }
 }
 @media (max-width: 767px) { body.qrmo-apple .qrmo-v3-step, body.qrmo-apple .qrmo-v3-step.is-active { border-left: 0; padding-left: 0; } }
+
+/* ---------- Mobil Nasıl çalışır: UX iyileştirmesi (v2) ---------- */
+@media (max-width: 767px) {
+  body.qrmo-apple .qrmo-v3-flow { --fw: clamp(158px, 43vw, 230px); }
+  body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: var(--fw) minmax(0, 1fr); gap: 14px; }
+  /* Telefon görünümün dikey ortasında sabit durur; metin onunla aynı hizada akar */
+  body.qrmo-apple .qrmo-v3-flow-dev { top: max(calc(var(--qrmo-gh-h, 72px) + 12px), calc(50dvh - var(--fw) - 28px)); }
+  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: calc(var(--fw) * 1.96); }
+  body.qrmo-apple .qrmo-v3-step { min-height: 50dvh; padding: 0; opacity: .3; transition: opacity .45s var(--v3-ease), transform .5s var(--v3-ease); transform: translateX(6px); }
+  body.qrmo-apple .qrmo-v3-step.is-active { opacity: 1; transform: none; }
+  body.qrmo-apple .qrmo-v3-step-n { display: block; margin-bottom: 8px; }
+  body.qrmo-apple .qrmo-v3-step-who { display: block; margin-top: 2px; letter-spacing: .08em; }
+  body.qrmo-apple .qrmo-v3-step h3 { font-size: 19px; margin-bottom: 8px; }
+  body.qrmo-apple .qrmo-v3-step p { font-size: 15px; color: rgba(244, 241, 232, .82); }
+  /* Noktalar: daha belirgin aktif durum, dokunma alanı korunur */
+  .qrmo-v3-flow .qrmo-v3-dot { width: 26px; height: 40px; }
+  .qrmo-v3-flow .qrmo-v3-dot.is-active i { background: rgba(244, 241, 232, .22); }
+  /* Cihaz altına mini ilerleme */
+  body.qrmo-apple .qrmo-v3-flow .qrmo-v3-glow { opacity: .8; }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) { body.qrmo-apple .qrmo-v3-step { transition: none; transform: none; } }
+
+.qrmo-v3-sep { font-style: normal; }
+@media (max-width: 767px) { .qrmo-v3-sep { display: none; } }

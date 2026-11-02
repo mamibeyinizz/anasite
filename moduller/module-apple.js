@@ -47,6 +47,22 @@
   window.addEventListener("resize", queue);
   update();
 
+  /* Nasıl çalışır (mobil): noktaya dokununca ilgili adıma kaydır */
+  var flowSec = document.querySelector(".qrmo-v3-flow");
+  if (flowSec) {
+    var fDots = [].slice.call(flowSec.querySelectorAll("[data-v3-dot]"));
+    var fSteps = [].slice.call(flowSec.querySelectorAll("[data-v3-step]"));
+    fDots.forEach(function (d, i) {
+      d.addEventListener("click", function () {
+        if (!window.matchMedia("(max-width: 767px)").matches) return;
+        var st = fSteps.filter(function (x) { return parseInt(x.getAttribute("data-v3-step"), 10) === i; })[0];
+        if (!st) return;
+        var r = st.getBoundingClientRect();
+        window.scrollTo({ top: window.scrollY + r.top + r.height / 2 - vh() * 0.5, behavior: "smooth" });
+      });
+    });
+  }
+
   /* Bölüm girişleri */
   if ("IntersectionObserver" in window) {
     var targets = [].slice.call(document.querySelectorAll(".qrmo-v3-head, .qrmo-v3-flow-head, .qrmo-v3-pain, .qrmo-v3-hub, .qrmo-v3-spokes > li, .qrmo-v3-sec-cta, .qrmo-v3-fcard, .qrmo-v3-faqhead, .qrmo-v3-qa, .qrmo-mod-close, .qrmo-ap-cta-panel"));
