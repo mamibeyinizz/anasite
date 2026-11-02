@@ -102,7 +102,7 @@
         faq: ["qrmo-faq-q-urun-nasil-eklenir", "qrmo-faq-q-fiyat-nasil-degistirilir", "qrmo-faq-q-tukendi-urun", "qrmo-faq-q-csv-aktarim", "qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-uygulama-gerekir-mi"],
         order: ["hero", "answer", "gaps", "story", "stage", "capabilities", "details", "related", "closing"],
         flow: {
-          title: "Menünüzü yönetin, misafir güncel halini görsün",
+          title: "Panelde değiştirin, masada görünsün.",
           steps: [
             { screen: 0, who: "SİZ · YÖNETİM PANELİ", t: "Panelde ürünü düzenleyin", d: "Fiyatı, kalorisini ve alerjenlerini yazın, kaydedin.", ms: { t: "Panelde düzenleyin", d: "Fiyat, kalori, alerjen: yazın, kaydedin." },  points: ["Ad, fiyat, kategori ve fotoğraf tek ekranda", "14 alerjen ve besin değerleri", "Yüzlerce ürünü CSV ile tek seferde yükleyin"] },
             { screen: 1, who: "MİSAFİR · TELEFON", t: "Misafir menüyü telefonunda açar", d: "QR kodu okutur; uygulama indirmeden güncel menüyü görür.", ms: { t: "Telefonda açılır", d: "QR’ı okutur, uygulama indirmez." },  points: ["Masadaki QR kodu okutması yeterli", "Uygulama indirmek gerekmez", "Her açılışta menünün güncel hali gelir"] },
@@ -259,7 +259,7 @@
             frame: "scene", layout: "duo",
             alt: "Temsili arayüz: solda ürün düzenleme ekranında Mercimek Çorbası’nın fiyatı, kategorisi, alerjeni ve rozetleri; sağda aynı ürünün müşteri telefonundaki menüde görünümü.",
             items: [
-              { frame: "shot", kind: "window", src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", m: { src: "../../assets/modules/restoran-menu/m-panel-urun-duzenle.webp", w: 990, h: 1854 }, w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: ürün adı, fiyat, kategori ve ürün fotoğrafı", title: "Menü Yönetimi › Ürünü düzenle" },
+              { frame: "shot", kind: "window", src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", m: { src: "../../assets/modules/restoran-menu/m-panel-urun-duzenle.webp", w: 990, h: 2080 }, w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: ürün adı, fiyat, kategori ve ürün fotoğrafı", title: "Menü Yönetimi › Ürünü düzenle" },
               { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-liste.webp", w: 780, h: 1560, alt: "menü listesi: kampanya görseli, arama, filtre ve kategoriler" }
             ]
           }
