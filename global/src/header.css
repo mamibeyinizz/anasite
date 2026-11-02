@@ -819,6 +819,13 @@ html:not(.qrmo-gh-js) .qrmo-gh-in > .qrmo-gh-cta {
   }
 }
 
+/* 961–1060: 15px/700 menü bağlantıları marka ile CTA arasına sığsın */
+@media (min-width: 961px) and (max-width: 1060px) {
+  .qrmo-gh-nav > ul {
+    gap: 8px;
+  }
+}
+
 @media (max-width: 960px) {
   .qrmo-gh {
     --qrmo-h: 78px;

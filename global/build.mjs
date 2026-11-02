@@ -28,7 +28,7 @@ const read = (p) => fs.readFileSync(path.join(here, p), "utf8");
 const write = (p, s) => fs.writeFileSync(path.join(here, p), s);
 
 fs.mkdirSync(path.join(here, "dist"), { recursive: true });
-write("dist/qrmo-global.css", `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.css) */\n${read("src/header.css")}\n${read("src/footer.css")}\n${read("src/consent.css")}`);
+write("dist/qrmo-global.css", `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.css) */\n${read("src/type-scale.css")}\n${read("src/type-scale-pages.css")}\n${read("src/header.css")}\n${read("src/footer.css")}\n${read("src/consent.css")}`);
 write(
   "dist/qrmo-conversion-config.js",
   `/* Üretilmiştir: node global/build.mjs — kaynak: global/nav-data.mjs */\nwindow.QRMO_CONVERSION=${JSON.stringify({ pending: CONVERSION_PENDING })};\n`

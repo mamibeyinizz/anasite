@@ -74,37 +74,34 @@ Kurallar:
 
 ### Font ailesi
 
-#### [Kesin] — Hero V3'ten doğrulanmış font stack
+**Manrope** — kendi sunucumuzdan (`assets/fonts/manrope-var-latin*.woff2`, değişken 200–800). Yığın:
 
 ```
-"Segoe UI", Roboto, Helvetica, Arial, sans-serif
+"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif
 ```
 
-Bu, Hero V3'te gövde ve başlıklarda kullanılan gerçek font stack'idir.
+Başka bir aile (serif dahil) resmi değildir; eklenmez.
 
-**Playfair Display veya başka bir editorial serif, resmi site fontu olarak tanımlanmamıştır.** Hero V3 kodunda serif font kullanımı yoktur; önceki taslakta yer alan "başlıklarda serif" varsayımı Hero V3 ile doğrulanmadığı için kaldırılmıştır ve resmi token değildir.
+### Tipografi ölçeği (bağlayıcı)
 
-- **Başlıklar ve gövde metni**: Yukarıdaki sans-serif stack, Hero V3'te hem başlık hem gövde için kullanılır. Ayrı bir başlık fontu (serif veya başka bir aile) şu an doğrulanmamıştır ve **[Varsayım — doğrulanmadı]** kabul edilir; yeni section'larda uydurulmaz.
+Tek kaynak `global/src/type-scale.css`. Rol başına sabit px + kalınlık; kırılımlar mobil ≤640, tablet 641–960, masaüstü ≥961. Tablo ve kullanım kuralları `CLAUDE.md` → "Yazı tipi ve tipografi ölçeği" bölümündedir ve aynen geçerlidir. Özet:
 
-### [Kesin] — Hero V3'ten doğrulanmış tipografi değerleri (Hero bileşeni)
+| Rol | Mobil / Tablet / Masaüstü (px) | Kalınlık |
+|---|---|---|
+| display | 44 / 56 / 72 | 800 |
+| h1 | 34 / 44 / 56 | 800 |
+| h2 | 28 / 34 / 40 | 800 |
+| h3 | 22 / 24 / 28 | 700 |
+| h4 | 18 / 19 / 20 | 700 |
+| lead | 18 / 19 / 20 | 500 |
+| body | 16 / 16 / 17 | 400 (bodyb 700) |
+| btn | 16 / 16 / 16 | 700 |
+| link | 15 / 15 / 15 | 700 |
+| form | 16 / 16 / 16 | 400 |
+| eyebrow | 12 / 12 / 13 | 700, büyük harf |
+| cap | 13 / 13 / 14 | 400 (capb 700) |
 
-Aşağıdaki değerler yalnızca Hero V3 bileşeninde doğrulanmıştır; genel site tipografi skalası olarak genişletilmemiştir.
-
-| Öğe | Boyut | Weight | Diğer |
-|---|---|---|---|
-| Eyebrow | `11px` | `800` | letter-spacing `.19em` |
-| H1 | `clamp(32px, 5vw, 58px)` | `800` | line-height `1.14`, letter-spacing `-.025em` |
-| Subtitle | `clamp(17px, 2.2vw, 23px)` | `700` | — |
-| Description | `clamp(15px, 1.7vw, 17.5px)` | — | line-height `1.65` |
-| Feature title | `clamp(14.5px, 1.5vw, 16px)` | `700` | — |
-| Feature secondary text | `clamp(12px, 1.2vw, 13.5px)` | — | — |
-
-### TBD — Hero V3 dışındaki genel tipografi skalası
-
-Önceki taslakta yer alan genel `--text-display / --text-h1 / --text-h2 / --text-h3 / --text-body-lg / --text-body / --text-small` skalası Hero V3 kodunda doğrulanmamıştır. Bu tokenlar **resmi değer olarak sabitlenmemiştir**; Hero V3'te doğrulanan tipografi yalnızca yukarıdaki Hero-özel tablodur. Site genelinde kullanılacak h2/h3/body ölçekleri, ilgili section'lar production'a alınırken (veya başka bir doğrulanmış kaynaktan) netleştirilecektir.
-
-Hero V3'ten doğrulanan genel kurallar:
-- Ağırlık skalası Hero V3'te `700` ve `800` olarak gözlenmiştir; `400/500/600` gibi ara ağırlıkların genel site kuralı olduğu doğrulanmamıştır.
+Kalınlık yalnızca 400/500/700/800; en küçük metin 12px. Kapsam dışı: splash ve ürün ekranı maketleri. Doğrulama: `node tools/type-scale-qa.mjs`.
 
 ---
 
