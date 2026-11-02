@@ -991,9 +991,10 @@ const SECTION = {
             return `
             <li class="qrmo-v3-step${i === 0 ? " is-active" : ""}" data-v3-step="${st.screen}" tabindex="0">
               <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}${st.who ? `<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>${esc(st.who)}</span>` : ""}</span>
-              <h3 class="qrmo-v3-step-h">${st.ms ? `<span class="qrmo-v3-dsk">${esc(st.t)}</span><span class="qrmo-v3-mob">${esc(st.ms.t)}</span>` : esc(st.t)}</h3>
+              <h3 class="qrmo-v3-step-h">${esc(st.t)}</h3>${st.sub ? `
+              <p class="qrmo-v3-step-sub">${esc(st.sub)}</p>` : ""}
               ${(() => { const d = devicesOf(m)[st.screen]; return st.img && d ? `<span class="qrmo-v3-step-shot qrmo-v3-step-shot--${esc(d.kind)}" aria-hidden="true"><img src="${st.img}" width="${[1050, 856, 810, 856][st.screen] || 780}" height="${[840, 685, 648, 685][st.screen] || 624}" alt="" loading="lazy" decoding="async"></span>` : ""; })()}
-              <p>${st.ms ? `<span class="qrmo-v3-dsk">${esc(st.d)}</span><span class="qrmo-v3-mob">${esc(st.ms.d)}</span>` : esc(st.d)}</p>${st.points ? `
+              <p class="qrmo-v3-step-d">${esc(st.d)}</p>${st.points ? `
               <ul class="qrmo-v3-step-pts">${st.points.map((x) => `<li>${ICON.check}<span>${esc(x)}</span></li>`).join("")}</ul>` : ""}
             </li>`;
           })}
