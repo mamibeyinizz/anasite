@@ -238,14 +238,6 @@ function realImg(i, cls) {
   return `<span class="${cls}">${pic}</span>`;
 }
 
-/* Mobilde sabit cihaz yerine her adımın kendi dikey ekran görüntüsü (≤767px) */
-function stepShot(d) {
-  if (!d || d.frame !== "shot") return "";
-  const i = d.m || d;
-  return `
-              <span class="qrmo-v3-step-shot" aria-hidden="true"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="" loading="lazy" decoding="async"></span>`;
-}
-
 function cue(key) {
   const inner = {
     menu: "<i></i><i></i><i class=\"off\"></i>",
@@ -998,7 +990,7 @@ const SECTION = {
             return `
             <li class="qrmo-v3-step${i === 0 ? " is-active" : ""}" data-v3-step="${st.screen}" tabindex="0">
               <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}${st.who ? `<span class="qrmo-v3-step-who"> · ${esc(st.who)}</span>` : ""}</span>
-              <h3>${esc(st.t)}</h3>${stepShot(devicesOf(m)[st.screen])}
+              <h3>${esc(st.t)}</h3>
               <p>${esc(st.d)}</p>${st.points ? `
               <ul class="qrmo-v3-step-pts">${st.points.map((x) => `<li>${ICON.check}<span>${esc(x)}</span></li>`).join("")}</ul>` : ""}
             </li>`;

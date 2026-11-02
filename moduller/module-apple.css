@@ -350,14 +350,3 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-spoke-img img { object-position: top left; }
   body.qrmo-apple .qrmo-mod-tile-img img { object-position: center; }
 }
-
-/* ---------- Nasıl çalışır (mobil): her adım kendi dikey ekranıyla ---------- */
-.qrmo-v3-step-shot { display: none; }
-@media (max-width: 767px) {
-  .qrmo-v3-flow-dev { display: none; }
-  body.qrmo-apple .qrmo-v3-step { opacity: 1; padding: 0 0 8px 16px; margin-bottom: 34px; border-left: 2px solid var(--qm-gold-light); }
-  body.qrmo-apple .qrmo-v3-step-shot { display: block; width: min(250px, 72%); margin: 6px 0 18px; overflow: hidden; border-radius: 26px; background: #0F1512; box-shadow: 0 0 0 1px rgba(232, 199, 102, .45), 0 28px 44px -22px rgba(0, 0, 0, .7); }
-  body.qrmo-apple .qrmo-v3-step-shot img { display: block; width: 100%; height: auto; }
-  body.qrmo-apple .qrmo-v3-step:nth-child(1) .qrmo-v3-step-shot { border-radius: 18px; background: #F4F1E8; }
-  body.qrmo-apple .qrmo-v3-step-n, body.qrmo-apple .qrmo-v3-step h3 { }
-}
