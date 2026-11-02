@@ -341,6 +341,12 @@ body.qrmo-apple .qrmo-ap-cta { padding-block: clamp(40px, 6vw, 96px); }
   body.qrmo-apple .qrmo-v3-hub-img { width: min(210px, 62%); aspect-ratio: auto; justify-self: center; border-radius: 20px; }
   body.qrmo-apple .qrmo-v3-hub-img img { height: auto; }
   /* Yönetim paneli görüntüleri: yakınlaştırılır, yazılar okunur */
-  body.qrmo-apple .qrmo-v3-spoke-img.is-zoom img { width: 175%; max-width: none; height: auto; }
-  body.qrmo-apple .qrmo-mod-tile-img.is-zoom img { width: 190%; max-width: none; height: auto; }
+}
+
+/* Mobil/tablet için ayrı kırpılmış panel görselleri (picture) */
+body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img picture { display: contents; }
+@media (max-width: 899px) {
+  body.qrmo-apple .qrmo-v3-spoke-img { aspect-ratio: 16 / 10; }
+  body.qrmo-apple .qrmo-v3-spoke-img img { object-position: top left; }
+  body.qrmo-apple .qrmo-mod-tile-img img { object-position: center; }
 }
