@@ -287,9 +287,25 @@
   /* ---- onay çubuğu ---- */
   var bar = null;
 
+  /* Mobilde çubuk içeriği örtmesin: body'ye çubuk yüksekliği kadar alt boşluk verilir. */
+  var padSaved = null;
+  function padBody() {
+    if (!bar || !doc.body) return;
+    if (!window.matchMedia("(max-width: 639px)").matches) return unpadBody();
+    if (padSaved === null) padSaved = doc.body.style.paddingBottom;
+    /* offsetHeight giriş animasyonunun transform'undan etkilenmez. */
+    doc.body.style.paddingBottom = Math.ceil(bar.offsetHeight + (parseFloat(getComputedStyle(bar).bottom) || 0)) + "px";
+  }
+  function unpadBody() {
+    window.removeEventListener("resize", padBody);
+    if (padSaved === null || !doc.body) return;
+    doc.body.style.paddingBottom = padSaved;
+    padSaved = null;
+  }
   function closeBar() {
     if (bar && bar.parentNode) bar.parentNode.removeChild(bar);
     bar = null;
+    unpadBody();
   }
 
   function decide(accepted) {
@@ -320,17 +336,21 @@
     bar.setAttribute("aria-label", "Çerez tercihi");
     bar.innerHTML =
       '<p class="qrmo-consent__title">Çerezleri onaylıyor musunuz?</p>' +
-      '<p class="qrmo-consent__text">Siteyi geliştirmek için hangi sayfaların kullanıldığını anonim olarak ölçeriz. Kişisel bilgi toplamayız. Reddederseniz hiçbir şey kaydedilmez ve site aynen çalışır.</p>' +
+      '<p class="qrmo-consent__text">' +
+      '<span class="qrmo-consent__full">Siteyi geliştirmek için hangi sayfaların kullanıldığını anonim olarak ölçeriz. Kişisel bilgi toplamayız. Reddederseniz hiçbir şey kaydedilmez ve site aynen çalışır.</span>' +
+      '<span class="qrmo-consent__short">Ziyaretleri anonim ölçüyoruz. Reddederseniz hiçbir şey kaydedilmez.</span> ' +
+      '<a class="qrmo-consent__more" href="' + policyHref() + '">Çerez Politikası <span aria-hidden="true">→</span></a></p>' +
       '<div class="qrmo-consent__actions">' +
       '<button type="button" class="qrmo-consent__btn qrmo-consent__btn--accept" data-act="accept">Kabul Et</button>' +
       '<button type="button" class="qrmo-consent__btn qrmo-consent__btn--reject" data-act="reject">Reddet</button>' +
-      "</div>" +
-      '<a class="qrmo-consent__more" href="' + policyHref() + '">Çerez Politikası <span aria-hidden="true">→</span></a>';
+      "</div>";
     bar.addEventListener("click", function (e) {
       var b = e.target.closest("button[data-act]");
       if (b) decide(b.getAttribute("data-act") === "accept");
     });
     doc.body.appendChild(bar);
+    padBody();
+    window.addEventListener("resize", padBody);
   }
 
   function init() {

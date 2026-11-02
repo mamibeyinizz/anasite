@@ -72,9 +72,12 @@
   outline-offset: 2px;
 }
 
+.qrmo-consent__short {
+  display: none;
+}
+
 .qrmo-consent__more {
-  display: inline-block;
-  margin-top: 12px;
+  display: inline;
   color: #f0d887;
   font-weight: 700;
   text-decoration: none;
@@ -84,18 +87,71 @@
   color: #fff;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 639px) {
   .qrmo-consent {
     left: 12px;
     right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
     width: auto;
+    padding: 12px 14px;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px rgba(212, 180, 91, 0.28), 0 18px 48px rgba(6, 31, 25, 0.38);
+    animation-duration: 0.18s;
+  }
+
+  .qrmo-consent__title,
+  .qrmo-consent__full {
+    display: none;
+  }
+
+  .qrmo-consent__short {
+    display: inline;
+  }
+
+  .qrmo-consent__text {
+    margin: 0 0 4px;
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+
+  .qrmo-consent__more {
+    position: relative;
+  }
+
+  /* Bağlantının dokunma alanını yukarı doğru genişletir (~36px, WCAG 2.5.8 ≥24px).
+     Altta yalnızca 2px: butonların üst kenarını örtmemesi için. */
+  .qrmo-consent__more::after {
+    content: "";
+    position: absolute;
+    inset: -16px -8px -2px;
+  }
+
+  .qrmo-consent__actions {
+    gap: 8px;
+  }
+}
+
+/* Dar ekran (≤359px): metin 3. satıra düşmesin, banner ~110px'te kalsın. */
+@media (max-width: 359px) {
+  .qrmo-consent {
+    padding: 10px 12px;
+  }
+
+  .qrmo-consent__text {
+    margin-bottom: 2px;
+    font-size: 12.5px;
+  }
+
+  .qrmo-consent__actions {
+    gap: 6px;
   }
 }
 
 @keyframes qrmo-consent-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
