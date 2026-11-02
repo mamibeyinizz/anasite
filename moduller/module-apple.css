@@ -417,3 +417,7 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
 
 .qrmo-v3-sep { font-style: normal; }
 @media (max-width: 767px) { .qrmo-v3-sep { display: none; } }
+
+/* Kısa mobil metinler (≤767px) */
+.qrmo-v3-mob { display: none; }
+@media (max-width: 767px) { .qrmo-v3-dsk { display: none; } .qrmo-v3-mob { display: inline; } }
