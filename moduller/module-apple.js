@@ -47,20 +47,39 @@
   window.addEventListener("resize", queue);
   update();
 
-  /* Nasıl çalışır (mobil): noktaya dokununca ilgili adıma kaydır */
+  /* Nasıl çalışır (mobil): sabitlenmiş sahne. Bölüm ekrana oturur, kaydırdıkça adımlar değişir;
+     tüm adımlar bitmeden sonraki bölüm görünmez. */
   var flowSec = document.querySelector(".qrmo-v3-flow");
   if (flowSec) {
-    var fDots = [].slice.call(flowSec.querySelectorAll("[data-v3-dot]"));
+    var mqF = window.matchMedia("(max-width: 767px)");
+    var fInner = flowSec.querySelector(".qrmo-mod-inner");
     var fSteps = [].slice.call(flowSec.querySelectorAll("[data-v3-step]"));
+    var fDots = [].slice.call(flowSec.querySelectorAll("[data-v3-dot]"));
+    var fShow = flowSec.querySelector("[data-v3-show]");
+    var fCur = -1;
+    var ghH = function () { return parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 72; };
+    var fRange = function () { return Math.max(1, flowSec.offsetHeight - fInner.offsetHeight); };
+    var fPin = function () {
+      if (!mqF.matches || !fSteps.length) return;
+      var r = flowSec.getBoundingClientRect();
+      var p = clamp((ghH() - r.top) / fRange());
+      var idx = Math.min(fSteps.length - 1, Math.floor(p * fSteps.length));
+      if (idx === fCur) return;
+      fCur = idx;
+      fSteps.forEach(function (st, i) { st.classList.toggle("is-active", i === idx); });
+      if (fShow && fShow.__v3) fShow.__v3.go(parseInt(fSteps[idx].getAttribute("data-v3-step"), 10) || 0);
+    };
+    window.addEventListener("scroll", function () { requestAnimationFrame(fPin); }, { passive: true });
+    window.addEventListener("resize", fPin);
     fDots.forEach(function (d, i) {
       d.addEventListener("click", function () {
-        if (!window.matchMedia("(max-width: 767px)").matches) return;
-        var st = fSteps.filter(function (x) { return parseInt(x.getAttribute("data-v3-step"), 10) === i; })[0];
-        if (!st) return;
-        var r = st.getBoundingClientRect();
-        window.scrollTo({ top: window.scrollY + r.top + r.height / 2 - vh() * 0.5, behavior: "smooth" });
+        if (!mqF.matches) return;
+        var r = flowSec.getBoundingClientRect();
+        var y = window.scrollY + r.top - ghH() + ((i + 0.5) / fSteps.length) * fRange();
+        window.scrollTo({ top: y, behavior: "smooth" });
       });
     });
+    fPin();
   }
 
   /* Bölüm girişleri */

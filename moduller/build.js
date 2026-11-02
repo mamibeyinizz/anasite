@@ -978,7 +978,7 @@ const SECTION = {
     const f = m.flow;
     const n = devicesOf(m).length;
     return `
-  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow>
+  <section class="qrmo-mod-sec qrmo-v3-flow" aria-labelledby="qrmo-v3-flow-h" data-v3-flow style="--n:${f.steps.length}">
     <div class="qrmo-mod-inner">
       <div class="qrmo-v3-flow-panel">
         <header class="qrmo-v3-flow-head">

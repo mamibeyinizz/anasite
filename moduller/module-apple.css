@@ -421,3 +421,23 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
 /* Kısa mobil metinler (≤767px) */
 .qrmo-v3-mob { display: none; }
 @media (max-width: 767px) { .qrmo-v3-dsk { display: none; } .qrmo-v3-mob { display: inline; } }
+
+/* ---------- Mobil Nasıl çalışır: sabitlenmiş sahne (kaydırdıkça adım değişir) ---------- */
+@media (max-width: 767px) {
+  body.qrmo-apple .qrmo-v3-flow { --gh: var(--qrmo-gh-h, 72px); padding: 0; height: calc(100dvh - var(--gh) + (var(--n, 4) - 1) * 56dvh); }
+  body.qrmo-apple .qrmo-v3-flow > .qrmo-mod-inner { position: sticky; top: var(--gh); height: calc(100dvh - var(--gh)); display: flex; flex-direction: column; justify-content: center; }
+  body.qrmo-apple .qrmo-v3-flow-panel { display: flex; flex-direction: column; justify-content: center; gap: clamp(14px, 3dvh, 28px); }
+  body.qrmo-apple .qrmo-v3-flow-head { margin: 0; }
+  body.qrmo-apple .qrmo-v3-flow-head .qrmo-v3-h2 { font-size: 22px; line-height: 1.2; }
+  body.qrmo-apple .qrmo-v3-flow-head .qrmo-v3-eyebrow { margin-bottom: 8px; }
+  body.qrmo-apple .qrmo-v3-flow { --fw: clamp(170px, 46vw, 230px); }
+  body.qrmo-apple .qrmo-v3-flow-grid { align-items: center; }
+  body.qrmo-apple .qrmo-v3-flow-dev { position: static; top: auto; }
+  /* Adımlar aynı hücrede üst üste; yalnız aktif olan görünür */
+  body.qrmo-apple .qrmo-v3-steps { display: grid; }
+  body.qrmo-apple .qrmo-v3-step { grid-area: 1 / 1; min-height: 0; margin: 0; opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .45s var(--v3-ease), transform .55s var(--v3-ease); }
+  body.qrmo-apple .qrmo-v3-step.is-active { opacity: 1; transform: none; pointer-events: auto; }
+  body.qrmo-apple .qrmo-v3-step h3 { font-size: 21px; }
+  body.qrmo-apple .qrmo-v3-step p { font-size: 15.5px; }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) { body.qrmo-apple .qrmo-v3-step { transition: none; transform: none; } }
