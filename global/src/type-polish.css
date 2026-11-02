@@ -1,0 +1,55 @@
+/* =========================================================
+   TİPOGRAFİ İNCE AYAR — okunabilirlik, kontrast, ölçü
+   type-scale.css ve type-scale-pages.css'ten sonra yüklenir.
+========================================================= */
+
+:root {
+  /* Açık zeminde WCAG AA (≥4.5:1) sağlayan tonlar: altın #c9a84c açık zeminde 2.1:1 idi */
+  --ts-gold-ink: #7f6419;                /* krem üzerinde 5.2:1 */
+  --ts-ink-soft: rgba(13, 43, 34, 0.72); /* krem üzerinde 5.9:1 */
+  --ts-measure: 38em;                    /* okuma metni satır uzunluğu: Manrope ortalama 0.545em/karakter → ≈70 karakter (ch birimi Manrope rakamlarıyla ≈88 karakter verir, kullanma) */
+}
+
+/* —— Satır kırma: başlıklar dengeli, paragraflar yetim kelimesiz (desteklemeyen tarayıcıda etkisiz) —— */
+:where(h1, h2, h3, h4) { text-wrap: balance; }
+:where(p, li, blockquote, figcaption, dd) { text-wrap: pretty; }
+
+/* —— Sayısal metin: fiyat, sayaç, adım numarası sabit genişlikte —— */
+body :is(.qrmo-pricing-amount, .qrmo-pricing-faq-n, .qrmo-faq-item__no, .qrmo-faq-nav__count,
+  .qrmo-faq-panel__count, .qrmo-rv__count, .qrmo-contact-count, .qrmo-live-price strong,
+  .qrmo-ap-pk-p, .qrmo-mod-hubcat-n, .qrmo-mod-jump-n, .qrmo-v3-step-n, .qrmo-v3-qa-n,
+  .qrmo-v3-pain-n, .qrmo-v3-fprog-n, .qpm2-idx, .qrmo-setup-v2__num, .qrmo-pricing-hero-step-n,
+  .qrmo-pricing-switch-cat-count) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— Okuma ölçüsü: uzun paragraf ≤38em (≈70 karakter) (45–75 karakter aralığı) —— */
+body :is(.qb-prose > p, .qb-prose > ul, .qb-prose > ol, .qb-prose > blockquote, .qb-faq p, .qb-note,
+  .qb-article__lead, .qb-hero__lead, .qrmo-legal-sec p, .qrmo-legal-sec ul, .qrmo-legal-sec ol,
+  .qrmo-legal-lead, .qrmo-pricing-subtitle, .qrmo-mod-note, .qrmo-contact-guide-lead, .qrmo-contact-lead,
+  .qrmo-v3-qa p, .qrmo-v3-all-body li, .qrmo-faq-item__a > p, .qrmo-faq-lead,
+  .qrmo-tables-v5__description, .qrmo-service-v2__description, .qrmo-analytics-v3__description,
+  .qrmo-translation-v3-description, .qrmo-smart-filter-lead, .qrmo-chatbot-feature__lead) {
+  max-width: var(--ts-measure);
+}
+
+/* —— Kontrast: açık zeminde altın metin → koyu altın, soluk mürekkep → daha koyu —— */
+body :is(.qrmo-translation-v3-eyebrow-mod, .qrmo-smart-filter-kicker-mod, .qrmo-chatbot-feature__kicker-mod,
+  .qrmo-tables-v5__eyebrow-mod, .qrmo-service-v2__eyebrow-mod, .qrmo-analytics-v3__eyebrow-mod,
+  .qrmo-pricing-th-badge, .qrmo-pricing-faq-n, .qrmo-live-tent-kicker, .qrmo-faq-item__no, .qpm2-idx,
+  .qrmo-setup-v2__eyebrow strong, .qrmo-faq-v1__eyebrow strong, .qrmo-legal-more-link > span, .qrmo-setup-v2__link span) {
+  color: var(--ts-gold-ink) !important;
+}
+body :is(.qrmo-faq-eyebrow, .qrmo-faq-nav__count, .qrmo-faq-panel__count, .qrmo-faq-suggest > span,
+  .qrmo-hm-d, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
+  .qrmo-hero-v3-eyebrow, [class*="eyebrow-core"], [class*="kicker-core"]) {
+  color: var(--ts-ink-soft) !important;
+}
+body .qrmo-rv__card:not(.is-active) .qrmo-rv__meta small { color: var(--ts-ink-soft) !important; }
+body .qrmo-setup-v2__step p { color: #566059 !important; } /* 6.0:1 (önceki 4.4:1) */
+
+/* —— Dokunma hedefi: metin bağlantıları en az 44px yükseklik —— */
+body :is(.qrmo-setup-v2__link, .qrmo-ap-link) {
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+body .qrmo-pricing-hero .qrmo-pricing-subtitle { max-width: var(--ts-measure) !important; }

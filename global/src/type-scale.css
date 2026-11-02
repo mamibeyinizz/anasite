@@ -8,10 +8,10 @@
    Kapsam dışı: açılış ekranı (splash) ve ürün ekranı maketleri.
 ========================================================= */
 :root {
-  --ts-fs-display: 44px; --ts-fw-display: 800; --ts-lh-display: 1.05; --ts-ls-display: -0.02em;
-  --ts-fs-h1: 34px;      --ts-fw-h1: 800;      --ts-lh-h1: 1.1;       --ts-ls-h1: -0.02em;
-  --ts-fs-h2: 28px;      --ts-fw-h2: 800;      --ts-lh-h2: 1.15;      --ts-ls-h2: -0.015em;
-  --ts-fs-h3: 22px;      --ts-fw-h3: 700;      --ts-lh-h3: 1.25;      --ts-ls-h3: -0.01em;
+  --ts-fs-display: 44px; --ts-fw-display: 800; --ts-lh-display: 1.08; --ts-ls-display: -0.02em;
+  --ts-fs-h1: 34px;      --ts-fw-h1: 800;      --ts-lh-h1: 1.14;      --ts-ls-h1: -0.02em;
+  --ts-fs-h2: 28px;      --ts-fw-h2: 800;      --ts-lh-h2: 1.2;       --ts-ls-h2: -0.015em;
+  --ts-fs-h3: 22px;      --ts-fw-h3: 700;      --ts-lh-h3: 1.28;      --ts-ls-h3: -0.01em;
   --ts-fs-h4: 18px;      --ts-fw-h4: 700;      --ts-lh-h4: 1.3;       --ts-ls-h4: 0;
   --ts-fs-lead: 18px;    --ts-fw-lead: 500;    --ts-lh-lead: 1.55;    --ts-ls-lead: 0;
   --ts-fs-body: 16px;    --ts-fw-body: 400;    --ts-lh-body: 1.6;     --ts-ls-body: 0;
