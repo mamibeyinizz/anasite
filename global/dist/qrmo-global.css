@@ -1701,15 +1701,32 @@ button.qrmo-gf-cta-btn {
     position: relative;
   }
 
-  /* Satır içi bağlantının dokunma alanını ≥44px yüksekliğe genişletir. */
+  /* Bağlantının dokunma alanını yukarı doğru genişletir (~36px, WCAG 2.5.8 ≥24px).
+     Altta yalnızca 2px: butonların üst kenarını örtmemesi için. */
   .qrmo-consent__more::after {
     content: "";
     position: absolute;
-    inset: -14px -6px;
+    inset: -16px -8px -2px;
   }
 
   .qrmo-consent__actions {
     gap: 8px;
+  }
+}
+
+/* Dar ekran (≤359px): metin 3. satıra düşmesin, banner ~110px'te kalsın. */
+@media (max-width: 359px) {
+  .qrmo-consent {
+    padding: 10px 12px;
+  }
+
+  .qrmo-consent__text {
+    margin-bottom: 2px;
+    font-size: 12.5px;
+  }
+
+  .qrmo-consent__actions {
+    gap: 6px;
   }
 }
 
