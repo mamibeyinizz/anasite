@@ -320,3 +320,27 @@ body.qrmo-apple .qrmo-ap-cta { padding-block: clamp(40px, 6vw, 96px); }
   .qrmo-ap-cta-bg, .qrmo-ap-chip, .qrmo-ap-btn-go { animation: none; }
   .qrmo-ap-btn, .qrmo-ap-btn::after, .qrmo-ap-btn-go, .qrmo-ap-link svg { transition: none; }
 }
+
+/* ---------- Mobil: mockup ve görsel optimizasyonu ---------- */
+@media (max-width: 639px) {
+  /* Nasıl çalışır: sabit cihaz alanı küçülür, altındaki metni kapatmaz */
+  .qrmo-v3-flow .qrmo-v3-show { --v3-h: 250px; gap: 4px; }
+  .qrmo-v3-flow .qrmo-v3-note { display: none; }
+  .qrmo-v3-flow .qrmo-v3-live { font-size: 14px; }
+  body.qrmo-apple .qrmo-v3-flow-dev { padding-bottom: 10px; }
+  body.qrmo-apple .qrmo-v3-flow-dev::after { height: 28px; }
+  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { transform: none; opacity: 1; }
+  body.qrmo-apple .qrmo-v3-step { padding: 6px 0 6px 16px; margin-bottom: 8px; }
+  /* Hero: boşluklar daralır, ekran-altı notu küçülür */
+  .qrmo-v3-hero { --v3-h: 380px; padding-bottom: 28px; }
+  .qrmo-v3-hero .qrmo-v3-note { font-size: 11.5px; }
+  body.qrmo-apple .qrmo-v3-sec { padding-block: clamp(44px, 12vw, 64px); }
+  /* Ekran sıkıntısız: yüzen blur parlaması durur (performans) */
+  .qrmo-v3-glow { animation: none; filter: blur(14px); }
+  /* Merkez kutu: telefon görüntüsü doğal oranında ve ortalı */
+  body.qrmo-apple .qrmo-v3-hub-img { width: min(210px, 62%); aspect-ratio: auto; justify-self: center; border-radius: 20px; }
+  body.qrmo-apple .qrmo-v3-hub-img img { height: auto; }
+  /* Yönetim paneli görüntüleri: yakınlaştırılır, yazılar okunur */
+  body.qrmo-apple .qrmo-v3-spoke-img.is-zoom img { width: 175%; max-width: none; height: auto; }
+  body.qrmo-apple .qrmo-mod-tile-img.is-zoom img { width: 190%; max-width: none; height: auto; }
+}

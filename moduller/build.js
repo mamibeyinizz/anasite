@@ -233,7 +233,7 @@ function figure(spec, { caption = MOD.mockCaptionShort || "Temsili arayüz · ö
 
 /* Gerçek ürün ekran görüntüsü (WebP). Alt metni yalnızca anlamlı görseller için yazılır. */
 function realImg(i, cls) {
-  return `<span class="${cls}"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="${esc(i.alt || "")}" loading="lazy" decoding="async"></span>`;
+  return `<span class="${cls}${i.zoom ? " is-zoom" : ""}"><img src="${i.src}" width="${i.w}" height="${i.h}" alt="${esc(i.alt || "")}" loading="lazy" decoding="async"></span>`;
 }
 
 function cue(key) {
