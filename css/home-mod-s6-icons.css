@@ -30,7 +30,7 @@ html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__fill {
 html.qrmo-mod-story-v4 #qrmo-home-masa .qrmo-s6-ico__ink {
   fill: #F8F6F0;
   stroke: none;
-  font-family: "Source Sans 3", Arial, sans-serif;
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 650;
   font-size: 3.15px;
 }

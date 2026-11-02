@@ -364,10 +364,10 @@ function moduleArt(key) {
       <rect x="152" y="24" width="40" height="22" rx="8" fill="${goldL}"/>
       <rect x="108" y="54" width="40" height="22" rx="8" stroke="${cream}" ${sw} opacity=".75"/>
       <rect x="152" y="54" width="40" height="22" rx="8" stroke="${cream}" ${sw} opacity=".75"/>
-      <text x="128" y="39" text-anchor="middle" fill="${cream}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">TR</text>
-      <text x="172" y="39" text-anchor="middle" fill="${ink}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">EN</text>
-      <text x="128" y="69" text-anchor="middle" fill="${cream}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">DE</text>
-      <text x="172" y="69" text-anchor="middle" fill="${cream}" font-family="Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700">AR</text>`,
+      <text x="128" y="39" text-anchor="middle" fill="${cream}" font-family="Manrope, Segoe UI, Roboto, Arial, sans-serif" font-size="11" font-weight="700">TR</text>
+      <text x="172" y="39" text-anchor="middle" fill="${ink}" font-family="Manrope, Segoe UI, Roboto, Arial, sans-serif" font-size="11" font-weight="700">EN</text>
+      <text x="128" y="69" text-anchor="middle" fill="${cream}" font-family="Manrope, Segoe UI, Roboto, Arial, sans-serif" font-size="11" font-weight="700">DE</text>
+      <text x="172" y="69" text-anchor="middle" fill="${cream}" font-family="Manrope, Segoe UI, Roboto, Arial, sans-serif" font-size="11" font-weight="700">AR</text>`,
     shield: `
       <path d="M72 16 110 32v26c0 20-14 34-38 42-24-8-38-22-38-42V32L72 16Z" stroke="${cream}" ${sw}/>
       <path d="M58 54l10 10 20-22" stroke="${goldL}" ${sw}/>
