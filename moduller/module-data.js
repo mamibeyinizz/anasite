@@ -105,24 +105,24 @@
           title: "Panelde değiştirin, masada görünsün.",
           steps: [
             { screen: 0, img: "../../assets/modules/restoran-menu/s-adim-1-panel.webp", who: "SİZ · YÖNETİM PANELİ",
-              t: "Fiyat, içerik ve stok tek panelden",
-              sub: "Ürünü bir kez düzenleyin; basılı menü yenilemeye gerek kalmaz.",
-              d: "Ad, fiyat, kategori, fotoğraf, kalori ve 14 alerjen aynı ekranda. Kaydettiğiniz an menü güncellenir; misafir yeni fiyatı bir sonraki açılışta görür. Yüzlerce ürünü CSV ile tek seferde yükleyebilirsiniz.",
+              t: "Fiyatı bir kez yazın, her masada değişsin", d: "Ürünün fiyatını, kalorisini ve alerjenlerini panelde güncelleyip kaydedin. Basılı menü yenilenmez; misafir yeni hâlini bir sonraki açılışta görür.",
+              /* yalnız mobil */
+              mt: "Fiyat, içerik ve stok tek panelden", sub: "Ürünü bir kez düzenleyin; basılı menü yenilemeye gerek kalmaz.", md: "Ad, fiyat, kategori, fotoğraf, kalori ve 14 alerjen aynı ekranda. Kaydettiğiniz an menü güncellenir; misafir yeni fiyatı bir sonraki açılışta görür. Yüzlerce ürünü CSV ile tek seferde yükleyebilirsiniz.",
               points: ["Ad, fiyat, kategori ve fotoğraf tek ekranda", "14 alerjen ve besin değerleri", "Yüzlerce ürünü CSV ile tek seferde yükleyin"] },
             { screen: 1, img: "../../assets/modules/restoran-menu/s-adim-2-menu.webp", who: "MİSAFİR · QR MENÜ",
-              t: "QR okutulur, menü uygulamasız açılır",
-              sub: "Misafir indirme yapmadan, telefonunun tarayıcısında menüye girer.",
-              d: "Kategoriler, ürün fotoğrafları ve güncel fiyatlar ilk ekranda. Önerilen, Popüler gibi rozetler öne çıkarmak istediğiniz ürünleri işaretler; hazırlanış süresi her ürünün yanında yazar.",
+              t: "QR okutulur, menü uygulamasız açılır", d: "Misafir masadaki kodu okutur; menü telefonun tarayıcısında açılır. Kategoriler, ürün fotoğrafları, fiyatlar ve Önerilen, Popüler gibi rozetler ilk ekranda.",
+              /* yalnız mobil */
+              mt: "QR okutulur, menü uygulamasız açılır", sub: "Misafir indirme yapmadan, telefonunun tarayıcısında menüye girer.", md: "Kategoriler, ürün fotoğrafları ve güncel fiyatlar ilk ekranda. Önerilen, Popüler gibi rozetler öne çıkarmak istediğiniz ürünleri işaretler; hazırlanış süresi her ürünün yanında yazar.",
               points: ["Masadaki QR kodu okutması yeterli", "Uygulama indirmek gerekmez", "Her açılışta menünün güncel hali gelir"] },
             { screen: 2, img: "../../assets/modules/restoran-menu/s-adim-3-filtre.webp", who: "MİSAFİR · FİLTRE VE SIRALAMA",
-              t: "Alerjenini çıkarır, menüyü kendine göre sıralar",
-              sub: "Uzun menüde aradığını garsona sormadan bulur.",
-              d: "Glüten, süt, fındık gibi 14 alerjenden istediğini hariç tutar; menüyü fiyata, proteine, karbonhidrata ya da acılığa göre sıralar. Biten ürün etiketiyle menüde kalır, sepete eklenemez.",
+              t: "Alerjenini çıkarır, menüyü kendine göre dizer", d: "Glüten, süt, fındık gibi 14 alerjenden istediğini hariç tutar; menüyü fiyata, proteine, karbonhidrata ya da acılığa göre sıralar. Biten ürün etiketiyle görünür, sepete eklenemez.",
+              /* yalnız mobil */
+              mt: "Alerjenini çıkarır, menüyü kendine göre sıralar", sub: "Uzun menüde aradığını garsona sormadan bulur.", md: "Glüten, süt, fındık gibi 14 alerjenden istediğini hariç tutar; menüyü fiyata, proteine, karbonhidrata ya da acılığa göre sıralar. Biten ürün etiketiyle menüde kalır, sepete eklenemez.",
               points: ["14 alerjene göre eleme", "Fiyat, protein, karbonhidrat ve acılığa göre sıralama", "Biten ürün menüde etiketiyle kalır"] },
             { screen: 3, img: "../../assets/modules/restoran-menu/s-adim-4-detay.webp", who: "MİSAFİR · ÜRÜN DETAYI",
-              t: "Ürünün içini garsona sormadan görür",
-              sub: "Besin değerleri ve alerjenler ürün detayında, etiket olarak.",
-              d: "Kalori, protein, karbonhidrat, yağ, gramaj, hazırlanış süresi, acılık ve et menşei tek ekranda. Porsiyon ve ekstra seçimi de burada; bilgileri siz girersiniz, menü olduğu gibi gösterir.",
+              t: "Garsona sormadan ürünün içini görür", d: "Kalori, protein, karbonhidrat, yağ, gramaj, hazırlanış süresi, acılık, et menşei ve alerjen bilgisi ürün detayında etiket olarak durur. Porsiyon ve ekstra seçimi aynı ekranda.",
+              /* yalnız mobil */
+              mt: "Ürünün içini garsona sormadan görür", sub: "Besin değerleri ve alerjenler ürün detayında, etiket olarak.", md: "Kalori, protein, karbonhidrat, yağ, gramaj, hazırlanış süresi, acılık ve et menşei tek ekranda. Porsiyon ve ekstra seçimi de burada; bilgileri siz girersiniz, menü olduğu gibi gösterir.",
               points: ["Kalori, protein, karbonhidrat ve yağ", "Gramaj, hazırlanış süresi ve acılık", "Alerjen ve et menşei etiketleri"] }
           ]
         },
