@@ -38,7 +38,7 @@ body.qrmo-mod-page {
   --qm-r: 20px;                     /* DESIGN_SYSTEM: hero görsel radius */
   --qm-r-s: 12px;                   /* DESIGN_SYSTEM: CTA radius */
   --qm-focus: var(--qm-ink);
-  --qm-ease: cubic-bezier(.2, .7, .2, 1);
+  --qm-ease: cubic-bezier(.23, 1, .32, 1);
 
   position: relative;
   isolation: isolate;
@@ -90,7 +90,7 @@ body.qrmo-home-ctx {
   --qm-muted: #56625B;
   --qm-ink: #0D2B22;
   --qm-line: rgba(13, 43, 34, .1);
-  --qm-ease: cubic-bezier(.2, .7, .2, 1);
+  --qm-ease: cubic-bezier(.23, 1, .32, 1);
 }
 
 body.qrmo-mod-page--detail .qrmo-mod [id] {
@@ -1250,6 +1250,9 @@ body.qrmo-home-ctx .qrmo-home-mod-zone .qrmo-home-anchor {
     .qrmo-mod--hub .qrmo-mod-hubbox:hover .qrmo-mod-hubbox-go svg { transform: translateX(3px); }
     .qrmo-mod-tile:hover, .qrmo-mod-card:hover { transform: translateY(-2px); }
   }
+  /* Basma geri bildirimi: dokunma anında anında yanıt (hover'ı ezer). */
+  .qrmo-mod-cta:active, .qrmo-mod-tile:active, .qrmo-mod-card:active, .qrmo-mod-jump a:active,
+  .qrmo-mod--hub .qrmo-mod-hubbox:active, .qrmo-mod--hub .qrmo-mod-hubrail-btn:active { transform: scale(.97); transition-duration: .1s; }
 
   /* Hero: metin yalnızca kısa bir kayma (opacity yok → LCP etkilenmez); görsel hafif belirir. */
   .qrmo-mod-hero-copy { animation: qrmoModRise .5s var(--qm-ease) both; }
@@ -2032,12 +2035,14 @@ body.qrmo-mod-page--servis-paneli .qrmo-mod-text {
   font-weight: 600;
   letter-spacing: .04em;
   text-align: center;
-  border-bottom: 1px solid transparent;
+  border-radius: 6px;
+  transition: background-color .16s var(--qm-ease), color .16s var(--qm-ease);
 }
 
 .qrmo-mod--hub .qrmo-mod-hubui-langs span.is-on {
   color: var(--qm-ink);
-  border-bottom-color: var(--qm-gold);
+  font-weight: 800;
+  background: rgba(201, 168, 76, .18);
 }
 
 .qrmo-mod--hub .qrmo-mod-hubui-table {

@@ -19,7 +19,7 @@ body.qrmo-v3 :where(h1, h2, h3, h4, p, a, li, span, button, summary, input, text
 }
 
 body.qrmo-v3 {
-  --v3-ease: cubic-bezier(.22, .84, .28, 1);
+  --v3-ease: cubic-bezier(.23, 1, .32, 1);
   --v3-radius: 28px;
   --v3-forest: #0D2B22;
   --v3-forest-2: #173226;
@@ -207,7 +207,7 @@ html:not(.v3-ready) .qrmo-v3-screen:not(:first-child) { display: none; }
 ========================================================= */
 
 .qrmo-v3 .qrmo-mod-caps-list { gap: 14px; }
-.qrmo-v3 .qrmo-mod-caps-list li { padding: 24px; border: 1px solid var(--qm-line); border-radius: 24px; background: rgba(255, 255, 255, .72); transition: transform .5s var(--v3-ease), box-shadow .5s var(--v3-ease), border-color .3s; }
+.qrmo-v3 .qrmo-mod-caps-list li { padding: 24px; border: 1px solid var(--qm-line); border-radius: 24px; background: rgba(255, 255, 255, .72); transition: transform .25s var(--v3-ease), box-shadow .25s var(--v3-ease), border-color .2s; }
 .qrmo-v3 .qrmo-mod-details-grid .qrmo-mod-acc-item,
 .qrmo-v3 .qrmo-mod-tile { border-radius: 20px; }
 
@@ -330,13 +330,14 @@ html.v3-ready .qrmo-v3-map-lines { display: block; }
 .qrmo-v3-spoke {
   display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 18px; border-radius: 20px; text-decoration: none;
   background: #fff; border: 1px solid var(--qm-line); box-shadow: 0 14px 30px -26px rgba(13, 43, 34, .5);
-  transition: transform .45s var(--v3-ease), border-color .3s, box-shadow .45s var(--v3-ease);
+  transition: transform .25s var(--v3-ease), border-color .2s, box-shadow .25s var(--v3-ease);
 }
 .qrmo-v3-spoke-b { display: grid; gap: 3px; min-width: 0; }
 .qrmo-v3-spoke-b strong { color: var(--qm-ink); font-size: 18px; font-weight: 800; line-height: 1.25; }
 .qrmo-v3-spoke-b > span:not(.qrmo-v3-meta) { color: var(--qm-text); font-size: 15px; line-height: 1.5; }
 .qrmo-v3-spoke-go { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 50%; background: var(--qm-ink); color: var(--qm-gold-light); }
 .qrmo-v3-spoke-go svg { width: 16px; height: 16px; }
+.qrmo-v3-spoke:active { transform: scale(.98); transition-duration: .1s; }
 .qrmo-v3-spoke:focus-visible { outline: 2px solid var(--qm-focus); outline-offset: 3px; }
 @media (hover: hover) and (pointer: fine) { .qrmo-v3-spoke:hover { transform: translateX(6px); border-color: var(--qm-gold); box-shadow: 0 22px 40px -26px rgba(13, 43, 34, .55); } }
 
