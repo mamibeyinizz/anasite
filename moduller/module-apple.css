@@ -550,3 +550,6 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
 }
 body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-sub { margin: 0 0 12px; color: var(--qm-gold-light); font-size: 15px; font-weight: 600; line-height: 1.45; }
 @media (max-width: 767px) { body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-sub { order: 3; margin: 0 0 16px; font-size: 14.5px; } }
+
+/* Alt başlık yalnız mobilde */
+@media (min-width: 768px) { .qrmo-v3-mob-only { display: none !important; } }
