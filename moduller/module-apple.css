@@ -524,3 +524,8 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-step-shot { aspect-ratio: 5 / 4; max-height: calc(100svh - var(--gh) - 250px); }
   body.qrmo-apple .qrmo-v3-step[data-v3-step="3"] .qrmo-v3-step-shot img { object-position: center 30%; }
 }
+
+/* Adım görselleri mesaja göre önceden kırpılmış (5:4); ortadan yerleşir */
+@media (max-width: 767px) {
+  body.qrmo-apple .qrmo-v3-step-shot img, body.qrmo-apple .qrmo-v3-step[data-v3-step="3"] .qrmo-v3-step-shot img { object-position: center top; }
+}
