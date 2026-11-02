@@ -365,3 +365,15 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: 330px; }
   .qrmo-v3-hero { --v3-h: 400px; }
 }
+
+/* ---------- Mobil: mockup altı yazı alanı kaldırıldı, slider noktaları küçüldü ---------- */
+@media (max-width: 767px) {
+  .qrmo-v3-show .qrmo-v3-note { display: none; }
+  /* Başlık görünmez ama ekran okuyucu için canlı bölge olarak kalır */
+  .qrmo-v3-show .qrmo-v3-live { position: absolute; width: 1px; height: 1px; min-height: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .qrmo-v3-show { gap: 2px; }
+  .qrmo-v3-dot { width: 24px; height: 36px; }
+  .qrmo-v3-dot i { width: 6px; height: 6px; border-radius: 6px; }
+  .qrmo-v3-dot.is-active i { width: 18px; }
+  body.qrmo-apple .qrmo-v3-flow-dev { padding-bottom: 6px; }
+}
