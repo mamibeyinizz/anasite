@@ -529,3 +529,24 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
 @media (max-width: 767px) {
   body.qrmo-apple .qrmo-v3-step-shot img, body.qrmo-apple .qrmo-v3-step[data-v3-step="3"] .qrmo-v3-step-shot img { object-position: center top; }
 }
+
+/* ---------- Nasıl çalışır: adım başlığı + alt başlık + görsel + açıklama ---------- */
+.qrmo-v3-step-sub { margin: 0 0 10px; color: var(--qm-gold-light); font-size: 15px; font-weight: 600; line-height: 1.45; }
+@media (max-width: 767px) {
+  /* Sabit bölüm başlığı mobilde görünmez (ekran okuyucu için kalır) */
+  body.qrmo-apple .qrmo-v3-flow-head { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  body.qrmo-apple .qrmo-v3-flow-panel { gap: 16px; }
+  body.qrmo-apple .qrmo-v3-step { text-align: left; }
+  body.qrmo-apple .qrmo-v3-step-n { order: 1; margin-bottom: 8px; }
+  body.qrmo-apple .qrmo-v3-step-h { order: 2; margin: 0 0 8px; font-size: 22px; line-height: 1.22; letter-spacing: -.02em; text-wrap: balance; }
+  body.qrmo-apple .qrmo-v3-step-sub { order: 3; margin: 0 0 16px; font-size: 14.5px; }
+  body.qrmo-apple .qrmo-v3-step-shot { order: 4; margin: 0 0 16px; max-height: calc(100svh - var(--gh) - 360px); }
+  body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-d { order: 5; margin: 0; font-size: 14.5px; line-height: 1.55; color: rgba(244, 241, 232, .8); text-align: left; }
+}
+@media (max-width: 767px) and (max-height: 760px) {
+  body.qrmo-apple .qrmo-v3-step-h { font-size: 20px; }
+  body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-d { font-size: 13.5px; line-height: 1.5; }
+  body.qrmo-apple .qrmo-v3-step-shot { max-height: calc(100svh - var(--gh) - 330px); }
+}
+body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-sub { margin: 0 0 12px; color: var(--qm-gold-light); font-size: 15px; font-weight: 600; line-height: 1.45; }
+@media (max-width: 767px) { body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-sub { order: 3; margin: 0 0 16px; font-size: 14.5px; } }
