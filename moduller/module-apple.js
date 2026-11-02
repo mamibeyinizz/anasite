@@ -37,7 +37,7 @@
       var n = Math.round(p * words.length);
       for (var i = 0; i < words.length; i++) words[i].classList.toggle("is-lit", i < n);
     }
-    if (flowDev) {
+    if (flowDev && !window.matchMedia("(max-width: 767px)").matches) {
       var f = flowDev.getBoundingClientRect();
       flowDev.style.setProperty("--ap-p", clamp((vh() - f.top) / (vh() * 0.55)).toFixed(3));
     }
@@ -57,20 +57,24 @@
     var fDots = [].slice.call(flowSec.querySelectorAll("[data-v3-dot]"));
     var fShow = flowSec.querySelector("[data-v3-show]");
     var fCur = -1;
-    var ghH = function () { return parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 72; };
+    var ghVal = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 72;
+    var ghH = function () { return ghVal; };
     var fRange = function () { return Math.max(1, flowSec.offsetHeight - fInner.offsetHeight); };
     var fPin = function () {
       if (!mqF.matches || !fSteps.length) return;
       var r = flowSec.getBoundingClientRect();
-      var p = clamp((ghH() - r.top) / fRange());
-      var idx = Math.min(fSteps.length - 1, Math.floor(p * fSteps.length));
+      var p = clamp((ghH() - r.top) / fRange()) * fSteps.length;
+      var idx = Math.min(fSteps.length - 1, Math.floor(p));
+      /* Sınırda gidip gelmeyi önle: komşu adıma geçmek için sınırı %12 aşmak gerekir */
+      if (fCur > -1 && Math.abs(idx - fCur) === 1 && Math.abs(p - Math.max(idx, fCur)) < 0.12) return;
       if (idx === fCur) return;
       fCur = idx;
       fSteps.forEach(function (st, i) { st.classList.toggle("is-active", i === idx); });
       if (fShow && fShow.__v3) fShow.__v3.go(parseInt(fSteps[idx].getAttribute("data-v3-step"), 10) || 0);
     };
-    window.addEventListener("scroll", function () { requestAnimationFrame(fPin); }, { passive: true });
-    window.addEventListener("resize", fPin);
+    var fTick = false;
+    window.addEventListener("scroll", function () { if (fTick) return; fTick = true; requestAnimationFrame(function () { fTick = false; fPin(); }); }, { passive: true });
+    window.addEventListener("resize", function () { ghVal = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--qrmo-gh-h")) || 72; fPin(); });
     fDots.forEach(function (d, i) {
       d.addEventListener("click", function () {
         if (!mqF.matches) return;
