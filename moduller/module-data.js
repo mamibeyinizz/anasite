@@ -259,7 +259,7 @@
             frame: "scene", layout: "duo",
             alt: "Temsili arayüz: solda ürün düzenleme ekranında Mercimek Çorbası’nın fiyatı, kategorisi, alerjeni ve rozetleri; sağda aynı ürünün müşteri telefonundaki menüde görünümü.",
             items: [
-              { frame: "shot", kind: "window", src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: ürün adı, fiyat, kategori ve ürün fotoğrafı", title: "Menü Yönetimi › Ürünü düzenle" },
+              { frame: "shot", kind: "window", src: "../../assets/modules/restoran-menu/panel-urun-duzenle.webp", m: { src: "../../assets/modules/restoran-menu/m-panel-urun-duzenle.webp", w: 780, h: 1538 }, w: 1568, h: 1344, alt: "Ürün düzenleme ekranı: ürün adı, fiyat, kategori ve ürün fotoğrafı", title: "Menü Yönetimi › Ürünü düzenle" },
               { frame: "shot", kind: "phone", src: "../../assets/modules/restoran-menu/menu-liste.webp", w: 780, h: 1560, alt: "menü listesi: kampanya görseli, arama, filtre ve kategoriler" }
             ]
           }

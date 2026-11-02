@@ -207,7 +207,8 @@ function frame(f) {
     case "card":
       return `<div class="qm-card">${blocks(f.blocks)}</div>`;
     case "shot": {
-      const img = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
+      const base = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
+      const img = f.m ? `<picture><source media="(max-width: 639px)" srcset="${f.m.src}" width="${f.m.w}" height="${f.m.h}">${base}</picture>` : base;
       return f.kind === "phone"
         ? `<div class="qm-phone qm-phone--shot">${img}</div>`
         : `<div class="qm-win qm-win--shot"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title || "")}</span></div>${img}</div>`;

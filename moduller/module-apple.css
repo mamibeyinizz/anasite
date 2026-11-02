@@ -350,3 +350,18 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-spoke-img img { object-position: top left; }
   body.qrmo-apple .qrmo-mod-tile-img img { object-position: center; }
 }
+
+/* ---------- Mobil: sabit cihaz alanı dikey ve tam görünür (kırpma yok) ---------- */
+@media (max-width: 639px) {
+  .qrmo-v3-screen[data-kind="window"] { --w: 300px; }
+  .qm-win--shot .qm-win-bar { padding-block: 8px; }
+  body.qrmo-apple .qrmo-v3-step-pts { display: none; }
+  body.qrmo-apple .qrmo-v3-step { padding: 4px 0 4px 16px; margin-bottom: 18px; min-height: 0; }
+  body.qrmo-apple .qrmo-v3-step h3 { font-size: 21px; }
+  body.qrmo-apple .qrmo-v3-step p { font-size: 16px; }
+  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: 400px; }
+}
+@media (max-width: 639px) and (max-height: 760px) {
+  body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: 330px; }
+  .qrmo-v3-hero { --v3-h: 400px; }
+}
