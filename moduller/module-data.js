@@ -104,10 +104,22 @@
         flow: {
           title: "Panelde değiştirin, masada görünsün.",
           steps: [
-            { screen: 0, img: "../../assets/modules/restoran-menu/s-adim-1-panel.webp", who: "SİZ · YÖNETİM PANELİ", t: "Panelde ürünü düzenleyin", d: "Fiyatı, kalorisini ve alerjenlerini yazın, kaydedin.", ms: { t: "Panelde düzenleyin", d: "Fiyat, kalori, alerjen: yazın, kaydedin." },  points: ["Ad, fiyat, kategori ve fotoğraf tek ekranda", "14 alerjen ve besin değerleri", "Yüzlerce ürünü CSV ile tek seferde yükleyin"] },
-            { screen: 1, img: "../../assets/modules/restoran-menu/s-adim-2-menu.webp", who: "MİSAFİR · TELEFON", t: "Misafir menüyü telefonunda açar", d: "QR kodu okutur; uygulama indirmeden güncel menüyü görür.", ms: { t: "Telefonda açılır", d: "QR’ı okutur, uygulama indirmez." },  points: ["Masadaki QR kodu okutması yeterli", "Uygulama indirmek gerekmez", "Her açılışta menünün güncel hali gelir"] },
-            { screen: 2, img: "../../assets/modules/restoran-menu/s-adim-3-filtre.webp", who: "MİSAFİR · ARAMA VE FİLTRE", t: "Aradığını kolayca bulur", d: "Arar, filtreler; biten ürünü etiketinden anlar.", ms: { t: "Kolayca bulur", d: "Arar, filtreler, biten ürünü görür." },  points: ["Ürün adıyla arama, alerjene göre eleme", "Fiyata, süreye ve besin değerine göre sıralama", "Biten ürün menüde etiketiyle kalır"] },
-            { screen: 3, img: "../../assets/modules/restoran-menu/s-adim-4-detay.webp", who: "MİSAFİR · ÜRÜN DETAYI", t: "Ürünün ayrıntısına bakar", d: "Kalori, alerjen, porsiyon ve ekstralar tek ekranda.", ms: { t: "Ayrıntıya bakar", d: "Kalori, alerjen, porsiyon tek ekranda." },  points: ["Kalori, gramaj, protein, karbonhidrat ve yağ", "Alerjen ve acılık bilgisi", "Ürün notu yazar, adedi seçer"] }
+            { screen: 0, img: "../../assets/modules/restoran-menu/s-adim-1-panel.webp", who: "SİZ · YÖNETİM PANELİ",
+              t: "Fiyatı bir kez yazın, her masada değişsin", d: "Ürünün fiyatını, kalorisini ve alerjenlerini panelde güncelleyip kaydedin. Basılı menü yenilenmez; misafir yeni hâlini bir sonraki açılışta görür.",
+              ms: { t: "Fiyatı bir kez yazın", d: "Panelde kaydedin; basılı menü yenilemeden her masada güncel fiyat." },
+              points: ["Ad, fiyat, kategori ve fotoğraf tek ekranda", "14 alerjen ve besin değerleri", "Yüzlerce ürünü CSV ile tek seferde yükleyin"] },
+            { screen: 1, img: "../../assets/modules/restoran-menu/s-adim-2-menu.webp", who: "MİSAFİR · QR MENÜ",
+              t: "QR okutulur, menü uygulamasız açılır", d: "Misafir masadaki kodu okutur; menü telefonun tarayıcısında açılır. Kategoriler, ürün fotoğrafları, fiyatlar ve Önerilen, Popüler gibi rozetler ilk ekranda.",
+              ms: { t: "Okut, menü açılsın", d: "Uygulama yok. Kategori, fotoğraf, fiyat ve rozetler ilk ekranda." },
+              points: ["Masadaki QR kodu okutması yeterli", "Uygulama indirmek gerekmez", "Her açılışta menünün güncel hali gelir"] },
+            { screen: 2, img: "../../assets/modules/restoran-menu/s-adim-3-filtre.webp", who: "MİSAFİR · FİLTRE VE SIRALAMA",
+              t: "Alerjenini çıkarır, menüyü kendine göre dizer", d: "Glüten, süt, fındık gibi 14 alerjenden istediğini hariç tutar; menüyü fiyata, proteine, karbonhidrata ya da acılığa göre sıralar. Biten ürün etiketiyle görünür, sepete eklenemez.",
+              ms: { t: "Alerjeni çıkar, kendine göre sırala", d: "14 alerjenden birini hariç tutar; fiyata, proteine ya da acılığa göre sıralar." },
+              points: ["14 alerjene göre eleme", "Fiyat, protein, karbonhidrat ve acılığa göre sıralama", "Biten ürün menüde etiketiyle kalır"] },
+            { screen: 3, img: "../../assets/modules/restoran-menu/s-adim-4-detay.webp", who: "MİSAFİR · ÜRÜN DETAYI",
+              t: "Garsona sormadan ürünün içini görür", d: "Kalori, protein, karbonhidrat, yağ, gramaj, hazırlanış süresi, acılık, et menşei ve alerjen bilgisi ürün detayında etiket olarak durur. Porsiyon ve ekstra seçimi aynı ekranda.",
+              ms: { t: "Sormadan içini görür", d: "Kalori, protein, gramaj, süre, acılık ve alerjen tek bakışta." },
+              points: ["Kalori, protein, karbonhidrat ve yağ", "Gramaj, hazırlanış süresi ve acılık", "Alerjen ve et menşei etiketleri"] }
           ]
         },
         features: [
