@@ -399,9 +399,9 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-flow { --fw: clamp(158px, 43vw, 230px); }
   body.qrmo-apple .qrmo-v3-flow-grid { grid-template-columns: var(--fw) minmax(0, 1fr); gap: 14px; }
   /* Telefon görünümün dikey ortasında sabit durur; metin onunla aynı hizada akar */
-  body.qrmo-apple .qrmo-v3-flow-dev { top: max(calc(var(--qrmo-gh-h, 72px) + 12px), calc(50dvh - var(--fw) - 28px)); }
+  body.qrmo-apple .qrmo-v3-flow-dev { top: max(calc(var(--qrmo-gh-h, 72px) + 12px), calc(50svh - var(--fw) - 28px)); }
   body.qrmo-apple .qrmo-v3-flow-dev .qrmo-v3-show { --v3-h: calc(var(--fw) * 1.96); }
-  body.qrmo-apple .qrmo-v3-step { min-height: 50dvh; padding: 0; opacity: .3; transition: opacity .45s var(--v3-ease), transform .5s var(--v3-ease); transform: translateX(6px); }
+  body.qrmo-apple .qrmo-v3-step { min-height: 50svh; padding: 0; opacity: .3; transition: opacity .45s var(--v3-ease), transform .5s var(--v3-ease); transform: translateX(6px); }
   body.qrmo-apple .qrmo-v3-step.is-active { opacity: 1; transform: none; }
   body.qrmo-apple .qrmo-v3-step-n { display: block; margin-bottom: 8px; }
   body.qrmo-apple .qrmo-v3-step-who { display: block; margin-top: 2px; letter-spacing: .08em; }
@@ -424,9 +424,9 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
 
 /* ---------- Mobil Nasıl çalışır: sabitlenmiş sahne (kaydırdıkça adım değişir) ---------- */
 @media (max-width: 767px) {
-  body.qrmo-apple .qrmo-v3-flow { --gh: var(--qrmo-gh-h, 72px); padding: 0; height: calc(100dvh - var(--gh) + (var(--n, 4) - 1) * 56dvh); }
-  body.qrmo-apple .qrmo-v3-flow > .qrmo-mod-inner { position: sticky; top: var(--gh); height: calc(100dvh - var(--gh)); display: flex; flex-direction: column; justify-content: center; }
-  body.qrmo-apple .qrmo-v3-flow-panel { display: flex; flex-direction: column; justify-content: center; gap: clamp(14px, 3dvh, 28px); }
+  body.qrmo-apple .qrmo-v3-flow { --gh: var(--qrmo-gh-h, 72px); padding: 0; height: calc(100svh - var(--gh) + (var(--n, 4) - 1) * 56svh); }
+  body.qrmo-apple .qrmo-v3-flow > .qrmo-mod-inner { position: sticky; top: var(--gh); height: calc(100svh - var(--gh)); display: flex; flex-direction: column; justify-content: center; }
+  body.qrmo-apple .qrmo-v3-flow-panel { display: flex; flex-direction: column; justify-content: center; gap: clamp(14px, 3svh, 28px); }
   body.qrmo-apple .qrmo-v3-flow-head { margin: 0; }
   body.qrmo-apple .qrmo-v3-flow-head .qrmo-v3-h2 { font-size: 22px; line-height: 1.2; }
   body.qrmo-apple .qrmo-v3-flow-head .qrmo-v3-eyebrow { margin-bottom: 8px; }
@@ -441,3 +441,21 @@ body.qrmo-apple .qrmo-v3-spoke-img picture, body.qrmo-apple .qrmo-mod-tile-img p
   body.qrmo-apple .qrmo-v3-step p { font-size: 15.5px; }
 }
 @media (max-width: 767px) and (prefers-reduced-motion: reduce) { body.qrmo-apple .qrmo-v3-step { transition: none; transform: none; } }
+
+/* ---------- Mobil sahne: kararlılık ve performans ---------- */
+@media (max-width: 767px) {
+  /* svh desteklemeyen tarayıcıda vh'ye düş */
+  @supports not (height: 1svh) {
+    body.qrmo-apple .qrmo-v3-flow { height: calc(100vh - var(--gh) + (var(--n, 4) - 1) * 56vh); }
+    body.qrmo-apple .qrmo-v3-flow > .qrmo-mod-inner { height: calc(100vh - var(--gh)); }
+  }
+  /* Kaydırma sırasında pahalı katmanlar yok */
+  body.qrmo-apple .qrmo-v3-flow .qrmo-v3-glow { display: none; }
+  body.qrmo-apple .qrmo-v3-flow > .qrmo-mod-inner { contain: layout paint; }
+  /* Adım geçişi yalnız opaklık; ekran geçişi kısa ve kaymasız */
+  body.qrmo-apple .qrmo-v3-step { transform: none; transition: opacity .3s ease; will-change: opacity; }
+  body.qrmo-apple .qrmo-v3-flow .qrmo-v3-screen { transform: none; transition: opacity .3s ease, visibility 0s .3s; will-change: opacity; }
+  body.qrmo-apple .qrmo-v3-flow .qrmo-v3-screen.is-active { transition: opacity .3s ease; }
+  /* Sahne içi giriş animasyonu kapalı (yapışkan alanda titreme yapıyordu) */
+  .v3-js body.qrmo-apple .qrmo-v3-flow .ap-r { opacity: 1; transform: none; transition: none; animation: none; }
+}
