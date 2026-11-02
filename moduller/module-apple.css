@@ -555,9 +555,13 @@ body.qrmo-apple .qrmo-v3-step > .qrmo-v3-step-sub { margin: 0 0 12px; color: var
 @media (min-width: 768px) { .qrmo-v3-mob-only { display: none !important; } }
 
 /* ---------- Tüm özellikler: akordeon (8 madde, varsayılan kapalı) ---------- */
-body.qrmo-apple .qrmo-v3-qalist--feat { max-width: 52rem; margin-inline: auto; }
 body.qrmo-apple .qrmo-v3-qa--feat summary { grid-template-columns: 40px minmax(0, 1fr) 28px; min-height: 64px; padding: 12px 0; }
 body.qrmo-apple .qrmo-v3-qa-ico { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; color: var(--qm-gold-light); background: linear-gradient(150deg, #173226, #0D2B22); }
 body.qrmo-apple .qrmo-v3-qa-ico svg { width: 20px; height: 20px; }
 body.qrmo-apple .qrmo-v3-qa--feat .qrmo-v3-qa-q { font-size: clamp(16px, 1.4vw, 19px); }
 body.qrmo-apple .qrmo-v3-qa--feat p { padding: 0 40px 20px 52px; font-size: 15.5px; }
+@media (min-width: 900px) {
+  /* Sayfa genişliği: kapsayıcı header ile aynı; SSS ile aynı sol başlık + sağ akordeon düzeni. */
+  body.qrmo-apple .qrmo-v3-features > .qrmo-mod-inner { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: clamp(48px, 7vw, 120px); align-items: start; }
+  body.qrmo-apple .qrmo-v3-features .qrmo-v3-head { max-width: 30rem; margin: 0; text-align: left; position: sticky; top: var(--v3-sticky); }
+}
