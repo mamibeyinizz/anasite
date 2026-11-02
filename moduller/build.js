@@ -1235,11 +1235,7 @@ const SECTION = {
   </section>` : "";
     if ((m.pageClass || "").includes("qrmo-apple")) {
       const cards = join(m.featureGrid || [], (f) => `
-          <li class="qrmo-v3-fcard">
-            <span class="qrmo-v3-fcard-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span>
-            <h3>${esc(f.t)}</h3>
-            <p>${esc(f.d)}</p>
-          </li>`);
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span><span class="qrmo-v3-qa-q">${esc(f.t)}</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>${esc(f.d)}</p></details>`);
       const qa = (m.faq || []).map((id, i) => {
         const q = ctx.faqById[id];
         if (!q) return "";
@@ -1253,8 +1249,8 @@ const SECTION = {
         <p class="qrmo-v3-eyebrow">TÜM ÖZELLİKLER</p>
         <h2 class="qrmo-v3-h2" id="qrmo-mod-feat-h">${esc(m.name)} ile yapabildiğiniz her şey</h2>
       </header>
-      <ul class="qrmo-v3-fgrid">${cards}
-      </ul>
+      <div class="qrmo-v3-qalist qrmo-v3-qalist--feat">${cards}
+      </div>
     </div>
   </section>`;
       const faqSec = `

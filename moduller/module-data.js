@@ -209,7 +209,7 @@
         hubImg: { src: "../../assets/modules/restoran-menu/hub-menu.webp", w: 780, h: 1000, alt: "Misafirin telefonunda açılan menü: kampanya görseli, arama ve öneri listesi" },
         shotNote: "Gerçek ekran görüntüsü · örnek restoran verisi",
         pageClass: "qrmo-apple",
-        v3Order: ["hero", "gaps", "flow", "showcase", "features", "reviews", "faq", "more", "closing"],
+        v3Order: ["hero", "gaps", "flow", "features", "reviews", "faq", "more", "closing"],
         cta: {
           primary: { label: "Canlı menüyü görün", path: "canli-menu/" },
           secondary: { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" }
