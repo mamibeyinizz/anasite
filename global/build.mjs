@@ -53,7 +53,8 @@ const PAGES = [
   { file: "index.html", rel: "", current: "home", skip: "icerik" },
   { file: "paketler/index.html", rel: "../", current: "paketler", skip: "qrmo-pricing" },
   { file: "iletisim/index.html", rel: "../", current: "iletisim", skip: "icerik" },
-  { file: "canli-menu/index.html", rel: "../", current: "canli", skip: "icerik" }
+  { file: "canli-menu/index.html", rel: "../", current: "canli", skip: "icerik" },
+  { file: "odeme/index.html", rel: "../", current: "paketler", skip: "odeme" }
 ];
 for (const p of PAGES) {
   const f = path.join(root, p.file);

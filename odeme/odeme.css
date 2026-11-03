@@ -1,0 +1,135 @@
+/* =========================================================
+   QR MENU OFFICIAL — /odeme/   Namespace: .qrmo-pay-*
+   Tipografi: yalnızca global/src/type-scale.css token'ları ve .ts-rol sınıfları.
+   Kırılımlar: 640 / 960 (global header ile aynı). Alt çizgi yok.
+========================================================= */
+body.qrmo-pay-page {
+  margin: 0;
+  background:
+    radial-gradient(120% 75% at 50% -10%, rgba(201,168,76,.10) 0%, rgba(201,168,76,.035) 35%, rgba(201,168,76,0) 70%),
+    linear-gradient(165deg, #fdfbf5 0%, #f7f1e5 52%, #f0e8d7 100%);
+  background-color: #FDFBF5;
+}
+.qrmo-pay {
+  --qpay-green-dark: #0D2B22;
+  --qpay-green-hover: #1E3D2F;
+  --qpay-gold: #C9A84C;
+  --qpay-gold-light: #E8C766;
+  --qpay-cream: #F4F1E8;
+  --qpay-text: #24312A;
+  --qpay-line: rgba(13,43,34,.16);
+  --qpay-err: #9b1c1c;
+  color: var(--qpay-text);
+  font-family: "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  padding: 32px 0 80px;
+}
+.qrmo-pay *, .qrmo-pay *::before, .qrmo-pay *::after { box-sizing: border-box; }
+.qrmo-pay :focus-visible { outline: 3px solid var(--qpay-green-dark); outline-offset: 3px; }
+.qrmo-pay p, .qrmo-pay h1, .qrmo-pay h2, .qrmo-pay dl, .qrmo-pay dd, .qrmo-pay ul, .qrmo-pay fieldset, .qrmo-pay legend { margin: 0; padding: 0; }
+.qrmo-pay-inner { width: min(1120px, 100% - 2 * var(--qrmo-shell-gutter, 5vw)); margin: 0 auto; }
+.qrmo-pay-num { font-variant-numeric: tabular-nums; }
+
+.qrmo-pay-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; color: var(--ts-ink-soft); }
+.qrmo-pay-crumbs a, .qrmo-pay-check a { color: var(--qpay-green-dark); font-weight: 700; text-decoration: none; }
+.qrmo-pay-crumbs a { display: inline-flex; align-items: center; min-height: 44px; }
+.qrmo-pay-crumbs a:hover, .qrmo-pay-check a:hover { color: var(--ts-gold-ink); }
+.qrmo-pay-eyebrow { margin-top: 12px; color: var(--ts-gold-ink); }
+.qrmo-pay-title { margin-top: 8px; color: var(--qpay-green-dark); }
+.qrmo-pay-lead { margin-top: 12px; max-width: var(--ts-measure); color: var(--ts-ink-soft); }
+.qrmo-pay-test { margin-top: 20px; padding: 12px 16px; background: rgba(201,168,76,.14); border: 1px solid rgba(127,100,25,.35); border-radius: 12px; color: var(--qpay-green-dark); }
+
+.qrmo-pay-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 28px; align-items: start; }
+.qrmo-pay-grid[hidden], .qrmo-pay-done[hidden] { display: none; }
+@media (min-width: 961px) { .qrmo-pay-grid { grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; } .qrmo-pay-summary { position: sticky; top: calc(var(--qrmo-gh-h, 94px) + 16px); } }
+
+.qrmo-pay-form { display: grid; gap: 20px; min-width: 0; }
+.qrmo-pay .qrmo-pay-step { min-width: 0; padding: 22px 20px; background: #fff; border: 1px solid var(--qpay-line); border-radius: 16px; }
+.qrmo-pay-h { display: block; width: 100%; margin-bottom: 14px; color: var(--qpay-green-dark); }
+
+.qrmo-pay-period, .qrmo-pay-plans { display: grid; gap: 12px; }
+@media (min-width: 641px) { .qrmo-pay-period { grid-template-columns: 1fr 1fr; } }
+
+.qrmo-pay-opt-card { position: relative; display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px 16px; background: #fff; border: 1.5px solid var(--qpay-line); border-radius: 14px; cursor: pointer; transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease; }
+.qrmo-pay-opt-card:hover { border-color: var(--qpay-green-dark); }
+.qrmo-pay-opt-card:has(input:checked) { border-color: var(--qpay-green-dark); background: #fbf8ee; box-shadow: inset 0 0 0 1px var(--qpay-green-dark); }
+.qrmo-pay-opt-card:has(input:focus-visible) { outline: 3px solid var(--qpay-green-dark); outline-offset: 3px; }
+.qrmo-pay-opt-card input { width: 22px; height: 22px; flex: 0 0 auto; margin: 0; accent-color: var(--qpay-green-dark); }
+.qrmo-pay-opt-text { display: grid; gap: 2px; min-width: 0; flex: 1 1 auto; color: var(--qpay-green-dark); }
+.qrmo-pay-opt-text .ts-cap { color: var(--ts-ink-soft); }
+.qrmo-pay-plan-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.qrmo-pay-plan-price { display: grid; justify-items: end; flex: 0 0 auto; color: var(--qpay-green-dark); text-align: right; }
+.qrmo-pay-plan-price .ts-cap { color: var(--ts-ink-soft); }
+.qrmo-pay-badge { display: inline-flex; align-items: center; padding: 3px 10px; color: var(--qpay-cream); background: var(--qpay-green-dark); border-radius: 999px; white-space: nowrap; }
+
+.qrmo-pay-fields { display: grid; gap: 16px; }
+@media (min-width: 641px) { .qrmo-pay-fields { grid-template-columns: 1fr 1fr; } .qrmo-pay-field--wide { grid-column: 1 / -1; } }
+.qrmo-pay-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.qrmo-pay-field > label { color: var(--qpay-green-dark); }
+.qrmo-pay-req, .qrmo-pay-opt { margin-left: 6px; color: var(--ts-ink-soft); }
+.qrmo-pay-field input[type="text"], .qrmo-pay-field input[type="email"], .qrmo-pay-field input[type="tel"] {
+  width: 100%; min-height: 48px; margin: 0; padding: 12px 14px; color: var(--qpay-text); background: #fff;
+  border: 1px solid rgba(13,43,34,.28); border-radius: 12px;
+  font-family: inherit; font-size: var(--ts-fs-form); font-weight: var(--ts-fw-form); line-height: var(--ts-lh-form);
+  scroll-margin-top: calc(var(--qrmo-gh-h, 94px) + 16px);
+}
+.qrmo-pay-field input:hover { border-color: var(--qpay-green-dark); }
+.qrmo-pay-field input[aria-invalid="true"] { border-color: var(--qpay-err); box-shadow: 0 0 0 1px var(--qpay-err); }
+.qrmo-pay-help { color: var(--ts-ink-soft); }
+.qrmo-pay-err { min-height: 0; color: var(--qpay-err); font-weight: 700; }
+.qrmo-pay-err:empty { display: none; }
+.qrmo-pay-field--check { margin-top: 16px; }
+.qrmo-pay-check { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; cursor: pointer; color: var(--qpay-green-dark); }
+.qrmo-pay-check input { width: 22px; height: 22px; flex: 0 0 auto; margin: 2px 0 0; accent-color: var(--qpay-green-dark); }
+.qrmo-pay-check input[aria-invalid="true"] { outline: 2px solid var(--qpay-err); outline-offset: 2px; }
+
+.qrmo-pay-provider { padding: 16px; color: var(--ts-ink-soft); background: rgba(13,43,34,.04); border: 1.5px dashed var(--qpay-line); border-radius: 12px; }
+
+.qrmo-pay-summary { padding: 22px 20px; color: var(--qpay-cream); background: var(--qpay-green-dark); border: 1px solid var(--qpay-gold); border-radius: 16px; }
+.qrmo-pay-sum-h { color: var(--qpay-cream); margin-bottom: 14px; }
+.qrmo-pay-sum-top { display: grid; gap: 4px; padding-bottom: 14px; border-bottom: 1px solid rgba(244,241,232,.2); }
+.qrmo-pay-sum-top .ts-h4 { color: var(--qpay-gold-light); }
+.qrmo-pay-sum-top .ts-cap, .qrmo-pay-renew, .qrmo-pay-inc .ts-cap { color: rgba(244,241,232,.82); }
+.qrmo-pay-sum-list { display: grid; gap: 8px; padding: 14px 0; }
+.qrmo-pay-sum-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.qrmo-pay-sum-row dd { text-align: right; }
+.qrmo-pay-sum-row:last-child { padding-top: 10px; border-top: 1px solid rgba(244,241,232,.2); }
+.qrmo-pay-sum-row:last-child dt, .qrmo-pay-sum-row:last-child dd { color: var(--qpay-gold-light); }
+.qrmo-pay-inc { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(244,241,232,.2); }
+.qrmo-pay-inc-list { display: grid; gap: 4px; margin-top: 8px; padding-left: 18px; list-style: disc; }
+.qrmo-pay-submit, .qrmo-pay-ghost {
+  display: inline-flex; align-items: center; justify-content: center; width: 100%; min-height: 52px; margin-top: 20px; padding: 12px 18px;
+  border-radius: 12px; font-family: inherit; text-align: center; cursor: pointer; touch-action: manipulation; appearance: none; -webkit-appearance: none;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.qrmo-pay-submit { color: var(--qpay-green-dark); background: var(--qpay-gold-light); border: 1.5px solid var(--qpay-gold); }
+.qrmo-pay-submit:hover { background: #f0d37e; transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.25); }
+.qrmo-pay-submit:active { transform: none; }
+.qrmo-pay-submit:disabled { opacity: .6; cursor: wait; transform: none; }
+.qrmo-pay-summary :focus-visible { outline-color: var(--qpay-gold-light); }
+.qrmo-pay-note { margin-top: 12px; color: rgba(244,241,232,.82); }
+
+.qrmo-pay-done { margin-top: 28px; max-width: 640px; padding: 28px 24px; background: #fff; border: 1px solid var(--qpay-line); border-radius: 16px; }
+.qrmo-pay-done:focus { outline: none; }
+.qrmo-pay-done .qrmo-pay-eyebrow { margin-top: 0; }
+.qrmo-pay-done-h { margin-top: 8px; color: var(--qpay-green-dark); }
+.qrmo-pay-done .ts-lead { margin-top: 12px; color: var(--ts-ink-soft); }
+.qrmo-pay-done-list { display: grid; gap: 8px; margin-top: 20px; color: var(--qpay-green-dark); }
+.qrmo-pay-done-list .qrmo-pay-sum-row { padding-bottom: 8px; border-bottom: 1px solid var(--qpay-line); }
+.qrmo-pay-done-list .qrmo-pay-sum-row:last-child { padding-top: 0; border-top: 0; }
+.qrmo-pay-done-list .qrmo-pay-sum-row:last-child dt, .qrmo-pay-done-list .qrmo-pay-sum-row:last-child dd { color: inherit; }
+.qrmo-pay-done-note { margin-top: 16px; color: var(--ts-ink-soft); }
+.qrmo-pay-ghost { width: auto; margin-top: 20px; padding-inline: 24px; color: var(--qpay-cream); background: var(--qpay-green-dark); border: 1.5px solid var(--qpay-gold); }
+.qrmo-pay-ghost:hover { background: var(--qpay-green-hover); }
+
+@media (max-width: 640px) {
+  .qrmo-pay { padding-bottom: 56px; }
+  .qrmo-pay .qrmo-pay-step, .qrmo-pay .qrmo-pay-summary { padding: 18px 16px; }
+  .qrmo-pay-plan { flex-wrap: wrap; }
+  .qrmo-pay-plan-price { margin-left: 34px; justify-items: start; text-align: left; flex: 1 0 100%; grid-auto-flow: column; justify-content: start; gap: 6px; align-items: baseline; }
+}
+@media (prefers-reduced-motion: reduce) { .qrmo-pay * { transition: none !important; } }
+
+/* fieldset başlığı kart içinde kalsın (legend kenarlığa oturmasın) */
+.qrmo-pay-step > legend.qrmo-pay-h { float: left; }
+.qrmo-pay-step > legend.qrmo-pay-h + * { clear: both; }
