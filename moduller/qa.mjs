@@ -211,9 +211,9 @@ async function browserQa() {
       await page.keyboard.press("Tab");
       const ring = await page.evaluate(() => { const s = getComputedStyle(document.activeElement); return s.outlineStyle !== "none" && parseFloat(s.outlineWidth) >= 2; });
       check(ring, "klavye: odak halkası görünür");
-      await page.focus(".qrmo-mod-acc-item > summary");
+      await page.focus(".qrmo-mod-acc-item > summary, .qrmo-v3-qa > summary");
       await page.keyboard.press("Enter");
-      check(await page.evaluate(() => document.querySelector(".qrmo-mod-acc-item").open), "klavye: akordeon Enter ile açılır");
+      check(await page.evaluate(() => document.querySelector(".qrmo-mod-acc-item, .qrmo-v3-qa").open), "klavye: akordeon Enter ile açılır");
       await ctx.close();
     }
 

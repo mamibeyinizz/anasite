@@ -23,6 +23,8 @@
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
 <script defer src="../module-v3.js"></script>
+<link rel="stylesheet" href="../module-apple.css">
+<script defer src="../module-apple.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"Masa Oturum Güvenliği","item":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/#webpage","url":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/","name":"Masa Oturum Güvenliği — İmzalı Masa Oturumu","description":"Müşteri QR’ı okuttuğunda imzalı bir masa oturumu başlar. Oturum süresi, hareketsizlik limiti ve isteğe bağlı sayfa kilidi sizin ayarınızla sınırlanır.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/#app","name":"QR Menu Official — Masa Oturum Güvenliği","description":"Müşteri QR’ı okuttuğunda imzalı bir masa oturumu başlar. Oturum süresi, hareketsizlik limiti ve isteğe bağlı sayfa kilidi sizin ayarınızla sınırlanır.","url":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/#faq","mainEntity":[{"@type":"Question","name":"QR menü güvenli mi?","acceptedAnswer":{"@type":"Answer","text":"Masa oturumu imzalı çerezle doğrulanır; müşteri yalnızca okuttuğu masayla ilişkilendirilir. Bu, rastgele masa numarası yazarak başkasının hesabına müdahale etmeyi zorlaştırır. Yine de mutlak “sıfır risk” iddiası yerine iyi uygulama ve güncel yazılım önerilir. Masa oturum güvenliği modülüne bakın."}},{"@type":"Question","name":"Masa oturumu nasıl doğrulanır?","acceptedAnswer":{"@type":"Answer","text":"QR ile gelen ziyaretçiye masa slug’ına bağlı imzalı bir oturum belirteci verilir; sunucu her istekte imzayı kontrol eder. Oturum süresi ve boşta kalma sınırı vardır; masa kapatılınca eski belirteçler geçersiz olur."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -37,7 +39,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3 qrmo-apple">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -221,39 +223,46 @@
 <!-- QRMO:HEADER:END -->
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 
-  <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">Masa Oturum Güvenliği</li></ol></nav>
+  
 
   <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
     <div class="qrmo-mod-inner qrmo-v3-hero-grid">
       <div class="qrmo-v3-hero-copy">
-        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MASA &amp; SERVİS</span><span class="qrmo-mod-kicker-pkg">Pro ve Plus paketlerinde</span></p>
-        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Masa oturumu kontrollü kalsın.</h1>
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MASA OTURUM GÜVENLİĞİ</span><span class="qrmo-mod-kicker-pkg">Pro ve Plus paketlerinde</span></p>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Masa oturumu <span class="qrmo-v3-accent">kontrollü kalsın.</span></h1>
         <p class="qrmo-mod-lead">Müşteri QR’ı okuttuğunda o masaya bağlı, doğrulanmış bir oturum başlar. Çağrı, sipariş ve sohbet bu oturumla çalışır; süresini siz belirlersiniz.</p>
+        <ul class="qrmo-v3-points"><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V8a4 4 0 0 1 8 0v2"/></svg></span><span>İmzalı masa oturumu</span></li><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Süre ve hareketsizlik limiti</span></li><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3h3M14 20h.01M20 20h.01"/></svg></span><span>Menü herkese açık kalır</span></li></ul>
         <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-cta" href="../../canli-menu/"><span>Canlı menüyü görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-textlink" href="../../paketler/#karsilastirma"><span>Paketleri karşılaştırın</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
       <div class="qrmo-v3-hero-visual">
-        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-show" data-v3-show="auto" data-v3-max="1" id="qrmo-v3-hero">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">
           <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="phone" role="img" aria-label="Kayıtlı masa: temsili ekran 1 / 4">
             <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-appbar"><span class="qm-logo">QR</span><span class="qm-appbar-t"><strong>Menü</strong><small>Masa 7</small></span></div><div class="qm-session"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><small>Aktif masa</small><strong>Masa 7</strong></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Mercimek Çorbası</strong><small>180 kcal</small></span><span class="qm-item-s"><b>95 ₺</b></span></div><div class="qm-item"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Izgara Tavuk</strong><small>420 kcal</small></span><span class="qm-item-s"><b>260 ₺</b></span></div><div class="qm-actions"><span class="qm-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15L6 16Z"/><path d="M10 20.5h4"/></svg>Garson Çağır</span><span class="qm-act"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15L6 16Z"/><path d="M10 20.5h4"/></svg>Hesap İste</span></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İmzalı oturum</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Garson ve sipariş açık</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="phone" role="img" aria-label="Kayıtsız adres: temsili ekran 2 / 4" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-phone"><div class="qm-screen"><div class="qm-lock"><span class="qm-lock-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg></span><strong>Oturum Gerekli</strong><span class="qm-lock-l"></span><span class="qm-lock-l s"></span></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Kilit ekranı</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menü herkese açık</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 3 / 4" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Masa 7 · oturum</span></div><div class="qm-win-body"><div class="qm-sbar"><div class="qm-sbar-row"><span>Oturum süresi</span><b>90 dk</b><i style="--w:38%"></i></div><div class="qm-sbar-row idle"><span>Hareketsizlik</span><b>30 dk</b><i style="--w:18%"></i></div></div><div class="qm-fields"><span class="qm-field"><small>En uzun oturum</small><b>90 dk</b></span><span class="qm-field"><small>Hareketsizlik limiti</small><b>30 dk</b></span></div><p class="qm-note">Sayfa gezinmesi de hareketsizlik sayacını yeniler.</p></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Oturum durumu panelde</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Süre ve son işlem</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="3" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 4 / 4" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Masa Oturum Güvenliği › Oturum Limitleri</span></div><div class="qm-win-body"><div class="qm-fields"><span class="qm-field"><small>Maksimum oturum süresi (dk)</small><b>90</b></span><span class="qm-field"><small>Hareketsizlik limiti (dk)</small><b>30</b></span><span class="qm-field"><small>Oturum başına chatbot mesajı</small><b>25</b></span><span class="qm-field"><small>Korunacak sayfalar</small><b>boş: kilit kapalı</b></span></div><div class="qm-btns"><span class="qm-btn solid">Kaydet</span></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Maksimum süre</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Hareketsizlik limiti</span></span>
           </figure>
         </div>
-        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yalnızca kayıtlı masalara oturum</span></span>
-        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Süre ve hareketsizlik limiti</span></span>
         <div class="qrmo-v3-bar">
           <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 4: Kayıtlı masa" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 4: Kayıtsız adres" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="3" aria-label="Ekran 4 / 4: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
           <p class="qrmo-v3-live" data-v3-live aria-live="polite">Kayıtlı masa</p>
@@ -261,6 +270,35 @@
         <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
       </div>
       </div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
+    <div class="qrmo-mod-inner">
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">EKSİĞİ GÖRÜN</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">Masalarınızda bunlar yaşanıyorsa, eksik olan bir oturum kontrolü.</h2>
+      </header>
+      <ul class="qrmo-v3-pains">
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">01</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Masa bilgisi adreste duruyor, başkası değiştirebilir.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>MASA OTURUM GÜVENLİĞİ İLE</span>Masa adı, veriliş ve son işlem zamanı HMAC-SHA256 ile imzalanır; müşteri başka bir masa adına oturum oluşturamaz.</p>
+        </li>
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">02</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Bir kez açılan oturum süresiz açık kalıyor.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>MASA OTURUM GÜVENLİĞİ İLE</span>Toplam süre (varsayılan 90 dakika) ya da hareketsizlik limiti (varsayılan 30 dakika) dolunca oturum kilitlenir.</p>
+        </li>
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">03</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Kayıtlı olmayan bir adresten masa özelliklerine girilebiliyor.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>MASA OTURUM GÜVENLİĞİ İLE</span>Kayıtlı olmayan masa adresinde kilit ekranı gösterilir; menü herkese açık kalır.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -274,28 +312,32 @@
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
             <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">01<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>MİSAFİR · KAYITLI MASADA</span></span>
               <h3 class="qrmo-v3-step-h">Kayıtlı masada her şey açık</h3>
               
               <p class="qrmo-v3-step-d">Garson çağırma, sipariş ve sohbet çalışır.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masa adı imzalı oturumdan okunur</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Garson çağırma, sipariş ve sohbet çalışır</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menü Asistanı ve sepet oturuma bağlıdır</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">02<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>MİSAFİR · KAYITSIZ ADRESTE</span></span>
               <h3 class="qrmo-v3-step-h">Kayıtsız adreste menü yine açık</h3>
               
               <p class="qrmo-v3-step-d">Menü herkese açık kalır; masa özellikleri açılmaz.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Kayıtlı olmayan masada kilit ekranı</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menü herkese açık kalır</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Kilit ekranı aktif dilde açılır</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="2" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">03<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>SİZ · YÖNETİM PANELİ</span></span>
               <h3 class="qrmo-v3-step-h">Oturumu panelde görün</h3>
               
               <p class="qrmo-v3-step-d">Masanın oturum durumu panelde yer alır.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masa adı, veriliş ve son işlem zamanı</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Oturumun durumu panelde yer alır</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masa silinince açık oturumlar da kapanır</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="3" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">04</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">04<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>SİZ · YÖNETİM PANELİ</span></span>
               <h3 class="qrmo-v3-step-h">Süre sınırını siz belirlersiniz</h3>
               
               <p class="qrmo-v3-step-d">Süre ya da hareketsizlik limiti dolunca oturum kapanır.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Maksimum oturum süresi varsayılan 90 dakika</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Hareketsizlik limiti varsayılan 30 dakika</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Oturum başına mesaj limiti varsayılan 25</span></li></ul>
             </li>
           </ol>
           <div class="qrmo-v3-flow-dev">
@@ -328,61 +370,39 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-features" id="ozellikler" aria-labelledby="qrmo-mod-feat-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-v3-narrow">
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
-        <div class="qrmo-v3-faq"><details class="qrmo-v3-q"><summary><span>QR menü güvenli mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Masa oturumu imzalı çerezle doğrulanır; müşteri yalnızca okuttuğu masayla ilişkilendirilir. Bu, rastgele masa numarası yazarak başkasının hesabına müdahale etmeyi zorlaştırır. Yine de mutlak “sıfır risk” iddiası yerine iyi uygulama ve güncel yazılım önerilir. <a href="../../moduller/masa-oturum-guvenligi/">Masa oturum güvenliği</a> modülüne bakın.</p></details><details class="qrmo-v3-q"><summary><span>Masa oturumu nasıl doğrulanır?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>QR ile gelen ziyaretçiye masa slug’ına bağlı imzalı bir oturum belirteci verilir; sunucu her istekte imzayı kontrol eder. Oturum süresi ve boşta kalma sınırı vardır; masa kapatılınca eski belirteçler geçersiz olur.</p></details></div>
-        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Bu mekanizma mutlak güvenlik vaadi değildir; masayı QR’ı okutan kişiye bağlar ve oturumu süreyle sınırlar.</li><li>Menü varsayılan olarak herkese açıktır; oturum, çağrı, sipariş ve sohbet gibi masaya bağlı özellikleri korur.</li></ul></aside>
-        <details class="qrmo-v3-all">
-          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <div class="qrmo-v3-all-body">
-            <section><h3>Oturum</h3><ul><li><strong>İmzalı oturum</strong><span>Masa adı, veriliş zamanı ve son işlem zamanı HMAC-SHA256 ile imzalanır; müşteri başka bir masa adına oturum oluşturamaz.</span></li><li><strong>Kayıtsız masa adresi</strong><span>Adreste kayıtlı olmayan bir masa varsa kilit ekranı gösterilir.</span></li><li><strong>Kilit ekranı dili</strong><span>Kilit ekranı adres, çerez ve tarayıcı diline göre seçilen aktif dilde açılır.</span></li></ul></section>
-            <section><h3>Limitler</h3><ul><li><strong>Maksimum oturum süresi</strong><span>QR okutulduktan sonra oturumun toplam ömrü (varsayılan 90 dakika).</span></li><li><strong>Hareketsizlik limiti</strong><span>Belirlenen süre işlem yapılmazsa oturum kilitlenir (varsayılan 30 dakika). Sayaç sayfa gezinmesinde de yenilenir.</span></li><li><strong>Mesaj limiti</strong><span>Oturum başına Menü Asistanı mesajı sınırlanır (varsayılan 25).</span></li><li><strong>Masa silinince</strong><span>Bir masa silindiğinde o masadaki açık oturumlar da kapanır.</span></li></ul></section>
-            <section><h3>Kapsam</h3><ul><li><strong>Oturum gerektiren özellikler</strong><span>Menü Asistanı ve sepet gibi bileşenler sayfaya değil oturuma bağlıdır; geçerli oturum yoksa bilgi kutusu gösterilir.</span></li><li><strong>İsteğe bağlı sayfa kilidi</strong><span>Korunacak sayfa adreslerini yazarsınız; boş bırakılırsa sayfa kilidi kapalıdır. Ana sayfa hiçbir koşulda kilitlenmez.</span></li></ul></section>
-          </div>
-        </details>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">TÜM ÖZELLİKLER</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-feat-h">Masa Oturum Güvenliği ile yapabildiğiniz her şey</h2>
+        <p class="qrmo-v3-flead">Aşağıdaki her madde panelde bulunan gerçek bir ayardır. Başlığa dokunup ayrıntısını açın; kendi gözünüzle görmek için <a href="../../canli-menu/">canlı menüyü görün</a>.</p>
+      </header>
+      <ul class="qrmo-v3-fstats"><li><strong>90</strong><span>dk varsayılan oturum süresi</span></li><li><strong>30</strong><span>dk varsayılan hareketsizlik</span></li><li><strong>25</strong><span>varsayılan mesaj limiti</span></li></ul>
+      <div class="qrmo-v3-qalist qrmo-v3-qalist--feat">
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V8a4 4 0 0 1 8 0v2"/></svg></span><span class="qrmo-v3-qa-q">Oturum</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Masa bilgisi imzalı oturumda taşınır.</p><ul class="qrmo-v3-qa-pts"><li>Masa adı, veriliş zamanı ve son işlem zamanı HMAC-SHA256 ile imzalanır; müşteri başka bir masa adına oturum oluşturamaz</li><li>Adreste kayıtlı olmayan bir masa varsa kilit ekranı gösterilir</li><li>Kilit ekranı adres, çerez ve tarayıcı diline göre seçilen aktif dilde açılır</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="qrmo-v3-qa-q">Limitler</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Süre, hareketsizlik ve mesaj sınırları.</p><ul class="qrmo-v3-qa-pts"><li>QR okutulduktan sonra oturumun toplam ömrü (varsayılan 90 dakika)</li><li>Belirlenen süre işlem yapılmazsa oturum kilitlenir (varsayılan 30 dakika)</li><li>Oturum başına Menü Asistanı mesajı sınırlanır (varsayılan 25)</li><li>Bir masa silindiğinde o masadaki açık oturumlar da kapanır</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="qrmo-v3-qa-q">Kapsam</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Hangi özelliklerin oturuma bağlı olduğu.</p><ul class="qrmo-v3-qa-pts"><li>Menü Asistanı ve sepet gibi bileşenler sayfaya değil oturuma bağlıdır; geçerli oturum yoksa bilgi kutusu gösterilir</li><li>Korunacak sayfa adreslerini yazarsınız; boş bırakılırsa sayfa kilidi kapalıdır</li></ul></div></details>
+      </div>
+      <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Bu mekanizma mutlak güvenlik vaadi değildir; masayı QR’ı okutan kişiye bağlar ve oturumu süreyle sınırlar.</li><li>Menü varsayılan olarak herkese açıktır; oturum, çağrı, sipariş ve sohbet gibi masaya bağlı özellikleri korur.</li></ul></aside>
+    </div>
+  </section>
+
+    <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details qrmo-v3-faqsec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner qrmo-v3-faqgrid">
+      <header class="qrmo-v3-faqhead">
+        <p class="qrmo-v3-eyebrow">SIK SORULAN SORULAR</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Aklınıza takılanlar</h2>
+        <p class="qrmo-v3-faqlead">Cevabı burada bulamazsanız <a href="../../iletisim/">bize yazın</a>; menünüzü birlikte gözden geçirelim.</p>
+      </header>
+      <div class="qrmo-v3-qalist">
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">01</span><span class="qrmo-v3-qa-q">QR menü güvenli mi?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Masa oturumu imzalı çerezle doğrulanır; müşteri yalnızca okuttuğu masayla ilişkilendirilir. Bu, rastgele masa numarası yazarak başkasının hesabına müdahale etmeyi zorlaştırır. Yine de mutlak “sıfır risk” iddiası yerine iyi uygulama ve güncel yazılım önerilir. <a href="../../moduller/masa-oturum-guvenligi/">Masa oturum güvenliği</a> modülüne bakın.</p></details>
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">02</span><span class="qrmo-v3-qa-q">Masa oturumu nasıl doğrulanır?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>QR ile gelen ziyaretçiye masa slug’ına bağlı imzalı bir oturum belirteci verilir; sunucu her istekte imzayı kontrol eder. Oturum süresi ve boşta kalma sınırı vardır; masa kapatılınca eski belirteçler geçersiz olur.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-label="İlgili modüller ve rehberler">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-v3-head">
-        <p class="qrmo-v3-eyebrow">ÖZELLİKLER</p>
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">Masa Oturum Güvenliği ile neler yapabilirsiniz?</h2>
-      </header>
-      <div class="qrmo-v3-map" data-v3-map>
-        <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
-        <div class="qrmo-v3-hub" data-v3-hub>
-          <span class="qrmo-mod-cue qrmo-mod-cue--shield" aria-hidden="true"><i></i><u></u></span>
-          <h3>Masa Oturum Güvenliği</h3>
-          <p>Kayıtlı masada imzalı oturum açın; süre ve hareketsizlik limitini siz koyun.</p>
-          <span class="qrmo-v3-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Pro ve Plus paketlerinde</span></span>
-        </div>
-        <ul class="qrmo-v3-spokes">
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>İmzalı masa oturumu</strong><span>Müşteri adresi değiştirip başka bir masa adına oturum açamaz.</span><span class="qrmo-v3-meta"><span>Güvenlik</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Oturum süresi sınırlı</strong><span>QR okutulduktan sonra oturum en çok 90 dakika sürer (varsayılan; siz değiştirirsiniz).</span><span class="qrmo-v3-meta"><span>Süre</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V8a4 4 0 0 1 8 0v2"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Hareketsizlikte kilitlenir</strong><span>Belirlenen süre işlem yapılmazsa oturum kilitlenir (varsayılan 30 dakika).</span><span class="qrmo-v3-meta"><span>Limit</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h3v3h3M14 20h.01M20 20h.01"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Kayıtsız adreste kilit ekranı</strong><span>Kayıtlı olmayan masa adresinde kilit ekranı açılır; menü herkese açık kalır.</span><span class="qrmo-v3-meta"><span>Kilit ekranı</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Mesaj limiti ve masa silme</strong><span>Oturum başına asistan mesajı sınırlanır (25); masa silinince açık oturumlar kapanır.</span><span class="qrmo-v3-meta"><span>Kapsam</span></span></span>
-          </div></li>
-        </ul>
-      </div>
       <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../qr-masa/"><span class="qrmo-mod-cue qrmo-mod-cue--qr" aria-hidden="true"><svg class="qm-qr" viewBox="-1 -1 15 15" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><rect x="-1" y="-1" width="15" height="15" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM12 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM12 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM12 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM12 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM12 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM9 6h1v1h-1zM10 6h1v1h-1zM11 6h1v1h-1zM12 6h1v1h-1zM0 7h1v1h-1zM6 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM9 8h1v1h-1zM11 8h1v1h-1zM0 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM6 9h1v1h-1zM8 9h1v1h-1zM12 9h1v1h-1zM0 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM6 10h1v1h-1zM8 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM0 11h1v1h-1zM6 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM0 12h1v1h-1zM1 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1z" fill="currentColor"/></svg></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">QR Masa</span><span class="qrmo-mod-tile-d">Doğrulanan masalar burada tanımlanır.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
@@ -392,22 +412,28 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
+  <section class="qrmo-mod-sec qrmo-ap-cta" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-close">
-        <div class="qrmo-mod-close-copy">
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">Masa Oturum Güvenliği, Pro ve Plus paketlerinde.</h2>
-          <p class="qrmo-mod-text">Paketleri ve içerdikleri modülleri yan yana karşılaştırın.</p>
-        </div>
-        <ol class="qrmo-mod-tiers" aria-label="Paketlere göre Masa Oturum Güvenliği">
-            <li class="is-out"><span class="qrmo-mod-tier-n">Temel</span><span class="qrmo-mod-tier-t">Dijital QR menü</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 12h10"/></svg>Dahil değil</span></li>
-            <li class="is-in"><span class="qrmo-mod-tier-n">Pro</span><span class="qrmo-mod-tier-t">Dijital menü ve masa servisi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
-            <li class="is-in"><span class="qrmo-mod-tier-n">Plus</span><span class="qrmo-mod-tier-t">Menü, servis ve işletme verisi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
-        </ol>
-        <ul class="qrmo-mod-assure"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Aylık üyelikte taahhüt yok, istediğiniz zaman iptal</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yıllık üyelikte kurulum ücreti yok</span></li></ul>
-        <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink qrmo-mod-textlink--ondark" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <div class="qrmo-ap-cta-panel">
+        <div class="qrmo-ap-cta-bg" aria-hidden="true"></div>
+        <span class="qrmo-ap-chip qrmo-ap-chip--1" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>İmzalı oturum</strong><small>Masa adı imzalanır</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--2" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>90 dk</strong><small>Varsayılan oturum süresi</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--3" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>30 dk</strong><small>Varsayılan hareketsizlik</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--4" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Kilit ekranı</strong><small>Kayıtsız adreste</small></span></span>
+        <div class="qrmo-ap-cta-body">
+          <p class="qrmo-ap-cta-eyebrow"><span aria-hidden="true"></span>CANLI DEMO VE PAKETLER</p>
+          <h2 class="qrmo-ap-cta-h" id="qrmo-mod-close-h">Masa Oturum Güvenliği, Pro ve Plus paketlerinde: <span>işletmenize uygun planı seçin.</span></h2>
+          <p class="qrmo-ap-cta-p">Fiyatlar aylık; yıllık ödemede 12 aylık kullanım 10 aylık ücrete denk gelir. Hangisinin size uyduğundan emin değilseniz menünüzü birlikte gözden geçirelim.</p>
+          <ol class="qrmo-ap-pks" aria-label="Paketlere göre Masa Oturum Güvenliği">
+          <li class="is-out"><span class="qrmo-ap-pk-n">Temel</span><span class="qrmo-ap-pk-t">Dijital QR menü</span><b class="qrmo-ap-pk-p">749 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil değil</span></span></li>
+          <li class="is-in"><span class="qrmo-ap-pk-n">Pro</span><span class="qrmo-ap-pk-t">Dijital menü ve masa servisi</span><b class="qrmo-ap-pk-p">1.490 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li>
+          <li class="is-in"><span class="qrmo-ap-pk-n">Plus</span><span class="qrmo-ap-pk-t">Menü, servis ve işletme verisi</span><b class="qrmo-ap-pk-p">2.990 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li>
+          </ol>
+          <div class="qrmo-ap-cta-actions">
+            <a class="qrmo-ap-btn" href="../../canli-menu/"><span>Canlı menüyü görün</span><span class="qrmo-ap-btn-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+            <a class="qrmo-ap-link" href="../../paketler/#karsilastirma"><span>Paketleri karşılaştırın</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <ul class="qrmo-ap-assure"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Aylık üyelikte taahhüt yok, istediğiniz zaman iptal</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yıllık üyelikte kurulum ücreti yok</span></li></ul>
         </div>
       </div>
     </div>

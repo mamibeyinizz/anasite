@@ -582,7 +582,8 @@ body.qrmo-apple .qrmo-v3-qa-pts li::before { content: ""; position: absolute; le
 /* =========================================================
    Hero vitrini: alt yazılar kaldırıldı, premium nokta göstergesi
 ========================================================= */
-.qrmo-v3-hero .qrmo-v3-note { display: none; }
+/* Gerçek ekran görüntüsü olan sayfalarda alt not yok; temsili çizimlerde "temsili arayüz" notu kalır */
+.qrmo-v3-hero--real .qrmo-v3-note { display: none; }
 /* Başlık görünmez ama ekran okuyucu için canlı bölge olarak kalır */
 .qrmo-v3-hero .qrmo-v3-live { position: absolute; width: 1px; height: 1px; min-height: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .qrmo-v3-hero .qrmo-v3-show { gap: 10px; }
@@ -694,3 +695,6 @@ body .qrmo-ap-link {
   .qrmo-ap-chip--3 { bottom: 40px; left: 36px; rotate: 0deg; }
   .qrmo-ap-chip--4 { bottom: 40px; right: 36px; left: auto; rotate: 0deg; }
 }
+
+/* Notlar kutusu (Bilmeniz gerekenler): özellik listesinin altında */
+.qrmo-v3-features .qrmo-v3-notes { max-width: 52rem; margin: clamp(32px, 4vw, 56px) auto 0; }

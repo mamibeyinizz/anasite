@@ -23,6 +23,8 @@
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
 <script defer src="../module-v3.js"></script>
+<link rel="stylesheet" href="../module-apple.css">
+<script defer src="../module-apple.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"Menü Asistanı","item":"https://qrmenuofficial.com/moduller/menu-asistani/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/menu-asistani/#webpage","url":"https://qrmenuofficial.com/moduller/menu-asistani/","name":"Menü Asistanı — Menü Sorularını Yanıtlayan Asistan","description":"Google Gemini tabanlı Menü Asistanı, menünüzdeki ürünlere dayanarak soruları yanıtlar; garson, hesap ve açık onaylı sipariş akışlarıyla birlikte çalışır.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/menu-asistani/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/menu-asistani/#app","name":"QR Menu Official — Menü Asistanı","description":"Google Gemini tabanlı Menü Asistanı, menünüzdeki ürünlere dayanarak soruları yanıtlar; garson, hesap ve açık onaylı sipariş akışlarıyla birlikte çalışır.","url":"https://qrmenuofficial.com/moduller/menu-asistani/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/menu-asistani/#faq","mainEntity":[{"@type":"Question","name":"Menü Asistanı nedir?","acceptedAnswer":{"@type":"Answer","text":"Menüdeki ürün ve açıklamalara dayanarak müşterinin sorularını yanıtlayan sohbet asistanıdır. Menü dışı veya veride olmayan konularda sınırlı kalır; cevaplayamadığı sorular raporlanabilir. Menü Asistanı modülü Plus paket kapsamındadır."}},{"@type":"Question","name":"Personel sohbeti devralabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Evet. Asistan yanıt veremediğinde veya müşteri insan desteği istediğinde personel görüşmeyi devralabilir; böylece tam otomasyon yerine bot + ekip hibrit modeli oluşur."}},{"@type":"Question","name":"Menü Asistanı hangi AI altyapısını kullanır?","acceptedAnswer":{"@type":"Answer","text":"Yanıtlar Google Gemini API anahtarı tanımlandığında bu servis üzerinden üretilir; anahtar ve model yönetim panelinden yapılandırılır. Menü çevirisi için aynı API kullanılmaz — çeviri ayrı, manuel/CSV sürecindedir."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -37,7 +39,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3 qrmo-apple">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -221,36 +223,41 @@
 <!-- QRMO:HEADER:END -->
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 
-  <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">Menü Asistanı</li></ol></nav>
+  
 
   <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
     <div class="qrmo-mod-inner qrmo-v3-hero-grid">
       <div class="qrmo-v3-hero-copy">
-        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>AKILLI İŞLETME</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
-        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menü sorusu için garson beklenmez.</h1>
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>MENÜ ASİSTANI</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menü sorusu için <span class="qrmo-v3-accent">garson beklenmez.</span></h1>
         <p class="qrmo-mod-lead">Menü Asistanı, menünüzdeki ürün ve bilgilere dayanarak soruları yanıtlar ve ürün önerir. Bilmediği soruyu size bırakır.</p>
+        <ul class="qrmo-v3-points"><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/></svg></span><span>Yanıtlar menü verinize dayanır</span></li><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg></span><span>Cevaplanamayan sorular listede</span></li><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.5 3-6 6-6s6 2.5 6 6"/><path d="M16 5a3.5 3.5 0 0 1 0 6M18 14c2 .8 3 3 3 6"/></svg></span><span>Ekibiniz sohbeti devralabilir</span></li></ul>
         <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-cta" href="../../canli-menu/"><span>Canlı menüyü görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-textlink" href="../../paketler/#karsilastirma"><span>Paketleri karşılaştırın</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
       <div class="qrmo-v3-hero-visual">
-        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-show" data-v3-show="auto" data-v3-max="1" id="qrmo-v3-hero">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">
           <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 1 / 3">
             <div class="qrmo-v3-fit"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Çevrimiçi</small></span></div><div class="qm-chat"><div class="qm-msg bot"><p>Merhaba! Menü hakkında ne öğrenmek istersiniz?</p></div><div class="qm-msg user"><p>Acı olmayan bir ana yemek önerir misiniz?</p></div><div class="qm-msg bot"><p>Acılık seviyesi “Acısız” girilmiş ürünlerden Izgara Tavuk’u önerebilirim.</p><span class="qm-mcard"><span class="qm-thumb"></span><span class="qm-item-b"><strong>Izgara Tavuk</strong><small>Ana Yemek · Acısız</small></span><b>260 ₺</b></span></div></div><div class="qm-quick"><span>İçinde ne var?</span><span>Tatlı önerisi</span><span>Garson çağır</span></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menüye dayalı yanıt</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Ürün önerisi</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 3" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">Menü Asistanı › Yönetim</span></div><div class="qm-win-body"><div class="qm-tabs"><span class="on">Cevaplanamayan</span><span>Canlı Sohbet</span><span>Geçmiş</span></div><div class="qm-h" data-hot="1"><div class="qm-list"><span class="qm-li"><strong>Bu çorbada süt var mı?</strong><small>Masa 7 · bugün</small></span><span class="qm-li"><strong>Glütensiz ekmek var mı?</strong><small>Masa 3 · bugün</small></span><span class="qm-li"><strong>Tatlılar ev yapımı mı?</strong><small>Masa 11 · dün</small></span></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">Menü bilgisini tamamla</span><span class="qm-btn solid">Sohbeti devral</span></div></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cevaplanamayan sorular</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Sohbet geçmişi</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="phone" role="img" aria-label="Misafirin telefonunda: temsili ekran 3 / 3" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-phone qm-dark"><div class="qm-screen"><div class="qm-appbar"><span class="qm-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.5 13.9 10 20.5 12l-6.6 2L12 20.5 10.1 14 3.5 12l6.6-2L12 3.5Z"/></svg></span><span class="qm-appbar-t"><strong>Menü Asistanı</strong><small>Masa 7</small></span></div><div class="qm-chat"><div class="qm-msg user"><p>Bu çorbada süt var mı?</p></div><div class="qm-msg bot"><p>Bu bilgi menüde girilmemiş. Garsonumuza danışabilirsiniz.</p></div><div class="qm-msg user"><p>Garson çağırır mısınız?</p></div><div class="qm-h" data-hot="2"><div class="qm-msg bot"><p>Garson talebiniz iletildi.</p></div></div></div><div class="qm-input"><span>Mesajınızı yazın…</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h13"/><path d="m12 6 6 6-6 6"/></svg></i></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Garson ve hesap</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Adım adım sipariş</span></span>
           </figure>
         </div>
-        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menü verinize dayanır</span></span>
-        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cevaplanamayan sorular listede</span></span>
         <div class="qrmo-v3-bar">
           <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 3: Misafirin telefonunda" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 3: Misafirin telefonunda" aria-pressed="false"><i></i></button></div>
           <p class="qrmo-v3-live" data-v3-live aria-live="polite">Misafirin telefonunda</p>
@@ -258,6 +265,35 @@
         <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
       </div>
       </div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
+    <div class="qrmo-mod-inner">
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">EKSİĞİ GÖRÜN</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">Menünüzde bunlar yaşanıyorsa, eksik olan bir menü asistanı.</h2>
+      </header>
+      <ul class="qrmo-v3-pains">
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">01</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Menüyle ilgili sorular garsona düşüyor.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>MENÜ ASİSTANI İLE</span>Asistan menünüzdeki ürün, fiyat ve açıklamalara dayanarak yanıt verir.</p>
+        </li>
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">02</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Misafirin sorduğu ama menüde karşılığı olmayan soruları görmüyorsunuz.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>MENÜ ASİSTANI İLE</span>Asistan bilmediğini söyler; bu sorular Cevaplanamayan Sorular listesine düşer, eksik bilgiyi siz eklersiniz.</p>
+        </li>
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">03</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>İnsan desteği gereken görüşmeler yanıtsız kalıyor.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>MENÜ ASİSTANI İLE</span>Geçmiş görüşmeleri inceler, insan desteği gereken görüşmeyi devralıp müşteriyle doğrudan yazışırsınız.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -271,22 +307,25 @@
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
             <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">01<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>MİSAFİR · TELEFONDA</span></span>
               <h3 class="qrmo-v3-step-h">Misafir menü hakkında soru sorar</h3>
               
               <p class="qrmo-v3-step-d">Asistan yalnızca sizin menü bilginizle yanıt verir.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Ürün, fiyat ve açıklamalara dayanır</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menüdeki ürünleri önerir</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Tükendi işaretli ürün için sipariş oluşturmaz</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">02<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>SİZ · YÖNETİM PANELİ</span></span>
               <h3 class="qrmo-v3-step-h">Bilmediği soruları siz görürsünüz</h3>
               
               <p class="qrmo-v3-step-d">Cevaplanamayan sorular listeye düşer; eksik bilgiyi menüye eklersiniz.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Cevaplanamayan Sorular listesi</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Sohbet geçmişi ve canlı sohbet</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Asistanın adı, karşılaması ve renkleri</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="2" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">03<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>EKİBİNİZ · SERVİS PANELİ</span></span>
               <h3 class="qrmo-v3-step-h">Gerekirse ekibiniz devralır</h3>
               
               <p class="qrmo-v3-step-d">Garson çağrısı ya da hesap isteği servis ekibine iletilebilir.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Garson çağırma ve hesap isteme tetiklenir</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Talepler Servis Paneli’ne düşer</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Sipariş müşterinin açık onayıyla ilerler</span></li></ul>
             </li>
           </ol>
           <div class="qrmo-v3-flow-dev">
@@ -316,62 +355,41 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-features" id="ozellikler" aria-labelledby="qrmo-mod-feat-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-v3-narrow">
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
-        <div class="qrmo-v3-faq"><details class="qrmo-v3-q"><summary><span>Menü Asistanı nedir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Menüdeki ürün ve açıklamalara dayanarak müşterinin sorularını yanıtlayan sohbet asistanıdır. Menü dışı veya veride olmayan konularda sınırlı kalır; cevaplayamadığı sorular raporlanabilir. <a href="../../moduller/menu-asistani/">Menü Asistanı modülü</a> Plus paket kapsamındadır.</p></details><details class="qrmo-v3-q"><summary><span>Personel sohbeti devralabilir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Evet. Asistan yanıt veremediğinde veya müşteri insan desteği istediğinde personel görüşmeyi devralabilir; böylece tam otomasyon yerine bot + ekip hibrit modeli oluşur.</p></details><details class="qrmo-v3-q"><summary><span>Menü Asistanı hangi AI altyapısını kullanır?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Yanıtlar Google Gemini API anahtarı tanımlandığında bu servis üzerinden üretilir; anahtar ve model yönetim panelinden yapılandırılır. Menü çevirisi için aynı API kullanılmaz — çeviri ayrı, manuel/CSV sürecindedir.</p></details></div>
-        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Yapay zekâ yanıtları hatalı veya eksik olabilir. Asistan yalnızca menünüze ve girdiğiniz bilgiye dayanır; eksik bilgi eksik yanıt üretir.</li><li>Alerjen ve sağlık konularında verdiği yanıt tıbbi tavsiye değildir; menüde girdiğiniz veriyi yansıtır.</li><li>Asistanın çalışması için yönetim ekranında bir Gemini API anahtarı tanımlı olmalıdır; anahtar yoksa asistan yanıt veremez.</li><li>Garson, hesap ve sipariş akışları Pro paketindeki servis özellikleriyle birlikte çalışır.</li></ul></aside>
-        <details class="qrmo-v3-all">
-          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <div class="qrmo-v3-all-body">
-            <section><h3>Nasıl yanıt verir?</h3><ul><li><strong>Menü verisine dayanır</strong><span>Yanıtlar menünüzdeki ürün, fiyat ve açıklamalara ve restoran bilgilerine dayandırılır; menüde olmayan ürün veya fiyat uydurmaması talimat olarak verilir.</span></li><li><strong>Bilmediğini söyler</strong><span>Menü veya restoran bilgisinde karşılığı olmayan soruda bilmediğini belirtir. Bu sorular “Cevaplanamayan Sorular” listesine düşer.</span></li><li><strong>Ürün önerisi</strong><span>Menüdeki ürünleri önerir. Hangi ürünlerin önerileceğini Ürün Önerileri ekranından yönetirsiniz; Öneri Raporu önerilerin sepete ve siparişe yansımasını gösterir.</span></li><li><strong>Tükenen ürün</strong><span>Tükendi işaretli bir ürün için sipariş oluşturmaz.</span></li></ul></section>
-            <section><h3>Servis akışlarıyla birlikte</h3><ul><li><strong>Garson ve hesap</strong><span>Sohbetten garson çağırma ve hesap isteme tetiklenebilir; talepler Servis Paneli’ne düşer.</span></li><li><strong>Adım adım sipariş</strong><span>Sipariş; ürün, adet ve toplam özetiyle ve müşterinin açık onayıyla ilerler. Onay ifadesi yoksa sipariş bloğu yürürlüğe girmez.</span></li></ul></section>
-            <section><h3>İşletme kontrolü</h3><ul><li><strong>Asistan profili ve görünüm</strong><span>Asistanın adını, karşılama mesajını, simgesini ve renklerini belirlersiniz; müşterinin tek dokunuşla soracağı hazır soruları tanımlarsınız.</span></li><li><strong>Görünürlük</strong><span>Asistanın hangi müşterilere, hangi cihazlarda ve hangi saatlerde gösterileceğini belirlersiniz.</span></li><li><strong>Sohbet geçmişi ve canlı sohbet</strong><span>Geçmiş görüşmeleri incelersiniz; insan desteği gereken görüşmeleri devralıp müşteriyle doğrudan yazışırsınız.</span></li><li><strong>Sınırlar</strong><span>Oturum başına mesaj sayısını sınırlar (varsayılan 25) ve yanıtlanmayacak kelimeleri tanımlarsınız; bu kelimeleri içeren mesaja sabit bir yanıt verilir.</span></li></ul></section>
-            <section><h3>Yapay zekâ motoru</h3><ul><li><strong>Google Gemini</strong><span>Asistan Google Gemini kullanır. Bağlantı, yönetim ekranında girdiğiniz bir API anahtarıyla kurulur (Google AI Studio’dan alınır); kullanılacak model adı ayarlanabilir, boşsa gemini-3-flash-preview kullanılır.</span></li></ul></section>
-          </div>
-        </details>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">TÜM ÖZELLİKLER</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-feat-h">Menü Asistanı ile yapabildiğiniz her şey</h2>
+        <p class="qrmo-v3-flead">Aşağıdaki her madde panelde bulunan gerçek bir ayardır. Başlığa dokunup ayrıntısını açın; kendi gözünüzle görmek için <a href="../../canli-menu/">canlı menüyü görün</a>.</p>
+      </header>
+      <ul class="qrmo-v3-fstats"><li><strong>25</strong><span>varsayılan oturum mesaj limiti</span></li><li><strong>3</strong><span>servis akışı: garson, hesap, sipariş</span></li></ul>
+      <div class="qrmo-v3-qalist qrmo-v3-qalist--feat">
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/></svg></span><span class="qrmo-v3-qa-q">Nasıl yanıt verir?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Yalnızca menü ve restoran bilginize dayanır.</p><ul class="qrmo-v3-qa-pts"><li>Yanıtlar menünüzdeki ürün, fiyat ve açıklamalara ve restoran bilgilerine dayandırılır</li><li>Menü veya restoran bilgisinde karşılığı olmayan soruda bilmediğini belirtir</li><li>Ürün önerisi</li><li>Tükendi işaretli bir ürün için sipariş oluşturmaz</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/></svg></span><span class="qrmo-v3-qa-q">Servis akışlarıyla birlikte</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Garson, hesap ve sipariş aynı sohbetten ilerler.</p><ul class="qrmo-v3-qa-pts"><li>Sohbetten garson çağırma ve hesap isteme tetiklenebilir; talepler Servis Paneli’ne düşer</li><li>Sipariş; ürün, adet ve toplam özetiyle ve müşterinin açık onayıyla ilerler</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h10M18 8h2M4 16h2M10 16h10"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="16" r="2"/></svg></span><span class="qrmo-v3-qa-q">İşletme kontrolü</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Görünüm, görünürlük ve sınırları siz belirlersiniz.</p><ul class="qrmo-v3-qa-pts"><li>Asistanın adını, karşılama mesajını, simgesini ve renklerini belirlersiniz; müşterinin tek dokunuşla soracağı hazır soruları tanımlarsınız</li><li>Asistanın hangi müşterilere, hangi cihazlarda ve hangi saatlerde gösterileceğini belirlersiniz</li><li>Geçmiş görüşmeleri incelersiniz; insan desteği gereken görüşmeleri devralıp müşteriyle doğrudan yazışırsınız</li><li>Oturum başına mesaj sayısını sınırlar (varsayılan 25) ve yanıtlanmayacak kelimeleri tanımlarsınız; bu kelimeleri içeren mesaja sabit bir yanıt verilir</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.6L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.4z"/></svg></span><span class="qrmo-v3-qa-q">Yapay zekâ motoru</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Bağlantı, sizin girdiğiniz API anahtarıyla kurulur.</p><ul class="qrmo-v3-qa-pts"><li>Asistan Google Gemini kullanır</li></ul></div></details>
+      </div>
+      <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Yapay zekâ yanıtları hatalı veya eksik olabilir. Asistan yalnızca menünüze ve girdiğiniz bilgiye dayanır; eksik bilgi eksik yanıt üretir.</li><li>Alerjen ve sağlık konularında verdiği yanıt tıbbi tavsiye değildir; menüde girdiğiniz veriyi yansıtır.</li><li>Asistanın çalışması için yönetim ekranında bir Gemini API anahtarı tanımlı olmalıdır; anahtar yoksa asistan yanıt veremez.</li><li>Garson, hesap ve sipariş akışları Pro paketindeki servis özellikleriyle birlikte çalışır.</li></ul></aside>
+    </div>
+  </section>
+
+    <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details qrmo-v3-faqsec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner qrmo-v3-faqgrid">
+      <header class="qrmo-v3-faqhead">
+        <p class="qrmo-v3-eyebrow">SIK SORULAN SORULAR</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Aklınıza takılanlar</h2>
+        <p class="qrmo-v3-faqlead">Cevabı burada bulamazsanız <a href="../../iletisim/">bize yazın</a>; menünüzü birlikte gözden geçirelim.</p>
+      </header>
+      <div class="qrmo-v3-qalist">
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">01</span><span class="qrmo-v3-qa-q">Menü Asistanı nedir?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Menüdeki ürün ve açıklamalara dayanarak müşterinin sorularını yanıtlayan sohbet asistanıdır. Menü dışı veya veride olmayan konularda sınırlı kalır; cevaplayamadığı sorular raporlanabilir. <a href="../../moduller/menu-asistani/">Menü Asistanı modülü</a> Plus paket kapsamındadır.</p></details>
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">02</span><span class="qrmo-v3-qa-q">Personel sohbeti devralabilir mi?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Evet. Asistan yanıt veremediğinde veya müşteri insan desteği istediğinde personel görüşmeyi devralabilir; böylece tam otomasyon yerine bot + ekip hibrit modeli oluşur.</p></details>
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">03</span><span class="qrmo-v3-qa-q">Menü Asistanı hangi AI altyapısını kullanır?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Yanıtlar Google Gemini API anahtarı tanımlandığında bu servis üzerinden üretilir; anahtar ve model yönetim panelinden yapılandırılır. Menü çevirisi için aynı API kullanılmaz — çeviri ayrı, manuel/CSV sürecindedir.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-label="İlgili modüller ve rehberler">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-v3-head">
-        <p class="qrmo-v3-eyebrow">ÖZELLİKLER</p>
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">Menü Asistanı ile neler yapabilirsiniz?</h2>
-      </header>
-      <div class="qrmo-v3-map" data-v3-map>
-        <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
-        <div class="qrmo-v3-hub" data-v3-hub>
-          <span class="qrmo-mod-cue qrmo-mod-cue--chat" aria-hidden="true"><i></i><i class="u"></i><i></i></span>
-          <h3>Menü Asistanı</h3>
-          <p>Menü verinize göre soruları yanıtlar; bilemediğini size bırakır.</p>
-          <span class="qrmo-v3-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Plus paketinde</span></span>
-        </div>
-        <ul class="qrmo-v3-spokes">
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Menünüze göre yanıtlar</strong><span>Yanıtlar ürün, fiyat ve açıklamalarınıza ve restoran bilginize dayanır.</span><span class="qrmo-v3-meta"><span>Yanıt</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 4 2.4 5 5.4.7-4 3.8 1 5.4L12 16.3 7.2 18.9l1-5.4-4-3.8 5.4-.7z"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Bilmediğini söyler</strong><span>Yanıtlayamadığı sorular listeye düşer; eksik bilgiyi menüye siz eklersiniz.</span><span class="qrmo-v3-meta"><span>Takip</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 21h4"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Ürün önerir, garson çağırır</strong><span>Menüden ürün önerir; sohbetten garson çağrısı ve hesap isteği servis ekibine iletilebilir.</span><span class="qrmo-v3-meta"><span>Servis</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h2l2 12h11l2-8H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Siparişi adım adım alır</strong><span>Ürün, adet ve toplam özetiyle, müşterinin açık onayıyla ilerler.</span><span class="qrmo-v3-meta"><span>Sipariş</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h10M18 8h2M4 16h2M10 16h10"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="16" r="2"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Her şey sizin kontrolünüzde</strong><span>Adını, karşılama mesajını ve görünümünü belirleyin; geçmişi inceleyin, gerekirse sohbeti devralın.</span><span class="qrmo-v3-meta"><span>Kontrol</span></span></span>
-          </div></li>
-        </ul>
-      </div>
       <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../servis-paneli/"><span class="qrmo-mod-cue qrmo-mod-cue--kanban" aria-hidden="true"><i><b class="late"></b><b></b></i><i><b></b></i><i><b></b><b class="done"></b></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">Servis Paneli</span><span class="qrmo-mod-tile-d">Sohbetten gelen garson ve hesap talepleri burada toplanır.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
@@ -381,22 +399,28 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
+  <section class="qrmo-mod-sec qrmo-ap-cta" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-close">
-        <div class="qrmo-mod-close-copy">
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">Menü Asistanı, Plus paketinde.</h2>
-          <p class="qrmo-mod-text">Paketleri ve içerdikleri modülleri yan yana karşılaştırın.</p>
-        </div>
-        <ol class="qrmo-mod-tiers" aria-label="Paketlere göre Menü Asistanı">
-            <li class="is-out"><span class="qrmo-mod-tier-n">Temel</span><span class="qrmo-mod-tier-t">Dijital QR menü</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 12h10"/></svg>Dahil değil</span></li>
-            <li class="is-out"><span class="qrmo-mod-tier-n">Pro</span><span class="qrmo-mod-tier-t">Dijital menü ve masa servisi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 12h10"/></svg>Dahil değil</span></li>
-            <li class="is-in"><span class="qrmo-mod-tier-n">Plus</span><span class="qrmo-mod-tier-t">Menü, servis ve işletme verisi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
-        </ol>
-        <ul class="qrmo-mod-assure"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Aylık üyelikte taahhüt yok, istediğiniz zaman iptal</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yıllık üyelikte kurulum ücreti yok</span></li></ul>
-        <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink qrmo-mod-textlink--ondark" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <div class="qrmo-ap-cta-panel">
+        <div class="qrmo-ap-cta-bg" aria-hidden="true"></div>
+        <span class="qrmo-ap-chip qrmo-ap-chip--1" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Menüye dayanır</strong><small>Ürün ve fiyat menünüzden</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--2" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Cevaplanamayan sorular</strong><small>Listede size kalır</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--3" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Canlı sohbet</strong><small>Ekibiniz devralır</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--4" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Garson ve hesap</strong><small>Servis Paneli’ne düşer</small></span></span>
+        <div class="qrmo-ap-cta-body">
+          <p class="qrmo-ap-cta-eyebrow"><span aria-hidden="true"></span>CANLI DEMO VE PAKETLER</p>
+          <h2 class="qrmo-ap-cta-h" id="qrmo-mod-close-h">Menü Asistanı, Plus paketinde: <span>işletmenize uygun planı seçin.</span></h2>
+          <p class="qrmo-ap-cta-p">Fiyatlar aylık; yıllık ödemede 12 aylık kullanım 10 aylık ücrete denk gelir. Hangisinin size uyduğundan emin değilseniz menünüzü birlikte gözden geçirelim.</p>
+          <ol class="qrmo-ap-pks" aria-label="Paketlere göre Menü Asistanı">
+          <li class="is-out"><span class="qrmo-ap-pk-n">Temel</span><span class="qrmo-ap-pk-t">Dijital QR menü</span><b class="qrmo-ap-pk-p">749 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil değil</span></span></li>
+          <li class="is-out"><span class="qrmo-ap-pk-n">Pro</span><span class="qrmo-ap-pk-t">Dijital menü ve masa servisi</span><b class="qrmo-ap-pk-p">1.490 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil değil</span></span></li>
+          <li class="is-in"><span class="qrmo-ap-pk-n">Plus</span><span class="qrmo-ap-pk-t">Menü, servis ve işletme verisi</span><b class="qrmo-ap-pk-p">2.990 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li>
+          </ol>
+          <div class="qrmo-ap-cta-actions">
+            <a class="qrmo-ap-btn" href="../../canli-menu/"><span>Canlı menüyü görün</span><span class="qrmo-ap-btn-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+            <a class="qrmo-ap-link" href="../../paketler/#karsilastirma"><span>Paketleri karşılaştırın</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <ul class="qrmo-ap-assure"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Aylık üyelikte taahhüt yok, istediğiniz zaman iptal</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yıllık üyelikte kurulum ücreti yok</span></li></ul>
         </div>
       </div>
     </div>

@@ -29,6 +29,36 @@ vm.createContext(sandbox);
 vm.runInContext(fs.readFileSync(path.join(ROOT, "..", "paketler", "packages-data.js"), "utf8"), sandbox);
 const PKG = sandbox.window.QRMO_PRICING;
 
+/* "Ürün sahnesi" şablonu (Restoran Menü): diğer modüller aynı iskelete apple-data.js ile alınır.
+   Veri module-data.js'teki groups/notes ile uyumludur; burada yalnızca sunum alanları birleştirilir. */
+const APPLE = require(path.join(ROOT, "apple-data.js"));
+const firstSentence = (t) => {
+  const s = String(t).split(/(?<=[.!?])\s+/)[0].replace(/[.]$/, "");
+  if (s.length <= 150) return s;
+  const c = s.split(/[;:]\s/)[0];
+  return c.length <= 150 ? c : "";
+};
+for (const m of MOD.modules) {
+  const a = APPLE[m.slug];
+  if (!a) continue;
+  m.pageClass = "qrmo-apple"; /* eski modüle özel sınıflar (ör. servis-paneli) şablonla çakışmasın */
+  m.v3Order = ["hero", "gaps", "flow", "features", "faq", "more", "closing"];
+  m.hideCrumbs = true;
+  m.notesInApple = true;
+  m.cta = m.cta || { primary: { label: "Canlı menüyü görün", path: "canli-menu/" }, secondary: { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" } };
+  Object.assign(m.hero, a.hero);
+  m.flow.steps.forEach((st, i) => { if (a.steps[i]) Object.assign(st, a.steps[i]); });
+  if (a.steps.length !== m.flow.steps.length) throw new Error(`[${m.slug}] apple-data steps sayısı flow ile uyumsuz`);
+  if (a.groups.length !== m.groups.length) throw new Error(`[${m.slug}] apple-data groups sayısı groups ile uyumsuz`);
+  m.gaps = { kicker: "EKSİĞİ GÖRÜN", cols: ["BUGÜN YAŞADIĞINIZ", `${m.name.toLocaleUpperCase("tr-TR")} İLE`], ...a.gaps };
+  m.featureGrid = m.groups.map((g, i) => ({
+    ico: a.groups[i].ico, t: g.title, d: a.groups[i].lead,
+    pts: g.items.map((it) => { const f = firstSentence(it.d); return f && f.length > 24 ? f : it.t; })
+  }));
+  m.featureStats = a.stats;
+  m.closing = { ...(a.replaceClosing ? {} : m.closing || {}), chips: a.chips, showPrice: true };
+}
+
 /* ---------- yardımcılar ---------- */
 
 const esc = (s) => String(s == null ? "" : s)
@@ -941,7 +971,7 @@ const SECTION = {
     const h = m.hero;
     if (ctx.v3) {
       return `
-  <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
+  <section class="qrmo-mod-sec qrmo-v3-hero${m.shotNote ? " qrmo-v3-hero--real" : ""}" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
     <div class="qrmo-mod-inner qrmo-v3-hero-grid">
       <div class="qrmo-v3-hero-copy">
@@ -1253,7 +1283,8 @@ const SECTION = {
         <p class="qrmo-v3-flead">Aşağıdaki her madde panelde bulunan gerçek bir ayardır. Başlığa dokunup ayrıntısını açın; kendi gözünüzle görmek için <a href="${ctx.rel}${m.cta.primary.path}">${esc(m.cta.primary.label.toLowerCase())}</a>.</p>
       </header>${stats}
       <div class="qrmo-v3-qalist qrmo-v3-qalist--feat">${cards}
-      </div>
+      </div>${m.notesInApple && hasNotes ? `
+      ${notesBox}` : ""}
     </div>
   </section>`;
       const faqSec = `
@@ -1342,8 +1373,9 @@ const SECTION = {
 
   closing(m, ctx) {
     const where = pkgWhere(ctx.minIdx);
-    const title = (m.closing && m.closing.title) || (ctx.minIdx === 0 ? `${m.name} ${where}.` : `${m.name}, ${where}.`);
-    const closingText = (m.closing && m.closing.text) || "Paketleri ve içerdikleri modülleri yan yana karşılaştırın.";
+    const appleTitle = (m.pageClass || "").includes("qrmo-apple") && !(m.closing && m.closing.title);
+    const title = (m.closing && m.closing.title) || (appleTitle ? `${m.name}${ctx.minIdx === 0 ? " " : ", "}${where}: işletmenize uygun planı seçin.` : ctx.minIdx === 0 ? `${m.name} ${where}.` : `${m.name}, ${where}.`);
+    const closingText = (m.closing && m.closing.text) || (appleTitle ? "Fiyatlar aylık; yıllık ödemede 12 aylık kullanım 10 aylık ücrete denk gelir. Hangisinin size uyduğundan emin değilseniz menünüzü birlikte gözden geçirelim." : "Paketleri ve içerdikleri modülleri yan yana karşılaştırın.");
     const tiers = join(PKG.packages, (p, i) => {
       const inc = i >= ctx.minIdx;
       return `
@@ -1604,7 +1636,7 @@ function validate(faqById) {
     (m.faq || []).forEach((id) => { if (!faqById[id]) problems.push(`${m.slug}: SSS kimliği yok: ${id}`); });
     ["hero", "details", "related", "closing"].forEach((k) => { if (!m.order.includes(k)) problems.push(`${m.slug}: order içinde ${k} yok`); });
     if (m.order[0] !== "hero") problems.push(`${m.slug}: ilk bölüm hero olmalı`);
-    if (m.pageClass && !/^[a-z0-9-]+$/.test(m.pageClass)) problems.push(`${m.slug}: pageClass geçersiz`);
+    if (m.pageClass && !/^[a-z0-9 -]+$/.test(m.pageClass)) problems.push(`${m.slug}: pageClass geçersiz`);
   });
   PKG.features.forEach((f) => { if (f.page && !bySlug[f.page]) problems.push(`packages-data feature ${f.id}: page=${f.page} modül yok`); });
 }

@@ -23,6 +23,8 @@
 <script>document.documentElement.classList.add("v3-js")</script>
 <script defer src="../module-page.js"></script>
 <script defer src="../module-v3.js"></script>
+<link rel="stylesheet" href="../module-apple.css">
+<script defer src="../module-apple.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Modüller","item":"https://qrmenuofficial.com/moduller/"},{"@type":"ListItem","position":3,"name":"QR Analytics","item":"https://qrmenuofficial.com/moduller/qr-analytics/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://qrmenuofficial.com/#org","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"},{"@type":"WebPage","@id":"https://qrmenuofficial.com/moduller/qr-analytics/#webpage","url":"https://qrmenuofficial.com/moduller/qr-analytics/","name":"QR Analytics — Menü, Ürün ve Masa Raporları","description":"Menü görüntüleme, tekil ziyaretçi, ürün tıklaması, masa hareketi ve sepet verilerini Bugün, Son 7 gün, Bu ay ya da özel aralıkla raporlayın.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"QR Menu Official","url":"https://qrmenuofficial.com/"},"about":{"@id":"https://qrmenuofficial.com/moduller/qr-analytics/#app"}},{"@type":"SoftwareApplication","@id":"https://qrmenuofficial.com/moduller/qr-analytics/#app","name":"QR Menu Official — QR Analytics","description":"Menü görüntüleme, tekil ziyaretçi, ürün tıklaması, masa hareketi ve sepet verilerini Bugün, Son 7 gün, Bu ay ya da özel aralıkla raporlayın.","url":"https://qrmenuofficial.com/moduller/qr-analytics/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"tr-TR","publisher":{"@id":"https://qrmenuofficial.com/#org"},"audience":{"@type":"BusinessAudience","audienceType":"Restoran ve kafe işletmeleri","geographicArea":{"@type":"Country","name":"Türkiye"}}},{"@type":"FAQPage","@id":"https://qrmenuofficial.com/moduller/qr-analytics/#faq","mainEntity":[{"@type":"Question","name":"QR Analytics nedir?","acceptedAnswer":{"@type":"Answer","text":"Menüdeki davranışları (görüntüleme, tıklama, sepet, sipariş gönderimi, asistan mesajları vb.) kaydeden raporlama katmanıdır. Veriler QR menü etkileşimlerinden gelir; harici POS entegrasyonu şart değildir. QR Analytics modülüne bakın."}},{"@type":"Question","name":"Analytics verisi POS’tan mı gelir?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Kayıtlar müşterinin QR menüde yaptığı işlemlerden oluşur. Kasa POS cironuz ayrı sistemlerde kalır; buradaki sipariş sayıları menüden gönderilen sipariş olaylarına dayanır."}},{"@type":"Question","name":"QR Analytics sipariş sayılarını gösterir mi?","acceptedAnswer":{"@type":"Answer","text":"Menüden gönderilen sipariş olayları (order_sent) raporlanabilir; bu, mutfak POS fiş adediyle birebir aynı olmayabilir. Amaç QR kanalındaki talebi görmek, tüm mağaza cirosunu tek başına yansıtmak değildir."}}]}]}</script>
 <!-- QRMO:HEAD:START -->
@@ -37,7 +39,7 @@
 <script defer src="../../global/dist/qrmo-global.js"></script>
 <!-- QRMO:HEAD:END -->
 </head>
-<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3">
+<body class="qrmo-mod-page qrmo-mod-page--detail qrmo-v3 qrmo-apple">
 <!-- QRMO:HEADER:START -->
 <script>document.documentElement.classList.add("qrmo-gh-js")</script>
 <a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
@@ -221,36 +223,41 @@
 <!-- QRMO:HEADER:END -->
 <main id="icerik" class="qrmo-mod" tabindex="-1">
 
-  <nav class="qrmo-mod-crumbs qrmo-mod-inner" aria-label="Sayfa konumu"><ol><li><a href="../../">Ana sayfa</a></li><li><a href="../">Modüller</a></li><li aria-current="page">QR Analytics</li></ol></nav>
+  
 
   <section class="qrmo-mod-sec qrmo-v3-hero" aria-labelledby="qrmo-mod-h1">
     <div class="qrmo-v3-hero-bg" aria-hidden="true"></div>
     <div class="qrmo-mod-inner qrmo-v3-hero-grid">
       <div class="qrmo-v3-hero-copy">
-        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>AKILLI İŞLETME</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
-        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menünüzün nasıl kullanıldığını görün.</h1>
+        <p class="qrmo-mod-kicker qrmo-mod-kicker--hero"><span>KULLANIM RAPORU</span><span class="qrmo-mod-kicker-pkg">Plus paketinde</span></p>
+        <h1 class="qrmo-mod-h1" id="qrmo-mod-h1">Menünüzün <span class="qrmo-v3-accent">nasıl kullanıldığını görün.</span></h1>
         <p class="qrmo-mod-lead">Menü görüntüleme, ürün tıklaması, masa hareketi ve sepet verisi tek raporda. Kasa satışı değil; QR menünüzdeki kullanım verisi.</p>
+        <ul class="qrmo-v3-points"><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span>Görüntüleme, tıklama ve masa hareketi</span></li><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span><span>Önceki dönemle karşılaştırma</span></li><li><span class="qrmo-v3-pt-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></span><span>CSV olarak dışa aktarma</span></li></ul>
         <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-cta" href="../../canli-menu/"><span>Canlı menüyü görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          <a class="qrmo-mod-textlink" href="../../paketler/#karsilastirma"><span>Paketleri karşılaştırın</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </div>
       </div>
       <div class="qrmo-v3-hero-visual">
-        <div class="qrmo-v3-show" data-v3-show="auto" id="qrmo-v3-hero">
+        <div class="qrmo-v3-show" data-v3-show="auto" data-v3-max="1" id="qrmo-v3-hero">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">
           <figure class="qrmo-v3-screen is-active" data-v3-screen="0" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 1 / 3">
             <div class="qrmo-v3-fit"><div class="qm-win qm-dark"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Genel Bakış</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-tabs"><span>Bugün</span><span class="on">Son 7 gün</span><span>Bu ay</span><span>Özel</span></div><div class="qm-kpis"><span class="qm-kpi"><small>Menü görüntüleme</small><strong>1.284</strong><em>+6%</em></span><span class="qm-kpi"><small>Ürün tıklama</small><strong>412</strong><em>+4%</em></span><span class="qm-kpi"><small>Tekil ziyaretçi</small><strong>356</strong><em>+3%</em></span><span class="qm-kpi"><small>Aktif masa</small><strong>14</strong></span></div><div class="qm-cols qm-cols--wide"><div class="qm-col-in"><div class="qm-chart"><span class="qm-lbl">Zaman içindeki hareket</span><svg class="qm-bars" viewBox="0 0 332 100" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="s1" d="M0 94h4.5v6h-4.5zM14 91h4.5v9h-4.5zM28 94h4.5v6h-4.5zM42 97h4.5v3h-4.5zM56 97h4.5v3h-4.5zM70 94h4.5v6h-4.5zM84 85h4.5v15h-4.5zM98 73h4.5v27h-4.5zM112 64h4.5v36h-4.5zM126 70h4.5v30h-4.5zM140 58h4.5v42h-4.5zM154 33h4.5v67h-4.5zM168 9h4.5v91h-4.5zM182 21h4.5v79h-4.5zM196 55h4.5v45h-4.5zM210 67h4.5v33h-4.5zM224 64h4.5v36h-4.5zM238 45h4.5v55h-4.5zM252 21h4.5v79h-4.5zM266 6h4.5v94h-4.5zM280 18h4.5v82h-4.5zM294 42h4.5v58h-4.5zM308 70h4.5v30h-4.5zM322 85h4.5v15h-4.5z"/><path class="s2" d="M5.5 97h4.5v3h-4.5zM19.5 97h4.5v3h-4.5zM33.5 97h4.5v3h-4.5zM47.5 98h4.5v2h-4.5zM61.5 98h4.5v2h-4.5zM75.5 97h4.5v3h-4.5zM89.5 94h4.5v6h-4.5zM103.5 88h4.5v12h-4.5zM117.5 85h4.5v15h-4.5zM131.5 88h4.5v12h-4.5zM145.5 82h4.5v18h-4.5zM159.5 73h4.5v27h-4.5zM173.5 61h4.5v39h-4.5zM187.5 67h4.5v33h-4.5zM201.5 82h4.5v18h-4.5zM215.5 85h4.5v15h-4.5zM229.5 85h4.5v15h-4.5zM243.5 76h4.5v24h-4.5zM257.5 67h4.5v33h-4.5zM271.5 61h4.5v39h-4.5zM285.5 64h4.5v36h-4.5zM299.5 76h4.5v24h-4.5zM313.5 88h4.5v12h-4.5zM327.5 94h4.5v6h-4.5z"/></svg><div class="qm-axis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span></div><div class="qm-legend"><span class="l1">Menü görüntüleme</span><span class="l2">Ürün tıklama</span></div></div></div><div class="qm-col-in"><div class="qm-rank"><span class="qm-lbl">En çok ilgi görenler</span><div class="qm-rk"><span class="qm-rk-l">Izgara Tavuk<small>Ana Yemek</small></span><b>71</b><i style="--w:100%"></i></div><div class="qm-rk"><span class="qm-rk-l">Serpme Kahvaltı<small>Kahvaltı</small></span><b>52</b><i style="--w:73%"></i></div><div class="qm-rk"><span class="qm-rk-l">Filtre Kahve<small>İçecek</small></span><b>44</b><i style="--w:62%"></i></div><div class="qm-rk"><span class="qm-rk-l">Künefe<small>Tatlı</small></span><b>31</b><i style="--w:44%"></i></div></div></div></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Menü görüntüleme</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Ürün tıklama</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="1" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 2 / 3" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Masalar</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="1"><div class="qm-table qm-c3"><div class="qm-tr qm-th"><span>Masa</span><span>Grup</span><span>Hareket</span></div><div class="qm-tr"><span>Masa 4</span><span>Salon</span><span>38</span></div><div class="qm-tr"><span>bahce-2</span><span>Bahçe</span><span>12</span></div><div class="qm-tr hl"><span>VIP Salon</span><span>VIP</span><span>Hiç okutulmadı</span></div><div class="qm-tr"><span>Doğrudan erişim</span><span>Masasız</span><span>21</span></div></div></div><div class="qm-h" data-hot="3"><div class="qm-btns"><span class="qm-btn">CSV indir</span></div></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masaya göre hareket</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Okutulmayan masalar</span></span>
           </figure>
           <figure class="qrmo-v3-screen" data-v3-screen="2" data-kind="window" role="img" aria-label="Sizin yönetim ekranınız: temsili ekran 3 / 3" aria-hidden="true">
             <div class="qrmo-v3-fit"><div class="qm-win"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">İstatistikler › Sepet &amp; Sipariş</span><em class="qm-pill qm-pill--demo">Örnek veri</em></div><div class="qm-win-body"><div class="qm-h" data-hot="2"><div class="qm-funnel"><div class="qm-fn"><span>Sepete eklenen</span><i style="--w:100%"></i><b>100</b></div><div class="qm-fn"><span>Gönderilen</span><i style="--w:64%"></i><b>64</b></div><div class="qm-fn"><span>Terk edilen</span><i style="--w:36%"></i><b>36</b></div></div></div></div></div></div>
+            <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Sepet hunisi</span></span>
+            <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Terk edilen sipariş</span></span>
           </figure>
         </div>
-        <span class="qrmo-v3-chip qrmo-v3-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Bugün, son 7 gün, bu ay ya da özel aralık</span></span>
-        <span class="qrmo-v3-chip qrmo-v3-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masaya göre hareket</span></span>
         <div class="qrmo-v3-bar">
           <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi"><button type="button" class="qrmo-v3-dot is-active" data-v3-dot="0" aria-label="Ekran 1 / 3: Sizin yönetim ekranınız" aria-pressed="true"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="1" aria-label="Ekran 2 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button><button type="button" class="qrmo-v3-dot" data-v3-dot="2" aria-label="Ekran 3 / 3: Sizin yönetim ekranınız" aria-pressed="false"><i></i></button></div>
           <p class="qrmo-v3-live" data-v3-live aria-live="polite">Sizin yönetim ekranınız</p>
@@ -258,6 +265,35 @@
         <p class="qrmo-v3-note">Temsili arayüz · örnek içerik</p>
       </div>
       </div>
+    </div>
+  </section>
+
+  <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-gaps-h">
+    <div class="qrmo-mod-inner">
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">EKSİĞİ GÖRÜN</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-gaps-h">Menünüzde bunlar yaşanıyorsa, eksik olan bir kullanım raporu.</h2>
+      </header>
+      <ul class="qrmo-v3-pains">
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">01</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Menünün gerçekten açılıp açılmadığını bilmiyorsunuz.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>QR ANALYTİCS İLE</span>Menü görüntüleme, ürün tıklama ve tekil ziyaretçi sayısı önceki eşit uzunluktaki dönemle karşılaştırılır.</p>
+        </li>
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">02</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Hangi masanın QR’ının hiç okutulmadığını göremiyorsunuz.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>QR ANALYTİCS İLE</span>Masalara göre hareket listelenir; hiç okutulmayan masalar ayrı görünür.</p>
+        </li>
+        <li class="qrmo-v3-pain">
+          <span class="qrmo-v3-pain-n" aria-hidden="true">03</span>
+          <p class="qrmo-v3-pain-now"><span>BUGÜN YAŞADIĞINIZ</span>Sepete eklenen ürünün neden siparişe dönmediğini bilmiyorsunuz.</p>
+          <span class="qrmo-v3-pain-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+          <p class="qrmo-v3-pain-fix"><span>QR ANALYTİCS İLE</span>Sipariş özelliğiyle sepet hunisi eklenen, gönderilen ve terk edilen siparişleri gösterir.</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -271,22 +307,25 @@
         <div class="qrmo-v3-flow-grid">
           <ol class="qrmo-v3-steps">
             <li class="qrmo-v3-step is-active" data-v3-step="0" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">01</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">01<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>SİZ · İSTATİSTİKLER</span></span>
               <h3 class="qrmo-v3-step-h">Genel durumu görün</h3>
               
               <p class="qrmo-v3-step-d">Menü görüntüleme ve ürün tıklamalarını tarih aralığına göre izleyin.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Görüntüleme, tıklama, tekil ziyaretçi</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Bugün, son 7 gün, bu ay ya da özel aralık</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Önceki eşit dönemle karşılaştırma</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="1" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">02</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">02<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>SİZ · İSTATİSTİKLER</span></span>
               <h3 class="qrmo-v3-step-h">Hangi masa hareketli, hangisi sessiz</h3>
               
               <p class="qrmo-v3-step-d">Hiç okutulmayan masalar listede ayrı görünür.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Hangi masadan kaç hareket geldiği</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Hiç okutulmayan masalar ayrı listelenir</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Masasız erişim ayrı görünür</span></li></ul>
             </li>
             <li class="qrmo-v3-step" data-v3-step="2" tabindex="0">
-              <span class="qrmo-v3-step-n" aria-hidden="true">03</span>
+              <span class="qrmo-v3-step-n" aria-hidden="true">03<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>SİZ · İSTATİSTİKLER</span></span>
               <h3 class="qrmo-v3-step-h">Sepetten siparişe giden yol</h3>
               
               <p class="qrmo-v3-step-d">Sipariş özelliğini (Pro) kullanıyorsanız her adımı görürsünüz.</p>
+              <ul class="qrmo-v3-step-pts"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Sepete eklenen, gönderilen, terk edilen</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Tükendi olduğu için engellenen siparişler</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Sipariş özelliği (Pro) gerekir</span></li></ul>
             </li>
           </ol>
           <div class="qrmo-v3-flow-dev">
@@ -316,63 +355,42 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-features" id="ozellikler" aria-labelledby="qrmo-mod-feat-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-v3-narrow">
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Sık sorulan sorular</h2>
-        <div class="qrmo-v3-faq"><details class="qrmo-v3-q"><summary><span>QR Analytics nedir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Menüdeki davranışları (görüntüleme, tıklama, sepet, sipariş gönderimi, asistan mesajları vb.) kaydeden raporlama katmanıdır. Veriler QR menü etkileşimlerinden gelir; harici POS entegrasyonu şart değildir. <a href="../../moduller/qr-analytics/">QR Analytics</a> modülüne bakın.</p></details><details class="qrmo-v3-q"><summary><span>Analytics verisi POS’tan mı gelir?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Hayır. Kayıtlar müşterinin QR menüde yaptığı işlemlerden oluşur. Kasa POS cironuz ayrı sistemlerde kalır; buradaki sipariş sayıları menüden gönderilen sipariş olaylarına dayanır.</p></details><details class="qrmo-v3-q"><summary><span>QR Analytics sipariş sayılarını gösterir mi?</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary><p>Menüden gönderilen sipariş olayları (order_sent) raporlanabilir; bu, mutfak POS fiş adediyle birebir aynı olmayabilir. Amaç QR kanalındaki talebi görmek, tüm mağaza cirosunu tek başına yansıtmak değildir.</p></details></div>
-        <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Bu bir geçmiş kullanım raporudur; tahmin veya yapay zekâ analizi içermez. Kasa (POS) verisi değildir.</li><li>Sepet ve sipariş verisi, sipariş özelliklerinin (Pro) kullanılmasına; etkileşim verisi ilgili modüllerin açık olmasına bağlıdır. Paketinizde olmayan bir modülün kategorisi raporda kapalı görünür.</li><li>Tekil ziyaretçi sayısı IP adresinin özetine göre hesaplanır; aynı ağdan bağlanan farklı kişiler tek sayılabilir.</li><li>Özel tarih aralığı en fazla 31 gün olabilir.</li><li>Az ziyaret alan bir menüde raporlar da az veri gösterir.</li></ul></aside>
-        <details class="qrmo-v3-all">
-          <summary><span>Tüm özellik listesi</span><span class="qrmo-mod-acc-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></span></summary>
-          <div class="qrmo-v3-all-body">
-            <section><h3>Menü ve ürün</h3><ul><li><strong>Genel bakış</strong><span>Menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa sayısı gösterilir; günlük, haftalık, aylık ve saatlik grafikle izlenir. Aktif masa sayısı, seçili tarih aralığında en az bir hareket kaydeden masaların sayısıdır (şu anki anlık durum değildir). Göstergeler önceki eşit uzunluktaki dönemle karşılaştırılır.</span></li><li><strong>Ürünler</strong><span>En çok ve en az tıklanan ürünler, kategori dağılımı, ürün detayının açılma oranı ve filtre kullanımı gösterilir.</span></li></ul></section>
-            <section><h3>Masalar</h3><ul><li><strong>Masalara göre hareket</strong><span>Hangi masadan kaç hareket geldiği, masa grupları ve hiç okutulmayan masalar listelenir; masasız (doğrudan) erişim ayrı görünür.</span></li></ul></section>
-            <section><h3>Sepet ve sipariş</h3><ul><li><strong>Sepet hunisi</strong><span>Sepete eklenen, gönderilen ve terk edilen siparişler dönüşüm hunisinde gösterilir.</span></li><li><strong>Ürün bazlı görünüm</strong><span>En çok ciro getiren ürünler ile en çok sepete eklenip gönderilmeyen ürünler listelenir.</span></li><li><strong>Engellenen siparişler</strong><span>Tükendi olduğu için engellenen siparişler ve sipariş hataları ayrı raporlanır.</span></li></ul></section>
-            <section><h3>Müşteri etkileşimi</h3><ul><li><strong>Etkileşim raporu</strong><span>Chatbot mesajları, yorum ve form gönderimleri, dil seçimi dağılımı, galeri görüntüleme ve açılış ekranı gösterimi raporlanır.</span></li></ul></section>
-            <section><h3>Veri yönetimi</h3><ul><li><strong>CSV dışa aktarma</strong><span>Rapor sayfaları CSV olarak indirilebilir.</span></li><li><strong>Saklama süresi</strong><span>Ham kayıtların saklanacağı gün sayısını ayarlarsınız; süresi dolanlar günlük görevle silinir. 0 yazarsanız temizlik kapanır.</span></li></ul></section>
-          </div>
-        </details>
+      <header class="qrmo-v3-head">
+        <p class="qrmo-v3-eyebrow">TÜM ÖZELLİKLER</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-feat-h">QR Analytics ile yapabildiğiniz her şey</h2>
+        <p class="qrmo-v3-flead">Aşağıdaki her madde panelde bulunan gerçek bir ayardır. Başlığa dokunup ayrıntısını açın; kendi gözünüzle görmek için <a href="../../canli-menu/">canlı menüyü görün</a>.</p>
+      </header>
+      <ul class="qrmo-v3-fstats"><li><strong>31</strong><span>gün en uzun özel aralık</span></li><li><strong>CSV</strong><span>rapor dışa aktarma</span></li></ul>
+      <div class="qrmo-v3-qalist qrmo-v3-qalist--feat">
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span class="qrmo-v3-qa-q">Menü ve ürün</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Görüntüleme, tıklama ve en çok ilgi gören ürünler.</p><ul class="qrmo-v3-qa-pts"><li>Menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa sayısı gösterilir; günlük, haftalık, aylık ve saatlik grafikle izlenir</li><li>En çok ve en az tıklanan ürünler, kategori dağılımı, ürün detayının açılma oranı ve filtre kullanımı gösterilir</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span><span class="qrmo-v3-qa-q">Masalar</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Hangi masa hareketli, hangisi sessiz.</p><ul class="qrmo-v3-qa-pts"><li>Hangi masadan kaç hareket geldiği, masa grupları ve hiç okutulmayan masalar listelenir; masasız (doğrudan) erişim ayrı görünür</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h2l2 12h11l2-8H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></span><span class="qrmo-v3-qa-q">Sepet ve sipariş</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Sepetten siparişe giden yol.</p><ul class="qrmo-v3-qa-pts"><li>Sepete eklenen, gönderilen ve terk edilen siparişler dönüşüm hunisinde gösterilir</li><li>En çok ciro getiren ürünler ile en çok sepete eklenip gönderilmeyen ürünler listelenir</li><li>Tükendi olduğu için engellenen siparişler ve sipariş hataları ayrı raporlanır</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 6h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-5 4V7a1 1 0 0 1 1-1z"/></svg></span><span class="qrmo-v3-qa-q">Müşteri etkileşimi</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>Chatbot, yorum, form ve dil seçimi raporlanır.</p><ul class="qrmo-v3-qa-pts"><li>Chatbot mesajları, yorum ve form gönderimleri, dil seçimi dağılımı, galeri görüntüleme ve açılış ekranı gösterimi raporlanır</li></ul></div></details>
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></span><span class="qrmo-v3-qa-q">Veri yönetimi</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>CSV indirir, saklama süresini ayarlarsınız.</p><ul class="qrmo-v3-qa-pts"><li>Rapor sayfaları CSV olarak indirilebilir</li><li>Ham kayıtların saklanacağı gün sayısını ayarlarsınız; süresi dolanlar günlük görevle silinir</li></ul></div></details>
+      </div>
+      <aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul><li>Bu bir geçmiş kullanım raporudur; tahmin veya yapay zekâ analizi içermez. Kasa (POS) verisi değildir.</li><li>Sepet ve sipariş verisi, sipariş özelliklerinin (Pro) kullanılmasına; etkileşim verisi ilgili modüllerin açık olmasına bağlıdır. Paketinizde olmayan bir modülün kategorisi raporda kapalı görünür.</li><li>Tekil ziyaretçi sayısı IP adresinin özetine göre hesaplanır; aynı ağdan bağlanan farklı kişiler tek sayılabilir.</li><li>Özel tarih aralığı en fazla 31 gün olabilir.</li><li>Az ziyaret alan bir menüde raporlar da az veri gösterir.</li></ul></aside>
+    </div>
+  </section>
+
+    <section class="qrmo-mod-sec qrmo-v3-sec qrmo-v3-details qrmo-v3-faqsec" id="ayrintilar" aria-labelledby="qrmo-mod-det-h">
+    <div class="qrmo-mod-inner qrmo-v3-faqgrid">
+      <header class="qrmo-v3-faqhead">
+        <p class="qrmo-v3-eyebrow">SIK SORULAN SORULAR</p>
+        <h2 class="qrmo-v3-h2" id="qrmo-mod-det-h">Aklınıza takılanlar</h2>
+        <p class="qrmo-v3-faqlead">Cevabı burada bulamazsanız <a href="../../iletisim/">bize yazın</a>; menünüzü birlikte gözden geçirelim.</p>
+      </header>
+      <div class="qrmo-v3-qalist">
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">01</span><span class="qrmo-v3-qa-q">QR Analytics nedir?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Menüdeki davranışları (görüntüleme, tıklama, sepet, sipariş gönderimi, asistan mesajları vb.) kaydeden raporlama katmanıdır. Veriler QR menü etkileşimlerinden gelir; harici POS entegrasyonu şart değildir. <a href="../../moduller/qr-analytics/">QR Analytics</a> modülüne bakın.</p></details>
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">02</span><span class="qrmo-v3-qa-q">Analytics verisi POS’tan mı gelir?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Hayır. Kayıtlar müşterinin QR menüde yaptığı işlemlerden oluşur. Kasa POS cironuz ayrı sistemlerde kalır; buradaki sipariş sayıları menüden gönderilen sipariş olaylarına dayanır.</p></details>
+          <details class="qrmo-v3-qa"><summary><span class="qrmo-v3-qa-n" aria-hidden="true">03</span><span class="qrmo-v3-qa-q">QR Analytics sipariş sayılarını gösterir mi?</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><p>Menüden gönderilen sipariş olayları (order_sent) raporlanabilir; bu, mutfak POS fiş adediyle birebir aynı olmayabilir. Amaç QR kanalındaki talebi görmek, tüm mağaza cirosunu tek başına yansıtmak değildir.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-labelledby="qrmo-mod-rel-h">
+  <section class="qrmo-mod-sec qrmo-v3-sec qrmo-mod-related" aria-label="İlgili modüller ve rehberler">
     <div class="qrmo-mod-inner">
-      <header class="qrmo-v3-head">
-        <p class="qrmo-v3-eyebrow">ÖZELLİKLER</p>
-        <h2 class="qrmo-v3-h2" id="qrmo-mod-rel-h">QR Analytics ile neler yapabilirsiniz?</h2>
-      </header>
-      <div class="qrmo-v3-map" data-v3-map>
-        <svg class="qrmo-v3-map-lines" aria-hidden="true" focusable="false"></svg>
-        <div class="qrmo-v3-hub" data-v3-hub>
-          <span class="qrmo-mod-cue qrmo-mod-cue--chart" aria-hidden="true"><i style="--h:35%"></i><i style="--h:60%"></i><i style="--h:45%"></i><i style="--h:85%"></i><i style="--h:70%"></i></span>
-          <h3>QR Analytics</h3>
-          <p>Menü görüntüleme ve ürün tıklamasını görün; kasa satışı değil.</p>
-          <span class="qrmo-v3-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Plus paketinde</span></span>
-        </div>
-        <ul class="qrmo-v3-spokes">
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Menü ne kadar görülüyor?</strong><span>Menü görüntüleme, ürün tıklama, tekil ziyaretçi ve aktif masa; günlük, haftalık, aylık.</span><span class="qrmo-v3-meta"><span>Genel bakış</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Hangi ürün ilgi görüyor?</strong><span>En çok ve en az tıklanan ürünler ile kategori dağılımı.</span><span class="qrmo-v3-meta"><span>Ürünler</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Hangi masa hareketli?</strong><span>Masaya göre hareket; hiç okutulmayan masalar ayrı görünür.</span><span class="qrmo-v3-meta"><span>Masalar</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h2l2 12h11l2-8H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>Sepetten siparişe giden yol</strong><span>Sepete eklenen, gönderilen ve terk edilen siparişler; tükendi yüzünden engellenenler ayrı raporlanır (Pro).</span><span class="qrmo-v3-meta"><span>Sipariş</span></span></span>
-          </div></li>
-          <li data-v3-spoke><div class="qrmo-v3-spoke qrmo-v3-spoke--f">
-            <span class="qrmo-v3-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></span>
-            <span class="qrmo-v3-spoke-b"><strong>CSV ve saklama süresi</strong><span>Raporları CSV indirin; kayıtların kaç gün saklanacağını siz belirleyin.</span><span class="qrmo-v3-meta"><span>Veri</span></span></span>
-          </div></li>
-        </ul>
-      </div>
       <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
       <ul class="qrmo-mod-rel">
         <li><a class="qrmo-mod-tile" href="../menu-muhendisligi/"><span class="qrmo-mod-cue qrmo-mod-cue--matrix" aria-hidden="true"><i></i><i class="on"></i><i></i><i></i></span><span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">Menü Mühendisliği</span><span class="qrmo-mod-tile-d">Satış ve etkileşim verisi maliyetle birleştirilir.</span></span><span class="qrmo-mod-tile-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a></li>
@@ -382,22 +400,28 @@
     </div>
   </section>
 
-  <section class="qrmo-mod-sec qrmo-mod-closing" aria-labelledby="qrmo-mod-close-h">
+  <section class="qrmo-mod-sec qrmo-ap-cta" aria-labelledby="qrmo-mod-close-h">
     <div class="qrmo-mod-inner">
-      <div class="qrmo-mod-close">
-        <div class="qrmo-mod-close-copy">
-          <h2 class="qrmo-mod-h2 qrmo-mod-h2--l" id="qrmo-mod-close-h">QR Analytics, Plus paketinde.</h2>
-          <p class="qrmo-mod-text">Paketleri ve içerdikleri modülleri yan yana karşılaştırın.</p>
-        </div>
-        <ol class="qrmo-mod-tiers" aria-label="Paketlere göre QR Analytics">
-            <li class="is-out"><span class="qrmo-mod-tier-n">Temel</span><span class="qrmo-mod-tier-t">Dijital QR menü</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 12h10"/></svg>Dahil değil</span></li>
-            <li class="is-out"><span class="qrmo-mod-tier-n">Pro</span><span class="qrmo-mod-tier-t">Dijital menü ve masa servisi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 12h10"/></svg>Dahil değil</span></li>
-            <li class="is-in"><span class="qrmo-mod-tier-n">Plus</span><span class="qrmo-mod-tier-t">Menü, servis ve işletme verisi</span><span class="qrmo-mod-tier-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Dahil</span></li>
-        </ol>
-        <ul class="qrmo-mod-assure"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Aylık üyelikte taahhüt yok, istediğiniz zaman iptal</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yıllık üyelikte kurulum ücreti yok</span></li></ul>
-        <div class="qrmo-mod-actions">
-          <a class="qrmo-mod-cta qrmo-mod-cta--ondark" href="../../paketler/"><span>Paketleri İnceleyin</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="qrmo-mod-textlink qrmo-mod-textlink--ondark" href="../"><span>Diğer modülleri görün</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      <div class="qrmo-ap-cta-panel">
+        <div class="qrmo-ap-cta-bg" aria-hidden="true"></div>
+        <span class="qrmo-ap-chip qrmo-ap-chip--1" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Genel bakış</strong><small>Görüntüleme ve tıklama</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--2" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Masa hareketi</strong><small>Okutulmayan masalar ayrı</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--3" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>Sepet hunisi</strong><small>Eklenen, gönderilen, terk</small></span></span>
+        <span class="qrmo-ap-chip qrmo-ap-chip--4" aria-hidden="true"><span class="qrmo-ap-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span><strong>CSV dışa aktarma</strong><small>Rapor sayfaları</small></span></span>
+        <div class="qrmo-ap-cta-body">
+          <p class="qrmo-ap-cta-eyebrow"><span aria-hidden="true"></span>CANLI DEMO VE PAKETLER</p>
+          <h2 class="qrmo-ap-cta-h" id="qrmo-mod-close-h">QR Analytics, Plus paketinde: <span>işletmenize uygun planı seçin.</span></h2>
+          <p class="qrmo-ap-cta-p">Fiyatlar aylık; yıllık ödemede 12 aylık kullanım 10 aylık ücrete denk gelir. Hangisinin size uyduğundan emin değilseniz menünüzü birlikte gözden geçirelim.</p>
+          <ol class="qrmo-ap-pks" aria-label="Paketlere göre QR Analytics">
+          <li class="is-out"><span class="qrmo-ap-pk-n">Temel</span><span class="qrmo-ap-pk-t">Dijital QR menü</span><b class="qrmo-ap-pk-p">749 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil değil</span></span></li>
+          <li class="is-out"><span class="qrmo-ap-pk-n">Pro</span><span class="qrmo-ap-pk-t">Dijital menü ve masa servisi</span><b class="qrmo-ap-pk-p">1.490 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil değil</span></span></li>
+          <li class="is-in"><span class="qrmo-ap-pk-n">Plus</span><span class="qrmo-ap-pk-t">Menü, servis ve işletme verisi</span><b class="qrmo-ap-pk-p">2.990 ₺<small>/ay</small></b><span class="qrmo-ap-pk-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Dahil</span></span></li>
+          </ol>
+          <div class="qrmo-ap-cta-actions">
+            <a class="qrmo-ap-btn" href="../../canli-menu/"><span>Canlı menüyü görün</span><span class="qrmo-ap-btn-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span></a>
+            <a class="qrmo-ap-link" href="../../paketler/#karsilastirma"><span>Paketleri karşılaştırın</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+          <ul class="qrmo-ap-assure"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Aylık üyelikte taahhüt yok, istediğiniz zaman iptal</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>İlk 14 gün içinde iade (alan adı ve hosting maliyeti düşülür)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Yıllık üyelikte kurulum ücreti yok</span></li></ul>
         </div>
       </div>
     </div>
