@@ -503,7 +503,7 @@ body :is(.qrmo-translation-v3-eyebrow-mod, .qrmo-smart-filter-kicker-mod, .qrmo-
   color: var(--ts-gold-ink) !important;
 }
 body :is(.qrmo-faq-eyebrow, .qrmo-faq-nav__count, .qrmo-faq-panel__count, .qrmo-faq-suggest > span,
-  .qrmo-hm-d, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
+  span.qrmo-hm-d, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
   .qrmo-hero-v3-eyebrow, [class*="eyebrow-core"], [class*="kicker-core"]) {
   color: var(--ts-ink-soft) !important;
 }
@@ -515,6 +515,15 @@ body :is(.qrmo-setup-v2__link, .qrmo-ap-link) {
   display: inline-flex; align-items: center; min-height: 44px;
 }
 body .qrmo-pricing-hero .qrmo-pricing-subtitle { max-width: var(--ts-measure) !important; }
+
+/* Uzun makale başlığı: h1 etiketi korunur, görsel boyut h2 rolü (4 satıra çıkmasın) */
+body .qb-article__intro > h1 {
+  font-size: var(--ts-fs-h2) !important; font-weight: var(--ts-fw-h2) !important;
+  line-height: var(--ts-lh-h2) !important; letter-spacing: var(--ts-ls-h2) !important;
+}
+
+/* Yorum kartı: aktif (koyu) kartta rol satırı açık tonda olmalı */
+body .qrmo-rv__card.is-active .qrmo-rv__meta small { color: rgba(244, 241, 232, 0.78) !important; }
 
 /* =========================================================
    QR MENU OFFICIAL — GLOBAL HEADER (.qrmo-gh-*)

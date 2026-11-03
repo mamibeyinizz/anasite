@@ -147,8 +147,8 @@ body.qrmo-home-ctx [class*="kicker-mod"] {
 }
 
 /* —— Caption —— */
-body.qrmo-home-ctx .qrmo-hm-d,
-body.qrmo-home-ctx .qrmo-hm-m,
+body.qrmo-home-ctx span.qrmo-hm-d,
+body.qrmo-home-ctx span.qrmo-hm-m,
 body.qrmo-home-ctx .qrmo-cta-note,
 body.qrmo-home-ctx .qrmo-rv__count,
 body.qrmo-home-ctx .qrmo-rv__tag,
@@ -186,4 +186,10 @@ body.qrmo-home-ctx .qrmo-faq-v1__a p {
 body.qrmo-home-ctx .qt-m-support span {
   font-size: var(--ts-fs-capb) !important; font-weight: var(--ts-fw-capb) !important;
   line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
+}
+
+/* Hero ana butonunun etiketi: buton rolü (anchor .qrmo-hm-d taşıdığı için caption'a düşmesin) */
+body.qrmo-home-ctx .qrmo-hero-v3-cta > span:not([class]) {
+  font-size: var(--ts-fs-btn) !important; font-weight: var(--ts-fw-btn) !important;
+  line-height: var(--ts-lh-btn) !important; letter-spacing: var(--ts-ls-btn) !important;
 }

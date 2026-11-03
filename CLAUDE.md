@@ -12,10 +12,10 @@
 
 | Rol | Mobil | Tablet | Masaüstü | Kalınlık | Satır yük. |
 |---|---|---|---|---|---|
-| display | 44 | 56 | 72 | 800 | 1.05 |
-| h1 | 34 | 44 | 56 | 800 | 1.1 |
-| h2 | 28 | 34 | 40 | 800 | 1.15 |
-| h3 | 22 | 24 | 28 | 700 | 1.25 |
+| display | 44 | 56 | 72 | 800 | 1.08 |
+| h1 | 34 | 44 | 56 | 800 | 1.14 |
+| h2 | 28 | 34 | 40 | 800 | 1.2 |
+| h3 | 22 | 24 | 28 | 700 | 1.28 |
 | h4 / kart başlığı | 18 | 19 | 20 | 700 | 1.3 |
 | lead | 18 | 19 | 20 | 500 | 1.55 |
 | body (gövde) | 16 | 16 | 17 | 400 | 1.6 |
@@ -35,3 +35,5 @@
 - Okunabilirlik: açık zeminde metin kontrastı ≥4.5:1 (büyük/kalın metin ≥3:1). Açık zeminde altın metin için `#c9a84c` YASAK (2.1:1); `var(--ts-gold-ink)` (#7f6419) kullan. Soluk metin için `var(--ts-ink-soft)`. Koyu zeminde açık altın/krem kullanılabilir.
 - Okuma metni satır uzunluğu ≤38em (≈70 karakter) (`var(--ts-measure)`); başlıklarda `text-wrap: balance`, paragraflarda `pretty` global olarak açıktır (`global/src/type-polish.css`). Sayı/fiyat/sayaç için `font-variant-numeric: tabular-nums`. Metin bağlantı/butonları en az 44px yüksekliğinde dokunma hedefi.
 - Font yığınında `"Manrope", "Manrope Fallback", system-ui, …` sırası korunur (Fallback, yüklenme sırasındaki kaymayı azaltan metrik eşlemeli yüzdür). Latin ve latin-ext dosyaları birlikte preload edilir (Türkçe ğ ş İ latin-ext'ten gelir).
+- Uzun başlık (çok satıra çıkan makale başlığı): etiket `h1` kalır, görsel boyut h2 rolüdür (`body .qb-article__intro > h1`, `type-polish.css`). Başlık mobilde 3 satırı aşıyorsa aynı varyantı kullan.
+- Renk geçersiz kılarken (`color: … !important`) sınıfın hangi zeminlerde (açık/koyu, aktif/pasif kart, buton) kullanıldığını kontrol et; yalnız açık zemindeki duruma uygula. Seçiciyi etiket/bileşenle daralt (örn. `span.qrmo-hm-d`).
