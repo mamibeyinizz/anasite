@@ -13,6 +13,11 @@
   var P = D.packages;
   var fmt = new Intl.NumberFormat("tr-TR");
   var period = D.defaultPeriod === "annual" ? "annual" : "monthly";
+  try {
+    var qd = (new URLSearchParams(location.search).get("donem") || "").toLowerCase();
+    if (qd === "annual" || qd === "yillik") period = "annual";
+    else if (qd === "monthly" || qd === "aylik") period = "monthly";
+  } catch (e) {}
   var activePkg = P.length > 1 ? P[1].id : P[0].id;
   var cardsWrap = null;
   var cardNav = null;
