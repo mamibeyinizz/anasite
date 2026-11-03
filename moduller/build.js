@@ -1030,7 +1030,7 @@ const SECTION = {
           })}
           </ol>
           <div class="qrmo-v3-flow-dev">
-            ${showcase(m, { mode: "ctrl", id: "flow" })}
+            ${showcase(m, { mode: "ctrl", id: "flow", note: false })}
           </div>
         </div>
         <div class="qrmo-v3-fprog" aria-hidden="true"><span class="qrmo-v3-fprog-n"><b data-fprog-cur>01</b> / ${pad(f.steps.length)}</span><span class="qrmo-v3-fprog-bar"><i data-fprog-bar></i></span><span class="qrmo-v3-fhint">Kaydırın <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></div>
