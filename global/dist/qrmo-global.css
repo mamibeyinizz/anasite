@@ -562,6 +562,14 @@ html body p.qrmo-rv__pull, html body.qrmo-home-ctx p.qrmo-rv__pull {
   line-height: var(--ts-lh-h4) !important; letter-spacing: var(--ts-ls-h4) !important;
 }
 
+/* Mobil: yorum alıntısı bir kademe daha küçük — bodyb (16/700). Gövde (body) ile rol farkı kalınlıktan gelir. */
+@media (max-width: 640px) {
+  html body p.qrmo-rv__pull, html body.qrmo-home-ctx p.qrmo-rv__pull {
+    font-size: var(--ts-fs-bodyb) !important; font-weight: var(--ts-fw-bodyb) !important;
+    line-height: var(--ts-lh-bodyb) !important; letter-spacing: var(--ts-ls-bodyb) !important;
+  }
+}
+
 /* Mobil: uzun alıntı/vurgu cümleleri h3 (22) değil h4 (18) rolünde — satır sayısı ve boyut dengesi */
 @media (max-width: 640px) {
   html body .qrmo-rv__pull, html body.qrmo-home-ctx .qrmo-rv__pull,
