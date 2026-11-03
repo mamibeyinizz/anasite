@@ -240,8 +240,9 @@
     var cls = "qrmo-pricing-btn qrmo-pricing-btn--" + variant;
     var kids = [el("span", { text: label }), icon("arrow")];
     if (tpl) {
-      var href = tpl.replace("{id}", pkg ? pkg.id : "");
+      var href = tpl.replace("{id}", pkg ? pkg.id : "").replace("{period}", period);
       var a = el("a", { class: cls, href: href });
+      if (tpl.indexOf("{period}") > -1) a.setAttribute("data-href-tpl", tpl.replace("{id}", pkg ? pkg.id : ""));
       if (!final && !purchase) a.setAttribute("aria-describedby", "qrmo-pricing-flow-note");
       kids.forEach(function (k) { a.appendChild(k); });
       return a;
@@ -1168,6 +1169,10 @@
     root.querySelectorAll("[data-qp-free]").forEach(function (n) {
       n.textContent = twoMonthOffer ? "2 ay daha az" : "";
       n.hidden = !twoMonthOffer;
+    });
+
+    root.querySelectorAll("a[data-href-tpl]").forEach(function (a) {
+      a.setAttribute("href", a.getAttribute("data-href-tpl").replace("{period}", period));
     });
 
     var note = document.getElementById("qrmo-pricing-period-note");

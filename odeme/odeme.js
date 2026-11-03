@@ -44,7 +44,8 @@
       t.appendChild(el("span", "ts-cap", pr[2]));
       lab.appendChild(t);
       if (pr[0] === "annual") {
-        var b = el("span", "qrmo-pay-badge ts-capb", "2 ay bedava");
+        var free = P.annual.usedMonths - P.annual.payMonths;
+        var b = el("span", "qrmo-pay-badge ts-capb", free > 0 ? free + " ay bedava" : "Yıllık");
         lab.appendChild(b);
       }
       elPeriod.appendChild(lab);
@@ -62,6 +63,7 @@
       if (pk.badge) head.appendChild(el("span", "qrmo-pay-badge ts-capb", pk.badge));
       t.appendChild(head);
       t.appendChild(el("span", "ts-cap", pk.tagline));
+      t.appendChild(el("span", "ts-cap qrmo-pay-plan-sum", pk.summary));
       lab.appendChild(t);
       var pr = el("span", "qrmo-pay-plan-price");
       pr.appendChild(el("span", "ts-bodyb qrmo-pay-num", money(pk.price[state.period])));
@@ -109,6 +111,7 @@
     buildPlans(); buildSummary();
     btn.textContent = live ? "Ödemeye geç · " : "Test ödemesini tamamla · ";
     btn.textContent += money(pkg(state.plan).price[state.period]);
+    $("qrmo-pay-bar-btn").textContent = live ? "Ödemeye geç" : "Devam et";
     try {
       var u = new URL(location.href);
       u.searchParams.set("paket", state.plan); u.searchParams.set("donem", state.period);
@@ -157,7 +160,7 @@
     [["Referans", ref], ["Paket", pk.name], ["Dönem", periodLabel(state.period)], ["Tutar", money(pk.price[state.period])], ["İşletme", c.business], ["E-posta", c.email]]
       .forEach(function (r) { dl.appendChild(row(r[0], r[1])); });
     form.closest(".qrmo-pay-grid").hidden = true;
-    elDone.hidden = false; elDone.focus(); window.scrollTo(0, 0);
+    elDone.hidden = false; bar.classList.add("is-off"); elDone.focus(); window.scrollTo(0, 0);
   }
 
   function goLive(c) {
@@ -188,6 +191,19 @@
     form.reset(); Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (i) { setErr(i, ""); });
     elDone.hidden = true; form.closest(".qrmo-pay-grid").hidden = false; showNote(""); render(); window.scrollTo(0, 0);
   });
+
+  /* Mobil: özet ekranın altında kaldığı için toplam + düğme sabit çubukta; özet görününce gizlenir. */
+  var bar = $("qrmo-pay-bar"), barTotal = $("qrmo-pay-bar-total");
+  function syncBar() {
+    var pk = pkg(state.plan);
+    barTotal.textContent = money(pk.price[state.period]);
+    $("qrmo-pay-bar-label").textContent = pk.name + " · " + periodLabel(state.period);
+  }
+  var baseRender = render; render = function () { baseRender(); syncBar(); };
+  if (window.IntersectionObserver) {
+    new IntersectionObserver(function (en) { bar.classList.toggle("is-off", en[0].isIntersecting || !elDone.hidden); }, { threshold: 0.15 })
+      .observe(document.querySelector(".qrmo-pay-summary"));
+  }
 
   if (live) {
     $("qrmo-pay-mode").hidden = true;

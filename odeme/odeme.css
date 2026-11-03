@@ -133,3 +133,21 @@ body.qrmo-pay-page {
 /* fieldset başlığı kart içinde kalsın (legend kenarlığa oturmasın) */
 .qrmo-pay-step > legend.qrmo-pay-h { float: left; }
 .qrmo-pay-step > legend.qrmo-pay-h + * { clear: both; }
+.qrmo-pay .qrmo-pay-inc-list { padding-left: 18px; }
+.qrmo-pay-plan-sum { margin-top: 2px; }
+.qrmo-pay-back { display: inline-flex; align-items: center; min-height: 44px; margin-left: 20px; color: var(--qpay-green-dark); text-decoration: none; }
+.qrmo-pay-back:hover { color: var(--ts-gold-ink); }
+
+/* mobil/tablet: sabit toplam çubuğu */
+.qrmo-pay-bar { display: none; }
+@media (max-width: 960px) {
+  .qrmo-pay-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 10px max(16px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    color: var(--qpay-cream); background: var(--qpay-green-dark); border-top: 1px solid var(--qpay-gold); transition: transform .2s ease; }
+  .qrmo-pay-bar.is-off { transform: translateY(110%); visibility: hidden; }
+  .qrmo-pay-bar-info { display: grid; min-width: 0; }
+  .qrmo-pay-bar-info .ts-cap { color: rgba(244,241,232,.82); }
+  .qrmo-pay-bar-info .ts-bodyb { color: var(--qpay-gold-light); }
+  .qrmo-pay-bar-btn { min-height: 48px; padding: 10px 22px; color: var(--qpay-green-dark); background: var(--qpay-gold-light); border: 1.5px solid var(--qpay-gold); border-radius: 12px; font-family: inherit; cursor: pointer; touch-action: manipulation; }
+  .qrmo-pay { padding-bottom: 96px; }
+}

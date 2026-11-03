@@ -31,8 +31,8 @@ window.QRMO_PRICING = {
      Alt yardım düğmesi gerçek iletişim sayfasına gider.
      ------------------------------------------------------- */
   cta: {
-    /* Satın alma adresi yoktur. href boşken kart düğmesi bu yardım adresine gider. */
-    href: "",
+    /* Kart düğmesi ödeme sayfasına gider. {id} = paket, {period} = seçili dönem (monthly | annual). */
+    href: "../odeme/?paket={id}&donem={period}",
     finalHref: "../iletisim/#talep",
     finalLabel: "Paket seçimi için yardım alın",
     pendingNotice:
@@ -61,7 +61,7 @@ window.QRMO_PRICING = {
       subdomain: "temel.qrmenuofficial.com",
       price: { monthly: 749, annual: 7490 },
       variant: "plain",
-      ctaLabel: "Temel için iletişime geçin",
+      ctaLabel: "Temel ile başlayın",
       highlightsLead: "Temel özellikler",
       highlights: ["qr-menu", "menu-yonetimi", "coklu-dil", "filtreler", "qr-masa", "kampanya-combo"],
       scenario: {
@@ -79,7 +79,7 @@ window.QRMO_PRICING = {
       price: { monthly: 1490, annual: 14900 },
       variant: "plain",
       ctaStyle: "strong",
-      ctaLabel: "Pro için iletişime geçin",
+      ctaLabel: "Pro ile başlayın",
       highlightsLead: "Temel’e ek olarak",
       highlights: ["garson-cagir", "hesap-iste", "qr-siparis", "servis-paneli", "personel-rolu", "oturum-guvenligi"],
       scenario: {
@@ -97,7 +97,7 @@ window.QRMO_PRICING = {
       price: { monthly: 2990, annual: 29900 },
       variant: "dark",
       badge: "En kapsamlı",
-      ctaLabel: "Plus için iletişime geçin",
+      ctaLabel: "Plus ile başlayın",
       highlightsLead: "Pro’ya ek olarak",
       highlights: ["analytics", "geri-bildirim", "menu-muhendisligi", "maliyet-recete", "asistan"],
       scenario: {
