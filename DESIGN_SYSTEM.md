@@ -89,11 +89,11 @@ Tek kaynak `global/src/type-scale.css`. Rol başına sabit px + kalınlık; kır
 | Rol | Mobil / Tablet / Masaüstü (px) | Kalınlık |
 |---|---|---|
 | display | 44 / 56 / 72 | 800 |
-| h1 | 34 / 44 / 56 | 800 |
+| h1 | 32 / 44 / 56 | 800 |
 | h2 | 26 / 34 / 40 | 800 |
 | h3 | 22 / 24 / 28 | 700 |
 | h4 | 18 / 19 / 20 | 700 |
-| lead | 18 / 19 / 20 | 500 |
+| lead | 17 / 19 / 20 | 500 |
 | body | 16 / 16 / 17 | 400 (bodyb 700) |
 | btn | 16 / 16 / 16 | 700 |
 | link | 15 / 15 / 15 | 700 |
