@@ -11,7 +11,7 @@
 :root {
   --ts-fs-display: 44px; --ts-fw-display: 800; --ts-lh-display: 1.08; --ts-ls-display: -0.02em;
   --ts-fs-h1: 34px;      --ts-fw-h1: 800;      --ts-lh-h1: 1.14;      --ts-ls-h1: -0.02em;
-  --ts-fs-h2: 28px;      --ts-fw-h2: 800;      --ts-lh-h2: 1.2;       --ts-ls-h2: -0.015em;
+  --ts-fs-h2: 26px;      --ts-fw-h2: 800;      --ts-lh-h2: 1.2;       --ts-ls-h2: -0.015em;
   --ts-fs-h3: 22px;      --ts-fw-h3: 700;      --ts-lh-h3: 1.28;      --ts-ls-h3: -0.01em;
   --ts-fs-h4: 18px;      --ts-fw-h4: 700;      --ts-lh-h4: 1.3;       --ts-ls-h4: 0;
   --ts-fs-lead: 18px;    --ts-fw-lead: 500;    --ts-lh-lead: 1.55;    --ts-ls-lead: 0;
@@ -474,6 +474,12 @@ body .qrmo-v3-fstats span {
   line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
 }
 
+/* İletişim e-posta değeri: 18/700 dar ekranda sığmıyordu → gövde kalın */
+body .qrmo-contact-channel-value--email {
+  font-size: var(--ts-fs-bodyb) !important; font-weight: var(--ts-fw-bodyb) !important;
+  line-height: var(--ts-lh-bodyb) !important; letter-spacing: var(--ts-ls-bodyb) !important;
+}
+
 /* =========================================================
    TİPOGRAFİ İNCE AYAR — okunabilirlik, kontrast, ölçü
    type-scale.css ve type-scale-pages.css'ten sonra yüklenir.
@@ -517,7 +523,7 @@ body :is(.qrmo-translation-v3-eyebrow-mod, .qrmo-smart-filter-kicker-mod, .qrmo-
   color: var(--ts-gold-ink) !important;
 }
 body :is(.qrmo-faq-eyebrow, .qrmo-faq-nav__count, .qrmo-faq-panel__count, .qrmo-faq-suggest > span,
-  span.qrmo-hm-d, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
+  .qrmo-hero-v3-feature-content small > span, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
   .qrmo-hero-v3-eyebrow, [class*="eyebrow-core"], [class*="kicker-core"]) {
   color: var(--ts-ink-soft) !important;
 }
@@ -538,6 +544,17 @@ body .qb-article__intro > h1 {
 
 /* Yorum kartı: aktif (koyu) kartta rol satırı açık tonda olmalı */
 body .qrmo-rv__card.is-active .qrmo-rv__meta small { color: rgba(244, 241, 232, 0.78) !important; }
+
+/* Hero alt başlığı lead rolünde: soluk gri değil, okunur ton */
+body .qrmo-hero-v3-subtitle, body .qrmo-hero-v3-subtitle > span { color: #3f4a44 !important; }
+
+/* Mobilde çok uzun bölüm başlığı (modül dizini kategori başlıkları, ~70 karakter): h3 rolü — H1 ile aynı ağırlıkta görünmesin */
+@media (max-width: 640px) {
+  body h2.qrmo-mod-h2.qrmo-mod-h2--m {
+    font-size: var(--ts-fs-h3) !important; font-weight: var(--ts-fw-h3) !important;
+    line-height: var(--ts-lh-h3) !important; letter-spacing: var(--ts-ls-h3) !important;
+  }
+}
 
 /* =========================================================
    QR MENU OFFICIAL — GLOBAL HEADER (.qrmo-gh-*)
