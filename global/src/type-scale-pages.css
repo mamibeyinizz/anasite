@@ -400,3 +400,17 @@ body span.qrmo-pricing-switch-from {
   font-size: var(--ts-fs-capb) !important; font-weight: var(--ts-fw-capb) !important;
   line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
 }
+
+/* Restoran Menü özellik akordeonu (sonradan eklendi) */
+body .qrmo-v3-qa-pts li, body .qrmo-v3-qa-body p {
+  font-size: var(--ts-fs-body) !important; font-weight: var(--ts-fw-body) !important;
+  line-height: var(--ts-lh-body) !important; letter-spacing: var(--ts-ls-body) !important;
+}
+body .qrmo-v3-fstats strong {
+  font-size: var(--ts-fs-h4) !important; font-weight: var(--ts-fw-h4) !important;
+  line-height: var(--ts-lh-h4) !important; letter-spacing: var(--ts-ls-h4) !important;
+}
+body .qrmo-v3-fstats span {
+  font-size: var(--ts-fs-capb) !important; font-weight: var(--ts-fw-capb) !important;
+  line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
+}
