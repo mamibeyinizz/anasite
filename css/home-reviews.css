@@ -317,14 +317,27 @@
 /* Mobile */
 @media (max-width: 640px) {
   #qrmo-reviews-v1 {
-    --rv-gap: 14px;
-    padding: 56px 0 48px;
+    --rv-gap: 12px;
+    padding: 44px 0 36px;
   }
 
   .qrmo-rv__head {
     flex-direction: column;
     align-items: stretch;
-    gap: 20px;
+    gap: 14px;
+  }
+
+  .qrmo-rv__card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .qrmo-rv__pull {
+    margin-bottom: 10px;
+  }
+
+  .qrmo-rv__who {
+    padding-top: 16px;
   }
 
   .qrmo-rv__ctrl {
