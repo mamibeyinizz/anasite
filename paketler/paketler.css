@@ -2032,3 +2032,15 @@ body.qrmo-pricing-page {
       0 16px 28px -10px rgba(201, 168, 76, .65);
   }
 }
+
+/* Aylık / Yıllık seçici (JS: bindToggle, name="qrmo-pricing-period") */
+.qrmo-pricing-period { display: flex; width: fit-content; max-width: 100%; margin: 0 auto 10px; padding: 4px; gap: 4px; background: rgba(13, 43, 34, .07); border: 1px solid var(--qp-line); border-radius: 999px; }
+.qrmo-pricing-period-opt { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 22px; color: var(--qp-green-dark); border-radius: 999px; cursor: pointer; transition: background-color .18s ease, color .18s ease; }
+.qrmo-pricing-period-opt input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.qrmo-pricing-period-opt:hover { background: rgba(13, 43, 34, .06); }
+.qrmo-pricing-period-opt:has(input:checked) { color: var(--qp-cream); background: var(--qp-green-dark); }
+.qrmo-pricing-period-opt:has(input:focus-visible) { outline: 3px solid var(--qp-green-dark); outline-offset: 3px; }
+.qrmo-pricing-period-badge { padding: 2px 8px; color: var(--qp-green-dark); background: var(--qp-gold-light); border-radius: 999px; white-space: nowrap; }
+.qrmo-pricing-period-note { max-width: var(--ts-measure); min-height: 2.9em; margin: 0 auto 20px !important; color: var(--ts-ink-soft); text-align: center; }
+@media (max-width: 480px) { .qrmo-pricing-period { width: 100%; } .qrmo-pricing-period-opt { flex: 1 1 0; padding-inline: 10px; } }
+@media (prefers-reduced-motion: reduce) { .qrmo-pricing-period-opt { transition: none; } }

@@ -403,6 +403,11 @@
   ====================================================== -->
   <section class="qrmo-pricing-packages" id="paketler" aria-label="Paket kartları">
     <div class="qrmo-pricing-inner">
+      <div class="qrmo-pricing-period" role="radiogroup" aria-label="Ödeme dönemi">
+        <label class="qrmo-pricing-period-opt"><input type="radio" name="qrmo-pricing-period" value="monthly" checked><span class="ts-bodyb">Aylık</span></label>
+        <label class="qrmo-pricing-period-opt"><input type="radio" name="qrmo-pricing-period" value="annual"><span class="ts-bodyb">Yıllık</span><span class="qrmo-pricing-period-badge ts-capb" data-qp-free hidden></span></label>
+      </div>
+      <p class="qrmo-pricing-period-note ts-cap" id="qrmo-pricing-period-note" aria-live="polite"></p>
       <div class="qrmo-pricing-cards" data-qp-mount="cards"></div>
       <noscript>
         <div class="qrmo-pricing-fallback">
@@ -415,7 +420,7 @@
           <p>Aynı liste fiyatları <a href="../sss/">sıkça sorulan sorularda</a> da yazılıdır. Seçim için <a href="../iletisim/">iletişim kanallarını</a> kullanın.</p>
         </div>
       </noscript>
-      <p class="qrmo-pricing-flow-note" id="qrmo-pricing-flow-note">Satın alma bu sayfada tamamlanmaz. Paket düğmesi ödeme almaz; iletişim formunu açar.</p>
+      <p class="qrmo-pricing-flow-note" id="qrmo-pricing-flow-note">Paket düğmesi, seçtiğiniz paket ve dönemle ödeme sayfasını açar. Ödeme sayfası şu an test modundadır; ücret çekilmez.</p>
       <p class="qrmo-pricing-price-note" data-qp-mount="price-note" hidden></p>
     </div>
   </section>
