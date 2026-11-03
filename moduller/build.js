@@ -913,10 +913,11 @@ function devicesOf(m) {
   [m.hero.visual, m.stage && m.stage.visual, m.story && m.story.visual, m.proof && m.proof.visual].forEach((v) => flatDevices(v, out));
   return out;
 }
-const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "Sizin yönetim ekranınız", card: "Basılı çıktı" };
-const deviceCap = (d) => d.label || DEVICE_CAP[d.kind || d.frame] || "Örnek ekran";
+const DEVICE_CAP = { phone: "Misafirin telefonunda", window: "", card: "Basılı çıktı" };
+const deviceCap = (d) => d.label || (DEVICE_CAP[d.kind || d.frame] ?? "Örnek ekran");
+const capJoin = (pre, c) => (c ? `${pre}: ${c}` : pre);
 
-function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneFirst = false }) {
+function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneFirst = false, note = true }) {
   const devs = devicesOf(m);
   if (!devs.length) return "";
   const start = phoneFirst ? Math.max(0, devs.findIndex((d) => (d.kind || d.frame) === "phone")) : 0;
@@ -924,18 +925,17 @@ function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneF
   return `<div class="qrmo-v3-show" data-v3-show="${mode}"${screenChips ? ' data-v3-max="1"' : ""} id="${sid}">
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">${join(devs, (d, i) => `
-          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.kind || d.frame)}" role="img" aria-label="${esc(`${deviceCap(d)}: ${d.frame === "shot" && d.alt ? d.alt + ", ekran" : "temsili ekran"} ${i + 1} / ${devs.length}`)}"${i === start ? "" : ' aria-hidden="true"'}>
+          <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.kind || d.frame)}" role="img" aria-label="${esc(capJoin(deviceCap(d), `${d.frame === "shot" && d.alt ? d.alt + ", ekran" : "temsili ekran"} ${i + 1} / ${devs.length}`))}"${i === start ? "" : ' aria-hidden="true"'}>
             <div class="qrmo-v3-fit">${frame(d)}</div>${((screenChips && screenChips[i]) || []).slice(0, 2).map((c, k) => `
             <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[k]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
           </figure>`)}
         </div>${chips.map((c, i) => `
         <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[i]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
         <div class="qrmo-v3-bar">
-          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi">${join(devs, (d, i) => `<button type="button" class="qrmo-v3-dot${i === start ? " is-active" : ""}" data-v3-dot="${i}" aria-label="${esc(`Ekran ${i + 1} / ${devs.length}: ${deviceCap(d)}`)}" aria-pressed="${i === start}"><i></i></button>`)}</div>
+          <div class="qrmo-v3-dots" role="group" aria-label="Ekran seçimi">${join(devs, (d, i) => `<button type="button" class="qrmo-v3-dot${i === start ? " is-active" : ""}" data-v3-dot="${i}" aria-label="${esc(capJoin(`Ekran ${i + 1} / ${devs.length}`, deviceCap(d)))}" aria-pressed="${i === start}"><i></i></button>`)}</div>
           <p class="qrmo-v3-live" data-v3-live aria-live="polite">${esc(deviceCap(devs[start]))}</p>
         </div>
-        <p class="qrmo-v3-note">${esc(m.shotNote || MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>
-      </div>`;
+${note ? `        <p class="qrmo-v3-note">${esc(m.shotNote || MOD.mockCaptionShort || "Temsili arayüz · örnek içerik")}</p>\n` : ""}      </div>`;
 }
 
 /* Özellik kartı ikonları (24×24, çizgi) */
@@ -984,7 +984,7 @@ const SECTION = {
         ${ctaRow(ctx.rel, "../", { modulesLabel: m.modulesLabel, secondary: m.cta && m.cta.secondary, primary: m.cta && m.cta.primary })}
       </div>
       <div class="qrmo-v3-hero-visual">
-        ${showcase(m, { mode: "auto", chips: h.screenChips ? [] : (h.proof || []).slice(0, 2), screenChips: h.screenChips, id: "hero", phoneFirst: true })}
+        ${showcase(m, { mode: "auto", chips: h.screenChips ? [] : (h.proof || []).slice(0, 2), screenChips: h.screenChips, id: "hero", phoneFirst: true, note: false })}
       </div>
     </div>
   </section>`;
@@ -1032,7 +1032,7 @@ const SECTION = {
           })}
           </ol>
           <div class="qrmo-v3-flow-dev">
-            ${showcase(m, { mode: "ctrl", id: "flow" })}
+            ${showcase(m, { mode: "ctrl", id: "flow", note: false })}
           </div>
         </div>
         <div class="qrmo-v3-fprog" aria-hidden="true"><span class="qrmo-v3-fprog-n"><b data-fprog-cur>01</b> / ${pad(f.steps.length)}</span><span class="qrmo-v3-fprog-bar"><i data-fprog-bar></i></span><span class="qrmo-v3-fhint">Kaydırın <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></div>
@@ -1255,7 +1255,7 @@ const SECTION = {
       return `<details class="qrmo-v3-q"><summary><span>${esc(q.question)}</span><span class="qrmo-mod-acc-chev">${ICON.chev}</span></summary><p>${faqHtml(q, ctx.rel)}</p></details>`;
     }).join("");
     const hasNotes = (m.notes || []).length > 0;
-    const notesBox = `<aside class="qrmo-v3-notes"><h3>Bilmeniz gerekenler</h3><ul>${join(m.notes || [], (n) => `<li>${esc(n)}</li>`)}</ul></aside>`;
+    const notesBox = `<aside class="qrmo-v3-notes" aria-label="Notlar"><ul>${join(m.notes || [], (n) => `<li>${esc(n)}</li>`)}</ul></aside>`;
     const notesSec = m.notesSection && hasNotes ? `
   <section class="qrmo-mod-sec qrmo-v3-sec" aria-labelledby="qrmo-mod-notes-h">
     <div class="qrmo-mod-inner">
