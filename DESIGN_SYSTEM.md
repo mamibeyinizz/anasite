@@ -90,7 +90,7 @@ Tek kaynak `global/src/type-scale.css`. Rol başına sabit px + kalınlık; kır
 |---|---|---|
 | display | 44 / 56 / 72 | 800 |
 | h1 | 34 / 44 / 56 | 800 |
-| h2 | 28 / 34 / 40 | 800 |
+| h2 | 26 / 34 / 40 | 800 |
 | h3 | 22 / 24 / 28 | 700 |
 | h4 | 18 / 19 / 20 | 700 |
 | lead | 18 / 19 / 20 | 500 |

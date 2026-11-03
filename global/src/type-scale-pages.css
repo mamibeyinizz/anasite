@@ -414,3 +414,9 @@ body .qrmo-v3-fstats span {
   font-size: var(--ts-fs-capb) !important; font-weight: var(--ts-fw-capb) !important;
   line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
 }
+
+/* İletişim e-posta değeri: 18/700 dar ekranda sığmıyordu → gövde kalın */
+body .qrmo-contact-channel-value--email {
+  font-size: var(--ts-fs-bodyb) !important; font-weight: var(--ts-fw-bodyb) !important;
+  line-height: var(--ts-lh-bodyb) !important; letter-spacing: var(--ts-ls-bodyb) !important;
+}

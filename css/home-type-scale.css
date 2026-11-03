@@ -147,8 +147,6 @@ body.qrmo-home-ctx [class*="kicker-mod"] {
 }
 
 /* —— Caption —— */
-body.qrmo-home-ctx span.qrmo-hm-d,
-body.qrmo-home-ctx span.qrmo-hm-m,
 body.qrmo-home-ctx .qrmo-cta-note,
 body.qrmo-home-ctx .qrmo-rv__count,
 body.qrmo-home-ctx .qrmo-rv__tag,
@@ -192,4 +190,18 @@ body.qrmo-home-ctx .qt-m-support span {
 body.qrmo-home-ctx .qrmo-hero-v3-cta > span:not([class]) {
   font-size: var(--ts-fs-btn) !important; font-weight: var(--ts-fw-btn) !important;
   line-height: var(--ts-lh-btn) !important; letter-spacing: var(--ts-ls-btn) !important;
+}
+
+/* Hero (masaüstü/mobil varyant span'ları): rol sarmalayıcıdan gelir — başlık alt metni lead, özellik başlığı kalın gövde, özellik açıklaması caption */
+body.qrmo-home-ctx :is(.qrmo-hero-v3-subtitle, .qrmo-hero-v3-subtitle > span) {
+  font-size: var(--ts-fs-lead) !important; font-weight: var(--ts-fw-lead) !important;
+  line-height: var(--ts-lh-lead) !important; letter-spacing: var(--ts-ls-lead) !important;
+}
+body.qrmo-home-ctx :is(.qrmo-hero-v3-feature-text, .qrmo-hero-v3-feature-text > span) {
+  font-size: var(--ts-fs-bodyb) !important; font-weight: var(--ts-fw-bodyb) !important;
+  line-height: var(--ts-lh-bodyb) !important; letter-spacing: var(--ts-ls-bodyb) !important;
+}
+body.qrmo-home-ctx :is(.qrmo-hero-v3-feature-content small, .qrmo-hero-v3-feature-content small > span) {
+  font-size: var(--ts-fs-cap) !important; font-weight: var(--ts-fw-cap) !important;
+  line-height: var(--ts-lh-cap) !important; letter-spacing: var(--ts-ls-cap) !important;
 }

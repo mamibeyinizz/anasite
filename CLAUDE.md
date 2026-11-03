@@ -14,7 +14,7 @@
 |---|---|---|---|---|---|
 | display | 44 | 56 | 72 | 800 | 1.08 |
 | h1 | 34 | 44 | 56 | 800 | 1.14 |
-| h2 | 28 | 34 | 40 | 800 | 1.2 |
+| h2 | 26 | 34 | 40 | 800 | 1.2 |
 | h3 | 22 | 24 | 28 | 700 | 1.28 |
 | h4 / kart başlığı | 18 | 19 | 20 | 700 | 1.3 |
 | lead | 18 | 19 | 20 | 500 | 1.55 |
@@ -37,3 +37,5 @@
 - Font yığınında `"Manrope", "Manrope Fallback", system-ui, …` sırası korunur (Fallback, yüklenme sırasındaki kaymayı azaltan metrik eşlemeli yüzdür). Latin ve latin-ext dosyaları birlikte preload edilir (Türkçe ğ ş İ latin-ext'ten gelir).
 - Uzun başlık (çok satıra çıkan makale başlığı): etiket `h1` kalır, görsel boyut h2 rolüdür (`body .qb-article__intro > h1`, `type-polish.css`). Başlık mobilde 3 satırı aşıyorsa aynı varyantı kullan.
 - Renk geçersiz kılarken (`color: … !important`) sınıfın hangi zeminlerde (açık/koyu, aktif/pasif kart, buton) kullanıldığını kontrol et; yalnız açık zemindeki duruma uygula. Seçiciyi etiket/bileşenle daralt (örn. `span.qrmo-hm-d`).
+- Mobilde H1:H2:H3:H4 oranı en az ~1.2 olmalı (34/26/22/18). Metni 60+ karakterlik bölüm başlığı mobilde h3 rolüne indirilebilir (`.qrmo-mod-h2--m` örneği).
+- Aynı kapsayıcıdaki başlık + açıklama çiftinde ikisi aynı rol olmasın (hero özellik satırı: başlık bodyb, açıklama cap). Masaüstü/mobil varyant `span` taşıyan sarmalayıcılarda (`.qrmo-hm-d/m`) rolü sarmalayıcıya ver, sınıfı taşıyan anchor/kapsayıcıya değil.

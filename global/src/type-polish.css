@@ -41,7 +41,7 @@ body :is(.qrmo-translation-v3-eyebrow-mod, .qrmo-smart-filter-kicker-mod, .qrmo-
   color: var(--ts-gold-ink) !important;
 }
 body :is(.qrmo-faq-eyebrow, .qrmo-faq-nav__count, .qrmo-faq-panel__count, .qrmo-faq-suggest > span,
-  span.qrmo-hm-d, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
+  .qrmo-hero-v3-feature-content small > span, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
   .qrmo-hero-v3-eyebrow, [class*="eyebrow-core"], [class*="kicker-core"]) {
   color: var(--ts-ink-soft) !important;
 }
@@ -62,3 +62,14 @@ body .qb-article__intro > h1 {
 
 /* Yorum kartı: aktif (koyu) kartta rol satırı açık tonda olmalı */
 body .qrmo-rv__card.is-active .qrmo-rv__meta small { color: rgba(244, 241, 232, 0.78) !important; }
+
+/* Hero alt başlığı lead rolünde: soluk gri değil, okunur ton */
+body .qrmo-hero-v3-subtitle, body .qrmo-hero-v3-subtitle > span { color: #3f4a44 !important; }
+
+/* Mobilde çok uzun bölüm başlığı (modül dizini kategori başlıkları, ~70 karakter): h3 rolü — H1 ile aynı ağırlıkta görünmesin */
+@media (max-width: 640px) {
+  body h2.qrmo-mod-h2.qrmo-mod-h2--m {
+    font-size: var(--ts-fs-h3) !important; font-weight: var(--ts-fw-h3) !important;
+    line-height: var(--ts-lh-h3) !important; letter-spacing: var(--ts-ls-h3) !important;
+  }
+}
