@@ -21,7 +21,7 @@ body.qrmo-faq-page {
   --qf-sticky: calc(var(--qrmo-gh-h, 76px) + 16px);
 
   color: var(--qf-green);
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.55;
   -webkit-text-size-adjust: 100%;

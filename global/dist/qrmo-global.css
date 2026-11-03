@@ -1,5 +1,531 @@
 /* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.css) */
 /* =========================================================
+   QR MENU OFFICIAL — TİPOGRAFİ ÖLÇEĞİ (tek kaynak)
+   Rol başına SABİT px + kalınlık. clamp()/vw yok.
+   Kırılımlar global header ile aynı: mobil ≤640 · tablet 641–960 · masaüstü ≥961.
+   Kalınlıklar yalnızca 400 / 500 / 700 / 800. En küçük metin 12px.
+   Yeni sayfa/bölüm: ham px/kalınlık YAZMA; aşağıdaki --ts-fs-rol, --ts-fw-rol, --ts-lh-rol, --ts-ls-rol
+   değişkenlerini ya da .ts-rol sınıflarını kullan. Bkz. DESIGN_SYSTEM.md §3, CLAUDE.md.
+   Kapsam dışı: açılış ekranı (splash) ve ürün ekranı maketleri.
+========================================================= */
+:root {
+  --ts-fs-display: 44px; --ts-fw-display: 800; --ts-lh-display: 1.08; --ts-ls-display: -0.02em;
+  --ts-fs-h1: 34px;      --ts-fw-h1: 800;      --ts-lh-h1: 1.14;      --ts-ls-h1: -0.02em;
+  --ts-fs-h2: 28px;      --ts-fw-h2: 800;      --ts-lh-h2: 1.2;       --ts-ls-h2: -0.015em;
+  --ts-fs-h3: 22px;      --ts-fw-h3: 700;      --ts-lh-h3: 1.28;      --ts-ls-h3: -0.01em;
+  --ts-fs-h4: 18px;      --ts-fw-h4: 700;      --ts-lh-h4: 1.3;       --ts-ls-h4: 0;
+  --ts-fs-lead: 18px;    --ts-fw-lead: 500;    --ts-lh-lead: 1.55;    --ts-ls-lead: 0;
+  --ts-fs-body: 16px;    --ts-fw-body: 400;    --ts-lh-body: 1.6;     --ts-ls-body: 0;
+  --ts-fs-bodyb: 16px;   --ts-fw-bodyb: 700;   --ts-lh-bodyb: 1.6;    --ts-ls-bodyb: 0;
+  --ts-fs-btn: 16px;     --ts-fw-btn: 700;     --ts-lh-btn: 1.2;      --ts-ls-btn: 0;
+  --ts-fs-link: 15px;    --ts-fw-link: 700;    --ts-lh-link: 1.4;     --ts-ls-link: 0;
+  --ts-fs-form: 16px;    --ts-fw-form: 400;    --ts-lh-form: 1.4;     --ts-ls-form: 0;
+  --ts-fs-eyebrow: 12px; --ts-fw-eyebrow: 700; --ts-lh-eyebrow: 1.3;  --ts-ls-eyebrow: 0.08em;
+  --ts-fs-cap: 13px;     --ts-fw-cap: 400;     --ts-lh-cap: 1.45;     --ts-ls-cap: 0;
+  --ts-fs-capb: 13px;    --ts-fw-capb: 700;    --ts-lh-capb: 1.45;    --ts-ls-capb: 0;
+}
+@media (min-width: 641px) {
+  :root { --ts-fs-display: 56px; --ts-fs-h1: 44px; --ts-fs-h2: 34px; --ts-fs-h3: 24px; --ts-fs-h4: 19px; --ts-fs-lead: 19px; }
+}
+@media (min-width: 961px) {
+  :root {
+    --ts-fs-display: 72px; --ts-fs-h1: 56px; --ts-fs-h2: 40px; --ts-fs-h3: 28px; --ts-fs-h4: 20px; --ts-fs-lead: 20px;
+    --ts-fs-body: 17px; --ts-fs-bodyb: 17px; --ts-fs-eyebrow: 13px; --ts-fs-cap: 14px; --ts-fs-capb: 14px;
+  }
+}
+
+/* Yardımcı sınıflar (yeni sayfalarda doğrudan kullan) */
+.ts-display { font-size: var(--ts-fs-display); font-weight: var(--ts-fw-display); line-height: var(--ts-lh-display); letter-spacing: var(--ts-ls-display); }
+.ts-h1 { font-size: var(--ts-fs-h1); font-weight: var(--ts-fw-h1); line-height: var(--ts-lh-h1); letter-spacing: var(--ts-ls-h1); }
+.ts-h2 { font-size: var(--ts-fs-h2); font-weight: var(--ts-fw-h2); line-height: var(--ts-lh-h2); letter-spacing: var(--ts-ls-h2); }
+.ts-h3 { font-size: var(--ts-fs-h3); font-weight: var(--ts-fw-h3); line-height: var(--ts-lh-h3); letter-spacing: var(--ts-ls-h3); }
+.ts-h4 { font-size: var(--ts-fs-h4); font-weight: var(--ts-fw-h4); line-height: var(--ts-lh-h4); letter-spacing: var(--ts-ls-h4); }
+.ts-lead { font-size: var(--ts-fs-lead); font-weight: var(--ts-fw-lead); line-height: var(--ts-lh-lead); letter-spacing: var(--ts-ls-lead); }
+.ts-body { font-size: var(--ts-fs-body); font-weight: var(--ts-fw-body); line-height: var(--ts-lh-body); letter-spacing: var(--ts-ls-body); }
+.ts-bodyb { font-size: var(--ts-fs-bodyb); font-weight: var(--ts-fw-bodyb); line-height: var(--ts-lh-bodyb); letter-spacing: var(--ts-ls-bodyb); }
+.ts-btn { font-size: var(--ts-fs-btn); font-weight: var(--ts-fw-btn); line-height: var(--ts-lh-btn); letter-spacing: var(--ts-ls-btn); }
+.ts-link { font-size: var(--ts-fs-link); font-weight: var(--ts-fw-link); line-height: var(--ts-lh-link); letter-spacing: var(--ts-ls-link); }
+.ts-form { font-size: var(--ts-fs-form); font-weight: var(--ts-fw-form); line-height: var(--ts-lh-form); letter-spacing: var(--ts-ls-form); }
+.ts-eyebrow { font-size: var(--ts-fs-eyebrow); font-weight: var(--ts-fw-eyebrow); line-height: var(--ts-lh-eyebrow); letter-spacing: var(--ts-ls-eyebrow); text-transform: uppercase; }
+.ts-cap { font-size: var(--ts-fs-cap); font-weight: var(--ts-fw-cap); line-height: var(--ts-lh-cap); letter-spacing: var(--ts-ls-cap); }
+.ts-capb { font-size: var(--ts-fs-capb); font-weight: var(--ts-fw-capb); line-height: var(--ts-lh-capb); letter-spacing: var(--ts-ls-capb); }
+
+
+/* Form alanları: iOS'ta odakta yakınlaşmayı önlemek için 16px sabit */
+body :is(input, select, textarea):not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+  font-size: var(--ts-fs-form) !important; font-weight: var(--ts-fw-form) !important;
+  line-height: var(--ts-lh-form) !important; letter-spacing: var(--ts-ls-form) !important;
+}
+
+/* Sayfa/bölüm rol eşlemeleri: mevcut sınıfların hangi tipografi rolüne bağlandığı.
+   Değerler type-scale.css token'larından gelir; burada ham px/kalınlık yazılmaz.
+   Yeni sayfa yazarken sınıfa .ts-rol ekle ya da buraya rolünü ekle; ardından
+   `node tools/type-scale-qa.mjs` ile doğrula. */
+
+/* h1 */
+body .qb-article__intro > h1,
+body .qb-wrap > h1,
+body h1.qrmo-contact-h1,
+body h1.qrmo-faq-title,
+body h1.qrmo-legal-h1,
+body h1.qrmo-live-h1,
+body h1.qrmo-mod-h1,
+body h1.qrmo-pricing-title,
+body span.qrmo-pricing-amount {
+  font-size: var(--ts-fs-h1) !important; font-weight: var(--ts-fw-h1) !important;
+  line-height: var(--ts-lh-h1) !important; letter-spacing: var(--ts-ls-h1) !important;
+}
+
+/* h2 */
+body .qb-cta > h2,
+body .qb-faq > h2,
+body .qb-prose > h2,
+body .qb-sources > h2,
+body .qrmo-v3-hub.ap-r > h3,
+body h2.qb-card__title,
+body h2.qb-section-title,
+body h2.qrmo-ap-cta-h,
+body h2.qrmo-contact-cta-title,
+body h2.qrmo-contact-h2,
+body h2.qrmo-faq-cta__title,
+body h2.qrmo-faq-panel__title,
+body h2.qrmo-live-h2,
+body h2.qrmo-mod-h2.qrmo-mod-h2--l,
+body h2.qrmo-mod-h2.qrmo-mod-h2--m,
+body h2.qrmo-pricing-h2,
+body h2.qrmo-rv__title,
+body h2.qrmo-v3-h2 {
+  font-size: var(--ts-fs-h2) !important; font-weight: var(--ts-fw-h2) !important;
+  line-height: var(--ts-lh-h2) !important; letter-spacing: var(--ts-ls-h2) !important;
+}
+
+/* h3 */
+body .qrmo-v3-hub > h3,
+body h2.qrmo-legal-h2,
+body h2.qrmo-live-panel-title,
+body h2.qrmo-pricing-hero-choose,
+body h3.qrmo-gf-cta-title,
+body h3.qrmo-pricing-card-name,
+body h3.qrmo-pricing-which-title,
+body h3.qrmo-v3-step-h,
+body p.qrmo-rv__pull,
+body p.qrmo-v3-pain-fix,
+body span.qrmo-pricing-th-name {
+  font-size: var(--ts-fs-h3) !important; font-weight: var(--ts-fw-h3) !important;
+  line-height: var(--ts-lh-h3) !important; letter-spacing: var(--ts-ls-h3) !important;
+}
+
+/* h4 */
+body .qb-faq h3,
+body .qb-matrix__cell.qb-matrix__cell--dog > strong,
+body .qb-matrix__cell.qb-matrix__cell--plow > strong,
+body .qb-matrix__cell.qb-matrix__cell--puzzle > strong,
+body .qb-matrix__cell.qb-matrix__cell--star > strong,
+body .qb-product > strong,
+body .qb-prose > h3,
+body .qrmo-live-price > strong,
+body .qrmo-mod-hubbox-copy > h3,
+body .qrmo-pricing-faq-qt > h3,
+body .qrmo-v3-all span,
+body .qrmo-v3-fcard.ap-r > h3,
+body .qrmo-v3-notes > h3,
+body .qrmo-v3-q span,
+body .qrmo-v3-spoke-b > strong,
+body h3.qb-card__title,
+body h3.qrmo-contact-h3,
+body p.qrmo-pricing-faq-help-t,
+body p.qrmo-pricing-switch-sum-title,
+body p.qrmo-pricing-which-name,
+body span.qrmo-contact-channel-value,
+body span.qrmo-faq-item__q-text,
+body span.qrmo-mod-guides-t,
+body span.qrmo-mod-tier-n,
+body span.qrmo-mod-tile-t,
+body span.qrmo-v3-qa-q {
+  font-size: var(--ts-fs-h4) !important; font-weight: var(--ts-fw-h4) !important;
+  line-height: var(--ts-lh-h4) !important; letter-spacing: var(--ts-ls-h4) !important;
+}
+
+/* lead */
+body p.qrmo-ap-cta-p,
+body p.qrmo-faq-cta__text,
+body p.qrmo-faq-lead,
+body p.qrmo-mod-lead,
+body p.qrmo-rv__lead,
+body p.qrmo-v3-pain-now {
+  font-size: var(--ts-fs-lead) !important; font-weight: var(--ts-fw-lead) !important;
+  line-height: var(--ts-lh-lead) !important; letter-spacing: var(--ts-ls-lead) !important;
+}
+
+/* body */
+body .qb-answer > p,
+body .qb-compare p,
+body .qb-cta > p,
+body .qb-cta-inline > p,
+body .qb-faq p,
+body .qb-matrix__cell.qb-matrix__cell--dog > span,
+body .qb-matrix__cell.qb-matrix__cell--plow > span,
+body .qb-matrix__cell.qb-matrix__cell--puzzle > span,
+body .qb-matrix__cell.qb-matrix__cell--star > span,
+body .qb-product > span,
+body .qb-prose > p,
+body .qb-prose li,
+body .qb-table-wrap td,
+body .qrmo-contact-check > span,
+body .qrmo-contact-cta-points span,
+body .qrmo-contact-guide-card > p,
+body .qrmo-faq-item__a > p,
+body .qrmo-legal-sec > p,
+body .qrmo-legal-sec li,
+body .qrmo-live-tasks > li,
+body .qrmo-mod-assure span,
+body .qrmo-pricing-faq-a > p,
+body .qrmo-pricing-which-copy > p,
+body .qrmo-v3-all-body span,
+body .qrmo-v3-hub > p,
+body .qrmo-v3-hub.ap-r > p,
+body .qrmo-v3-notes li,
+body .qrmo-v3-q > p,
+body .qrmo-v3-qa.ap-r > p,
+body .qrmo-v3-spoke-b > span,
+body .qrmo-v3-step-pts span,
+body kbd.qrmo-faq-kbd,
+body p.qb-article__lead,
+body p.qb-hero__lead,
+body p.qb-note,
+body p.qrmo-contact-form-lead,
+body p.qrmo-contact-guide-lead,
+body p.qrmo-contact-lead,
+body p.qrmo-legal-lead,
+body p.qrmo-live-lead,
+body p.qrmo-live-text,
+body p.qrmo-mod-note,
+body p.qrmo-mod-text,
+body p.qrmo-pricing-desc,
+body p.qrmo-pricing-faq-lead,
+body p.qrmo-pricing-flow-note,
+body p.qrmo-pricing-hero-step-copy,
+body p.qrmo-pricing-subtitle,
+body p.qrmo-rv__rest,
+body p.qrmo-v3-faqlead,
+body p.qrmo-v3-step-d,
+body span.qb-card__excerpt,
+body span.qrmo-faq-nav__label,
+body span.qrmo-mod-guides-d,
+body span.qrmo-mod-tile-d,
+body span.qrmo-pricing-feat-name,
+body span.qrmo-v3-dsk,
+body span.qrmo-v3-fhint,
+body span.qrmo-v3-fprog-n {
+  font-size: var(--ts-fs-body) !important; font-weight: var(--ts-fw-body) !important;
+  line-height: var(--ts-lh-body) !important; letter-spacing: var(--ts-ls-body) !important;
+}
+
+/* bodyb */
+body .qb-cta-inline strong,
+body .qb-product > em,
+body .qb-product span,
+body .qb-prose strong,
+body .qb-table-wrap th,
+body .qrmo-ap-btn > span,
+body .qrmo-ap-chip.qrmo-ap-chip--1 strong,
+body .qrmo-ap-chip.qrmo-ap-chip--2 strong,
+body .qrmo-ap-chip.qrmo-ap-chip--3 strong,
+body .qrmo-ap-chip.qrmo-ap-chip--4 strong,
+body .qrmo-ap-link > span,
+body .qrmo-contact-crumbs > span,
+body .qrmo-gf-cta-btn > span,
+body .qrmo-legal-more-link > span,
+body .qrmo-legal-sec strong,
+body .qrmo-live-btn.qrmo-live-btn--gold > span,
+body .qrmo-live-btn.qrmo-live-btn--primary > span,
+body .qrmo-live-checks > li,
+body .qrmo-live-tasks strong,
+body .qrmo-mod-cta > span,
+body .qrmo-mod-cta.qrmo-mod-cta--ondark > span,
+body .qrmo-mod-jump strong,
+body .qrmo-mod-textlink > span,
+body .qrmo-mod-textlink.qrmo-mod-textlink--ondark > span,
+body .qrmo-pricing-btn.qrmo-pricing-btn--on-dark > span,
+body .qrmo-pricing-btn.qrmo-pricing-btn--outline > span,
+body .qrmo-pricing-btn.qrmo-pricing-btn--primary > span,
+body .qrmo-pricing-btn.qrmo-pricing-btn--strong > span,
+body .qrmo-rv__meta > strong,
+body .qrmo-v3-all-body strong,
+body .qrmo-v3-fprog-n > b,
+body .qrmo-v3-points span,
+body b.qrmo-ap-pk-p,
+body p.qrmo-consent__title,
+body p.qrmo-contact-social-title,
+body p.qrmo-live-tent-title,
+body p.qrmo-pricing-hero-step-title,
+body p.qrmo-v3-live,
+body span.qb-card__more,
+body span.qrmo-ap-pk-n,
+body span.qrmo-contact-channel-value.qrmo-contact-channel-value--email,
+body span.qrmo-contact-guide-cta,
+body span.qrmo-live-board-title,
+body span.qrmo-live-tab-name,
+body span.qrmo-live-ticket-type,
+body span.qrmo-pricing-card-nav-name,
+body span.qrmo-pricing-switch-fold-title,
+body span.qrmo-pricing-unit,
+body span.qrmo-rv__avatar {
+  font-size: var(--ts-fs-bodyb) !important; font-weight: var(--ts-fw-bodyb) !important;
+  line-height: var(--ts-lh-bodyb) !important; letter-spacing: var(--ts-ls-bodyb) !important;
+}
+
+/* btn */
+body a.qb-btn,
+body a.qb-btn.qb-btn--ghost,
+body a.qb-btn.qb-btn--gold,
+body a.qrmo-contact-cta-btn.qrmo-contact-cta-btn--primary,
+body a.qrmo-faq-btn.qrmo-faq-btn--ghost,
+body a.qrmo-faq-btn.qrmo-faq-btn--solid,
+body a.qrmo-live-btn.qrmo-live-btn--ghost,
+body a.qrmo-live-btn.qrmo-live-btn--line,
+body a.qrmo-pricing-faq-help-btn,
+body button.qb-cat,
+body button.qrmo-consent__btn.qrmo-consent__btn--accept,
+body button.qrmo-consent__btn.qrmo-consent__btn--reject,
+body button.qrmo-contact-submit,
+body button.qrmo-faq-chip,
+body button.qrmo-faq-suggest__btn,
+body button.qrmo-legal-pref-btn,
+body button.qrmo-pricing-switch-go,
+body button.qrmo-pricing-switch-mode,
+body button.qrmo-pricing-toggle-hit {
+  font-size: var(--ts-fs-btn) !important; font-weight: var(--ts-fw-btn) !important;
+  line-height: var(--ts-lh-btn) !important; letter-spacing: var(--ts-ls-btn) !important;
+}
+
+/* link */
+body .qb-crumbs a,
+body .qb-product-box a,
+body .qb-prose a,
+body .qb-sources a,
+body .qb-toc a,
+body .qb-toc summary,
+body .qrmo-contact-field > label,
+body .qrmo-contact-field.qrmo-contact-field--message > label,
+body .qrmo-faq-item__a a,
+body .qrmo-legal-sec a,
+body .qrmo-legal-toc a,
+body .qrmo-pricing-faq-a a,
+body .qrmo-v3-faqlead > a,
+body .qrmo-v3-q a,
+body .qrmo-v3-qa.ap-r a,
+body a.qrmo-consent__more,
+body a.qrmo-gh-link,
+body a.qrmo-gh-skip,
+body a.qrmo-live-next-link,
+body a.qrmo-pricing-modlink,
+body a.qrmo-pricing-textlink {
+  font-size: var(--ts-fs-link) !important; font-weight: var(--ts-fw-link) !important;
+  line-height: var(--ts-lh-link) !important; letter-spacing: var(--ts-ls-link) !important;
+}
+
+/* eyebrow */
+body .qrmo-gh-cta > span,
+body .qrmo-mod-kicker.qrmo-mod-kicker--hero > span,
+body .qrmo-pricing-cat-row > th,
+body .qrmo-v3-all-body h3,
+body .qrmo-v3-pain-fix > span,
+body .qrmo-v3-pain-now > span,
+body div.qrmo-gf-signature,
+body h3.qrmo-live-tasks-title,
+body h3.qrmo-mod-guides-h,
+body p.qb-answer__label,
+body p.qb-eyebrow,
+body p.qrmo-ap-cta-eyebrow,
+body p.qrmo-contact-kicker,
+body p.qrmo-faq-eyebrow,
+body p.qrmo-gf-cta-label,
+body p.qrmo-legal-kicker,
+body p.qrmo-legal-more-title,
+body p.qrmo-legal-toc-title,
+body p.qrmo-live-kicker,
+body p.qrmo-live-kicker.qrmo-live-kicker--light,
+body p.qrmo-live-tent-kicker,
+body p.qrmo-mod-hubcat-label,
+body p.qrmo-mod-kicker,
+body p.qrmo-pricing-badge,
+body p.qrmo-pricing-eyebrow,
+body p.qrmo-pricing-label,
+body p.qrmo-pricing-label.qrmo-pricing-card-lead,
+body p.qrmo-pricing-qualifier,
+body p.qrmo-pricing-switch-incoming-title,
+body p.qrmo-rv__eyebrow,
+body p.qrmo-v3-eyebrow,
+body span.qb-compare__tag,
+body span.qb-compare__tag.qb-compare__tag--weak,
+body span.qrmo-faq-item__no,
+body span.qrmo-live-board-live,
+body span.qrmo-mod-hubcat-n,
+body span.qrmo-pricing-card-nav-mark,
+body span.qrmo-pricing-faq-n,
+body span.qrmo-pricing-faq-tag,
+body span.qrmo-pricing-switch-cat-count,
+body span.qrmo-pricing-switch-cat-name,
+body span.qrmo-pricing-th-badge,
+body span.qrmo-rv__count,
+body span.qrmo-v3-pain-n,
+body span.qrmo-v3-qa-n,
+body span.qrmo-v3-step-n,
+body span.qrmo-v3-step-who {
+  font-size: var(--ts-fs-eyebrow) !important; font-weight: var(--ts-fw-eyebrow) !important;
+  line-height: var(--ts-lh-eyebrow) !important; letter-spacing: var(--ts-ls-eyebrow) !important; text-transform: uppercase;
+}
+
+/* cap */
+body .qb-crumbs li,
+body .qb-meta > span,
+body .qb-meta > time,
+body .qrmo-ap-assure span,
+body .qrmo-ap-chip.qrmo-ap-chip--1 small,
+body .qrmo-ap-chip.qrmo-ap-chip--2 small,
+body .qrmo-ap-chip.qrmo-ap-chip--3 small,
+body .qrmo-ap-chip.qrmo-ap-chip--4 small,
+body .qrmo-ap-pk-p > small,
+body .qrmo-contact-crumbs > a,
+body .qrmo-faq-suggest > span,
+body .qrmo-gf-links a,
+body .qrmo-live-panel-title > span,
+body .qrmo-live-price > small,
+body .qrmo-mod-crumbs.qrmo-mod-inner a,
+body .qrmo-pricing-switch-detail-inner > p,
+body .qrmo-rv__meta > small,
+body .qrmo-v3-fcard.ap-r > p,
+body figcaption.qrmo-live-board-cap,
+body p.qb-caption,
+body p.qb-sources__note,
+body p.qrmo-consent__text,
+body p.qrmo-contact-hint,
+body p.qrmo-contact-privacy,
+body p.qrmo-contact-submit-note,
+body p.qrmo-gf-brand-desc,
+body p.qrmo-gf-copy,
+body p.qrmo-gf-cta-desc,
+body p.qrmo-legal-meta,
+body p.qrmo-live-note,
+body p.qrmo-live-price,
+body p.qrmo-live-tent-sub,
+body p.qrmo-pricing-card-summary,
+body p.qrmo-pricing-card-tagline,
+body p.qrmo-pricing-faq-help-d,
+body p.qrmo-pricing-switch-sum-sub,
+body p.qrmo-v3-note,
+body p.qrmo-v3-step-sub.qrmo-v3-mob-only,
+body span.qrmo-ap-pk-t,
+body span.qrmo-faq-nav__count,
+body span.qrmo-faq-panel__count,
+body span.qrmo-live-tab-sub,
+body span.qrmo-live-ticket-meta,
+body span.qrmo-live-ticket-table,
+body span.qrmo-mod-hubbox-d,
+body span.qrmo-mod-tier-t,
+body span.qrmo-pricing-hero-step-n,
+body span.qrmo-pricing-th-role,
+body span.qrmo-pricing-toggle-meter-txt,
+body span.qrmo-rv__tag,
+body span.qrmo-v3-mob {
+  font-size: var(--ts-fs-cap) !important; font-weight: var(--ts-fw-cap) !important;
+  line-height: var(--ts-lh-cap) !important; letter-spacing: var(--ts-ls-cap) !important;
+}
+
+/* capb */
+body .qrmo-ap-pk-s > span,
+body .qrmo-mod-crumbs.qrmo-mod-inner li,
+body .qrmo-mod-jump small,
+body .qrmo-rv__proof > strong,
+body .qrmo-v3-chip.qrmo-v3-chip--a > span,
+body .qrmo-v3-chip.qrmo-v3-chip--b > span,
+body .qrmo-v3-meta > span,
+body p.qrmo-contact-count,
+body span.qb-chip,
+body span.qrmo-contact-channel-kicker,
+body span.qrmo-contact-opt,
+body span.qrmo-contact-req,
+body span.qrmo-gf-h,
+body span.qrmo-gh-burger-label,
+body span.qrmo-live-ticket-state,
+body span.qrmo-live-ticket-state.qrmo-live-ticket-state--done,
+body span.qrmo-live-ticket-state.qrmo-live-ticket-state--prep,
+body span.qrmo-mod-hubbox-go,
+body span.qrmo-mod-jump-n,
+body span.qrmo-mod-kicker-pkg,
+body span.qrmo-mod-tier-s,
+body span.qrmo-pricing-switch-from {
+  font-size: var(--ts-fs-capb) !important; font-weight: var(--ts-fw-capb) !important;
+  line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
+}
+
+/* =========================================================
+   TİPOGRAFİ İNCE AYAR — okunabilirlik, kontrast, ölçü
+   type-scale.css ve type-scale-pages.css'ten sonra yüklenir.
+========================================================= */
+
+:root {
+  /* Açık zeminde WCAG AA (≥4.5:1) sağlayan tonlar: altın #c9a84c açık zeminde 2.1:1 idi */
+  --ts-gold-ink: #7f6419;                /* krem üzerinde 5.2:1 */
+  --ts-ink-soft: rgba(13, 43, 34, 0.72); /* krem üzerinde 5.9:1 */
+  --ts-measure: 38em;                    /* okuma metni satır uzunluğu: Manrope ortalama 0.545em/karakter → ≈70 karakter (ch birimi Manrope rakamlarıyla ≈88 karakter verir, kullanma) */
+}
+
+/* —— Satır kırma: başlıklar dengeli, paragraflar yetim kelimesiz (desteklemeyen tarayıcıda etkisiz) —— */
+:where(h1, h2, h3, h4) { text-wrap: balance; }
+:where(p, li, blockquote, figcaption, dd) { text-wrap: pretty; }
+
+/* —— Sayısal metin: fiyat, sayaç, adım numarası sabit genişlikte —— */
+body :is(.qrmo-pricing-amount, .qrmo-pricing-faq-n, .qrmo-faq-item__no, .qrmo-faq-nav__count,
+  .qrmo-faq-panel__count, .qrmo-rv__count, .qrmo-contact-count, .qrmo-live-price strong,
+  .qrmo-ap-pk-p, .qrmo-mod-hubcat-n, .qrmo-mod-jump-n, .qrmo-v3-step-n, .qrmo-v3-qa-n,
+  .qrmo-v3-pain-n, .qrmo-v3-fprog-n, .qpm2-idx, .qrmo-setup-v2__num, .qrmo-pricing-hero-step-n,
+  .qrmo-pricing-switch-cat-count) {
+  font-variant-numeric: tabular-nums;
+}
+
+/* —— Okuma ölçüsü: uzun paragraf ≤38em (≈70 karakter) (45–75 karakter aralığı) —— */
+body :is(.qb-prose > p, .qb-prose > ul, .qb-prose > ol, .qb-prose > blockquote, .qb-faq p, .qb-note,
+  .qb-article__lead, .qb-hero__lead, .qrmo-legal-sec p, .qrmo-legal-sec ul, .qrmo-legal-sec ol,
+  .qrmo-legal-lead, .qrmo-pricing-subtitle, .qrmo-mod-note, .qrmo-contact-guide-lead, .qrmo-contact-lead,
+  .qrmo-v3-qa p, .qrmo-v3-all-body li, .qrmo-faq-item__a > p, .qrmo-faq-lead,
+  .qrmo-tables-v5__description, .qrmo-service-v2__description, .qrmo-analytics-v3__description,
+  .qrmo-translation-v3-description, .qrmo-smart-filter-lead, .qrmo-chatbot-feature__lead) {
+  max-width: var(--ts-measure);
+}
+
+/* —— Kontrast: açık zeminde altın metin → koyu altın, soluk mürekkep → daha koyu —— */
+body :is(.qrmo-translation-v3-eyebrow-mod, .qrmo-smart-filter-kicker-mod, .qrmo-chatbot-feature__kicker-mod,
+  .qrmo-tables-v5__eyebrow-mod, .qrmo-service-v2__eyebrow-mod, .qrmo-analytics-v3__eyebrow-mod,
+  .qrmo-pricing-th-badge, .qrmo-pricing-faq-n, .qrmo-live-tent-kicker, .qrmo-faq-item__no, .qpm2-idx,
+  .qrmo-setup-v2__eyebrow strong, .qrmo-faq-v1__eyebrow strong, .qrmo-legal-more-link > span, .qrmo-setup-v2__link span) {
+  color: var(--ts-gold-ink) !important;
+}
+body :is(.qrmo-faq-eyebrow, .qrmo-faq-nav__count, .qrmo-faq-panel__count, .qrmo-faq-suggest > span,
+  span.qrmo-hm-d, .qpm2-kicker, .qrmo-rv__eyebrow, .qrmo-rv__count, .qrmo-pricing-switch-cat-count,
+  .qrmo-hero-v3-eyebrow, [class*="eyebrow-core"], [class*="kicker-core"]) {
+  color: var(--ts-ink-soft) !important;
+}
+body .qrmo-rv__card:not(.is-active) .qrmo-rv__meta small { color: var(--ts-ink-soft) !important; }
+body .qrmo-setup-v2__step p { color: #566059 !important; } /* 6.0:1 (önceki 4.4:1) */
+
+/* —— Dokunma hedefi: metin bağlantıları en az 44px yükseklik —— */
+body :is(.qrmo-setup-v2__link, .qrmo-ap-link) {
+  display: inline-flex; align-items: center; min-height: 44px;
+}
+body .qrmo-pricing-hero .qrmo-pricing-subtitle { max-width: var(--ts-measure) !important; }
+
+/* Uzun makale başlığı: h1 etiketi korunur, görsel boyut h2 rolü (4 satıra çıkmasın) */
+body .qb-article__intro > h1 {
+  font-size: var(--ts-fs-h2) !important; font-weight: var(--ts-fw-h2) !important;
+  line-height: var(--ts-lh-h2) !important; letter-spacing: var(--ts-ls-h2) !important;
+}
+
+/* Yorum kartı: aktif (koyu) kartta rol satırı açık tonda olmalı */
+body .qrmo-rv__card.is-active .qrmo-rv__meta small { color: rgba(244, 241, 232, 0.78) !important; }
+
+/* =========================================================
    QR MENU OFFICIAL — GLOBAL HEADER (.qrmo-gh-*)
    HEADER V3 corporate görünümü · footer token'ları (--qg-*) korunur
    Kırılımlar: ≥961 masaüstü · ≤960 drawer · gutter 5vw / mobil 15px
@@ -8,6 +534,9 @@
 /* Marka yazı tipi: Manrope (değişken 200–800), kendi sunucumuzdan. Tüm sayfalar bu dosyayı yükler. */
 @font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("../../assets/fonts/manrope-var-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url("../../assets/fonts/manrope-var-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Yedek yüz: Manrope yüklenene kadar Arial'ı Manrope ölçülerine yaklaştırır (yazı tipi değişiminde kayma azalır) */
+@font-face { font-family: "Manrope Fallback"; src: local("Arial"); size-adjust: 102%; ascent-override: 104.5%; descent-override: 29.4%; line-gap-override: 0%; }
 
 button, input, select, textarea { font-family: inherit; }
 
@@ -26,7 +555,7 @@ button, input, select, textarea { font-family: inherit; }
   --qg-muted: #56625b;
   --qg-line: rgba(13, 43, 34, 0.14);
   --qg-max: 1536px;
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   text-align: left;
@@ -820,6 +1349,13 @@ html:not(.qrmo-gh-js) .qrmo-gh-in > .qrmo-gh-cta {
   }
 }
 
+/* 961–1060: 15px/700 menü bağlantıları marka ile CTA arasına sığsın */
+@media (min-width: 961px) and (max-width: 1060px) {
+  .qrmo-gh-nav > ul {
+    gap: 8px;
+  }
+}
+
 @media (max-width: 960px) {
   .qrmo-gh {
     --qrmo-h: 78px;
@@ -1594,7 +2130,7 @@ button.qrmo-gf-cta-btn {
   border-radius: 12px;
   background: #0d2b22;
   color: #f8f3e7;
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   box-shadow: 0 18px 48px rgba(6, 31, 25, 0.38);

@@ -30,6 +30,7 @@ Site artık **PHP + MySQL** destekli hostingde çalışır: `/yonetim/` yönetim
 - `sitemap-paketler-moduller.xml` — `build.js` çıktısı; repoda başka bir sitemap/robots yoktur, mevcut site haritasıyla birleştirme dağıtım tarafının işidir
 - `blog/` — `/blog/` blog ana sayfası + yazılar. İçerik `blog/posts.mjs` (tek kaynak); üretim `node blog/build.mjs` (header/footer `applyGlobal()` ile; `sitemap-blog.xml` ve `blog/feed.xml` de yazılır). Kapaklar özgün SVG sahnelerden `node blog/covers.mjs` ile `assets/blog/` altına WebP/JPG üretilir. Kontrol: `node blog/qa.mjs`. Yeni sıra: `node sss/build.mjs && node moduller/build.js && node global/build.mjs && node blog/build.mjs`.
 - `seo/` — Keyword araştırması (`keywords.csv`), 20 içerik takvimi (`content-calendar.csv`), yöntem notu (`README.md`).
+- **Tipografi:** tüm sayfalar tek ölçeği kullanır (Manrope, 14 rol, mobil/tablet/masaüstü sabit değerler): kaynak `global/src/type-scale.css`, sınıf→rol eşlemesi `global/src/type-scale-pages.css`, ana sayfa `css/home-type-scale.css`. Kurallar `CLAUDE.md` ve `DESIGN_SYSTEM.md` §3. Denetim: `node tools/type-scale-qa.mjs` (statik sunucu gerekir). Yeni sayfa bu ölçeğe tabidir.
 - `robots.txt`, `sitemap.xml` (index → `sitemap-paketler-moduller.xml` + `sitemap-blog.xml`)
 - `css/` — Stil dosyaları
 - `js/` — JavaScript dosyaları

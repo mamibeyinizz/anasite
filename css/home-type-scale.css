@@ -7,42 +7,18 @@
    Kapsam dışı: ürün ekranı maketleri (telefon/demo içi arayüz metni), global
    header/footer/çerez çubuğu, açılış ekranı. Bağlantılar altı çizili değildir. */
 
-body.qrmo-home-ctx {
-  /* mobil */
-  --fs-display: 44px; --fw-display: 800; --lh-display: 1.05; --ls-display: -0.02em;
-  --fs-h1: 34px;      --fw-h1: 800;      --lh-h1: 1.1;       --ls-h1: -0.02em;
-  --fs-h2: 28px;      --fw-h2: 800;      --lh-h2: 1.15;      --ls-h2: -0.015em;
-  --fs-h3: 22px;      --fw-h3: 700;      --lh-h3: 1.25;      --ls-h3: -0.01em;
-  --fs-h4: 18px;      --fw-h4: 700;      --lh-h4: 1.3;       --ls-h4: 0;
-  --fs-lead: 18px;    --fw-lead: 500;    --lh-lead: 1.55;    --ls-lead: 0;
-  --fs-body: 16px;    --fw-body: 400;    --lh-body: 1.6;     --ls-body: 0;
-  --fs-btn: 16px;     --fw-btn: 700;     --lh-btn: 1.2;      --ls-btn: 0;
-  --fs-link: 15px;    --fw-link: 700;    --lh-link: 1.4;     --ls-link: 0;
-  --fs-eyebrow: 12px; --fw-eyebrow: 700; --lh-eyebrow: 1.3;  --ls-eyebrow: 0.08em;
-  --fs-cap: 13px;     --fw-cap: 400;     --lh-cap: 1.45;     --ls-cap: 0;
-}
-@media (min-width: 641px) {
-  body.qrmo-home-ctx {
-    --fs-display: 56px; --fs-h1: 44px; --fs-h2: 34px; --fs-h3: 24px; --fs-h4: 19px; --fs-lead: 19px;
-  }
-}
-@media (min-width: 961px) {
-  body.qrmo-home-ctx {
-    --fs-display: 72px; --fs-h1: 56px; --fs-h2: 40px; --fs-h3: 28px; --fs-h4: 20px; --fs-lead: 20px;
-    --fs-body: 17px; --fs-eyebrow: 13px; --fs-cap: 14px;
-  }
-}
+/* Token'lar global/src/type-scale.css içindedir (:root). */
 
 /* —— Display: adım numarası —— */
 body.qrmo-home-ctx .qrmo-setup-v2__num {
-  font-size: var(--fs-display) !important; font-weight: var(--fw-display) !important;
-  line-height: var(--lh-display) !important; letter-spacing: var(--ls-display) !important;
+  font-size: var(--ts-fs-display) !important; font-weight: var(--ts-fw-display) !important;
+  line-height: var(--ts-lh-display) !important; letter-spacing: var(--ts-ls-display) !important;
 }
 
 /* —— H1 —— */
 body.qrmo-home-ctx .qrmo-hero-v3-title {
-  font-size: var(--fs-h1) !important; font-weight: var(--fw-h1) !important;
-  line-height: var(--lh-h1) !important; letter-spacing: var(--ls-h1) !important;
+  font-size: var(--ts-fs-h1) !important; font-weight: var(--ts-fw-h1) !important;
+  line-height: var(--ts-lh-h1) !important; letter-spacing: var(--ts-ls-h1) !important;
 }
 
 /* —— H2 (bölüm başlıkları) —— */
@@ -59,8 +35,8 @@ body.qrmo-home-ctx .qrmo-rv__title,
 body.qrmo-home-ctx .qrmo-setup-v2__title,
 body.qrmo-home-ctx .qrmo-faq-v1__title,
 body.qrmo-home-ctx .qrmo-hero-v3-showcase-kicker {
-  font-size: var(--fs-h2) !important; font-weight: var(--fw-h2) !important;
-  line-height: var(--lh-h2) !important; letter-spacing: var(--ls-h2) !important;
+  font-size: var(--ts-fs-h2) !important; font-weight: var(--ts-fw-h2) !important;
+  line-height: var(--ts-lh-h2) !important; letter-spacing: var(--ts-ls-h2) !important;
 }
 /* Başlık içi span'lar (vurgu/kuyruk) başlığın ölçüsünü miras alır; renk ve bant değişmez */
 body.qrmo-home-ctx :is(.qrmo-hero-v3-title, .qpm2-title, .qrmo-translation-v3-title, #qrmo-home-filtre h2,
@@ -78,8 +54,8 @@ body.qrmo-home-ctx .qrmo-faq-v1__cta-title,
 body.qrmo-home-ctx .qrmo-rv__pull,
 body.qrmo-home-ctx .qrmo-hero-v3-showcase-bridge,
 body.qrmo-home-ctx .qrmo-demo-cap {
-  font-size: var(--fs-h3) !important; font-weight: var(--fw-h3) !important;
-  line-height: var(--lh-h3) !important; letter-spacing: var(--ls-h3) !important;
+  font-size: var(--ts-fs-h3) !important; font-weight: var(--ts-fw-h3) !important;
+  line-height: var(--ts-lh-h3) !important; letter-spacing: var(--ts-ls-h3) !important;
 }
 
 /* —— H4 / özellik başlığı —— */
@@ -89,8 +65,8 @@ body.qrmo-home-ctx #qrmo-home-asistan .qrmo-chatbot-feature__item strong,
 body.qrmo-home-ctx .qrmo-tables-v5__benefit-title,
 body.qrmo-home-ctx #qrmo-home-servis .qrmo-service-v2__feature-copy strong,
 body.qrmo-home-ctx .qrmo-analytics-v3__pillar-title {
-  font-size: var(--fs-h4) !important; font-weight: var(--fw-h4) !important;
-  line-height: var(--lh-h4) !important; letter-spacing: var(--ls-h4) !important;
+  font-size: var(--ts-fs-h4) !important; font-weight: var(--ts-fw-h4) !important;
+  line-height: var(--ts-lh-h4) !important; letter-spacing: var(--ts-ls-h4) !important;
 }
 
 /* —— Lead —— */
@@ -104,8 +80,8 @@ body.qrmo-home-ctx .qrmo-final-cta-v1__lead,
 body.qrmo-home-ctx .qrmo-rv__lead,
 body.qrmo-home-ctx .qrmo-setup-v2__lead,
 body.qrmo-home-ctx .qrmo-faq-v1__lead {
-  font-size: var(--fs-lead) !important; font-weight: var(--fw-lead) !important;
-  line-height: var(--lh-lead) !important; letter-spacing: var(--ls-lead) !important;
+  font-size: var(--ts-fs-lead) !important; font-weight: var(--ts-fw-lead) !important;
+  line-height: var(--ts-lh-lead) !important; letter-spacing: var(--ts-ls-lead) !important;
 }
 
 /* —— Gövde —— */
@@ -122,8 +98,8 @@ body.qrmo-home-ctx .qrmo-analytics-v3__description,
 body.qrmo-home-ctx .qrmo-analytics-v3__pillar-text,
 body.qrmo-home-ctx .qrmo-rv__rest,
 body.qrmo-home-ctx .qrmo-faq-v1__cta-text {
-  font-size: var(--fs-body) !important; font-weight: var(--fw-body) !important;
-  line-height: var(--lh-body) !important; letter-spacing: var(--ls-body) !important;
+  font-size: var(--ts-fs-body) !important; font-weight: var(--ts-fw-body) !important;
+  line-height: var(--ts-lh-body) !important; letter-spacing: var(--ts-ls-body) !important;
 }
 /* Gövde içi vurgu: boyut miras, kalınlık 700 (gold-underline bandı korunur) */
 body.qrmo-home-ctx :is(.qrmo-translation-v3-description, .qrmo-smart-filter-lead, .qrmo-chatbot-feature__lead,
@@ -135,16 +111,16 @@ body.qrmo-home-ctx :is(.qrmo-translation-v3-description, .qrmo-smart-filter-lead
 body.qrmo-home-ctx .qrmo-cta-long,
 body.qrmo-home-ctx .qrmo-cta-short,
 body.qrmo-home-ctx .qrmo-final-cta-v1__label {
-  font-size: var(--fs-btn) !important; font-weight: var(--fw-btn) !important;
-  line-height: var(--lh-btn) !important; letter-spacing: var(--ls-btn) !important;
+  font-size: var(--ts-fs-btn) !important; font-weight: var(--ts-fw-btn) !important;
+  line-height: var(--ts-lh-btn) !important; letter-spacing: var(--ts-ls-btn) !important;
 }
 
 /* —— Link (altı çizili değil; ok ile ayrışır) —— */
 body.qrmo-home-ctx .qrmo-hero-v3-cta-text,
 body.qrmo-home-ctx .qrmo-home-module-link,
 body.qrmo-home-ctx .qrmo-setup-v2__link {
-  font-size: var(--fs-link) !important; font-weight: var(--fw-link) !important;
-  line-height: var(--lh-link) !important; letter-spacing: var(--ls-link) !important;
+  font-size: var(--ts-fs-link) !important; font-weight: var(--ts-fw-link) !important;
+  line-height: var(--ts-lh-link) !important; letter-spacing: var(--ts-ls-link) !important;
   text-decoration: none !important;
 }
 body.qrmo-home-ctx .qrmo-hero-v3-cta-text::after,
@@ -158,24 +134,27 @@ body.qrmo-home-ctx .qpm2-kicker,
 body.qrmo-home-ctx .qpm2-idx,
 body.qrmo-home-ctx .qrmo-rv__eyebrow,
 body.qrmo-home-ctx .qrmo-setup-v2__badge,
+body.qrmo-home-ctx .qrmo-setup-v2__eyebrow strong,
+body.qrmo-home-ctx .qrmo-faq-v1__eyebrow strong,
+body.qrmo-home-ctx .qrmo-final-cta-v1__eyebrow strong,
 body.qrmo-home-ctx [class*="eyebrow-core"],
 body.qrmo-home-ctx [class*="eyebrow-mod"],
 body.qrmo-home-ctx [class*="kicker-core"],
 body.qrmo-home-ctx [class*="kicker-mod"] {
-  font-size: var(--fs-eyebrow) !important; font-weight: var(--fw-eyebrow) !important;
-  line-height: var(--lh-eyebrow) !important; letter-spacing: var(--ls-eyebrow) !important;
+  font-size: var(--ts-fs-eyebrow) !important; font-weight: var(--ts-fw-eyebrow) !important;
+  line-height: var(--ts-lh-eyebrow) !important; letter-spacing: var(--ts-ls-eyebrow) !important;
   text-transform: uppercase;
 }
 
 /* —— Caption —— */
-body.qrmo-home-ctx .qrmo-hm-d,
-body.qrmo-home-ctx .qrmo-hm-m,
+body.qrmo-home-ctx span.qrmo-hm-d,
+body.qrmo-home-ctx span.qrmo-hm-m,
 body.qrmo-home-ctx .qrmo-cta-note,
 body.qrmo-home-ctx .qrmo-rv__count,
 body.qrmo-home-ctx .qrmo-rv__tag,
 body.qrmo-home-ctx .qrmo-setup-v2__out {
-  font-size: var(--fs-cap) !important; font-weight: var(--fw-cap) !important;
-  line-height: var(--lh-cap) !important; letter-spacing: var(--ls-cap) !important;
+  font-size: var(--ts-fs-cap) !important; font-weight: var(--ts-fw-cap) !important;
+  line-height: var(--ts-lh-cap) !important; letter-spacing: var(--ts-ls-cap) !important;
 }
 
 /* —— Tamamlayıcı roller —— */
@@ -183,17 +162,34 @@ body.qrmo-home-ctx .qpm2-meta,
 body.qrmo-home-ctx .qpm2-meta span,
 body.qrmo-home-ctx .qrmo-tables-v5__flow,
 body.qrmo-home-ctx .qrmo-rv__proof {
-  font-size: var(--fs-cap) !important; font-weight: var(--fw-cap) !important;
-  line-height: var(--lh-cap) !important; letter-spacing: var(--ls-cap) !important;
+  font-size: var(--ts-fs-cap) !important; font-weight: var(--ts-fw-cap) !important;
+  line-height: var(--ts-lh-cap) !important; letter-spacing: var(--ts-ls-cap) !important;
 }
 body.qrmo-home-ctx .qrmo-rv__proof strong { font-size: inherit !important; font-weight: 700 !important; }
 /* Gövde boyutunda kalın (soru metni, yorum sahibi) */
 body.qrmo-home-ctx .qrmo-faq-v1__trigger span,
 body.qrmo-home-ctx .qrmo-rv__meta strong {
-  font-size: var(--fs-body) !important; font-weight: 700 !important; line-height: var(--lh-body) !important;
+  font-size: var(--ts-fs-body) !important; font-weight: 700 !important; line-height: var(--ts-lh-body) !important;
 }
 /* Buton içi metinler */
 body.qrmo-home-ctx .qrmo-faq-v1__cta-btn span,
+body.qrmo-home-ctx .qrmo-faq-v1__cta-btn b,
 body.qrmo-home-ctx .qrmo-final-cta-v1__cta b {
-  font-size: var(--fs-btn) !important; font-weight: var(--fw-btn) !important; line-height: var(--lh-btn) !important;
+  font-size: var(--ts-fs-btn) !important; font-weight: var(--ts-fw-btn) !important; line-height: var(--ts-lh-btn) !important;
+}
+
+/* —— Kalan metinler —— */
+body.qrmo-home-ctx .qrmo-faq-v1__a p {
+  font-size: var(--ts-fs-body) !important; font-weight: var(--ts-fw-body) !important;
+  line-height: var(--ts-lh-body) !important; letter-spacing: var(--ts-ls-body) !important;
+}
+body.qrmo-home-ctx .qt-m-support span {
+  font-size: var(--ts-fs-capb) !important; font-weight: var(--ts-fw-capb) !important;
+  line-height: var(--ts-lh-capb) !important; letter-spacing: var(--ts-ls-capb) !important;
+}
+
+/* Hero ana butonunun etiketi: buton rolü (anchor .qrmo-hm-d taşıdığı için caption'a düşmesin) */
+body.qrmo-home-ctx .qrmo-hero-v3-cta > span:not([class]) {
+  font-size: var(--ts-fs-btn) !important; font-weight: var(--ts-fw-btn) !important;
+  line-height: var(--ts-lh-btn) !important; letter-spacing: var(--ts-ls-btn) !important;
 }

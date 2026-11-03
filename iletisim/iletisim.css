@@ -24,7 +24,7 @@ body.qrmo-contact-page {
     radial-gradient(120% 56rem at 50% -12rem, rgba(201, 168, 76, .10) 0%, rgba(201, 168, 76, .03) 42%, rgba(201, 168, 76, 0) 70%),
     linear-gradient(176deg, #FDFBF5 0%, #F8F2E6 48%, #F3ECDD 100%);
   background-color: #FBF7EE;
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.55;
   text-rendering: optimizeLegibility;
@@ -237,7 +237,7 @@ body.qrmo-contact-page {
   background: #fff;
   border: 1px solid rgba(13, 43, 34, .28);
   border-radius: 12px;
-  font: 400 16px/1.4 "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font: 400 16px/1.4 "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   scroll-margin-top: calc(var(--qrmo-gh-h, 94px) + 16px);
   scroll-margin-bottom: 24px;
 }
@@ -389,7 +389,7 @@ body.qrmo-contact-page {
   margin: 0;
   padding: 12px 18px;
   border-radius: 12px;
-  font: 700 16px/1.25 "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font: 700 16px/1.25 "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   text-align: center;
   cursor: pointer;
   touch-action: manipulation;
@@ -491,7 +491,7 @@ body.qrmo-contact-page {
   margin: 0;
   padding: 12px;
   overflow: auto;
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   background: #fff;

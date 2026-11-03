@@ -3,7 +3,7 @@
 @media (prefers-color-scheme:dark){:root{--ink:#eef1ec;--ink2:#b9c4bd;--mut:#8d9a93;--bg:#0b1d17;--card:#12281f;--line:#25402f;--gold:#d4b45b;--gold-ink:#e8c766;--green:#5fc29a;--green-soft:#1b3a2d;--bad:#ef8a7b;--ok:#6bd09b;--warn:#e8c766}}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font:15px/1.5 "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;background:var(--bg);color:var(--ink)}
+body{font:15px/1.5 "Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;background:var(--bg);color:var(--ink)}
 [hidden]{display:none!important}
 a{color:var(--green);font-weight:600;text-decoration:none}
 a:hover{color:var(--gold-ink)}
@@ -91,7 +91,7 @@ td.r,th.r{text-align:right}
 .chk{display:flex;gap:8px;align-items:center;font-weight:500;color:var(--ink)}.chk input{width:auto;min-height:0}
 .rep{display:grid;gap:8px}.rep__row{display:grid;grid-template-columns:1fr 1fr auto;gap:8px}
 .editor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
-.editor__prev{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fff;color:#17231d;overflow:auto;max-height:560px;font-family:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
+.editor__prev{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fff;color:#17231d;overflow:auto;max-height:560px;font-family:"Manrope", "Manrope Fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif}
 .editor__prev h2,.editor__prev h3{margin:14px 0 6px}
 .tools{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
 .keybox{display:flex;gap:8px;align-items:center;background:var(--green-soft);padding:12px;border-radius:10px;font-family:ui-monospace,Menlo,monospace;word-break:break-all}
