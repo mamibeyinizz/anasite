@@ -74,6 +74,12 @@ body .qrmo-hero-v3-subtitle, body .qrmo-hero-v3-subtitle > span { color: #3f4a44
   }
 }
 
+/* Yorum kartı alıntısı (4-6 satır, kalın): tüm kırılımlarda h4 rolü — bölüm başlığıyla yarışmasın */
+html body p.qrmo-rv__pull, html body.qrmo-home-ctx p.qrmo-rv__pull {
+  font-size: var(--ts-fs-h4) !important; font-weight: var(--ts-fw-h4) !important;
+  line-height: var(--ts-lh-h4) !important; letter-spacing: var(--ts-ls-h4) !important;
+}
+
 /* Mobil: uzun alıntı/vurgu cümleleri h3 (22) değil h4 (18) rolünde — satır sayısı ve boyut dengesi */
 @media (max-width: 640px) {
   html body .qrmo-rv__pull, html body.qrmo-home-ctx .qrmo-rv__pull,
