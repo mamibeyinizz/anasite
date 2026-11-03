@@ -58,8 +58,23 @@ for (const m of MOD.modules) {
     pts: g.items.map((it) => { const f = firstSentence(it.d); return f && f.length > 24 ? f : it.t; })
   }));
   m.featureStats = a.stats;
+  /* Gerçek ekran görüntüleri (test ortamından): temsili çizimlerin yerine geçer. */
+  if (a.shots) {
+    const dir = `../../assets/modules/${m.slug}/`;
+    const fix = (d) => ({ frame: "shot", ...d, src: dir + d.src });
+    m.hero.visual = { frame: "scene", layout: "duo", alt: a.shots.alt, items: a.shots.devices.map(fix) };
+    ["stage", "story", "proof"].forEach((k) => { if (m[k]) m[k].visual = null; });
+    m.shotNote = a.shots.note || "Gerçek ekran görüntüsü · test ortamı verisi";
+    (a.shots.steps || []).forEach((st, i) => {
+      if (!m.flow.steps[i]) throw new Error(`[${m.slug}] shots.steps ${i + 1}. adım flow'da yok`);
+      Object.assign(m.flow.steps[i], { img: dir + st.img, imgW: st.w, imgH: st.h }, st.screen != null ? { screen: st.screen } : {});
+    });
+    if (a.shots.tile) m.tileImg = { ...a.shots.tile, src: dir + a.shots.tile.src };
+  }
   m.closing = { ...(a.replaceClosing ? {} : m.closing || {}), chips: a.chips, showPrice: true };
 }
+
+for (const m of MOD.modules) if (!m.tileImg && m.hubImg) m.tileImg = m.hubImg;
 
 /* ---------- yardımcılar ---------- */
 
@@ -241,6 +256,7 @@ function frame(f) {
     case "shot": {
       const base = `<img class="qm-shot" src="${f.src}" width="${f.w}" height="${f.h}" alt="" decoding="async" loading="eager" draggable="false">`;
       const img = f.m ? `<picture><source media="(max-width: 639px)" srcset="${f.m.src}" width="${f.m.w}" height="${f.m.h}">${base}</picture>` : base;
+      if (f.kind === "card") return `<div class="qm-card qm-card--shot">${img}</div>`;
       return f.kind === "phone"
         ? `<div class="qm-phone qm-phone--shot">${img}</div>`
         : `<div class="qm-win qm-win--shot"><div class="qm-win-bar"><span class="qm-win-dots"><i></i><i></i><i></i></span><span class="qm-win-t">${esc(f.title || "")}</span></div>${img}</div>`;
@@ -926,7 +942,7 @@ function showcase(m, { mode = "auto", chips = [], screenChips = null, id, phoneF
         <div class="qrmo-v3-glow" aria-hidden="true"></div>
         <div class="qrmo-v3-stage">${join(devs, (d, i) => `
           <figure class="qrmo-v3-screen${i === start ? " is-active" : ""}" data-v3-screen="${i}" data-kind="${esc(d.kind || d.frame)}" role="img" aria-label="${esc(capJoin(deviceCap(d), `${d.frame === "shot" && d.alt ? d.alt + ", ekran" : "temsili ekran"} ${i + 1} / ${devs.length}`))}"${i === start ? "" : ' aria-hidden="true"'}>
-            <div class="qrmo-v3-fit">${frame(d)}</div>${((screenChips && screenChips[i]) || []).slice(0, 2).map((c, k) => `
+            <div class="qrmo-v3-fit">${i === start && id === "hero" ? frame(d) : frame(d).replace(/loading="eager"/g, 'loading="lazy"')}</div>${((screenChips && screenChips[i]) || []).slice(0, 2).map((c, k) => `
             <span class="qrmo-v3-chip qrmo-v3-chip--${"ab"[k]}" aria-hidden="true">${ICON.check}<span>${esc(c)}</span></span>`).join("")}
           </figure>`)}
         </div>${chips.map((c, i) => `
@@ -1025,7 +1041,7 @@ const SECTION = {
               <span class="qrmo-v3-step-n" aria-hidden="true">${pad(i + 1)}${st.who ? `<span class="qrmo-v3-step-who"><i class="qrmo-v3-sep"> · </i>${esc(st.who)}</span>` : ""}</span>
               <h3 class="qrmo-v3-step-h">${st.mt ? `<span class="qrmo-v3-dsk">${esc(st.t)}</span><span class="qrmo-v3-mob">${esc(st.mt)}</span>` : esc(st.t)}</h3>${st.sub ? `
               <p class="qrmo-v3-step-sub qrmo-v3-mob-only">${esc(st.sub)}</p>` : ""}
-              ${(() => { const d = devicesOf(m)[st.screen]; return st.img && d ? `<span class="qrmo-v3-step-shot qrmo-v3-step-shot--${esc(d.kind)}" aria-hidden="true"><img src="${st.img}" width="${[1050, 856, 810, 856][st.screen] || 780}" height="${[840, 685, 648, 685][st.screen] || 624}" alt="" loading="lazy" decoding="async"></span>` : ""; })()}
+              ${(() => { const d = devicesOf(m)[st.screen]; return st.img && d ? `<span class="qrmo-v3-step-shot qrmo-v3-step-shot--${esc(d.kind)}" aria-hidden="true"><img src="${st.img}" width="${st.imgW || [1050, 856, 810, 856][st.screen] || 780}" height="${st.imgH || [840, 685, 648, 685][st.screen] || 624}" alt="" loading="lazy" decoding="async"></span>` : ""; })()}
               <p class="qrmo-v3-step-d">${st.md ? `<span class="qrmo-v3-dsk">${esc(st.d)}</span><span class="qrmo-v3-mob">${esc(st.md)}</span>` : esc(st.d)}</p>${st.points ? `
               <ul class="qrmo-v3-step-pts">${st.points.map((x) => `<li>${ICON.check}<span>${esc(x)}</span></li>`).join("")}</ul>` : ""}
             </li>`;
@@ -1350,6 +1366,7 @@ const SECTION = {
       <h3 class="qrmo-mod-guides-h">Birlikte çalıştığı modüller</h3>
       <ul class="qrmo-mod-rel">${join(m.related, (r) => {
         const rm = bySlug[r.slug];
+        if (!r.img && rm.tileImg) r = { ...r, img: rm.tileImg };
         return `
         <li><a class="qrmo-mod-tile${r.img ? " qrmo-mod-tile--img" : ""}" href="../${rm.slug}/">${r.img ? realImg(r.img, "qrmo-mod-tile-img") : cue(rm.cue)}<span class="qrmo-mod-tile-b"><span class="qrmo-mod-tile-t">${esc(rm.name)}</span><span class="qrmo-mod-tile-d">${esc(r.why)}</span></span><span class="qrmo-mod-tile-go">${ICON.arrow}</span></a></li>`;
       })}

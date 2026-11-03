@@ -414,8 +414,8 @@
         tagline: "Her masaya özel QR kodu üretin; misafir menüyü masa bilgisiyle açsın.",
         featureIds: ["qr-masa"],
         seo: {
-          title: "QR Masa — Masa Bazlı QR Kod Oluşturma",
-          description: "Masalarınızı tanımlayın, her biri için yazdırılabilir QR kod üretin. Müşteri hangi masadan okuttuğu bilgisiyle menüye girer."
+          title: "Masaya Özel QR Kod Oluşturma ve Yazdırma",
+          description: "Masaları tek tek ya da toplu açın, her masanın QR kodunu PNG veya PDF indirin, hepsini tek PDF’te yazdırın. Masa adı değişse de basılı kod çalışır."
         },
         faq: ["qrmo-faq-q-her-masa-ayri-qr", "qrmo-faq-q-masa-ad-degisince", "qrmo-faq-q-qr-hangi-adres"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
@@ -564,7 +564,7 @@
         tagline: "Menüyü seçtiğiniz dillerde sunun; misafir ürünü kendi dilinde okusun.",
         featureIds: ["coklu-dil"],
         seo: {
-          title: "Çoklu Dil — Çok Dilli Dijital Menü",
+          title: "Çok Dilli QR Menü — 30 Dilde Menü",
           description: "30 dil arasından menünüzde göstereceğiniz dilleri seçin; çevirileri CSV ile toplu girin. Müşteri dil seçiciyle menüyü kendi dilinde açar."
         },
         faq: ["qrmo-faq-q-coklu-dil", "qrmo-faq-q-otomatik-ceviri", "qrmo-faq-q-ceviri-csv"],
@@ -574,7 +574,7 @@
           steps: [
             { screen: 0, t: "Misafir dilini seçer", d: "Menü ve arayüz seçtiği dilde açılır." },
             { screen: 1, t: "Çevirileri tek dosyada yönetin", d: "Dosyayı indirin, doldurun, geri yükleyin." },
-            { screen: 1, t: "Eksik kalan yer boş görünmez", d: "Çevirisi girilmemiş alan Türkçe haliyle görünür." }
+            { screen: 2, t: "Eksik kalan yer boş görünmez", d: "Çevirisi girilmemiş alan Türkçe haliyle görünür; eskiyen çeviriler panelde uyarı olarak çıkar." }
           ]
         },
         features: [
@@ -710,8 +710,8 @@
         tagline: "Alerjen, kalori, fiyat ve ürün özelliğiyle uygun seçeneği bulun.",
         featureIds: ["filtreler"],
         seo: {
-          title: "Akıllı Filtreleme — Alerjen ve Kalori Filtresi",
-          description: "Müşteri menüde ürün arar; alerjen hariç tutar, kalori ve fiyat aralığı seçer, ürün özelliğine göre süzer ve sıralar."
+          title: "Alerjen ve Kalori Filtreli QR Menü",
+          description: "Misafir QR menüde 14 alerjeni hariç tutar, kalori ve fiyat aralığı seçer, ürünleri 8 ölçüte göre sıralar. Uygulama indirmeden, telefonunun tarayıcısında."
         },
         faq: ["qrmo-faq-q-alerjen-gosterimi", "qrmo-faq-q-arama-siralama"],
         order: ["hero", "shift", "stage", "capabilities", "details", "related", "closing"],
@@ -859,7 +859,7 @@
         tagline: "Menü verinize göre soruları yanıtlar; bilemediğini size bırakır.",
         featureIds: ["asistan"],
         seo: {
-          title: "Menü Asistanı — Menü Sorularını Yanıtlayan Asistan",
+          title: "Yapay Zekâ Destekli Menü Asistanı",
           description: "Google Gemini tabanlı Menü Asistanı, menünüzdeki ürünlere dayanarak soruları yanıtlar; garson, hesap ve açık onaylı sipariş akışlarıyla birlikte çalışır."
         },
         faq: ["qrmo-faq-q-menu-asistani-nedir", "qrmo-faq-q-personel-devralma", "qrmo-faq-q-gemini-kullanimi"],
@@ -868,8 +868,8 @@
           title: "Misafirin sorusu garson beklemeden yanıtlanır",
           steps: [
             { screen: 0, t: "Misafir menü hakkında soru sorar", d: "Asistan yalnızca sizin menü bilginizle yanıt verir." },
-            { screen: 1, t: "Bilmediği soruları siz görürsünüz", d: "Cevaplanamayan sorular listeye düşer; eksik bilgiyi menüye eklersiniz." },
-            { screen: 2, t: "Gerekirse ekibiniz devralır", d: "Garson çağrısı ya da hesap isteği servis ekibine iletilebilir." }
+            { screen: 1, t: "Bilmediği soruları siz görürsünüz", d: "Cevaplanamayan sorular listeye düşer; eksik bilgiyi eklersiniz ya da soruyu tek tıkla Hazır Sorular’a alırsınız." },
+            { screen: 2, t: "Emin değilse garsona bırakır", d: "Menüde bilgisi olmayan soruda yanıt uydurmaz; garson çağırmayı önerir. Gerekirse ekibiniz sohbeti devralır." }
           ]
         },
         features: [
@@ -1026,8 +1026,8 @@
           text: "İhtiyacınıza uygun paketi seçmeden önce Servis Paneli’nin ve birlikte kullanacağınız modüllerin paket kapsamını karşılaştırın."
         },
         seo: {
-          title: "Servis Paneli",
-          description: "Restoranınızda siparişleri, garson çağrılarını ve hesap isteklerini tek servis panelinde takip edin. QR Menu Official Servis Paneli’nin özelliklerini ve paketlerini inceleyin."
+          title: "Garson Çağırma ve QR Sipariş Paneli",
+          description: "Garson çağrısı, hesap isteği ve QR siparişleri masa adıyla tek panelde toplayın; bekleyen talep sarıya, sonra kırmızıya döner. Pro ve Plus paketlerinde."
         },
         faq: ["qrmo-faq-q-garson-cagir", "qrmo-faq-q-siparis-servis-paneli", "qrmo-faq-q-online-odeme"],
         order: ["hero", "story", "stage", "proof", "details", "related", "closing"],
@@ -1035,8 +1035,8 @@
           title: "Her talep doğru ekibin önünde",
           steps: [
             { screen: 1, t: "Misafir telefonundan talep gönderir", d: "Garson çağrısı, hesap isteği ya da sipariş." },
-            { screen: 0, t: "Tüm talepler tek ekranda", d: "Sipariş, garson çağrısı ve hesap isteği türüne göre ayrılır." },
-            { screen: 2, t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner." }
+            { screen: 0, t: "Tüm talepler tek ekranda", d: "Sipariş, garson çağrısı ve hesap isteği türüne göre ayrılır; panelde hangilerinin görüneceğini siz seçersiniz." },
+            { screen: 0, t: "Bekleyen talep renkle uyarır", d: "Uzun bekleyen kart sarıya, sonra kırmızıya döner; eşikleri saniye olarak siz girersiniz." }
           ]
         },
         features: [
@@ -1159,7 +1159,8 @@
         notes: [
           "Talep oluşturmak, talebin personel tarafından karşılanması değildir. Panel kaydı gösterir; süre işletmenin operasyonuna bağlıdır.",
           "Hesap istemek ödeme almak değildir. “Hesap iste”, hesabın masaya getirilmesini ister.",
-          "Ses ve tarayıcı bildirimi her koşulda çalışmaz. Panelin açık olması ve bildirim izninin verilmesi gerekir."
+          "Ses ve tarayıcı bildirimi her koşulda çalışmaz. Panelin açık olması ve bildirim izninin verilmesi gerekir.",
+          "Talepler panele Firebase bağlantısı üzerinden gelir; bağlantı ve şube ayarları yapılmadan panel boş kalır."
         ],
         related: [
           { slug: "qr-masa", why: "Talepler, kayıtlı masa adıyla panele düşer." },
@@ -1179,7 +1180,7 @@
         tagline: "Menü görüntüleme ve ürün tıklamasını görün; kasa satışı değil.",
         featureIds: ["analytics"],
         seo: {
-          title: "QR Analytics — Menü, Ürün ve Masa Raporları",
+          title: "QR Menü Analizi: Ürün ve Masa Raporu",
           description: "Menü görüntüleme, tekil ziyaretçi, ürün tıklaması, masa hareketi ve sepet verilerini Bugün, Son 7 gün, Bu ay ya da özel aralıkla raporlayın."
         },
         faq: ["qrmo-faq-q-analytics-nedir", "qrmo-faq-q-pos-verisi-mi", "qrmo-faq-q-analytics-siparis"],
@@ -1189,7 +1190,7 @@
           steps: [
             { screen: 0, t: "Genel durumu görün", d: "Menü görüntüleme ve ürün tıklamalarını tarih aralığına göre izleyin." },
             { screen: 1, t: "Hangi masa hareketli, hangisi sessiz", d: "Hiç okutulmayan masalar listede ayrı görünür." },
-            { screen: 2, t: "Sepetten siparişe giden yol", d: "Sipariş özelliğini (Pro) kullanıyorsanız her adımı görürsünüz." }
+            { screen: 2, t: "Hangi ürün ilgi görüyor", d: "En çok ve en az tıklanan ürünler; hiç tıklanmamış ürünler de listede. Sipariş (Pro) kullanıyorsanız sepet hunisi ayrı raporda." }
           ]
         },
         features: [
@@ -1324,7 +1325,7 @@
         tagline: "Kayıtlı masada imzalı oturum açın; süre ve hareketsizlik limitini siz koyun.",
         featureIds: ["oturum-guvenligi"],
         seo: {
-          title: "Masa Oturum Güvenliği — İmzalı Masa Oturumu",
+          title: "Masa Oturum Güvenliği ve Kilit Ekranı",
           description: "Müşteri QR’ı okuttuğunda imzalı bir masa oturumu başlar. Oturum süresi, hareketsizlik limiti ve isteğe bağlı sayfa kilidi sizin ayarınızla sınırlanır."
         },
         faq: ["qrmo-faq-q-guvenli-mi", "qrmo-faq-q-oturum-dogrulama"],
@@ -1333,16 +1334,16 @@
           title: "Masa oturumu kontrolünüzde kalır",
           steps: [
             { screen: 0, t: "Kayıtlı masada her şey açık", d: "Garson çağırma, sipariş ve sohbet çalışır." },
-            { screen: 1, t: "Kayıtsız adreste menü yine açık", d: "Menü herkese açık kalır; masa özellikleri açılmaz." },
-            { screen: 2, t: "Oturumu panelde görün", d: "Masanın oturum durumu panelde yer alır." },
-            { screen: 3, t: "Süre sınırını siz belirlersiniz", d: "Süre ya da hareketsizlik limiti dolunca oturum kapanır." }
+            { screen: 1, t: "Kayıtsız masa adresinde kilit ekranı", d: "Adreste kayıtlı olmayan bir masa varsa “Oturum Gerekli” ekranı açılır. Masa parametresi olmayan menü adresi herkese açık kalır." },
+            { screen: 2, t: "Süre sınırını siz belirlersiniz", d: "Toplam süre ya da hareketsizlik limiti dolunca oturum kilitlenir; misafir QR’ı yeniden okutur." },
+            { screen: 3, t: "Sayfa kilidi isteğe bağlı", d: "Ayrı bir menü sayfası kullanıyorsanız o sayfayı yalnızca masa oturumuyla açılır yaparsınız; boş bırakılırsa kilit kapalıdır." }
           ]
         },
         features: [
           { ico: "shield", tag: "Güvenlik", t: "İmzalı masa oturumu", d: "Müşteri adresi değiştirip başka bir masa adına oturum açamaz." },
           { ico: "clock", tag: "Süre", t: "Oturum süresi sınırlı", d: "QR okutulduktan sonra oturum en çok 90 dakika sürer (varsayılan; siz değiştirirsiniz)." },
           { ico: "lock", tag: "Limit", t: "Hareketsizlikte kilitlenir", d: "Belirlenen süre işlem yapılmazsa oturum kilitlenir (varsayılan 30 dakika)." },
-          { ico: "qr", tag: "Kilit ekranı", t: "Kayıtsız adreste kilit ekranı", d: "Kayıtlı olmayan masa adresinde kilit ekranı açılır; menü herkese açık kalır." },
+          { ico: "qr", tag: "Kilit ekranı", t: "Kayıtsız adreste kilit ekranı", d: "Kayıtlı olmayan masa adresinde “Oturum Gerekli” ekranı açılır; masa parametresi olmayan menü herkese açık kalır." },
           { ico: "chat", tag: "Kapsam", t: "Mesaj limiti ve masa silme", d: "Oturum başına asistan mesajı sınırlanır (25); masa silinince açık oturumlar kapanır." }
         ],
 
@@ -1418,7 +1419,7 @@
             { v: "30 dk", l: "varsayılan hareketsizlik limiti" },
             { v: "25", l: "oturum başına varsayılan asistan mesajı" }
           ],
-          note: "Sayfa kilidi isteğe bağlıdır; ana sayfa hiçbir koşulda kilitlenmez."
+          note: "Sayfa kilidi isteğe bağlıdır ve ana sayfaya uygulanmaz."
         },
 
         groups: [
@@ -1426,7 +1427,8 @@
             title: "Oturum",
             items: [
               { t: "İmzalı oturum", d: "Masa adı, veriliş zamanı ve son işlem zamanı HMAC-SHA256 ile imzalanır; müşteri başka bir masa adına oturum oluşturamaz.", src: "_qmo-ortak/class-qmo-oturum.php" },
-              { t: "Kayıtsız masa adresi", d: "Adreste kayıtlı olmayan bir masa varsa kilit ekranı gösterilir.", src: "masa-dogrulama.php" },
+              { t: "Kayıtsız masa adresi", d: "Adreste kayıtlı olmayan bir masa varsa “Oturum Gerekli” kilit ekranı gösterilir.", src: "masa-dogrulama.php" },
+              { t: "Deneme sınırı", d: "Aynı bağlantıdan dakikada 20’den fazla masa adresi denenirse istek kilit ekranına düşer; masa listesinin tahminle çıkarılması zorlaşır.", src: "masa-dogrulama.php qmo_sayac_arttir()" },
               { t: "Kilit ekranı dili", d: "Kilit ekranı adres, çerez ve tarayıcı diline göre seçilen aktif dilde açılır.", src: "masa-dogrulama.php qmo_kilit_ekrani_dili()" }
             ]
           },
@@ -1443,7 +1445,7 @@
             title: "Kapsam",
             items: [
               { t: "Oturum gerektiren özellikler", d: "Menü Asistanı ve sepet gibi bileşenler sayfaya değil oturuma bağlıdır; geçerli oturum yoksa bilgi kutusu gösterilir.", src: "masa-dogrulama.php (başlık notu)" },
-              { t: "İsteğe bağlı sayfa kilidi", d: "Korunacak sayfa adreslerini yazarsınız; boş bırakılırsa sayfa kilidi kapalıdır. Ana sayfa hiçbir koşulda kilitlenmez.", src: "oturum-ayarlari.php, masa-dogrulama.php" }
+              { t: "İsteğe bağlı sayfa kilidi", d: "Korunacak sayfa adreslerini yazarsınız; boş bırakılırsa sayfa kilidi kapalıdır. Sayfa kilidi ana sayfaya uygulanmaz.", src: "oturum-ayarlari.php, masa-dogrulama.php" }
             ]
           }
         ],
@@ -1469,7 +1471,7 @@
         tagline: "Puan ve yorumları toplayın; yayına hangisinin çıkacağına siz karar verin.",
         featureIds: ["geri-bildirim"],
         seo: {
-          title: "Yorum & Geri Bildirim — Puanlama ve Form Modülü",
+          title: "Restoran Yorum ve Puanlama Formu",
           description: "Çoklu kriterli puanlama formu, iletişim formu ve kendi geri bildirim formlarınız. Gelen yorumları siz yayınlar, yayından kaldırır ya da silersiniz."
         },
         faq: [],
@@ -1479,7 +1481,7 @@
           steps: [
             { screen: 0, t: "Misafir puan verir, yorum yazar", d: "Kısa bir formla görüşünü iletir." },
             { screen: 1, t: "Yayın kararı sizde", d: "Olumlu ve olumsuz yorumlar ayrı sekmelerde; hangisinin yayına çıkacağına siz karar verirsiniz." },
-            { screen: 2, t: "Raporlarla eksiği görün", d: "Kriter, masa ve saate göre dağılımı inceleyin." }
+            { screen: 2, t: "Kriterleri ve yayın kuralını siz belirlersiniz", d: "Puanlama başlıklarını değiştirir, istemediğinizi kapatırsınız; yorumları elle onaylar ya da ortalaması 4 ve üzeri olanları otomatik yayınlarsınız." }
           ]
         },
         features: [
@@ -1622,7 +1624,7 @@
         tagline: "Maliyet ve satışla popülerlik ile kârlılığı yan yana görün.",
         featureIds: ["menu-muhendisligi", "maliyet-recete"],
         seo: {
-          title: "Menü Mühendisliği — Maliyet ve Menü Matrisi",
+          title: "Menü Mühendisliği ve Reçete Maliyeti",
           description: "Ürün maliyetlerinizi ve reçetelerinizi girin; satış verisiyle birleştirilerek her ürün Yıldız, Çok Satan, Gizli Fırsat ya da Zayıf Performans grubuna yerleşir."
         },
         faq: ["qrmo-faq-q-menu-muhendisligi-nedir", "qrmo-faq-q-maliyet-gerekli-mi"],

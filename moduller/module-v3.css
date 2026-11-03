@@ -492,6 +492,8 @@ body.qrmo-v3 .qrmo-v3-hero .qrmo-mod-lead { max-width: none; }
 .qrmo-v3-screen[data-kind="phone"] .qm-phone--shot .qm-shot { border-radius: 32px; }
 .qm-win--shot { overflow: hidden; background: #F4F1E8; }
 .qm-win--shot .qm-shot { border-bottom-left-radius: inherit; border-bottom-right-radius: inherit; }
+.qm-card--shot { display: block; padding: 0; overflow: hidden; }
+.qm-card--shot .qm-shot { border-radius: inherit; }
 
 /* Mobil: telefon görüntüsü üstten kırpılır; sahne daha büyük ve okunur olur */
 @media (max-width: 639px) {

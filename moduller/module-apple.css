@@ -617,7 +617,7 @@ body.qrmo-apple .qrmo-v3-qa-pts li::before { content: ""; position: absolute; le
 }
 @media (max-width: 767px) {
   .qrmo-v3-hero .qrmo-v3-dots { padding: 0 8px; }
-  .qrmo-v3-hero .qrmo-v3-dot { width: 24px; height: 40px; }
+  .qrmo-v3-hero .qrmo-v3-dot { width: 44px; height: 44px; }
   .qrmo-v3-hero .qrmo-v3-dot i { width: 7px; height: 7px; border-radius: 7px; }
   .qrmo-v3-hero .qrmo-v3-dot.is-active i { width: 28px; }
 }
