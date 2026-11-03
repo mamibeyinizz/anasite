@@ -42,7 +42,9 @@ for (const m of MOD.modules) {
   const a = APPLE[m.slug];
   if (!a) continue;
   m.pageClass = "qrmo-apple"; /* eski modüle özel sınıflar (ör. servis-paneli) şablonla çakışmasın */
-  m.v3Order = ["hero", "gaps", "flow", "features", "faq", "more", "closing"];
+  m.v3Order = ["hero", "gaps", "flow", "features", "reviews", "faq", "more", "closing"];
+  /* Geçici: Restoran Menü yorumları tüm modüllerde; modüle özel yorum için apple-data.js içinde `reviews` verin */
+  m.reviews = a.reviews || MOD.modules.find((x) => x.slug === "restoran-menu").reviews;
   m.hideCrumbs = true;
   m.notesInApple = true;
   m.cta = m.cta || { primary: { label: "Canlı menüyü görün", path: "canli-menu/" }, secondary: { label: "Paketleri karşılaştırın", path: "paketler/#karsilastirma" } };
