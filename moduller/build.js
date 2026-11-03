@@ -1235,7 +1235,7 @@ const SECTION = {
   </section>` : "";
     if ((m.pageClass || "").includes("qrmo-apple")) {
       const cards = join(m.featureGrid || [], (f, i) => `
-        <details class="qrmo-v3-qa qrmo-v3-qa--feat"${i === 0 ? " open" : ""}><summary><span class="qrmo-v3-qa-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span><span class="qrmo-v3-qa-q">${esc(f.t)}</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>${esc(f.d)}</p>${f.pts && f.pts.length ? `<ul class="qrmo-v3-qa-pts">${join(f.pts, (x) => `<li>${esc(x)}</li>`)}</ul>` : ""}</div></details>`);
+        <details class="qrmo-v3-qa qrmo-v3-qa--feat"><summary><span class="qrmo-v3-qa-ico" aria-hidden="true">${FEAT_ICON[f.ico] || FEAT_ICON.check}</span><span class="qrmo-v3-qa-q">${esc(f.t)}</span><span class="qrmo-v3-qa-plus" aria-hidden="true"></span></summary><div class="qrmo-v3-qa-body"><p>${esc(f.d)}</p>${f.pts && f.pts.length ? `<ul class="qrmo-v3-qa-pts">${join(f.pts, (x) => `<li>${esc(x)}</li>`)}</ul>` : ""}</div></details>`);
       const stats = (m.featureStats || []).length ? `
       <ul class="qrmo-v3-fstats">${join(m.featureStats, (x) => `<li><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></li>`)}</ul>` : "";
       const qa = (m.faq || []).map((id, i) => {
