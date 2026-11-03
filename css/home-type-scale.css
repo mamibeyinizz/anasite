@@ -205,3 +205,35 @@ body.qrmo-home-ctx :is(.qrmo-hero-v3-feature-content small, .qrmo-hero-v3-featur
   font-size: var(--ts-fs-cap) !important; font-weight: var(--ts-fw-cap) !important;
   line-height: var(--ts-lh-cap) !important; letter-spacing: var(--ts-ls-cap) !important;
 }
+
+/* —— Mobil modül sahneleri (S3–S8, ≤767): her kopya sahnesi bir ekran (100dvh) içinde kalmalı.
+   Lead → gövde, özellik başlığı → kalın gövde, özellik açıklaması → caption.
+   (Önceki 18/500 lead + 16px açıklama sahneleri 100dvh'nin üstüne taşıyordu.) —— */
+@media (max-width: 767px) {
+  body.qrmo-home-ctx .qrmo-translation-v3-description--hook,
+  body.qrmo-home-ctx .qrmo-smart-filter-lead,
+  body.qrmo-home-ctx .qrmo-chatbot-feature__lead,
+  body.qrmo-home-ctx .qrmo-service-v2__lead,
+  body.qrmo-home-ctx .qrmo-analytics-v3__lead {
+    font-size: var(--ts-fs-body) !important; font-weight: var(--ts-fw-body) !important;
+    line-height: var(--ts-lh-body) !important; letter-spacing: var(--ts-ls-body) !important;
+  }
+  body.qrmo-home-ctx .qrmo-translation-v3-benefit-title,
+  body.qrmo-home-ctx #qrmo-home-filtre .qrmo-smart-filter-benefit strong,
+  body.qrmo-home-ctx #qrmo-home-asistan .qrmo-chatbot-feature__item strong,
+  body.qrmo-home-ctx .qrmo-tables-v5__benefit-title,
+  body.qrmo-home-ctx #qrmo-home-servis .qrmo-service-v2__feature-copy strong,
+  body.qrmo-home-ctx .qrmo-analytics-v3__pillar-title {
+    font-size: var(--ts-fs-bodyb) !important; font-weight: var(--ts-fw-bodyb) !important;
+    line-height: 1.35 !important; letter-spacing: var(--ts-ls-bodyb) !important;
+  }
+  body.qrmo-home-ctx .qrmo-translation-v3-benefit-desc,
+  body.qrmo-home-ctx #qrmo-home-filtre .qrmo-smart-filter-benefit p,
+  body.qrmo-home-ctx #qrmo-home-asistan .qrmo-chatbot-feature__item p,
+  body.qrmo-home-ctx .qrmo-tables-v5__benefit-desc,
+  body.qrmo-home-ctx #qrmo-home-servis .qrmo-service-v2__feature-copy p,
+  body.qrmo-home-ctx .qrmo-analytics-v3__pillar-text {
+    font-size: var(--ts-fs-cap) !important; font-weight: var(--ts-fw-cap) !important;
+    line-height: 1.5 !important; letter-spacing: var(--ts-ls-cap) !important;
+  }
+}

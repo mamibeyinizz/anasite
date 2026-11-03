@@ -73,3 +73,17 @@ body .qrmo-hero-v3-subtitle, body .qrmo-hero-v3-subtitle > span { color: #3f4a44
     line-height: var(--ts-lh-h3) !important; letter-spacing: var(--ts-ls-h3) !important;
   }
 }
+
+/* Mobil: uzun alıntı/vurgu cümleleri h3 (22) değil h4 (18) rolünde — satır sayısı ve boyut dengesi */
+@media (max-width: 640px) {
+  html body .qrmo-rv__pull, html body.qrmo-home-ctx .qrmo-rv__pull,
+  html body p.qrmo-v3-pain-fix, html body h3.qrmo-v3-step-h,
+  html body.qrmo-home-ctx .qrmo-demo-cap {
+    font-size: var(--ts-fs-h4) !important; font-weight: var(--ts-fw-h4) !important;
+    line-height: var(--ts-lh-h4) !important; letter-spacing: var(--ts-ls-h4) !important;
+  }
+  html body h2.qb-card__title {
+    font-size: var(--ts-fs-h3) !important; font-weight: var(--ts-fw-h3) !important;
+    line-height: var(--ts-lh-h3) !important; letter-spacing: var(--ts-ls-h3) !important;
+  }
+}
