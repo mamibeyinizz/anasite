@@ -61,6 +61,9 @@ function renderPage(page) {
 <meta property="og:title" content="${esc(page.title)} | QR Menu Official">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${url}">
+<meta property="og:image" content="https://qrmenuofficial.com/assets/brand/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://qrmenuofficial.com/assets/brand/og-default.jpg">
 <link rel="stylesheet" href="../yasal/yasal.css">
 <script type="application/ld+json">${JSON.stringify(breadcrumb)}</script>
 <!-- QRMO:HEAD:START -->

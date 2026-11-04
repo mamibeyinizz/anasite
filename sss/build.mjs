@@ -126,7 +126,11 @@ const canonicalUrl = SITE.baseUrl + SITE.path;
 
 const ogImageTags = SITE.ogImage
   ? `
-  <meta property="og:image" content="${escapeHtml(SITE.ogImage)}">`
+  <meta property="og:image" content="${escapeHtml(SITE.ogImage)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="${escapeHtml(SITE.ogImage)}">`
   : "";
 
 const jsonLd = JSON.stringify(buildJsonLd()).replace(/</g, "\\u003c");

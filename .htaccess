@@ -1,16 +1,34 @@
 # QR Menu Official — Apache / LiteSpeed kuralları (PHP + MySQL barındırma)
-Options -Indexes
+Options -Indexes -MultiViews
 DirectoryIndex index.html index.php
 AddDefaultCharset UTF-8
+
+# Hata sayfaları (404.html: node global/build404.mjs)
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# Sunucu kodu, yapılandırma ve ham veri dışarıya kapalı
+# HTTPS + www'suz tek adres (canonical: https://qrmenuofficial.com/).
+# Vekil/CDN arkasında döngü olmaması için X-Forwarded-Proto da kontrol edilir.
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# TRACE/TRACK kapalı
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)$ [NC]
+RewriteRule ^ - [F,L]
+
+# Sunucu kodu, yapılandırma, ham veri ve geliştirme dosyaları dışarıya kapalı
 RewriteRule ^backend(/|$) - [F,L]
 RewriteRule (^|/)config\.php$ - [F,L]
-RewriteRule \.(sql|env|mjs)$ - [F,L]
-RewriteRule ^(tools|seo)(/|$) - [F,L]
+RewriteRule \.(sql|env|mjs|md|json|lock|py|csv|sh|log|bak|ini|yml|yaml)$ - [F,L]
+RewriteRule ^(tools|seo|sections|\.agents|\.claude|\.git)(/|$) - [F,L]
+RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
 
 # Ziyaretçi toplama, yönetim API'si ve lisans doğrulama
 RewriteRule ^api(/|$) api/index.php [END,QSA]
@@ -23,4 +41,36 @@ RewriteRule ^blog/?$ api/index.php [END,QSA]
 RewriteRule ^blog/feed\.xml$ api/index.php [END,QSA]
 RewriteRule ^blog/([a-z0-9-]+)/?$ api/index.php [END,QSA]
 RewriteRule ^sitemap-blog\.xml$ api/index.php [END,QSA]
+</IfModule>
+
+# Güvenlik başlıkları. setIfEmpty: PHP'nin kendi (daha sıkı) başlıkları ezilmez.
+# CSP: sitede üçüncü taraf kaynak yok; satır içi betik/stil için 'unsafe-inline' gerekir.
+# Yeni bir dış kaynak (analiz, font, iframe, ödeme sağlayıcı) eklenirse buraya da eklenmelidir.
+<IfModule mod_headers.c>
+Header unset X-Powered-By
+Header setIfEmpty X-Content-Type-Options "nosniff"
+Header setIfEmpty X-Frame-Options "SAMEORIGIN"
+Header setIfEmpty Referrer-Policy "strict-origin-when-cross-origin"
+Header setIfEmpty Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+Header setIfEmpty Cross-Origin-Opener-Policy "same-origin"
+Header setIfEmpty Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+Header always set Strict-Transport-Security "max-age=15552000" env=HTTPS
+</IfModule>
+
+# Sıkıştırma
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# Önbellek: yazı tipi/görsel uzun, CSS/JS kısa (dosya adları sürümlü değil)
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType image/webp "access plus 30 days"
+ExpiresByType image/jpeg "access plus 30 days"
+ExpiresByType image/png "access plus 30 days"
+ExpiresByType image/svg+xml "access plus 30 days"
+ExpiresByType text/css "access plus 1 day"
+ExpiresByType text/javascript "access plus 1 day"
+ExpiresByType application/javascript "access plus 1 day"
 </IfModule>
