@@ -74,7 +74,8 @@ try {
 			!array_key_exists('test_orders', $config) || $config['test_orders'] !== false,
 			null,
 			isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com',
-			accountMailer($config)
+			accountMailer($config),
+			$keys
 		)
 	);
 

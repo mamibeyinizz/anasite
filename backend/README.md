@@ -27,6 +27,7 @@ Parola `password_hash`; oturum belirteci çerezde (`__Host-qrc_session`, HttpOnl
 Hız sınırı (`rate_buckets`): üye ol 5/10 dk, giriş 10/dk + e-posta başına 10/15 dk, parola/silme 5/5 dk (IP başına). Yönetici oturumundan ayrıdır.
 Config: `customer_session_ttl` (30 gün), `customer_cookie`, `test_orders` (gerçek ödeme bağlanınca `false`). `prune.php` süresi dolan oturumları siler.
 E-posta: doğrulama, parola sıfırlama (1 sa) ve e-posta değiştirme bağlantıları `mail()` ile gider (`005_customer_recovery.sql`, `site_url`, `mail_from`). Belirteçler yalnız SHA-256 özeti olarak saklanır, tek kullanımlıktır. **Canlıya almadan önce bir hesap açıp e-postanın gerçekten ulaştığını doğrulayın** (SPF/DKIM yoksa spam'e düşebilir). Geliştirmede `mail_file` e-postaları dosyaya yazar.
+Lisans bağlama: `006_customer_licenses.sql` (`customer_licenses`; `licenses` şemasına dokunmaz). Yönetim panelinde Lisans → "Müşteri hesabı" kartından müşterinin üyelik e-postası yazılır (`POST /api/admin/licenses/{id}/customer`, boş e-posta bağlantıyı kaldırır). Müşteri Hesabım › Lisans'ta paket, modüller, tarihler, alan adı ve maskeli anahtarı görür; anahtarı yalnız parolasını yeniden girerek açar (`POST /api/account/license-key`, 5/5 dk, `audit_events`'e `anahtar_musteri_goruntuledi` düşer). Arşivlenen lisans müşteriye görünmez; hesap silinince bağlantı silinir, lisans kalır.
 Test: `/odeme/` test modunda giriş yapmış müşterinin siparişini `customer_orders`'a yazar (`status=test`).
 
 ## Yönetim paneli (`/yonetim/`)

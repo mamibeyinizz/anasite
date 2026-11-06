@@ -13,6 +13,8 @@ use DateTimeImmutable;
 use DateTimeZone;
 use PDO;
 use PDOException;
+use QRLicense\License\Keys;
+use QRLicense\License\Validator;
 
 final class Accounts
 {
@@ -41,6 +43,8 @@ final class Accounts
 
 	private string $siteUrl;
 
+	private ?Keys $keys;
+
 	/** @var callable(string,string,string):bool */
 	private $mailer;
 
@@ -56,8 +60,10 @@ final class Accounts
 		bool $testOrders = true,
 		?callable $now = null,
 		string $siteUrl = '',
-		?callable $mailer = null
+		?callable $mailer = null,
+		?Keys $keys = null
 	) {
+		$this->keys = $keys;
 		$this->siteUrl = rtrim($siteUrl, '/');
 		$this->mailer = $mailer ?? static function (): bool {
 			return false;
@@ -94,6 +100,7 @@ final class Accounts
 			'POST /api/account/verify' => 'verify',
 			'POST /api/account/verify/resend' => 'resend',
 			'POST /api/account/email' => 'email',
+			'POST /api/account/license-key' => 'lkey',
 		);
 		$key = ($method === 'HEAD' ? 'GET' : $method) . ' ' . $path;
 		if (!isset($route[$key])) {
@@ -161,6 +168,8 @@ final class Accounts
 				return $this->resend($session);
 			case 'email':
 				return $this->changeEmail($session, $data);
+			case 'lkey':
+				return $this->licenseKey($session, $data);
 			default:
 				return $this->deleteAccount($session, $data, $https);
 		}
@@ -356,6 +365,7 @@ final class Accounts
 			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
 		}
 		$id = $s['customer_id'];
+		$this->unlinkLicenses($id);
 		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c', array('c' => $id));
 		$this->run('DELETE FROM customer_orders WHERE customer_id = :c', array('c' => $id));
 		$this->run('DELETE FROM customer_sessions WHERE customer_id = :c', array('c' => $id));
@@ -542,6 +552,126 @@ final class Accounts
 		}
 
 		return array('customer_id' => (int) $row['customer_id'], 'kind' => (string) $row['kind'], 'new_email' => $row['new_email'] === null ? null : (string) $row['new_email']);
+	}
+
+	/* ------------------------------------------------------------ lisans */
+
+	/**
+	 * Hesaba bağlı (arşivlenmemiş) lisanslar. Tablo yoksa (006 uygulanmamış) boş liste döner.
+	 *
+	 * @return list<array<string, mixed>>
+	 */
+	private function licensesFor(int $customerId): array
+	{
+		try {
+			$st = $this->pdo->prepare(
+				'SELECT l.id, l.company_name, l.status, l.starts_on, l.expires_on, l.tier_slug, l.domain, l.last_seen_at,
+				        l.client_version, l.api_key_encrypted, t.label AS tier_label
+				 FROM customer_licenses cl
+				 INNER JOIN licenses l ON l.id = cl.license_id
+				 LEFT JOIN tiers t ON t.slug = l.tier_slug
+				 WHERE cl.customer_id = :c AND l.archived_at IS NULL
+				 ORDER BY l.id'
+			);
+			$st->execute(array('c' => $customerId));
+			$rows = $st->fetchAll();
+		} catch (PDOException $e) {
+			error_log('qr-account-licenses ' . $e::class);
+
+			return array();
+		}
+		$out = array();
+		foreach ($rows as $r) {
+			$mods = $this->pdo->prepare('SELECT module_slug FROM license_modules WHERE license_id = :id ORDER BY module_slug');
+			$mods->execute(array('id' => (int) $r['id']));
+			$expires = $r['expires_on'] === null ? null : (string) $r['expires_on'];
+			$state = (string) $r['status'] !== 'aktif' ? 'pasif' : (Validator::isExpired($expires, ($this->now)()) ? 'suresi_dolmus' : 'kullanilabilir');
+			$out[] = array(
+				'id' => (int) $r['id'],
+				'company_name' => (string) $r['company_name'],
+				'state' => $state,
+				'tier' => $r['tier_label'] !== null ? (string) $r['tier_label'] : ($r['tier_slug'] !== null ? (string) $r['tier_slug'] : null),
+				'modules' => array_map('strval', $mods->fetchAll(PDO::FETCH_COLUMN)),
+				'starts_on' => $r['starts_on'] === null ? null : (string) $r['starts_on'],
+				'expires_on' => $expires,
+				'domain' => $r['domain'] === null || $r['domain'] === '' ? null : (string) $r['domain'],
+				'last_seen_at' => $r['last_seen_at'] === null ? null : $this->iso((string) $r['last_seen_at']),
+				'client_version' => (string) ($r['client_version'] ?? ''),
+				'key_hint' => $this->keyHint($r['api_key_encrypted']),
+			);
+		}
+
+		return $out;
+	}
+
+	private function keyHint(mixed $cipher): string
+	{
+		if ($this->keys === null) {
+			return '••••';
+		}
+		try {
+			$raw = is_resource($cipher) ? (string) stream_get_contents($cipher) : (string) $cipher;
+
+			return '••••' . substr($this->keys->decrypt($raw), -4);
+		} catch (\Throwable $e) {
+			return '••••';
+		}
+	}
+
+	/**
+	 * Lisans anahtarını yalnız sahibine, parolası doğrulandıktan sonra verir ve denetim kaydı düşer.
+	 *
+	 * @param array{id:int,customer_id:int,csrf_secret:string} $s
+	 * @param array<string, mixed> $d
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function licenseKey(array $s, array $d): array
+	{
+		$password = isset($d['password']) && is_string($d['password']) ? $d['password'] : '';
+		$id = isset($d['id']) && is_int($d['id']) ? $d['id'] : 0;
+		if ($password === '' || strlen($password) > 128 || !$this->passwordMatches($s['customer_id'], $password)) {
+			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
+		}
+		if ($this->keys === null || $id < 1) {
+			return $this->error(404, 'not_found');
+		}
+		try {
+			$row = $this->one(
+				'SELECT l.api_key_hmac, l.api_key_encrypted FROM customer_licenses cl INNER JOIN licenses l ON l.id = cl.license_id
+				 WHERE cl.license_id = :id AND cl.customer_id = :c AND l.archived_at IS NULL',
+				array('id' => $id, 'c' => $s['customer_id'])
+			);
+		} catch (PDOException $e) {
+			return $this->error(404, 'not_found');
+		}
+		if ($row === null) {
+			return $this->error(404, 'not_found');
+		}
+		try {
+			$raw = is_resource($row['api_key_encrypted']) ? (string) stream_get_contents($row['api_key_encrypted']) : (string) $row['api_key_encrypted'];
+			$plain = $this->keys->decrypt($raw);
+		} catch (\Throwable $e) {
+			return $this->error(500, 'key_unavailable');
+		}
+		if (!hash_equals((string) $row['api_key_hmac'], $this->keys->hmac($plain))) {
+			return $this->error(500, 'key_unavailable');
+		}
+		$who = $this->one('SELECT email FROM customers WHERE id = :id', array('id' => $s['customer_id']));
+		$this->run(
+			'INSERT INTO audit_events (license_id, occurred_at, actor, action, detail) VALUES (:l, :now, :actor, :action, \'\')',
+			array('l' => $id, 'now' => $this->nowSql(), 'actor' => mb_substr('musteri:' . ($who['email'] ?? ''), 0, 64), 'action' => 'anahtar_musteri_goruntuledi')
+		);
+
+		return $this->ok(array('status' => 'ok', 'api_key' => $plain));
+	}
+
+	private function unlinkLicenses(int $customerId): void
+	{
+		try {
+			$this->run('DELETE FROM customer_licenses WHERE customer_id = :c', array('c' => $customerId));
+		} catch (PDOException $e) {
+			/* 006 uygulanmamışsa bağlantı da yoktur. */
+		}
 	}
 
 	/* ------------------------------------------------------------ doğrulama */
@@ -732,6 +862,7 @@ final class Accounts
 				'pending_email' => $this->pendingEmail($s['customer_id']),
 			),
 			'orders' => $orders,
+			'licenses' => $this->licensesFor($s['customer_id']),
 		);
 	}
 
@@ -776,7 +907,7 @@ final class Accounts
 	/** Saniye cinsinden bekleme (0: serbest). */
 	private function limit(string $action, string $ip): int
 	{
-		$caps = array('register' => array(5, 600), 'login' => array(10, 60), 'password' => array(5, 300), 'delete' => array(5, 300), 'order' => array(20, 60), 'forgot' => array(5, 600), 'reset' => array(10, 600), 'verify' => array(20, 600), 'resend' => array(3, 600), 'email' => array(5, 600));
+		$caps = array('register' => array(5, 600), 'login' => array(10, 60), 'password' => array(5, 300), 'delete' => array(5, 300), 'order' => array(20, 60), 'forgot' => array(5, 600), 'reset' => array(10, 600), 'verify' => array(20, 600), 'resend' => array(3, 600), 'email' => array(5, 600), 'lkey' => array(5, 300));
 		$cap = $caps[$action] ?? array(120, 60);
 
 		return $this->consume('acc-' . $action . ':', $ip !== '' ? $ip : 'unknown', $cap[0], $cap[1]);

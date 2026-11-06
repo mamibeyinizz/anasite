@@ -263,7 +263,88 @@ final class LicenseAdmin
 
 		return $this->ok(array(
 			'license' => $this->present($row, $this->modulesFor($id)),
+			'customer' => $this->customerOf($id),
 		));
+	}
+
+	/**
+	 * Lisansı e-postasıyla bulunan müşteri hesabına bağlar; boş e-posta bağlantıyı kaldırır.
+	 *
+	 * @param array<string, mixed> $payload
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	public function assignCustomer(int $id, array $payload, string $actor): array
+	{
+		$unknown = $this->unknownFields($payload, array('email'));
+		if ($unknown !== array() || !array_key_exists('email', $payload)) {
+			return $this->fail(422, 'invalid_field', $unknown !== array() ? $unknown : array('email'));
+		}
+		$raw = $payload['email'];
+		if ($raw !== null && !is_string($raw)) {
+			return $this->fail(422, 'invalid_field', array('email'));
+		}
+		$email = $raw === null ? '' : strtolower(trim($raw));
+		if ($email !== '' && (strlen($email) > 191 || filter_var($email, FILTER_VALIDATE_EMAIL) === false)) {
+			return $this->fail(422, 'invalid_field', array('email'));
+		}
+
+		$row = $this->readLicense($id);
+		if ($row === null) {
+			return $this->fail(404, 'not_found');
+		}
+		if ($this->isArchived($row)) {
+			return $this->fail(409, 'archived');
+		}
+
+		$customerId = 0;
+		if ($email !== '') {
+			$find = $this->pdo->prepare('SELECT id FROM customers WHERE email = :email LIMIT 1');
+			$find->execute(array('email' => $email));
+			$found = $find->fetchColumn();
+			if ($found === false) {
+				return $this->fail(404, 'customer_not_found', array('email'));
+			}
+			$customerId = (int) $found;
+		}
+
+		$this->beginWrite();
+		try {
+			$this->pdo->prepare('DELETE FROM customer_licenses WHERE license_id = :id')->execute(array('id' => $id));
+			if ($customerId > 0) {
+				$this->pdo->prepare('INSERT INTO customer_licenses (license_id, customer_id, linked_at) VALUES (:id, :c, :now)')
+					->execute(array('id' => $id, 'c' => $customerId, 'now' => $this->nowSql()));
+				$this->audit($id, $actor, 'musteri_baglandi', $email);
+			} else {
+				$this->audit($id, $actor, 'musteri_baglantisi_kaldirildi', '');
+			}
+			$this->commitWrite();
+		} catch (PDOException $e) {
+			$this->rollbackWrite();
+			throw $e;
+		}
+
+		return $this->ok(array(
+			'license' => $this->present($row, $this->modulesFor($id)),
+			'customer' => $this->customerOf($id),
+		));
+	}
+
+	/**
+	 * @return array{id:int,email:string,name:string}|null
+	 */
+	private function customerOf(int $licenseId): ?array
+	{
+		try {
+			$st = $this->pdo->prepare(
+				'SELECT c.id, c.email, c.name FROM customer_licenses cl INNER JOIN customers c ON c.id = cl.customer_id WHERE cl.license_id = :id'
+			);
+			$st->execute(array('id' => $licenseId));
+			$r = $st->fetch();
+		} catch (PDOException $e) {
+			return null;
+		}
+
+		return is_array($r) ? array('id' => (int) $r['id'], 'email' => (string) $r['email'], 'name' => (string) $r['name']) : null;
 	}
 
 	/**

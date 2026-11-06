@@ -524,6 +524,17 @@
           d.showModal();
         });
       }
+      function customerCard(C) {
+        var mail = h("input", { type: "email", name: "customer_email", maxlength: 191, placeholder: "musteri@ornek.com", value: C ? C.email : "", autocomplete: "off" });
+        function assign(email) {
+          guard(api("POST", "licenses/" + id + "/customer", { email: email })).then(function () { toast(email ? "Hesaba bağlandı" : "Bağlantı kaldırıldı"); route(); });
+        }
+        return h("div", { class: "card" }, h("h2", { text: "Müşteri hesabı" }),
+          h("p", { class: "muted small", text: C ? C.name + " · " + C.email + " — bu lisans müşterinin Hesabım › Lisans sayfasında görünür." : "Bağlı hesap yok. Müşterinin siteye üye olurken kullandığı e-postayı yazın; lisans onun Hesabım sayfasında görünür." }),
+          h("label", null, "Müşteri e-postası", mail),
+          h("div", { class: "tools" }, h("button", { class: "btn btn--sm btn--primary", type: "button", text: C ? "Değiştir" : "Bağla", onclick: function () { var v = mail.value.trim(); if (v) assign(v); } }),
+            C ? h("button", { class: "btn btn--sm btn--danger", type: "button", text: "Bağlantıyı kaldır", onclick: function () { assign(null); } }) : null));
+      }
       var side = [];
       if (!isNew) {
         var kv = [["Durum", (STATE[L.state] || [L.state])[0]], ["Anahtar", L.key_hint || "—"], ["Kayıtlı domain", L.domain || "Henüz aktifleşmedi"], ["Son görülme", L.last_seen_at ? when(L.last_seen_at) + " (" + ago(L.last_seen_at) + ")" : "—"], ["İstemci sürümü", L.client_version || "—"], ["Oluşturulma", when(L.created_at)]];
@@ -533,7 +544,7 @@
           h("div", { class: "tools", style: null }, h("button", { class: "btn btn--sm", type: "button", text: "Anahtarı göster", onclick: function () { guard(api("POST", "licenses/" + id + "/reveal", {})).then(function (r) { keyDialog(r.api_key, "API anahtarı"); }); } }),
             h("button", { class: "btn btn--sm", type: "button", text: "Domain kilidini kaldır", onclick: function () { confirmDlg("Domain kilidi", "Kayıtlı domain silinir; sonraki doğrulamada gelen ilk domain kilitlenir.", "Kaldır").then(function (y) { if (y) guard(api("POST", "licenses/" + id + "/unlock-domain", { confirm: true })).then(function () { toast("Kilit kaldırıldı"); route(); }); }); } }),
             h("button", { class: "btn btn--sm btn--danger", type: "button", text: "Anahtarı yeniden üret", onclick: function () { confirmDlg("Anahtarı yeniden üret", "Eski anahtar hemen geçersiz olur; müşteri eklentisine yenisi girilmelidir.", "Yeniden üret", true).then(function (y) { if (y) guard(api("POST", "licenses/" + id + "/regenerate-key", { confirm: true })).then(function (r) { return keyDialog(r.api_key, "Yeni API anahtarı"); }).then(route); }); } }),
-            h("button", { class: "btn btn--sm btn--danger", type: "button", text: "Arşivle", onclick: function () { confirmDlg("Lisansı arşivle", "Lisans doğrulamada geçersiz sayılır ve listeden kalkar.", "Arşivle", true).then(function (y) { if (y) guard(api("POST", "licenses/" + id + "/archive", {})).then(function () { toast("Arşivlendi"); location.hash = "#/lisanslar"; }); }); } }))), audit];
+            h("button", { class: "btn btn--sm btn--danger", type: "button", text: "Arşivle", onclick: function () { confirmDlg("Lisansı arşivle", "Lisans doğrulamada geçersiz sayılır ve listeden kalkar.", "Arşivle", true).then(function (y) { if (y) guard(api("POST", "licenses/" + id + "/archive", {})).then(function () { toast("Arşivlendi"); location.hash = "#/lisanslar"; }); }); } }))), customerCard(rs[1].customer), audit];
       }
       add(actions, h("button", { class: "btn btn--primary", type: "button", text: "Kaydet", onclick: save }));
       add(view, h("div", { class: "grid g2" }, f, h("div", { class: "stack" }, side)));

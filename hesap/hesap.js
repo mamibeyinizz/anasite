@@ -62,6 +62,7 @@
     verify: function (b) { return request("POST", "/verify", b); },
     resend: function () { return request("POST", "/verify/resend", {}); },
     email: function (b) { return request("POST", "/email", b); },
+    licenseKey: function (b) { return request("POST", "/license-key", b); },
     flag: flag, message: message, safeNext: safeNext
   };
 })();

@@ -7,6 +7,8 @@
   var $ = function (id) { return document.getElementById(id); };
   var data = null;
   var PERIOD = { monthly: "Aylık", annual: "Yıllık" };
+  var MODULES = { "restoran-menu": "Restoran Menü", "yorum-feedback": "Yorum & Geri Bildirim", "qr-masa": "QR Masa", "qr-analiz": "QR Analiz", "qr-galeri": "QR Galeri", "qr-ceviri": "QR Çeviri", "qr-chatbot": "QR Chatbot", "qr-calisma-saatleri": "QR Çalışma Saatleri", "qr-masa-oturum-guvenligi": "QR Masa Oturum Güvenliği", "qr-acilis-ekrani": "Açılış Ekranı", "header-footer-builder": "Header Footer Builder", "qr-menu-muhendisligi": "Menü Mühendisliği", "qr-servis-paneli": "Servis Paneli" };
+  var LSTATE = { kullanilabilir: "Kullanılabilir", pasif: "Pasif", suresi_dolmus: "Süresi dolmuş" };
 
   function el(tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; }
   function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); return n; }
@@ -17,6 +19,7 @@
     var d = new Date(iso);
     return isNaN(d) ? "" : d.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" });
   }
+  function dateOnly(d) { return date(d + "T00:00:00Z"); }
   function say(node, msg, kind) { node.textContent = msg || ""; if (kind) node.setAttribute("data-kind", kind); else node.removeAttribute("data-kind"); }
   function setErr(input, msg) {
     var e = $(input.id + "-e"); if (e) e.textContent = msg || "";
@@ -49,7 +52,7 @@
   $("ac-retry").addEventListener("click", load);
 
   /* ---------- bölümler ---------- */
-  var IDS = ["genel", "siparisler", "profil", "guvenlik"];
+  var IDS = ["genel", "siparisler", "lisans", "profil", "guvenlik"];
   function route(focus) {
     var id = (location.hash || "").replace("#", ""); if (IDS.indexOf(id) < 0) id = "genel";
     IDS.forEach(function (k) { $(k).hidden = k !== id; });
@@ -72,6 +75,7 @@
 
   function render() {
     var c = data.customer, orders = data.orders || [], last = orders[0], lp = last ? pkg(last.plan) : null;
+    var lics = data.licenses || [], lic = lics[0];
     $("ac-hello").textContent = "Merhaba, " + c.name.split(" ")[0] + ".";
     $("ac-meta").textContent = c.email + " · Üyelik tarihi: " + date(c.created_at);
 
@@ -85,13 +89,18 @@
     if (c.pending_email) pe.textContent = c.pending_email + " adresine onay bağlantısı gönderildi. Bağlantıyı açana kadar giriş adresiniz değişmez.";
 
     var st = clear($("ac-stats"));
-    st.appendChild(stat("", "Abonelik", "Aktif abonelik yok", last ? "Son kayıt: " + (lp ? lp.name : last.plan) + " · " + (PERIOD[last.period] || last.period) + " (test)" : "Henüz paket seçmediniz"));
+    if (lic) st.appendChild(stat("", "Lisans", LSTATE[lic.state] || lic.state, (lic.tier ? lic.tier + " paketi · " : "") + (lic.expires_on ? "Bitiş: " + dateOnly(lic.expires_on) : "Süresiz")));
+    else st.appendChild(stat("", "Abonelik", "Aktif abonelik yok", last ? "Son kayıt: " + (lp ? lp.name : last.plan) + " · " + (PERIOD[last.period] || last.period) + " (test)" : "Henüz paket seçmediniz"));
     st.appendChild(stat("", "Siparişler", String(orders.length), orders.length ? "Son sipariş: " + date(last.created_at) : "Henüz sipariş yok"));
     st.appendChild(stat("", "Alan adı", c.domain || "Kaydedilmedi", c.domain ? "Lisans bu alan adına bağlanır" : "Profil bölümünden ekleyin"));
 
     /* sıradaki adım: en önemli tek eylem */
     var h = $("ac-next-h"), t = $("ac-next-text"), act = clear($("ac-next-actions"));
-    if (!orders.length) {
+    if (lic && !lic.domain) {
+      h.textContent = "Lisans anahtarınızı eklentiye girin.";
+      t.textContent = "Anahtarınız hazır. WordPress'te eklentinin lisans alanına girdiğinizde lisans, siteyi etkinleştirdiğiniz alan adına bağlanır.";
+      act.appendChild(link("#lisans", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Lisans anahtarını göster"));
+    } else if (!orders.length && !lic) {
       h.textContent = "Paketinizi seçin.";
       t.textContent = "Size uygun paketi seçip aboneliği birkaç adımda tamamlayın. Bilgileriniz ödeme sayfasında hazır gelir.";
       act.appendChild(link("../paketler/", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Paketleri incele"));
@@ -111,7 +120,8 @@
     var steps = [
       [true, "Hesap oluşturuldu", null],
       [c.email_verified, "E-posta doğrulandı", null],
-      [orders.length > 0, "Paket seçildi", orders.length ? null : ["../paketler/", "Paket seç"]],
+      [orders.length > 0 || !!lic, "Paket seçildi", orders.length || lic ? null : ["../paketler/", "Paket seç"]],
+      [!!lic, "Lisans anahtarı hesabınıza eklendi", lic ? ["#lisans", "Göster"] : null],
       [!!c.domain, "WordPress alan adı kaydedildi", c.domain ? null : ["#profil", "Ekle"]]
     ];
     var road = clear($("ac-road"));
@@ -126,6 +136,7 @@
     });
 
     renderOrders(orders, lp, last);
+    renderLicenses(lics);
     fillProfile();
   }
 
@@ -173,6 +184,86 @@
       var list = clear($("ac-plan-list"));
       (lp.highlights || []).forEach(function (id) { list.appendChild(el("li", "", featName(id))); });
     }
+  }
+
+  /* ---------- lisans ---------- */
+  var revealTimers = {};
+  function row(k, v) { var r = el("div", "qrmo-ac-lic-row"); r.appendChild(el("dt", "ts-cap", k)); var d = el("dd", "ts-body"); if (v && v.nodeType) d.appendChild(v); else d.textContent = v; r.appendChild(d); return r; }
+  function renderLicenses(lics) {
+    var box = clear($("ac-lics"));
+    $("ac-lics-empty").hidden = lics.length > 0;
+    $("ac-lic-sub").textContent = lics.length ? "Eklentinizi etkinleştirmek için gereken bilgiler burada." : "";
+    lics.forEach(function (L) {
+      var art = el("article", "qrmo-ac-lic");
+      var head = el("div", "qrmo-ac-lic-head");
+      head.appendChild(el("h3", "ts-h4", L.company_name));
+      head.appendChild(el("span", "qrmo-ac-badge ts-capb" + (L.state === "kullanilabilir" ? "" : " qrmo-ac-badge--test"), LSTATE[L.state] || L.state));
+      art.appendChild(head);
+      var dl = el("dl", "qrmo-ac-lic-list");
+      dl.appendChild(row("Paket", L.tier || "Özel"));
+      var mods = el("ul", "qrmo-ac-chips");
+      (L.modules || []).forEach(function (m) { mods.appendChild(el("li", "ts-cap", MODULES[m] || m)); });
+      dl.appendChild(row("Modüller", L.modules && L.modules.length ? mods : "—"));
+      dl.appendChild(row("Başlangıç", L.starts_on ? dateOnly(L.starts_on) : "—"));
+      dl.appendChild(row("Bitiş", L.expires_on ? dateOnly(L.expires_on) : "Süresiz"));
+      dl.appendChild(row("Alan adı", L.domain || "Henüz etkinleştirilmedi"));
+      dl.appendChild(row("Son doğrulama", L.last_seen_at ? date(L.last_seen_at) : "—"));
+      if (L.client_version) dl.appendChild(row("Eklenti sürümü", L.client_version));
+      art.appendChild(dl);
+      if (!L.domain) art.appendChild(el("p", "qrmo-ac-note ts-cap", "Lisans, eklentiyi ilk etkinleştirdiğiniz alan adına kilitlenir."));
+      else art.appendChild(el("p", "qrmo-ac-note ts-cap", "Alan adını değiştirmek için bize ulaşın; kilidi sizin adınıza kaldırırız."));
+      art.appendChild(keyBlock(L));
+      box.appendChild(art);
+    });
+  }
+  function keyBlock(L) {
+    var wrap = el("div", "qrmo-ac-key");
+    wrap.appendChild(el("p", "ts-bodyb", "API anahtarı"));
+    var line = el("div", "qrmo-ac-key-line");
+    var code = el("code", "qrmo-ac-key-code ts-body", L.key_hint);
+    var show = el("button", "qrmo-ac-btn qrmo-ac-btn--ghost ts-btn", "Anahtarı göster"); show.type = "button";
+    line.appendChild(code); line.appendChild(show); wrap.appendChild(line);
+    var form = el("form", "qrmo-ac-form qrmo-ac-key-form"); form.hidden = true; form.noValidate = true;
+    var fid = "lk-" + L.id;
+    var f = el("div", "qrmo-ac-field");
+    var lab = el("label", "ts-link", "Onay için parolanız"); lab.setAttribute("for", fid);
+    var inp = el("input"); inp.type = "password"; inp.id = fid; inp.name = "password"; inp.autocomplete = "current-password"; inp.setAttribute("aria-describedby", fid + "-e");
+    var err = el("span", "qrmo-ac-err ts-cap"); err.id = fid + "-e";
+    f.appendChild(lab); f.appendChild(inp); f.appendChild(err); form.appendChild(f);
+    var go = el("button", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Göster"); go.type = "submit";
+    form.appendChild(go); wrap.appendChild(form);
+    var out = el("p", "qrmo-ac-note ts-cap"); out.setAttribute("role", "status"); wrap.appendChild(out);
+    wrap.appendChild(el("p", "qrmo-ac-note ts-cap", "Anahtarı yalnızca eklentinin lisans alanına girin; kimseyle paylaşmayın."));
+
+    function hide() { clearTimeout(revealTimers[L.id]); code.textContent = L.key_hint; show.textContent = "Anahtarı göster"; show.setAttribute("data-state", ""); if (copy.parentNode) copy.parentNode.removeChild(copy); out.textContent = ""; }
+    var copy = el("button", "qrmo-ac-btn qrmo-ac-btn--gold ts-btn", "Kopyala"); copy.type = "button";
+    copy.addEventListener("click", function () {
+      var key = code.textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(key) : Promise.reject()).then(function () { out.textContent = "Kopyalandı."; }, function () { out.textContent = "Kopyalanamadı; anahtarı elle seçip kopyalayın."; });
+    });
+    show.addEventListener("click", function () {
+      if (show.getAttribute("data-state") === "open") { hide(); return; }
+      form.hidden = !form.hidden; if (!form.hidden) inp.focus();
+    });
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); setErr(inp, "");
+      if (!inp.value) { setErr(inp, "Parolanızı yazın."); inp.focus(); return; }
+      go.disabled = true;
+      A.licenseKey({ id: L.id, password: inp.value }).then(function (res) {
+        go.disabled = false;
+        if (res.status === 200 && res.data.api_key) {
+          inp.value = ""; form.hidden = true;
+          code.textContent = res.data.api_key; show.textContent = "Gizle"; show.setAttribute("data-state", "open"); line.appendChild(copy);
+          out.textContent = "Anahtar 60 saniye sonra otomatik gizlenir.";
+          revealTimers[L.id] = setTimeout(hide, 60000);
+          return;
+        }
+        if (res.status === 401) { A.flag(false); location.replace("../giris/?next=hesabim/"); return; }
+        if (res.status === 422 && serverErrs(form, res)) return;
+        out.textContent = A.message(res);
+      });
+    });
+    return wrap;
   }
 
   /* ---------- profil ---------- */
