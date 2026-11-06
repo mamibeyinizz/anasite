@@ -550,7 +550,7 @@
     var key = parts[0], arg = parts[1];
     if (key === "blog" && arg) key = "yazi";
     if (key === "lisans" && !arg) key = "lisanslar";
-    if (!V[key]) { key = "genel"; arg = null; }
+    if (!V[key]) { toast("Sayfa bulunamadı", true); key = "genel"; arg = null; }
     var nav = key === "yazi" ? "blog" : key === "lisans" ? "lisanslar" : key === "ziyaretci" ? "ziyaretciler" : key === "oturum" ? "oturumlar" : key;
     Array.prototype.forEach.call($("nav").querySelectorAll("a"), function (a) { if (a.dataset.k === nav) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     $("title").textContent = TITLES[key] || "";

@@ -104,7 +104,8 @@ td.r,th.r{text-align:right}
  .app{grid-template-columns:1fr}
  .side{position:fixed;inset:0 auto 0 0;width:min(280px,86vw);z-index:30;transform:translateX(-102%);transition:transform .2s}
  .side.open{transform:none}
- .top__menu{display:inline-block}.top{padding:12px 14px}.view{padding:14px}
+ .top__menu{display:inline-block}.top{padding:12px 14px;flex-wrap:wrap}.view{padding:14px}
+ .top__actions{width:100%;max-width:100%;overflow-x:auto}
  .row2,.row3,.editor{grid-template-columns:1fr}.rep__row{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){.side{transition:none}}
