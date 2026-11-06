@@ -52,11 +52,18 @@ final class LicenseAdmin
 	/** @var callable(): DateTimeImmutable */
 	private $now;
 
+	/** @var callable(string,string,string):bool|null */
+	private $mailer;
+
+	private string $siteUrl;
+
 	/**
 	 * @param callable(): DateTimeImmutable|null $now
 	 */
-	public function __construct(PDO $pdo, Keys $keys, ?callable $now = null)
+	public function __construct(PDO $pdo, Keys $keys, ?callable $now = null, ?callable $mailer = null, string $siteUrl = '')
 	{
+		$this->mailer = $mailer;
+		$this->siteUrl = rtrim($siteUrl, '/');
 		$this->pdo = $pdo;
 		$this->keys = $keys;
 		$this->now = $now ?? static function (): DateTimeImmutable {
@@ -297,15 +304,19 @@ final class LicenseAdmin
 		}
 
 		$customerId = 0;
+		$customerName = '';
 		if ($email !== '') {
-			$find = $this->pdo->prepare('SELECT id FROM customers WHERE email = :email LIMIT 1');
+			$find = $this->pdo->prepare('SELECT id, name FROM customers WHERE email = :email LIMIT 1');
 			$find->execute(array('email' => $email));
-			$found = $find->fetchColumn();
-			if ($found === false) {
+			$found = $find->fetch();
+			if (!is_array($found)) {
 				return $this->fail(404, 'customer_not_found', array('email'));
 			}
-			$customerId = (int) $found;
+			$customerId = (int) $found['id'];
+			$customerName = (string) $found['name'];
 		}
+		$previous = $this->customerOf($id);
+		$newLink = $customerId > 0 && ($previous === null || $previous['id'] !== $customerId);
 
 		$this->beginWrite();
 		try {
@@ -323,10 +334,31 @@ final class LicenseAdmin
 			throw $e;
 		}
 
+		$notified = $newLink ? $this->notifyLinked($email, $customerName, (string) $row['company_name']) : null;
+
 		return $this->ok(array(
 			'license' => $this->present($row, $this->modulesFor($id)),
 			'customer' => $this->customerOf($id),
+			'notified' => $notified,
 		));
+	}
+
+	/** Müşteriye lisansının hesabına eklendiğini bildirir; anahtar e-postaya konmaz. Başarısızlık işlemi bozmaz. */
+	private function notifyLinked(string $to, string $name, string $company): bool
+	{
+		if ($this->mailer === null || $this->siteUrl === '') {
+			return false;
+		}
+		$first = explode(' ', trim($name))[0] ?? '';
+		$body = 'Merhaba' . ($first !== '' ? ' ' . $first : '') . ",\n\n" . $company . " lisansınız hesabınıza eklendi. Paketinizi, modüllerinizi ve lisans anahtarınızı Hesabım sayfasının Lisans bölümünde görebilirsiniz:\n\n"
+			. $this->siteUrl . "/hesabim/#lisans\n\nAnahtarı görmek için parolanızı yeniden girmeniz istenir. Anahtarı yalnızca eklentinin lisans alanına girin ve kimseyle paylaşmayın.\n\nQR Menu Official";
+		try {
+			return (bool) ($this->mailer)($to, 'QR Menu Official: lisansınız hesabınıza eklendi', $body);
+		} catch (\Throwable $e) {
+			error_log('qr-license-mail ' . $e::class);
+
+			return false;
+		}
 	}
 
 	/**

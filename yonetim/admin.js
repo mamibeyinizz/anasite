@@ -527,10 +527,10 @@
       function customerCard(C) {
         var mail = h("input", { type: "email", name: "customer_email", maxlength: 191, placeholder: "musteri@ornek.com", value: C ? C.email : "", autocomplete: "off" });
         function assign(email) {
-          guard(api("POST", "licenses/" + id + "/customer", { email: email })).then(function () { toast(email ? "Hesaba bağlandı" : "Bağlantı kaldırıldı"); route(); });
+          guard(api("POST", "licenses/" + id + "/customer", { email: email })).then(function (r) { toast(!email ? "Bağlantı kaldırıldı" : r.notified === true ? "Hesaba bağlandı; müşteriye e-posta gitti" : r.notified === false ? "Hesaba bağlandı; e-posta gönderilemedi, müşteriye kendiniz bildirin" : "Hesaba bağlandı"); route(); });
         }
         return h("div", { class: "card" }, h("h2", { text: "Müşteri hesabı" }),
-          h("p", { class: "muted small", text: C ? C.name + " · " + C.email + " — bu lisans müşterinin Hesabım › Lisans sayfasında görünür." : "Bağlı hesap yok. Müşterinin siteye üye olurken kullandığı e-postayı yazın; lisans onun Hesabım sayfasında görünür." }),
+          h("p", { class: "muted small", text: C ? C.name + " · " + C.email + " — bu lisans müşterinin Hesabım › Lisans sayfasında görünür. Yeni bağladığınızda müşteriye e-posta gider." : "Bağlı hesap yok. Müşterinin siteye üye olurken kullandığı e-postayı yazın; lisans onun Hesabım sayfasında görünür." }),
           h("label", null, "Müşteri e-postası", mail),
           h("div", { class: "tools" }, h("button", { class: "btn btn--sm btn--primary", type: "button", text: C ? "Değiştir" : "Bağla", onclick: function () { var v = mail.value.trim(); if (v) assign(v); } }),
             C ? h("button", { class: "btn btn--sm btn--danger", type: "button", text: "Bağlantıyı kaldır", onclick: function () { assign(null); } }) : null));
