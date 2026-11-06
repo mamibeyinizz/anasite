@@ -20,6 +20,14 @@ PHP 8.1+ (PDO MySQL, openssl, mbstring, GD+WebP), MySQL 5.7+/MariaDB 10.4+, Apac
 6. Günlük temizlik cron'u (saklama süresi `retention_days`, varsayılan 180 gün): `17 3 * * * php /yol/backend/bin/prune.php`
 7. `https://alanadi/yonetim/` adresinden giriş yapın. Giriş yalnızca HTTPS ile açılır (`require_https`).
 
+## Müşteri hesapları (`/api/account/*`)
+
+`004_customers.sql` (install.php uygular; mevcut kurulumda dosyayı bir kez çalıştırın). Üye ol / giriş / çıkış / `me` / profil / parola / test siparişi / hesabı sil.
+Parola `password_hash`; oturum belirteci çerezde (`__Host-qrc_session`, HttpOnly, SameSite=Lax), veritabanında yalnız SHA-256 özeti; durum değiştiren isteklerde `X-CSRF-Token`.
+Hız sınırı (`rate_buckets`): üye ol 5/10 dk, giriş 10/dk + e-posta başına 10/15 dk, parola/silme 5/5 dk (IP başına). Yönetici oturumundan ayrıdır.
+Config: `customer_session_ttl` (30 gün), `customer_cookie`, `test_orders` (gerçek ödeme bağlanınca `false`). `prune.php` süresi dolan oturumları siler.
+Test: `/odeme/` test modunda giriş yapmış müşterinin siparişini `customer_orders`'a yazar (`status=test`).
+
 ## Yönetim paneli (`/yonetim/`)
 
 - **Genel bakış / Canlı:** ziyaretçi, oturum, sayfa görüntüleme, tıklama, süre, çıkış oranı, önceki dönemle kıyas, kaynaklar, cihaz/tarayıcı/OS/ülke, utm.

@@ -317,6 +317,7 @@ body .qrmo-v3-q a,
 body .qrmo-v3-qa.ap-r a,
 body a.qrmo-consent__more,
 body a.qrmo-gh-link,
+body span.qrmo-gh-acct-label,
 body a.qrmo-gh-skip,
 body a.qrmo-live-next-link,
 body a.qrmo-pricing-modlink,
@@ -1561,6 +1562,59 @@ button.qrmo-gh-d-card--pending {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ---------- hesap bağlantısı (Giriş Yap / Hesabım) ---------- */
+.qrmo-gh-acct {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  color: var(--qrmo-cream);
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+.qrmo-gh-acct[aria-current] {
+  color: var(--qrmo-gold-light);
+}
+.qrmo-gh-acct-icon {
+  display: inline-flex;
+}
+/* Dar masaüstü genişliklerinde yalnız simge (etiket erişilebilir ad olarak kalır). */
+.qrmo-gh-acct-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (min-width: 961px) {
+  .qrmo-gh-in > .qrmo-gh-acct {
+    display: inline-flex;
+  }
+}
+@media (min-width: 1280px) {
+  .qrmo-gh-acct-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .qrmo-gh-acct:hover {
+    color: var(--qrmo-gold-light);
+  }
+}
+.qrmo-gh-acct:focus-visible {
+  outline: 2px solid var(--qrmo-gold-light);
+  outline-offset: 4px;
+  border-radius: 6px;
 }
 
 /* =========================================================

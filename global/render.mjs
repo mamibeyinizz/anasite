@@ -4,6 +4,7 @@ import {
   CTA,
   CONVERSION,
   NAV,
+  ACCOUNT,
   DRAWER,
   DRAWER_SOLUTIONS,
   HUB,
@@ -28,6 +29,7 @@ const I = {
   arrow: svg('<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>'),
   mail: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path class="qrmo-gh-mail-flap" d="M3.5 7.5 12 13.5l8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="qrmo-gh-mail-ping" cx="20" cy="5" r="2.6" fill="currentColor"/></svg>`,
   qr: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M15 15H18V18H21V21H15V15ZM18 12V15M12 18H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  user: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/></svg>`,
   nav: {
     home: svg('<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/>'),
     moduller: svg('<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h4v4h3v3h-7v-7ZM18 11v3"/>'),
@@ -79,6 +81,29 @@ function renderFooterCtaBtn(rel) {
   const inner = `<span>${esc(label)}</span>${I.arrow}`;
   if (url) return `<a class="qrmo-gf-cta-btn" href="${esc(url)}">${inner}</a>`;
   return `<button class="qrmo-gf-cta-btn qrmo-gf-cta-btn--pending" type="button" data-qrmo-cta="primary">${inner}</button>`;
+}
+
+/* Hesap bağlantısı (masaüstü çubuk + drawer kartı). Etiket/adres JS ile oturuma göre değişir. */
+function acctAttrs(rel) {
+  return `data-qrmo-acct data-acct-login="${href(rel, ACCOUNT.login.path)}" data-acct-account="${href(rel, ACCOUNT.account.path)}"`;
+}
+function renderAccountLink(rel, current) {
+  const on = current === "hesap" ? ' aria-current="true"' : "";
+  return `<a class="qrmo-gh-acct" href="${href(rel, ACCOUNT.login.path)}" ${acctAttrs(rel)}${on}><span class="qrmo-gh-acct-icon">${I.user}</span><span class="qrmo-gh-acct-label" data-acct-label>${esc(ACCOUNT.login.label)}</span></a>`;
+}
+function renderAccountCard(rel, current) {
+  const on = current === "hesap" ? ' aria-current="true"' : "";
+  return `
+      <a class="qrmo-gh-d-card" href="${href(rel, ACCOUNT.login.path)}" ${acctAttrs(rel)}${on}>
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon">${I.user}</span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title" data-acct-label>${esc(ACCOUNT.login.label)}</span>
+          <span class="qrmo-gh-d-card-sub" data-acct-sub>${esc(ACCOUNT.login.sub)}</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>`;
 }
 
 function renderNavDesktopItem(rel, n, current, exact) {
@@ -153,7 +178,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
   /* Ana sayfadayken drawer'da kendine giden "Ana Sayfa" kartı gösterilmez */
   const drawerLinks = NAV.filter((n) => !(n.key === "home" && current === "home"))
     .map((n) => renderDrawerNavCard(rel, n, current, exact))
-    .join("");
+    .join("") + renderAccountCard(rel, current);
 
   const solutionCards = DRAWER_SOLUTIONS.map(
     (s, i) => `
@@ -188,6 +213,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
         <ul>${desktopItems}
         </ul>
       </nav>
+      ${renderAccountLink(rel, current)}
       ${renderPrimaryCta(rel)}
       <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
         <span class="qrmo-gh-burger-label">MENÜ</span>

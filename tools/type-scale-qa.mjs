@@ -11,7 +11,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_PATH || "playwright");
 
 const BASE = process.argv[2] || "http://localhost:8123";
 const PAGES = process.argv.slice(3).length ? process.argv.slice(3) : [
-  "/", "/paketler/", "/odeme/", "/moduller/", "/moduller/akilli-filtreleme/", "/moduller/coklu-dil/",
+  "/", "/paketler/", "/odeme/", "/giris/", "/giris/?sekme=uye", "/moduller/", "/moduller/akilli-filtreleme/", "/moduller/coklu-dil/",
   "/moduller/masa-oturum-guvenligi/", "/moduller/menu-asistani/", "/moduller/menu-muhendisligi/",
   "/moduller/qr-analytics/", "/moduller/qr-masa/", "/moduller/restoran-menu/", "/moduller/servis-paneli/",
   "/moduller/yorum-geri-bildirim/", "/blog/", "/blog/dijital-menu-nasil-hazirlanir/",

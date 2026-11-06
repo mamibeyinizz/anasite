@@ -23,4 +23,10 @@ if (!is_string($configPath) || $configPath === '') {
 $config = require $configPath;
 $analytics = new Analytics(Database::connect($config), (int) ($config['tz_offset_hours'] ?? 3));
 $r = $analytics->prune((int) ($config['retention_days'] ?? 180));
+try {
+	$pdo = Database::connect($config);
+	$pdo->prepare('DELETE FROM customer_sessions WHERE expires_at <= :now')->execute(array('now' => gmdate('Y-m-d H:i:s')));
+} catch (Throwable $e) {
+	/* 004_customers.sql uygulanmamışsa temizlenecek bir şey yoktur. */
+}
 fwrite(STDOUT, "Silindi: {$r['events']} olay, {$r['sessions']} oturum, {$r['visitors']} ziyaretçi.\n");

@@ -38,6 +38,12 @@ return array(
 	'site_hosts'      => array('qrmenuofficial.com', 'www.qrmenuofficial.com'),
 	// Rapor günlerinin saat dilimi (UTC'den saat farkı). Türkiye: 3.
 	'tz_offset_hours' => 3,
+	// Müşteri hesabı oturumu (saniye) ve çerez adı. Güvenli bağlantıda çerez __Host- önekiyle yazılır.
+	'customer_session_ttl' => 2592000,
+	'customer_cookie'      => 'qrc_session',
+	// true: /odeme/ test modunda; giriş yapmış müşterinin test siparişi hesabına kaydedilir.
+	// Gerçek ödeme sağlayıcısı bağlandığında false yapın (siparişleri sağlayıcı bildirimi oluşturur).
+	'test_orders'          => true,
 	// Analitik verisinin saklama süresi (gün). bin/prune.php bu süreyi aşanları siler.
 	'retention_days'  => 180,
 	// Site dosyalarının kökü (boşsa backend/'in bir üstü).

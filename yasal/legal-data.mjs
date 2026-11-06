@@ -4,6 +4,8 @@
 
    İçerik yalnızca sitenin gerçekte yaptığına dayanır (iletişim formu e-posta taslağı
    hazırlar, sunucuya kaydetmez; üçüncü taraf betik/yazı tipi/harita/reklam aracı yoktur).
+   Müşteri hesabı (/giris/, /hesabim/, /odeme/) kişisel veriyi KENDİ sunucumuza kaydeder ve zorunlu bir
+   oturum çerezi yazar (backend/src/Account/Accounts.php, backend/migrations/004_customers.sql).
    Ziyaret ölçümü YALNIZCA onayla çalışır ve kendi sunucumuza yazar (global/src/analytics.js →
    /api/collect → backend/src/Site/Collector.php; saklama süresi backend/config: retention_days).
    Bunlardan biri değişirse (ör. GA4, Meta pixel, form sunucusu eklenirse, saklama süresi
@@ -14,7 +16,7 @@
    henüz repoda yoktur; sahibi eklemelidir (bkz. README "Bilinçli olarak açık kalan konular").
 ========================================================= */
 
-export const UPDATED = "1 Kasım 2026";
+export const UPDATED = "6 Kasım 2026";
 
 export const PAGES = [
   {
@@ -24,13 +26,13 @@ export const PAGES = [
     h1: "Gizlilik Politikası ve KVKK Aydınlatma Metni",
     description:
       "QR Menu Official sitesinde hangi kişisel verilerin, neden ve nasıl işlendiği; 6698 sayılı KVKK kapsamındaki haklarınız.",
-    lead: "İletişim formunu doldurduğunuzda ya da bize yazdığınızda hangi bilgilerinizin işlendiğini, neden işlendiğini ve haklarınızı bu sayfada bulabilirsiniz.",
+    lead: "İletişim formunu doldurduğunuzda, bize yazdığınızda ya da hesap açtığınızda hangi bilgilerinizin işlendiğini, neden işlendiğini ve haklarınızı bu sayfada bulabilirsiniz.",
     sections: [
       {
         id: "kapsam",
         h2: "Kapsam",
         html: `
-<p>Bu metin, qrmenuofficial.com sitesini ziyaret edenler ve site üzerinden bizimle iletişime geçenler içindir.</p>
+<p>Bu metin, qrmenuofficial.com sitesini ziyaret edenler, site üzerinden bizimle iletişime geçenler ve sitede hesap açanlar içindir.</p>
 <p>Canlı demo menüler ayrı alt alan adlarında (temel, test ve full ile başlayan qrmenuofficial.com adresleri) çalışır. Hizmeti kullanan işletmelerin kendi menü ve panel verileri de bu metnin kapsamı dışındadır.</p>`
       },
       {
@@ -47,6 +49,7 @@ export const PAGES = [
         html: `
 <p><strong>İletişim formu.</strong> Formda yazdığınız ad, işletme adı, telefon numarası, e-posta adresi (isteğe bağlı), işletme türü, ilgilendiğiniz konu, mesajınızın içeriği ve onay tercihleriniz.</p>
 <p><strong>Telefon ve e-posta.</strong> Bize doğrudan arayarak veya yazarak ilettiğiniz bilgiler.</p>
+<p><strong>Hesap (üye olursanız).</strong> Ad soyad, e-posta adresi ve parolanız; isteğe bağlı olarak işletme adı, telefon numarası ve WordPress alan adı. Parolanız düz metin olarak saklanmaz, yalnızca geri döndürülemez bir özeti tutulur. Ayrıca üyelik ve son giriş zamanı, kullanım şartlarını kabul ettiğiniz an ve oturum kayıtlarınız (oturum anahtarınızın özeti ve geçerlilik süresi) saklanır. Paket seçip siparişi tamamladığınızda sipariş kaydınız (paket, dönem, referans numarası ve tarih) hesabınıza eklenir; kart bilgisi bu sitede alınmaz ve saklanmaz.</p>
 <p><strong>Site kullanımı (yalnızca onayınızla).</strong> Çerez çubuğunda “Kabul Et”i seçerseniz şunlar kaydedilir: ziyaret ettiğiniz sayfalar ve zamanı, tıkladığınız bağlantı ve düğmelerin adı, sayfada ne kadar kaydırdığınız, sayfada geçirdiğiniz etkin süre, tarayıcı türü, işletim sistemi, cihaz türü, ekran boyutu ve dil, sizi siteye getiren adres veya kampanya etiketi (utm), IP adresiniz, IP adresinden türetilen ülke bilgisi ve tarayıcınızda saklanan rastgele bir ziyaretçi kimliği. Form alanlarına yazdıklarınız, tuş vuruşlarınız ve sayfalardaki metin içerikleri okunmaz. “Reddet”i seçerseniz veya tarayıcınız “Do Not Track” / “Global Privacy Control” sinyali gönderiyorsa bunların hiçbiri saklanmaz ve gönderilmez (ayrıntı: <a href="{rel}cerez-politikasi/">Çerez Politikası</a>).</p>
 <p><strong>Sunucu kayıtları.</strong> Barındırma hizmetini veren sağlayıcı, sitenin güvenliği ve çalışması için IP adresi, tarayıcı bilgisi ve erişim zamanı gibi sunucu kayıtlarını onayınızdan bağımsız olarak tutabilir.</p>`
       },
@@ -55,6 +58,7 @@ export const PAGES = [
         h2: "Verilerin toplanma yöntemi",
         html: `
 <p>İletişim formundaki “talebi e-posta taslağına aktar” düğmesi, yazdıklarınızı cihazınızdaki e-posta uygulamasında bir taslağa dönüştürür. Site bu bilgileri bir sunucuya kaydetmez; bilgileriniz, e-postayı siz gönderdiğinizde bize ulaşır.</p>
+<p>Hesap oluşturma, giriş, profil ve sipariş adımlarında yazdıklarınız, iletişim formundan farklı olarak, güvenli bağlantıyla sunucumuza gönderilir ve orada saklanır.</p>
 <p>Telefonla veya e-postayla bize doğrudan ulaştığınızda bilgileriniz sizin ilettiğiniz kadarıyla alınır.</p>
 <p>Ziyaret ölçümü verileri, onay verdiğinizde tarayıcınızdaki küçük bir betik aracılığıyla ve otomatik yollarla kendi sunucumuza gönderilir. Üçüncü taraf bir analiz veya reklam hizmeti kullanılmaz.</p>`
       },
@@ -64,6 +68,7 @@ export const PAGES = [
         html: `
 <ul>
   <li><strong>Talebinizi yanıtlamak, çözüm ve paketler hakkında bilgi vermek, ön görüşmeyi yürütmek.</strong> Hukuki sebep: bir sözleşmenin kurulması için gerekli olması (KVKK m.5/2-c) ve meşru menfaat (m.5/2-f).</li>
+  <li><strong>Hesabınızı oluşturmak ve yönetmek, girişinizi doğrulamak, siparişlerinizi göstermek ve sipariş adımında bilgilerinizi hazır getirmek.</strong> Hukuki sebep: bir sözleşmenin kurulması veya ifası için gerekli olması (KVKK m.5/2-c); hesap güvenliği (oturum ve parola doğrulama) için meşru menfaat (m.5/2-f).</li>
   <li><strong>Ürün ve paket duyuruları göndermek.</strong> Yalnızca formdaki “Ürün ve paket duyuruları almak istiyorum” kutusunu işaretlediyseniz yapılır. Hukuki sebep: açık rıza; ticari elektronik iletiler için ayrıca onayınız aranır. Onayınızı istediğiniz zaman geri alabilirsiniz.</li>
   <li><strong>Sitenin hangi sayfa ve düğmelerinin kullanıldığını anlamak, içeriği ve paket anlatımını iyileştirmek.</strong> Yalnızca çerez çubuğunda “Kabul Et”i seçtiyseniz yapılır. Hukuki sebep: açık rıza (KVKK m.5/1). Rızanızı çerez politikasındaki “Tercihlerimi değiştir” düğmesiyle istediğiniz zaman geri alabilirsiniz; geri alma geleceğe yöneliktir.</li>
   <li><strong>Siteyi ve iletişim kanallarını güvenli tutmak, hukuki yükümlülükleri yerine getirmek.</strong> Hukuki sebep: hukuki yükümlülük (m.5/2-ç) ve meşru menfaat (m.5/2-f).</li>
@@ -81,12 +86,14 @@ export const PAGES = [
         h2: "Saklama süresi",
         html: `
 <p>Ziyaret ölçümü verileri en fazla 180 gün saklanır, ardından otomatik olarak silinir. Bu süre dolmadan silinmesini isterseniz aşağıdaki başvuru yolunu kullanabilirsiniz; tarayıcınızdaki ziyaretçi kimliğini (ekranda “tarayıcı depolaması”) göndermeniz kaydı bulmamızı kolaylaştırır.</p>
+<p>Hesap verileriniz, hesabınız açık olduğu sürece saklanır. Hesabım sayfasındaki “Hesabı sil” işlemiyle profil bilgileriniz, siparişleriniz ve oturumlarınız silinir. Oturum kayıtları varsayılan olarak 30 gün geçerlidir; süresi dolanlar silinir. Vergi ve muhasebe mevzuatının fatura ve ödeme kayıtları için öngördüğü saklama yükümlülükleri saklıdır.</p>
 <p>Diğer verileriniz, işleme amacının gerektirdiği süre boyunca saklanır. Amaç sona erdiğinde veya talebiniz üzerine silinir, yok edilir ya da anonim hâle getirilir (KVKK m.7). Mevzuatın daha uzun bir saklama süresi öngördüğü haller saklıdır.</p>`
       },
       {
         id: "haklariniz",
         h2: "KVKK m.11 kapsamındaki haklarınız",
         html: `
+<p>Hesap sahipleri profil bilgilerini Hesabım sayfasından görebilir, düzeltebilir ve hesabını silebilir.</p>
 <p>Veri sahibi olarak şu haklara sahipsiniz:</p>
 <ul>
   <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme ve işlenmişse bilgi talep etme</li>
@@ -121,15 +128,16 @@ export const PAGES = [
     title: "Çerez Politikası",
     h1: "Çerez Politikası",
     description:
-      "QR Menu Official sitesi çerez yerleştirmez; ziyaret ölçümü yalnızca onayınızla, tarayıcı depolamasında tutulan anonim bir kimlikle çalışır. Tercihinizi buradan değiştirebilirsiniz.",
-    lead: "Bu site çerez (cookie) yerleştirmez ve reklam aracı yüklemez. Ziyaret ölçümü yalnızca sizin onayınızla ve kendi sunucumuzda yapılır; tercihinizi aşağıdan istediğiniz zaman değiştirebilirsiniz.",
+      "QR Menu Official sitesi ölçüm veya reklam çerezi yerleştirmez; giriş yaparsanız yalnızca oturumunuzu sürdüren zorunlu bir çerez yazılır. Ziyaret ölçümü yalnızca onayınızla çalışır; tercihinizi buradan değiştirebilirsiniz.",
+    lead: "Bu site ölçüm veya reklam amaçlı çerez (cookie) yerleştirmez ve reklam aracı yüklemez. Giriş yaparsanız yalnızca oturumunuzu sürdüren zorunlu bir çerez yazılır. Ziyaret ölçümü yalnızca sizin onayınızla ve kendi sunucumuzda yapılır; tercihinizi aşağıdan istediğiniz zaman değiştirebilirsiniz.",
     sections: [
       {
         id: "ozet",
         h2: "Kısaca",
         html: `
 <ul>
-  <li>Site çerez (cookie) yerleştirmez; tarayıcı depolamasını (localStorage, sessionStorage) kullanır.</li>
+  <li>Site, ölçüm ya da reklam için çerez (cookie) yerleştirmez; tarayıcı depolamasını (localStorage, sessionStorage) kullanır.</li>
+  <li>Yalnızca <strong>giriş yaparsanız</strong> oturumunuzu sürdüren, zorunlu bir oturum çerezi yazılır (ayrıntı aşağıda). Çıkış yaptığınızda silinir.</li>
   <li>Ziyaret ölçümü <strong>yalnızca “Kabul Et” derseniz</strong> çalışır. “Reddet” derseniz veya tarayıcınız Do Not Track / Global Privacy Control sinyali gönderiyorsa hiçbir kimlik saklanmaz, sunucuya hiçbir şey gönderilmez.</li>
   <li>Reklam, sosyal medya takibi veya üçüncü taraf analiz aracı yoktur; yazı tipi, harita, video gibi üçüncü taraf içerik yüklenmez.</li>
 </ul>`
@@ -140,6 +148,17 @@ export const PAGES = [
         html: `
 <p>Ziyaret ölçümü tercihinizi değiştirmek için aşağıdaki düğmeye basın; çerez çubuğu yeniden açılır. “Reddet”i seçtiğinizde tarayıcınızdaki ziyaretçi kimliği silinir.</p>
 <p><button type="button" class="qrmo-legal-pref-btn" data-qrmo-consent-open>Tercihlerimi değiştir</button></p>`
+      },
+      {
+        id: "oturum-cerezi",
+        h2: "Oturum çerezi (giriş yaparsanız)",
+        html: `
+<p>Hesabınıza giriş yaptığınızda tarayıcınıza bir oturum çerezi yazılır. Bu çerez hizmetin sunulması için zorunludur, bu nedenle ölçüm tercihinizden bağımsızdır ve ayrıca onay istenmez. Ölçüm, reklam veya profilleme için kullanılmaz.</p>
+<ul>
+  <li><strong>__Host-qrc_session</strong> (güvenli bağlantıda; aksi halde qrc_session). Rastgele üretilmiş oturum anahtarı; sunucuda yalnızca özeti tutulur. HttpOnly (sayfadaki betikler okuyamaz), Secure ve SameSite=Lax özellikleriyle yazılır. Varsayılan geçerlilik süresi 30 gündür; çıkış yaptığınızda, parolanızı değiştirdiğinizde (diğer cihazlarda) veya hesabınızı sildiğinizde sona erer.</li>
+  <li><strong>qrmo_hesap</strong> (localStorage). Yalnızca menüdeki “Giriş Yap” bağlantısının “Hesabım” olarak görünmesi için tutulan “oturum var” işaretidir; kişisel veri içermez ve sunucuya gönderilmez.</li>
+</ul>
+<p>Çerezi tarayıcı ayarlarından silebilir veya engelleyebilirsiniz; bu durumda giriş yapamaz ve sipariş veremezsiniz, site diğer sayfalarda çalışmaya devam eder.</p>`
       },
       {
         id: "olcum-depolamasi",
@@ -173,7 +192,7 @@ export const PAGES = [
         id: "yonetim",
         h2: "Tarayıcınızdan yönetme",
         html: `
-<p>Tarayıcı ayarlarınızdan site verilerini istediğiniz zaman silebilir veya depolamayı engelleyebilirsiniz. Depolama kapalıyken site çalışmaya devam eder; ölçüm yapılmaz ve yukarıdaki arayüz tercihleri hatırlanmaz.</p>`
+<p>Tarayıcı ayarlarınızdan site verilerini istediğiniz zaman silebilir veya depolamayı engelleyebilirsiniz. Depolama kapalıyken site çalışmaya devam eder; ölçüm yapılmaz ve yukarıdaki arayüz tercihleri hatırlanmaz. Çerezleri engellerseniz hesabınıza giriş yapamazsınız.</p>`
       },
       {
         id: "degisiklik",
@@ -191,7 +210,7 @@ export const PAGES = [
     h1: "Kullanım Şartları",
     description:
       "QR Menu Official sitesinin kullanımına, fiyat ve paket bilgilerine, demo menülere ve içeriğe ilişkin şartlar.",
-    lead: "Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz. Site tanıtım amaçlıdır; satın alma ve ödeme bu sitede yapılmaz.",
+    lead: "Bu siteyi kullanarak aşağıdaki şartları kabul etmiş olursunuz. Site çözümleri tanıtır; hesap açıp paket seçebilirsiniz. Ödeme adımı şu anda test modundadır ve ücret çekilmez.",
     sections: [
       {
         id: "kapsam",
@@ -203,7 +222,14 @@ export const PAGES = [
         id: "sitenin-amaci",
         h2: "Sitenin amacı",
         html: `
-<p>Site, QR Menu Official çözümlerini tanıtır. Bu sitede hesap oluşturulmaz, satın alma ya da ödeme yapılmaz. Hizmete ilişkin talepler <a href="{rel}iletisim/">iletişim sayfasındaki</a> kanallarla iletilir.</p>`
+<p>Site, QR Menu Official çözümlerini tanıtır ve paket satın almak için hesap açmanıza olanak tanır. Hesap açmak ücretsizdir ve satın alma yükümlülüğü doğurmaz. Ödeme adımı şu anda test modundadır: ücret çekilmez, kart bilgisi alınmaz ve test siparişi bağlayıcı bir sözleşme oluşturmaz. Gerçek ödeme açıldığında bu şartlar güncellenir. Hizmete ilişkin talepler <a href="{rel}iletisim/">iletişim sayfasındaki</a> kanallarla iletilir.</p>`
+      },
+      {
+        id: "hesabiniz",
+        h2: "Hesabınız",
+        html: `
+<p>Hesap açarken doğru ve güncel bilgi vermeniz, parolanızı gizli tutmanız ve başkasıyla paylaşmamanız beklenir. Hesabınızla yapılan işlemlerden, parolanızın sizin kusurunuzla başkalarının eline geçmesi hâlinde siz sorumlusunuz. Hesabınızın izinsiz kullanıldığından şüphelenirseniz parolanızı Hesabım sayfasından değiştirin ve <a href="{rel}iletisim/">bize bildirin</a>.</p>
+<p>Hesabınızı istediğiniz zaman Hesabım sayfasından silebilirsiniz; bu işlem profil bilgilerinizi ve sipariş kayıtlarınızı kalıcı olarak siler. Verilerin nasıl işlendiği <a href="{rel}gizlilik/">Gizlilik Politikası ve KVKK Aydınlatma Metni</a>’ndedir.</p>`
       },
       {
         id: "fiyat-paket",

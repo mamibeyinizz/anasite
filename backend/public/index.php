@@ -1,11 +1,12 @@
 <?php
 /**
  * Tek giriş noktası (api/index.php buraya yönlendirir).
- * Yollar: /api/collect, /blog…, /sitemap-blog.xml, /api/admin/*, /v1/validate, /wp-json/qmls/v1/validate
+ * Yollar: /api/collect, /api/account/*, /blog…, /sitemap-blog.xml, /api/admin/*, /v1/validate, /wp-json/qmls/v1/validate
  * Hata gövdesinde SQL, dosya yolu, parola veya yığın izi yoktur.
  */
 declare(strict_types=1);
 
+use QRLicense\Account\Accounts;
 use QRLicense\Admin\Auth;
 use QRLicense\Http\RequestContext;
 use QRLicense\Http\Router;
@@ -64,7 +65,14 @@ try {
 		new Collector($pdo, $hosts),
 		new Analytics($pdo, isset($config['tz_offset_hours']) ? (int) $config['tz_offset_hours'] : 3),
 		new Blog($pdo, $root),
-		$root
+		$root,
+		new Accounts(
+			$pdo,
+			!array_key_exists('require_https', $config) || $config['require_https'] !== false,
+			isset($config['customer_session_ttl']) ? (int) $config['customer_session_ttl'] : 2592000,
+			isset($config['customer_cookie']) ? (string) $config['customer_cookie'] : 'qrc_session',
+			!array_key_exists('test_orders', $config) || $config['test_orders'] !== false
+		)
 	);
 
 	$method = isset($_SERVER['REQUEST_METHOD']) ? (string) $_SERVER['REQUEST_METHOD'] : 'GET';
