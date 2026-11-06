@@ -78,6 +78,15 @@ export const ACCOUNT = {
   account: { label: "Hesabım", path: "hesabim/", sub: "Siparişleriniz ve profiliniz" }
 };
 
+/* Header/drawer birincil CTA'sı satın alma yolundadır: oturum yokken "Üye Ol", varken "Paketleri Seç".
+   İletişim bağlantısı drawer kartında, footer'da ve sayfa içi CTA'larda durur (CONVERSION.primary). */
+export const HEADER_CTA = {
+  out: { label: "Üye Ol", path: "giris/?sekme=uye" },
+  in: { label: "Paketleri Seç", path: "paketler/" }
+};
+
+export const DRAWER_CONTACT = { label: "İletişim", sub: "Sorunuz mu var? Bize yazın", path: "iletisim/" };
+
 export const DRAWER = {
   eyebrow: "RESTORANLAR İÇİN DİJİTAL ÇÖZÜMLER",
   titleLine1: "Restoranınızı",

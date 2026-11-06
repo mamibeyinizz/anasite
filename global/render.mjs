@@ -5,6 +5,8 @@ import {
   CONVERSION,
   NAV,
   ACCOUNT,
+  HEADER_CTA,
+  DRAWER_CONTACT,
   DRAWER,
   DRAWER_SOLUTIONS,
   HUB,
@@ -106,6 +108,27 @@ function renderAccountCard(rel, current) {
       </a>`;
 }
 
+/* Oturum durumuna göre etiketi/adresi account-link.js değiştirir. */
+function renderHeaderCta(rel, { drawer = false } = {}) {
+  const cls = `qrmo-gh-cta${drawer ? " qrmo-gh-cta--drawer" : ""}`;
+  const inner = `<span class="qrmo-gh-qr-icon">${I.arrow}</span><span data-cta-label>${esc(HEADER_CTA.out.label)}</span>`;
+  return `<a class="${cls}" href="${href(rel, HEADER_CTA.out.path)}" data-qrmo-cta-acct data-cta-out-href="${href(rel, HEADER_CTA.out.path)}" data-cta-in-href="${href(rel, HEADER_CTA.in.path)}" data-cta-in-label="${esc(HEADER_CTA.in.label)}">${inner}</a>`;
+}
+function renderContactCard(rel, current) {
+  const on = current === "iletisim" ? ' aria-current="true"' : "";
+  return `
+      <a class="qrmo-gh-d-card" href="${href(rel, DRAWER_CONTACT.path)}"${on}>
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon">${I.nav.iletisim}</span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">${esc(DRAWER_CONTACT.label)}</span>
+          <span class="qrmo-gh-d-card-sub">${esc(DRAWER_CONTACT.sub)}</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>`;
+}
+
 function renderNavDesktopItem(rel, n, current, exact) {
   if (n.ctaPlaceholder) {
     return `<li class="qrmo-gh-item"><button type="button" class="qrmo-gh-link qrmo-gh-link--pending" data-qrmo-cta="${esc(n.ctaPlaceholder)}">${esc(n.label)}</button></li>`;
@@ -178,7 +201,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
   /* Ana sayfadayken drawer'da kendine giden "Ana Sayfa" kartı gösterilmez */
   const drawerLinks = NAV.filter((n) => !(n.key === "home" && current === "home"))
     .map((n) => renderDrawerNavCard(rel, n, current, exact))
-    .join("") + renderAccountCard(rel, current);
+    .join("") + renderAccountCard(rel, current) + renderContactCard(rel, current);
 
   const solutionCards = DRAWER_SOLUTIONS.map(
     (s, i) => `
@@ -214,7 +237,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
         </ul>
       </nav>
       ${renderAccountLink(rel, current)}
-      ${renderPrimaryCta(rel)}
+      ${renderHeaderCta(rel)}
       <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
         <span class="qrmo-gh-burger-label">MENÜ</span>
         <span class="qrmo-gh-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -250,7 +273,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
       </div>
     </div>
     <div class="qrmo-gh-drawer-bottom">
-      ${renderPrimaryCta(rel, { drawer: true })}
+      ${renderHeaderCta(rel, { drawer: true })}
       ${drawerNote}
     </div>
   </div>

@@ -38,7 +38,7 @@
         </ul>
       </nav>
       <a class="qrmo-gh-acct" href="../giris/" data-qrmo-acct data-acct-login="../giris/" data-acct-account="../hesabim/" aria-current="true"><span class="qrmo-gh-acct-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/></svg></span><span class="qrmo-gh-acct-label" data-acct-label>Giriş Yap</span></a>
-      <a class="qrmo-gh-cta" href="../iletisim/"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path class="qrmo-gh-mail-flap" d="M3.5 7.5 12 13.5l8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="qrmo-gh-mail-ping" cx="20" cy="5" r="2.6" fill="currentColor"/></svg></span><span>İletişime Geçin</span></a>
+      <a class="qrmo-gh-cta" href="../giris/?sekme=uye" data-qrmo-cta-acct data-cta-out-href="../giris/?sekme=uye" data-cta-in-href="../paketler/" data-cta-in-label="Paketleri Seç"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span data-cta-label>Üye Ol</span></a>
       <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
         <span class="qrmo-gh-burger-label">MENÜ</span>
         <span class="qrmo-gh-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -135,6 +135,16 @@
       </span>
       <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
       </a>
+      <a class="qrmo-gh-d-card" href="../iletisim/">
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">İletişim</span>
+          <span class="qrmo-gh-d-card-sub">Sorunuz mu var? Bize yazın</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
     </nav>
     <section class="qrmo-gh-d-section">
       <div class="qrmo-gh-d-section-head">
@@ -212,7 +222,7 @@
       </div>
     </div>
     <div class="qrmo-gh-drawer-bottom">
-      <a class="qrmo-gh-cta qrmo-gh-cta--drawer" href="../iletisim/"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path class="qrmo-gh-mail-flap" d="M3.5 7.5 12 13.5l8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="qrmo-gh-mail-ping" cx="20" cy="5" r="2.6" fill="currentColor"/></svg></span><span>İletişime Geçin</span><span aria-hidden="true">→</span></a>
+      <a class="qrmo-gh-cta qrmo-gh-cta--drawer" href="../giris/?sekme=uye" data-qrmo-cta-acct data-cta-out-href="../giris/?sekme=uye" data-cta-in-href="../paketler/" data-cta-in-label="Paketleri Seç"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span><span data-cta-label>Üye Ol</span></a>
       
     </div>
   </div>
@@ -234,11 +244,19 @@
       <header class="qrmo-ac-head">
         <div class="qrmo-ac-head-text">
           <p class="qrmo-ac-eyebrow ts-eyebrow">Hesabım</p>
-          <h1 class="qrmo-ac-title ts-h1" id="ac-hello">Merhaba.</h1>
-          <p class="qrmo-ac-lead ts-lead" id="ac-meta"></p>
+          <h1 class="qrmo-ac-title ts-h2" id="ac-hello">Merhaba.</h1>
+          <p class="qrmo-ac-lead ts-body" id="ac-meta"></p>
         </div>
         <button class="qrmo-ac-btn qrmo-ac-btn--ghost ts-btn" type="button" id="ac-logout">Çıkış yap</button>
       </header>
+
+      <div class="qrmo-ac-banner ts-body" id="ac-verify" hidden>
+        <p id="ac-verify-text"></p>
+        <div class="qrmo-ac-form-actions">
+          <button class="qrmo-ac-btn qrmo-ac-btn--primary ts-btn qrmo-ac-btn--block-m" type="button" id="ac-resend">Doğrulama e-postasını gönder</button>
+        </div>
+        <p class="ts-cap" id="ac-verify-state" role="status" aria-live="polite"></p>
+      </div>
 
       <div class="qrmo-ac-shell">
         <nav aria-label="Hesap bölümleri">
@@ -261,22 +279,18 @@
               <p class="ts-body" id="ac-next-text"></p>
               <div class="qrmo-ac-next-actions" id="ac-next-actions"></div>
             </div>
-            <div class="qrmo-ac-two">
-              <div class="qrmo-ac-card">
-                <h3 class="qrmo-ac-h ts-h4">Hesap bilgileriniz</h3>
-                <p class="qrmo-ac-sub ts-cap" id="ac-complete-text"></p>
-                <div class="qrmo-ac-meter" aria-hidden="true"><span id="ac-meter"></span></div>
-                <ul class="qrmo-ac-checklist ts-body" id="ac-checklist"></ul>
-              </div>
-              <div class="qrmo-ac-card">
-                <h3 class="qrmo-ac-h ts-h4">Hızlı bağlantılar</h3>
-                <ul class="qrmo-ac-links ts-bodyb">
-                  <li><a href="../paketler/"><span>Paketler ve fiyatlar<span class="ts-cap">Paketleri karşılaştırın</span></span><span aria-hidden="true">→</span></a></li>
-                  <li><a href="../canli-menu/"><span>Canlı menüyü gör<span class="ts-cap">Demo menüyü telefonunuzda deneyin</span></span><span aria-hidden="true">→</span></a></li>
-                  <li><a href="../sss/"><span>Sık sorulan sorular<span class="ts-cap">Karar vermeden önce sorulanlar</span></span><span aria-hidden="true">→</span></a></li>
-                  <li><a href="../iletisim/"><span>İletişim<span class="ts-cap">Sorunuz mu var? Bize yazın</span></span><span aria-hidden="true">→</span></a></li>
-                </ul>
-              </div>
+            <div class="qrmo-ac-card">
+              <h3 class="qrmo-ac-h ts-h4">Başlangıç yol haritası</h3>
+              <p class="qrmo-ac-sub ts-cap">Hesabınızdaki adımlar işaretlenir; menü kurulumu ürünün yönetim panelinde yapılır.</p>
+              <ol class="qrmo-ac-road ts-body" id="ac-road"></ol>
+              <h4 class="qrmo-ac-h ts-bodyb qrmo-ac-road-h">Menü kurulumu (yönetim panelinde)</h4>
+              <ol class="qrmo-ac-road qrmo-ac-road--static ts-body" start="5">
+                <li><span class="qrmo-ac-dot" aria-hidden="true"></span><span><strong class="ts-bodyb">Menü.</strong> Ürünler adı, kategorisi, fiyatı ve açıklamasıyla eklenir.</span></li>
+                <li><span class="qrmo-ac-dot" aria-hidden="true"></span><span><strong class="ts-bodyb">Ürün bilgileri ve diller.</strong> Alerjen, besin değeri ve diller girilir.</span></li>
+                <li><span class="qrmo-ac-dot" aria-hidden="true"></span><span><strong class="ts-bodyb">Masalar ve QR.</strong> Her masa için QR kodu üretilir ve yazdırılır.</span></li>
+                <li><span class="qrmo-ac-dot" aria-hidden="true"></span><span><strong class="ts-bodyb">Servis ekranı ve deneme.</strong> Personel cihazında açılır, garson çağrısı denenir.</span></li>
+              </ol>
+              <p class="qrmo-ac-note"><a class="ts-bodyb" href="../canli-menu/">Canlı demoda akışı görün →</a></p>
             </div>
           </section>
 
@@ -312,33 +326,56 @@
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ap-name">Ad soyad</label>
                     <input id="ap-name" name="name" type="text" autocomplete="name" required aria-describedby="ap-name-e">
-                    <span class="qrmo-ac-err ts-cap" id="ap-name-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ap-name-e"></span>
                   </div>
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ap-email">E-posta</label>
                     <input id="ap-email" name="email" type="email" readonly aria-describedby="ap-email-h">
-                    <span class="qrmo-ac-help ts-cap" id="ap-email-h">E-posta adresi giriş bilginizdir; değiştirmek için bize ulaşın.</span>
+                    <span class="qrmo-ac-help ts-cap" id="ap-email-h">Giriş adresinizdir. Değiştirmek için aşağıdaki "E-postayı değiştir" bölümünü kullanın.</span>
                   </div>
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ap-business">İşletme adı <span class="qrmo-ac-opt ts-capb">isteğe bağlı</span></label>
                     <input id="ap-business" name="business" type="text" autocomplete="organization" aria-describedby="ap-business-e">
-                    <span class="qrmo-ac-err ts-cap" id="ap-business-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ap-business-e"></span>
                   </div>
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ap-phone">Telefon <span class="qrmo-ac-opt ts-capb">isteğe bağlı</span></label>
                     <input id="ap-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="ap-phone-e">
-                    <span class="qrmo-ac-err ts-cap" id="ap-phone-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ap-phone-e"></span>
                   </div>
                   <div class="qrmo-ac-field qrmo-ac-field--wide">
                     <label class="ts-link" for="ap-domain">WordPress alan adı <span class="qrmo-ac-opt ts-capb">isteğe bağlı</span></label>
                     <input id="ap-domain" name="domain" type="text" inputmode="url" autocomplete="url" placeholder="ornek.com" aria-describedby="ap-domain-h ap-domain-e">
                     <span class="qrmo-ac-help ts-cap" id="ap-domain-h">Lisans alan adına bağlanır. Şimdi bilmiyorsanız sonra da girebilirsiniz.</span>
-                    <span class="qrmo-ac-err ts-cap" id="ap-domain-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ap-domain-e"></span>
                   </div>
                 </div>
                 <div class="qrmo-ac-status ts-body" id="ap-state" role="status" aria-live="polite"></div>
                 <div class="qrmo-ac-form-actions">
                   <button class="qrmo-ac-btn qrmo-ac-btn--primary ts-btn qrmo-ac-btn--block-m" type="submit" id="ap-submit">Değişiklikleri kaydet</button>
+                </div>
+              </form>
+            </div>
+            <div class="qrmo-ac-card">
+              <h3 class="qrmo-ac-h ts-h4">E-posta adresi</h3>
+              <p class="qrmo-ac-sub ts-body">Yeni adresinize bir onay bağlantısı göndeririz; bağlantıyı açtığınızda giriş adresiniz değişir.</p>
+              <p class="qrmo-ac-sub ts-bodyb" id="ae-pending" hidden></p>
+              <form class="qrmo-ac-form" id="ac-email" novalidate>
+                <div class="qrmo-ac-fields2">
+                  <div class="qrmo-ac-field">
+                    <label class="ts-link" for="ae-email">Yeni e-posta</label>
+                    <input id="ae-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="ae-email-e" autocapitalize="none" spellcheck="false">
+                    <span class="qrmo-ac-err ts-cap" id="ae-email-e"></span>
+                  </div>
+                  <div class="qrmo-ac-field">
+                    <label class="ts-link" for="ae-password">Parolanız</label>
+                    <input id="ae-password" name="password" type="password" autocomplete="current-password" required aria-describedby="ae-password-e">
+                    <span class="qrmo-ac-err ts-cap" id="ae-password-e"></span>
+                  </div>
+                </div>
+                <div class="qrmo-ac-status ts-body" id="ae-state" role="status" aria-live="polite"></div>
+                <div class="qrmo-ac-form-actions">
+                  <button class="qrmo-ac-btn qrmo-ac-btn--ghost ts-btn qrmo-ac-btn--block-m" type="submit" id="ae-submit">Onay bağlantısı gönder</button>
                 </div>
               </form>
             </div>
@@ -354,18 +391,18 @@
                   <div class="qrmo-ac-field qrmo-ac-field--wide">
                     <label class="ts-link" for="ak-current">Mevcut parola</label>
                     <input id="ak-current" name="current" type="password" autocomplete="current-password" required aria-describedby="ak-current-e">
-                    <span class="qrmo-ac-err ts-cap" id="ak-current-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ak-current-e"></span>
                   </div>
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ak-password">Yeni parola</label>
                     <input id="ak-password" name="password" type="password" autocomplete="new-password" required minlength="10" aria-describedby="ak-password-h ak-password-e">
                     <span class="qrmo-ac-help ts-cap" id="ak-password-h">En az 10 karakter.</span>
-                    <span class="qrmo-ac-err ts-cap" id="ak-password-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ak-password-e"></span>
                   </div>
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ak-again">Yeni parola (tekrar)</label>
                     <input id="ak-again" name="again" type="password" autocomplete="new-password" required aria-describedby="ak-again-e">
-                    <span class="qrmo-ac-err ts-cap" id="ak-again-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ak-again-e"></span>
                   </div>
                 </div>
                 <div class="qrmo-ac-status ts-body" id="ak-state" role="status" aria-live="polite"></div>
@@ -373,14 +410,6 @@
                   <button class="qrmo-ac-btn qrmo-ac-btn--primary ts-btn qrmo-ac-btn--block-m" type="submit" id="ak-submit">Parolayı güncelle</button>
                 </div>
               </form>
-            </div>
-
-            <div class="qrmo-ac-card">
-              <h2 class="qrmo-ac-h ts-h3">Oturum</h2>
-              <p class="qrmo-ac-sub ts-body">Ortak bir cihaz kullanıyorsanız işiniz bitince çıkış yapın.</p>
-              <div class="qrmo-ac-form-actions">
-                <button class="qrmo-ac-btn qrmo-ac-btn--ghost ts-btn qrmo-ac-btn--block-m" type="button" id="ac-logout2">Çıkış yap</button>
-              </div>
             </div>
 
             <div class="qrmo-ac-card qrmo-ac-danger">
@@ -392,7 +421,7 @@
                   <div class="qrmo-ac-field">
                     <label class="ts-link" for="ad-password">Onay için parolanız</label>
                     <input id="ad-password" name="password" type="password" autocomplete="current-password" required aria-describedby="ad-password-e">
-                    <span class="qrmo-ac-err ts-cap" id="ad-password-e" role="alert"></span>
+                    <span class="qrmo-ac-err ts-cap" id="ad-password-e"></span>
                   </div>
                   <div class="qrmo-ac-status ts-body" id="ad-state" role="status" aria-live="polite"></div>
                   <div class="qrmo-ac-form-actions">

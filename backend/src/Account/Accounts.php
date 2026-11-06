@@ -39,8 +39,14 @@ final class Accounts
 
 	private string $dummyHash;
 
+	private string $siteUrl;
+
+	/** @var callable(string,string,string):bool */
+	private $mailer;
+
 	/**
 	 * @param callable():DateTimeImmutable|null $now
+	 * @param callable(string,string,string):bool|null $mailer (alıcı, konu, metin) → gönderildi mi
 	 */
 	public function __construct(
 		PDO $pdo,
@@ -48,8 +54,14 @@ final class Accounts
 		int $ttl = 2592000,
 		string $cookieName = 'qrc_session',
 		bool $testOrders = true,
-		?callable $now = null
+		?callable $now = null,
+		string $siteUrl = '',
+		?callable $mailer = null
 	) {
+		$this->siteUrl = rtrim($siteUrl, '/');
+		$this->mailer = $mailer ?? static function (): bool {
+			return false;
+		};
 		$this->pdo = $pdo;
 		$this->requireHttps = $requireHttps;
 		$this->ttl = $ttl > 0 ? $ttl : 2592000;
@@ -77,6 +89,11 @@ final class Accounts
 			'POST /api/account/password' => 'password',
 			'POST /api/account/orders' => 'order',
 			'DELETE /api/account' => 'delete',
+			'POST /api/account/forgot' => 'forgot',
+			'POST /api/account/reset' => 'reset',
+			'POST /api/account/verify' => 'verify',
+			'POST /api/account/verify/resend' => 'resend',
+			'POST /api/account/email' => 'email',
 		);
 		$key = ($method === 'HEAD' ? 'GET' : $method) . ' ' . $path;
 		if (!isset($route[$key])) {
@@ -103,6 +120,15 @@ final class Accounts
 		}
 		if ($action === 'login') {
 			return $this->login($data, $https);
+		}
+		if ($action === 'forgot') {
+			return $this->forgot($data);
+		}
+		if ($action === 'reset') {
+			return $this->reset($data);
+		}
+		if ($action === 'verify') {
+			return $this->verify($data);
 		}
 
 		$session = $this->loadSession($this->tokenFromCookie($cookie, $https));
@@ -131,6 +157,10 @@ final class Accounts
 				return $this->changePassword($session, $data);
 			case 'order':
 				return $this->createOrder($session, $data);
+			case 'resend':
+				return $this->resend($session);
+			case 'email':
+				return $this->changeEmail($session, $data);
 			default:
 				return $this->deleteAccount($session, $data, $https);
 		}
@@ -184,6 +214,7 @@ final class Accounts
 			throw $e;
 		}
 		$id = (int) $this->pdo->lastInsertId();
+		$this->sendToken($id, 'verify', $email, null);
 
 		return $this->startSession($id, $https, 201);
 	}
@@ -268,6 +299,7 @@ final class Accounts
 			'UPDATE customers SET password_hash = :h, updated_at = :now WHERE id = :id',
 			array('h' => password_hash($new, PASSWORD_DEFAULT), 'now' => $this->nowSql(), 'id' => $s['customer_id'])
 		);
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'reset\'', array('c' => $s['customer_id']));
 		/* Diğer cihazlardaki oturumlar kapanır; bu oturum açık kalır. */
 		$this->run('DELETE FROM customer_sessions WHERE customer_id = :c AND id <> :id', array('c' => $s['customer_id'], 'id' => $s['id']));
 
@@ -324,11 +356,192 @@ final class Accounts
 			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
 		}
 		$id = $s['customer_id'];
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c', array('c' => $id));
 		$this->run('DELETE FROM customer_orders WHERE customer_id = :c', array('c' => $id));
 		$this->run('DELETE FROM customer_sessions WHERE customer_id = :c', array('c' => $id));
 		$this->run('DELETE FROM customers WHERE id = :c', array('c' => $id));
 
 		return $this->ok(array('status' => 'ok'), array('Set-Cookie' => $this->cookie('', 0, $https)));
+	}
+
+	/* ------------------------------------------------------------ kurtarma / doğrulama */
+
+	/**
+	 * Parola sıfırlama bağlantısı ister. E-posta kayıtlı olsun olmasın aynı yanıtı verir.
+	 *
+	 * @param array<string, mixed> $d
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function forgot(array $d): array
+	{
+		$email = isset($d['email']) && is_string($d['email']) ? strtolower(trim($d['email'])) : '';
+		if ($email === '' || strlen($email) > 191 || filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			return $this->error(422, 'validation', array('email' => 'Geçerli bir e-posta adresi yazın.'));
+		}
+		$wait = $this->consume('acc-forgot-mail:', $email, 3, 3600);
+		if ($wait === 0) {
+			$row = $this->one('SELECT id FROM customers WHERE email = :e LIMIT 1', array('e' => $email));
+			if ($row !== null) {
+				$this->sendToken((int) $row['id'], 'reset', $email, null);
+			}
+		}
+
+		return $this->ok(array('status' => 'ok'));
+	}
+
+	/**
+	 * @param array<string, mixed> $d
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function reset(array $d): array
+	{
+		$fields = array();
+		$password = $this->newPassword($d['password'] ?? null, $fields);
+		if ($fields !== array()) {
+			return $this->error(422, 'validation', $fields);
+		}
+		$tok = $this->useToken($d['token'] ?? null, 'reset');
+		if ($tok === null) {
+			return $this->error(410, 'invalid_token');
+		}
+		$id = $tok['customer_id'];
+		$this->run('UPDATE customers SET password_hash = :h, updated_at = :now WHERE id = :id', array('h' => password_hash($password, PASSWORD_DEFAULT), 'now' => $this->nowSql(), 'id' => $id));
+		$this->run('DELETE FROM customer_sessions WHERE customer_id = :c', array('c' => $id));
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'reset\'', array('c' => $id));
+
+		return $this->ok(array('status' => 'ok'));
+	}
+
+	/**
+	 * E-posta doğrulama ve e-posta değiştirme bağlantısı (oturum gerekmez).
+	 *
+	 * @param array<string, mixed> $d
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function verify(array $d): array
+	{
+		$tok = $this->useToken($d['token'] ?? null, null);
+		if ($tok === null || ($tok['kind'] !== 'verify' && $tok['kind'] !== 'email')) {
+			return $this->error(410, 'invalid_token');
+		}
+		$id = $tok['customer_id'];
+		if ($tok['kind'] === 'email' && $tok['new_email'] !== null) {
+			try {
+				$this->run('UPDATE customers SET email = :e, email_verified_at = :now, updated_at = :now2 WHERE id = :id', array('e' => $tok['new_email'], 'now' => $this->nowSql(), 'now2' => $this->nowSql(), 'id' => $id));
+			} catch (PDOException $e) {
+				if ($this->isDuplicate($e)) {
+					return $this->error(409, 'email_taken');
+				}
+				throw $e;
+			}
+			$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'email\'', array('c' => $id));
+		} else {
+			$this->run('UPDATE customers SET email_verified_at = :now WHERE id = :id AND email_verified_at IS NULL', array('now' => $this->nowSql(), 'id' => $id));
+			$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'verify\'', array('c' => $id));
+		}
+
+		return $this->ok(array('status' => 'ok', 'kind' => $tok['kind']));
+	}
+
+	/**
+	 * @param array{id:int,customer_id:int,csrf_secret:string} $s
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function resend(array $s): array
+	{
+		$c = $this->one('SELECT email, email_verified_at FROM customers WHERE id = :id', array('id' => $s['customer_id']));
+		if ($c === null || $c['email_verified_at'] !== null) {
+			return $this->error(409, 'already_verified');
+		}
+		if (!$this->sendToken($s['customer_id'], 'verify', (string) $c['email'], null)) {
+			return $this->error(503, 'mail_failed');
+		}
+
+		return $this->ok(array('status' => 'ok'));
+	}
+
+	/**
+	 * Yeni adrese doğrulama bağlantısı gönderir; adres bağlantı tıklanınca değişir.
+	 *
+	 * @param array{id:int,customer_id:int,csrf_secret:string} $s
+	 * @param array<string, mixed> $d
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function changeEmail(array $s, array $d): array
+	{
+		$fields = array();
+		$email = $this->email($d['email'] ?? null, $fields);
+		$password = isset($d['password']) && is_string($d['password']) ? $d['password'] : '';
+		if ($fields !== array()) {
+			return $this->error(422, 'validation', $fields);
+		}
+		if ($password === '' || strlen($password) > 128 || !$this->passwordMatches($s['customer_id'], $password)) {
+			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
+		}
+		if ($this->one('SELECT id FROM customers WHERE email = :e', array('e' => $email)) !== null) {
+			return $this->error(422, 'validation', array('email' => 'Bu e-posta başka bir hesapta kayıtlı.'));
+		}
+		if (!$this->sendToken($s['customer_id'], 'email', $email, $email)) {
+			return $this->error(503, 'mail_failed');
+		}
+
+		return $this->ok($this->meBody($s));
+	}
+
+	private function pendingEmail(int $customerId): ?string
+	{
+		$row = $this->one(
+			'SELECT new_email FROM customer_tokens WHERE customer_id = :c AND kind = \'email\' AND expires_at > :now ORDER BY id DESC LIMIT 1',
+			array('c' => $customerId, 'now' => $this->nowSql())
+		);
+
+		return $row === null ? null : (string) $row['new_email'];
+	}
+
+	/** Belirteci üretir, özetini saklar, bağlantıyı e-postayla gönderir. */
+	private function sendToken(int $customerId, string $kind, string $to, ?string $newEmail): bool
+	{
+		$token = bin2hex(random_bytes(32));
+		$ttl = $kind === 'reset' ? 3600 : 86400;
+		$now = ($this->now)();
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = :k', array('c' => $customerId, 'k' => $kind));
+		$this->run(
+			'INSERT INTO customer_tokens (customer_id, kind, token_hash, new_email, created_at, expires_at) VALUES (:c, :k, :h, :n, :now, :exp)',
+			array('c' => $customerId, 'k' => $kind, 'h' => hash('sha256', $token), 'n' => $newEmail, 'now' => $now->format('Y-m-d H:i:s'), 'exp' => $now->modify('+' . $ttl . ' seconds')->format('Y-m-d H:i:s'))
+		);
+		$base = $this->siteUrl;
+		if ($kind === 'reset') {
+			$subject = 'QR Menu Official: parolanızı sıfırlayın';
+			$body = "Merhaba,\n\nParolanızı sıfırlamak için aşağıdaki bağlantıyı açın (1 saat geçerlidir):\n\n" . $base . '/giris/?sifirla=' . $token . "\n\nBu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz; parolanız değişmez.\n\nQR Menu Official";
+		} else {
+			$subject = $kind === 'email' ? 'QR Menu Official: yeni e-posta adresinizi onaylayın' : 'QR Menu Official: e-posta adresinizi doğrulayın';
+			$body = "Merhaba,\n\nE-posta adresinizi onaylamak için aşağıdaki bağlantıyı açın (24 saat geçerlidir):\n\n" . $base . '/giris/?dogrula=' . $token . "\n\nBu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz.\n\nQR Menu Official";
+		}
+		try {
+			return ($this->mailer)($to, $subject, $body);
+		} catch (\Throwable $e) {
+			error_log('qr-account-mail ' . $e::class);
+
+			return false;
+		}
+	}
+
+	/**
+	 * Geçerli (süresi dolmamış) belirteci bulur; kullanım sonrası silme çağıran yönteme aittir.
+	 *
+	 * @return array{customer_id:int,kind:string,new_email:?string}|null
+	 */
+	private function useToken(mixed $token, ?string $kind): ?array
+	{
+		if (!is_string($token) || preg_match('/^[a-f0-9]{64}$/', $token) !== 1) {
+			return null;
+		}
+		$row = $this->one('SELECT customer_id, kind, new_email, expires_at FROM customer_tokens WHERE token_hash = :h', array('h' => hash('sha256', $token)));
+		if ($row === null || (string) $row['expires_at'] <= $this->nowSql() || ($kind !== null && $row['kind'] !== $kind)) {
+			return null;
+		}
+
+		return array('customer_id' => (int) $row['customer_id'], 'kind' => (string) $row['kind'], 'new_email' => $row['new_email'] === null ? null : (string) $row['new_email']);
 	}
 
 	/* ------------------------------------------------------------ doğrulama */
@@ -484,7 +697,7 @@ final class Accounts
 	private function meBody(array $s): array
 	{
 		$c = $this->one(
-			'SELECT email, name, business, phone, domain, created_at, last_login_at FROM customers WHERE id = :id',
+			'SELECT email, name, business, phone, domain, created_at, last_login_at, email_verified_at FROM customers WHERE id = :id',
 			array('id' => $s['customer_id'])
 		);
 		if ($c === null) {
@@ -515,6 +728,8 @@ final class Accounts
 				'domain' => (string) $c['domain'],
 				'created_at' => $this->iso((string) $c['created_at']),
 				'last_login_at' => $c['last_login_at'] === null ? null : $this->iso((string) $c['last_login_at']),
+				'email_verified' => $c['email_verified_at'] !== null,
+				'pending_email' => $this->pendingEmail($s['customer_id']),
 			),
 			'orders' => $orders,
 		);
@@ -561,7 +776,7 @@ final class Accounts
 	/** Saniye cinsinden bekleme (0: serbest). */
 	private function limit(string $action, string $ip): int
 	{
-		$caps = array('register' => array(5, 600), 'login' => array(10, 60), 'password' => array(5, 300), 'delete' => array(5, 300), 'order' => array(20, 60));
+		$caps = array('register' => array(5, 600), 'login' => array(10, 60), 'password' => array(5, 300), 'delete' => array(5, 300), 'order' => array(20, 60), 'forgot' => array(5, 600), 'reset' => array(10, 600), 'verify' => array(20, 600), 'resend' => array(3, 600), 'email' => array(5, 600));
 		$cap = $caps[$action] ?? array(120, 60);
 
 		return $this->consume('acc-' . $action . ':', $ip !== '' ? $ip : 'unknown', $cap[0], $cap[1]);

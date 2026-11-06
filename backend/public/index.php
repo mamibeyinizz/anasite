@@ -71,7 +71,10 @@ try {
 			!array_key_exists('require_https', $config) || $config['require_https'] !== false,
 			isset($config['customer_session_ttl']) ? (int) $config['customer_session_ttl'] : 2592000,
 			isset($config['customer_cookie']) ? (string) $config['customer_cookie'] : 'qrc_session',
-			!array_key_exists('test_orders', $config) || $config['test_orders'] !== false
+			!array_key_exists('test_orders', $config) || $config['test_orders'] !== false,
+			null,
+			isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com',
+			accountMailer($config)
 		)
 	);
 
@@ -138,4 +141,30 @@ function emit(int $status, $body, array $headers, string $method): void
 		return;
 	}
 	echo $isJson ? json_encode($body, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $body;
+}
+
+/**
+ * Hesap e-postaları (doğrulama, parola sıfırlama). Varsayılan PHP mail(); geliştirmede
+ * 'mail_file' verilirse e-posta o dosyaya yazılır (yalnız test içindir, üretimde boş bırakın).
+ *
+ * @param array<string, mixed> $config
+ */
+function accountMailer(array $config): callable
+{
+	$from = isset($config['mail_from']) && is_string($config['mail_from']) && filter_var($config['mail_from'], FILTER_VALIDATE_EMAIL) !== false
+		? $config['mail_from']
+		: 'no-reply@qrmenuofficial.com';
+	$file = isset($config['mail_file']) && is_string($config['mail_file']) ? $config['mail_file'] : '';
+
+	return static function (string $to, string $subject, string $text) use ($from, $file): bool {
+		if (filter_var($to, FILTER_VALIDATE_EMAIL) === false || preg_match('/[\r\n]/', $to . $subject) === 1) {
+			return false;
+		}
+		if ($file !== '') {
+			return file_put_contents($file, 'TO: ' . $to . "\nSUBJECT: " . $subject . "\n" . $text . "\n----\n", FILE_APPEND) !== false;
+		}
+		$headers = 'From: QR Menu Official <' . $from . ">\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit";
+
+		return mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $text, $headers);
+	};
 }

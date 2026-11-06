@@ -44,6 +44,12 @@ return array(
 	// true: /odeme/ test modunda; giriş yapmış müşterinin test siparişi hesabına kaydedilir.
 	// Gerçek ödeme sağlayıcısı bağlandığında false yapın (siparişleri sağlayıcı bildirimi oluşturur).
 	'test_orders'          => true,
+	// Hesap e-postaları (doğrulama, parola sıfırlama): bağlantıların kökü ve gönderen adres.
+	// PHP mail() kullanılır; barındırmada çalıştığını bir hesap açıp kontrol edin (SPF/DKIM önerilir).
+	'site_url'             => 'https://qrmenuofficial.com',
+	'mail_from'            => 'no-reply@qrmenuofficial.com',
+	// Yalnız geliştirme/test: dolu ise e-postalar gönderilmez, bu dosyaya yazılır. Üretimde boş bırakın.
+	'mail_file'            => '',
 	// Analitik verisinin saklama süresi (gün). bin/prune.php bu süreyi aşanları siler.
 	'retention_days'  => 180,
 	// Site dosyalarının kökü (boşsa backend/'in bir üstü).

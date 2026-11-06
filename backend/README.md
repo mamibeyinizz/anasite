@@ -26,6 +26,7 @@ PHP 8.1+ (PDO MySQL, openssl, mbstring, GD+WebP), MySQL 5.7+/MariaDB 10.4+, Apac
 Parola `password_hash`; oturum belirteci çerezde (`__Host-qrc_session`, HttpOnly, SameSite=Lax), veritabanında yalnız SHA-256 özeti; durum değiştiren isteklerde `X-CSRF-Token`.
 Hız sınırı (`rate_buckets`): üye ol 5/10 dk, giriş 10/dk + e-posta başına 10/15 dk, parola/silme 5/5 dk (IP başına). Yönetici oturumundan ayrıdır.
 Config: `customer_session_ttl` (30 gün), `customer_cookie`, `test_orders` (gerçek ödeme bağlanınca `false`). `prune.php` süresi dolan oturumları siler.
+E-posta: doğrulama, parola sıfırlama (1 sa) ve e-posta değiştirme bağlantıları `mail()` ile gider (`005_customer_recovery.sql`, `site_url`, `mail_from`). Belirteçler yalnız SHA-256 özeti olarak saklanır, tek kullanımlıktır. **Canlıya almadan önce bir hesap açıp e-postanın gerçekten ulaştığını doğrulayın** (SPF/DKIM yoksa spam'e düşebilir). Geliştirmede `mail_file` e-postaları dosyaya yazar.
 Test: `/odeme/` test modunda giriş yapmış müşterinin siparişini `customer_orders`'a yazar (`status=test`).
 
 ## Yönetim paneli (`/yonetim/`)

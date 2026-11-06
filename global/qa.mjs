@@ -71,7 +71,7 @@ for (const pg of PAGES) {
   for (const m of seg.matchAll(/href="([^"]*)"/g)) {
     const h = m[1];
     if (h.startsWith("#") || /^(tel|mailto):/.test(h)) continue;
-    let t = h === "./" ? "index.html" : h.split("#")[0]; /* #parça hedefi dosya değildir */
+    let t = h === "./" ? "index.html" : h.split("#")[0].split("?")[0]; /* #parça ve ?sorgu dosya değildir */
     if (rel && t.startsWith(rel)) t = t.slice(rel.length); else if (rel) { check(false, `${pg.file} bağlantı göreli kök`, h); continue; }
     if (t === "") t = "index.html";
     if (t.endsWith("/")) t += "index.html";
@@ -172,7 +172,7 @@ else {
       const page = await ctx.newPage();
       await page.goto(base + "/moduller/qr-masa/", { waitUntil: "load" });
       check(await page.isVisible(".qrmo-gh-nav"), "1200: masaüstü nav görünür");
-      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta")).includes("İletişime Geçin"), "1200: gold CTA metni");
+      check((await page.textContent(".qrmo-gh-in > .qrmo-gh-cta")).includes("Üye Ol"), "1200: gold CTA metni");
       const solHrefs = await page.$$eval(".qrmo-gh-d-sol", (a) => a.map((x) => x.getAttribute("href")));
       check(solHrefs.includes("../../moduller/restoran-menu/") && solHrefs.includes("../../moduller/menu-asistani/"), "1200: drawer çözüm kartları gerçek modül URL'leri", solHrefs.join(","));
       await page.goto(base + "/?splash=off", { waitUntil: "load" });

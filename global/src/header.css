@@ -1010,7 +1010,7 @@ button.qrmo-gh-d-card--pending {
     display: inline-flex;
   }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1100px) {
   .qrmo-gh-acct-label {
     position: static;
     width: auto;

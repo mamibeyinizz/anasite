@@ -7,6 +7,10 @@
   var on = false;
   try { on = localStorage.getItem("qrmo_hesap") === "1"; } catch (e) {}
   if (!on) return;
+  Array.prototype.forEach.call(document.querySelectorAll("[data-qrmo-cta-acct]"), function (a) {
+    a.setAttribute("href", a.getAttribute("data-cta-in-href"));
+    var l = a.querySelector("[data-cta-label]"); if (l) l.textContent = a.getAttribute("data-cta-in-label");
+  });
   var links = document.querySelectorAll("[data-qrmo-acct]");
   Array.prototype.forEach.call(links, function (a) {
     a.setAttribute("href", a.getAttribute("data-acct-account"));

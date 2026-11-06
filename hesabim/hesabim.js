@@ -72,16 +72,24 @@
 
   function render() {
     var c = data.customer, orders = data.orders || [], last = orders[0], lp = last ? pkg(last.plan) : null;
-    var first = c.name.split(" ")[0];
-    $("ac-hello").textContent = "Merhaba, " + first + ".";
-    $("ac-meta").textContent = c.email + " · Üye olma: " + date(c.created_at);
+    $("ac-hello").textContent = "Merhaba, " + c.name.split(" ")[0] + ".";
+    $("ac-meta").textContent = c.email + " · Üyelik tarihi: " + date(c.created_at);
+
+    /* e-posta doğrulama bandı */
+    var vb = $("ac-verify"), needs = !c.email_verified;
+    vb.hidden = !needs;
+    if (needs) $("ac-verify-text").textContent = "E-posta adresinizi doğrulayın. Parolanızı unutursanız sıfırlama bağlantısı bu adrese gelir; yanlış yazılmış bir adres hesabınıza erişimi kaybettirir.";
+
+    /* e-posta değiştirme: bekleyen adres */
+    var pe = $("ae-pending"); pe.hidden = !c.pending_email;
+    if (c.pending_email) pe.textContent = c.pending_email + " adresine onay bağlantısı gönderildi. Bağlantıyı açana kadar giriş adresiniz değişmez.";
 
     var st = clear($("ac-stats"));
-    st.appendChild(stat("qrmo-ac-stat--plan", "Paketiniz", lp ? lp.name : "Seçilmedi", lp ? PERIOD[last.period] + " · test siparişi" : "Paket seçerek başlayın"));
+    st.appendChild(stat("", "Abonelik", "Aktif abonelik yok", last ? "Son kayıt: " + (lp ? lp.name : last.plan) + " · " + (PERIOD[last.period] || last.period) + " (test)" : "Henüz paket seçmediniz"));
     st.appendChild(stat("", "Siparişler", String(orders.length), orders.length ? "Son sipariş: " + date(last.created_at) : "Henüz sipariş yok"));
     st.appendChild(stat("", "Alan adı", c.domain || "Kaydedilmedi", c.domain ? "Lisans bu alan adına bağlanır" : "Profil bölümünden ekleyin"));
 
-    /* sıradaki adım */
+    /* sıradaki adım: en önemli tek eylem */
     var h = $("ac-next-h"), t = $("ac-next-text"), act = clear($("ac-next-actions"));
     if (!orders.length) {
       h.textContent = "Paketinizi seçin.";
@@ -89,37 +97,49 @@
       act.appendChild(link("../paketler/", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Paketleri incele"));
       act.appendChild(link("../canli-menu/", "qrmo-ac-btn qrmo-ac-btn--ghost ts-btn", "Canlı menüyü gör"));
     } else if (!c.domain) {
-      h.textContent = "WordPress alan adınızı ekleyin.";
-      t.textContent = "Lisansınız alan adınıza bağlanır. Alan adını şimdi kaydederseniz kurulum adımı hızlanır.";
+      h.textContent = "WordPress alan adınızı kaydedin.";
+      t.textContent = "Lisans alan adına bağlanır. Alan adını şimdi kaydederseniz kurulum adımı hızlanır.";
       act.appendChild(link("#profil", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Alan adını ekle"));
-      act.appendChild(link("../canli-menu/", "qrmo-ac-btn qrmo-ac-btn--ghost ts-btn", "Canlı menüyü gör"));
     } else {
-      h.textContent = "Canlı menüyü deneyin.";
-      t.textContent = "Menünüzün misafir tarafında nasıl göründüğünü demo üzerinde telefonunuzdan inceleyin.";
-      act.appendChild(link("../canli-menu/", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Canlı menüyü gör"));
-      act.appendChild(link("../iletisim/", "qrmo-ac-btn qrmo-ac-btn--ghost ts-btn", "Bize ulaşın"));
+      h.textContent = "Menü kurulumuna başlayın.";
+      t.textContent = "Aşağıdaki yol haritasında 5. adımdan devam edin: ürünlerinizi yönetim panelinde ekleyin. Takıldığınız yerde bize yazın.";
+      act.appendChild(link("../iletisim/", "qrmo-ac-btn qrmo-ac-btn--primary ts-btn", "Bize ulaşın"));
+      act.appendChild(link("../canli-menu/", "qrmo-ac-btn qrmo-ac-btn--ghost ts-btn", "Canlı demoyu gör"));
     }
 
-    /* profil tamamlama */
-    var items = [["Ad soyad", c.name], ["E-posta", c.email], ["İşletme adı", c.business], ["Telefon", c.phone], ["WordPress alan adı", c.domain]];
-    var done = items.filter(function (i) { return i[1]; }).length;
-    $("ac-complete-text").textContent = "Profil " + done + "/" + items.length + " tamam.";
-    $("ac-meter").style.width = Math.round(done / items.length * 100) + "%";
-    var cl = clear($("ac-checklist"));
-    items.forEach(function (i) {
-      var li = el("li"), dot = el("span", "qrmo-ac-dot" + (i[1] ? " is-done" : ""));
+    /* yol haritası: hesap adımları */
+    var steps = [
+      [true, "Hesap oluşturuldu", null],
+      [c.email_verified, "E-posta doğrulandı", null],
+      [orders.length > 0, "Paket seçildi", orders.length ? null : ["../paketler/", "Paket seç"]],
+      [!!c.domain, "WordPress alan adı kaydedildi", c.domain ? null : ["#profil", "Ekle"]]
+    ];
+    var road = clear($("ac-road"));
+    steps.forEach(function (x) {
+      var li = el("li"), dot = el("span", "qrmo-ac-dot" + (x[0] ? " is-done" : ""));
       dot.setAttribute("aria-hidden", "true");
       dot.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>';
       li.appendChild(dot);
-      var name = el("span", "", i[0]); li.appendChild(name);
-      if (i[1]) { li.appendChild(el("span", "ts-cap qrmo-ac-soft", "Tamam")); }
-      else li.appendChild(link("#profil", "ts-link", "Ekle"));
-      cl.appendChild(li);
+      li.appendChild(el("span", "", x[1] + (x[0] ? "" : " (bekliyor)")));
+      if (x[2]) li.appendChild(link(x[2][0], "ts-link", x[2][1]));
+      road.appendChild(li);
     });
 
     renderOrders(orders, lp, last);
     fillProfile();
   }
+
+  function resend() {
+    var out = $("ac-verify-state"), b = $("ac-resend");
+    b.disabled = true; say(out, "");
+    A.resend().then(function (res) {
+      b.disabled = false;
+      if (res.status === 200) say(out, "Doğrulama e-postası gönderildi. Gelen kutunuzu ve istenmeyen klasörünü kontrol edin.", "ok");
+      else say(out, A.message(res), "err");
+      if (!$("ac-verify").hidden) out.scrollIntoView({ block: "nearest" });
+    });
+  }
+  $("ac-resend").addEventListener("click", resend);
 
   function renderOrders(orders, lp, last) {
     var ul = clear($("ac-orders")), empty = $("ac-orders-empty");
@@ -142,12 +162,12 @@
       ul.appendChild(li);
     });
     $("ac-orders-note").textContent = orders.length && data.test_orders
-      ? "Ödeme sistemi bağlanana kadar siparişler test kaydıdır; ücret çekilmez."
+      ? "Bunlar test siparişidir: ücret çekilmedi ve aktif bir abonelik oluşmadı. Ödeme sistemi açıldığında gerçek siparişler burada görünür."
       : "";
     var card = $("ac-plan-card");
     card.hidden = !lp;
     if (lp) {
-      $("ac-plan-h").textContent = lp.name + " paketi kapsamı";
+      $("ac-plan-h").textContent = "Seçtiğiniz paketin kapsamı: " + lp.name;
       $("ac-plan-sum").textContent = lp.summary;
       $("ac-plan-lead").textContent = lp.highlightsLead || "";
       var list = clear($("ac-plan-list"));
@@ -196,13 +216,30 @@
     });
   });
 
+  /* ---------- e-posta değiştirme ---------- */
+  var ef = $("ac-email");
+  ef.addEventListener("submit", function (e) {
+    e.preventDefault(); clearErrs(ef); say($("ae-state"), "");
+    var f = ef.elements, bad = null;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.value.trim())) { setErr(f.email, "Geçerli bir e-posta adresi yazın."); bad = f.email; }
+    else if (!f.password.value) { setErr(f.password, "Parolanızı yazın."); bad = f.password; }
+    if (bad) { bad.focus(); say($("ae-state"), "Lütfen işaretli alanları düzeltin.", "err"); return; }
+    var btn = $("ae-submit"); btn.disabled = true;
+    A.email({ email: f.email.value.trim(), password: f.password.value }).then(function (res) {
+      btn.disabled = false;
+      if (res.status === 200 && res.data.authenticated) { data = res.data; ef.reset(); render(); say($("ae-state"), "Onay bağlantısı yeni adrese gönderildi.", "ok"); return; }
+      if (res.status === 401) { A.flag(false); location.replace("../giris/?next=hesabim/"); return; }
+      if (res.status === 422 && serverErrs(ef, res)) { say($("ae-state"), "Lütfen işaretli alanları düzeltin.", "err"); return; }
+      say($("ae-state"), A.message(res), "err");
+    });
+  });
+
   /* ---------- çıkış / silme ---------- */
   function logout() {
     A.logout().then(function () { A.flag(false); location.href = "../giris/"; });
   }
   $("ac-logout").addEventListener("click", logout);
-  $("ac-logout2").addEventListener("click", logout);
-
+  
   var df = $("ac-delete");
   df.addEventListener("submit", function (e) {
     e.preventDefault(); clearErrs(df); say($("ad-state"), "");
@@ -210,7 +247,7 @@
     var btn = $("ad-submit"); btn.disabled = true;
     A.remove({ password: df.elements.password.value }).then(function (res) {
       btn.disabled = false;
-      if (res.status === 200) { A.flag(false); location.href = "../"; return; }
+      if (res.status === 200) { A.flag(false); location.href = "../giris/?silindi=1"; return; }
       if (res.status === 422 && serverErrs(df, res)) return;
       say($("ad-state"), A.message(res), "err");
     });

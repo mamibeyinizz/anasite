@@ -111,8 +111,7 @@
 
   function render() {
     buildPlans(); buildSummary();
-    btn.textContent = live ? "Ödemeye geç · " : "Test ödemesini tamamla · ";
-    btn.textContent += money(pkg(state.plan).price[state.period]);
+    btnLabel();
     $("qrmo-pay-bar-btn").textContent = live ? "Ödemeye geç" : "Devam et";
     try {
       var u = new URL(location.href);
@@ -122,6 +121,23 @@
     if (acctState === "out") updateGate();
   }
 
+  function btnLabel() {
+    var m = money(pkg(state.plan).price[state.period]);
+    btn.textContent = acctState === "out" ? "Giriş yap ve devam et · " + m : (live ? "Ödemeye geç · " : "Test ödemesini tamamla · ") + m;
+  }
+
+  /* Giriş sayfasına giderken yazılanlar sekme süresince saklanır (sessionStorage), dönünce geri yazılır. */
+  var DRAFT = "qrmo_pay_draft";
+  function saveDraft() {
+    try { sessionStorage.setItem(DRAFT, JSON.stringify(customer())); } catch (e) {}
+  }
+  function restoreDraft() {
+    try {
+      var d = JSON.parse(sessionStorage.getItem(DRAFT) || "null"); sessionStorage.removeItem(DRAFT);
+      if (!d) return;
+      ["name", "business", "email", "phone", "domain"].forEach(function (k) { if (d[k] && form.elements[k] && !form.elements[k].value) form.elements[k].value = d[k]; });
+    } catch (e) {}
+  }
   /* --- hesap kapısı --- */
   var elAcct = $("qrmo-pay-acct"), elAcctText = $("qrmo-pay-acct-text"), elAcctAct = $("qrmo-pay-acct-actions");
   function nextPath() { return "odeme/?paket=" + encodeURIComponent(state.plan) + "&donem=" + encodeURIComponent(state.period); }
@@ -129,7 +145,9 @@
     var a = el("a", "qrmo-pay-acct-btn ts-btn" + (primary ? " qrmo-pay-acct-btn--primary" : ""), label);
     a.setAttribute("href", href); return a;
   }
+  elAcctAct.addEventListener("click", function (e) { if (e.target.closest("a")) saveDraft(); });
   function updateGate() {
+    btnLabel();
     elAcct.setAttribute("data-state", acctState === "in" ? "in" : acctState === "loading" ? "loading" : acctState === "out" ? "out" : "err");
     elAcctAct.textContent = "";
     if (acctState === "loading") { elAcctText.textContent = "Hesabınız kontrol ediliyor…"; return; }
@@ -232,9 +250,9 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault(); showNote("");
+    if (acctState === "out") { saveDraft(); location.href = "../giris/?next=" + encodeURIComponent(nextPath()); return; }
     if (!validate()) { showNote("Lütfen işaretli alanları düzeltin."); return; }
     if (acctState !== "in") {
-      if (acctState === "out") { location.href = "../giris/?next=" + encodeURIComponent(nextPath()); return; }
       showNote(acctState === "loading" ? "Hesabınız kontrol ediliyor, birkaç saniye sonra tekrar deneyin." : "Hesap hizmetine ulaşılamadığı için sipariş verilemiyor.");
       elAcct.scrollIntoView({ block: "center" }); return;
     }
@@ -272,5 +290,5 @@
   if (P.priceNote) elNote.textContent = P.priceNote;
   else elNote.textContent = "Tutarlara vergi dahil olup olmadığı ve fatura koşulları bu sayfada yayımlanmamıştır.";
 
-  buildPeriod(); render(); loadAccount();
+  buildPeriod(); render(); restoreDraft(); loadAccount();
 })();

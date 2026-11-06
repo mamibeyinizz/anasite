@@ -31,9 +31,13 @@
     invalid_credentials: "E-posta veya parola hatalı.",
     email_taken: "Bu e-posta ile zaten bir hesap var. Giriş yapmayı deneyin.",
     https_required: "Bu işlem yalnızca güvenli (https) bağlantıyla yapılabilir.",
+    invalid_token: "Bağlantı geçersiz ya da süresi dolmuş. Yeni bir bağlantı isteyin.",
+    mail_failed: "E-posta gönderilemedi. Biraz sonra tekrar deneyin ya da bizimle iletişime geçin.",
+    already_verified: "E-posta adresiniz zaten doğrulanmış.",
     generic: "İşlem tamamlanamadı. Lütfen tekrar deneyin."
   };
   function message(res) {
+    if (res.data && res.data.error === "mail_failed") return ERR.mail_failed;
     if (res.status === 0 || res.status >= 500 || res.status === 404) return ERR.unavailable;
     if (res.status === 429) return "Çok fazla deneme yapıldı. " + (res.retry ? res.retry + " saniye" : "Biraz") + " sonra tekrar deneyin.";
     return ERR[res.data && res.data.error] || ERR.generic;
@@ -53,6 +57,11 @@
     password: function (b) { return request("POST", "/password", b); },
     order: function (b) { return request("POST", "/orders", b); },
     remove: function (b) { return request("DELETE", "", b); },
+    forgot: function (b) { return request("POST", "/forgot", b); },
+    reset: function (b) { return request("POST", "/reset", b); },
+    verify: function (b) { return request("POST", "/verify", b); },
+    resend: function () { return request("POST", "/verify/resend", {}); },
+    email: function (b) { return request("POST", "/email", b); },
     flag: flag, message: message, safeNext: safeNext
   };
 })();
