@@ -40,8 +40,8 @@ Test: `/odeme/` test modunda giriş yapmış müşterinin siparişini `customer_
 - **Cloudflare/vekil arkasındaysanız** `trusted_proxies` + `real_ip_header` (örn. `HTTP_CF_CONNECTING_IP`) verin; aksi halde tüm kullanıcılar tek uç adresi sayılır ve hız sınırları birbirini engeller. Başlık yalnız güvenilen eşten okunur.
 - `mail_file` yalnızca `php -S` (cli-server) altında geçerlidir.
 - `giris/`, `hesabim/`, `odeme/` içindeki `.htaccess` çerçeveye gömmeyi (`X-Frame-Options`, `frame-ancestors`) ve Referer sızıntısını (`no-referrer`) kapatır; `mod_headers` gerekir. Bu sayfalar ziyaret ölçümüne de girmez.
-- **Bilinen, bilinçli kalan risk:** Kayıtlı e-postayla üye olmaya çalışmak `409` döner (adres varlığı sızar; IP başına 5/10 dk ile sınırlı). Kapatmak, üye olmadan önce e-posta doğrulamasını zorunlu kılar ve ödeme akışını bir posta turuna bağlar; bu bir ürün kararıdır.
-- Test: `php backend/tests/account-test.php` (sqlite, 54 kontrol; yukarıdaki açıkların regresyonlarını içerir). MySQL'e özgü davranış ve gerçek `mail()` burada denenmez.
+- **E-posta numaralandırma kapalı:** `POST /api/account/register` adres kayıtlı olsun olmasın aynı `202` yanıtını verir ve oturum açmaz. Parola kayıt formunda alınmaz; adrese giden e-postadaki bağlantıda (`/giris/?dogrula=…`) posta kutusunun sahibi belirler (`POST /api/account/activate`). Böylece adresi önceden kapan biri parolayı bilemez. Kayıtlı (etkinleşmiş) adrese yalnız "zaten hesabınız var" bilgilendirmesi gider; bekleyen kaydı yeniden göndermek eski bağlantıyı geçersiz kılar; aynı adrese saatte en fazla 3 e-posta gider (aşıldığında yanıt yine aynıdır). Parolasız (bekleyen) hesapla giriş denemesi, bilinmeyen kullanıcıyla aynı süre ve yanıtla reddedilir. **Kayıt artık bir posta turu gerektirir; e-posta teslimatı çalışmıyorsa kimse üye olamaz — yayından önce doğrulayın.**
+- Test: `php backend/tests/account-test.php` (sqlite, 64 kontrol; yukarıdaki açıkların regresyonlarını içerir). MySQL'e özgü davranış ve gerçek `mail()` burada denenmez.
 
 ## Yönetim paneli (`/yonetim/`)
 

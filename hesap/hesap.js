@@ -62,6 +62,7 @@
     forgot: function (b) { return request("POST", "/forgot", b); },
     reset: function (b) { return request("POST", "/reset", b); },
     verify: function (b) { return request("POST", "/verify", b); },
+    activate: function (b) { return request("POST", "/activate", b); },
     resend: function () { return request("POST", "/verify/resend", {}); },
     email: function (b) { return request("POST", "/email", b); },
     licenseKey: function (b) { return request("POST", "/license-key", b); },

@@ -78,9 +78,41 @@ function call(string $m, string $p, array $d = array(), string $c = '', string $
 
 	return $acc->handle($m, $p, $d, $from, false, $c, $cs);
 }
+/** Kayıt isteği (202); ertelenmiş e-postalar hemen gönderilir. */
+function register(string $email, array $extra = array()): array
+{
+	global $acc;
+	$r = call('POST', '/api/account/register', array_merge(array('email' => $email, 'name' => 'Test Kisi', 'terms' => true), $extra));
+	$acc->flushDeferred();
+
+	return $r;
+}
+/** Etkinleştirme e-postasındaki bağlantıyla parola belirler; oturum açılmış yanıtı döner. */
+function activate(string $email, string $pass = 'uzun-parola-123'): array
+{
+	global $mails;
+	for ($i = count($mails) - 1; $i >= 0; $i--) {
+		if ($mails[$i][0] === $email && str_contains($mails[$i][2], 'dogrula=')) {
+			return call('POST', '/api/account/activate', array('token' => token($mails[$i]), 'password' => $pass));
+		}
+	}
+	throw new RuntimeException('etkinleştirme e-postası yok: ' . $email);
+}
+/** Doğrulanmış, oturumu açık yeni hesap (kayıt + e-postadaki bağlantı). */
 function signup(string $email, string $pass = 'uzun-parola-123'): array
 {
-	return call('POST', '/api/account/register', array('email' => $email, 'name' => 'Test Kisi', 'password' => $pass, 'terms' => true));
+	register($email);
+
+	return activate($email, $pass);
+}
+/** Önceki sürümdeki gibi parolalı ama e-postası doğrulanmamış hesap (eski kayıtlar / ön-ele geçirme senaryosu). */
+function signupLegacy(string $email, string $pass = 'uzun-parola-123'): array
+{
+	global $pdo;
+	$r = signup($email, $pass);
+	$pdo->exec("UPDATE customers SET email_verified_at = NULL WHERE email = '" . $email . "'");
+
+	return $r;
 }
 function login(string $email, string $pass = 'uzun-parola-123'): array
 {
@@ -95,15 +127,50 @@ function verified(string $email): void
 echo "-- çekirdek\n";
 t('me anonim', call('GET', '/api/account/me')['body']['authenticated'] === false);
 t('bilinmeyen yol 404 / yanlış metot 405', call('GET', '/api/account/x')['status'] === 404 && call('GET', '/api/account/login')['status'] === 405);
-t('kayıt doğrulaması 422', call('POST', '/api/account/register', array('email' => 'x', 'name' => 'a', 'password' => 'k', 'terms' => false))['status'] === 422);
+echo "-- kayıt akışı (e-posta numaralandırma yok)\n";
 $mails = array();
-$r = signup(' Ayse@Example.COM ');
-t('kayıt 201, e-posta küçük harf', $r['status'] === 201 && $r['body']['customer']['email'] === 'ayse@example.com');
-t('kayıtta doğrulama e-postası', count($mails) === 1 && str_contains($mails[0][2], '/giris/?dogrula='));
+$new = register(' Ayse@Example.COM ', array('next' => 'odeme/?paket=pro&donem=annual'));
+t('kayıt 202, oturum çerezi yok, parola alınmaz', $new['status'] === 202 && !isset($new['headers']['Set-Cookie']) && $new['body'] === array('status' => 'ok', 'pending' => true));
+t('adres küçük harfe çevrilir, parola henüz yok', $pdo->query("SELECT password_hash FROM customers WHERE email='ayse@example.com'")->fetchColumn() === '!');
+t('etkinleştirme e-postası + next bağlantıda', count($mails) === 1 && $mails[0][0] === 'ayse@example.com' && str_contains($mails[0][2], '/giris/?dogrula=') && str_contains($mails[0][2], '&next=odeme%2F'));
+$ayseMail = $mails[0];
+t('parola belirlenmeden giriş olmaz', login('ayse@example.com', 'herhangi-parola-1')['status'] === 401);
+$mails = array();
+register('nx1@example.com', array('next' => 'https://evil.test/'));
+register('nx2@example.com', array('next' => '//evil.test'));
+t('geçersiz next yok sayılır (açık yönlendirme yok)', count($mails) === 2 && !str_contains($mails[0][2], 'next=') && !str_contains($mails[1][2], 'next='));
+t('kayıt doğrulaması 422', call('POST', '/api/account/register', array('email' => 'x', 'name' => 'a', 'terms' => false))['status'] === 422);
+t('verify: parolasız kayıt bağlantısı tüketilmez, parola ister', ($v = call('POST', '/api/account/verify', array('token' => token($ayseMail))))['status'] === 200 && ($v['body']['needs_password'] ?? false) === true);
+t('activate: kısa parola 422, geçersiz bağlantı 410', call('POST', '/api/account/activate', array('token' => token($ayseMail), 'password' => 'kisa'))['status'] === 422 && call('POST', '/api/account/activate', array('token' => str_repeat('a', 64), 'password' => 'uzun-parola-123'))['status'] === 410);
+$r = call('POST', '/api/account/activate', array('token' => token($ayseMail), 'password' => 'uzun-parola-123'));
+t('activate: oturum açılır, e-posta doğrulanmış, e-posta küçük harf', $r['status'] === 200 && $r['body']['customer']['email_verified'] === true && $r['body']['customer']['email'] === 'ayse@example.com' && isset($r['headers']['Set-Cookie']));
+t('activate bağlantısı tek kullanımlık', call('POST', '/api/account/activate', array('token' => token($ayseMail), 'password' => 'baska-parola-12345'))['status'] === 410);
+$mails = array();
+$dupe = register('ayse@example.com');
+$fresh = register('yeni-kisi@example.com');
+t('409 YOK: kayıtlı ve kayıtsız adrese birebir aynı yanıt', $dupe['status'] === 202 && $dupe['status'] === $fresh['status'] && $dupe['body'] === $fresh['body'] && $dupe['headers'] === $fresh['headers']);
+$notice = null;
+foreach ($mails as $m) {
+	if ($m[0] === 'ayse@example.com') {
+		$notice = $m;
+	}
+}
+t('kayıtlı adrese yalnız bilgilendirme gider (doğrulama bağlantısı yok)', $notice !== null && str_contains($notice[2], 'zaten bir hesabınız') && !str_contains($notice[2], 'dogrula='));
+$mails = array();
+register('bek@example.com');
+$oldTok = token($mails[0]);
+register('bek@example.com');
+t('bekleyen kayıt yeniden gönderilir; eski bağlantı geçersiz', count($mails) === 2 && call('POST', '/api/account/activate', array('token' => $oldTok, 'password' => 'uzun-parola-123'))['status'] === 410 && activate('bek@example.com')['status'] === 200);
+$mails = array();
+$statuses = array();
+for ($i = 0; $i < 5; $i++) {
+	$statuses[] = register('cap@example.com')['status'];
+}
+t('aynı adrese saatte en fazla 3 e-posta, yanıt hep aynı', count($mails) === 3 && count(array_unique($statuses)) === 1);
 $c = cookie($r);
 $cs = $r['body']['csrf_token'];
-t('çerez HttpOnly + parola/oturum düz saklanmaz', str_contains($r['headers']['Set-Cookie'], 'HttpOnly') && $pdo->query('SELECT password_hash FROM customers')->fetchColumn() !== 'uzun-parola-123' && !str_contains($c, (string) $pdo->query('SELECT token_hash FROM customer_sessions')->fetchColumn()));
-t('çift e-posta 409', signup('ayse@example.com')['status'] === 409);
+
+t('çerez HttpOnly + parola/oturum düz saklanmaz', str_contains($r['headers']['Set-Cookie'], 'HttpOnly') && $pdo->query("SELECT password_hash FROM customers WHERE email='ayse@example.com'")->fetchColumn() !== 'uzun-parola-123' && !str_contains($c, (string) $pdo->query('SELECT token_hash FROM customer_sessions LIMIT 1')->fetchColumn()));
 t('csrf yok 403 / oturum yok 401', call('PATCH', '/api/account/profile', array('name' => 'Ayse Yilmaz'), $c, '')['status'] === 403 && call('PATCH', '/api/account/profile', array('name' => 'Ayse Yilmaz'))['status'] === 401);
 $r = call('PATCH', '/api/account/profile', array('name' => 'Ayse Demir', 'business' => '<b>X</b>', 'domain' => 'https://Ornek.com/yol?x=1'), $c, $cs);
 t('profil güncelleme + alan adı normalleşir', $r['status'] === 200 && $r['body']['customer']['domain'] === 'ornek.com');
@@ -117,13 +184,14 @@ t('çıkış', call('POST', '/api/account/logout', array(), $c, $cs)['status'] =
 $r = login('ayse@example.com', 'yeni-parola-45678');
 $c = cookie($r);
 $cs = $r['body']['csrf_token'];
-t('silme: yanlış parola 422, doğru 200, kayıt kalmaz', call('DELETE', '/api/account', array('password' => 'x'), $c, $cs)['status'] === 422 && call('DELETE', '/api/account', array('password' => 'yeni-parola-45678'), $c, $cs)['status'] === 200 && (int) $pdo->query('SELECT COUNT(*) FROM customers')->fetchColumn() === 0);
+t('silme: yanlış parola 422, doğru 200, kayıt kalmaz', call('DELETE', '/api/account', array('password' => 'x'), $c, $cs)['status'] === 422 && call('DELETE', '/api/account', array('password' => 'yeni-parola-45678'), $c, $cs)['status'] === 200 && (int) $pdo->query("SELECT COUNT(*) FROM customers WHERE email='ayse@example.com'")->fetchColumn() === 0 && (int) $pdo->query('SELECT COUNT(*) FROM customer_orders')->fetchColumn() === 0);
 
 echo "-- kurtarma / doğrulama\n";
-$mails = array();
-$r = signup('k@example.com');
+$r = signupLegacy('k@example.com');
 $c = cookie($r);
 $cs = $r['body']['csrf_token'];
+$mails = array();
+call('POST', '/api/account/verify/resend', array(), $c, $cs);
 t('doğrulama: geçersiz 410, geçerli 200, tek kullanımlık', call('POST', '/api/account/verify', array('token' => str_repeat('a', 64)))['status'] === 410 && call('POST', '/api/account/verify', array('token' => token($mails[0])))['status'] === 200 && call('POST', '/api/account/verify', array('token' => token($mails[0])))['status'] === 410);
 $mails = array();
 $r = call('POST', '/api/account/forgot', array('email' => 'yok@example.com'));
@@ -152,7 +220,7 @@ t('e-posta değiştirme onayı', call('POST', '/api/account/verify', array('toke
 echo "-- güvenlik regresyonları\n";
 // 2) reset önceden başlatılmış e-posta değiştirmeyi iptal eder; reset e-postayı doğrulanmış yapar
 $mails = array();
-$r = signup('mag@example.com', 'saldirgan-parola-1');
+$r = signupLegacy('mag@example.com', 'saldirgan-parola-1');
 $ac = cookie($r);
 $acs = $r['body']['csrf_token'];
 $mails = array();
@@ -212,7 +280,7 @@ for ($i = 0; $i < 5; $i++) {
 }
 t('aynı adrese art arda onay e-postası sınırlanır', $limited >= 1);
 $mails = array();
-$r = signup('dogrulanmamis@example.com');
+$r = signupLegacy('dogrulanmamis@example.com');
 $uc = cookie($r);
 $ucs = $r['body']['csrf_token'];
 $mails = array();
@@ -226,7 +294,7 @@ for ($i = 0; $i < 5; $i++) {
 t('doğrulama e-postası yeniden gönderimi hesap başına sınırlı', $sent === 3);
 
 echo "-- lisans\n";
-$r = signup('lis@example.com');
+$r = signupLegacy('lis@example.com');
 $lc = cookie($r);
 $lcs = $r['body']['csrf_token'];
 t('lisanssız: boş liste', $r['body']['licenses'] === array());

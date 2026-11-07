@@ -101,6 +101,7 @@ final class Accounts
 			'POST /api/account/forgot' => 'forgot',
 			'POST /api/account/reset' => 'reset',
 			'POST /api/account/verify' => 'verify',
+			'POST /api/account/activate' => 'activate',
 			'POST /api/account/verify/resend' => 'resend',
 			'POST /api/account/email' => 'email',
 			'POST /api/account/license-key' => 'lkey',
@@ -139,6 +140,9 @@ final class Accounts
 		}
 		if ($action === 'verify') {
 			return $this->verify($data);
+		}
+		if ($action === 'activate') {
+			return $this->activate($data, $https);
 		}
 
 		$session = $this->loadSession($this->tokenFromCookie($cookie, $https));
@@ -192,43 +196,106 @@ final class Accounts
 		$fields = array();
 		$email = $this->email($d['email'] ?? null, $fields);
 		$name = $this->name($d['name'] ?? null, $fields);
-		$password = $this->newPassword($d['password'] ?? null, $fields);
-		$business = $this->text($d['business'] ?? '', 120);
-		$phone = $this->phone($d['phone'] ?? '', $fields);
 		if (($d['terms'] ?? false) !== true) {
 			$fields['terms'] = 'Devam etmek için onaylayın.';
 		}
 		if ($fields !== array()) {
 			return $this->error(422, 'validation', $fields);
 		}
+		$next = $this->safeNext($d['next'] ?? null);
 
+		/* Yanıt, adres kayıtlı olsun olmasın aynıdır (202); fark yalnızca adrese giden e-postada ortaya çıkar.
+		   Parola burada alınmaz: e-postadaki bağlantıda, posta kutusunun sahibi tarafından belirlenir.
+		   Böylece bir adresi önceden kapan kişi parolayı bilemez (ön-ele geçirme yok). */
 		$now = $this->nowSql();
-		try {
-			$this->run(
-				'INSERT INTO customers (email, password_hash, name, business, phone, domain, terms_accepted_at, created_at, updated_at, last_login_at)
-				 VALUES (:email, :hash, :name, :business, :phone, \'\', :now, :now2, :now3, :now4)',
-				array(
-					'email' => $email,
-					'hash' => $this->hashPassword($password),
-					'name' => $name,
-					'business' => $business,
-					'phone' => $phone,
-					'now' => $now,
-					'now2' => $now,
-					'now3' => $now,
-					'now4' => $now,
-				)
-			);
-		} catch (PDOException $e) {
-			if ($this->isDuplicate($e)) {
-				return $this->error(409, 'email_taken', array('email' => 'Bu e-posta ile zaten bir hesap var. Giriş yapmayı deneyin.'));
+		$row = $this->one('SELECT id, email_verified_at FROM customers WHERE email = :e LIMIT 1', array('e' => $email));
+		$job = null;
+		if ($row === null) {
+			try {
+				$this->run(
+					'INSERT INTO customers (email, password_hash, name, business, phone, domain, terms_accepted_at, created_at, updated_at, last_login_at)
+					 VALUES (:email, \'!\', :name, \'\', \'\', \'\', :now, :now2, :now3, NULL)',
+					array('email' => $email, 'name' => $name, 'now' => $now, 'now2' => $now, 'now3' => $now)
+				);
+				$id = (int) $this->pdo->lastInsertId();
+				$job = function () use ($id, $email, $next): void {
+					$this->sendToken($id, 'verify', $email, null, $next);
+				};
+			} catch (PDOException $e) {
+				if (!$this->isDuplicate($e)) {
+					throw $e;
+				}
+				/* Eşzamanlı aynı kayıt: diğer istek hesabı oluşturdu; bu istek sessizce aynı yanıtı verir. */
 			}
-			throw $e;
+		} elseif ($row['email_verified_at'] === null) {
+			/* Etkinleştirilmemiş bekleyen kayıt: yeni bağlantı gönderilir (eski bağlantı geçersizleşir). */
+			$id = (int) $row['id'];
+			$this->run('UPDATE customers SET name = :n, terms_accepted_at = :t, updated_at = :u WHERE id = :id AND password_hash = \'!\'', array('n' => $name, 't' => $now, 'u' => $now, 'id' => $id));
+			$job = function () use ($id, $email, $next): void {
+				$this->sendToken($id, 'verify', $email, null, $next);
+			};
+		} else {
+			$job = function () use ($email): void {
+				$this->sendNotice($email);
+			};
 		}
-		$id = (int) $this->pdo->lastInsertId();
-		$this->sendToken($id, 'verify', $email, null);
+		/* Aynı adrese saatte en fazla 3 e-posta: posta kutusu doldurulamaz. Sınır aşıldığında yanıt yine aynıdır. */
+		if ($job !== null && $this->consume('acc-reg-mail:', $email, 3, 3600) === 0) {
+			$this->deferred[] = $job;
+		}
 
-		return $this->startSession($id, $https, 201);
+		return $this->ok(array('status' => 'ok', 'pending' => true), array(), 202);
+	}
+
+	/**
+	 * Kayıt e-postasındaki bağlantıyla hesabı etkinleştirir: parolayı posta kutusunun sahibi belirler,
+	 * e-posta doğrulanmış olur ve oturum açılır. Belirteç tek kullanımlıktır.
+	 *
+	 * @param array<string, mixed> $d
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function activate(array $d, bool $https): array
+	{
+		if ($this->requireHttps && !$https) {
+			return $this->error(403, 'https_required');
+		}
+		$fields = array();
+		$password = $this->newPassword($d['password'] ?? null, $fields);
+		if ($fields !== array()) {
+			return $this->error(422, 'validation', $fields);
+		}
+		$tok = $this->useToken($d['token'] ?? null, 'verify');
+		if ($tok === null) {
+			return $this->error(410, 'invalid_token');
+		}
+		$id = $tok['customer_id'];
+		$now = $this->nowSql();
+		/* '!' = henüz parola yok. Koşullu güncelleme: aynı bağlantıyla iki eşzamanlı istekten yalnız biri kazanır. */
+		$st = $this->pdo->prepare('UPDATE customers SET password_hash = :h, email_verified_at = :now, last_login_at = :now2, updated_at = :now3 WHERE id = :id AND password_hash = \'!\'');
+		$st->execute(array('h' => $this->hashPassword($password), 'now' => $now, 'now2' => $now, 'now3' => $now, 'id' => $id));
+		if ($st->rowCount() !== 1) {
+			return $this->error(410, 'invalid_token');
+		}
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c', array('c' => $id));
+
+		return $this->startSession($id, $https, 200);
+	}
+
+	/** Site içi yönlendirme hedefi beyaz listesi (açık yönlendirme yok). */
+	private function safeNext(mixed $v): string
+	{
+		return is_string($v) && strlen($v) <= 120 && preg_match('#^(odeme|hesabim|paketler)/[A-Za-z0-9_\-?=&%.]*$#', $v) === 1 ? $v : '';
+	}
+
+	/** Zaten hesabı olan adrese üyelik denendiğinde gönderilen bilgilendirme (doğrulama bağlantısı içermez). */
+	private function sendNotice(string $to): void
+	{
+		$body = "Merhaba,\n\nBu e-posta adresiyle QR Menu Official'da üyelik oluşturulmak istendi, ancak adresinizle zaten bir hesabınız var.\n\nGiriş yapmak için: " . $this->siteUrl . "/giris/\nParolanızı unuttuysanız aynı sayfadaki \"Parolamı unuttum\" bağlantısını kullanın.\n\nBu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz; hesabınızda bir değişiklik olmadı.\n\nQR Menu Official";
+		try {
+			($this->mailer)($to, 'QR Menu Official: zaten bir hesabınız var', $body);
+		} catch (\Throwable $e) {
+			error_log('qr-account-mail ' . $e::class);
+		}
 	}
 
 	/**
@@ -252,9 +319,9 @@ final class Accounts
 		}
 
 		$row = $this->one('SELECT id, password_hash FROM customers WHERE email = :email LIMIT 1', array('email' => $email));
-		$hash = $row !== null ? (string) $row['password_hash'] : self::DUMMY_HASH;
+		$hash = $row !== null && (string) $row['password_hash'] !== '!' ? (string) $row['password_hash'] : self::DUMMY_HASH;
 		$valid = password_verify(self::pre($password), $hash);
-		if ($row === null || !$valid) {
+		if ($row === null || !$valid || $hash === self::DUMMY_HASH) {
 			return $this->error(401, 'invalid_credentials');
 		}
 		$id = (int) $row['id'];
@@ -451,6 +518,13 @@ final class Accounts
 			return $this->error(410, 'invalid_token');
 		}
 		$id = $tok['customer_id'];
+		if ($tok['kind'] === 'verify') {
+			$pw = $this->one('SELECT password_hash FROM customers WHERE id = :id', array('id' => $id));
+			if ($pw !== null && (string) $pw['password_hash'] === '!') {
+				/* Kayıt bağlantısı: henüz parola yok; token tüketilmez, parola belirleme adımı (activate) gerekir. */
+				return $this->ok(array('status' => 'ok', 'kind' => 'verify', 'needs_password' => true));
+			}
+		}
 		if ($tok['kind'] === 'email' && $tok['new_email'] !== null) {
 			try {
 				$this->run('UPDATE customers SET email = :e, email_verified_at = :now, updated_at = :now2 WHERE id = :id', array('e' => $tok['new_email'], 'now' => $this->nowSql(), 'now2' => $this->nowSql(), 'id' => $id));
@@ -549,7 +623,7 @@ final class Accounts
 	}
 
 	/** Belirteci üretir, özetini saklar, bağlantıyı e-postayla gönderir. */
-	private function sendToken(int $customerId, string $kind, string $to, ?string $newEmail): bool
+	private function sendToken(int $customerId, string $kind, string $to, ?string $newEmail, string $next = ''): bool
 	{
 		$token = bin2hex(random_bytes(32));
 		$ttl = $kind === 'reset' ? 3600 : 86400;
@@ -564,8 +638,8 @@ final class Accounts
 			$subject = 'QR Menu Official: parolanızı sıfırlayın';
 			$body = "Merhaba,\n\nParolanızı sıfırlamak için aşağıdaki bağlantıyı açın (1 saat geçerlidir):\n\n" . $base . '/giris/?sifirla=' . $token . "\n\nBu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz; parolanız değişmez.\n\nQR Menu Official";
 		} else {
-			$subject = $kind === 'email' ? 'QR Menu Official: yeni e-posta adresinizi onaylayın' : 'QR Menu Official: e-posta adresinizi doğrulayın';
-			$body = "Merhaba,\n\nE-posta adresinizi onaylamak için aşağıdaki bağlantıyı açın (24 saat geçerlidir):\n\n" . $base . '/giris/?dogrula=' . $token . "\n\nBu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz.\n\nQR Menu Official";
+			$subject = $kind === 'email' ? 'QR Menu Official: yeni e-posta adresinizi onaylayın' : 'QR Menu Official: hesabınızı etkinleştirin / e-postanızı doğrulayın';
+			$body = "Merhaba,\n\nYeni üyelikte hesabınızı etkinleştirmek ve parolanızı belirlemek, mevcut hesapta e-posta adresinizi onaylamak için aşağıdaki bağlantıyı açın (24 saat geçerlidir):\n\n" . $base . '/giris/?dogrula=' . $token . ($next !== '' ? '&next=' . rawurlencode($next) : '') . "\n\nBu isteği siz yapmadıysanız bu e-postayı yok sayabilirsiniz.\n\nQR Menu Official";
 		}
 		try {
 			return ($this->mailer)($to, $subject, $body);
@@ -968,7 +1042,7 @@ final class Accounts
 	/** Saniye cinsinden bekleme (0: serbest). */
 	private function limit(string $action, string $ip): int
 	{
-		$caps = array('register' => array(5, 600), 'login' => array(10, 60), 'password' => array(5, 300), 'delete' => array(5, 300), 'order' => array(20, 60), 'forgot' => array(5, 600), 'reset' => array(10, 600), 'verify' => array(20, 600), 'resend' => array(3, 600), 'email' => array(5, 600), 'lkey' => array(5, 300));
+		$caps = array('register' => array(5, 600), 'login' => array(10, 60), 'password' => array(5, 300), 'delete' => array(5, 300), 'order' => array(20, 60), 'forgot' => array(5, 600), 'reset' => array(10, 600), 'verify' => array(20, 600), 'activate' => array(10, 600), 'resend' => array(3, 600), 'email' => array(5, 600), 'lkey' => array(5, 300));
 		$cap = $caps[$action] ?? array(120, 60);
 
 		return $this->consume('acc-' . $action . ':', $ip !== '' ? $ip : 'unknown', $cap[0], $cap[1]);

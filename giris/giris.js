@@ -9,9 +9,10 @@
   var title = $("ac-title"), sub = $("ac-sub"), state = $("ac-state"), after = $("ac-after");
   var TEXT = {
     login: ["Hesabınıza giriş yapın.", "Paket satın almak ve siparişlerinizi görmek için giriş yapın.", "Giriş Yap"],
-    signup: ["Hesap oluşturun.", "Satın alma için üyelik gerekir. Birkaç saniye sürer, kart bilgisi istenmez.", "Üye Ol"],
+    signup: ["Hesap oluşturun.", "Satın alma için üyelik gerekir. Ad ve e-postanızı yazın; parolanızı e-postanıza göndereceğimiz bağlantıda belirlersiniz. Kart bilgisi istenmez.", "Üye Ol"],
     forgot: ["Parolanızı sıfırlayın.", "E-posta adresinizi yazın; size bir sıfırlama bağlantısı gönderelim.", "Parolamı Unuttum"],
     reset: ["Yeni parolanızı belirleyin.", "Bu bağlantıyla yeni bir parola seçin. Diğer cihazlardaki oturumlarınız kapanır.", "Yeni Parola"],
+    activate: ["Parolanızı belirleyin.", "E-posta adresiniz doğrulandı. Hesabınızı etkinleştirmek için bir parola seçin; en az 10 karakter.", "Hesabı Etkinleştir"],
     verify: ["E-posta doğrulama", "", "E-posta Doğrulama"]
   };
   var q = new URLSearchParams(location.search);
@@ -99,13 +100,8 @@
       if (!validate(form)) return;
       button.disabled = true; button.textContent = busy;
       call().then(function (res) {
-        button.disabled = false; button.textContent = idle;
-        if (res.status === 200 || res.status === 201) { onOk(res); return; }
-        if (res.status === 409 && res.data.error === "email_taken" && form === panels.signup) {
-          panels.login.elements.email.value = form.elements.email.value.trim();
-          show("login", false); panels.login.elements.password.focus();
-          say("Bu e-posta ile zaten bir hesap var. Parolanızla giriş yapın.", "err"); return;
-        }
+        button.disabled = false; button.textContent = button.getAttribute("data-idle") || idle;
+        if (res.status === 200 || res.status === 201 || res.status === 202) { onOk(res); return; }
         if ((res.status === 422 || res.status === 409) && serverFields(form, res)) { say("Lütfen işaretli alanları düzeltin.", "err"); return; }
         say(A.message(res), "err");
       });
@@ -114,11 +110,26 @@
   function signedIn() { A.flag(true); say("Yönlendiriliyorsunuz…", "ok"); location.href = goto_; }
   var L = panels.login, S = panels.signup, F = panels.forgot, R = panels.reset;
   submit(L, $("al-submit"), function () { return A.login({ email: L.elements.email.value.trim(), password: L.elements.password.value }); }, "Giriş yapılıyor…", "Giriş yap", signedIn);
-  submit(S, $("as-submit"), function () { return A.register({ name: S.elements.name.value, email: S.elements.email.value.trim(), password: S.elements.password.value, terms: S.elements.terms.checked }); }, "Hesap oluşturuluyor…", "Hesap oluştur", signedIn);
+  submit(S, $("as-submit"), function () { return A.register({ name: S.elements.name.value, email: S.elements.email.value.trim(), terms: S.elements.terms.checked, next: next }); }, "Gönderiliyor…", "Hesap oluştur", function () {
+    /* Yanıt, adres kayıtlı olsun olmasın aynıdır; bu metin de ikisinde aynıdır. */
+    var mail = S.elements.email.value.trim();
+    S.hidden = true; $("ac-tabs").hidden = true;
+    title.textContent = "E-postanızı kontrol edin."; sub.hidden = false;
+    sub.textContent = mail + " adresine bir bağlantı gönderdik. Bağlantıyı açıp parolanızı belirleyerek hesabınızı etkinleştirin (24 saat geçerli). Bu adresle zaten bir hesabınız varsa, e-postada giriş yapmanız için yönlendirme bulursunuz.";
+    say("Gelmediyse gelen kutunuzun istenmeyen klasörüne bakın ya da aynı bilgilerle tekrar deneyin.", "ok");
+    after.textContent = ""; after.hidden = false;
+    var again = document.createElement("button"); again.type = "button"; again.className = "qrmo-ac-btn qrmo-ac-btn--ghost ts-btn"; again.textContent = "Farklı bir e-posta yaz";
+    again.addEventListener("click", function () { S.hidden = false; show("signup", true); });
+    after.appendChild(again);
+  });
   submit(F, $("af-submit"), function () { return A.forgot({ email: F.elements.email.value.trim() }); }, "Gönderiliyor…", "Sıfırlama bağlantısı gönder", function () {
     say("Bu adres kayıtlıysa sıfırlama bağlantısı gönderildi. Gelen kutunuzu ve istenmeyen klasörünü kontrol edin; bağlantı 1 saat geçerlidir.", "ok");
   });
-  submit(R, $("ar-submit"), function () { return A.reset({ token: token.reset, password: R.elements.password.value }); }, "Güncelleniyor…", "Parolayı güncelle", function () {
+  var activating = false;
+  submit(R, $("ar-submit"), function () {
+    return activating ? A.activate({ token: token.verify, password: R.elements.password.value }) : A.reset({ token: token.reset, password: R.elements.password.value });
+  }, "Kaydediliyor…", "Parolayı güncelle", function (res) {
+    if (activating) { signedIn(res); return; }
     A.flag(false); R.reset(); show("login", false);
     say("Parolanız güncellendi. Yeni parolanızla giriş yapabilirsiniz.", "ok");
     try { history.replaceState(null, "", location.pathname); } catch (e) {}
@@ -130,6 +141,13 @@
     $("ac-tabs").hidden = true; title.textContent = TEXT.verify[0]; sub.hidden = true; document.title = TEXT.verify[2] + " | QR Menu Official";
     say("E-posta adresiniz doğrulanıyor…");
     A.verify({ token: token.verify }).then(function (res) {
+      if (res.status === 200 && res.data.needs_password) {
+        /* Kayıt bağlantısı: parolayı posta kutusunun sahibi burada belirler. */
+        activating = true; show("reset", true);
+        title.textContent = TEXT.activate[0]; sub.hidden = false; sub.textContent = TEXT.activate[1]; document.title = TEXT.activate[2] + " | QR Menu Official";
+        var b = $("ar-submit"); b.setAttribute("data-idle", "Hesabı etkinleştir"); b.textContent = "Hesabı etkinleştir"; say("");
+        return;
+      }
       after.textContent = ""; after.hidden = false;
       if (res.status === 200) {
         say(res.data.kind === "email" ? "Yeni e-posta adresiniz onaylandı. Bundan sonra bu adresle giriş yapın." : "E-posta adresiniz doğrulandı.", "ok");
