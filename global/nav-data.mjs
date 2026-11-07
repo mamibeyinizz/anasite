@@ -75,17 +75,9 @@ export const NAV = [
 /* Hesap bağlantısı: varsayılan "Giriş Yap"; tarayıcıda oturum işareti varsa global/src/account-link.js "Hesabım"a çevirir. */
 export const ACCOUNT = {
   login: { label: "Giriş Yap", path: "giris/", sub: "Giriş yapın ya da üye olun" },
+  signup: { label: "Kayıt Ol", path: "giris/?sekme=uye" },
   account: { label: "Hesabım", path: "hesabim/", sub: "Siparişleriniz ve profiliniz" }
 };
-
-/* Header/drawer birincil CTA'sı satın alma yolundadır: oturum yokken "Üye Ol", varken "Paketleri Seç".
-   İletişim bağlantısı drawer kartında, footer'da ve sayfa içi CTA'larda durur (CONVERSION.primary). */
-export const HEADER_CTA = {
-  out: { label: "Üye Ol", path: "giris/?sekme=uye" },
-  in: { label: "Paketleri Seç", path: "paketler/" }
-};
-
-export const DRAWER_CONTACT = { label: "İletişim", sub: "Sorunuz mu var? Bize yazın", path: "iletisim/" };
 
 export const DRAWER = {
   eyebrow: "RESTORANLAR İÇİN DİJİTAL ÇÖZÜMLER",

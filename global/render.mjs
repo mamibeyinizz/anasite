@@ -5,8 +5,6 @@ import {
   CONVERSION,
   NAV,
   ACCOUNT,
-  HEADER_CTA,
-  DRAWER_CONTACT,
   DRAWER,
   DRAWER_SOLUTIONS,
   HUB,
@@ -91,7 +89,8 @@ function acctAttrs(rel) {
 }
 function renderAccountLink(rel, current) {
   const on = current === "hesap" ? ' aria-current="true"' : "";
-  return `<a class="qrmo-gh-acct" href="${href(rel, ACCOUNT.login.path)}" ${acctAttrs(rel)}${on}><span class="qrmo-gh-acct-icon">${I.user}</span><span class="qrmo-gh-acct-label" data-acct-label>${esc(ACCOUNT.login.label)}</span></a>`;
+  const login = href(rel, ACCOUNT.login.path);
+  return `<div class="qrmo-gh-acct" data-qrmo-acct-group data-acct-account="${href(rel, ACCOUNT.account.path)}"><a class="qrmo-gh-acct-link" href="${login}" data-acct-main data-acct-login="${login}"${on}><span class="qrmo-gh-acct-icon">${I.user}</span><span class="qrmo-gh-acct-label" data-acct-label>${esc(ACCOUNT.login.label)}</span></a><span class="qrmo-gh-acct-sep" aria-hidden="true" data-acct-sep>/</span><a class="qrmo-gh-acct-link qrmo-gh-acct-link--signup" href="${href(rel, ACCOUNT.signup.path)}" data-acct-signup><span>${esc(ACCOUNT.signup.label)}</span></a></div>`;
 }
 function renderAccountCard(rel, current) {
   const on = current === "hesap" ? ' aria-current="true"' : "";
@@ -102,27 +101,6 @@ function renderAccountCard(rel, current) {
         <span class="qrmo-gh-d-card-text">
           <span class="qrmo-gh-d-card-title" data-acct-label>${esc(ACCOUNT.login.label)}</span>
           <span class="qrmo-gh-d-card-sub" data-acct-sub>${esc(ACCOUNT.login.sub)}</span>
-        </span>
-      </span>
-      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
-      </a>`;
-}
-
-/* Oturum durumuna göre etiketi/adresi account-link.js değiştirir. */
-function renderHeaderCta(rel, { drawer = false } = {}) {
-  const cls = `qrmo-gh-cta${drawer ? " qrmo-gh-cta--drawer" : ""}`;
-  const inner = `<span class="qrmo-gh-qr-icon">${I.arrow}</span><span data-cta-label>${esc(HEADER_CTA.out.label)}</span>`;
-  return `<a class="${cls}" href="${href(rel, HEADER_CTA.out.path)}" data-qrmo-cta-acct data-cta-out-href="${href(rel, HEADER_CTA.out.path)}" data-cta-in-href="${href(rel, HEADER_CTA.in.path)}" data-cta-in-label="${esc(HEADER_CTA.in.label)}">${inner}</a>`;
-}
-function renderContactCard(rel, current) {
-  const on = current === "iletisim" ? ' aria-current="true"' : "";
-  return `
-      <a class="qrmo-gh-d-card" href="${href(rel, DRAWER_CONTACT.path)}"${on}>
-      <span class="qrmo-gh-d-card-left">
-        <span class="qrmo-gh-d-card-icon">${I.nav.iletisim}</span>
-        <span class="qrmo-gh-d-card-text">
-          <span class="qrmo-gh-d-card-title">${esc(DRAWER_CONTACT.label)}</span>
-          <span class="qrmo-gh-d-card-sub">${esc(DRAWER_CONTACT.sub)}</span>
         </span>
       </span>
       <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
@@ -201,7 +179,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
   /* Ana sayfadayken drawer'da kendine giden "Ana Sayfa" kartı gösterilmez */
   const drawerLinks = NAV.filter((n) => !(n.key === "home" && current === "home"))
     .map((n) => renderDrawerNavCard(rel, n, current, exact))
-    .join("") + renderAccountCard(rel, current) + renderContactCard(rel, current);
+    .join("") + renderAccountCard(rel, current);
 
   const solutionCards = DRAWER_SOLUTIONS.map(
     (s, i) => `
@@ -237,7 +215,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
         </ul>
       </nav>
       ${renderAccountLink(rel, current)}
-      ${renderHeaderCta(rel)}
+      ${renderPrimaryCta(rel)}
       <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
         <span class="qrmo-gh-burger-label">MENÜ</span>
         <span class="qrmo-gh-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -273,7 +251,7 @@ export function renderHeader({ rel = "", current = "", skip = "icerik", exact = 
       </div>
     </div>
     <div class="qrmo-gh-drawer-bottom">
-      ${renderHeaderCta(rel, { drawer: true })}
+      ${renderPrimaryCta(rel, { drawer: true })}
       ${drawerNote}
     </div>
   </div>
