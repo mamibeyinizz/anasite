@@ -1,0 +1,8 @@
+# Hesap sayfaları: başka sitede çerçeveye gömülemez (tıklama kandırmacası) ve adres çubuğundaki
+# sorgu (parola sıfırlama / doğrulama bağlantısı) hiçbir yere Referer olarak gitmez.
+<IfModule mod_headers.c>
+Header always set X-Frame-Options "DENY"
+Header always set Content-Security-Policy "frame-ancestors 'none'"
+Header always set Referrer-Policy "no-referrer"
+Header always set X-Content-Type-Options "nosniff"
+</IfModule>

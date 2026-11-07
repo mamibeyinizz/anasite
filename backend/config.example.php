@@ -34,6 +34,10 @@ return array(
 	'session_cookie'  => 'qrl_session',
 	// Boş liste: X-Forwarded-Proto ve X-Forwarded-For yok sayılır.
 	'trusted_proxies' => array(),
+	// Site Cloudflare vb. arkasındaysa tüm kullanıcılar tek uç adresi gibi görünür ve hız sınırları birbirini
+	// engeller. trusted_proxies'e vekil adreslerini yazın ve gerçek IP başlığını belirtin (örn. Cloudflare:
+	// 'HTTP_CF_CONNECTING_IP'). Başlık yalnızca doğrudan eş trusted_proxies'teyse okunur. Boş: kapalı.
+	'real_ip_header'  => '',
 	// Takip uç noktası yalnızca bu alan adlarından gelen Origin'leri kabul eder (boş: kontrol yok).
 	'site_hosts'      => array('qrmenuofficial.com', 'www.qrmenuofficial.com'),
 	// Rapor günlerinin saat dilimi (UTC'den saat farkı). Türkiye: 3.

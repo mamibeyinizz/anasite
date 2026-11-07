@@ -30,6 +30,19 @@ E-posta: doğrulama, parola sıfırlama (1 sa) ve e-posta değiştirme bağlant�
 Lisans bağlama: `006_customer_licenses.sql` (`customer_licenses`; `licenses` şemasına dokunmaz). Yönetim panelinde Lisans → "Müşteri hesabı" kartından müşterinin üyelik e-postası yazılır (`POST /api/admin/licenses/{id}/customer`, boş e-posta bağlantıyı kaldırır). Müşteri Hesabım › Lisans'ta paket, modüller, tarihler, alan adı ve maskeli anahtarı görür; anahtarı yalnız parolasını yeniden girerek açar (`POST /api/account/license-key`, 5/5 dk, `audit_events`'e `anahtar_musteri_goruntuledi` düşer). Yeni bağlamada müşteriye "lisansınız hesabınıza eklendi" e-postası gider (anahtar içermez; aynı müşteriye yeniden bağlamada ve kaldırmada gitmez; gönderilemezse panel bunu söyler). Arşivlenen lisans müşteriye görünmez; hesap silinince bağlantı silinir, lisans kalır.
 Test: `/odeme/` test modunda giriş yapmış müşterinin siparişini `customer_orders`'a yazar (`status=test`).
 
+### Hesap güvenliği notları
+
+- **Lisans yalnız doğrulanmış e-postaya bağlanır.** Aksi halde adresi önceden kapan biri, yöneticinin gerçek müşteriye bağladığını sandığı lisansın anahtarını alabilirdi. Doğrulanmamışsa panel `email_not_verified` der.
+- Parola sıfırlama e-postayı doğrulanmış sayar ve önceden başlatılmış tüm belirteçleri (e-posta değiştirme dahil) ile tüm oturumları iptal eder. Parola değişimi de aynı belirteçleri siler.
+- Parolalar bcrypt'e SHA-256+base64 ön özetle verilir (bcrypt 72 baytta kırpar). **Bu değişiklikten önce açılmış hesaplar varsa parolalarını "Parolamı unuttum" ile yenilemeleri gerekir** (canlıda hesap yoksa etkisi yoktur).
+- Hız sınırı eklemeyi önce dener, çakışmada yeniden dener; tükenirse reddeder (açık bırakmaz). Giriş sınırı e-posta+IP çiftine göredir: başkası bir hesabı kilitleyemez. Parola doğrulayan işlemler (parola, silme, e-posta, lisans anahtarı) hesap başına ortak sınıra tabidir; aynı adrese onay e-postası ve doğrulama yeniden gönderimi de sınırlıdır.
+- Parola sıfırlama yanıtı e-posta gönderilmeden döner (`fastcgi_finish_request`/LiteSpeed eşdeğeri); kayıtlı ve kayıtsız adres süreyle ayırt edilemez.
+- **Cloudflare/vekil arkasındaysanız** `trusted_proxies` + `real_ip_header` (örn. `HTTP_CF_CONNECTING_IP`) verin; aksi halde tüm kullanıcılar tek uç adresi sayılır ve hız sınırları birbirini engeller. Başlık yalnız güvenilen eşten okunur.
+- `mail_file` yalnızca `php -S` (cli-server) altında geçerlidir.
+- `giris/`, `hesabim/`, `odeme/` içindeki `.htaccess` çerçeveye gömmeyi (`X-Frame-Options`, `frame-ancestors`) ve Referer sızıntısını (`no-referrer`) kapatır; `mod_headers` gerekir. Bu sayfalar ziyaret ölçümüne de girmez.
+- **Bilinen, bilinçli kalan risk:** Kayıtlı e-postayla üye olmaya çalışmak `409` döner (adres varlığı sızar; IP başına 5/10 dk ile sınırlı). Kapatmak, üye olmadan önce e-posta doğrulamasını zorunlu kılar ve ödeme akışını bir posta turuna bağlar; bu bir ürün kararıdır.
+- Test: `php backend/tests/account-test.php` (sqlite, 54 kontrol; yukarıdaki açıkların regresyonlarını içerir). MySQL'e özgü davranış ve gerçek `mail()` burada denenmez.
+
 ## Yönetim paneli (`/yonetim/`)
 
 - **Genel bakış / Canlı:** ziyaretçi, oturum, sayfa görüntüleme, tıklama, süre, çıkış oranı, önceki dönemle kıyas, kaynaklar, cihaz/tarayıcı/OS/ülke, utm.

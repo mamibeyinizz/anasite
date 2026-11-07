@@ -39,7 +39,11 @@ final class Accounts
 	/** @var callable():DateTimeImmutable */
 	private $now;
 
-	private string $dummyHash;
+	/** Sabit sahte özet: bilinmeyen e-postada da aynı maliyetle doğrulama yapılır; istek başına özet üretilmez. */
+	private const DUMMY_HASH = '$2y$10$.EYZVqLfqeCIh7QffSu0.euPsjLSwgh72EN.05s2VIl3J.Yn9JwdK';
+
+	/** @var list<callable():void> */
+	private array $deferred = array();
 
 	private string $siteUrl;
 
@@ -76,7 +80,6 @@ final class Accounts
 		$this->now = $now ?? static function (): DateTimeImmutable {
 			return new DateTimeImmutable('now', new DateTimeZone('UTC'));
 		};
-		$this->dummyHash = (string) password_hash(bin2hex(random_bytes(16)), PASSWORD_DEFAULT);
 	}
 
 	/**
@@ -126,7 +129,7 @@ final class Accounts
 			return $this->register($data, $https);
 		}
 		if ($action === 'login') {
-			return $this->login($data, $https);
+			return $this->login($data, $https, $ip);
 		}
 		if ($action === 'forgot') {
 			return $this->forgot($data);
@@ -206,7 +209,7 @@ final class Accounts
 				 VALUES (:email, :hash, :name, :business, :phone, \'\', :now, :now2, :now3, :now4)',
 				array(
 					'email' => $email,
-					'hash' => password_hash($password, PASSWORD_DEFAULT),
+					'hash' => $this->hashPassword($password),
 					'name' => $name,
 					'business' => $business,
 					'phone' => $phone,
@@ -232,7 +235,7 @@ final class Accounts
 	 * @param array<string, mixed> $d
 	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
 	 */
-	private function login(array $d, bool $https): array
+	private function login(array $d, bool $https, string $ip): array
 	{
 		if ($this->requireHttps && !$https) {
 			return $this->error(403, 'https_required');
@@ -242,20 +245,21 @@ final class Accounts
 		if ($email === '' || $password === '' || strlen($email) > 191 || strlen($password) > 128) {
 			return $this->error(400, 'missing_field');
 		}
-		$wait = $this->consume('acc-login-mail:', $email, 10, 900);
+		/* Hesap başına değil e-posta+IP çiftine göre: başkası, kurbanın girişini kilitleyemez. */
+		$wait = $this->consume('acc-login-pair:', $email . '|' . $ip, 10, 900);
 		if ($wait > 0) {
 			return $this->error(429, 'rate_limited', array(), $wait);
 		}
 
 		$row = $this->one('SELECT id, password_hash FROM customers WHERE email = :email LIMIT 1', array('email' => $email));
-		$hash = $row !== null ? (string) $row['password_hash'] : $this->dummyHash;
-		$valid = password_verify($password, $hash);
+		$hash = $row !== null ? (string) $row['password_hash'] : self::DUMMY_HASH;
+		$valid = password_verify(self::pre($password), $hash);
 		if ($row === null || !$valid) {
 			return $this->error(401, 'invalid_credentials');
 		}
 		$id = (int) $row['id'];
 		if (password_needs_rehash($hash, PASSWORD_DEFAULT)) {
-			$this->run('UPDATE customers SET password_hash = :h WHERE id = :id', array('h' => password_hash($password, PASSWORD_DEFAULT), 'id' => $id));
+			$this->run('UPDATE customers SET password_hash = :h WHERE id = :id', array('h' => $this->hashPassword($password), 'id' => $id));
 		}
 		$this->run('UPDATE customers SET last_login_at = :now WHERE id = :id', array('now' => $this->nowSql(), 'id' => $id));
 
@@ -301,14 +305,17 @@ final class Accounts
 		if ($fields !== array()) {
 			return $this->error(422, 'validation', $fields);
 		}
+		if (($w = $this->pwGate($s['customer_id'])) > 0) {
+			return $this->error(429, 'rate_limited', array(), $w);
+		}
 		if (!$this->passwordMatches($s['customer_id'], $current)) {
 			return $this->error(422, 'validation', array('current' => 'Mevcut parola yanlış.'));
 		}
 		$this->run(
 			'UPDATE customers SET password_hash = :h, updated_at = :now WHERE id = :id',
-			array('h' => password_hash($new, PASSWORD_DEFAULT), 'now' => $this->nowSql(), 'id' => $s['customer_id'])
+			array('h' => $this->hashPassword($new), 'now' => $this->nowSql(), 'id' => $s['customer_id'])
 		);
-		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'reset\'', array('c' => $s['customer_id']));
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind <> \'verify\'', array('c' => $s['customer_id']));
 		/* Diğer cihazlardaki oturumlar kapanır; bu oturum açık kalır. */
 		$this->run('DELETE FROM customer_sessions WHERE customer_id = :c AND id <> :id', array('c' => $s['customer_id'], 'id' => $s['id']));
 
@@ -361,6 +368,9 @@ final class Accounts
 	private function deleteAccount(array $s, array $d, bool $https): array
 	{
 		$password = isset($d['password']) && is_string($d['password']) ? $d['password'] : '';
+		if (($w = $this->pwGate($s['customer_id'])) > 0) {
+			return $this->error(429, 'rate_limited', array(), $w);
+		}
 		if ($password === '' || strlen($password) > 128 || !$this->passwordMatches($s['customer_id'], $password)) {
 			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
 		}
@@ -392,7 +402,11 @@ final class Accounts
 		if ($wait === 0) {
 			$row = $this->one('SELECT id FROM customers WHERE email = :e LIMIT 1', array('e' => $email));
 			if ($row !== null) {
-				$this->sendToken((int) $row['id'], 'reset', $email, null);
+				/* Yanıt, e-posta gönderilmeden döner: kayıtlı/kayıtsız adres süreyle ayırt edilemez. */
+				$cid = (int) $row['id'];
+				$this->deferred[] = function () use ($cid, $email): void {
+					$this->sendToken($cid, 'reset', $email, null);
+				};
 			}
 		}
 
@@ -415,9 +429,11 @@ final class Accounts
 			return $this->error(410, 'invalid_token');
 		}
 		$id = $tok['customer_id'];
-		$this->run('UPDATE customers SET password_hash = :h, updated_at = :now WHERE id = :id', array('h' => password_hash($password, PASSWORD_DEFAULT), 'now' => $this->nowSql(), 'id' => $id));
+		/* Bağlantıyı açabilmek posta kutusunun denetimini kanıtlar: e-posta doğrulanmış sayılır. Diğer tüm
+		   belirteçler (ör. önceden başlatılmış e-posta değiştirme) ve oturumlar iptal edilir. */
+		$this->run('UPDATE customers SET password_hash = :h, updated_at = :now, email_verified_at = COALESCE(email_verified_at, :now2) WHERE id = :id', array('h' => $this->hashPassword($password), 'now' => $this->nowSql(), 'now2' => $this->nowSql(), 'id' => $id));
 		$this->run('DELETE FROM customer_sessions WHERE customer_id = :c', array('c' => $id));
-		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'reset\'', array('c' => $id));
+		$this->run('DELETE FROM customer_tokens WHERE customer_id = :c', array('c' => $id));
 
 		return $this->ok(array('status' => 'ok'));
 	}
@@ -444,7 +460,7 @@ final class Accounts
 				}
 				throw $e;
 			}
-			$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'email\'', array('c' => $id));
+			$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind IN (\'email\', \'verify\')', array('c' => $id));
 		} else {
 			$this->run('UPDATE customers SET email_verified_at = :now WHERE id = :id AND email_verified_at IS NULL', array('now' => $this->nowSql(), 'id' => $id));
 			$this->run('DELETE FROM customer_tokens WHERE customer_id = :c AND kind = \'verify\'', array('c' => $id));
@@ -462,6 +478,9 @@ final class Accounts
 		$c = $this->one('SELECT email, email_verified_at FROM customers WHERE id = :id', array('id' => $s['customer_id']));
 		if ($c === null || $c['email_verified_at'] !== null) {
 			return $this->error(409, 'already_verified');
+		}
+		if (($w = $this->consume('acc-resend-c:', 'c' . $s['customer_id'], 3, 3600)) > 0) {
+			return $this->error(429, 'rate_limited', array(), $w);
 		}
 		if (!$this->sendToken($s['customer_id'], 'verify', (string) $c['email'], null)) {
 			return $this->error(503, 'mail_failed');
@@ -485,11 +504,18 @@ final class Accounts
 		if ($fields !== array()) {
 			return $this->error(422, 'validation', $fields);
 		}
+		if (($w = $this->pwGate($s['customer_id'])) > 0) {
+			return $this->error(429, 'rate_limited', array(), $w);
+		}
 		if ($password === '' || strlen($password) > 128 || !$this->passwordMatches($s['customer_id'], $password)) {
 			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
 		}
 		if ($this->one('SELECT id FROM customers WHERE email = :e', array('e' => $email)) !== null) {
 			return $this->error(422, 'validation', array('email' => 'Bu e-posta başka bir hesapta kayıtlı.'));
+		}
+		/* Aynı adrese art arda onay e-postası gönderilip posta kutusu doldurulamasın. */
+		if (($w = $this->consume('acc-mail-to:', $email, 3, 3600)) > 0) {
+			return $this->error(429, 'rate_limited', array(), $w);
 		}
 		if (!$this->sendToken($s['customer_id'], 'email', $email, $email)) {
 			return $this->error(503, 'mail_failed');
@@ -506,6 +532,20 @@ final class Accounts
 		);
 
 		return $row === null ? null : (string) $row['new_email'];
+	}
+
+	/** Yanıt gönderildikten sonra çalıştırılacak işleri çalıştırır (index.php kapanışta çağırır). */
+	public function flushDeferred(): void
+	{
+		$jobs = $this->deferred;
+		$this->deferred = array();
+		foreach ($jobs as $job) {
+			try {
+				$job();
+			} catch (\Throwable $e) {
+				error_log('qr-account-deferred ' . $e::class);
+			}
+		}
 	}
 
 	/** Belirteci üretir, özetini saklar, bağlantıyı e-postayla gönderir. */
@@ -629,6 +669,9 @@ final class Accounts
 	{
 		$password = isset($d['password']) && is_string($d['password']) ? $d['password'] : '';
 		$id = isset($d['id']) && is_int($d['id']) ? $d['id'] : 0;
+		if (($w = $this->pwGate($s['customer_id'])) > 0) {
+			return $this->error(429, 'rate_limited', array(), $w);
+		}
 		if ($password === '' || strlen($password) > 128 || !$this->passwordMatches($s['customer_id'], $password)) {
 			return $this->error(422, 'validation', array('password' => 'Parola yanlış.'));
 		}
@@ -656,10 +699,9 @@ final class Accounts
 		if (!hash_equals((string) $row['api_key_hmac'], $this->keys->hmac($plain))) {
 			return $this->error(500, 'key_unavailable');
 		}
-		$who = $this->one('SELECT email FROM customers WHERE id = :id', array('id' => $s['customer_id']));
 		$this->run(
 			'INSERT INTO audit_events (license_id, occurred_at, actor, action, detail) VALUES (:l, :now, :actor, :action, \'\')',
-			array('l' => $id, 'now' => $this->nowSql(), 'actor' => mb_substr('musteri:' . ($who['email'] ?? ''), 0, 64), 'action' => 'anahtar_musteri_goruntuledi')
+			array('l' => $id, 'now' => $this->nowSql(), 'actor' => 'musteri:#' . $s['customer_id'], 'action' => 'anahtar_musteri_goruntuledi')
 		);
 
 		return $this->ok(array('status' => 'ok', 'api_key' => $plain));
@@ -866,11 +908,30 @@ final class Accounts
 		);
 	}
 
+	/**
+	 * bcrypt ilk 72 baytı kullanır; parola önce SHA-256+base64 ile 44 karaktere indirilir (kırpma olmaz).
+	 */
+	private static function pre(string $password): string
+	{
+		return base64_encode(hash('sha256', $password, true));
+	}
+
+	private function hashPassword(string $password): string
+	{
+		return (string) password_hash(self::pre($password), PASSWORD_DEFAULT);
+	}
+
+	/** Parola doğrulayan işlemler için hesap başına ortak sınır (saniye bekleme, 0: serbest). */
+	private function pwGate(int $customerId): int
+	{
+		return $this->consume('acc-pw:', 'c' . $customerId, 10, 900);
+	}
+
 	private function passwordMatches(int $customerId, string $password): bool
 	{
 		$row = $this->one('SELECT password_hash FROM customers WHERE id = :id', array('id' => $customerId));
 
-		return $row !== null && password_verify($password, (string) $row['password_hash']);
+		return $row !== null && password_verify(self::pre($password), (string) $row['password_hash']);
 	}
 
 	private function tokenFromCookie(string $header, bool $https): string
@@ -916,43 +977,80 @@ final class Accounts
 	private function consume(string $prefix, string $identity, int $max, int $window): int
 	{
 		$bucket = $prefix . hash('sha256', $identity);
+		for ($attempt = 0; $attempt < 4; $attempt++) {
+			try {
+				return $this->consumeOnce($bucket, $max, $window);
+			} catch (PDOException $e) {
+				if ($this->pdo->inTransaction()) {
+					$this->pdo->rollBack();
+				}
+				/* Eşzamanlı ilk istek (UNIQUE çakışması) ya da kilit: yeniden dene; tükenirse reddet (açık bırakma). */
+				if ($attempt < 3 && ($this->isDuplicate($e) || $this->isRetryableLock($e))) {
+					continue;
+				}
+				if ($this->isDuplicate($e) || $this->isRetryableLock($e)) {
+					return $window;
+				}
+				throw $e;
+			}
+		}
+
+		return $window;
+	}
+
+	private function consumeOnce(string $bucket, int $max, int $window): int
+	{
 		$now = ($this->now)();
 		$nowSql = $now->format('Y-m-d H:i:s');
 		$reset = $now->modify('+' . $window . ' seconds')->format('Y-m-d H:i:s');
 
+		/* Önce ekle: satır yoksa kilit boşluğu (gap lock) yarışı olmaz; çakışırsa mevcut satır güncellenir. */
 		$this->pdo->beginTransaction();
 		try {
-			$sql = 'SELECT hits, reset_at FROM rate_buckets WHERE bucket = :b';
-			if ($this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql') {
-				$sql .= ' FOR UPDATE';
-			}
-			$st = $this->pdo->prepare($sql);
-			$st->execute(array('b' => $bucket));
-			$row = $st->fetch();
-			$wait = 0;
-			if (!is_array($row)) {
-				$this->pdo->prepare('INSERT INTO rate_buckets (bucket, hits, reset_at) VALUES (:b, 1, :r)')->execute(array('b' => $bucket, 'r' => $reset));
-			} elseif ((string) $row['reset_at'] <= $nowSql) {
-				$this->pdo->prepare('UPDATE rate_buckets SET hits = 1, reset_at = :r WHERE bucket = :b')->execute(array('b' => $bucket, 'r' => $reset));
-			} elseif ((int) $row['hits'] >= $max) {
-				$until = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', (string) $row['reset_at'], new DateTimeZone('UTC'));
-				$wait = $until ? max(1, $until->getTimestamp() - $now->getTimestamp()) : $window;
-			} else {
-				$this->pdo->prepare('UPDATE rate_buckets SET hits = hits + 1 WHERE bucket = :b')->execute(array('b' => $bucket));
-			}
+			$this->pdo->prepare('INSERT INTO rate_buckets (bucket, hits, reset_at) VALUES (:b, 1, :r)')->execute(array('b' => $bucket, 'r' => $reset));
 			$this->pdo->commit();
 
-			return $wait;
+			return 0;
 		} catch (PDOException $e) {
 			if ($this->pdo->inTransaction()) {
 				$this->pdo->rollBack();
 			}
-			/* Eşzamanlı ilk istek (UNIQUE çakışması) ya da kilit: sınırı aşmış sayma, ama sessizce geçirme. */
-			if ($this->isDuplicate($e)) {
-				return 0;
+			if (!$this->isDuplicate($e)) {
+				throw $e;
 			}
-			throw $e;
 		}
+
+		$this->pdo->beginTransaction();
+		$sql = 'SELECT hits, reset_at FROM rate_buckets WHERE bucket = :b';
+		if ($this->pdo->getAttribute(PDO::ATTR_DRIVER_NAME) === 'mysql') {
+			$sql .= ' FOR UPDATE';
+		}
+		$st = $this->pdo->prepare($sql);
+		$st->execute(array('b' => $bucket));
+		$row = $st->fetch();
+		$wait = 0;
+		if (!is_array($row)) {
+			$this->pdo->commit();
+			throw new PDOException('bucket', 23000);
+		}
+		if ((string) $row['reset_at'] <= $nowSql) {
+			$this->pdo->prepare('UPDATE rate_buckets SET hits = 1, reset_at = :r WHERE bucket = :b')->execute(array('b' => $bucket, 'r' => $reset));
+		} elseif ((int) $row['hits'] >= $max) {
+			$until = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', (string) $row['reset_at'], new DateTimeZone('UTC'));
+			$wait = $until ? max(1, $until->getTimestamp() - $now->getTimestamp()) : $window;
+		} else {
+			$this->pdo->prepare('UPDATE rate_buckets SET hits = hits + 1 WHERE bucket = :b')->execute(array('b' => $bucket));
+		}
+		$this->pdo->commit();
+
+		return $wait;
+	}
+
+	private function isRetryableLock(PDOException $e): bool
+	{
+		$driver = isset($e->errorInfo[1]) ? (int) $e->errorInfo[1] : 0;
+
+		return (string) $e->getCode() === '40001' || $driver === 1213 || $driver === 1205;
 	}
 
 	/* ------------------------------------------------------------ yardımcılar */

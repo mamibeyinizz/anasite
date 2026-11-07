@@ -3,6 +3,8 @@
    belirteci bellekte tutulur. localStorage "qrmo_hesap" yalnızca header etiketi içindir. */
 (function () {
   "use strict";
+  /* Çerçeveye gömülürsek (tıklama kandırmacası) sayfayı gösterme; asıl koruma sunucu başlığıdır (.htaccess). */
+  try { if (window.top !== window.self) { document.documentElement.style.display = "none"; return; } } catch (e) { document.documentElement.style.display = "none"; return; }
   var base = (document.body && document.body.getAttribute("data-api")) || "../api/account";
   var csrf = "";
 

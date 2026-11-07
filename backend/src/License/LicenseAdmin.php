@@ -306,11 +306,15 @@ final class LicenseAdmin
 		$customerId = 0;
 		$customerName = '';
 		if ($email !== '') {
-			$find = $this->pdo->prepare('SELECT id, name FROM customers WHERE email = :email LIMIT 1');
+			$find = $this->pdo->prepare('SELECT id, name, email_verified_at FROM customers WHERE email = :email LIMIT 1');
 			$find->execute(array('email' => $email));
 			$found = $find->fetch();
 			if (!is_array($found)) {
 				return $this->fail(404, 'customer_not_found', array('email'));
+			}
+			/* Doğrulanmamış hesap, adresin gerçek sahibine ait olmayabilir (önceden kapılmış olabilir). */
+			if ($found['email_verified_at'] === null) {
+				return $this->fail(409, 'email_not_verified', array('email'));
 			}
 			$customerId = (int) $found['id'];
 			$customerName = (string) $found['name'];

@@ -436,8 +436,12 @@
     }
   }
 
+  /* Hesap, giriş ve ödeme sayfaları (parola sıfırlama bağlantıları, lisans anahtarı, siparişler) ölçülmez. */
+  var PRIVATE_PAGE = /(^|\/)(giris|hesabim|odeme)(\/|$)/;
+
   function start() {
     if (started) return;
+    if (PRIVATE_PAGE.test(location.pathname)) return;
     ids = loadIds();
     if (!ids) return;
     started = true;

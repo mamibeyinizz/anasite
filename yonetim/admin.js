@@ -54,7 +54,7 @@
   }
   var ERR = {
     unauthenticated: "Oturum süresi doldu.", invalid_csrf: "Güvenlik anahtarı geçersiz; sayfayı yenileyin.", rate_limited: "Çok fazla istek; biraz bekleyin.",
-    slug_taken: "Bu adres (slug) başka yazıda kullanılıyor.", invalid_field: "Alanları kontrol edin.", not_found: "Kayıt bulunamadı.", gd_missing: "Sunucuda GD/WebP yok; görsel yüklenemiyor.",
+    slug_taken: "Bu adres (slug) başka yazıda kullanılıyor.", customer_not_found: "Bu e-postayla kayıtlı müşteri hesabı yok.", email_not_verified: "Müşteri e-postasını henüz doğrulamamış. Hesap, e-posta sahibi olduğu kanıtlanana kadar lisans alamaz; müşteriden Hesabım'daki doğrulama bağlantısını açmasını isteyin.", invalid_field: "Alanları kontrol edin.", not_found: "Kayıt bulunamadı.", gd_missing: "Sunucuda GD/WebP yok; görsel yüklenemiyor.",
     unsupported_image: "Yalnızca JPG, PNG veya WebP.", file_too_large: "Dosya 8 MB'dan büyük.", image_dimensions: "Görsel en az 600×300 olmalı.", confirmation_required: "Onay gerekli."
   };
   var FIELD = { title: "Başlık", slug: "Adres", category: "Kategori", seo_title: "SEO başlığı", description: "Meta açıklama (≤165)", excerpt: "Özet", answer: "Kısa cevap", body: "İçerik (en az bir H2)", cover: "Kapak", cover_alt: "Kapak alt metni", published_on: "Yayın tarihi", faq: "SSS", sources: "Kaynaklar (http/https)", products: "Çözümler", related: "İlgili yazılar", slug_taken: "Adres kullanımda", company_name: "Firma adı" };
