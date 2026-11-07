@@ -71,7 +71,7 @@ for (const pg of PAGES) {
   for (const m of seg.matchAll(/href="([^"]*)"/g)) {
     const h = m[1];
     if (h.startsWith("#") || /^(tel|mailto):/.test(h)) continue;
-    let t = h === "./" ? "index.html" : h.split("#")[0]; /* #parça hedefi dosya değildir */
+    let t = h === "./" ? "index.html" : h.split("#")[0].split("?")[0]; /* #parça ve ?sorgu dosya değildir */
     if (rel && t.startsWith(rel)) t = t.slice(rel.length); else if (rel) { check(false, `${pg.file} bağlantı göreli kök`, h); continue; }
     if (t === "") t = "index.html";
     if (t.endsWith("/")) t += "index.html";

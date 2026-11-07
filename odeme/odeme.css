@@ -39,6 +39,16 @@ body.qrmo-pay-page {
 .qrmo-pay-lead { margin-top: 12px; max-width: var(--ts-measure); color: var(--ts-ink-soft); }
 .qrmo-pay-test { margin-top: 20px; padding: 12px 16px; background: rgba(201,168,76,.14); border: 1px solid rgba(127,100,25,.35); border-radius: 12px; color: var(--qpay-green-dark); }
 
+.qrmo-pay-acct { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; margin-top: 12px; padding: 14px 16px; color: var(--qpay-green-dark); background: #fff; border: 1px solid var(--qpay-line); border-radius: 12px; }
+.qrmo-pay-acct[data-state="out"] { background: #fbf8ee; border-color: var(--qpay-green-dark); }
+.qrmo-pay-acct[data-state="err"] { color: var(--qpay-err); border-color: var(--qpay-err); }
+.qrmo-pay-acct-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.qrmo-pay-acct-actions:empty { display: none; }
+.qrmo-pay-acct-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 18px; color: var(--qpay-green-dark); background: transparent; border: 1.5px solid var(--qpay-line); border-radius: 12px; text-decoration: none; }
+.qrmo-pay-acct-btn:hover { border-color: var(--qpay-green-dark); }
+.qrmo-pay-acct-btn--primary { color: var(--qpay-cream); background: var(--qpay-green-dark); border-color: var(--qpay-gold); }
+.qrmo-pay-acct-btn--primary:hover { background: var(--qpay-green-hover); }
+
 .qrmo-pay-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 28px; align-items: start; }
 .qrmo-pay-grid[hidden], .qrmo-pay-done[hidden] { display: none; }
 @media (min-width: 961px) { .qrmo-pay-grid { grid-template-columns: minmax(0, 1fr) 380px; gap: 32px; } .qrmo-pay-summary { position: sticky; top: calc(var(--qrmo-gh-h, 94px) + 16px); } }
@@ -121,6 +131,9 @@ body.qrmo-pay-page {
 .qrmo-pay-done-note { margin-top: 16px; color: var(--ts-ink-soft); }
 .qrmo-pay-ghost { width: auto; margin-top: 20px; padding-inline: 24px; color: var(--qpay-cream); background: var(--qpay-green-dark); border: 1.5px solid var(--qpay-gold); }
 .qrmo-pay-ghost:hover { background: var(--qpay-green-hover); }
+a.qrmo-pay-ghost { text-decoration: none; }
+.qrmo-pay-ghost--alt { margin-left: 12px; color: var(--qpay-green-dark); background: transparent; border-color: var(--qpay-line); }
+.qrmo-pay-ghost--alt:hover { color: var(--qpay-green-dark); background: rgba(13,43,34,.05); border-color: var(--qpay-green-dark); }
 
 @media (max-width: 640px) {
   .qrmo-pay { padding-bottom: 56px; }

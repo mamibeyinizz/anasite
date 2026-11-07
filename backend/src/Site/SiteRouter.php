@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace QRLicense\Site;
 
+use QRLicense\Account\Accounts;
 use QRLicense\Admin\Auth;
 use QRLicense\Http\Router as LicenseRouter;
 
@@ -26,8 +27,11 @@ final class SiteRouter
 
 	private string $root;
 
-	public function __construct(Auth $auth, LicenseRouter $licenseRouter, Collector $collector, Analytics $analytics, Blog $blog, string $root)
+	private Accounts $accounts;
+
+	public function __construct(Auth $auth, LicenseRouter $licenseRouter, Collector $collector, Analytics $analytics, Blog $blog, string $root, Accounts $accounts)
 	{
+		$this->accounts = $accounts;
 		$this->auth = $auth;
 		$this->licenseRouter = $licenseRouter;
 		$this->collector = $collector;
@@ -64,6 +68,10 @@ final class SiteRouter
 
 		if ($path === '/api/collect') {
 			return $this->collector->handle($method, $rawBody, $ip, $server);
+		}
+
+		if ($path === '/api/account' || str_starts_with($path, '/api/account/')) {
+			return $this->accounts->handle($method, $path, $this->payload($contentType, $rawBody), $ip, $https, $cookie, $csrf);
 		}
 
 		if ($path === '/blog' || $path === '/blog/feed.xml' || $path === '/sitemap-blog.xml' || preg_match('#^/blog/[a-z0-9-]+$#', $path) === 1) {

@@ -72,6 +72,13 @@ export const NAV = [
   /* "Bize Ulaşın" burada yok: birincil CTA (İletişime Geçin) zaten /iletisim/'e gider; iki ayrı bağlantı aynı sayfaya gitmesin. */
 ];
 
+/* Hesap bağlantısı: varsayılan "Giriş Yap"; tarayıcıda oturum işareti varsa global/src/account-link.js "Hesabım"a çevirir. */
+export const ACCOUNT = {
+  login: { label: "Giriş Yap", path: "giris/", sub: "Giriş yapın ya da üye olun" },
+  signup: { label: "Kayıt Ol", path: "giris/?sekme=uye" },
+  account: { label: "Hesabım", path: "hesabim/", sub: "Siparişleriniz ve profiliniz" }
+};
+
 export const DRAWER = {
   eyebrow: "RESTORANLAR İÇİN DİJİTAL ÇÖZÜMLER",
   titleLine1: "Restoranınızı",
@@ -164,6 +171,7 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "İletişim", path: "iletisim/", key: "iletisim" },
       { label: "Bilgi Talep Formu", path: "iletisim/#talep" },
+      { label: "Hesabım", path: "hesabim/", key: "hesap" },
       { label: "Sıkça Sorulan Sorular", path: "sss/", key: "sss" }
     ]
   },

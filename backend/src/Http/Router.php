@@ -193,7 +193,7 @@ final class Router
 			return true;
 		}
 
-		return preg_match('#^/api/admin/licenses/[0-9]+(?:/(?:reveal-key|regenerate-key|unlock-domain|archive))?$#', $path) === 1;
+		return preg_match('#^/api/admin/licenses/[0-9]+(?:/(?:reveal-key|regenerate-key|unlock-domain|archive|customer))?$#', $path) === 1;
 	}
 
 	/**
@@ -311,6 +311,9 @@ final class Router
 		}
 		if ($action === 'archive') {
 			return $this->licenses->archive($id, $actor);
+		}
+		if ($action === 'customer') {
+			return $this->licenses->assignCustomer($id, $payload, $actor);
 		}
 
 		return array(

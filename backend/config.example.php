@@ -34,10 +34,26 @@ return array(
 	'session_cookie'  => 'qrl_session',
 	// Boş liste: X-Forwarded-Proto ve X-Forwarded-For yok sayılır.
 	'trusted_proxies' => array(),
+	// Site Cloudflare vb. arkasındaysa tüm kullanıcılar tek uç adresi gibi görünür ve hız sınırları birbirini
+	// engeller. trusted_proxies'e vekil adreslerini yazın ve gerçek IP başlığını belirtin (örn. Cloudflare:
+	// 'HTTP_CF_CONNECTING_IP'). Başlık yalnızca doğrudan eş trusted_proxies'teyse okunur. Boş: kapalı.
+	'real_ip_header'  => '',
 	// Takip uç noktası yalnızca bu alan adlarından gelen Origin'leri kabul eder (boş: kontrol yok).
 	'site_hosts'      => array('qrmenuofficial.com', 'www.qrmenuofficial.com'),
 	// Rapor günlerinin saat dilimi (UTC'den saat farkı). Türkiye: 3.
 	'tz_offset_hours' => 3,
+	// Müşteri hesabı oturumu (saniye) ve çerez adı. Güvenli bağlantıda çerez __Host- önekiyle yazılır.
+	'customer_session_ttl' => 2592000,
+	'customer_cookie'      => 'qrc_session',
+	// true: /odeme/ test modunda; giriş yapmış müşterinin test siparişi hesabına kaydedilir.
+	// Gerçek ödeme sağlayıcısı bağlandığında false yapın (siparişleri sağlayıcı bildirimi oluşturur).
+	'test_orders'          => true,
+	// Hesap e-postaları (doğrulama, parola sıfırlama): bağlantıların kökü ve gönderen adres.
+	// PHP mail() kullanılır; barındırmada çalıştığını bir hesap açıp kontrol edin (SPF/DKIM önerilir).
+	'site_url'             => 'https://qrmenuofficial.com',
+	'mail_from'            => 'no-reply@qrmenuofficial.com',
+	// Yalnız geliştirme/test: dolu ise e-postalar gönderilmez, bu dosyaya yazılır. Üretimde boş bırakın.
+	'mail_file'            => '',
 	// Analitik verisinin saklama süresi (gün). bin/prune.php bu süreyi aşanları siler.
 	'retention_days'  => 180,
 	// Site dosyalarının kökü (boşsa backend/'in bir üstü).

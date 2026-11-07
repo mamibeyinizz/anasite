@@ -56,10 +56,8 @@ final class Auth
 		$this->loginLimit = $loginLimit > 0 ? $loginLimit : 5;
 		$this->sessionLimit = $sessionLimit > 0 ? $sessionLimit : 60;
 		$this->rateWindow = $rateWindow > 0 ? $rateWindow : 60;
-		$this->dummyHash = password_hash(bin2hex(random_bytes(16)), PASSWORD_DEFAULT);
-		if (!is_string($this->dummyHash) || $this->dummyHash === '') {
-			throw new \RuntimeException('Parola doğrulama hazır değil.');
-		}
+		/* Sabit sahte özet: istek başına bcrypt üretilmez (yaklaşık 60 ms CPU). */
+		$this->dummyHash = '$2y$10$.EYZVqLfqeCIh7QffSu0.euPsjLSwgh72EN.05s2VIl3J.Yn9JwdK';
 	}
 
 	/**

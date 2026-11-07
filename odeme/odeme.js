@@ -1,6 +1,7 @@
 /* /odeme/ — paket + dönem seçimi, doğrulama, test/live ödeme geçişi.
    Veri: window.QRMO_PRICING (../paketler/packages-data.js) · Ayar: window.QRMO_CHECKOUT (odeme-config.js).
-   Test modunda ağ isteği yapılmaz, hiçbir şey saklanmaz. */
+   Satın alma için hesap gerekir (../hesap/hesap.js). Test modunda ücret çekilmez; giriş yapmış müşterinin
+   test siparişi hesabına kaydedilir. */
 (function () {
   "use strict";
   var P = window.QRMO_PRICING, C = window.QRMO_CHECKOUT || { mode: "test" };
@@ -10,6 +11,7 @@
   var form = $("qrmo-pay-form"), elPlans = $("qrmo-pay-plans"), elPeriod = $("qrmo-pay-period"),
       elSum = $("qrmo-pay-sum"), elNote = $("qrmo-pay-note"), btn = $("qrmo-pay-submit"),
       elDone = $("qrmo-pay-done"), live = C.mode === "live";
+  var ACC = window.QRMO_ACC, acct = null, acctState = "loading", acctRes = null;
   var PERIODS = [["monthly", "Aylık", "İstediğiniz zaman iptal"], ["annual", "Yıllık", "12 ay kullanım, 10 ay ödeme"]];
   var state = { plan: P.packages[1] ? P.packages[1].id : P.packages[0].id, period: P.defaultPeriod || "monthly" };
 
@@ -109,14 +111,73 @@
 
   function render() {
     buildPlans(); buildSummary();
-    btn.textContent = live ? "Ödemeye geç · " : "Test ödemesini tamamla · ";
-    btn.textContent += money(pkg(state.plan).price[state.period]);
+    btnLabel();
     $("qrmo-pay-bar-btn").textContent = live ? "Ödemeye geç" : "Devam et";
     try {
       var u = new URL(location.href);
       u.searchParams.set("paket", state.plan); u.searchParams.set("donem", state.period);
       history.replaceState(null, "", u);
     } catch (e) {}
+    if (acctState === "out") updateGate();
+  }
+
+  function btnLabel() {
+    var m = money(pkg(state.plan).price[state.period]);
+    btn.textContent = acctState === "out" ? "Giriş yap ve devam et · " + m : (live ? "Ödemeye geç · " : "Test ödemesini tamamla · ") + m;
+  }
+
+  /* Giriş sayfasına giderken yazılanlar sekme süresince saklanır (sessionStorage), dönünce geri yazılır. */
+  var DRAFT = "qrmo_pay_draft";
+  function saveDraft() {
+    try { sessionStorage.setItem(DRAFT, JSON.stringify(customer())); } catch (e) {}
+  }
+  function restoreDraft() {
+    try {
+      var d = JSON.parse(sessionStorage.getItem(DRAFT) || "null"); sessionStorage.removeItem(DRAFT);
+      if (!d) return;
+      ["name", "business", "email", "phone", "domain"].forEach(function (k) { if (d[k] && form.elements[k] && !form.elements[k].value) form.elements[k].value = d[k]; });
+    } catch (e) {}
+  }
+  /* --- hesap kapısı --- */
+  var elAcct = $("qrmo-pay-acct"), elAcctText = $("qrmo-pay-acct-text"), elAcctAct = $("qrmo-pay-acct-actions");
+  function nextPath() { return "odeme/?paket=" + encodeURIComponent(state.plan) + "&donem=" + encodeURIComponent(state.period); }
+  function gateBtn(href, label, primary) {
+    var a = el("a", "qrmo-pay-acct-btn ts-btn" + (primary ? " qrmo-pay-acct-btn--primary" : ""), label);
+    a.setAttribute("href", href); return a;
+  }
+  elAcctAct.addEventListener("click", function (e) { if (e.target.closest("a")) saveDraft(); });
+  function updateGate() {
+    btnLabel();
+    elAcct.setAttribute("data-state", acctState === "in" ? "in" : acctState === "loading" ? "loading" : acctState === "out" ? "out" : "err");
+    elAcctAct.textContent = "";
+    if (acctState === "loading") { elAcctText.textContent = "Hesabınız kontrol ediliyor…"; return; }
+    if (acctState === "in") {
+      elAcctText.textContent = acct.customer.email + " hesabıyla devam ediyorsunuz.";
+      elAcctAct.appendChild(gateBtn("../hesabim/", "Hesabım", false)); return;
+    }
+    if (acctState === "out") {
+      elAcctText.textContent = "Aboneliği tamamlamak için hesabınıza giriş yapın ya da üye olun. Seçtiğiniz paket ve dönem korunur.";
+      elAcctAct.appendChild(gateBtn("../giris/?next=" + encodeURIComponent(nextPath()), "Giriş yap", true));
+      elAcctAct.appendChild(gateBtn("../giris/?sekme=uye&next=" + encodeURIComponent(nextPath()), "Üye ol", false)); return;
+    }
+    elAcctText.textContent = ACC ? ACC.message(acctRes || { status: 0, data: {} }) : "Hesap hizmetine şu an ulaşılamıyor.";
+  }
+  function prefill() {
+    if (!acct) return;
+    var c = acct.customer, f = form.elements;
+    [["name", c.name], ["business", c.business], ["email", c.email], ["phone", c.phone], ["domain", c.domain]].forEach(function (p) {
+      if (f[p[0]] && !f[p[0]].value && p[1]) f[p[0]].value = p[1];
+    });
+  }
+  function loadAccount() {
+    if (!ACC) { acctState = "err"; updateGate(); return; }
+    ACC.me().then(function (res) {
+      acctRes = res;
+      if (res.status === 200 && res.data.authenticated) { acct = res.data; acctState = "in"; ACC.flag(true); prefill(); }
+      else if (res.status === 200) { acctState = "out"; ACC.flag(false); }
+      else acctState = "err";
+      updateGate();
+    });
   }
 
   /* --- doğrulama --- */
@@ -153,14 +214,26 @@
   }
   function showNote(msg) { elNote.textContent = msg || ""; }
 
-  function finishTest(c) {
-    var pk = pkg(state.plan), ref = "TEST-" + Math.random().toString(36).slice(2, 8).toUpperCase();
-    $("qrmo-pay-done-text").textContent = c.name + ", " + pk.name + " paketi (" + periodLabel(state.period).toLowerCase() + ") için test siparişiniz oluşturuldu.";
+  function finishTest(c, ref) {
+    var pk = pkg(state.plan);
+    $("qrmo-pay-done-text").textContent = c.name + ", " + pk.name + " paketi (" + periodLabel(state.period).toLowerCase() + ") için test siparişiniz oluşturuldu ve hesabınıza eklendi.";
     var dl = $("qrmo-pay-done-list"); dl.textContent = "";
     [["Referans", ref], ["Paket", pk.name], ["Dönem", periodLabel(state.period)], ["Tutar", money(pk.price[state.period])], ["İşletme", c.business], ["E-posta", c.email]]
       .forEach(function (r) { dl.appendChild(row(r[0], r[1])); });
     form.closest(".qrmo-pay-grid").hidden = true;
     elDone.hidden = false; bar.classList.add("is-off"); elDone.focus(); window.scrollTo(0, 0);
+  }
+
+  /* Test modu: bilgileri profile işler, siparişi hesaba kaydeder. */
+  function saveTestOrder(c) {
+    btn.disabled = true;
+    var keep = ACC.profile({ name: c.name, business: c.business, phone: c.phone, domain: c.domain });
+    return keep.then(function () { return ACC.order({ plan: state.plan, period: state.period }); }).then(function (res) {
+      btn.disabled = false;
+      if (res.status === 201 && res.data.ref) { finishTest(c, res.data.ref); return; }
+      if (res.status === 401) { acctState = "out"; updateGate(); showNote("Oturumunuz sona ermiş. Lütfen yeniden giriş yapın."); return; }
+      showNote(res.status === 403 && res.data.error === "orders_closed" ? "Test siparişleri şu an kapalı." : ACC.message(res));
+    });
   }
 
   function goLive(c) {
@@ -177,9 +250,14 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault(); showNote("");
+    if (acctState === "out") { saveDraft(); location.href = "../giris/?next=" + encodeURIComponent(nextPath()); return; }
     if (!validate()) { showNote("Lütfen işaretli alanları düzeltin."); return; }
+    if (acctState !== "in") {
+      showNote(acctState === "loading" ? "Hesabınız kontrol ediliyor, birkaç saniye sonra tekrar deneyin." : "Hesap hizmetine ulaşılamadığı için sipariş verilemiyor.");
+      elAcct.scrollIntoView({ block: "center" }); return;
+    }
     var c = customer();
-    if (!live) { finishTest(c); return; }
+    if (!live) { saveTestOrder(c); return; }
     btn.disabled = true;
     goLive(c).catch(function (err) {
       btn.disabled = false;
@@ -189,7 +267,7 @@
 
   $("qrmo-pay-reset").addEventListener("click", function () {
     form.reset(); Array.prototype.forEach.call(form.querySelectorAll("[aria-invalid]"), function (i) { setErr(i, ""); });
-    elDone.hidden = true; form.closest(".qrmo-pay-grid").hidden = false; showNote(""); render(); window.scrollTo(0, 0);
+    elDone.hidden = true; form.closest(".qrmo-pay-grid").hidden = false; showNote(""); prefill(); render(); window.scrollTo(0, 0);
   });
 
   /* Mobil: özet ekranın altında kaldığı için toplam + düğme sabit çubukta; özet görününce gizlenir. */
@@ -212,5 +290,5 @@
   if (P.priceNote) elNote.textContent = P.priceNote;
   else elNote.textContent = "Tutarlara vergi dahil olup olmadığı ve fatura koşulları bu sayfada yayımlanmamıştır.";
 
-  buildPeriod(); render();
+  buildPeriod(); render(); restoreDraft(); loadAccount();
 })();

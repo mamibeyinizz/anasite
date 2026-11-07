@@ -1,11 +1,12 @@
 <?php
 /**
  * Tek giriş noktası (api/index.php buraya yönlendirir).
- * Yollar: /api/collect, /blog…, /sitemap-blog.xml, /api/admin/*, /v1/validate, /wp-json/qmls/v1/validate
+ * Yollar: /api/collect, /api/account/*, /blog…, /sitemap-blog.xml, /api/admin/*, /v1/validate, /wp-json/qmls/v1/validate
  * Hata gövdesinde SQL, dosya yolu, parola veya yığın izi yoktur.
  */
 declare(strict_types=1);
 
+use QRLicense\Account\Accounts;
 use QRLicense\Admin\Auth;
 use QRLicense\Http\RequestContext;
 use QRLicense\Http\Router;
@@ -56,15 +57,27 @@ try {
 		isset($config['session_ttl']) ? (int) $config['session_ttl'] : 43200,
 		isset($config['session_cookie']) ? (string) $config['session_cookie'] : 'qrl_session'
 	);
-	$licenseRouter = new Router(new Validator($pdo, $keys), $auth, new LicenseAdmin($pdo, $keys));
+	$licenseRouter = new Router(new Validator($pdo, $keys), $auth, new LicenseAdmin($pdo, $keys, null, accountMailer($config), isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com'));
 	$hosts = isset($config['site_hosts']) && is_array($config['site_hosts']) ? array_values(array_filter($config['site_hosts'], 'is_string')) : array();
+	$accounts = new Accounts(
+		$pdo,
+		!array_key_exists('require_https', $config) || $config['require_https'] !== false,
+		isset($config['customer_session_ttl']) ? (int) $config['customer_session_ttl'] : 2592000,
+		isset($config['customer_cookie']) ? (string) $config['customer_cookie'] : 'qrc_session',
+		!array_key_exists('test_orders', $config) || $config['test_orders'] !== false,
+		null,
+		isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com',
+		accountMailer($config),
+		$keys
+	);
 	$router = new SiteRouter(
 		$auth,
 		$licenseRouter,
 		new Collector($pdo, $hosts),
 		new Analytics($pdo, isset($config['tz_offset_hours']) ? (int) $config['tz_offset_hours'] : 3),
 		new Blog($pdo, $root),
-		$root
+		$root,
+		$accounts
 	);
 
 	$method = isset($_SERVER['REQUEST_METHOD']) ? (string) $_SERVER['REQUEST_METHOD'] : 'GET';
@@ -82,7 +95,7 @@ try {
 		$method,
 		$uri,
 		$raw === false ? '' : $raw,
-		RequestContext::clientIp($_SERVER),
+		RequestContext::clientIp($_SERVER, $trusted, isset($config['real_ip_header']) && is_string($config['real_ip_header']) ? $config['real_ip_header'] : ''),
 		RequestContext::isHttps($_SERVER, $trusted),
 		isset($_SERVER['HTTP_COOKIE']) ? (string) $_SERVER['HTTP_COOKIE'] : '',
 		isset($_SERVER['HTTP_X_CSRF_TOKEN']) ? (string) $_SERVER['HTTP_X_CSRF_TOKEN'] : '',
@@ -92,6 +105,15 @@ try {
 		$_POST
 	);
 	emit($result['status'], $result['body'], $result['headers'], $method);
+	/* Yanıt istemciye gittikten sonra: ertelenmiş e-postalar (parola sıfırlama) gönderilir. */
+	if ($accounts instanceof Accounts) {
+		if (function_exists('fastcgi_finish_request')) {
+			fastcgi_finish_request();
+		} elseif (function_exists('litespeed_finish_request')) {
+			litespeed_finish_request();
+		}
+		$accounts->flushDeferred();
+	}
 } catch (Throwable $e) {
 	error_log('qr-site ' . $e::class);
 	emit(500, array('status' => 'error', 'error' => 'server_error'), array(), 'GET');
@@ -130,4 +152,31 @@ function emit(int $status, $body, array $headers, string $method): void
 		return;
 	}
 	echo $isJson ? json_encode($body, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $body;
+}
+
+/**
+ * Hesap e-postaları (doğrulama, parola sıfırlama). Varsayılan PHP mail(); geliştirmede
+ * 'mail_file' verilirse e-posta o dosyaya yazılır (yalnız test içindir, üretimde boş bırakın).
+ *
+ * @param array<string, mixed> $config
+ */
+function accountMailer(array $config): callable
+{
+	$from = isset($config['mail_from']) && is_string($config['mail_from']) && filter_var($config['mail_from'], FILTER_VALIDATE_EMAIL) !== false
+		? $config['mail_from']
+		: 'no-reply@qrmenuofficial.com';
+	/* Geliştirme dosyası yalnızca yerel geliştirme sunucusunda geçerlidir; üretimde yanlışlıkla dolu kalsa da yok sayılır. */
+	$file = PHP_SAPI === 'cli-server' && isset($config['mail_file']) && is_string($config['mail_file']) ? $config['mail_file'] : '';
+
+	return static function (string $to, string $subject, string $text) use ($from, $file): bool {
+		if (filter_var($to, FILTER_VALIDATE_EMAIL) === false || preg_match('/[\r\n]/', $to . $subject) === 1) {
+			return false;
+		}
+		if ($file !== '') {
+			return file_put_contents($file, 'TO: ' . $to . "\nSUBJECT: " . $subject . "\n" . $text . "\n----\n", FILE_APPEND) !== false;
+		}
+		$headers = 'From: QR Menu Official <' . $from . ">\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit";
+
+		return mail($to, '=?UTF-8?B?' . base64_encode($subject) . '?=', $text, $headers);
+	};
 }

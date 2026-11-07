@@ -50,7 +50,7 @@ try {
 		throw new RuntimeException('invalid');
 	}
 	$parsed = parseMysqlDsn((string) ($db['dsn'] ?? ''));
-	foreach (array('001_schema.sql', '002_license_tier.sql', '003_site.sql') as $migration) {
+	foreach (array('001_schema.sql', '002_license_tier.sql', '003_site.sql', '004_customers.sql', '005_customer_recovery.sql', '006_customer_licenses.sql') as $migration) {
 		applySql($parsed, (string) ($db['user'] ?? ''), (string) ($db['password'] ?? ''), $root . '/migrations/' . $migration);
 	}
 

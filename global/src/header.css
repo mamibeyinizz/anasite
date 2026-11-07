@@ -976,3 +976,117 @@ button.qrmo-gh-d-card--pending {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- hesap bağlantısı: minimal "Giriş Yap / Kayıt Ol" (CTA'nın solunda) ---------- */
+.qrmo-gh-acct {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.qrmo-gh-acct[hidden],
+.qrmo-gh-acct [hidden] {
+  display: none !important;
+}
+.qrmo-gh-acct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  color: var(--qrmo-muted);
+  transition: color 0.25s ease;
+}
+.qrmo-gh-acct-link[aria-current] {
+  color: var(--qrmo-gold-light);
+}
+.qrmo-gh-acct-sep {
+  color: rgba(244, 241, 232, 0.35);
+}
+.qrmo-gh-acct-icon {
+  display: inline-flex;
+}
+/* Dar masaüstünde yalnız simge (etiket erişilebilir ad olarak kalır); "Kayıt Ol" ve ayraç gizli. */
+.qrmo-gh-acct-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.qrmo-gh-acct-sep,
+.qrmo-gh-acct-link--signup {
+  display: none;
+}
+@media (min-width: 961px) {
+  .qrmo-gh-in > .qrmo-gh-acct {
+    display: inline-flex;
+  }
+}
+@media (min-width: 1140px) {
+  .qrmo-gh-acct-label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+}
+@media (min-width: 1280px) {
+  .qrmo-gh-acct-sep,
+  .qrmo-gh-acct-link--signup {
+    display: inline-flex;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .qrmo-gh-acct-link:hover {
+    color: var(--qrmo-gold-light);
+  }
+}
+.qrmo-gh-acct-link:focus-visible {
+  outline: 2px solid var(--qrmo-gold-light);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Masaüstü genişlik bantları: menü + "Giriş Yap / Kayıt Ol" + "İletişime Geçin" taşmadan sığsın.
+   961–1099: yalnız hesap simgesi, sıkı aralık · 1140+: "Giriş Yap" etiketi · 1280+: "Kayıt Ol". */
+@media (min-width: 961px) and (max-width: 1279px) {
+  .qrmo-gh-in {
+    gap: 16px;
+  }
+  .qrmo-gh-nav > ul {
+    gap: 12px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .qrmo-gh-in {
+    gap: 20px;
+  }
+  .qrmo-gh-nav > ul {
+    gap: 16px;
+  }
+}
+@media (min-width: 961px) and (max-width: 1099px) {
+  .qrmo-gh-in {
+    gap: 12px;
+  }
+  .qrmo-gh-nav > ul {
+    gap: 6px;
+  }
+  .qrmo-gh-logo--full {
+    width: 128px;
+  }
+}
+@media (min-width: 961px) and (max-width: 1009px) {
+  .qrmo-gh-cta {
+    gap: 0;
+    padding: 0 14px;
+  }
+  .qrmo-gh-cta > .qrmo-gh-qr-icon {
+    display: none;
+  }
+}

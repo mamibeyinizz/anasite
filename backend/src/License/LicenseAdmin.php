@@ -52,11 +52,18 @@ final class LicenseAdmin
 	/** @var callable(): DateTimeImmutable */
 	private $now;
 
+	/** @var callable(string,string,string):bool|null */
+	private $mailer;
+
+	private string $siteUrl;
+
 	/**
 	 * @param callable(): DateTimeImmutable|null $now
 	 */
-	public function __construct(PDO $pdo, Keys $keys, ?callable $now = null)
+	public function __construct(PDO $pdo, Keys $keys, ?callable $now = null, ?callable $mailer = null, string $siteUrl = '')
 	{
+		$this->mailer = $mailer;
+		$this->siteUrl = rtrim($siteUrl, '/');
 		$this->pdo = $pdo;
 		$this->keys = $keys;
 		$this->now = $now ?? static function (): DateTimeImmutable {
@@ -263,7 +270,117 @@ final class LicenseAdmin
 
 		return $this->ok(array(
 			'license' => $this->present($row, $this->modulesFor($id)),
+			'customer' => $this->customerOf($id),
 		));
+	}
+
+	/**
+	 * Lisansı e-postasıyla bulunan müşteri hesabına bağlar; boş e-posta bağlantıyı kaldırır.
+	 *
+	 * @param array<string, mixed> $payload
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	public function assignCustomer(int $id, array $payload, string $actor): array
+	{
+		$unknown = $this->unknownFields($payload, array('email'));
+		if ($unknown !== array() || !array_key_exists('email', $payload)) {
+			return $this->fail(422, 'invalid_field', $unknown !== array() ? $unknown : array('email'));
+		}
+		$raw = $payload['email'];
+		if ($raw !== null && !is_string($raw)) {
+			return $this->fail(422, 'invalid_field', array('email'));
+		}
+		$email = $raw === null ? '' : strtolower(trim($raw));
+		if ($email !== '' && (strlen($email) > 191 || filter_var($email, FILTER_VALIDATE_EMAIL) === false)) {
+			return $this->fail(422, 'invalid_field', array('email'));
+		}
+
+		$row = $this->readLicense($id);
+		if ($row === null) {
+			return $this->fail(404, 'not_found');
+		}
+		if ($this->isArchived($row)) {
+			return $this->fail(409, 'archived');
+		}
+
+		$customerId = 0;
+		$customerName = '';
+		if ($email !== '') {
+			$find = $this->pdo->prepare('SELECT id, name, email_verified_at FROM customers WHERE email = :email LIMIT 1');
+			$find->execute(array('email' => $email));
+			$found = $find->fetch();
+			if (!is_array($found)) {
+				return $this->fail(404, 'customer_not_found', array('email'));
+			}
+			/* Doğrulanmamış hesap, adresin gerçek sahibine ait olmayabilir (önceden kapılmış olabilir). */
+			if ($found['email_verified_at'] === null) {
+				return $this->fail(409, 'email_not_verified', array('email'));
+			}
+			$customerId = (int) $found['id'];
+			$customerName = (string) $found['name'];
+		}
+		$previous = $this->customerOf($id);
+		$newLink = $customerId > 0 && ($previous === null || $previous['id'] !== $customerId);
+
+		$this->beginWrite();
+		try {
+			$this->pdo->prepare('DELETE FROM customer_licenses WHERE license_id = :id')->execute(array('id' => $id));
+			if ($customerId > 0) {
+				$this->pdo->prepare('INSERT INTO customer_licenses (license_id, customer_id, linked_at) VALUES (:id, :c, :now)')
+					->execute(array('id' => $id, 'c' => $customerId, 'now' => $this->nowSql()));
+				$this->audit($id, $actor, 'musteri_baglandi', $email);
+			} else {
+				$this->audit($id, $actor, 'musteri_baglantisi_kaldirildi', '');
+			}
+			$this->commitWrite();
+		} catch (PDOException $e) {
+			$this->rollbackWrite();
+			throw $e;
+		}
+
+		$notified = $newLink ? $this->notifyLinked($email, $customerName, (string) $row['company_name']) : null;
+
+		return $this->ok(array(
+			'license' => $this->present($row, $this->modulesFor($id)),
+			'customer' => $this->customerOf($id),
+			'notified' => $notified,
+		));
+	}
+
+	/** Müşteriye lisansının hesabına eklendiğini bildirir; anahtar e-postaya konmaz. Başarısızlık işlemi bozmaz. */
+	private function notifyLinked(string $to, string $name, string $company): bool
+	{
+		if ($this->mailer === null || $this->siteUrl === '') {
+			return false;
+		}
+		$first = explode(' ', trim($name))[0] ?? '';
+		$body = 'Merhaba' . ($first !== '' ? ' ' . $first : '') . ",\n\n" . $company . " lisansınız hesabınıza eklendi. Paketinizi, modüllerinizi ve lisans anahtarınızı Hesabım sayfasının Lisans bölümünde görebilirsiniz:\n\n"
+			. $this->siteUrl . "/hesabim/#lisans\n\nAnahtarı görmek için parolanızı yeniden girmeniz istenir. Anahtarı yalnızca eklentinin lisans alanına girin ve kimseyle paylaşmayın.\n\nQR Menu Official";
+		try {
+			return (bool) ($this->mailer)($to, 'QR Menu Official: lisansınız hesabınıza eklendi', $body);
+		} catch (\Throwable $e) {
+			error_log('qr-license-mail ' . $e::class);
+
+			return false;
+		}
+	}
+
+	/**
+	 * @return array{id:int,email:string,name:string}|null
+	 */
+	private function customerOf(int $licenseId): ?array
+	{
+		try {
+			$st = $this->pdo->prepare(
+				'SELECT c.id, c.email, c.name FROM customer_licenses cl INNER JOIN customers c ON c.id = cl.customer_id WHERE cl.license_id = :id'
+			);
+			$st->execute(array('id' => $licenseId));
+			$r = $st->fetch();
+		} catch (PDOException $e) {
+			return null;
+		}
+
+		return is_array($r) ? array('id' => (int) $r['id'], 'email' => (string) $r['email'], 'name' => (string) $r['name']) : null;
 	}
 
 	/**

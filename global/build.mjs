@@ -35,7 +35,7 @@ write(
 );
 write(
   "dist/qrmo-global.js",
-  `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.js) */\n${read("src/header.js")}\n${read("src/footer.js")}\n${read("src/conversion.js")}\n${read("src/analytics.js")}`
+  `/* Üretilmiştir: node global/build.mjs — düzenlemeyin (kaynak: global/src/*.js) */\n${read("src/header.js")}\n${read("src/account-link.js")}\n${read("src/footer.js")}\n${read("src/conversion.js")}\n${read("src/analytics.js")}`
 );
 write("dist/qrmo-header.html", renderHeader({ rel: "", current: "home" }) + "\n");
 write("dist/qrmo-footer.html", renderFooter({ rel: "", current: "home" }) + "\n");
@@ -54,7 +54,9 @@ const PAGES = [
   { file: "paketler/index.html", rel: "../", current: "paketler", skip: "qrmo-pricing" },
   { file: "iletisim/index.html", rel: "../", current: "iletisim", skip: "icerik" },
   { file: "canli-menu/index.html", rel: "../", current: "canli", skip: "icerik" },
-  { file: "odeme/index.html", rel: "../", current: "paketler", skip: "odeme" }
+  { file: "odeme/index.html", rel: "../", current: "paketler", skip: "odeme" },
+  { file: "giris/index.html", rel: "../", current: "hesap", skip: "hesap" },
+  { file: "hesabim/index.html", rel: "../", current: "hesap", skip: "hesap" }
 ];
 for (const p of PAGES) {
   const f = path.join(root, p.file);
