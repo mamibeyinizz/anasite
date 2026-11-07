@@ -36,6 +36,7 @@ const I = {
     paketler: svg('<path d="M4 7h16M4 12h16M4 17h16"/><rect x="3" y="3" width="18" height="18" rx="2"/>'),
     sss: svg('<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.6 1.2c0 1.6-2.4 2-2.4 3.5"/><path d="M12 17.2h.01"/>'),
     canli: svg('<rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 5h6M10 18h4"/>'),
+    blog: svg('<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/>'),
     iletisim: svg('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/>')
   },
   sol: [

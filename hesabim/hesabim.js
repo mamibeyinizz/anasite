@@ -59,6 +59,8 @@
     Array.prototype.forEach.call($("ac-nav").querySelectorAll("a"), function (a) {
       if (a.getAttribute("data-panel") === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
+    var names = { genel: "Genel bakış", siparisler: "Siparişler", lisans: "Lisans", profil: "Profil", guvenlik: "Güvenlik" };
+    document.title = names[id] + " | Hesabım | QR Menu Official";
     if (focus) $(id).focus({ preventScroll: true });
   }
   window.addEventListener("hashchange", function () { route(true); });
@@ -77,7 +79,10 @@
     var c = data.customer, orders = data.orders || [], last = orders[0], lp = last ? pkg(last.plan) : null;
     var lics = data.licenses || [], lic = lics[0];
     $("ac-hello").textContent = "Merhaba, " + c.name.split(" ")[0] + ".";
-    $("ac-meta").textContent = c.email + " · Üyelik tarihi: " + date(c.created_at);
+    var meta = clear($("ac-meta"));
+    meta.appendChild(el("span", "qrmo-ac-meta-line", c.email));
+    meta.appendChild(el("span", "qrmo-ac-meta-sep", " · "));
+    meta.appendChild(el("span", "qrmo-ac-meta-line", "Üyelik tarihi: " + date(c.created_at)));
 
     /* e-posta doğrulama bandı */
     var vb = $("ac-verify"), needs = !c.email_verified;
@@ -130,7 +135,9 @@
       dot.setAttribute("aria-hidden", "true");
       dot.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>';
       li.appendChild(dot);
-      li.appendChild(el("span", "", x[1] + (x[0] ? "" : " (bekliyor)")));
+      var lab = el("span", "", x[1]);
+      if (!x[0]) lab.appendChild(el("span", "qrmo-ac-sr", " — henüz tamamlanmadı"));
+      li.appendChild(lab);
       if (x[2]) li.appendChild(link(x[2][0], "ts-link", x[2][1]));
       road.appendChild(li);
     });

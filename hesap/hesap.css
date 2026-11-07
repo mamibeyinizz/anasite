@@ -122,6 +122,11 @@ body.qrmo-ac-page {
 @media (min-width: 961px) { .qrmo-ac-shell { grid-template-columns: 240px minmax(0, 1fr); gap: 32px; } .qrmo-ac-nav { position: sticky; top: calc(var(--qrmo-gh-h, 94px) + 16px); } }
 .qrmo-ac-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; list-style: none; }
 @media (min-width: 961px) { .qrmo-ac-nav { grid-template-columns: 1fr; } }
+.qrmo-ac-nav li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.qrmo-ac-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.qrmo-ac-meta-line { display: inline; }
+.qrmo-ac-danger details > summary::before { content: "›"; display: inline-block; margin-right: 8px; font-size: 1.3em; line-height: 1; transition: transform .18s ease; }
+.qrmo-ac-danger details[open] > summary::before { transform: rotate(90deg); }
 .qrmo-ac-navlink {
   display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 8px 14px; color: var(--ac-green); background: #fff;
   border: 1px solid var(--ac-line); border-radius: 12px; text-decoration: none; transition: color .18s ease, background-color .18s ease, border-color .18s ease;
@@ -186,7 +191,7 @@ body.qrmo-ac-page {
 @media (min-width: 641px) { .qrmo-ac-fields2 { grid-template-columns: 1fr 1fr; } .qrmo-ac-field--wide { grid-column: 1 / -1; } }
 .qrmo-ac-danger { border-color: rgba(155,28,28,.45); }
 .qrmo-ac-danger > .qrmo-ac-h { color: var(--ac-err); }
-.qrmo-ac-danger details > summary { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 4px; color: var(--ac-err); cursor: pointer; list-style: none; }
+.qrmo-ac-danger details > summary { display: inline-flex; align-items: center; min-height: 48px; padding: 8px 0; color: var(--ac-err); cursor: pointer; list-style: none; }
 .qrmo-ac-danger details > summary::-webkit-details-marker { display: none; }
 .qrmo-ac-danger details { margin-top: 8px; }
 .qrmo-ac-danger details[open] > summary { margin-bottom: 8px; }
@@ -231,5 +236,9 @@ body.qrmo-ac-page {
   .qrmo-ac-order { grid-template-columns: 1fr; }
   .qrmo-ac-order-price { justify-items: start; text-align: left; grid-auto-flow: column; gap: 6px; align-items: baseline; justify-content: start; }
   .qrmo-ac-btn--block-m { width: 100%; }
+  .qrmo-ac-meta-line { display: block; }
+  .qrmo-ac-meta-sep { display: none; }
+  .qrmo-ac-stats { gap: 8px; }
+  .qrmo-ac-stat { padding: 12px 14px; gap: 2px; }
 }
 @media (prefers-reduced-motion: reduce) { .qrmo-ac * { transition: none !important; } }
