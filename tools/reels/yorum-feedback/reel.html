@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8">
+<title>Yorum Feedback Reels</title>
+<style>
+/* Manrope: yalnızca repodaki dosyalar (harici font/CDN yok) */
+@font-face{font-family:"Manrope";font-weight:200 800;src:url("../../../assets/fonts/manrope-var-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F}
+@font-face{font-family:"Manrope";font-weight:200 800;src:url("../../../assets/fonts/manrope-var-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-21FF,U+2212,U+2605}
+:root{--gold:#d9b85f;--gold2:#ecd48f;--cream:#f5eedb;--ink:#13281e;--bg:#0c2619}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+body{font-family:"Manrope",system-ui,sans-serif;color:var(--cream);text-decoration:none}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;
+  background:radial-gradient(ellipse 85% 50% at 50% 48%,#1f4a37 0%,#14372a 45%,#0a2017 100%)}
+/* IG güvenli alan: üst %14 (0–269), alt %20 (1536–1920), yanlar 120px */
+.cap{position:absolute;left:120px;right:120px;top:292px;text-align:center;will-change:transform,opacity}
+.cap h2{font-weight:800;font-size:64px;line-height:1.12;letter-spacing:-.02em;color:#fff;text-wrap:balance}
+.cap h2 em{font-style:normal;color:var(--gold2)}
+.cap p{margin-top:16px;font-weight:500;font-size:38px;line-height:1.35;color:var(--cream);opacity:.9;text-wrap:balance}
+/* Telefon: 820px = kadrajın %76'sı */
+#phone{position:absolute;left:130px;top:520px;width:820px;height:1012px;border-radius:72px;background:#050d09;padding:18px;
+  box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 3px rgba(217,184,95,.6);will-change:transform}
+#screen{position:relative;width:784px;height:976px;border-radius:56px;overflow:hidden;background:#fff}
+#notch{position:absolute;left:50%;top:16px;width:170px;height:34px;margin-left:-85px;border-radius:20px;background:#050d09;z-index:5}
+#vp{position:absolute;left:0;right:0;top:60px;bottom:0;overflow:hidden;background:#fff}  /* çentik için 60px iç boşluk */
+#content{position:absolute;left:0;top:0;width:784px;transform-origin:50% 0}
+#content img{position:absolute;left:0;top:0;width:784px;display:none}
+#touch{position:absolute;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;z-index:6;pointer-events:none;opacity:0;
+  background:radial-gradient(circle,rgba(255,255,255,.95) 0 34%,rgba(255,255,255,.55) 35% 60%,rgba(255,255,255,0) 61%);
+  box-shadow:0 0 0 5px rgba(217,184,95,.9),0 10px 24px rgba(0,0,0,.35)}
+#ripple{position:absolute;width:92px;height:92px;margin:-46px 0 0 -46px;border-radius:50%;border:6px solid var(--gold);z-index:6;opacity:0}
+/* Panel (yorum kartı) — panelin gerçek kart düzeni, temiz demo verisiyle yeniden çizildi */
+#panel{position:absolute;left:120px;width:840px;top:560px;will-change:transform,opacity}
+.tabs{display:flex;gap:16px;margin-bottom:28px}
+.tab{flex:1;height:84px;border-radius:22px;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:700;font-size:36px;
+  background:rgba(245,238,219,.1);color:var(--cream);border:2px solid rgba(245,238,219,.25)}
+.tab b{font-weight:800;font-size:36px;min-width:58px;height:52px;border-radius:26px;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,238,219,.16);font-variant-numeric:tabular-nums}
+.tab.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.tab.on b{background:rgba(19,40,30,.15)}
+.card{background:#fff;border-radius:36px;padding:44px 44px 40px;color:#1e293b;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.row{display:flex;align-items:center;gap:28px}
+.score{width:170px;height:118px;border-radius:24px;background:#fdecec;border:3px solid #f3c4c4;color:#a61b1b;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:56px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;flex:none}
+.who{min-width:0}
+.who .n{font-weight:800;font-size:44px;line-height:1.15}
+.who .m{font-weight:500;font-size:36px;color:#475569;margin-top:6px}
+.status{margin-top:30px;display:inline-flex;align-items:center;gap:14px;height:64px;padding:0 28px;border-radius:32px;background:#fff6e0;color:#7f6419;font-weight:700;font-size:36px}
+.status i{width:16px;height:16px;border-radius:50%;background:#d39b12;display:block}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.chip{display:flex;justify-content:space-between;align-items:center;height:76px;padding:0 26px;border-radius:18px;background:#f1f5f9;font-weight:500;font-size:36px;color:#334155}
+.chip b{font-weight:800;font-variant-numeric:tabular-nums}
+.chip.wide{grid-column:1 / -1}
+.chip.low b{color:#b42318}
+/* E: bildirim */
+#mail{position:absolute;left:120px;width:840px;top:820px;background:#fff;border-radius:36px;padding:40px 44px;color:#1e293b;box-shadow:0 30px 70px rgba(0,0,0,.45);will-change:transform,opacity}
+#mail .k{font-weight:700;font-size:36px;color:#0f7a55;display:flex;align-items:center;gap:16px}
+#mail .k svg{width:48px;height:48px;flex:none}
+#mail .t{font-weight:800;font-size:46px;margin-top:20px;line-height:1.2}
+#mail .d{font-weight:500;font-size:38px;color:#475569;margin-top:12px;font-variant-numeric:tabular-nums}
+.big{position:absolute;left:120px;right:120px;text-align:center;font-weight:800;color:#fff;letter-spacing:-.02em;text-wrap:balance}
+.big em{font-style:normal;color:var(--gold2)}
+.sub{position:absolute;left:120px;right:120px;text-align:center;font-weight:500;font-size:38px;line-height:1.35;color:var(--cream);opacity:.9}
+/* CTA */
+#cta .dm{position:absolute;left:50%;top:1010px;transform:translateX(-50%);height:132px;padding:0 64px;border-radius:66px;background:var(--gold);color:var(--ink);
+  display:flex;align-items:center;font-weight:800;font-size:60px;letter-spacing:.04em;white-space:nowrap}
+#cta .h{position:absolute;left:120px;right:120px;top:1230px;text-align:center;font-weight:700;font-size:44px;color:var(--gold2);letter-spacing:.02em}
+.eyebrow{position:absolute;left:120px;right:120px;top:292px;text-align:center;font-weight:700;font-size:36px;letter-spacing:.12em;color:var(--gold2)}
+.layer{position:absolute;inset:0;opacity:0}
+</style></head><body>
+<div id="stage">
+  <div id="phone"><div id="screen"><div id="notch"></div><div id="vp"><div id="content"></div><div id="ripple"></div><div id="touch"></div></div></div></div>
+
+  <div class="cap" id="capA"><h2>1 yıldız,<br><em>100 müşteri kaybı</em> olabilir.</h2></div>
+  <div class="cap" id="capB"><h2>5 kriter, <em>tek dokunuş</em></h2><p>Lezzet, hız, temizlik, atmosfer,<br>fiyat / performans</p></div>
+  <div class="cap" id="capC"><h2>İletişim bilgisi <em>isteğe bağlı</em></h2><p>Telefon ve e-posta ile<br>misafire geri dönün</p></div>
+  <div class="cap" id="capD"><h2>Hepsi <em>tek panelde</em></h2><p>Puan, masa, kriter kırılımı,<br>olumlu / olumsuz filtre</p></div>
+
+  <div id="panel">
+    <div class="tabs"><div class="tab" id="tabPos">Olumlu <b>18</b></div><div class="tab" id="tabNeg">Olumsuz <b>2</b></div></div>
+    <div class="card" id="card">
+      <div class="row"><div class="score">2,0 ★</div><div class="who"><div class="n">Mert D.</div><div class="m">Masa 12 · bugün 13:42</div></div></div>
+      <div class="status"><i></i>Onay bekliyor</div>
+      <div class="chips">
+        <div class="chip">Yemek Lezzeti <b>3</b></div><div class="chip low">Hizmet Hızı <b>1</b></div>
+        <div class="chip">Temizlik <b>3</b></div><div class="chip low">Atmosfer <b>2</b></div>
+        <div class="chip low wide">Fiyat / Performans <b>1</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layer" id="sceneE">
+    <div class="big" style="top:300px;font-size:66px;line-height:1.14">Memnuniyetsizliği <em>anında duyun,</em> yorumlardan önce çözün.</div>
+    <div id="mail">
+      <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>E-posta bildirimi</div>
+      <div class="t">Yeni form gönderimi: Bizi Değerlendirin</div>
+      <div class="d">Mert D. · Masa 12 · 2,0 ★</div>
+    </div>
+    <div class="sub" style="top:1250px">Form ayarından açılır; yeni gönderim<br>anında e-postanıza düşer.</div>
+  </div>
+
+  <div class="layer" id="cta">
+    <div class="big" style="top:600px;font-size:80px;line-height:1.14">Demo için DM'e</div>
+    <div class="dm">DEMO yaz</div>
+    <div class="h">@qrmenuofficial</div>
+  </div>
+
+  <div class="layer" id="coverEyebrow"><div class="eyebrow" style="top:292px">YORUM &amp; GERİ BİLDİRİM</div></div>
+</div>
+<script>
+const SHOTS = ["00_start","01_r1s1","02_r1s2","03_r1s3","04_r1s4","05_r1s5","06_r2s1","07_r2s2","08_r2s3","09_r2s4","10_r2s5","11_r3s1","12_r3s2","13_r3s3","14_r3s4","15_r3s5","16_r4s1","17_r4s2","18_r4s3","19_r4s4","20_r4s5","21_r5s1","22_r5s2","23_r5s3","24_r5s4","25_r5s5","26_step2","27_step2filled","28_step3","29_step3filled"];
+const content = document.getElementById('content');
+const IMG = {};
+for (const n of SHOTS) { const im = new Image(); im.src = 'shots/' + n + '.png'; content.appendChild(im); IMG[n] = im; }
+const S = 784 / 1032, VPH = 916;
+const ROWS = [[778, 169], [1030, 169], [1168, 461], [1306, 461], [1558, 169]];
+const starXY = (r, s) => [ROWS[r - 1][1] + (s - 1) * 100, ROWS[r - 1][0]];
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const ease = x => { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); };
+const lerp = (a, b, k) => a + (b - a) * k;
+const $ = id => document.getElementById(id);
+
+/* Zaman çizelgesi (sn) */
+const T = { A: 0, B: 2, C: 9, D: 15, E: 21, F: 25, END: 27 };
+const SL = 9 / 30; // 9 karelik hızlı slide
+
+// Puanlama: 01 (1. yıldız) kancada; 02..25 2.3–8.3 arası
+const STAR_T0 = 2.3, STAR_DT = 0.25;
+function shotAt(t) {
+  if (t < 1.0) return '00_start';
+  if (t < STAR_T0) return '01_r1s1';
+  if (t < T.C) return SHOTS[Math.min(25, 2 + Math.floor((t - STAR_T0) / STAR_DT))];
+  if (t < 10.0) return '26_step2';
+  if (t < 12.2) return '27_step2filled';
+  if (t < 13.0) return '28_step3';
+  return '29_step3filled';
+}
+// Odak (orijinal px, y) ve zoom anahtar kareleri
+function focusAt(t) {
+  if (t < T.B) return { y: 0, z: 1.0 };  // başlık tam görünür
+  if (t < T.C) {
+    const k = (t - STAR_T0) / STAR_DT; const idx = clamp(Math.floor(k), 0, 23); // 0..23 -> r1s2..r5s5
+    const rowOf = i => Math.floor((i + 1) / 5) + 1; // i=0 -> r1s2
+    const y0 = ROWS[rowOf(clamp(idx - 1, 0, 23)) - 1][0], y1 = ROWS[rowOf(idx) - 1][0];
+    const y = lerp(y0, y1, ease((k - idx) / 0.6));
+    const z = t < 2.6 ? lerp(1.0, 1.14, ease((t - 2) / 0.6)) : (t > 8.4 ? lerp(1.14, 1.0, ease((t - 8.4) / 0.5)) : 1.14);
+    return { y: t > 8.4 ? lerp(y, 1150, ease((t - 8.4) / 0.5)) : y, z };
+  }
+  // kesim stepper satırının hemen altına (orijinal y≈500) denk gelecek şekilde
+  if (t < 13.0) return { y: 500 + VPH * 0.45 / (S * 1.08), z: 1.08 };
+  return { y: 500 + VPH * 0.45 / (S * 1.06), z: 1.06 };
+}
+let cur = null;
+function show(n) { if (cur === n) return; if (cur) IMG[cur].style.display = 'none'; IMG[n].style.display = 'block'; cur = n; }
+
+function capState(el, a, b, t) {
+  // girişte 9 kare sağdan slide, çıkışta sert kesme
+  if (t < a || t >= b) { el.style.opacity = 0; return; }
+  const k = ease((t - a) / SL);
+  el.style.opacity = a === 0 ? 1 : 0.4 + 0.6 * k;  // geçişin ilk karesinde de metin görünür
+  el.style.transform = `translateX(${a === 0 ? 0 : (1 - k) * 80}px)`;
+}
+
+window.render = function (t, opts = {}) {
+  const cover = !!opts.cover;
+  capState($('capA'), T.A, T.B, t);
+  capState($('capB'), T.B, T.C, t);
+  capState($('capC'), T.C, T.D, t);
+  capState($('capD'), T.D, T.E, t);
+  $('coverEyebrow').style.opacity = cover ? 1 : 0;
+  if (cover) { $('capA').style.top = '350px'; } else { $('capA').style.top = ''; }
+
+  // Telefon: 0–15 sn; 15'te 9 karede sola kayar
+  const ph = $('phone');
+  if (t < T.D + SL) {
+    const k = ease((t - T.D) / SL);
+    ph.style.display = 'block';
+    ph.style.transform = `translateX(${-k * 1100}px)`;
+    show(shotAt(t));
+    const f = focusAt(t), im = IMG[cur];
+    const h = (im.naturalHeight || 2025) * S * f.z;
+    const pan = clamp(f.y * S * f.z - VPH * 0.45, 40, Math.max(40, h - VPH));  // üst 40px: kartın yuvarlak köşesindeki koyu zemin görünmesin
+    content.style.transform = `translateY(${-pan}px) scale(${f.z})`;
+    // dokunuş göstergesi
+    const touch = $('touch'), rip = $('ripple');
+    touch.style.opacity = 0; rip.style.opacity = 0;
+    let tap = null;
+    if (t >= 0.25 && t < 2.0) { // kanca: parmak 1. yıldıza gelir, 1.0'da dokunur
+      const k2 = ease((t - 0.25) / 0.7);
+      const [sx, sy] = starXY(1, 1);
+      tap = { x: lerp(560, sx, k2), y: lerp(1250, sy, k2), down: t >= 1.0 ? (t - 1.0) : null };
+    } else if (t >= STAR_T0 && t < 8.3) {
+      const k3 = (t - STAR_T0) / STAR_DT, i = Math.floor(k3), r = Math.floor((i + 1) / 5) + 1, s = ((i + 1) % 5) + 1;
+      const [sx, sy] = starXY(r, s); tap = { x: sx, y: sy, down: (k3 - i) * STAR_DT };
+    }
+    if (tap && !cover) {
+      const z = f.z, X = (tap.x * S - 392) * z + 392, Y = tap.y * S * z - pan;
+      touch.style.left = X + 'px'; touch.style.top = Y + 'px'; touch.style.opacity = 0.95;
+      touch.style.transform = `scale(${tap.down !== null && tap.down < 0.12 ? 0.82 : 1})`;
+      if (tap.down !== null && tap.down < 0.4) { const q = tap.down / 0.4; rip.style.left = X + 'px'; rip.style.top = Y + 'px'; rip.style.opacity = 1 - q; rip.style.transform = `scale(${0.7 + q * 0.9})`; }
+    }
+  } else ph.style.display = 'none';
+
+  // Panel: 15–21 sn, sağdan 9 karede gelir
+  const pn = $('panel');
+  if (t >= T.D && t < T.E) {
+    const k = ease((t - T.D) / SL);
+    pn.style.opacity = 1; pn.style.transform = `translateX(${(1 - k) * 1000}px)`;
+    const neg = t >= 16.4;
+    $('tabNeg').classList.toggle('on', neg); $('tabPos').classList.toggle('on', !neg);
+    const ck = ease((t - 16.6) / SL);
+    $('card').style.opacity = t < 16.6 ? 0 : ck; $('card').style.transform = `translateY(${(1 - ck) * 60}px) scale(${1 + 0.03 * ease((t - 18.4) / 1.2)})`;
+    $('card').style.transformOrigin = '50% 0';
+  } else pn.style.opacity = 0;
+
+  // E: 21–25 sert kesme
+  const e = $('sceneE');
+  if (t >= T.E && t < T.F) {
+    e.style.opacity = 1; const k = ease((t - (T.E + 0.4)) / SL);
+    $('mail').style.opacity = t < T.E + 0.4 ? 0 : k; $('mail').style.transform = `translateY(${(1 - k) * 70}px)`;
+  } else e.style.opacity = 0;
+
+  // F: CTA 25–27 (statik 2 sn) sert kesme
+  $('cta').style.opacity = t >= T.F ? 1 : 0;
+};
+window.ready = () => Promise.all(Object.values(IMG).map(i => i.decode ? i.decode() : null)).then(() => document.fonts.ready);
+window.render(0);
+</script>
+</body></html>
