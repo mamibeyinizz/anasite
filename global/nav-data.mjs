@@ -171,7 +171,8 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "İletişim", path: "iletisim/", key: "iletisim" },
       { label: "Bilgi Talep Formu", path: "iletisim/#talep" },
-      { label: "Hesabım", path: "hesabim/", key: "hesap" },
+      { label: "Giriş Yap", path: "giris/", key: "hesap", acct: "login" },
+      { label: "Kayıt Ol", path: "giris/?sekme=uye", acct: "signup" },
       { label: "Sıkça Sorulan Sorular", path: "sss/", key: "sss" }
     ]
   },
