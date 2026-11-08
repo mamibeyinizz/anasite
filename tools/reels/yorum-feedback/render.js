@@ -1,14 +1,14 @@
-// Reels v2 render: reel.html'i kare kare çizer, sentez müzikle birleştirir.
-// Kullanım: python3 music.py 27 && node render.js
-// Çıktı: out/yorum-feedback-reels-v2.mp4 (1080x1920, 30 fps, H.264 + AAC, -14 LUFS) ve out/cover.png
+// Reels v3 render: reel.html'i kare kare çizer, sentez müzikle birleştirir.
+// Kullanım: python3 music.py 20 && node render.js
+// Çıktı: out/yorum-feedback-reels-v3.mp4 (1080x1920, 30 fps, H.264 + AAC, -14 LUFS) ve out/cover.png
 const { chromium } = require('playwright');
 const { spawn, spawnSync, execFileSync } = require('child_process');
 const path = require('path');
-const DUR = 27, FPS = 30;
+const DUR = 20, FPS = 30;
 const OUT = path.join(__dirname, 'out');
 const VIDEO = path.join(OUT, 'video_noaudio.mp4');
 const MUSIC = path.join(OUT, 'music_raw.wav');
-const FINAL = path.join(OUT, 'yorum-feedback-reels-v2.mp4');
+const FINAL = path.join(OUT, 'yorum-feedback-reels-v3.mp4');
 
 (async () => {
   const b = await chromium.launch();
@@ -18,7 +18,7 @@ const FINAL = path.join(OUT, 'yorum-feedback-reels-v2.mp4');
   await p.waitForTimeout(500);
 
   // Kapak: kanca karesi + modül adı, dokunuş göstergesi olmadan
-  await p.evaluate(() => render(1.4, { cover: true }));
+  await p.evaluate(() => render(6, { cover: true }));
   await p.screenshot({ path: path.join(OUT, 'cover.png') });
 
   const ff = spawn('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
