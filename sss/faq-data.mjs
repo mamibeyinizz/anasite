@@ -11,7 +11,7 @@ export const SITE = {
   description:
     "QR menü, sipariş, garson çağrısı, çoklu dil, Menü Asistanı, analytics ve paketler hakkında 50 kısa cevap. Ürünün gerçek özelliklerine dayanır.",
   /** Doğrulanmış global OG görseli yoksa boş bırakılır (meta etiketi üretilmez). */
-  ogImage: "",
+  ogImage: "https://qrmenuofficial.com/assets/brand/og-default.jpg",
 };
 
 /** @typedef {{ id: string, title: string, count?: number }} FaqCategory */
