@@ -4,3 +4,4 @@ out/prev_*.png
 out/video_noaudio.mp4
 out/music_raw.wav
 out/probe.txt
+out/probe.json

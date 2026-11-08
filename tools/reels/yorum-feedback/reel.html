@@ -1,79 +1,114 @@
 <!doctype html>
 <html lang="tr"><head><meta charset="utf-8">
-<title>Yorum Feedback Reels v3</title>
+<title>Yorum Feedback Reels v4</title>
 <style>
 /* Manrope: yalnızca repodaki dosyalar (harici font/CDN yok) */
 @font-face{font-family:"Manrope";font-weight:200 800;src:url("../../../assets/fonts/manrope-var-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F}
 @font-face{font-family:"Manrope";font-weight:200 800;src:url("../../../assets/fonts/manrope-var-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2190-21FF,U+2212,U+2605}
-:root{--gold:#d9b85f;--gold2:#ecd48f;--cream:#f5eedb;--ink:#13281e}
+/* GRID: üst 270 / alt 340 güvenli alan, yan 120. Başlık kutusu 300–434 (2 satır × 56/1.2, metin alta hizalı),
+   başlık→içerik 48 px → içerik üst kenarı 482. Boşluklar 8 px tabanlı. */
+:root{--gold:#d9b85f;--gold2:#ecd48f;--cream:#f5eedb;--ink:#13281e;--slate:#1e293b;--muted:#475569;--star:#f59e0b;--star0:#cbd5e1;--green:#10b981}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1080px;height:1920px;overflow:hidden;background:#0c2619}
 body{font-family:"Manrope",system-ui,sans-serif;color:var(--cream)}
 #stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:radial-gradient(ellipse 85% 50% at 50% 45%,#1f4a37 0%,#14372a 45%,#0a2017 100%)}
-/* IG güvenli alan: üst %14 (0–269), alt %20 (1536–1920), yanlar 120px */
-.cap{position:absolute;left:120px;right:120px;top:290px;text-align:center;opacity:0}
-.cap h2{font-weight:800;font-size:64px;line-height:1.12;letter-spacing:-.02em;color:#fff;text-wrap:balance}
-.cap h2 em{font-style:normal;color:var(--gold2)}
-.sc{position:absolute;inset:0;opacity:0}
-/* telefon: 840px (kadrajın %78'i), x 120–960 */
-.phone{position:absolute;left:120px;width:840px;border-radius:72px;background:#050d09;padding:18px;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 3px rgba(217,184,95,.6)}
-.screen{position:relative;width:804px;border-radius:56px;overflow:hidden;background:#fff;padding-top:64px} /* çentik için 64px */
-.notch{position:absolute;left:50%;top:16px;width:170px;height:34px;margin-left:-85px;border-radius:20px;background:#050d09;z-index:5}
-.crop{position:relative;width:804px;overflow:hidden}
-.crop img{position:absolute;left:0;top:0;display:none;transform-origin:0 0}
-.tapf{position:absolute;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;z-index:6;opacity:0;
-  background:radial-gradient(circle,rgba(255,255,255,.95) 0 34%,rgba(255,255,255,.55) 35% 60%,rgba(255,255,255,0) 61%);box-shadow:0 0 0 5px rgba(217,184,95,.9),0 10px 24px rgba(0,0,0,.35)}
-.tapr{position:absolute;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;border:6px solid var(--gold);z-index:6;opacity:0}
-.card{background:#fff;border-radius:40px;color:#1e293b;box-shadow:0 30px 70px rgba(0,0,0,.45)}
-/* B: e-posta */
-#mail{position:absolute;left:120px;width:840px;top:404px;padding:44px 48px 40px}
-#mail .k{font-weight:700;font-size:40px;color:#0f7a55;display:flex;align-items:center;gap:18px}
+.title{position:absolute;left:120px;width:840px;top:300px;height:134px;display:flex;align-items:flex-end;justify-content:center;text-align:center;
+  font-weight:800;font-size:56px;line-height:1.2;letter-spacing:-.02em;color:#fff;text-wrap:balance;opacity:0}
+.title em{font-style:normal;color:var(--gold2)}
+.layer{position:absolute;inset:0;opacity:0}
+/* Cihaz: tek boyut 840×1040, tek konum (x 120, y 482) */
+#phone{position:absolute;left:120px;top:482px;width:840px;height:1040px;border-radius:72px;background:#050d09;padding:18px;box-shadow:0 40px 90px rgba(0,0,0,.55),0 0 0 3px rgba(217,184,95,.6);transform-origin:50% 0}
+#screen{position:relative;width:804px;height:1004px;border-radius:56px;overflow:hidden;background:#fff;padding-top:64px;color:var(--slate)}
+#notch{position:absolute;left:50%;top:16px;width:168px;height:32px;margin-left:-84px;border-radius:16px;background:#050d09;z-index:5}
+#ftitle{text-align:center;font-weight:800;font-size:44px;line-height:1.2;height:56px}
+#track{position:absolute;left:0;top:152px;width:1608px;display:flex;transition:none}
+.pane{width:804px;padding:0 22px;flex:none}
+/* Puanlama kartı: etiket 360 px sabit sütun (sarma yok), 5 yıldız × 64 px, aralık 8 px, satır 120 px */
+.rcard{background:#f8fafc;border-radius:32px;padding:24px}
+.rrow{display:grid;grid-template-columns:360px 352px;align-items:center;height:120px}
+.rrow .l{font-weight:700;font-size:38px;line-height:1.2;white-space:nowrap;overflow:hidden;padding-left:0}
+.stars{display:flex;gap:8px}
+.stars svg{width:64px;height:64px;display:block}
+.stars path{fill:var(--star0)}
+.stars svg.on path{fill:var(--star)}
+.btn{height:104px;border-radius:24px;background:var(--green);color:#fff;font-weight:800;font-size:40px;letter-spacing:.02em;display:flex;align-items:center;justify-content:center}
+.btn.ghost{background:#fff;color:var(--slate);border:2px solid #e2e8f0}
+.f{margin-top:32px}
+.fl{font-weight:700;font-size:40px;line-height:1.2;margin-bottom:16px}
+.fi{height:104px;border-radius:24px;border:3px solid #e2e8f0;display:flex;align-items:center;padding:0 32px;font-size:40px;font-weight:500;color:var(--slate)}
+.fi.ph{color:#94a3b8}
+.fi.on{border-color:var(--green);box-shadow:0 0 0 6px rgba(16,185,129,.15)}
+.caret{display:inline-block;width:3px;height:44px;background:var(--slate);margin-left:4px}
+.brow{display:grid;grid-template-columns:232px 1fr;gap:24px;margin-top:64px}
+.tap{position:absolute;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;z-index:9;opacity:0;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.0) 0 40%,rgba(255,255,255,.35) 41% 62%,rgba(255,255,255,0) 63%);box-shadow:0 0 0 6px rgba(217,184,95,.95),0 8px 20px rgba(0,0,0,.3)}
+.rip{position:absolute;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;border:6px solid var(--gold);z-index:9;opacity:0;pointer-events:none}
+.card{background:#fff;border-radius:40px;color:var(--slate);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+/* E-posta */
+#mail{position:absolute;left:120px;width:840px;top:482px;padding:48px}
+#mail .k{font-weight:700;font-size:40px;color:#0f7a55;display:flex;align-items:center;gap:16px}
 #mail .k svg{width:56px;height:56px}
-#mail .t{font-weight:800;font-size:54px;line-height:1.16;margin-top:24px;letter-spacing:-.01em}
-#mail .d{font-weight:700;font-size:44px;color:#334155;margin-top:18px;font-variant-numeric:tabular-nums}
-#mail .tbl{margin-top:30px}
-#mail .tr{display:flex;justify-content:space-between;font-size:42px;font-weight:500;color:#334155;padding:16px 26px;margin-top:10px;border-radius:16px;background:#f1f5f9}
+#mail .t{font-weight:800;font-size:52px;line-height:1.16;margin-top:24px}
+#mail .d{font-weight:700;font-size:44px;color:#334155;margin-top:16px;font-variant-numeric:tabular-nums}
+#mail .tbl{margin-top:32px;display:grid;gap:8px}
+#mail .tr{display:flex;justify-content:space-between;font-size:40px;font-weight:500;color:#334155;padding:16px 24px;border-radius:16px;background:#f1f5f9}
 #mail .tr b{font-weight:800;font-variant-numeric:tabular-nums}
 #mail .tr.low b{color:#b42318}
-.note{position:absolute;left:120px;right:120px;text-align:center;font-weight:500;font-size:40px;line-height:1.35;color:var(--cream)}
-/* D: panel */
-#tabs{position:absolute;left:120px;width:840px;top:410px;display:flex;gap:18px}
-.tab{flex:1;height:96px;border-radius:26px;display:flex;align-items:center;justify-content:center;gap:16px;font-weight:700;font-size:42px;background:rgba(245,238,219,.1);color:var(--cream);border:2px solid rgba(245,238,219,.28)}
-.tab b{font-weight:800;font-size:40px;min-width:64px;height:58px;border-radius:29px;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,238,219,.16);font-variant-numeric:tabular-nums}
+#mailNote{position:absolute;left:120px;width:840px;text-align:center;font-weight:500;font-size:40px;line-height:1.4;color:var(--cream)}
+/* Panel */
+#tabs{position:absolute;left:120px;width:840px;top:482px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tab{height:96px;border-radius:24px;display:flex;align-items:center;justify-content:center;gap:16px;font-weight:700;font-size:40px;background:rgba(245,238,219,.1);color:var(--cream);border:2px solid rgba(245,238,219,.28)}
+.tab b{font-weight:800;font-size:40px;min-width:64px;height:56px;border-radius:28px;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,238,219,.16);font-variant-numeric:tabular-nums}
 .tab.on{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 .tab.on b{background:rgba(19,40,30,.15)}
-#rcard{position:absolute;left:120px;width:840px;top:546px;padding:52px 48px;transform-origin:50% 0}
-.row{display:flex;align-items:center;gap:30px}
-.score{width:200px;height:132px;border-radius:26px;background:#fdecec;border:3px solid #f3c4c4;color:#a61b1b;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:62px;font-variant-numeric:tabular-nums;flex:none}
+#rcard{position:absolute;left:120px;width:840px;top:602px;padding:48px}
+.srow{display:flex;align-items:center;gap:32px}
+.score{width:200px;height:128px;border-radius:24px;background:#fdecec;border:3px solid #f3c4c4;color:#a61b1b;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:60px;font-variant-numeric:tabular-nums;flex:none}
 .who .n{font-weight:800;font-size:52px;line-height:1.1}
-.who .m{font-weight:500;font-size:40px;color:#475569;margin-top:8px}
-.crit{margin-top:34px}
-.cr{display:flex;align-items:center;gap:22px;height:118px;font-size:44px;font-weight:500;color:#334155}
-.cr span{width:380px;flex:none}
-.bar{flex:1;height:18px;border-radius:9px;background:#eef2f6;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:9px;background:#10b981;width:0}
+.who .m{font-weight:500;font-size:40px;color:var(--muted);margin-top:8px}
+.crit{margin-top:40px}
+.cr{display:grid;grid-template-columns:400px 1fr 56px;gap:24px;align-items:center;height:104px;font-size:40px;font-weight:500;color:#334155}
+.cr span{white-space:nowrap}
+.bar{height:16px;border-radius:8px;background:#eef2f6;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px;background:var(--green);width:0}
 .cr.low .bar i{background:#e5484d}
-.cr b{width:52px;text-align:right;font-weight:800;font-size:44px;font-variant-numeric:tabular-nums}
+.cr b{text-align:right;font-weight:800;font-size:44px;font-variant-numeric:tabular-nums}
 .cr.low b{color:#b42318}
-/* F: CTA */
-#ctaTitle{position:absolute;left:120px;right:120px;top:540px;text-align:center;font-weight:800;font-size:84px;line-height:1.1;color:#fff;letter-spacing:-.02em}
-#ctaPill{position:absolute;left:50%;top:760px;height:150px;padding:0 76px;border-radius:75px;background:var(--gold);color:var(--ink);display:flex;align-items:center;font-weight:800;font-size:68px;white-space:nowrap}
-#ctaHandle{position:absolute;left:120px;right:120px;top:1000px;text-align:center;font-weight:800;font-size:60px;color:var(--gold2)}
-#ctaBenefit{position:absolute;left:120px;right:120px;top:1150px;text-align:center;font-weight:500;font-size:46px;line-height:1.35;color:var(--cream)}
-/* sabit logo: alt güvenli alanın hemen üstü, sol */
-#logo{position:absolute;left:120px;top:1476px;height:52px}
+/* CTA: tek merkez ekseni, aralıklar 48 px */
+#ctaCol{position:absolute;left:120px;width:840px;top:482px;height:1040px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px;text-align:center}
+#ctaLogo{height:150px;display:block}
+#ctaValue{font-weight:800;font-size:64px;line-height:1.2;color:#fff;letter-spacing:-.02em}
+#ctaDm{font-weight:800;font-size:56px;line-height:1.2;color:#fff;display:flex;align-items:center;gap:16px}
+#ctaDm .tag{color:var(--gold2);border:3px solid var(--gold);border-radius:16px;padding:0 20px;line-height:1.3}
+#ctaHandle{font-weight:800;font-size:56px;color:var(--gold2)}
+/* Kapak */
+#coverLogo{position:absolute;left:50%;top:296px;height:136px;transform:translateX(-50%);opacity:0}
 </style></head><body>
 <div id="stage">
-  <div class="phone" id="phone"><div class="screen"><div class="notch"></div><div class="crop" id="crop"><div class="tapr" id="ripple"></div><div class="tapf" id="touch"></div></div></div></div>
+  <div class="title" id="tA"><span><em>Tek bir 1 yıldız</em>, onlarca müşteriyi uzaklaştırabilir.</span></div>
+  <div class="title" id="tB"><span>O puan <em>önce size</em> gelsin.</span></div>
+  <div class="title" id="tC"><span>5 kriter, <em>tek dokunuş</em>.</span></div>
+  <div class="title" id="tD"><span>İletişim bilgisi <em>isteğe bağlı</em>.</span></div>
+  <div class="title" id="tE"><span><em>Olumsuzlar</em> tek sekmede.</span></div>
+  <div class="title" id="tCover" style="top:448px;height:72px"><span>O puan <em>önce size</em> gelsin.</span></div>
 
-  <div class="cap" id="capA"><h2 style="font-size:58px">Tek bir 1 yıldız, onlarca müşteriyi <em>uzaklaştırabilir.</em></h2></div>
-  <div class="cap" id="capB"><h2>O puan <em>önce size</em> gelsin.</h2></div>
-  <div class="cap" id="capC"><h2>5 kriter, <em>tek dokunuş</em></h2></div>
-  <div class="cap" id="capD"><h2>Olumsuzlar <em>tek sekmede</em></h2></div>
-  <div class="cap" id="capE"><h2>İletişim bilgisi <em>isteğe bağlı</em></h2></div>
-  <div class="cap" id="capCover"><h2 style="font-size:62px;white-space:nowrap">O puan <em>önce size</em> gelsin.</h2></div>
+  <div id="phone"><div id="screen"><div id="notch"></div>
+    <div id="ftitle">Bizi Değerlendirin.</div>
+    <div id="track">
+      <div class="pane" id="paneRate">
+        <div class="rcard" id="rateCard"></div>
+        <div class="btn f" style="margin-top:32px">DEVAM ET →</div>
+      </div>
+      <div class="pane" id="paneContact">
+        <div class="f" style="margin-top:8px"><div class="fl">Telefon</div><div class="fi ph">0 (5__) ___ __ __</div></div>
+        <div class="f" style="margin-top:40px"><div class="fl">E-posta Adresiniz</div><div class="fi on" id="email"><span id="emailTxt"></span><i class="caret" id="caret"></i></div></div>
+        <div class="brow"><div class="btn ghost">← Geri</div><div class="btn">DEVAM ET →</div></div>
+      </div>
+    </div>
+    <div class="rip" id="pRip"></div><div class="tap" id="pTap"></div>
+  </div></div>
 
-  <div class="sc" id="sB">
+  <div class="layer" id="sB">
     <div class="card" id="mail">
       <div class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>E-posta bildirimi</div>
       <div class="t">Yeni form gönderimi: Bizi Değerlendirin</div>
@@ -84,157 +119,138 @@ body{font-family:"Manrope",system-ui,sans-serif;color:var(--cream)}
         <div class="tr low">Fiyat / Performans <b>1</b></div>
       </div>
     </div>
-    <div class="note" id="mailNote">Form ayarından açılır; yeni gönderim<br>anında e-postanıza düşer.</div>
+    <div id="mailNote">Form ayarından açılır; yeni gönderim<br>anında e-postanıza düşer.</div>
   </div>
 
-  <div class="sc" id="sD">
-    <div id="tabs"><div class="tab" id="tabPos">Olumlu <b>18</b></div><div class="tab" id="tabNeg">Olumsuz <b>2</b></div></div>
+  <div class="layer" id="sE">
+    <div id="tabs"><div class="tab" id="tabPos">Olumlu <b>18</b></div><div class="tab on" id="tabNeg">Olumsuz <b>2</b></div></div>
     <div class="card" id="rcard">
-      <div class="row"><div class="score">2,0 ★</div><div class="who"><div class="n">Mert D.</div><div class="m">Masa 12 · bugün 13:42</div></div></div>
+      <div class="srow"><div class="score">2,0 ★</div><div class="who"><div class="n">Mert D.</div><div class="m">Masa 12 · bugün 13:42</div></div></div>
       <div class="crit" id="crit"></div>
     </div>
-    <div class="tapf" id="dTouch"></div><div class="tapr" id="dRipple"></div>
+    <div class="rip" id="eRip"></div><div class="tap" id="eTap"></div>
   </div>
 
-  <div class="sc" id="sF">
-    <div id="ctaTitle">Demo için DM'e</div>
-    <div id="ctaPill">DEMO yaz</div>
-    <div id="ctaHandle">@qrmenuofficial</div>
-    <div id="ctaBenefit">Müşteri memnuniyetsizliği<br>panelinize düşsün.</div>
+  <div class="layer" id="sF">
+    <div id="ctaCol">
+      <img id="ctaLogo" src="../../../assets/brand/qr-menu-official-logo-v4.svg" alt="QR Menu Official">
+      <div id="ctaValue">Müşteri memnuniyetsizliği<br>panelinize düşsün.</div>
+      <div id="ctaDm">DM'e <span class="tag">“DEMO”</span> yaz</div>
+      <div id="ctaHandle">@qrmenuofficial</div>
+    </div>
   </div>
-
-  <img id="logo" src="../../../assets/brand/qr-menu-official-logo-v4-compact.svg" alt="">
+  <img id="coverLogo" src="../../../assets/brand/qr-menu-official-logo-v4.svg" alt="">
 </div>
 <script>
-const SHOTS = ["00_start","01_r1s1","02_r1s2","03_r1s3","04_r1s4","05_r1s5","06_r2s1","07_r2s2","08_r2s3","09_r2s4","10_r2s5","11_r3s1","12_r3s2","13_r3s3","14_r3s4","15_r3s5","16_r4s1","17_r4s2","18_r4s3","19_r4s4","20_r4s5","21_r5s1","22_r5s2","23_r5s3","24_r5s4","25_r5s5","29_step3filled"];
-const crop = document.getElementById('crop'), IMG = {};
-for (const n of SHOTS) { const im = new Image(); im.src = 'shots/' + n + '.png'; crop.appendChild(im); IMG[n] = im; }
 const $ = id => document.getElementById(id);
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const ease = x => { x = clamp(x, 0, 1); return x * x * (3 - 2 * x); };
 const lerp = (a, b, k) => a + (b - a) * k;
+const STAR = '<svg viewBox="0 0 24 24"><path d="M12 2.2l2.9 6.1 6.7.8-4.9 4.6 1.3 6.6L12 17l-6 3.3 1.3-6.6L2.4 9.1l6.7-.8z"/></svg>';
+const CRIT_NAMES = ["Yemek Lezzeti", "Hizmet Hızı", "Temizlik", "Atmosfer", "Fiyat / Performans"];
+$('rateCard').innerHTML = CRIT_NAMES.map((n, r) => `<div class="rrow" data-r="${r}"><div class="l">${n}</div><div class="stars">${STAR.repeat(5)}</div></div>`).join('');
+const VALUES = [5, 4, 5, 4, 5];                   // referans görseldeki (yorum-formu.webp) dağılım
+const SEQ = []; VALUES.forEach((v, r) => { for (let s = 0; s < v; s++) SEQ.push([r, s]); });
+const PANEL = [["Yemek Lezzeti", 3], ["Hizmet Hızı", 1], ["Temizlik", 3], ["Atmosfer", 2], ["Fiyat / Performans", 1]];
+$('crit').innerHTML = PANEL.map(([n, v]) => `<div class="cr${v <= 2 ? ' low' : ''}"><span>${n}</span><div class="bar"><i></i></div><b>0</b></div>`).join('');
 
-/* Sabit kesitler (orijinal 1032px görüntüde). Kaydırma yok → yarım satır/düğme olmaz.
-   star: yalnızca puan kartı (adım etiketleri ve DEVAM ET dışarıda)
-   contact: Telefon + E-posta alanları */
-const CROPS = { star: { x: 20, y: 536, w: 992, h: 1160 }, contact: { x: 48, y: 500, w: 936, h: 650 } };
-const ROWS = [[778, 169], [1030, 169], [1168, 461], [1306, 461], [1558, 169]];
-const starXY = (r, s) => [ROWS[r - 1][1] + (s - 1) * 100, ROWS[r - 1][0]];
-window.CROP_SCALE = {}; for (const k in CROPS) CROP_SCALE[k] = 804 / CROPS[k].w;
+const T = { A: 0, B: 2, C: 5, D: 8.5, E: 10.5, F: 16.5, END: 20 };
+const RATE_T0 = 5.3, RATE_DT = 0.115;             // 23 dokunuş: 5,3–7,95 sn
+const EMAIL = 'ayse.k@ornek.com';
 
-const T = { A: 0, B: 2, C: 5, D: 8, E: 13, F: 16, END: 20 };
-const SL = 9 / 30, STAR_T0 = 5.25, STAR_DT = 0.1;
-let cur = null, curCrop = null;
-function setCrop(name, top) {
-  const c = CROPS[name], s = 804 / c.w;
-  if (curCrop !== name) { crop.style.height = Math.round(c.h * s) + 'px'; curCrop = name; }
-  $('phone').style.top = top + 'px';
-  return { c, s };
+function setStars(n) {                             // ilk n dokunuş dolu
+  const rows = document.querySelectorAll('#rateCard .rrow');
+  rows.forEach((row, r) => row.querySelectorAll('svg').forEach((s, i) => s.classList.toggle('on', SEQ.slice(0, n).some(([rr, ss]) => rr === r && ss === i))));
 }
-function show(n, c, s, z = 1) {
-  if (cur !== n) { if (cur) IMG[cur].style.display = 'none'; IMG[n].style.display = 'block'; cur = n; }
-  const W = 804, H = c.h * s;
-  // z>1: kesit merkezine hafif yakınlaşma (statik kare olmasın); kesit kartın dış boşluğunu içerdiği için içerik kırpılmaz
-  const tx = -c.x * s * z - (W * (z - 1)) / 2, ty = -c.y * s * z - (H * (z - 1)) / 2;
-  IMG[n].style.width = (1032 * s * z) + 'px';
-  IMG[n].style.transform = `translate(${tx}px,${ty}px)`;
-  return { tx, ty, sz: s * z };
+function starCenter(r, s) {                        // #phone koordinatında yıldız merkezi
+  const svg = document.querySelectorAll('#rateCard .rrow')[r].querySelectorAll('svg')[s];
+  const a = svg.getBoundingClientRect(), p = $('phone').getBoundingClientRect();
+  return [a.left - p.left + a.width / 2, a.top - p.top + a.height / 2];
 }
-function cap(id, a, b, t) {
+function tap(tapId, ripId, x, y, down) {
+  const f = $(tapId), r = $(ripId);
+  f.style.left = x + 'px'; f.style.top = y + 'px'; f.style.opacity = 1;
+  f.style.transform = `scale(${down !== null && down >= 0 && down < .12 ? .86 : 1})`;
+  if (down !== null && down >= 0 && down < .4) { const q = down / .4; r.style.left = x + 'px'; r.style.top = y + 'px'; r.style.opacity = 1 - q; r.style.transform = `scale(${.8 + q * .8})`; }
+}
+function title(id, a, b, t) {                      // sert kesme
   const el = $(id); if (t < a || t >= b) { el.style.opacity = 0; return; }
-  const k = ease((t - a) / SL); el.style.opacity = a === 0 ? 1 : 0.4 + 0.6 * k; el.style.transform = `translateY(${a === 0 ? 0 : (1 - k) * 40}px)`;  // dikey giriş: yan güvenli alan korunur
+  el.style.opacity = 1;  /* sert kesme: başlık→içerik boşluğu ilk karede de 48 px */
 }
-function tap(fid, rid, X, Y, down) {
-  const f = $(fid), r = $(rid);
-  f.style.left = X + 'px'; f.style.top = Y + 'px'; f.style.opacity = .95;
-  f.style.transform = `scale(${down !== null && down >= 0 && down < .12 ? .82 : 1})`;
-  if (down !== null && down >= 0 && down < .4) { const q = down / .4; r.style.left = X + 'px'; r.style.top = Y + 'px'; r.style.opacity = 1 - q; r.style.transform = `scale(${.7 + q * .9})`; }
-}
-const CRIT = [["Yemek Lezzeti", 3], ["Hizmet Hızı", 1], ["Temizlik", 3], ["Atmosfer", 2], ["Fiyat / Performans", 1]];
-$('crit').innerHTML = CRIT.map(([n, v]) => `<div class="cr${v <= 2 ? ' low' : ''}"><span>${n}</span><div class="bar"><i></i></div><b>0</b></div>`).join('');
 
 window.render = function (t, o = {}) {
   const cover = !!o.cover, tt = cover ? -1 : t;
-  cap('capA', T.A, T.B, tt); cap('capB', T.B, T.C, tt); cap('capC', T.C, T.D, tt); cap('capD', T.D, T.E, tt); cap('capE', T.E, T.F, tt);
-  $('capCover').style.opacity = cover ? 1 : 0;
-  for (const id of ['touch', 'ripple', 'dTouch', 'dRipple']) $(id).style.opacity = 0;
-  const ph = $('phone');
-  if (cover || t < T.B || (t >= T.C && t < T.D)) {          // A + C: puan kartı
-    ph.style.display = 'block';
-    const { c, s } = setCrop('star', cover ? 420 : 436);
-    let n, z = 1;
-    if (cover) n = '25_r5s5';
-    else if (t < T.B) n = t < 1.0 ? '00_start' : '01_r1s1';
-    else { n = SHOTS[clamp(2 + Math.floor((t - STAR_T0) / STAR_DT), 0, 25)]; /* sahne boş yıldızlarla açılır */ z = 1 + 0.03 * ease((t - T.C) / 3); }
-    ph.style.transform = (!cover && t >= T.C) ? `translateX(${(1 - ease((t - T.C) / SL)) * 320}px)` : '';
-    const p = show(n, c, s, z);
-    let tp = null;
-    if (!cover && t < T.B && t >= .2) { const k = ease((t - .2) / .7), [sx, sy] = starXY(1, 1); tp = [lerp(560, sx, k), lerp(1500, sy, k), t >= 1.0 ? t - 1.0 : null]; }
-    else if (!cover && t >= STAR_T0 && t < STAR_T0 + 24 * STAR_DT) {
-      const k = (t - STAR_T0) / STAR_DT, i = Math.floor(k), r = Math.floor((i + 1) / 5) + 1, st = ((i + 1) % 5) + 1;
-      const [sx, sy] = starXY(r, st); tp = [sx, sy, (k - i) * STAR_DT];
-    }
-    if (tp) tap('touch', 'ripple', p.tx + tp[0] * p.sz, p.ty + tp[1] * p.sz, tp[2]);
-  } else if (t >= T.E && t < T.F) {                          // E: iletişim
-    ph.style.display = 'block';
-    const { c, s } = setCrop('contact', 600);
-    // iç zoom yok (alan kenarları kırpılmasın); statik kare olmasın diye telefon yavaşça yukarı kayar
-    ph.style.transform = `translateX(${(1 - ease((t - T.E) / SL)) * 320}px) translateY(${-24 * ease((t - T.E) / 3)}px)`;
-    show('29_step3filled', c, s, 1);
-  } else ph.style.display = 'none';
+  title('tA', T.A, T.B, tt); title('tB', T.B, T.C, tt); title('tC', T.C, T.D, tt); title('tD', T.D, T.E, tt); title('tE', T.E, T.F, tt);
+  $('tCover').style.opacity = cover ? 1 : 0; $('coverLogo').style.opacity = cover ? 1 : 0;
+  for (const id of ['pTap', 'pRip', 'eTap', 'eRip']) $(id).style.opacity = 0;
 
-  const b = $('sB');                                          // B: e-posta (2–5)
+  // Cihaz: kanca (0–2), puanlama (5–8,5), iletişim (8,5–10,5) — aynı boyut ve konum
+  const ph = $('phone');
+  const dev = cover || t < T.B || (t >= T.C && t < T.E);
+  ph.style.display = dev ? 'block' : 'none';
+  if (dev) {
+    ph.style.transform = cover ? 'translateY(108px) scale(.86)' : '';
+    let n = 0, slide = 0;
+    if (cover) n = SEQ.length;
+    else if (t < T.B) n = t >= 1.0 ? 1 : 0;
+    else if (t < T.D) n = clamp(Math.floor((t - RATE_T0) / RATE_DT) + 1, 0, SEQ.length);
+    else { n = SEQ.length; slide = ease((t - T.D) / .3); }
+    setStars(n);
+    $('track').style.transform = `translateX(${-804 * slide}px)`;
+    $('ftitle').style.opacity = 1;
+    // e-posta yazımı 8,9–9,9
+    const chars = t >= T.D ? clamp(Math.floor((t - 8.9) / (1.0 / EMAIL.length)) + 1, 0, EMAIL.length) : EMAIL.length;
+    $('emailTxt').textContent = EMAIL.slice(0, chars);
+    $('caret').style.opacity = (t >= T.D && Math.floor(t * 2.5) % 2 === 0) ? 1 : 0;
+    if (!cover) {
+      if (t < T.B && t >= .2) {                    // kanca: halka 1. satır 1. yıldızın merkezine gelir, 1,0'da dokunur
+        const [sx, sy] = starCenter(0, 0), k = ease((t - .2) / .7);
+        tap('pTap', 'pRip', lerp(sx + 300, sx, k), lerp(sy + 520, sy, k), t >= 1.0 ? t - 1.0 : null);
+      } else if (t >= RATE_T0 && t < RATE_T0 + SEQ.length * RATE_DT) {
+        const k = (t - RATE_T0) / RATE_DT, i = Math.floor(k), [r, s] = SEQ[i];
+        const [sx, sy] = starCenter(r, s); tap('pTap', 'pRip', sx, sy, (k - i) * RATE_DT);
+      }
+    }
+  }
+
+  // E-posta kartı (2–5)
+  const b = $('sB');
   if (!cover && t >= T.B && t < T.C) {
-    b.style.opacity = 1; const k = ease((t - T.B) / SL);
-    $('mail').style.opacity = 0.3 + 0.7 * k;
-    $('mail').style.transform = `translateY(${(1 - k) * 80 - 20 * ease((t - 2.3) / 2.7)}px)`;
-    $('mailNote').style.top = (404 + $('mail').offsetHeight + 36) + 'px';
-    $('mailNote').style.opacity = k;  // kart yerine oturmadan not görünmez (üst üste binme yok)
+    b.style.opacity = 1;
+    // kart sabit (başlık→içerik 48 px korunur); hareket: düşük puan satırları sırayla vurgulanır
+    $('mailNote').style.top = (482 + $('mail').offsetHeight + 48) + 'px';
+    document.querySelectorAll('#mail .tr').forEach((el, i) => {
+      const q = el.classList.contains('low') ? ease((t - (2.4 + i * 0.45)) / 0.4) : 0;
+      el.style.background = `rgb(${Math.round(lerp(241, 252, q))},${Math.round(lerp(245, 214, q))},${Math.round(lerp(249, 214, q))})`;
+    });
+    $('mail').querySelector('.d').style.color = t >= 4.3 ? '#a61b1b' : '#334155';
   } else b.style.opacity = 0;
 
-  const d = $('sD');                                          // D: panel (8–13)
-  if (!cover && t >= T.D && t < T.E) {
-    d.style.opacity = 1;
-    const k = ease((t - T.D) / SL); d.style.transform = `translateX(${(1 - k) * 320}px)`;
-    const neg = t >= 8.8; $('tabNeg').classList.toggle('on', neg); $('tabPos').classList.toggle('on', !neg);
-    if (t >= 8.3 && t < 9.4) { const kk = ease((t - 8.3) / .45); tap('dTouch', 'dRipple', lerp(780, 730, kk), lerp(820, 458, kk), t - 8.8); }
-    const ck = ease((t - 9.0) / SL); $('rcard').style.opacity = t < 9.0 ? 0 : ck;
-    $('rcard').style.transform = `translateY(${(1 - ck) * 70 - 20 * ease((t - 11.3) / 1.7)}px)`;
+  // Panel (10,5–16,5): kart ilk karede görünür; 10,6–11,2 Olumsuz sekmesine dokunuş; çubuklar 11,2–13,6
+  const e = $('sE');
+  if (!cover && t >= T.E && t < T.F) {
+    e.style.opacity = 1;
+    const tb = $('tabNeg').getBoundingClientRect();
+    if (t < 11.4) { const k = ease((t - T.E) / .4); tap('eTap', 'eRip', lerp(tb.left + tb.width / 2 + 60, tb.left + tb.width / 2, k), lerp(tb.top + 300, tb.top + tb.height / 2, k), t - 10.95); }
+    $('tabNeg').style.transform = `scale(${t >= 10.95 && t < 11.07 ? .96 : 1})`;
+    const drift = -24 * ease((t - 13.6) / 2.9);
+    $('rcard').style.transform = `translateY(${drift}px)`;
     document.querySelectorAll('#crit .cr').forEach((el, i) => {
-      const v = CRIT[i][1], s0 = 9.3 + i * 0.35, q = ease((t - s0) / 0.6);
+      const v = PANEL[i][1], q = ease((t - (11.2 + i * .4)) / .8);
       el.querySelector('i').style.width = (q * v / 5 * 100) + '%';
       el.querySelector('b').textContent = Math.round(q * v);
-      el.style.opacity = t < s0 ? 0.4 : 1;
     });
-  } else d.style.opacity = 0;
+  } else e.style.opacity = 0;
 
-  const f = $('sF');                                          // F: CTA (16–20), hafif nabız
+  // CTA (16,5–20): yavaş salınım, aynı kare 2 sn'den uzun kalmaz
+  const f = $('sF');
   if (!cover && t >= T.F) {
-    f.style.opacity = 1; const k = ease((t - T.F) / SL);
-    $('ctaTitle').style.transform = `translateY(${(1 - k) * 60}px)`;
-    const w = Math.sin((t - T.F) * Math.PI * 1.1);
-    $('ctaPill').style.transform = `translateX(-50%) scale(${1 + 0.06 * w})`;
-    f.style.transform = `translateY(${-14 * Math.sin((t - T.F) * Math.PI * 0.55)}px)`;  // grup yavaşça salınır; aynı kare 2 sn'den uzun kalmaz
-  } else { f.style.opacity = 0; f.style.transform = ''; }
+    f.style.opacity = 1; const k = ease((t - T.F) / .3);
+    $('ctaCol').style.transform = `translateY(${(1 - k) * 16 - 12 * Math.sin((t - T.F) * Math.PI * .6)}px)`;
+    $('ctaDm').querySelector('.tag').style.transform = `scale(${1 + .04 * Math.sin((t - T.F) * Math.PI * 1.2)})`;
+  } else f.style.opacity = 0;
 };
-
-/* Doğrulama: görünen metinlerin 1080 genişlikteki efektif boyutu (px); ekran görüntüsü içi metin ayrıca CROP_SCALE ile hesaplanır */
-window.minTextPx = function () {
-  let min = 1e9, who = '';
-  const vis = el => { for (let e = el; e && e !== document.body; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.display === 'none' || +cs.opacity < 0.05) return false; } return true; };
-  const walk = el => {
-    for (const n of el.childNodes) {
-      if (n.nodeType === 3 && n.textContent.trim()) {
-        const p = n.parentElement; if (!vis(p)) continue;
-        const r = p.getBoundingClientRect(); if (r.right <= 0 || r.left >= 1080 || r.bottom <= 0 || r.top >= 1920) continue;
-        const px = parseFloat(getComputedStyle(p).fontSize) * (r.width / (p.offsetWidth || r.width));
-        if (px < min) { min = px; who = n.textContent.trim().slice(0, 30); }
-      } else if (n.nodeType === 1) walk(n);
-    }
-  };
-  walk($('stage')); return { min: Math.round(min * 10) / 10, who };
-};
-window.ready = () => Promise.all(Object.values(IMG).map(i => i.decode()).concat([$('logo').decode()])).then(() => document.fonts.ready);
+window.ready = () => Promise.all([$('ctaLogo').decode(), $('coverLogo').decode()]).then(() => document.fonts.ready);
 window.render(0);
 </script>
 </body></html>
