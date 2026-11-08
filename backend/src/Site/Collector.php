@@ -28,7 +28,7 @@ final class Collector
 	private array $hosts;
 
 	/**
-	 * @param list<string> $allowedHosts Origin kontrolü için izinli alan adları (boşsa kontrol yapılmaz).
+	 * @param list<string> $allowedHosts Origin kontrolü için izinli alan adları (boşsa kontrol yapılmaz; doluysa Origin zorunludur).
 	 */
 	public function __construct(PDO $pdo, array $allowedHosts = array())
 	{
@@ -116,8 +116,9 @@ final class Collector
 			return true;
 		}
 		$origin = isset($server['HTTP_ORIGIN']) ? (string) $server['HTTP_ORIGIN'] : '';
+		/* Tarayıcı POST'ları her zaman Origin gönderir; Origin'siz istek (curl vb.) sahte veri basamaz. */
 		if ($origin === '') {
-			return true;
+			return false;
 		}
 		$host = parse_url($origin, PHP_URL_HOST);
 

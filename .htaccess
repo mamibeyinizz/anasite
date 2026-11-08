@@ -9,8 +9,9 @@ RewriteEngine On
 # Sunucu kodu, yapılandırma ve ham veri dışarıya kapalı
 RewriteRule ^backend(/|$) - [F,L]
 RewriteRule (^|/)config\.php$ - [F,L]
-RewriteRule \.(sql|env|mjs)$ - [F,L]
-RewriteRule ^(tools|seo)(/|$) - [F,L]
+RewriteRule \.(sql|env|mjs|md|py|csv|lock|json|log|bak|sh)$ - [F,L]
+RewriteRule ^(tools|seo|sections|\.agents|\.claude)(/|$) - [F,L]
+RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
 
 # Ziyaretçi toplama, yönetim API'si ve lisans doğrulama
 RewriteRule ^api(/|$) api/index.php [END,QSA]
@@ -23,4 +24,14 @@ RewriteRule ^blog/?$ api/index.php [END,QSA]
 RewriteRule ^blog/feed\.xml$ api/index.php [END,QSA]
 RewriteRule ^blog/([a-z0-9-]+)/?$ api/index.php [END,QSA]
 RewriteRule ^sitemap-blog\.xml$ api/index.php [END,QSA]
+</IfModule>
+
+# Güvenlik başlıkları (giris/, hesabim/, odeme/, yonetim/ kendi daha sıkı kümelerini ayrıca koyar)
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Content-Security-Policy "frame-ancestors 'self'"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on'"
 </IfModule>
