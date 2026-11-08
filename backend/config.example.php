@@ -26,6 +26,10 @@ return array(
 	),
 	// En az 32 karakter. Üretimde rastgele üretin; buraya gerçek değer koymayın.
 	'key_pepper'      => '',
+	// Lisans cevaplarını imzalayan Ed25519 gizli anahtar (base64). Üret: php backend/bin/gen-signing-key.php
+	// Açık karşılığı eklentideki QRMS_License_Client::PUBLIC_KEY ile aynı olmalı. Boşsa cevap imzasız gider ve
+	// eklenti lisansı ASLA doğrulayamaz. Yedekleyin; depoya girmez.
+	'license_signing_key' => '',
 	// 64 hex karakter (32 bayt). Üretimde rastgele üretin; buraya gerçek değer koymayın.
 	'encryption_key'  => '',
 	// Üretimde true kalır. Çerez Secure olur ve giriş yalnız HTTPS ile açılır.

@@ -52,11 +52,15 @@ final class Validator
 
 	private int $rateWindow;
 
+	/** Ed25519 gizli anahtar (ham bayt); boşsa cevaplar imzasız gider. */
+	private string $signingKey = '';
+
 	/**
 	 * @param callable(): DateTimeImmutable|null $now
 	 */
-	public function __construct(PDO $pdo, Keys $keys, ?callable $now = null, int $rateMax = self::RATE_LIMIT_MAX, int $rateWindow = self::RATE_LIMIT_WINDOW)
+	public function __construct(PDO $pdo, Keys $keys, ?callable $now = null, int $rateMax = self::RATE_LIMIT_MAX, int $rateWindow = self::RATE_LIMIT_WINDOW, string $signingKey = '')
 	{
+		$this->signingKey = self::parseSigningKey($signingKey);
 		$this->pdo = $pdo;
 		$this->keys = $keys;
 		$this->now = $now ?? static function (): DateTimeImmutable {
@@ -67,9 +71,62 @@ final class Validator
 	}
 
 	/**
+	 * Eklenti cevabı Ed25519 imzasıyla doğrular, imzasız cevabı "ulaşılamadı" sayar.
+	 * Bu yüzden durum içeren her cevap (200 ve 404 invalid) imzalanır; 429 imzalanmaz.
+	 *
 	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
 	 */
 	public function validate(string $apiKey, string $domain, string $version, string $ip): array
+	{
+		$result = $this->validateUnsigned($apiKey, $domain, $version, $ip);
+		$known = array('active', 'inactive', 'domain_mismatch', 'invalid', 'expired');
+		$status = isset($result['body']['status']) ? $result['body']['status'] : '';
+		if ($this->signingKey === '' || !in_array($status, $known, true)) {
+			return $result;
+		}
+
+		$signedDomain = self::normalizeDomain($domain);
+		$modules = isset($result['body']['modules']) && is_array($result['body']['modules']) ? array_values($result['body']['modules']) : array();
+		$result['body']['domain'] = $signedDomain;
+		$result['body']['sig'] = base64_encode(sodium_crypto_sign_detached(
+			self::signedMessage((string) $status, $signedDomain, $modules),
+			$this->signingKey
+		));
+
+		return $result;
+	}
+
+	/**
+	 * Eklentideki QRMS_License_Client::signed_message() ile birebir aynı olmalı.
+	 *
+	 * @param string[] $modules
+	 */
+	public static function signedMessage(string $status, string $domain, array $modules): string
+	{
+		return "qrms1\n" . $status . "\n" . $domain . "\n" . implode(',', $modules);
+	}
+
+	/** base64 64 baytlık gizli anahtar ya da 32 baytlık tohum; geçersizse '' (imzasız). */
+	private static function parseSigningKey(string $value): string
+	{
+		$raw = base64_decode(trim($value), true);
+		if ($raw === false || !function_exists('sodium_crypto_sign_secretkey')) {
+			return '';
+		}
+		if (strlen($raw) === SODIUM_CRYPTO_SIGN_SECRETKEYBYTES) {
+			return $raw;
+		}
+		if (strlen($raw) === SODIUM_CRYPTO_SIGN_SEEDBYTES) {
+			return sodium_crypto_sign_secretkey(sodium_crypto_sign_seed_keypair($raw));
+		}
+
+		return '';
+	}
+
+	/**
+	 * @return array{status:int,body:array<string,mixed>,headers:array<string,string>}
+	 */
+	private function validateUnsigned(string $apiKey, string $domain, string $version, string $ip): array
 	{
 		$limit = $this->consumeRateLimit($ip);
 		if (!$limit['allowed']) {
