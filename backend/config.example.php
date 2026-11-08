@@ -45,9 +45,9 @@ return array(
 	// Müşteri hesabı oturumu (saniye) ve çerez adı. Güvenli bağlantıda çerez __Host- önekiyle yazılır.
 	'customer_session_ttl' => 2592000,
 	'customer_cookie'      => 'qrc_session',
-	// true: /odeme/ test modunda; giriş yapmış müşterinin test siparişi hesabına kaydedilir.
+	// Varsayılan false (anahtar yoksa da kapalı). true: /odeme/ test modunda; giriş yapmış müşterinin test siparişi hesabına kaydedilir.
 	// Gerçek ödeme sağlayıcısı bağlandığında false yapın (siparişleri sağlayıcı bildirimi oluşturur).
-	'test_orders'          => true,
+	'test_orders'          => false,
 	// Hesap e-postaları (doğrulama, parola sıfırlama): bağlantıların kökü ve gönderen adres.
 	// PHP mail() kullanılır; barındırmada çalıştığını bir hesap açıp kontrol edin (SPF/DKIM önerilir).
 	'site_url'             => 'https://qrmenuofficial.com',

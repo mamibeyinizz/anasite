@@ -64,7 +64,7 @@ try {
 		!array_key_exists('require_https', $config) || $config['require_https'] !== false,
 		isset($config['customer_session_ttl']) ? (int) $config['customer_session_ttl'] : 2592000,
 		isset($config['customer_cookie']) ? (string) $config['customer_cookie'] : 'qrc_session',
-		!array_key_exists('test_orders', $config) || $config['test_orders'] !== false,
+		isset($config['test_orders']) && $config['test_orders'] === true,
 		null,
 		isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com',
 		accountMailer($config),
