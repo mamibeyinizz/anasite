@@ -115,7 +115,7 @@ else {
         const page = await ctx.newPage();
         page.on("pageerror", (e) => errs.push(String(e)));
         const ok = new Set();
-        page.on("response", (r) => { if (r.status() >= 400 && !/favicon|assets\/product/.test(r.url())) errs.push(`${r.status()} ${r.url()}`); else if (r.status() === 200) ok.add(r.url().split("/").pop()); });
+        page.on("response", (r) => { if (r.status() >= 400 && !/favicon|assets\/product/.test(r.url())) errs.push(`${r.status()} ${r.url()}`); else if (r.status() === 200) ok.add(r.url().split("/").pop().split("?")[0]); });
         await page.goto(base + pg.url, { waitUntil: "load" });
         const r = await page.evaluate(() => {
           const vw = document.documentElement.clientWidth;

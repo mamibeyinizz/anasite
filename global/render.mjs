@@ -169,7 +169,9 @@ function renderFooterLink(rel, l, current) {
   if (l.ctaPlaceholder || l.path == null) {
     return `<li><button type="button" class="qrmo-gf-link-pending" data-qrmo-cta="${esc(l.ctaPlaceholder || "secondary")}">${esc(l.label)}</button></li>`;
   }
-  return `<li><a href="${href(rel, l.path)}"${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
+  /* Hesap bağlantıları: oturum varsa account-link.js "Giriş Yap"ı "Hesabım"a çevirir, "Kayıt Ol"u gizler. */
+  const acct = l.acct ? ` data-acct-foot="${esc(l.acct)}" data-acct-account="${href(rel, ACCOUNT.account.path)}"` : "";
+  return `<li><a href="${href(rel, l.path)}"${acct}${l.key ? cur(l.key, current, false) : ""}>${esc(l.label)}</a></li>`;
 }
 
 export function renderHeader({ rel = "", current = "", skip = "icerik", exact = false } = {}) {

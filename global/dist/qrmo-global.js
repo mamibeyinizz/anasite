@@ -112,6 +112,14 @@
     if (sep) sep.hidden = true;
     if (sign) sign.hidden = true;
   });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-acct-foot]"), function (a) {
+    if (a.getAttribute("data-acct-foot") === "login") {
+      a.setAttribute("href", a.getAttribute("data-acct-account"));
+      a.textContent = "Hesabım";
+    } else if (a.parentNode) {
+      a.parentNode.hidden = true;
+    }
+  });
   Array.prototype.forEach.call(document.querySelectorAll("[data-qrmo-acct]"), function (a) {
     a.setAttribute("href", a.getAttribute("data-acct-account"));
     var l = a.querySelector("[data-acct-label]"), s = a.querySelector("[data-acct-sub]");
