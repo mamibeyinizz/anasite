@@ -372,3 +372,12 @@ body.qrmo-legal-page {
   outline: 2px solid #0d2b22;
   outline-offset: 2px;
 }
+
+/* Doldurulmamış satıcı bilgisi: yalnız yayına çıkmadan önce görünür (bkz. SELLER_COMPLETE). */
+.qrmo-legal-article mark.qrmo-legal-todo {
+  background: #fff3b0;
+  color: #3d2f00;
+  padding: 0 .3em;
+  border-radius: 3px;
+  font-weight: 700;
+}

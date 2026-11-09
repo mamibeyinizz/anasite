@@ -11,7 +11,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { applyGlobal } from "../global/inject.mjs";
-import { PAGES, UPDATED } from "./legal-data.mjs";
+import { PAGES, UPDATED, SELLER_COMPLETE } from "./legal-data.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -26,12 +26,12 @@ function renderPage(page) {
     .map(
       (s) => `
       <section class="qrmo-legal-sec" id="${s.id}" aria-labelledby="${s.id}-baslik">
-        <h2 class="qrmo-legal-h2" id="${s.id}-baslik">${esc(s.h2)}</h2>${s.html.replaceAll("{rel}", REL)}
+        <h2 class="qrmo-legal-h2" id="${s.id}-baslik">${esc(s.h2)}</h2>${(typeof s.html === "function" ? s.html() : s.html).replaceAll("{rel}", REL)}
       </section>`
     )
     .join("");
   const toc = page.sections.map((s) => `<li><a href="#${s.id}">${esc(s.h2)}</a></li>`).join("");
-  const others = PAGES.filter((p) => p.slug !== page.slug)
+  const others = PAGES.filter((p) => p.slug !== page.slug && !(p.noindexUnlessComplete && !SELLER_COMPLETE))
     .map((p) => `<li><a class="qrmo-legal-more-link" href="${REL}${p.slug}/"><span>${esc(p.nav)}</span><span aria-hidden="true">→</span></a></li>`)
     .join("");
 
@@ -51,7 +51,7 @@ function renderPage(page) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${esc(page.title)} | QR Menu Official</title>
 <meta name="description" content="${esc(page.description)}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="${page.noindexUnlessComplete && !SELLER_COMPLETE ? "noindex,nofollow" : "index,follow"}">
 <meta name="theme-color" content="#0D2B22">
 <meta name="color-scheme" content="light">
 <link rel="canonical" href="${url}">
@@ -78,7 +78,7 @@ function renderPage(page) {
       <p class="qrmo-legal-kicker"><span aria-hidden="true"></span>YASAL</p>
       <h1 class="qrmo-legal-h1">${esc(page.h1)}</h1>
       <p class="qrmo-legal-lead">${esc(page.lead)}</p>
-      <p class="qrmo-legal-meta">Son güncelleme: ${UPDATED}</p>
+      <p class="qrmo-legal-meta">Son güncelleme: ${page.updated || UPDATED}</p>
     </div>
   </header>
 

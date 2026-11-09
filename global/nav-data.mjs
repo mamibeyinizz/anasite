@@ -7,6 +7,7 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const MOD = require("../moduller/module-data.js");
+import { SELLER_COMPLETE } from "../yasal/legal-data.mjs";
 
 export const SITE = {
   brand: "QR Menu Official",
@@ -182,7 +183,9 @@ export const FOOTER_GROUPS = [
     links: [
       { label: "Gizlilik ve KVKK", path: "gizlilik/" },
       { label: "Çerez Politikası", path: "cerez-politikasi/" },
-      { label: "Kullanım Şartları", path: "kullanim-sartlari/" }
+      { label: "Kullanım Şartları", path: "kullanim-sartlari/" },
+      // Satıcı bilgileri (yasal/legal-data.mjs → SELLER) eksikken bağlanmaz.
+      ...(SELLER_COMPLETE ? [{ label: "Mesafeli Satış Sözleşmesi", path: "mesafeli-satis/" }] : [])
     ]
   }
 ];

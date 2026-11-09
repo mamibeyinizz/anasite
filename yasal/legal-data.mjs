@@ -18,6 +18,32 @@
 
 export const UPDATED = "6 Kasım 2026";
 
+/* =========================================================
+   SATICI BİLGİLERİ — /mesafeli-satis/ sayfası bunlardan beslenir.
+   BOŞ ALAN UYDURMA: gerçek bilgileri site sahibi doldurur. Alanlardan biri boşken sayfa
+   sarı "DOLDURULMALI" işaretiyle üretilir, noindex olur ve footer'a bağlanmaz.
+   Hepsi dolunca: node yasal/build.mjs && node global/build.mjs
+========================================================= */
+export const SELLER = {
+  unvan: "",        // Ticaret unvanı (şahıs işletmesiyse ad soyad + işletme adı)
+  adres: "",        // Açık adres (tebligat adresi)
+  vergi: "",        // Vergi dairesi ve vergi / TC numarası
+  mersis: "",       // MERSİS no (şahıs işletmesinde yoksa "yoktur" yazın)
+  telefon: "+90 542 204 35 87",
+  eposta: "",       // Şirket alan adlı e-posta (iletişim sayfasındakiyle aynı olsun)
+  kep: "",          // KEP adresi (yoksa "yoktur" yazın)
+  mahkeme: "",      // Yetkili mahkeme / icra dairesi (örn. "İstanbul (Çağlayan) Mahkemeleri ve İcra Daireleri")
+  kdv: "",          // Fiyatlara KDV durumu: "KDV dahildir" ya da "KDV hariçtir, ödeme ekranında eklenir"
+  odemeYontemi: "", // Örn. "Kredi/banka kartı (iyzico üzerinden)"; ödeme sağlayıcısı bağlanınca yazın
+  yenileme: ""      // "Dönem sonunda otomatik yenilenir" ya da "Yenileme her seferinde sizin onayınızla yapılır"
+};
+export const SELLER_COMPLETE = Object.values(SELLER).every((v) => String(v).trim() !== "");
+
+const f = (v, label) =>
+  String(v).trim() !== "" ? v : `<mark class="qrmo-legal-todo">DOLDURULMALI: ${label}</mark>`;
+
+
+
 export const PAGES = [
   {
     slug: "gizlilik",
@@ -281,6 +307,115 @@ export const PAGES = [
 <p>Kişisel verilerinizin nasıl işlendiğini <a href="{rel}gizlilik/">Gizlilik Politikası ve KVKK Aydınlatma Metni</a>’nde, tarayıcı depolamasını <a href="{rel}cerez-politikasi/">Çerez Politikası</a>’nda bulabilirsiniz.</p>
 <p>Bu şartlar zaman zaman güncellenebilir; geçerli sürüm bu sayfadadır. Şartlara Türk hukuku uygulanır.</p>
 <!-- TODO (site sahibi): yetkili mahkeme / icra dairesi bilgisini ve ticaret unvanını ekleyin. -->`
+      }
+    ]
+  },
+  {
+    slug: "mesafeli-satis",
+    nav: "Mesafeli Satış",
+    title: "Mesafeli Satış Sözleşmesi ve Ön Bilgilendirme Formu",
+    h1: "Mesafeli Satış Sözleşmesi ve Ön Bilgilendirme Formu",
+    description:
+      "QR Menu Official paketi satın almadan önce bilmeniz gerekenler: satıcı bilgileri, hizmetin kapsamı, fiyat, cayma ve iade koşulları, lisans doğrulaması.",
+    lead: "Bir paket satın almadan önce okumanız için hazırlanmıştır. Ödemeyi onaylamadan önce bu metni okuduğunuzu ve kabul ettiğinizi bildirirsiniz.",
+    noindexUnlessComplete: true,
+    updated: "9 Kasım 2026",
+    sections: [
+      {
+        id: "satici",
+        h2: "Satıcı bilgileri",
+        html: () => `
+<ul>
+<li><strong>Ticaret unvanı:</strong> ${f(SELLER.unvan, "ticaret unvanı")}</li>
+<li><strong>Adres:</strong> ${f(SELLER.adres, "açık adres")}</li>
+<li><strong>Vergi dairesi / numarası:</strong> ${f(SELLER.vergi, "vergi dairesi ve numarası")}</li>
+<li><strong>MERSİS no:</strong> ${f(SELLER.mersis, "MERSİS no")}</li>
+<li><strong>Telefon:</strong> ${f(SELLER.telefon, "telefon")}</li>
+<li><strong>E-posta:</strong> ${f(SELLER.eposta, "e-posta")}</li>
+<li><strong>KEP adresi:</strong> ${f(SELLER.kep, "KEP adresi")}</li>
+<li><strong>Web sitesi:</strong> qrmenuofficial.com</li>
+</ul>
+<p>Bu metinde “Satıcı” yukarıdaki kişi veya işletmeyi, “Alıcı” sipariş sırasında kendi adına ya da temsil ettiği işletme adına bilgi veren kişiyi anlatır. Alıcının ad, işletme adı, e-posta, telefon ve alan adı bilgisi sipariş ve hesap kaydındadır.</p>`
+      },
+      {
+        id: "hizmet",
+        h2: "Satılan hizmet ve temel nitelikleri",
+        html: `
+<p>Satıcı, Alıcı’nın WordPress sitesinde kullanacağı <strong>QR Menu Suite</strong> eklentisinin lisansını, seçilen pakete (Temel, Pro veya Plus) dahil modüllerle birlikte, seçilen dönem (aylık veya yıllık) boyunca kullanım hakkı olarak sunar. Paketlerin içeriği <a href="{rel}paketler/">Paketler</a>, modüllerin ayrıntısı <a href="{rel}moduller/">Modüller</a> sayfasındadır; sipariş özetinde seçtiğiniz paket ve dönem yazar.</p>
+<ul>
+<li>Lisans <strong>tek bir alan adına</strong> bağlanır. İlk doğrulamada hangi alan adıyla etkinleştirildiyse o alan adı kilitlenir.</li>
+<li>Eklentiyi çalıştıracak WordPress sitesi, alan adı ve barındırma hizmeti paket fiyatına dahil değildir; ayrıca belirtilmedikçe Alıcı’ya aittir.</li>
+<li>Menü Asistanı ve Servis Paneli gibi üçüncü taraf hizmet anahtarı isteyen modüller için gereken hesap ve anahtarlar ayrıca belirtilmedikçe Alıcı’ya aittir; bu hizmetlerin kendi ücretleri olabilir.</li>
+<li>Hizmet <strong>yazılım lisansıdır</strong>; fiziksel ürün gönderilmez.</li>
+</ul>`
+      },
+      {
+        id: "fiyat",
+        h2: "Fiyat ve ödeme",
+        html: () => `
+<ul>
+<li><strong>Toplam fiyat:</strong> Ödeme ekranındaki sipariş özetinde yazan, seçtiğiniz paket ve dönemin bedelidir. Sipariş vermeden önce o tutarı görürsünüz. Güncel liste fiyatları <a href="{rel}paketler/">Paketler</a> sayfasındadır.</li>
+<li><strong>Vergi:</strong> ${f(SELLER.kdv, "KDV durumu")}.</li>
+<li><strong>Ödeme yöntemi:</strong> ${f(SELLER.odemeYontemi, "ödeme yöntemi")}. Kart bilgileriniz bu sitede alınmaz ve saklanmaz; ödeme, ödeme sağlayıcısının güvenli sayfasında yapılır.</li>
+<li><strong>Yenileme:</strong> ${f(SELLER.yenileme, "yenileme şekli")}.</li>
+<li><strong>Ek maliyet:</strong> Ödeme sağlayıcısı veya bankanızın alabileceği komisyonlar dışında, sipariş özetinde görmediğiniz bir bedel istenmez.</li>
+</ul>`
+      },
+      {
+        id: "ifa",
+        h2: "Teslim ve hizmetin başlaması",
+        html: `
+<p>Ödeme onaylandıktan sonra lisans anahtarınız hesabınıza bağlanır ve <a href="{rel}hesabim/">Hesabım</a> sayfasında görünür; eklentiyi kurup anahtarı girdiğinizde lisans etkinleşir. Lisansın hesabınıza tanımlanması ödemeden sonra en geç <strong>30 gün</strong> içinde yapılır; genellikle çok daha kısa sürer. Lisans bir kez etkinleştiğinde hizmetin ifasına başlanmış sayılır.</p>
+<p>Hizmetin ifasına başlanmasına siparişi onaylayarak açıkça izin vermiş olursunuz.</p>`
+      },
+      {
+        id: "cayma",
+        h2: "Cayma, iptal ve iade",
+        html: `
+<p><strong>Tüketici iseniz</strong> (hizmeti ticari veya mesleki amaç dışında satın alıyorsanız), sözleşmeden <strong>14 gün</strong> içinde gerekçe göstermeden ve ceza ödemeden cayma hakkınız vardır. Süre sözleşmenin kurulduğu günden başlar. Cayma hakkını, bu sayfadaki iletişim bilgilerine yazılı veya e-postayla bildirerek kullanırsınız; ayrıca <a href="{rel}iletisim/">iletişim sayfasını</a> kullanabilirsiniz.</p>
+<p>Elektronik ortamda anında ifa edilen hizmetlerde ve onayınızla ifasına başlanan hizmetlerde cayma hakkı mevzuatta sınırlanmıştır. Siz yine de iade ister ve bu yüzden hizmeti kullanmaya başlamadıysanız talebiniz değerlendirilir.</p>
+<p><strong>İşletme olarak</strong> (restoran, kafe vb. kendi işiniz için) satın alıyorsanız kanundaki tüketici cayma hakkı size uygulanmaz. Bununla birlikte <a href="{rel}kullanim-sartlari/#iptal-iade">Kullanım Şartları’ndaki iptal ve iade koşulları</a> (aylık üyelikte dönem sonunda iptal; hizmetin başlamasından itibaren ilk 14 gün içinde iade talebi) sizin için de geçerlidir.</p>
+<p>İade onaylandığında bedel, ödemeyi yaptığınız yönteme, en geç 14 gün içinde iade edilir. Alıcı adına alınmış alan adı veya barındırma varsa gerçek maliyeti iade tutarından düşülür.</p>`
+      },
+      {
+        id: "lisans-dogrulama",
+        h2: "Lisans doğrulaması",
+        html: `
+<p>Eklenti, lisansın geçerli olduğunu doğrulamak için günde bir kez ve kurulum sırasında qrmenuofficial.com sunucusuna lisans anahtarını ve sitenizin alan adını gönderir; sunucu lisansın durumunu ve açılacak modülleri imzalı bir cevapla bildirir.</p>
+<ul>
+<li>Sunucuya ulaşılamazsa sitenizdeki menü çalışmaya devam eder.</li>
+<li>Lisans geçersiz sayılırsa (iptal, süre dolması, başka alan adında kullanım) modüller <strong>24 saat sonra</strong> kapanır. Lisansı yeniden geçerli yaptığınızda modüller geri gelir.</li>
+</ul>`
+      },
+      {
+        id: "kullanim",
+        h2: "Kullanım hakkı ve sorumluluk",
+        html: `
+<ul>
+<li>Lisans kişiye ve alan adına özeldir; devredilemez, kiralanamaz, başka alan adlarında kullanılamaz. Eklentinin kaynak kodu ve tasarımı Satıcı’ya aittir.</li>
+<li>Menü, fiyat ve görsellerin doğruluğundan, alerjen bildirimlerinden ve sitenizin yasal yükümlülüklerinden Alıcı sorumludur.</li>
+<li>Satıcı, hizmeti özenle sunar; ancak WordPress, barındırma, alan adı ve üçüncü taraf hizmetlerden kaynaklanan kesintilerden sorumlu değildir. Emredici hukuk kuralları saklıdır.</li>
+<li>Mücbir sebepler (doğal afet, yaygın elektrik veya internet kesintisi, resmî karar vb.) süresince taraflar yükümlülüklerini yerine getiremedikleri için sorumlu tutulmaz.</li>
+</ul>`
+      },
+      {
+        id: "veri",
+        h2: "Kişisel veriler",
+        html: `
+<p>Sipariş ve hesap bilgileriniz <a href="{rel}gizlilik/">Gizlilik Politikası ve KVKK Aydınlatma Metni</a>’nde anlatıldığı şekilde işlenir. Faturalandırma için istenen bilgiler vergi mevzuatı gereği saklanır.</p>`
+      },
+      {
+        id: "uyusmazlik",
+        h2: "Şikâyet ve uyuşmazlık",
+        html: () => `
+<p>Şikâyetlerinizi önce yukarıdaki iletişim bilgilerinden bize iletin. Tüketici iseniz uyuşmazlıklar için, yürürlükteki parasal sınırlara göre, yerleşim yerinizdeki veya işlemin yapıldığı yerdeki <strong>Tüketici Hakem Heyeti</strong>’ne ya da <strong>Tüketici Mahkemesi</strong>’ne başvurabilirsiniz. İşletme olarak satın alıyorsanız yetkili merci: ${f(SELLER.mahkeme, "yetkili mahkeme ve icra daireleri")}. Sözleşmeye Türk hukuku uygulanır.</p>`
+      },
+      {
+        id: "yururluk",
+        h2: "Onay ve yürürlük",
+        html: `
+<p>Alıcı, ödeme ekranında bu metni okuduğunu, ön bilgileri aldığını ve elektronik ortamda onayladığını bildirdiğinde sözleşme kurulur. Onaylanan sürüm, sipariş kaydıyla birlikte hesabınızda saklanan sipariş referansıyla ilişkilendirilir. Metin değiştiğinde yeni siparişler için yeni sürüm geçerli olur; mevcut siparişiniz verdiğiniz andaki koşullara tabidir.</p>
+<p>Ödeme adımı şu anda test modundadır: gerçek ödeme açılana kadar bu metin bağlayıcı bir satış doğurmaz.</p>`
       }
     ]
   }
