@@ -57,7 +57,7 @@ try {
 		isset($config['session_ttl']) ? (int) $config['session_ttl'] : 43200,
 		isset($config['session_cookie']) ? (string) $config['session_cookie'] : 'qrl_session'
 	);
-	$licenseRouter = new Router(new Validator($pdo, $keys), $auth, new LicenseAdmin($pdo, $keys, null, accountMailer($config), isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com'));
+	$licenseRouter = new Router(new Validator($pdo, $keys, null, Validator::RATE_LIMIT_MAX, Validator::RATE_LIMIT_WINDOW, isset($config['license_signing_key']) ? (string) $config['license_signing_key'] : ''), $auth, new LicenseAdmin($pdo, $keys, null, accountMailer($config), isset($config['site_url']) ? (string) $config['site_url'] : 'https://qrmenuofficial.com'));
 	$hosts = isset($config['site_hosts']) && is_array($config['site_hosts']) ? array_values(array_filter($config['site_hosts'], 'is_string')) : array();
 	$accounts = new Accounts(
 		$pdo,
