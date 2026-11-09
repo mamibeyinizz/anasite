@@ -1,6 +1,10 @@
 # Yorum & Feedback — Instagram Reels
 
-Güncel: **v4** (`out/yorum-feedback-reels-v4.mp4`, `out/cover.png`). 20 sn, 1080×1920, 30 fps, H.264 + AAC (−14 LUFS, ≤ −2 dBTP). v2/v3 arşivdir.
+Güncel: **v5** (`out/yorum-feedback-reels-v5.mp4`): v4 görselleri + ElevenLabs Türkçe seslendirme, 23,7 sn. Sahne süreleri sese göre `audio/timing.json`'dan gelir.
+**v4** (`out/yorum-feedback-reels-v4.mp4`): yalnızca müzik, 20 sn. v2/v3 arşivdir.
+
+Ses: `audio/voiceover-elevenlabs.mp3` (kaynak), `audio/scenes/*.wav` (sahne bazlı), `audio/voice_track.wav`, `audio/metin.txt`.
+Mix: ses −16 LUFS, müzik −22 LUFS, konuşma sırasında ≈ −8 dB sidechain ducking, toplam −14 LUFS, ≤ −2,7 dBTP.
 Google, ödül, indirim kodu ve eşik anlatımı **yoktur** (bkz. `/PRODUCT_POLICY_RISKS.md`).
 
 | Sahne | Süre | İçerik |
@@ -22,6 +26,10 @@ Google, ödül, indirim kodu ve eşik anlatımı **yoktur** (bkz. `/PRODUCT_POLI
 
 ## Çalıştırma
 ```sh
+# v5 (seslendirmeli)
+python3 audio/build_voice.py && python3 music.py $(python3 -c "import json;print(json.load(open('audio/timing.json'))['scenes']['END'])")
+node render.js && python3 mix.py && python3 verify.py
+# v4 (yalnızca müzik): python3 music.py 20 && node render.js --music-only && python3 verify.py yorum-feedback-reels-v4.mp4
 node capture.js          # isteğe bağlı: form görüntülerini yeniden al
 python3 music.py 20      # out/music_raw.wav
 node render.js           # out/yorum-feedback-reels-v4.mp4 + out/cover.png

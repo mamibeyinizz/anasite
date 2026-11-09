@@ -3,7 +3,7 @@ Kullanım: python3 verify.py   (çıktı: out/contact-sheet.png ve konsol raporu
 import json, os, re, subprocess, sys
 from PIL import Image, ImageDraw
 D = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(D, 'out')
-V = os.path.join(OUT, 'yorum-feedback-reels-v4.mp4')
+V = os.path.join(OUT, sys.argv[1] if len(sys.argv) > 1 else 'yorum-feedback-reels-v5.mp4')
 def run(*a): return subprocess.run(a, capture_output=True, text=True)
 pr = json.loads(run('ffprobe', '-v', 'error', '-show_entries', 'format=duration:stream=codec_type,codec_name,width,height,r_frame_rate,channels,sample_rate', '-of', 'json', V).stdout)
 dur = float(pr['format']['duration']); vs = [s for s in pr['streams'] if s['codec_type'] == 'video'][0]; au = [s for s in pr['streams'] if s['codec_type'] == 'audio']
@@ -15,7 +15,7 @@ tp = float(re.findall(r'Peak:\s+(-?[\d.]+) dBFS', eb)[-1])
 tail = run('ffmpeg', '-hide_banner', '-sseof', '-0.25', '-i', V, '-af', 'volumedetect', '-vn', '-f', 'null', '-').stderr
 tail_mean = float(re.search(r'mean_volume: (-?[\d.]+)', tail).group(1))
 checks = {
-  'süre ≈ 20 sn (19–21)': 19 <= dur <= 21,
+  'süre 18–24 sn': 18 <= dur <= 24.01,
   '1080x1920': (vs['width'], vs['height']) == (1080, 1920),
   '30 fps': vs['r_frame_rate'] == '30/1',
   'H.264': vs['codec_name'] == 'h264',
@@ -65,8 +65,10 @@ for t in ts:
     if frac < 0.03: empty.append((t, round(frac, 3)))
 print('boş içerik kareleri:', empty or 'yok')
 checks['boş içerik alanı yok'] = not empty
-# (d) puan satırı hizası (piksel): 8,2 sn karesinde her satırda ilk yıldızın sol kenarı ve yıldız merkez aralıkları
-f = os.path.join(fr, 'align_8.2.png'); run('ffmpeg', '-y', '-v', 'error', '-ss', '8.2', '-i', V, '-frames:v', '1', f)
+# (d) puan satırı hizası (piksel): puanlama sahnesinin son karesinde her satırda ilk yıldızın sol kenarı ve yıldız merkez aralıkları
+_tf = os.path.join(D, 'audio', 'timing.json')
+_ta = (json.load(open(_tf, encoding='utf-8'))['scenes']['D'] - 0.2) if ('v5' in V and os.path.exists(_tf)) else 8.2   # puanlama sahnesinin son karesi
+f = os.path.join(fr, 'align.png'); run('ffmpeg', '-y', '-v', 'error', '-ss', f'{_ta:.2f}', '-i', V, '-frames:v', '1', f)
 im = np.asarray(Image.open(f).convert('RGB'), dtype=np.int16)
 star = (np.abs(im[:, :, 0] - 245) < 25) & (np.abs(im[:, :, 1] - 158) < 30) & (im[:, :, 2] < 60)   # #f59e0b
 gray = (np.abs(im[:, :, 0] - 203) < 12) & (np.abs(im[:, :, 1] - 213) < 12) & (np.abs(im[:, :, 2] - 225) < 12)
@@ -95,5 +97,41 @@ sheet = Image.new('RGB', (cols * 270, rows * 480), (20, 20, 20))
 for i, im in enumerate(tiles): sheet.paste(im, ((i % cols) * 270, (i // cols) * 480))
 checks_txt = None
 sheet.save(os.path.join(OUT, 'contact-sheet.png')); print('kontak sheet:', os.path.join(OUT, 'contact-sheet.png'))
+
+# seslendirme kontrolleri (v5): sahne başına ses gecikmesi, clipping, ducking miktarı
+TF = os.path.join(D, 'audio', 'timing.json')
+if os.path.exists(TF) and 'v5' in V:
+    sc = json.load(open(TF, encoding='utf-8'))['scenes']
+    vt = os.path.join(D, 'audio', 'voice_track.wav')
+    sil = run('ffmpeg', '-hide_banner', '-i', vt, '-af', 'silencedetect=noise=-40dB:d=0.12', '-f', 'null', '-').stderr
+    ends = [float(x) for x in re.findall(r'silence_end: ([\d.]+)', sil)]
+    starts = [0.0] + ends  # ses başlangıçları (ilk parça 0'dan sonra ilk sessizlik bitimi)
+    first_on = float(re.search(r'silence_end: ([\d.]+)', sil).group(1)) if re.match(r'.*silence_start: 0', sil, re.S) else 0.0
+    onsets = sorted(set(round(e, 3) for e in ends))
+    lag = {}
+    for k in 'ABCDEF':
+        s0 = sc[k]; nxt = [o for o in onsets if o >= s0 - 0.01]
+        lag[k] = round(nxt[0] - s0, 3) if nxt else None
+    print('ses başlangıç gecikmesi (sn, sahne başına):', lag)
+    checks['ses gecikmesi ≤ 0,3 sn (her sahne)'] = all(v is not None and v <= 0.3 for v in lag.values())
+    # clipping: tam ölçek örnek sayısı (nihai mp4 sesi ve ses stemi)
+    pcm = subprocess.run(['ffmpeg', '-v', 'error', '-i', V, '-vn', '-f', 's16le', '-ac', '1', '-ar', '48000', '-'], capture_output=True).stdout
+    x = np.frombuffer(pcm, np.int16); clip = int((np.abs(x.astype(np.int32)) >= 32700).sum())
+    print(f'clipping (|örnek| ≥ 32700): {clip} örnek, maksimum örnek {np.abs(x).max() / 32768:.3f} FS')
+    checks['clipping yok'] = clip == 0
+    # ducking: müzik stemi (kısılmış / kısılmamış) konuşma sırasında ortalama fark
+    md = os.path.join(OUT, 'mix_stems', 'music_ducked.wav'); m22 = os.path.join(OUT, 'mix_stems', 'music_-22.wav')
+    if os.path.exists(md):
+        rd = lambda f: np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', f, '-f', 's16le', '-ac', '1', '-ar', '1000', '-'], capture_output=True).stdout, np.int16).astype(float)
+        a, b2 = rd(m22), rd(md); vv = rd(vt); n = min(len(a), len(b2), len(vv))
+        env = lambda y: np.sqrt(np.convolve(y[:n] ** 2, np.ones(200) / 200, 'same')) + 1e-6
+        talk = env(vv) > env(vv).max() * 0.05
+        duck = 20 * np.log10(np.median(env(b2)[talk] / env(a)[talk]))
+        free = 20 * np.log10(np.median(env(b2)[~talk] / env(a)[~talk]))
+        print(f'ducking: konuşma sırasında müzik {duck:.1f} dB, konuşma yokken {free:.1f} dB')
+        checks['ducking ≈ −8 dB (−6…−10)'] = -10 <= duck <= -6
+    # loudnorm analizi (rapor)
+    e = run('ffmpeg', '-hide_banner', '-i', V, '-af', 'loudnorm=print_format=json', '-vn', '-f', 'null', '-').stderr
+    lj = json.loads(e[e.rindex('{'):]); print('loudnorm analizi:', {k: lj[k] for k in ('input_i', 'input_tp', 'input_lra', 'input_thresh')})
 for k, v in checks.items(): print(('OK  ' if v else 'HATA') + ' ' + k)
 sys.exit(0 if all(checks.values()) else 1)

@@ -4,9 +4,13 @@
 const { chromium } = require('playwright'); const path = require('path'); const fs = require('fs');
 (async () => {
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  const tf = path.join(__dirname, 'audio', 'timing.json');
+  const TIMING = process.argv.includes('--music-only') || !fs.existsSync(tf) ? null : JSON.parse(fs.readFileSync(tf, 'utf8')).scenes;
+  if (TIMING) await p.addInitScript(t => { window.TIMING = t; }, TIMING);
+  const END = TIMING ? TIMING.END : 20;
   await p.goto('file://' + path.join(__dirname, 'reel.html')); await p.evaluate(() => window.ready());
   const res = [];
-  for (let t = 0; t < 20; t = Math.round((t + 0.5) * 10) / 10) {
+  for (let t = 0; t < END; t = Math.round((t + 0.5) * 10) / 10) {
     res.push(await p.evaluate(t => {
       render(t);
       const shown = el => { for (let e = el; e && e.id !== 'stage'; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.display === 'none' || +cs.opacity < 0.05) return false; } return true; };

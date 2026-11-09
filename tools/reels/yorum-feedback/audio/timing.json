@@ -1,0 +1,64 @@
+{
+ "scenes": {
+  "A": 0.0,
+  "B": 3.746,
+  "C": 8.889,
+  "D": 12.151,
+  "E": 14.406,
+  "F": 19.919,
+  "END": 23.688
+ },
+ "tempo": 1.06,
+ "lead": 0.15,
+ "breath": 0.3,
+ "report": [
+  {
+   "sahne": "01-kanca",
+   "başlangıç": 0.0,
+   "süre": 3.75,
+   "ses_gecikmesi": 0.15,
+   "ses_süresi": 3.3,
+   "metin": "Tek bir kötü puan, onlarca müşteriyi uzaklaştırabilir."
+  },
+  {
+   "sahne": "02-bildirim",
+   "başlangıç": 3.75,
+   "süre": 5.14,
+   "ses_gecikmesi": 0.15,
+   "ses_süresi": 4.69,
+   "metin": "O puan önce size gelsin. Yeni geri bildirim, anında e-postanıza düşer."
+  },
+  {
+   "sahne": "03-puanlama",
+   "başlangıç": 8.89,
+   "süre": 3.26,
+   "ses_gecikmesi": 0.15,
+   "ses_süresi": 2.81,
+   "metin": "Müşteri, beş kriteri tek dokunuşla puanlar."
+  },
+  {
+   "sahne": "04-iletisim",
+   "başlangıç": 12.15,
+   "süre": 2.26,
+   "ses_gecikmesi": 0.15,
+   "ses_süresi": 1.81,
+   "metin": "İletişim bilgisi isteğe bağlı."
+  },
+  {
+   "sahne": "05-panel",
+   "başlangıç": 14.41,
+   "süre": 5.51,
+   "ses_gecikmesi": 0.15,
+   "ses_süresi": 5.06,
+   "metin": "Olumsuz yorumlar ayrı sekmede. Puan, masa ve kriter kırılımı tek panelde."
+  },
+  {
+   "sahne": "06-cta",
+   "başlangıç": 19.92,
+   "süre": 3.77,
+   "ses_gecikmesi": 0.15,
+   "ses_süresi": 2.92,
+   "metin": "Demo için, di-em'den DEMO yazın."
+  }
+ ]
+}

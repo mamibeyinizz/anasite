@@ -1,0 +1,6 @@
+01-kanca	Tek bir kötü puan, onlarca müşteriyi uzaklaştırabilir.
+02-bildirim	O puan önce size gelsin. Yeni geri bildirim, anında e-postanıza düşer.
+03-puanlama	Müşteri, beş kriteri tek dokunuşla puanlar.
+04-iletisim	İletişim bilgisi isteğe bağlı.
+05-panel	Olumsuz yorumlar ayrı sekmede. Puan, masa ve kriter kırılımı tek panelde.
+06-cta	Demo için, di-em'den DEMO yazın.

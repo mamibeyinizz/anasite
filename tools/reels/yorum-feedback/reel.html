@@ -154,8 +154,10 @@ const SEQ = []; VALUES.forEach((v, r) => { for (let s = 0; s < v; s++) SEQ.push(
 const PANEL = [["Yemek Lezzeti", 3], ["Hizmet Hızı", 1], ["Temizlik", 3], ["Atmosfer", 2], ["Fiyat / Performans", 1]];
 $('crit').innerHTML = PANEL.map(([n, v]) => `<div class="cr${v <= 2 ? ' low' : ''}"><span>${n}</span><div class="bar"><i></i></div><b>0</b></div>`).join('');
 
-const T = { A: 0, B: 2, C: 5, D: 8.5, E: 10.5, F: 16.5, END: 20 };
-const RATE_T0 = 5.3, RATE_DT = 0.115;             // 23 dokunuş: 5,3–7,95 sn
+// Sahne başlangıçları: seslendirmeden üretilen audio/timing.json (render.js window.TIMING olarak geçirir); yoksa v4 varsayılanı
+const T = Object.assign({ A: 0, B: 2, C: 5, D: 8.5, E: 10.5, F: 16.5, END: 20 }, window.TIMING || {});
+const LEN = k => ({ A: T.B - T.A, B: T.C - T.B, C: T.D - T.C, D: T.E - T.D, E: T.F - T.E, F: T.END - T.F })[k];
+const RATE_T0 = T.C + 0.3, RATE_DT = Math.min(0.115, (LEN('C') - 0.7) / 23);   // 23 dokunuş sahne içinde biter
 const EMAIL = 'ayse.k@ornek.com';
 
 function setStars(n) {                             // ilk n dokunuş dolu
@@ -196,10 +198,17 @@ window.render = function (t, o = {}) {
     else if (t < T.D) n = clamp(Math.floor((t - RATE_T0) / RATE_DT) + 1, 0, SEQ.length);
     else { n = SEQ.length; slide = ease((t - T.D) / .3); }
     setStars(n);
+    // kanca vurgusu (dokunuştan sonra): 1 yıldızlı satır kırmızımsı, diğer satırlar soluk — sahne uzadığında statik kalmaz
+    const hk = (!cover && t < T.B) ? ease((t - 1.5) / 0.6) : 0, dim = (!cover && t < T.B) ? ease((t - 2.4) / 0.6) : 0;
+    document.querySelectorAll('#rateCard .rrow').forEach((row, r) => {
+      row.style.background = r === 0 && hk > 0 ? `rgba(229,72,77,${0.12 * hk})` : '';
+      row.style.borderRadius = '20px';
+      row.style.opacity = r === 0 ? 1 : 1 - 0.45 * dim;
+    });
     $('track').style.transform = `translateX(${-804 * slide}px)`;
     $('ftitle').style.opacity = 1;
     // e-posta yazımı 8,9–9,9
-    const chars = t >= T.D ? clamp(Math.floor((t - 8.9) / (1.0 / EMAIL.length)) + 1, 0, EMAIL.length) : EMAIL.length;
+    const chars = t >= T.D ? clamp(Math.floor((t - (T.D + 0.4)) / (Math.min(1.0, LEN('D') - 0.8) / EMAIL.length)) + 1, 0, EMAIL.length) : EMAIL.length;
     $('emailTxt').textContent = EMAIL.slice(0, chars);
     $('caret').style.opacity = (t >= T.D && Math.floor(t * 2.5) % 2 === 0) ? 1 : 0;
     if (!cover) {
@@ -220,10 +229,10 @@ window.render = function (t, o = {}) {
     // kart sabit (başlık→içerik 48 px korunur); hareket: düşük puan satırları sırayla vurgulanır
     $('mailNote').style.top = (482 + $('mail').offsetHeight + 48) + 'px';
     document.querySelectorAll('#mail .tr').forEach((el, i) => {
-      const q = el.classList.contains('low') ? ease((t - (2.4 + i * 0.45)) / 0.4) : 0;
+      const q = el.classList.contains('low') ? ease((t - (T.B + 0.4 + i * (LEN('B') - 1.6) / 4)) / 0.4) : 0;
       el.style.background = `rgb(${Math.round(lerp(241, 252, q))},${Math.round(lerp(245, 214, q))},${Math.round(lerp(249, 214, q))})`;
     });
-    $('mail').querySelector('.d').style.color = t >= 4.3 ? '#a61b1b' : '#334155';
+    $('mail').querySelector('.d').style.color = t >= T.C - 0.7 ? '#a61b1b' : '#334155';
   } else b.style.opacity = 0;
 
   // Panel (10,5–16,5): kart ilk karede görünür; 10,6–11,2 Olumsuz sekmesine dokunuş; çubuklar 11,2–13,6
@@ -231,12 +240,12 @@ window.render = function (t, o = {}) {
   if (!cover && t >= T.E && t < T.F) {
     e.style.opacity = 1;
     const tb = $('tabNeg').getBoundingClientRect();
-    if (t < 11.4) { const k = ease((t - T.E) / .4); tap('eTap', 'eRip', lerp(tb.left + tb.width / 2 + 60, tb.left + tb.width / 2, k), lerp(tb.top + 300, tb.top + tb.height / 2, k), t - 10.95); }
-    $('tabNeg').style.transform = `scale(${t >= 10.95 && t < 11.07 ? .96 : 1})`;
-    const drift = -24 * ease((t - 13.6) / 2.9);
+    if (t < T.E + 0.9) { const k = ease((t - T.E) / .4); tap('eTap', 'eRip', lerp(tb.left + tb.width / 2 + 60, tb.left + tb.width / 2, k), lerp(tb.top + 300, tb.top + tb.height / 2, k), t - (T.E + 0.45)); }
+    $('tabNeg').style.transform = `scale(${t >= T.E + 0.45 && t < T.E + 0.57 ? .96 : 1})`;
+    const drift = -24 * ease((t - (T.E + 3.1)) / Math.max(0.5, LEN('E') - 3.2));
     $('rcard').style.transform = `translateY(${drift}px)`;
     document.querySelectorAll('#crit .cr').forEach((el, i) => {
-      const v = PANEL[i][1], q = ease((t - (11.2 + i * .4)) / .8);
+      const v = PANEL[i][1], q = ease((t - (T.E + 0.7 + i * .4)) / .8);
       el.querySelector('i').style.width = (q * v / 5 * 100) + '%';
       el.querySelector('b').textContent = Math.round(q * v);
     });
