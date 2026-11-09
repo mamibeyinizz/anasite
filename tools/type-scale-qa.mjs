@@ -17,7 +17,7 @@ const PAGES = process.argv.slice(3).length ? process.argv.slice(3) : [
   "/moduller/yorum-geri-bildirim/", "/blog/", "/blog/dijital-menu-nasil-hazirlanir/",
   "/blog/garson-cagirma-sistemi/", "/blog/karekod-fiyat-listesi-yonetmeligi/",
   "/blog/menu-muhendisligi-nedir/", "/blog/qr-menu-nedir/", "/canli-menu/", "/iletisim/", "/sss/",
-  "/gizlilik/", "/kullanim-sartlari/", "/cerez-politikasi/"
+  "/gizlilik/", "/kullanim-sartlari/", "/cerez-politikasi/", "/mesafeli-satis/"
 ];
 const VIEWPORTS = [["mobil", 390, 844], ["tablet", 820, 1100], ["masaüstü", 1440, 900]];
 const MOCK = "[class*=phone],[class*=mock],[class*=device],[class*=screen],[class*=mini],[class*=demo-ui],[class*=hubui],[class*=hubviz],[class*=-viz-],[class*=cue--lang],[class*=qm-lcard],[class*=qm-stage],[class*=qm-ui],[class*=__visual],[class*=__demo],[class*=-demo__],[class*=final-cta-v1__panel],[class*=final-cta-v1__chip]";
