@@ -24,6 +24,9 @@ final class Validator
 
 	public const RATE_LIMIT_WINDOW = 60;
 
+	/** İmzalı cevabın en uzun geçerliliği; eklenti bu süre içinde yeniden doğrulamalı. */
+	public const LEASE_SECONDS = 7 * 86400;
+
 	/** @var list<string> */
 	public const MODULE_SLUGS = array(
 		'restoran-menu',
@@ -87,9 +90,12 @@ final class Validator
 
 		$signedDomain = self::normalizeDomain($domain);
 		$modules = isset($result['body']['modules']) && is_array($result['body']['modules']) ? array_values($result['body']['modules']) : array();
+		$validUntil = isset($result['valid_until']) ? (int) $result['valid_until'] : ($this->now)()->getTimestamp() + self::LEASE_SECONDS;
+		unset($result['valid_until']);
 		$result['body']['domain'] = $signedDomain;
+		$result['body']['valid_until'] = $validUntil;
 		$result['body']['sig'] = base64_encode(sodium_crypto_sign_detached(
-			self::signedMessage((string) $status, $signedDomain, $modules),
+			self::signedMessage((string) $status, $signedDomain, $modules, $validUntil),
 			$this->signingKey
 		));
 
@@ -101,9 +107,27 @@ final class Validator
 	 *
 	 * @param string[] $modules
 	 */
-	public static function signedMessage(string $status, string $domain, array $modules): string
+	public static function signedMessage(string $status, string $domain, array $modules, int $validUntil): string
 	{
-		return "qrms1\n" . $status . "\n" . $domain . "\n" . implode(',', $modules);
+		return "qrms2\n" . $status . "\n" . $domain . "\n" . implode(',', $modules) . "\n" . $validUntil;
+	}
+
+	/**
+	 * Active cevabın geçerlilik sonu: lisans bitişi (expires_on 23:59:59 UTC)
+	 * ile "şimdi + LEASE_SECONDS" değerinin küçüğü.
+	 */
+	public static function leaseUntil(?string $expiresOn, DateTimeImmutable $now): int
+	{
+		$lease = $now->getTimestamp() + self::LEASE_SECONDS;
+		if ($expiresOn === null || $expiresOn === '') {
+			return $lease;
+		}
+		$end = DateTimeImmutable::createFromFormat('!Y-m-d H:i:s', $expiresOn . ' 23:59:59', new DateTimeZone('UTC'));
+		if (!$end || $end->format('Y-m-d') !== $expiresOn) {
+			return $lease;
+		}
+
+		return min($lease, $end->getTimestamp() + 1);
 	}
 
 	/** base64 64 baytlık gizli anahtar ya da 32 baytlık tohum; geçersizse '' (imzasız). */
@@ -187,7 +211,9 @@ final class Validator
 
 			$modules = $this->modulesFor($license['id']);
 			$this->commitWrite();
-			return $this->result(200, array('status' => 'active', 'modules' => $modules));
+			$active = $this->result(200, array('status' => 'active', 'modules' => $modules));
+			$active['valid_until'] = self::leaseUntil($license['expires_on'], $now);
+			return $active;
 		} catch (PDOException $e) {
 			$this->rollbackWrite();
 			throw $e;

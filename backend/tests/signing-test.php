@@ -45,13 +45,13 @@ $check = static function (string $name, bool $ok) use (&$fail): void {
 };
 $verify = static function (array $body, string $domain) use ($pub): bool {
 	// Eklentideki verify_signature() ile aynı kontroller.
-	if (empty($body['sig']) || !isset($body['status'], $body['domain']) || strtolower($body['domain']) !== $domain) {
+	if (empty($body['sig']) || !isset($body['status'], $body['domain'], $body['valid_until']) || !is_int($body['valid_until']) || strtolower($body['domain']) !== $domain) {
 		return false;
 	}
 	$mods = isset($body['modules']) && is_array($body['modules']) ? $body['modules'] : array();
 	$sig = base64_decode($body['sig'], true);
 
-	return $sig !== false && sodium_crypto_sign_verify_detached($sig, "qrms1\n" . $body['status'] . "\n" . $domain . "\n" . implode(',', $mods), $pub);
+	return $sig !== false && sodium_crypto_sign_verify_detached($sig, "qrms2\n" . $body['status'] . "\n" . $domain . "\n" . implode(',', $mods) . "\n" . $body['valid_until'], $pub);
 };
 
 foreach (array(
@@ -73,7 +73,18 @@ foreach (array(
 	$check('inactive imzalı', $r3['body']['status'] === 'inactive' && $verify($r3['body'], 'x.com'));
 	$r4 = $v->validate('NOPE', 'x.com', '1.1.0', '1.1.1.1');
 	$check('invalid: 404 + imzalı', $r4['status'] === 404 && $verify($r4['body'], 'x.com'));
+	$t = $r['body'];
+	$t['valid_until'] += 86400;
+	$check('valid_until uzatılırsa imza bozulur', !$verify($t, 'site.com'));
+	$lease = $r['body']['valid_until'] - time();
+	$check('active: valid_until ≈ 7 gün', $lease > 7 * 86400 - 60 && $lease <= 7 * 86400);
 }
+
+echo "-- valid_until lisans bitişini aşmaz\n";
+$now = new DateTimeImmutable('2026-11-30 12:00:00', new DateTimeZone('UTC'));
+$check('bitişe 12 saat kala: bitiş anı', Validator::leaseUntil('2026-11-30', $now) === (new DateTimeImmutable('2026-12-01 00:00:00', new DateTimeZone('UTC')))->getTimestamp());
+$check('bitiş uzaksa: 7 gün', Validator::leaseUntil('2027-01-31', $now) === $now->getTimestamp() + 7 * 86400);
+$check('bitiş yoksa: 7 gün', Validator::leaseUntil(null, $now) === $now->getTimestamp() + 7 * 86400);
 
 echo "-- anahtarsız\n";
 $r = (new Validator($pdo, $keys, null, 100, 60))->validate('GOOD', 'site.com', '1.1.0', '1.1.1.1');
