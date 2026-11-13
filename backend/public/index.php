@@ -32,9 +32,16 @@ spl_autoload_register(static function (string $class) use ($backend): void {
 
 ini_set('display_errors', '0');
 
+/* Sıra: QR_LICENSE_CONFIG ortam değişkeni → backend/config.php → belge kökünün bir üstündeki
+   qr-config.php (cPanel: /home/KULLANICI/qr-config.php). Son yol, .htaccess üzerine yazılıp
+   SetEnv satırı kaybolduğunda sitenin çökmemesi içindir. */
 $configPath = getenv('QR_LICENSE_CONFIG');
-if (!is_string($configPath) || $configPath === '') {
+if (!is_string($configPath) || $configPath === '' || !is_file($configPath)) {
 	$configPath = $backend . '/config.php';
+	$outside = dirname($backend, 2) . '/qr-config.php';
+	if (!is_file($configPath) && is_file($outside)) {
+		$configPath = $outside;
+	}
 }
 
 try {
@@ -115,7 +122,7 @@ try {
 		$accounts->flushDeferred();
 	}
 } catch (Throwable $e) {
-	error_log('qr-site ' . $e::class);
+	error_log('qr-site ' . $e::class . ': ' . ($e instanceof RuntimeException ? $e->getMessage() : 'detay gizli'));
 	emit(500, array('status' => 'error', 'error' => 'server_error'), array(), 'GET');
 }
 
