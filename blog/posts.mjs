@@ -9,6 +9,8 @@
 
 import { POSTS_2A } from "./posts-2a.mjs";
 import { POSTS_2B } from "./posts-2b.mjs";
+import { POSTS_3A } from "./posts-3a.mjs";
+import { POSTS_3B } from "./posts-3b.mjs";
 
 export const CATEGORIES = [
   { id: "qr-menu", name: "QR Menü", lead: "Dijital menüye geçiş, kurulum ve seçim rehberleri." },
@@ -496,5 +498,7 @@ export const POSTS = [
     ]
   },
   ...POSTS_2A,
-  ...POSTS_2B
+  ...POSTS_2B,
+  ...POSTS_3A,
+  ...POSTS_3B
 ];

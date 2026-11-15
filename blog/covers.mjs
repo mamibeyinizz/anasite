@@ -145,7 +145,72 @@ const SCENES = {
 
   "qr-menu-fiyatlari": frame(`
     <g transform="translate(130 120)">${[["Temel", G3, 300], ["Pro", AU, 360], ["Plus", G3, 330]].map(([t, c, h], i) => `<g transform="translate(${i * 220} ${400 - h})"><rect width="196" height="${h}" rx="20" fill="${c === AU ? CR : c}" stroke="${AU}" stroke-opacity="${c === AU ? 1 : 0.3}" stroke-width="${c === AU ? 4 : 1}"/><text x="98" y="56" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="30" fill="${c === AU ? G : CR}">${t}</text>${[0, 1, 2, 3].map((k) => `<circle cx="34" cy="${100 + k * 42}" r="9" fill="${AU}"/>${bar(54, 95 + k * 42, 100, c === AU ? 0.6 : 0.5, c === AU ? G : CR)}`).join("")}</g>`).join("")}</g>
-    <g transform="translate(860 170)"><rect width="230" height="300" rx="20" fill="${CR}"/><rect x="28" y="26" width="174" height="174" rx="10" fill="#fff"/>${qr(38, 36, 154, 21, 41)}<rect x="40" y="226" width="150" height="40" rx="20" fill="${AU}"/><text x="115" y="253" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="18" fill="${G}">₺ / ay</text></g>`)
+    <g transform="translate(860 170)"><rect width="230" height="300" rx="20" fill="${CR}"/><rect x="28" y="26" width="174" height="174" rx="10" fill="#fff"/>${qr(38, 36, 154, 21, 41)}<rect x="40" y="226" width="150" height="40" rx="20" fill="${AU}"/><text x="115" y="253" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="18" fill="${G}">₺ / ay</text></g>`),
+  "qr-menu-programi-secimi": frame(`
+    <g transform="translate(130 110)"><rect width="440" height="420" rx="22" fill="${CR}"/>
+      ${[0, 1, 2, 3, 4].map((i) => `<rect x="34" y="${40 + i * 74}" width="40" height="40" rx="10" fill="${i < 4 ? G3 : "#fff"}" stroke="${G}" stroke-opacity=".25"/>${i < 4 ? `<path d="M${44} ${60 + i * 74} l8 8 14 -16" stroke="${CR}" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>` : ""}${bar(96, 54 + i * 74, [240, 200, 260, 180, 220][i], 0.7)}`).join("")}</g>
+    ${phone(720, 70, 300, 510, `<rect x="758" y="120" width="244" height="40" rx="20" fill="#fff" stroke="${G}" stroke-opacity=".2"/>${[0, 1, 2].map((i) => `${card(758, 180 + i * 120, 244, 104)}<rect x="770" y="${192 + i * 120}" width="80" height="80" rx="12" fill="${AU}" fill-opacity="${0.35 + i * 0.2}"/>${bar(864, 204 + i * 120, 110, 0.75)}${bar(864, 228 + i * 120, 80, 0.35)}`).join("")}`)}`),
+
+  "qr-ile-masadan-siparis": frame(`
+    ${phone(160, 70, 300, 510, `${bar(192, 128, 140, 0.85)}${[0, 1].map((i) => `${card(190, 160 + i * 100, 240, 84)}<rect x="202" y="${172 + i * 100}" width="60" height="60" rx="10" fill="${AU}" fill-opacity="${0.5 + i * 0.2}"/>${bar(276, 184 + i * 100, 110, 0.7)}${bar(276, 206 + i * 100, 60, 0.4)}`).join("")}
+      <rect x="190" y="470" width="240" height="56" rx="28" fill="${G}"/><text x="310" y="505" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="20" fill="${CR}">Sipariş Ver</text>`)}
+    <path d="M500 320 h120" stroke="${AU2}" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/><path d="M612 306 l16 14 -16 14" stroke="${AU2}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(680 170)"><rect width="400" height="300" rx="22" fill="${CR}"/><rect width="10" height="300" rx="5" fill="${AU}"/>
+      <text x="40" y="70" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="40" fill="${G}">Masa 7</text>
+      ${[0, 1, 2].map((i) => `${bar(40, 110 + i * 42, [220, 180, 240][i], 0.55)}<text x="360" y="${120 + i * 42}" text-anchor="end" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="18" fill="${G}">×${[2, 1, 2][i]}</text>`).join("")}
+      <rect x="40" y="240" width="150" height="36" rx="18" fill="${G3}"/><text x="115" y="264" text-anchor="middle" font-family="Segoe UI,sans-serif" font-weight="700" font-size="16" fill="${CR}">Yeni sipariş</text></g>`),
+
+  "restoranda-ek-satis": frame(`
+    <g transform="translate(140 150)"><circle cx="190" cy="170" r="170" fill="${CR}" fill-opacity=".1"/><circle cx="190" cy="170" r="130" fill="${CR}"/><circle cx="190" cy="170" r="92" fill="${AU}" fill-opacity=".55"/>
+      <rect x="120" y="140" width="140" height="60" rx="30" fill="${G3}"/></g>
+    ${[["İçecek", 140], ["Tatlı", 300]].map(([t, y], i) => `<g transform="translate(640 ${y})"><rect width="420" height="120" rx="22" fill="${CR}"/><circle cx="64" cy="60" r="36" fill="${[AU, G3][i]}"/>
+      <text x="124" y="54" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="26" fill="${G}">+ ${t}</text>${bar(124, 74, 200, 0.4)}
+      <rect x="330" y="40" width="64" height="40" rx="20" fill="${G}"/><path d="M352 60 h20 m-10 -10 v20" stroke="${CR}" stroke-width="4" stroke-linecap="round"/></g>`).join("")}`),
+
+  "recete-maliyeti-hesaplama": frame(`
+    <g transform="translate(130 110)"><rect width="420" height="420" rx="22" fill="${CR}"/><rect width="420" height="70" rx="22" fill="${G3}"/><rect y="48" width="420" height="22" fill="${G3}"/>
+      <text x="32" y="46" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="24" fill="${CR}">Reçete Kartı</text>
+      ${[0, 1, 2, 3, 4].map((i) => `${bar(32, 112 + i * 52, [150, 120, 170, 100, 140][i], 0.7)}<text x="300" y="${122 + i * 52}" font-family="Manrope,Segoe UI,sans-serif" font-weight="700" font-size="18" fill="${G}">${["150 g", "30 g", "1 ad.", "20 g", "10 ml"][i]}</text>`).join("")}
+      <rect x="32" y="372" width="356" height="2" fill="${G}" fill-opacity=".2"/></g>
+    <g transform="translate(660 150)"><rect width="140" height="20" rx="10" x="80" y="0" fill="${AU2}"/><rect x="142" y="20" width="16" height="140" fill="${AU2}"/>
+      <path d="M150 40 L 40 60 M150 40 L 260 60" stroke="${AU2}" stroke-width="6"/><path d="M0 60 h80 l-40 70z M220 60 h80 l-40 70z" fill="${AU}"/><rect x="80" y="160" width="140" height="22" rx="11" fill="${AU2}"/></g>
+    <g transform="translate(700 400)"><rect width="320" height="120" rx="20" fill="${CR}"/><text x="160" y="76" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="40" fill="${G}">= ₺ / porsiyon</text></g>`),
+
+  "menu-fiyatlandirma": frame(`
+    <g transform="translate(150 140)">${[0, 1, 2].map((i) => `<g transform="translate(${i * 150} ${i * 30}) rotate(${-10 + i * 10} 70 150)"><path d="M0 40 L40 0 H140 V300 H0z" fill="${[CR, AU, G3][i]}"/><circle cx="40" cy="40" r="12" fill="${G}"/>
+      <text x="70" y="180" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="34" fill="${i === 2 ? CR : G}">₺</text></g>`).join("")}</g>
+    <g transform="translate(700 130)"><rect width="380" height="380" rx="22" fill="${CR}"/>${[0, 1, 2, 3, 4].map((i) => `${bar(36, 50 + i * 62, [180, 150, 200, 130, 170][i], 0.7)}<text x="344" y="${60 + i * 62}" text-anchor="end" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="20" fill="${i === 1 ? AU : G}">₺₺</text>`).join("")}</g>`),
+
+  "pdf-menu-mu-dijital-menu-mu": frame(`
+    <g transform="translate(140 100)"><rect width="340" height="440" rx="14" fill="${CR}"/><rect x="0" y="0" width="80" height="40" rx="8" fill="#B4473A"/><text x="40" y="28" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="18" fill="${CR}">PDF</text>
+      ${[0, 1, 2, 3, 4, 5, 6, 7].map((i) => `${bar(30, 70 + i * 44, [180, 220, 160, 240, 200, 170, 230, 150][i], 0.35)}`).join("")}</g>
+    <text x="600" y="345" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="40" fill="${AU2}">vs</text>
+    ${phone(730, 70, 300, 510, `${["Kahve", "Tatlı"].map((t, i) => `<rect x="${758 + i * 90}" y="128" width="80" height="30" rx="15" fill="${i === 0 ? G : "#fff"}" stroke="${G}" stroke-opacity=".2"/><text x="${798 + i * 90}" y="148" text-anchor="middle" font-family="Segoe UI,sans-serif" font-size="13" font-weight="700" fill="${i === 0 ? CR : G}">${t}</text>`).join("")}
+      ${[0, 1, 2].map((i) => `${card(758, 178 + i * 118, 244, 102)}<rect x="770" y="${190 + i * 118}" width="78" height="78" rx="12" fill="${AU}" fill-opacity="${0.35 + i * 0.2}"/>${bar(862, 202 + i * 118, 110, 0.75)}${bar(862, 226 + i * 118, 70, 0.35)}`).join("")}`)}`),
+
+  "restoran-cirosu-artirma": frame(`
+    <g transform="translate(130 130)">${[["Masa devri", 0], ["Bekleme", 1], ["Ortalama hesap", 2]].map(([t, i]) => `<g transform="translate(0 ${i * 130})"><rect width="420" height="110" rx="20" fill="${CR}" fill-opacity="${0.1 + i * 0.04}" stroke="${AU}" stroke-opacity=".3"/><circle cx="56" cy="55" r="30" fill="${[AU, CR, AU2][i]}"/><text x="108" y="64" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="26" fill="${CR}">${t}</text></g>`).join("")}</g>
+    <g transform="translate(640 140)"><rect width="440" height="360" rx="22" fill="${CR}" fill-opacity=".06" stroke="${AU}" stroke-opacity=".35"/>
+      ${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="${40 + i * 64}" y="${300 - (60 + i * 30)}" width="40" height="${60 + i * 30}" rx="8" fill="${i === 5 ? AU : G3}"/>`).join("")}</g>`),
+
+  "ucretsiz-qr-menu": frame(`
+    <g transform="translate(160 160)"><rect y="90" width="340" height="230" rx="18" fill="${AU}"/><rect y="50" width="340" height="60" rx="14" fill="${AU2}"/><rect x="150" y="50" width="40" height="270" fill="${G3}"/>
+      <path d="M170 50 C 120 -20, 60 20, 170 50 C 280 20, 220 -20, 170 50z" fill="none" stroke="${G3}" stroke-width="14"/></g>
+    <g transform="translate(700 160)"><rect width="300" height="330" rx="22" fill="${CR}"/><rect x="40" y="30" width="220" height="220" rx="10" fill="#fff"/>${qr(54, 44, 192, 23, 53)}
+      <text x="150" y="300" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="40" fill="${G}">?</text></g>`),
+
+  "qr-menu-guvenligi": frame(`
+    <g transform="translate(200 120)"><path d="M180 0 L360 60 V200 C360 300 270 370 180 400 C90 370 0 300 0 200 V60z" fill="${G3}" stroke="${AU}" stroke-width="4"/>
+      <rect x="120" y="170" width="120" height="100" rx="16" fill="${AU}"/><path d="M140 170 v-30 a40 40 0 0 1 80 0 v30" stroke="${AU}" stroke-width="16" fill="none"/><circle cx="180" cy="215" r="12" fill="${G}"/></g>
+    <g transform="translate(700 170)"><rect width="300" height="320" rx="22" fill="${CR}"/><rect x="40" y="30" width="220" height="220" rx="10" fill="#fff"/>${qr(54, 44, 192, 23, 67)}
+      <rect x="60" y="268" width="180" height="34" rx="17" fill="${G}"/><text x="150" y="291" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="16" fill="${CR}">90 dk oturum</text></g>`),
+
+  "kombo-menu": frame(`
+    <g transform="translate(150 170)"><rect x="0" y="150" width="520" height="40" rx="20" fill="${CR}" fill-opacity=".15"/>
+      <g transform="translate(20 0)"><path d="M0 70 a100 70 0 0 1 200 0z" fill="${AU}"/><rect y="70" width="200" height="22" rx="6" fill="${G3}"/><rect y="92" width="200" height="16" rx="6" fill="${AU2}"/><path d="M0 108 h200 v20 a20 20 0 0 1 -20 20 h-160 a20 20 0 0 1 -20 -20z" fill="${AU}"/></g>
+      <g transform="translate(250 30)"><path d="M0 0 h90 l-14 120 h-62z" fill="#B4473A"/>${[0, 1, 2, 3].map((k) => `<rect x="${10 + k * 18}" y="-30" width="10" height="40" rx="3" fill="${AU2}"/>`).join("")}</g>
+      <g transform="translate(380 10)"><rect width="90" height="140" rx="14" fill="${CR}"/><rect x="30" y="-24" width="10" height="40" rx="4" fill="${G3}"/><rect y="40" width="90" height="40" fill="${AU}"/></g></g>
+    <g transform="translate(800 140)"><circle cx="120" cy="120" r="120" fill="${AU}"/><text x="120" y="110" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="34" fill="${G}">KOMBO</text><text x="120" y="160" text-anchor="middle" font-family="Manrope,Segoe UI,sans-serif" font-weight="800" font-size="40" fill="${G}">₺</text></g>`)
 };
 
 export function coverSvg(slug) { return SCENES[slug]; }
