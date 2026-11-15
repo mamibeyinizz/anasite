@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Menü Güvenliği: Masa Oturumu Neyi Çözer?</title>
+<meta name="description" content="QR menüde masada olmayan biri sipariş verebilir mi? Masa oturumu, süre sınırı ve kilit ekranının neyi çözdüğü, neyi çözmediği ve sahte karekoda karşı önlemler.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0D2B22">
+<meta name="color-scheme" content="light">
+<link rel="canonical" href="https://qrmenuofficial.com/blog/qr-menu-guvenligi/">
+<link rel="alternate" type="application/rss+xml" title="QR Menu Official Blog" href="https://qrmenuofficial.com/blog/feed.xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="QR Menu Official">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="QR Menü Güvenliği: Masa Oturumu Neyi Çözer?">
+<meta property="og:description" content="QR menüde masada olmayan biri sipariş verebilir mi? Masa oturumu, süre sınırı ve kilit ekranının neyi çözdüğü, neyi çözmediği ve sahte karekoda karşı önlemler.">
+<meta property="og:url" content="https://qrmenuofficial.com/blog/qr-menu-guvenligi/">
+<meta property="og:image" content="https://qrmenuofficial.com/assets/blog/qr-menu-guvenligi-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kalkan, kilit simgesi ve masa QR kodunu gösteren illüstrasyon">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-10-28">
+<meta property="article:section" content="Servis &amp; Operasyon">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://qrmenuofficial.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://qrmenuofficial.com/blog/"},{"@type":"ListItem","position":3,"name":"QR Menü Güvenliği: Masa Oturumu Neyi Çözer, Neyi Çözmez?","item":"https://qrmenuofficial.com/blog/qr-menu-guvenligi/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"QR Menü Güvenliği: Masa Oturumu Neyi Çözer, Neyi Çözmez?","description":"QR menüde masada olmayan biri sipariş verebilir mi? Masa oturumu, süre sınırı ve kilit ekranının neyi çözdüğü, neyi çözmediği ve sahte karekoda karşı önlemler.","image":["https://qrmenuofficial.com/assets/blog/qr-menu-guvenligi-1200.webp","https://qrmenuofficial.com/assets/blog/qr-menu-guvenligi-og.jpg"],"datePublished":"2026-10-28","dateModified":"2026-10-28","inLanguage":"tr-TR","wordCount":366,"articleSection":"Servis & Operasyon","mainEntityOfPage":{"@type":"WebPage","@id":"https://qrmenuofficial.com/blog/qr-menu-guvenligi/"},"author":{"@type":"Organization","name":"QR Menu Official Editör Ekibi","url":"https://qrmenuofficial.com/"},"publisher":{"@type":"Organization","name":"QR Menu Official","url":"https://qrmenuofficial.com/","logo":{"@type":"ImageObject","url":"https://qrmenuofficial.com/assets/brand/apple-touch-icon.png"}},"citation":["https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/","https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"QR menüde masada olmayan biri sipariş verebilir mi?","acceptedAnswer":{"@type":"Answer","text":"Masa oturumu olmayan sistemlerde kodun fotoğrafıyla mümkün olabilir. Masa oturumu bunu süreyle sınırlar ve kayıtsız masa adreslerini engeller; ancak gerçek kodun fotoğrafına sahip birini süre içinde tamamen engellemez."}},{"@type":"Question","name":"Masa oturumu ne kadar sürer?","acceptedAnswer":{"@type":"Answer","text":"QR Menu Official'da varsayılan süre toplam 90 dakika ve 30 dakika hareketsizliktir; işletme ayarlayabilir. Hesap tamamlandığında oturum sona erer."}},{"@type":"Question","name":"Sahte karekoda karşı ne yapılabilir?","acceptedAnswer":{"@type":"Answer","text":"Kodları değiştirilmesi zor şekilde basmak ve garsonların günlük kontrol yapması en etkili önlemdir. Sahte kod sistemin dışında kaldığı için yazılımla engellenemez."}},{"@type":"Question","name":"QR menü hacklenebilir mi?","acceptedAnswer":{"@type":"Answer","text":"Hiçbir sistem için 'hacklenemez' demek gerçekçi değildir. İmzalı ve süresi sınırlı oturum gibi önlemler kötüye kullanımı zorlaştırır."}},{"@type":"Question","name":"Yalnızca menü gösteren QR kodda güvenlik önemli mi?","acceptedAnswer":{"@type":"Answer","text":"Risk düşüktür; menüyü başkasının görmesi bir şey değiştirmez. Sipariş ve garson çağrısı eklendiğinde masa oturumu önem kazanır."}}]}</script>
+<!-- QRMO:HEAD:START -->
+<link rel="icon" type="image/svg+xml" href="../../assets/brand/favicon.svg?v=4">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/brand/favicon-32.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/brand/favicon-16.png?v=4">
+<link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png?v=4">
+<link rel="preload" href="../../assets/fonts/manrope-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/manrope-var-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../global/dist/qrmo-global.css?v=526d053b">
+<script src="../../global/dist/qrmo-conversion-config.js?v=526d053b"></script>
+<script defer src="../../global/dist/qrmo-global.js?v=526d053b"></script>
+<!-- QRMO:HEAD:END -->
+</head>
+<body class="qb-page qb-page--post">
+<!-- QRMO:HEADER:START -->
+<script>document.documentElement.classList.add("qrmo-gh-js")</script>
+<a class="qrmo-gh-skip" href="#icerik">İçeriğe geç</a>
+<header class="qrmo-gh" data-qrmo-gh>
+  <div class="qrmo-gh-shell">
+    <div class="qrmo-gh-in">
+      <a class="qrmo-gh-brand" href="../../" aria-label="QR Menu Official ana sayfa"><img class="qrmo-gh-logo qrmo-gh-logo--full" src="../../assets/brand/qr-menu-official-logo-v4.svg" alt="QR Menu Official" width="175" height="52" decoding="async" fetchpriority="high"><img class="qrmo-gh-logo qrmo-gh-logo--compact" src="../../assets/brand/qr-menu-official-logo-v4-compact.svg" alt="QR Menu Official" width="153" height="46" decoding="async" fetchpriority="high"></a>
+      <nav class="qrmo-gh-nav" aria-label="Ana menü">
+        <ul><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../">Ana Sayfa</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../moduller/">Çözümler</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../paketler/">Paketler &amp; Fiyatlar</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../canli-menu/">Canlı Menüyü Gör</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../sss/">S.S.S.</a></li><li class="qrmo-gh-item"><a class="qrmo-gh-link" href="../../blog/" aria-current="true">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="qrmo-gh-acct" data-qrmo-acct-group data-acct-account="../../hesabim/"><a class="qrmo-gh-acct-link" href="../../giris/" data-acct-main data-acct-login="../../giris/"><span class="qrmo-gh-acct-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/></svg></span><span class="qrmo-gh-acct-label" data-acct-label>Giriş Yap</span></a><span class="qrmo-gh-acct-sep" aria-hidden="true" data-acct-sep>/</span><a class="qrmo-gh-acct-link qrmo-gh-acct-link--signup" href="../../giris/?sekme=uye" data-acct-signup><span>Kayıt Ol</span></a></div>
+      <a class="qrmo-gh-cta" href="../../iletisim/"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path class="qrmo-gh-mail-flap" d="M3.5 7.5 12 13.5l8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="qrmo-gh-mail-ping" cx="20" cy="5" r="2.6" fill="currentColor"/></svg></span><span>İletişime Geçin</span></a>
+      <button class="qrmo-gh-burger" type="button" aria-expanded="false" aria-controls="qrmo-gh-drawer" aria-label="Menüyü aç">
+        <span class="qrmo-gh-burger-label">MENÜ</span>
+        <span class="qrmo-gh-burger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+  <div class="qrmo-gh-backdrop" data-qrmo-gh-backdrop aria-hidden="true"></div>
+  <div class="qrmo-gh-drawer" id="qrmo-gh-drawer" role="dialog" aria-modal="true" aria-label="Menü" aria-hidden="true">
+    <div class="qrmo-gh-drawer-top">
+      <a class="qrmo-gh-drawer-brand" href="../../">
+        <img src="../../assets/brand/qr-menu-official-logo-v4-compact.svg" alt="QR Menu Official" width="167" height="50" decoding="async">
+      </a>
+      <button class="qrmo-gh-drawer-close" type="button" aria-label="Menüyü kapat">×</button>
+    </div>
+    <div class="qrmo-gh-drawer-intro">
+      <p class="qrmo-gh-drawer-eyebrow">RESTORANLAR İÇİN DİJİTAL ÇÖZÜMLER</p>
+      <h2 class="qrmo-gh-drawer-title">Restoranınızı<br>Dijitalde Büyütün.</h2>
+      <p class="qrmo-gh-drawer-desc">Menü, masa ve servis tek sistemde: misafir kendi dilinde seçer, ekibiniz talepleri tek panelden yönetir.</p>
+    </div>
+    <nav class="qrmo-gh-d-cards" aria-label="Mobil menü">
+      <a class="qrmo-gh-d-card" href="../../">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-7h6v7"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Ana Sayfa</span>
+          <span class="qrmo-gh-d-card-sub">QR Menu Official dünyasını keşfedin</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="qrmo-gh-d-card" href="../../moduller/">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h4v4h3v3h-7v-7ZM18 11v3"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Çözümler</span>
+          <span class="qrmo-gh-d-card-sub">İşletmeniz için akıllı dijital araçlar</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="qrmo-gh-d-card" href="../../paketler/">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Paketler &amp; Fiyatlar</span>
+          <span class="qrmo-gh-d-card-sub">İşletmenize uygun planı seçin</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="qrmo-gh-d-card" href="../../canli-menu/">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 5h6M10 18h4"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Canlı Menüyü Gör</span>
+          <span class="qrmo-gh-d-card-sub">Demo menüyü telefonunuzda deneyin</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="qrmo-gh-d-card" href="../../sss/">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.6 1.2c0 1.6-2.4 2-2.4 3.5"/><path d="M12 17.2h.01"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Sıkça Sorulan Sorular</span>
+          <span class="qrmo-gh-d-card-sub">Karar vermeden önce sorulanlar</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="qrmo-gh-d-card" href="../../blog/" aria-current="true">
+        
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title">Blog ve Rehberler</span>
+          <span class="qrmo-gh-d-card-sub">Restoran ve kafe yönetimi rehberleri</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="qrmo-gh-d-card" href="../../giris/" data-qrmo-acct data-acct-login="../../giris/" data-acct-account="../../hesabim/">
+      <span class="qrmo-gh-d-card-left">
+        <span class="qrmo-gh-d-card-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/></svg></span>
+        <span class="qrmo-gh-d-card-text">
+          <span class="qrmo-gh-d-card-title" data-acct-label>Giriş Yap</span>
+          <span class="qrmo-gh-d-card-sub" data-acct-sub>Giriş yapın ya da üye olun</span>
+        </span>
+      </span>
+      <span class="qrmo-gh-d-card-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+    <section class="qrmo-gh-d-section">
+      <div class="qrmo-gh-d-section-head">
+        <h3 class="qrmo-gh-d-section-title">Çözümlerimiz</h3>
+        <span class="qrmo-gh-d-section-line"></span>
+      </div>
+      <div class="qrmo-gh-d-sol-grid">
+        <a class="qrmo-gh-d-sol" href="../../moduller/restoran-menu/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Dijital QR Menü</span>
+          <span class="qrmo-gh-d-sol-desc">Ürün ve fiyatları tek panelden yönetin</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/servis-paneli/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 17V11a6 6 0 0 1 12 0v6M4 17h16M10 20.5h4"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Garson &amp; Hesap İsteme</span>
+          <span class="qrmo-gh-d-sol-desc">Talepler servis paneline düşer</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/menu-asistani/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Menü Asistanı</span>
+          <span class="qrmo-gh-d-sol-desc">Misafirin sorusunu menünüzden yanıtlar</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/coklu-dil/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Çoklu Dil</span>
+          <span class="qrmo-gh-d-sol-desc">Menü misafirin dilinde açılır</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/menu-muhendisligi/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 20v-6M12 20V6M19 20v-10"/><path d="M3 20h18"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Menü Mühendisliği</span>
+          <span class="qrmo-gh-d-sol-desc">Kârlı ürünü öne çıkarın</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/yorum-geri-bildirim/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Yorum &amp; Geri Bildirim</span>
+          <span class="qrmo-gh-d-sol-desc">Puan ve yorumları panelde toplayın</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/qr-masa/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M20 20h.01M17 20v-.01"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">QR Masa</span>
+          <span class="qrmo-gh-d-sol-desc">Her masaya özel QR kodu üretin</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/akilli-filtreleme/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Akıllı Filtreleme</span>
+          <span class="qrmo-gh-d-sol-desc">Alerjen ve kaloriye göre ürün bulun</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/qr-analytics/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">QR Analytics</span>
+          <span class="qrmo-gh-d-sol-desc">Menü görüntüleme ve tıklamaları izleyin</span>
+        </a>
+        <a class="qrmo-gh-d-sol" href="../../moduller/masa-oturum-guvenligi/">
+          <span class="qrmo-gh-d-sol-icon"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v5c0 4.5 2.9 8.2 7 10 4.1-1.8 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <span class="qrmo-gh-d-sol-name">Masa Oturum Güvenliği</span>
+          <span class="qrmo-gh-d-sol-desc">İmzalı, süreli masa oturumu açın</span>
+        </a>
+      </div>
+    </section>
+    <div class="qrmo-gh-d-trust">
+      <h3 class="qrmo-gh-d-trust-title">Neden QR Menu Official?</h3>
+      <div class="qrmo-gh-d-trust-list">
+        <div class="qrmo-gh-d-trust-item">
+          <span class="qrmo-gh-d-trust-check" aria-hidden="true">✓</span>
+          <span>Misafir uygulama indirmeden, tarayıcıdan açar</span>
+        </div>
+        <div class="qrmo-gh-d-trust-item">
+          <span class="qrmo-gh-d-trust-check" aria-hidden="true">✓</span>
+          <span>Fiyat ve ürünleri tek panelden güncellersiniz</span>
+        </div>
+        <div class="qrmo-gh-d-trust-item">
+          <span class="qrmo-gh-d-trust-check" aria-hidden="true">✓</span>
+          <span>Temel, Pro ve Plus: işletmenize uygun paket</span>
+        </div>
+      </div>
+    </div>
+    <div class="qrmo-gh-drawer-bottom">
+      <a class="qrmo-gh-cta qrmo-gh-cta--drawer" href="../../iletisim/"><span class="qrmo-gh-qr-icon"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path class="qrmo-gh-mail-flap" d="M3.5 7.5 12 13.5l8.5-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle class="qrmo-gh-mail-ping" cx="20" cy="5" r="2.6" fill="currentColor"/></svg></span><span>İletişime Geçin</span><span aria-hidden="true">→</span></a>
+      
+    </div>
+  </div>
+</header>
+<!-- QRMO:HEADER:END -->
+<main id="icerik" class="qb">
+  <article class="qb-article">
+    <header class="qb-article__head qb-wrap">
+      <nav class="qb-crumbs" aria-label="Sayfa yolu"><ol><li><a href="../../">Ana Sayfa</a></li><li><a href="../../blog/">Blog</a></li><li aria-current="page">QR Menü Güvenliği: Masa Oturumu Neyi Çözer, Neyi Çözmez?</li></ol></nav>
+      <div class="qb-article__intro">
+        <p class="qb-meta"><span class="qb-chip">Servis &amp; Operasyon</span><time datetime="2026-10-28">28 Ekim 2026</time><span>7 dk okuma</span></p>
+        <h1>QR Menü Güvenliği: Masa Oturumu Neyi Çözer, Neyi Çözmez?</h1>
+        <p class="qb-article__lead">Karekodun fotoğrafını çeken biri, masada olmadan menüyü açabilir. Masadan sipariş ve garson çağrısı varsa bu bir sorun olabilir. Peki ne kadarı önlenebilir?</p>
+      </div>
+      <figure class="qb-article__cover"><img src="../../assets/blog/qr-menu-guvenligi-1200.webp" srcset="../../assets/blog/qr-menu-guvenligi-720.webp 720w, ../../assets/blog/qr-menu-guvenligi-1200.webp 1200w" sizes="(min-width: 1024px) 45vw, 90vw" width="1200" height="630" alt="Kalkan, kilit simgesi ve masa QR kodunu gösteren illüstrasyon" fetchpriority="high" decoding="async"></figure>
+    </header>
+
+    <div class="qb-wrap qb-article__layout">
+      <aside class="qb-toc" aria-labelledby="qb-toc-title">
+        <details open data-qb-toc>
+          <summary id="qb-toc-title">İçindekiler</summary>
+          <ol><li><a href="#risk">Risk nerede?</a></li><li><a href="#oturum">Masa oturumu nedir?</a></li><li><a href="#cozer">Neyi çözer?</a></li><li><a href="#cozmez">Neyi çözmez?</a></li><li><a href="#pratik">İşletme için pratik önlemler</a></li><li><a href="#qr-menu-official">QR Menu Official'da masa oturum güvenliği</a></li><li><a href="#sss">Sık sorulan sorular</a></li></ol>
+        </details>
+      </aside>
+
+      <div class="qb-prose">
+        <section class="qb-answer" aria-label="Kısa cevap"><p class="qb-answer__label">Kısa cevap</p><p>QR menüde masa oturumu, siparişin ve çağrının yalnızca kayıtlı bir masadan ve sınırlı bir süre içinde verilmesini sağlar. Oturum süresi dolduğunda ya da hesap kapandığında yeni sipariş için kodun yeniden okutulması gerekir. Ancak kodun gerçek fotoğrafına sahip biri süre içinde menüyü açabilir; hiçbir yöntem bunu tamamen engellemez.</p></section>
+        <h2 id="risk">Risk nerede?</h2>
+<p>Yalnızca menü gösteren bir QR kodda risk düşüktür: menüyü başka biri görse de bir şey değişmez. Masadan sipariş ve garson çağrısı devreye girdiğinde ise iki durum önemli hale gelir:</p>
+<ul>
+  <li><strong>Uzaktan sipariş ya da çağrı:</strong> Kodun fotoğrafı paylaşılırsa, masada olmayan biri o masa adına talep gönderebilir.</li>
+  <li><strong>Sahte karekod:</strong> Masadaki kodun üzerine başka bir kod yapıştırılarak misafir farklı bir sayfaya yönlendirilebilir.</li>
+</ul>
+
+<h2 id="oturum">Masa oturumu nedir?</h2>
+<p>Misafir masadaki kodu okuttuğunda, o masaya bağlı ve süresi sınırlı bir oturum açılır. Sipariş ve çağrılar bu oturum üzerinden gönderilir. Oturum dışarıdan değiştirilemeyecek şekilde imzalıdır ve yalnızca sisteme kayıtlı masalar için açılır.</p>
+
+<h2 id="cozer">Neyi çözer?</h2>
+<ul>
+  <li><strong>Kayıtsız masa adresleri:</strong> Sistemde tanımlı olmayan bir masa adresiyle oturum açılamaz; misafire bir kilit ekranı gösterilir.</li>
+  <li><strong>Eski fotoğraflar:</strong> Oturum süresi dolduğunda yeni talep için kodun yeniden okutulması gerekir. Günler önce çekilmiş bir fotoğrafla açılan eski oturum çalışmaz.</li>
+  <li><strong>Hesap sonrası talepler:</strong> Hesap tamamlandığında oturum sona erer; masadan kalkan misafirin telefonundan yeni sipariş gitmez.</li>
+  <li><strong>Açık oturumun değiştirilmesi:</strong> Oturum imzalı olduğu için, açılmış bir oturumun masa bilgisi ya da süresi sonradan değiştirilemez.</li>
+</ul>
+
+<h2 id="cozmez">Neyi çözmez?</h2>
+<ul>
+  <li><strong>Gerçek kodun fotoğrafı:</strong> Kodun gerçek fotoğrafına sahip biri, oturum süresi içinde menüyü açabilir. Masa oturumu bunu tamamen engellemez; yalnızca süreyi sınırlar.</li>
+  <li><strong>Başka bir kayıtlı masanın adresi:</strong> Masa adresleri tahmin edilebilir biçimdeyse (masa-1, masa-2), adresi değiştiren biri kayıtlı başka bir masa için de oturum açabilir. Servis panelinde masayla uyuşmayan talepleri kontrol etmek bu yüzden önemlidir.</li>
+  <li><strong>Sahte karekod:</strong> Masadaki kodun üzerine yapıştırılan sahte bir kod, sistemin dışında kalır. Bunun önlemi fiziksel kontroldür.</li>
+</ul>
+<p class="qb-note">"Hacklenemez" ya da "tamamen güvenli" gibi iddialar gerçekçi değildir. Amaç riski azaltmak ve kötüye kullanımı zorlaştırmaktır.</p>
+
+<h2 id="pratik">İşletme için pratik önlemler</h2>
+<ol>
+  <li>Karekodları değiştirilmesi zor bir şekilde basın: lamine kart, gömme stand ya da kalıcı etiket.</li>
+  <li>Garsonlar günlük açılışta kodların yerinde ve sağlam olduğunu kontrol etsin.</li>
+  <li>Servis panelinde gelen bir talep şüpheliyse masayı kontrol edin.</li>
+  <li>Oturum süresini işletmenizin ortalama oturma süresine göre ayarlayın.</li>
+  <li>Misafire menünün adresini (alan adınızı) gösterin; farklı bir adres açılırsa fark edebilsin.</li>
+</ol>
+
+<h2 id="qr-menu-official">QR Menu Official'da masa oturum güvenliği</h2>
+<p>Pro paketten itibaren sunulan <a href="../../moduller/masa-oturum-guvenligi/">Masa Oturum Güvenliği</a>'nde oturum imzalıdır ve yalnızca kayıtlı masalar için açılır. Varsayılan süre toplam 90 dakika ve 30 dakika hareketsizliktir; işletme bu süreleri ayarlayabilir. Hesap tamamlandığında oturum sona erer. Kayıtlı olmayan ya da geçersiz bir masa adresinde misafire "Oturum Gerekli" kilit ekranı gösterilir.</p>
+
+        <section class="qb-faq" aria-labelledby="sss">
+          <h2 id="sss">Sık sorulan sorular</h2>
+          <details><summary><h3>QR menüde masada olmayan biri sipariş verebilir mi?</h3></summary><p>Masa oturumu olmayan sistemlerde kodun fotoğrafıyla mümkün olabilir. Masa oturumu bunu süreyle sınırlar ve kayıtsız masa adreslerini engeller; ancak gerçek kodun fotoğrafına sahip birini süre içinde tamamen engellemez.</p></details>
+          <details><summary><h3>Masa oturumu ne kadar sürer?</h3></summary><p>QR Menu Official'da varsayılan süre toplam 90 dakika ve 30 dakika hareketsizliktir; işletme ayarlayabilir. Hesap tamamlandığında oturum sona erer.</p></details>
+          <details><summary><h3>Sahte karekoda karşı ne yapılabilir?</h3></summary><p>Kodları değiştirilmesi zor şekilde basmak ve garsonların günlük kontrol yapması en etkili önlemdir. Sahte kod sistemin dışında kaldığı için yazılımla engellenemez.</p></details>
+          <details><summary><h3>QR menü hacklenebilir mi?</h3></summary><p>Hiçbir sistem için 'hacklenemez' demek gerçekçi değildir. İmzalı ve süresi sınırlı oturum gibi önlemler kötüye kullanımı zorlaştırır.</p></details>
+          <details><summary><h3>Yalnızca menü gösteren QR kodda güvenlik önemli mi?</h3></summary><p>Risk düşüktür; menüyü başkasının görmesi bir şey değiştirmez. Sipariş ve garson çağrısı eklendiğinde masa oturumu önem kazanır.</p></details>
+        </section>
+
+        <section class="qb-sources" aria-labelledby="kaynaklar">
+          <h2 id="kaynaklar">Kaynaklar</h2>
+          <ol><li><a href="https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/" rel="noopener" target="_blank">QR Menu Official — Masa Oturum Güvenliği modül sayfası</a></li><li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html" rel="noopener" target="_blank">OWASP — Session Management Cheat Sheet</a></li></ol>
+          <p class="qb-sources__note">Son kontrol: 28 Ekim 2026. Yazıda yer alan ürün özellikleri QR Menu Official'ın mevcut paket içeriğiyle sınırlıdır.</p>
+        </section>
+
+        <aside class="qb-product-box" aria-label="İlgili çözümler">
+          <p class="qb-eyebrow">İlgili çözümler</p>
+          <ul><li><a href="../../moduller/masa-oturum-guvenligi/">Masa Oturum Güvenliği <span aria-hidden="true">→</span></a></li><li><a href="../../moduller/servis-paneli/">Servis Paneli modülü <span aria-hidden="true">→</span></a></li><li><a href="../../moduller/qr-masa/">QR Masa modülü <span aria-hidden="true">→</span></a></li></ul>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <section class="qb-wrap qb-related" aria-labelledby="qb-related-title">
+    <h2 id="qb-related-title" class="qb-section-title">İlgili yazılar</h2>
+    <div class="qb-grid"><article class="qb-card" data-cat="servis">
+  <a class="qb-card__link" href="../../blog/qr-ile-masadan-siparis/">
+    <span class="qb-card__media"><img src="../../assets/blog/qr-ile-masadan-siparis-720.webp" srcset="../../assets/blog/qr-ile-masadan-siparis-720.webp 720w, ../../assets/blog/qr-ile-masadan-siparis-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 600px) 45vw, 90vw" width="720" height="378" alt="Telefonda sepet ekranı, masa numarası ve servis paneline giden sipariş kartını gösteren illüstrasyon" loading="lazy" decoding="async"></span>
+    <span class="qb-card__body">
+      <span class="qb-meta"><span class="qb-chip">Servis &amp; Operasyon</span><span>7 dk okuma</span></span>
+      <h3 class="qb-card__title">QR ile Masadan Sipariş: Nasıl Çalışır, Kime Uygun?</h3>
+      <span class="qb-card__excerpt">Misafir masadaki kodu okutur, menüden seçer, sipariş verir. Kulağa basit geliyor; ama doğru kurulmazsa garsonun işini azaltacağına artırabilir.</span>
+      <span class="qb-card__more">Yazıyı oku <span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+</article>
+<article class="qb-card" data-cat="servis">
+  <a class="qb-card__link" href="../../blog/garson-cagirma-sistemi/">
+    <span class="qb-card__media"><img src="../../assets/blog/garson-cagirma-sistemi-720.webp" srcset="../../assets/blog/garson-cagirma-sistemi-720.webp 720w, ../../assets/blog/garson-cagirma-sistemi-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 600px) 45vw, 90vw" width="720" height="378" alt="Masa numaralı çağrı kartlarının sıralandığı servis paneli ekranı ve zil simgesi illüstrasyonu" loading="lazy" decoding="async"></span>
+    <span class="qb-card__body">
+      <span class="qb-meta"><span class="qb-chip">Servis &amp; Operasyon</span><span>8 dk okuma</span></span>
+      <h3 class="qb-card__title">Garson Çağırma Sistemi: QR ile Masadan Servis Talebi Nasıl Yönetilir?</h3>
+      <span class="qb-card__excerpt">Yoğun saatte el kaldıran misafiri fark etmek zordur. QR tabanlı çağrı, talebi masa bilgisiyle bir ekrana düşürür; ama asıl işi o ekranı kimin, nasıl izlediği belirler.</span>
+      <span class="qb-card__more">Yazıyı oku <span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+</article>
+<article class="qb-card" data-cat="qr-menu">
+  <a class="qb-card__link" href="../../blog/qr-menu-nedir/">
+    <span class="qb-card__media"><img src="../../assets/blog/qr-menu-nedir-720.webp" srcset="../../assets/blog/qr-menu-nedir-720.webp 720w, ../../assets/blog/qr-menu-nedir-1200.webp 1200w" sizes="(min-width: 1024px) 30vw, (min-width: 600px) 45vw, 90vw" width="720" height="378" alt="Masada duran QR kodlu kart ve telefonda açılmış dijital menü ekranını gösteren koyu yeşil illüstrasyon" loading="lazy" decoding="async"></span>
+    <span class="qb-card__body">
+      <span class="qb-meta"><span class="qb-chip">QR Menü</span><span>9 dk okuma</span></span>
+      <h3 class="qb-card__title">QR Menü Nedir? Restoran ve Kafeler İçin Kapsamlı Rehber</h3>
+      <span class="qb-card__excerpt">QR menü, masadaki kodu okutan misafirin menüyü uygulama indirmeden tarayıcıda açmasıdır. Ama PDF yüklemekle yönetilebilir bir menü sistemi kurmak aynı şey değil.</span>
+      <span class="qb-card__more">Yazıyı oku <span aria-hidden="true">→</span></span>
+    </span>
+  </a>
+</article></div>
+  </section>
+
+  <section class="qb-wrap qb-cta-wrap" aria-labelledby="qb-cta-title">
+  <div class="qb-cta">
+    <p class="qb-eyebrow">Demo</p>
+    <h2 id="qb-cta-title">Okuduklarınızı kendi menünüzde düşünün.</h2>
+    <p>Temel, Pro ve Plus paketlerinin demo menülerini telefonunuzda açın; sorularınız için bize ulaşın.</p>
+    <div class="qb-cta__actions"><a class="qb-btn qb-btn--gold" href="../../canli-menu/">Canlı Menüyü Gör <span aria-hidden="true">→</span></a><a class="qb-btn qb-btn--ghost" href="../../iletisim/">İletişime Geçin</a></div>
+  </div>
+</section>
+</main>
+<!-- QRMO:FOOTER:START -->
+<footer class="qrmo-gf" data-qrmo-gf aria-labelledby="qrmo-gf-title">
+  <div class="qrmo-gf-in">
+    <h2 class="qrmo-gf-sr-only" id="qrmo-gf-title">QR Menu Official Footer</h2>
+    <div class="qrmo-gf-top">
+      <section class="qrmo-gf-brand" aria-label="QR Menu Official">
+        <a class="qrmo-gf-brand-link" href="../../" aria-label="QR Menu Official ana sayfa">
+      <img class="qrmo-gf-logo qrmo-gf-logo--full" src="../../assets/brand/qr-menu-official-logo-v4.svg" alt="QR Menu Official" width="220" height="65" decoding="async" loading="lazy">
+      <img class="qrmo-gf-logo qrmo-gf-logo--compact" src="../../assets/brand/qr-menu-official-logo-v4-compact.svg" alt="QR Menu Official" width="180" height="54" decoding="async" loading="lazy">
+    </a>
+        <p class="qrmo-gf-brand-desc">Restoran ve kafelerin menülerini kolayca yönetebileceği, müşterilerine modern bir deneyim sunabileceği dijital menü çözümleri.</p>
+        
+      </section>
+      <section class="qrmo-gf-cta" aria-label="QR Menü başlangıç çağrısı">
+        <p class="qrmo-gf-cta-label">Dijital menüye geçiş</p>
+        <h3 class="qrmo-gf-cta-title">Menünüzü dijitale taşıyın.</h3>
+        <p class="qrmo-gf-cta-desc">İşletmeniz için modern bir QR menü oluşturmak üzere ilk adımı atın.</p>
+        <a class="qrmo-gf-cta-btn" href="../../iletisim/"><span>İletişime Geçin</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </section>
+    </div>
+    <nav class="qrmo-gf-nav" aria-label="Footer navigasyonu">
+      <details class="qrmo-gf-col" open>
+        <summary><span class="qrmo-gf-h">Ürün</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <ul class="qrmo-gf-links"><li><a href="../../">Ana Sayfa</a></li><li><a href="../../moduller/">Çözümler</a></li><li><a href="../../paketler/">Paketler &amp; Fiyatlar</a></li><li><a href="../../canli-menu/">Canlı Menüyü Gör</a></li><li><a href="../../blog/" aria-current="true">Blog</a></li></ul>
+      </details>
+      <details class="qrmo-gf-col" open>
+        <summary><span class="qrmo-gf-h">Çözümlerimiz</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <ul class="qrmo-gf-links"><li><a href="../../moduller/restoran-menu/">Dijital QR Menü</a></li><li><a href="../../moduller/qr-masa/">QR Masa</a></li><li><a href="../../moduller/servis-paneli/">Servis Paneli</a></li><li><a href="../../moduller/menu-asistani/">Menü Asistanı</a></li><li><a href="../../moduller/coklu-dil/">Çoklu Dil</a></li></ul>
+      </details>
+      <details class="qrmo-gf-col" open>
+        <summary><span class="qrmo-gf-h">Müşteri Hizmetleri</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <ul class="qrmo-gf-links"><li><a href="../../iletisim/">İletişim</a></li><li><a href="../../iletisim/#talep">Bilgi Talep Formu</a></li><li><a href="../../giris/" data-acct-foot="login" data-acct-account="../../hesabim/">Giriş Yap</a></li><li><a href="../../giris/?sekme=uye" data-acct-foot="signup" data-acct-account="../../hesabim/">Kayıt Ol</a></li><li><a href="../../sss/">Sıkça Sorulan Sorular</a></li></ul>
+      </details>
+      <details class="qrmo-gf-col" open>
+        <summary><span class="qrmo-gf-h">Yasal Bilgiler</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <ul class="qrmo-gf-links"><li><a href="../../gizlilik/">Gizlilik ve KVKK</a></li><li><a href="../../cerez-politikasi/">Çerez Politikası</a></li><li><a href="../../kullanim-sartlari/">Kullanım Şartları</a></li></ul>
+      </details>
+    </nav>
+    <div class="qrmo-gf-bottom">
+      <p class="qrmo-gf-copy">© 2026 QR MENU OFFICIAL. Tüm hakları saklıdır.</p>
+      
+    </div>
+    <div class="qrmo-gf-signature">QR Menu Official</div>
+  </div>
+</footer>
+<!-- QRMO:FOOTER:END -->
+</body>
+</html>
