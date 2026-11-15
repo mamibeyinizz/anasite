@@ -19,6 +19,11 @@
       "id": "servis",
       "name": "Servis & Operasyon",
       "lead": "Masa, garson çağrısı ve servis akışı."
+    },
+    {
+      "id": "isletme",
+      "name": "İşletme & Görünürlük",
+      "lead": "Google yorumları, yerel arama ve misafir kazanma."
     }
   ],
   "posts": [
@@ -349,6 +354,1330 @@
         {
           "label": "Masa Oturum Güvenliği",
           "path": "moduller/masa-oturum-guvenligi/"
+        }
+      ]
+    },
+    {
+      "slug": "restoran-fiyat-artisi-menuye-nasil-yansitilir",
+      "category": "karlilik",
+      "date": "2026-11-15",
+      "readMin": 8,
+      "title": "Restoranlarda Fiyat Artışı Menüye Nasıl Yansıtılır? Misafiri Kaçırmadan Zam Rehberi",
+      "seoTitle": "Restoranda Fiyat Artışı Nasıl Yapılır? Menüye Zam Rehberi",
+      "description": "Maliyetler artarken menüye zam nasıl yapılır? Hangi ürüne ne zaman zam, porsiyon ve kombo seçenekleri, misafire iletişim ve fiyat etiketi kuralları.",
+      "excerpt": "Girdi maliyetleri her ay değişirken menü fiyatını aynı tutmak kârı eritir; tek seferde büyük zam ise misafiri ürkütür. Aradaki yol, ürün bazında ve verilerle karar vermektir.",
+      "cover": "restoran-fiyat-artisi-menuye-nasil-yansitilir",
+      "coverAlt": "Yükselen fiyat grafiği ile menü kartını ve fiyat etiketini gösteren koyu yeşil illüstrasyon",
+      "answer": "Fiyat artışını menünün tamamına aynı oranda yansıtmak yerine ürün bazında karar verin: önce maliyeti en çok artan ve en çok satan ürünleri hesaplayın, artışı küçük ve düzenli adımlarla yapın, porsiyon ve kombo seçenekleriyle misafire alternatif bırakın. Fiyat listesini her değişiklikte güncel tutmak yasal zorunluluktur.",
+      "body": "\n<h2 id=\"neden-zor\">Fiyat artışı neden bu kadar zor bir karar?</h2>\n<p>Restoran sahibi iki baskı arasında kalır. Bir yanda et, süt ürünü, yağ, enerji ve kira gibi kalemler düzenli olarak artar. Öbür yanda misafir, her ziyaretinde fiyatın değiştiğini gördüğünde güvenini kaybedebilir. Zammı geciktirmek, artan maliyetin kârdan ödenmesi demektir; aceleyle ve toptan yapılan zam ise müdavim kaybı riskini büyütür.</p>\n<p>Bu yüzden asıl soru \"zam yapmalı mıyım?\" değil, \"hangi ürüne, ne kadar ve nasıl?\" sorusudur. Bu soruya cevap vermek için önce elinizdeki rakamları netleştirmeniz gerekir.</p>\n\n<h2 id=\"once-maliyet\">1. Adım: Ürün maliyetini tek tek çıkarın</h2>\n<p>Menüdeki her ürünün bir reçetesi vardır: hangi malzemeden ne kadar kullanıldığı. Malzemelerin güncel alış fiyatı bu reçeteyle çarpıldığında ürünün maliyeti ortaya çıkar. Satış fiyatından bu maliyeti çıkardığınızda ürün başına kalan katkıyı görürsünüz.</p>\n<ul>\n  <li><strong>Reçeteyi gramajla yazın.</strong> \"Bir avuç peynir\" değil, \"60 g peynir\". Ölçü belirsizse maliyet de belirsizdir.</li>\n  <li><strong>Fire payını ekleyin.</strong> Ayıklama, pişirme kaybı ve bozulma maliyetin parçasıdır.</li>\n  <li><strong>Alış fiyatını güncel tutun.</strong> Geçen ayın faturasıyla hesaplanan maliyet bugünün kararını yanıltır.</li>\n</ul>\n<p>Bu hesabı defterde ya da tabloda yapabilirsiniz. QR Menu Official'ın Plus paketinde <a href=\"@/moduller/menu-muhendisligi/\">maliyet ve reçete</a> ekranı, malzeme fiyatlarını ve ürün reçetelerini girdiğinizde ürün maliyetini sizin verinizle hesaplar. Sistem maliyeti kendisi bilmez; doğru sonuç, girdiğiniz verinin doğruluğuna bağlıdır.</p>\n\n<h2 id=\"hangi-urun\">2. Adım: Zammı hangi ürüne yapacağınıza karar verin</h2>\n<p>Bütün menüye aynı oranda zam yapmak kolaydır ama adil değildir. Bazı ürünlerin maliyeti hiç değişmemişken bazılarınınki ciddi artmış olabilir. Ürünleri iki soruyla ayırın: <em>Maliyeti ne kadar arttı?</em> ve <em>Ne kadar satıyor?</em></p>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Durum</th><th>Önerilen yaklaşım</th></tr></thead>\n  <tbody>\n    <tr><td>Maliyeti çok arttı, çok satıyor</td><td>Küçük ve kademeli artış; porsiyonu ya da sunumu gözden geçirin.</td></tr>\n    <tr><td>Maliyeti çok arttı, az satıyor</td><td>Fiyatı maliyete göre güncelleyin ya da menüden çıkarmayı değerlendirin.</td></tr>\n    <tr><td>Maliyeti az arttı, çok satıyor</td><td>Fiyatı koruyun; menünün \"güven ürünü\" olarak kalsın.</td></tr>\n    <tr><td>Maliyeti az arttı, az satıyor</td><td>Fiyattan önce görünürlüğe bakın: açıklama, fotoğraf, menüdeki yeri.</td></tr>\n  </tbody>\n</table></div>\n<p>Bu ayrımın sistemli hali menü mühendisliğidir. Ayrıntısını <a href=\"@/blog/menu-muhendisligi-nedir/\">menü mühendisliği rehberimizde</a> anlattık.</p>\n\n<h2 id=\"nasil-yapilir\">3. Adım: Artışı nasıl yapacağınızı seçin</h2>\n<h3 id=\"kademeli\">Küçük ve düzenli adımlar</h3>\n<p>Uzun süre bekleyip tek seferde büyük zam yapmak, misafirin fark etme ihtimalini en yüksek hale getirir. Maliyet değiştikçe küçük güncellemeler yapmak hem kârı korur hem de \"bir anda her şey pahalandı\" algısını azaltır.</p>\n<h3 id=\"porsiyon\">Porsiyon ve seçenek sunmak</h3>\n<p>Aynı ürünü küçük ve büyük porsiyonda sunmak, fiyata hassas misafire bir kapı açık bırakır. QR Menu Official'da porsiyon ve ekstra tanımları <a href=\"@/moduller/restoran-menu/\">Restoran Menü</a> modülünde Temel paketten itibaren vardır.</p>\n<h3 id=\"kombo\">Kombo ve kampanya</h3>\n<p>İçecek, yan ürün ve ana yemeği bir arada sunan kombolar, tek tek ürün fiyatlarının artışını misafir açısından daha anlaşılır kılabilir. Kampanyaları süreli ve net koşullarla anlatın; \"her zaman indirim\" algısı yaratmayın.</p>\n<h3 id=\"yeniden-tasarim\">Ürünü yeniden tasarlamak</h3>\n<p>Bazen fiyatı artırmak yerine reçeteyi gözden geçirmek daha doğrudur: pahalanan bir malzemenin yerine benzer kalitede başka bir malzeme, garnitürün değiştirilmesi ya da sunumun sadeleşmesi. Misafire söz verdiğiniz kaliteyi düşürmeden yapılırsa bu, fiyatı korumanın dürüst bir yoludur.</p>\n\n<h2 id=\"iletisim\">Misafire nasıl anlatmalı?</h2>\n<ul>\n  <li><strong>Gizlemeyin.</strong> Fark edilmeden yapılan porsiyon küçültme, fark edildiğinde zamdan daha çok güven kaybettirir.</li>\n  <li><strong>Garsonu hazırlayın.</strong> \"Neden pahalandı?\" sorusuna kısa ve dürüst bir cevap verebilmeli.</li>\n  <li><strong>Değeri gösterin.</strong> Ürün açıklamasında malzemenin kaynağını ve hazırlanışını anlatmak, fiyatın neye karşılık geldiğini görünür kılar.</li>\n</ul>\n\n<h2 id=\"fiyat-listesi\">Fiyat listesini güncel tutmak bir zorunluluk</h2>\n<p>Fiyat Etiketi Yönetmeliği'ne göre yiyecek-içecek işletmeleri fiyat listesini misafirin görebileceği şekilde bulundurmak zorundadır; 2025 değişikliğiyle masada karekodla gösterim de mümkün hale gelmiştir. Fiyat değiştiğinde basılı menüyü yeniden bastırmak hem masraflı hem yavaştır; bu süre boyunca masadaki fiyatla kasadaki fiyat çelişebilir. Panelden yönetilen bir QR menüde fiyat ürün kaydında değişir ve aynı karekod güncel menüyü açar. Kuralların ayrıntısı için <a href=\"@/blog/karekod-fiyat-listesi-yonetmeligi/\">karekodla fiyat listesi rehberine</a> bakın.</p>\n<p class=\"qb-note\">Bu yazı genel bilgilendirmedir, hukuki görüş değildir. Güncel kurallar için Ticaret Bakanlığı duyurularını esas alın.</p>\n\n<h2 id=\"kontrol-listesi\">Zam öncesi kontrol listesi</h2>\n<ol>\n  <li>Her ürünün güncel maliyetini reçeteyle hesapladım.</li>\n  <li>Maliyeti en çok artan ve en çok satan ürünleri ayırdım.</li>\n  <li>Artışı ürün bazında ve küçük adımlarla planladım.</li>\n  <li>Fiyata hassas misafir için porsiyon ya da kombo seçeneği bıraktım.</li>\n  <li>Garsonları değişiklik hakkında bilgilendirdim.</li>\n  <li>Masadaki, kapıdaki ve dijital menüdeki fiyatları aynı anda güncelledim.</li>\n</ol>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Fiyatları tek ekrandan güncellemek ister misiniz?</strong> Paketleri karşılaştırın; menü ve fiyat yönetimi Temel paketten itibaren dahildir.</p>\n  <a class=\"qb-btn\" href=\"@/paketler/\">Paketleri İncele <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Restoranda zam ne sıklıkla yapılmalı?",
+          "a": "Sabit bir takvim yerine maliyet değişimine bakın. Maliyet belirgin şekilde arttığında küçük ve ürün bazında güncellemeler, uzun aralıklarla yapılan büyük zamlardan daha az fark edilir."
+        },
+        {
+          "q": "Bütün menüye aynı oranda zam yapmak doğru mu?",
+          "a": "Genellikle hayır. Ürünlerin maliyet artışı farklıdır. Ürün bazında maliyet ve satış adedine bakarak karar vermek hem daha adil hem daha kârlıdır."
+        },
+        {
+          "q": "Porsiyon küçültmek zam yerine geçer mi?",
+          "a": "Misafire açıkça söylenirse bir seçenek olabilir. Fark ettirmeden yapılan porsiyon küçültme, fark edildiğinde güven kaybına yol açar."
+        },
+        {
+          "q": "Fiyat değiştiğinde QR kodu yeniden basmam gerekir mi?",
+          "a": "Panelden yönetilen bir QR menüde hayır. Fiyatı ürün kaydında değiştirirsiniz; aynı karekod güncel fiyatı gösterir."
+        },
+        {
+          "q": "QR Menu Official ürün maliyetini kendisi hesaplar mı?",
+          "a": "Plus paketindeki maliyet ve reçete ekranı, sizin girdiğiniz malzeme fiyatları ve reçetelerle ürün maliyetini hesaplar. Veri girilmeden otomatik maliyet bilgisi üretmez."
+        }
+      ],
+      "sources": [
+        {
+          "label": "T.C. Ticaret Bakanlığı — Fiyat etiketinde yeni dönem başlıyor",
+          "url": "https://ticaret.gov.tr/haberler/fiyat-etiketinde-yeni-donem-basliyor"
+        },
+        {
+          "label": "TÜİK — Tüketici fiyat endeksi verileri",
+          "url": "https://data.tuik.gov.tr/"
+        },
+        {
+          "label": "QR Menu Official — Menü Mühendisliği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/menu-muhendisligi/"
+        }
+      ],
+      "related": [
+        "menu-muhendisligi-nedir",
+        "karekod-fiyat-listesi-yonetmeligi",
+        "menude-olmayan-urun-aramalari"
+      ],
+      "products": [
+        {
+          "label": "Menü Mühendisliği (maliyet ve reçete)",
+          "path": "moduller/menu-muhendisligi/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "garson-eksikligi-az-personelle-servis",
+      "category": "servis",
+      "date": "2026-11-14",
+      "readMin": 8,
+      "title": "Garson Eksikliği: Az Personelle Restoran Servisi Nasıl Yürütülür?",
+      "seoTitle": "Garson Eksikliği ve Personel Sorunu: Az Personelle Servis",
+      "description": "Garson bulmak zorlaştığında servis nasıl aksamadan yürür? Salon düzeni, görev paylaşımı, QR ile çağrı ve sipariş, yeni personelin hızlı alışması için pratik rehber.",
+      "excerpt": "Personel bulmak ve tutmak, restoran sahiplerinin en sık dile getirdiği sorunlardan biri. Daha az kişiyle aynı salonu yönetmenin yolu, garsonun zamanını yemeyen işleri ondan almaktır.",
+      "cover": "garson-eksikligi-az-personelle-servis",
+      "coverAlt": "Tek garsonun birden çok masayı tablet ekranından takip ettiğini gösteren illüstrasyon",
+      "answer": "Az personelle servis yürütmek için garsonun zamanını en çok alan işleri azaltın: menüyü masaya getirip anlatmak, siparişi not alıp mutfağa taşımak ve salonu dolaşıp kimin ne istediğini aramak. Masadan QR ile menü, garson çağrısı ve sipariş, bu yürüyüşlerin bir kısmını ortadan kaldırır; kalan zamanı karşılama ve servise ayırırsınız.",
+      "body": "\n<h2 id=\"sorun\">Sorun yalnızca \"garson yok\" değil</h2>\n<p>Personel açığı genellikle şu şekilde hissedilir: yoğun saatte bir garson aynı anda beş masadan çağrılır, menü getirmek ve sipariş almak için salonu defalarca turlar, mutfakla salon arasında not taşır. Misafir el kaldırıp bekler; garson ise sürekli koşturduğu halde hiçbir masaya yetişemediğini hisseder.</p>\n<p>Bu durumda daha fazla kişi işe almak her zaman mümkün değildir. Ama garsonun gününü dolduran işlerin bir kısmı aslında misafirin kendisinin yapabileceği ya da bir ekranın üstlenebileceği işlerdir.</p>\n\n<h2 id=\"zaman-nereye\">Garsonun zamanı nereye gidiyor?</h2>\n<p>Bir vardiyayı gözlemleyip garsonun neyle uğraştığını not edin. Çoğu salonda tablo şuna benzer:</p>\n<ul>\n  <li><strong>Menü getirmek ve anlatmak:</strong> Masaya oturan herkese menü taşımak, içerik ve fiyat sorularına cevap vermek.</li>\n  <li><strong>Sipariş almak:</strong> Masada beklemek, yazmak, mutfağa götürmek, yanlış anlaşılanı düzeltmek.</li>\n  <li><strong>Çağrı aramak:</strong> Salonu tarayıp kimin bir şey istediğini fark etmeye çalışmak.</li>\n  <li><strong>Hesap:</strong> Hesap isteyen masayı fark etmek, hesabı hazırlamak, getirmek.</li>\n  <li><strong>Servis ve karşılama:</strong> Yemeği taşımak, masayı toplamak, misafirle ilgilenmek.</li>\n</ul>\n<p>Son madde misafirin asıl hatırladığı kısımdır. İlk dördü azaldıkça garsona bu kısım için zaman kalır.</p>\n\n<h2 id=\"duzen\">Salonu az kişiyle yönetmek için düzen</h2>\n<h3 id=\"bolge\">Bölge ataması yapın</h3>\n<p>Her garsona sabit masa grupları verin. Herkesin her masaya bakması, kimsenin hiçbir masadan sorumlu olmaması demektir. Yoğun saatte bölgeleri küçültüp boş saatte birleştirebilirsiniz.</p>\n<h3 id=\"gorev\">Görevleri ayırın</h3>\n<p>İki kişilik bir ekipte bile biri karşılama ve sipariş, diğeri servis ve toplama üstlenebilir. Görev ayrımı, aynı masaya iki kişinin gitmesini ve bir masanın unutulmasını önler.</p>\n<h3 id=\"hazirlik\">Açılış öncesi hazırlık</h3>\n<p>Peçete, sos, çatal-bıçak ve içecek dolaplarının servis başlamadan dolu olması, yoğun saatte depo ile salon arasındaki gereksiz yürüyüşü azaltır.</p>\n\n<h2 id=\"qr\">Masadan QR ile çağrı ve sipariş</h2>\n<p>Masaya konan karekod, misafirin menüyü kendi telefonunda açmasını sağlar. Menüyü masaya taşıma işi ortadan kalkar; ürün açıklamaları, fotoğraflar ve fiyatlar misafirin önündedir. Bununla birlikte servis akışına bağlanan bir sistemde misafir:</p>\n<ul>\n  <li><strong>Garson çağırabilir:</strong> Talep, masa numarasıyla birlikte personelin ekranına düşer.</li>\n  <li><strong>Hesap isteyebilir:</strong> Garson, hesabı hazırlayıp masaya ne zaman gideceğini bilir.</li>\n  <li><strong>Sipariş verebilir:</strong> Sipariş yazılı olarak gelir; el yazısı ya da yanlış duyma kaynaklı karışıklık azalır.</li>\n</ul>\n<p>QR Menu Official'da bu talepler Pro paketten itibaren <a href=\"@/moduller/servis-paneli/\">Servis Paneli</a>'ne düşer; panel sesli uyarı ve masaüstü bildirimi verebilir. Sistem ödeme almaz; hesap talebi yalnızca hesabın masaya getirilmesi isteğidir. Konunun ayrıntısını <a href=\"@/blog/garson-cagirma-sistemi/\">garson çağırma sistemi yazımızda</a> anlattık.</p>\n<p class=\"qb-note\">QR sistemi garsonun yerini almaz. Misafirle konuşmak, öneri yapmak ve bir sorunu çözmek hâlâ insan işidir. Amaç, garsonun zamanını bunlara ayırabilmesidir.</p>\n\n<h2 id=\"yeni-personel\">Yeni personelin hızlı alışması</h2>\n<p>Personel sirkülasyonu yüksekse, yeni gelen birinin menüyü ezberlemesi haftalar alabilir. Bu süreyi kısaltmak için:</p>\n<ul>\n  <li><strong>Menüyü yazılı ve güncel tutun.</strong> İçerik, alerjen ve porsiyon bilgisi dijital menüde yazılıysa yeni garson da misafir de aynı kaynağa bakar.</li>\n  <li><strong>Rol bazlı erişim verin.</strong> Garsonun yalnızca ihtiyaç duyduğu ekranı görmesi hem öğrenmeyi kolaylaştırır hem de ayarların yanlışlıkla değişmesini önler. QR Menu Official'da servis rolü yalnızca servis panelini görür.</li>\n  <li><strong>İlk haftayı eşleştirmeyle geçirin.</strong> Deneyimli bir garsonla aynı bölgede çalışmak, yazılı talimattan daha hızlı öğretir.</li>\n</ul>\n\n<h2 id=\"olcum\">İşe yarayıp yaramadığını nasıl anlarsınız?</h2>\n<p>Değişiklikten önce ve sonra birkaç vardiyayı aynı şekilde gözlemleyin: bir masanın oturduktan sonra sipariş vermesine kadar geçen süre, çağrılara dönüş süresi, yanlış giden sipariş sayısı. Bu basit notlar, hangi değişikliğin gerçekten fark yarattığını gösterir.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Garson çağrısı ve siparişin bir ekranda nasıl göründüğünü görmek ister misiniz?</strong> Pro ve Plus demo menülerini telefonunuzda açın.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "QR menü garsonun yerini alır mı?",
+          "a": "Hayır. Menü getirme, çağrı arama ve sipariş taşıma gibi işleri azaltır; misafirle ilgilenme, öneri ve servis hâlâ garsonun işidir."
+        },
+        {
+          "q": "Garson çağrısı için masaya donanım gerekir mi?",
+          "a": "QR tabanlı sistemde gerekmez. Masadaki karekod ve personelin izlediği bir ekran (bilgisayar, tablet veya telefon) yeterlidir."
+        },
+        {
+          "q": "Misafir QR ile sipariş verince ödeme de yapar mı?",
+          "a": "QR Menu Official ödeme almaz. Sipariş ve hesap talebi servis paneline iletilir; ödeme işletmenin kendi yöntemiyle alınır."
+        },
+        {
+          "q": "Yeni garson menüyü nasıl hızlı öğrenir?",
+          "a": "Menünün içerik, alerjen ve porsiyon bilgisinin dijital menüde güncel yazılı olması, yeni personelin ve misafirin aynı bilgiye bakmasını sağlar."
+        },
+        {
+          "q": "Hangi pakette garson çağrısı ve sipariş var?",
+          "a": "QR Menu Official'da QR ile sipariş, garson çağrısı, hesap talebi ve servis paneli Pro paketten itibaren sunulur."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Servis Paneli modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/servis-paneli/"
+        },
+        {
+          "label": "QR Menu Official — QR Masa modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/qr-masa/"
+        },
+        {
+          "label": "MDN — Notifications API",
+          "url": "https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API"
+        }
+      ],
+      "related": [
+        "garson-cagirma-sistemi",
+        "restoran-siparis-hatalari",
+        "qr-menu-nedir"
+      ],
+      "products": [
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        },
+        {
+          "label": "QR Masa modülü",
+          "path": "moduller/qr-masa/"
+        },
+        {
+          "label": "Masa Oturum Güvenliği",
+          "path": "moduller/masa-oturum-guvenligi/"
+        }
+      ]
+    },
+    {
+      "slug": "restoran-google-yorumlari-nasil-artirilir",
+      "category": "isletme",
+      "date": "2026-11-13",
+      "readMin": 8,
+      "title": "Restoran Google Yorumları Nasıl Artırılır? Kurallara Uygun Yöntemler",
+      "seoTitle": "Restoran Google Yorumu Nasıl Artırılır? Etik Yöntemler",
+      "description": "Restoranınız için daha fazla Google yorumu nasıl alınır? Doğru zamanda istemek, olumsuz yoruma cevap vermek ve Google'ın yasakladığı yöntemlerden uzak durmak.",
+      "excerpt": "Yeni bir şehirde yemek arayan biri önce yorumlara bakar. Daha çok yorum almanın yolu satın almak değil, memnun misafire doğru anda ve kolayca sormaktır.",
+      "cover": "restoran-google-yorumlari-nasil-artirilir",
+      "coverAlt": "Telefonda beş yıldızlı yorum kartları ve restoran masasını gösteren illüstrasyon",
+      "answer": "Google yorumlarını artırmanın kurallara uygun yolu, memnun misafire deneyimin hemen ardından kolay bir bağlantıyla yorum bırakmayı hatırlatmaktır. Yorum karşılığında indirim vermek, sahte yorum yazdırmak ya da yalnızca memnun misafirlerden yorum istemek Google'ın politikalarına aykırıdır ve hesabınızı riske atar.",
+      "body": "\n<h2 id=\"neden-onemli\">Yorumlar neden bu kadar önemli?</h2>\n<p>Google Haritalar'da \"yakınımdaki restoranlar\" gibi bir arama yapan biri, listede puanı, yorum sayısını ve son yorumları görür. Google, yerel sonuçlarda işletmelerin sıralanmasında bilinirlik ölçütleri arasında yorumları da saydığını açıkça belirtir. Yani yorumlar hem misafirin karar vermesine hem de işletmenizin görünürlüğüne etki eder.</p>\n<p>Ama tek bir sayı peşinde koşmak yanlış yola götürür. Birkaç yüz yorumu olan ve olumsuz yorumlara özenle cevap veren bir işletme, az sayıda ve yalnızca övgü dolu yorumu olan işletmeden çoğu zaman daha güvenilir görünür.</p>\n\n<h2 id=\"yasak\">Önce yapılmaması gerekenler</h2>\n<p>Google'ın kullanıcı katkısı politikaları, yorumların sahte ya da teşvikli olmasını yasaklar. Şunlardan uzak durun:</p>\n<ul>\n  <li><strong>Yorum karşılığında indirim, ikram ya da hediye vermek.</strong> \"Yorum yaz, tatlı bizden\" teşvikli yorumdur.</li>\n  <li><strong>Sahte hesaplarla ya da personel ve yakınlara yorum yazdırmak.</strong></li>\n  <li><strong>Yalnızca memnun misafirlerden yorum istemek</strong> (\"review gating\"). Herkese aynı şekilde sormalısınız.</li>\n  <li><strong>Yorum satan hizmetlerden yararlanmak.</strong> Bu yorumlar silinebilir ve işletme profili kısıtlanabilir.</li>\n</ul>\n<p class=\"qb-note\">Politikalar değişebilir. Güncel kurallar için Google'ın kullanıcı katkısı içerik politikalarını kontrol edin.</p>\n\n<h2 id=\"dogru-an\">Doğru anda, doğru şekilde istemek</h2>\n<h3 id=\"zaman\">Zamanlama</h3>\n<p>Misafirin yorum yazma ihtimali, deneyimin hemen ardından en yüksektir. Hesap ödendikten ya da yemek bittikten sonra hatırlatmak, ertesi gün gönderilen bir mesajdan daha etkilidir.</p>\n<h3 id=\"kolaylik\">Kolaylık</h3>\n<p>Yorum bırakmak için Google Haritalar'da işletmeyi aramak zorunda kalan misafir çoğu zaman vazgeçer. Google İşletme Profili, doğrudan yorum ekranını açan bir bağlantı verir. Bu bağlantıyı masa kartına, hesap fişine ya da dijital menüye ekleyin.</p>\n<h3 id=\"dil\">Dil</h3>\n<p>\"Bize 5 yıldız verir misiniz?\" demeyin; puanı yönlendirmek de politikalara aykırı sayılabilir. \"Deneyiminizi Google'da paylaşırsanız bize ve diğer misafirlere yardımcı olur\" gibi tarafsız bir cümle kullanın.</p>\n\n<h2 id=\"dijital-menu\">Dijital menüden geri bildirim akışı</h2>\n<p>Misafir masada zaten telefonunu kullanarak menüye bakıyorsa, geri bildirim istemek için en doğal yer orasıdır. QR Menu Official'ın Plus paketindeki <a href=\"@/moduller/yorum-geri-bildirim/\">Yorum ve Geri Bildirim</a> modülü, misafirin deneyimini puanladığı kısa bir form sunar ve Google yorum bağlantınızı eklemenize izin verir. Gelen geri bildirimler panelde toplanır; olumsuz bir deneyimi misafir masadayken öğrenip düzeltme şansı doğar.</p>\n<p>Burada dikkat edilmesi gereken nokta, Google'a yönlendirmenin herkese aynı şekilde sunulmasıdır. Geri bildirim formunu iç iyileştirme için kullanın; Google yorumunu yalnızca memnun misafire göstermek için değil.</p>\n\n<h2 id=\"cevap\">Yorumlara cevap vermek</h2>\n<p>Gelen her yoruma, özellikle olumsuz olanlara cevap vermek, profilinizi okuyan diğer misafirlere işletmenin ilgili olduğunu gösterir.</p>\n<ul>\n  <li><strong>Teşekkür edin, özür dileyin, açıklayın.</strong> Savunmaya geçmeden sorunu kabul edin ve ne yaptığınızı söyleyin.</li>\n  <li><strong>Kişisel bilgi paylaşmayın.</strong> Misafirin adını, siparişini ya da rezervasyon ayrıntısını herkese açık cevapta yazmayın.</li>\n  <li><strong>Konuşmayı özel kanala taşıyın.</strong> Telefon ya da e-posta vererek sorunu birebir çözmeyi önerin.</li>\n  <li><strong>Kalıp cevaptan kaçının.</strong> Her yoruma aynı metni yapıştırmak, cevap vermemek kadar kötü görünür.</li>\n</ul>\n\n<h2 id=\"kontrol\">Yorum stratejisi kontrol listesi</h2>\n<ol>\n  <li>Google İşletme Profili'mdeki doğrudan yorum bağlantısını aldım.</li>\n  <li>Bağlantıyı masa kartına, fişe ya da dijital menüye ekledim.</li>\n  <li>Yorum karşılığında hiçbir teşvik sunmuyorum.</li>\n  <li>Herkese aynı şekilde ve tarafsız bir dille soruyorum.</li>\n  <li>Olumsuz yorumlara birkaç gün içinde ve kişisel bilgi vermeden cevap veriyorum.</li>\n  <li>Yorumlarda tekrar eden şikâyetleri mutfak ve servis ekibiyle konuşuyorum.</li>\n</ol>\n<p>Yorumlar, yerel görünürlüğün yalnızca bir parçasıdır. Profilin geri kalanı için <a href=\"@/blog/google-isletme-profili-restoran-yerel-seo/\">Google İşletme Profili ve yerel SEO rehberine</a> bakın.</p>\n",
+      "faq": [
+        {
+          "q": "Google yorumu karşılığında indirim vermek yasak mı?",
+          "a": "Google'ın kullanıcı katkısı politikaları teşvikli yorumları yasaklar. Yorum karşılığında indirim, ikram ya da hediye vermek bu kapsama girer ve yorumların silinmesine yol açabilir."
+        },
+        {
+          "q": "Yalnızca memnun misafirlerden yorum istemek sorun mu?",
+          "a": "Evet. Yalnızca memnun olduğunu düşündüğünüz misafirlere yorum isteği göstermek politikalara aykırı kabul edilir. Herkese aynı şekilde sorun."
+        },
+        {
+          "q": "Olumsuz yorumu sildirebilir miyim?",
+          "a": "Yalnızca Google'ın politikalarını ihlal eden yorumlar (ör. sahte, hakaret içeren, konu dışı) bildirilebilir. Olumsuz ama gerçek bir deneyim anlatan yorum silinmez; en iyi yol özenli bir cevap vermektir."
+        },
+        {
+          "q": "Yorum bağlantısını nereden bulurum?",
+          "a": "Google İşletme Profili yönetim ekranında yorum isteme seçeneği, misafirin doğrudan yorum ekranını açan bir bağlantı verir."
+        },
+        {
+          "q": "QR Menu Official Google yorumu toplar mı?",
+          "a": "Plus paketindeki Yorum ve Geri Bildirim modülü, misafirden puan ve görüş alır ve Google yorum bağlantınızı eklemenize izin verir. Yorumlar Google'da misafirin kendi hesabıyla yazılır."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Google — Yerel sıralamanızı iyileştirmeye yönelik ipuçları",
+          "url": "https://support.google.com/business/answer/7091"
+        },
+        {
+          "label": "Google Haritalar — Kullanıcı katkısı içerik politikaları",
+          "url": "https://support.google.com/contributionpolicy/answer/7400114"
+        },
+        {
+          "label": "QR Menu Official — Yorum ve Geri Bildirim modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/yorum-geri-bildirim/"
+        }
+      ],
+      "related": [
+        "google-isletme-profili-restoran-yerel-seo",
+        "turist-icin-cok-dilli-menu",
+        "qr-menu-nedir"
+      ],
+      "products": [
+        {
+          "label": "Yorum ve Geri Bildirim modülü",
+          "path": "moduller/yorum-geri-bildirim/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "google-isletme-profili-restoran-yerel-seo",
+      "category": "isletme",
+      "date": "2026-11-12",
+      "readMin": 9,
+      "title": "Restoran ve Kafeler İçin Google İşletme Profili ve Yerel SEO Rehberi",
+      "seoTitle": "Restoran Yerel SEO: Google İşletme Profili Rehberi",
+      "description": "Restoranınız 'yakınımdaki restoran' aramalarında nasıl görünür? Google İşletme Profili ayarları, kategori, fotoğraf, menü bağlantısı ve web sitesinde yerel SEO.",
+      "excerpt": "Yakınında yemek arayan biri çoğu zaman web sitenize değil, Google Haritalar'daki profilinize bakar. Profilin eksiksiz ve güncel olması, bulunmanın ilk şartıdır.",
+      "cover": "google-isletme-profili-restoran-yerel-seo",
+      "coverAlt": "Harita iğnesi, restoran vitrini ve arama sonucu kartını gösteren illüstrasyon",
+      "answer": "Restoranın yerel aramalarda görünmesi için Google İşletme Profili'ni eksiksiz doldurun: doğru kategori, adres, telefon ve çalışma saatleri, güncel fotoğraflar ve menü bağlantısı. Google yerel sıralamada alaka düzeyi, mesafe ve bilinirliğe baktığını belirtir; bunlardan ikisini, profili eksiksiz tutarak ve düzenli yorum alarak etkileyebilirsiniz.",
+      "body": "\n<h2 id=\"nasil-calisir\">Google yerel sonuçları nasıl sıralar?</h2>\n<p>Google, yerel arama sonuçlarının üç temel ölçüte göre belirlendiğini açıklar:</p>\n<ul>\n  <li><strong>Alaka düzeyi:</strong> Profilin aranan şeyle ne kadar örtüştüğü. Kategori ve açıklama burada belirleyicidir.</li>\n  <li><strong>Mesafe:</strong> İşletmenin arama yapan kişiye ya da aranan konuma uzaklığı. Bunu değiştiremezsiniz.</li>\n  <li><strong>Bilinirlik:</strong> İşletmenin ne kadar tanındığı. Yorum sayısı ve puanı, web'de işletme hakkında yazılanlar bu ölçüte katkıda bulunur.</li>\n</ul>\n<p>Yani mesafe dışındaki iki ölçüt, büyük ölçüde sizin elinizdedir.</p>\n\n<h2 id=\"profil\">Profili eksiksiz doldurmak</h2>\n<h3 id=\"kategori\">Ana kategori</h3>\n<p>Ana kategori, profilin hangi aramalarda gösterileceğini en çok etkileyen alandır. \"Restoran\" yerine \"Kebapçı\", \"Kahvaltı salonu\" ya da \"Kafe\" gibi daha belirli bir kategori, aradığınız misafirle eşleşmenizi kolaylaştırır. Ek kategorileri yalnızca gerçekten sunduğunuz hizmetler için ekleyin.</p>\n<h3 id=\"nap\">Ad, adres, telefon</h3>\n<p>İşletme adı tabelada nasıl yazıyorsa öyle olmalı; ada anahtar kelime eklemek (\"Ahmet Usta Kebap En İyi Adana\") Google'ın yönergelerine aykırıdır. Adres ve telefon, web sitenizde, sosyal medya hesaplarınızda ve rehber sitelerinde aynı şekilde yazılmalıdır. Farklı kaynaklarda farklı bilgi, hem Google'ı hem misafiri karıştırır.</p>\n<h3 id=\"saat\">Çalışma saatleri</h3>\n<p>Kapalı olduğu halde \"açık\" görünen bir restoran, en kötü yorumları alır. Bayram, resmî tatil ve sezonluk değişiklikler için özel saatleri önceden girin.</p>\n<h3 id=\"foto\">Fotoğraflar</h3>\n<p>Mekânın dışı (misafirin kapıyı bulması için), içi, masalar ve en çok satan yemekler. Gün ışığında, telefonla bile çekilebilir; önemli olan güncel ve gerçek olmasıdır. Profilde misafirlerin yüklediği fotoğraflar da görünür; kendi fotoğraflarınız bunlarla dengelenir.</p>\n<h3 id=\"menu\">Menü bağlantısı</h3>\n<p>Google İşletme Profili, restoranlar için menü bağlantısı eklemeye izin verir. Bu bağlantının PDF yerine mobilde okunan ve güncel bir menüye gitmesi, profilden gelen misafirin ilk izlenimini belirler. QR menünüzün adresini buraya ekleyebilirsiniz; aynı menü hem masada hem Google'da kullanılmış olur.</p>\n\n<h2 id=\"paylasim\">Profili canlı tutmak</h2>\n<ul>\n  <li><strong>Gönderiler:</strong> Yeni menü, sezonluk ürün ya da etkinlik duyurusu. Düzenli paylaşım profilin terk edilmediğini gösterir.</li>\n  <li><strong>Soru ve cevaplar:</strong> Misafirlerin sorduğu soruları (\"otopark var mı?\", \"çocuk sandalyesi var mı?\") cevaplayın.</li>\n  <li><strong>Yorumlar:</strong> Düzenli ve kurallara uygun yorum almak bilinirliğe katkıda bulunur. Ayrıntısı <a href=\"@/blog/restoran-google-yorumlari-nasil-artirilir/\">Google yorumları rehberinde</a>.</li>\n</ul>\n\n<h2 id=\"web-sitesi\">Web sitenizde yerel SEO</h2>\n<p>Profil kadar olmasa da web siteniz de yerel aramalarda rol oynar. Temel adımlar:</p>\n<ol>\n  <li><strong>Başlık ve açıklamada şehir ve semt:</strong> \"Kadıköy'de ev yemekleri\" gibi, misafirin gerçekten aradığı ifadeyle.</li>\n  <li><strong>Adres, telefon ve harita her sayfada erişilebilir olsun.</strong> Genellikle alt bilgide.</li>\n  <li><strong>Yapılandırılmış veri:</strong> Google, yerel işletmeler için <code>Restaurant</code> türünde yapılandırılmış veriyi destekler; adres, saatler ve menü bağlantısı bu şekilde makine tarafından okunur.</li>\n  <li><strong>Hızlı ve mobil uyumlu sayfa:</strong> Misafir sizi büyük ihtimalle telefonla, yolda arar. Yavaş açılan bir site, profilden gelen ziyareti kaybettirir.</li>\n  <li><strong>Menü metin olarak sayfada olsun.</strong> Görsel olarak yüklenmiş menüyü arama motorları okuyamaz; ürün adları ve açıklamaları metin olarak bulunmalı.</li>\n</ol>\n\n<h2 id=\"hatalar\">Sık yapılan hatalar</h2>\n<ul>\n  <li>Aynı işletme için birden fazla profil açmak.</li>\n  <li>İşletme adına şehir ya da anahtar kelime eklemek.</li>\n  <li>Taşınma sonrası eski adresi güncellememek.</li>\n  <li>Menü bağlantısını eski bir PDF'e bırakmak.</li>\n  <li>Olumsuz yorumları cevapsız bırakmak.</li>\n</ul>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Google profilinize koyabileceğiniz mobil bir menü mü arıyorsunuz?</strong> Demo menüleri telefonunuzda açıp nasıl göründüğüne bakın.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Google İşletme Profili ücretli mi?",
+          "a": "Hayır. İşletme profili oluşturmak ve yönetmek ücretsizdir. Ücretli olan, isteğe bağlı Google reklamlarıdır."
+        },
+        {
+          "q": "İşletme adına anahtar kelime eklersem daha üst sıraya çıkar mıyım?",
+          "a": "Bu Google'ın yönergelerine aykırıdır ve profilin askıya alınmasına yol açabilir. Tabelada yazan gerçek adı kullanın."
+        },
+        {
+          "q": "Menü bağlantısı olarak PDF koymak sorun mu?",
+          "a": "Yasak değildir ama PDF telefonda yakınlaştırma gerektirir ve her fiyat değişikliğinde yeniden yüklenmelidir. Mobilde okunan ve güncellenebilen bir menü bağlantısı misafir için daha kullanışlıdır."
+        },
+        {
+          "q": "Yerel SEO sonuçları ne zaman görülür?",
+          "a": "Kesin bir süre yoktur. Profilin eksiksiz doldurulması ve düzenli güncellenmesi, zaman içinde etkisini gösteren sürekli bir çalışmadır."
+        },
+        {
+          "q": "Web sitem yoksa yerel aramalarda görünebilir miyim?",
+          "a": "Evet, Google İşletme Profili tek başına Haritalar'da görünmenizi sağlar. Bir web sitesi ve mobil menü, profilden gelen misafire daha fazla bilgi sunar."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Google — Yerel sıralamanızı iyileştirmeye yönelik ipuçları",
+          "url": "https://support.google.com/business/answer/7091"
+        },
+        {
+          "label": "Google Search Central — Yerel işletme yapılandırılmış verileri",
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+        },
+        {
+          "label": "Google — İşletmenizi Google'da temsil etme yönergeleri",
+          "url": "https://support.google.com/business/answer/3038177"
+        }
+      ],
+      "related": [
+        "restoran-google-yorumlari-nasil-artirilir",
+        "qr-menu-nedir",
+        "turist-icin-cok-dilli-menu"
+      ],
+      "products": [
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Çoklu Dil modülü",
+          "path": "moduller/coklu-dil/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "turist-icin-cok-dilli-menu",
+      "category": "qr-menu",
+      "date": "2026-11-11",
+      "readMin": 7,
+      "title": "Turist Misafir İçin Çok Dilli Menü: Yabancı Müşteriye Menü Nasıl Hazırlanır?",
+      "seoTitle": "Çok Dilli Menü: Turist Müşteri İçin İngilizce Menü Rehberi",
+      "description": "Yabancı misafir için İngilizce ve çok dilli menü nasıl hazırlanır? Yemek adlarının çevirisi, alerjen bilgisi, fiyat ve QR menüde dil seçici için pratik rehber.",
+      "excerpt": "Menüyü okuyamayan bir turist ya sipariş vermekten vazgeçer ya da en tanıdık ürünü seçer. Doğru çevrilmiş bir menü, misafire Türk mutfağını keşfetme cesareti verir.",
+      "cover": "turist-icin-cok-dilli-menu",
+      "coverAlt": "Telefon ekranında dil seçici ve farklı dillerde menü kartlarını gösteren illüstrasyon",
+      "answer": "Turist misafir için çok dilli menüde yemek adını çevirmekle yetinmeyin: Türkçe adı koruyun, altına kısa ve doğru bir açıklama ekleyin, alerjen ve içerik bilgisini her dilde verin. QR menüde dil seçiciyle aynı menüyü birden çok dilde göstermek, her dil için ayrı menü bastırmaktan daha kolay güncellenir.",
+      "body": "\n<h2 id=\"neden\">Turist misafir menüde neye takılır?</h2>\n<p>\"Hünkâr beğendi\", \"İmam bayıldı\" ya da \"Mercimek çorbası\" yabancı bir misafire hiçbir şey anlatmaz. Kelime kelime çevrildiğinde ise anlam tamamen kaybolabilir: \"The Imam Fainted\" bir yemek adı olarak misafiri meraklandırabilir ama ne yiyeceğini söylemez. Sonuç çoğu zaman şudur: misafir tanıdığı tek ürünü sipariş eder ya da garsona her ürünü tek tek sorar.</p>\n\n<h2 id=\"ceviri\">Yemek adları nasıl çevrilmeli?</h2>\n<h3 id=\"ad-koru\">Türkçe adı koruyun</h3>\n<p>Yerel yemeğin adı, menünüzün kimliğidir. Adı koruyup altına kısa bir açıklama yazmak, hem misafirin ne sipariş ettiğini anlamasını hem de yemeği garsona Türkçe adıyla söyleyebilmesini sağlar.</p>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Zayıf çeviri</th><th>Daha iyi yaklaşım</th></tr></thead>\n  <tbody>\n    <tr><td>The Imam Fainted</td><td>İmam Bayıldı — Roasted eggplant stuffed with onion, tomato and garlic, cooked in olive oil</td></tr>\n    <tr><td>Sultan's Delight</td><td>Hünkâr Beğendi — Slow-cooked lamb stew on smoky eggplant and cheese purée</td></tr>\n    <tr><td>Lentil</td><td>Mercimek Çorbası — Red lentil soup, served with lemon</td></tr>\n  </tbody>\n</table></div>\n<h3 id=\"aciklama\">Açıklamayı kısa ve somut tutun</h3>\n<p>Ana malzeme, pişirme yöntemi ve varsa acılık derecesi. \"Lezzetli\", \"eşsiz\" gibi sıfatlar çeviride bilgi taşımaz.</p>\n<h3 id=\"kontrol\">Çeviriyi bir insana kontrol ettirin</h3>\n<p>Otomatik çeviri araçları başlangıç için yardımcı olabilir ama yemek adlarında sık hata yapar. Çeviriyi o dili iyi bilen birine okutmak, menünüzün yabancı misafir gözünde ciddiyetini belirler.</p>\n\n<h2 id=\"hangi-dil\">Hangi dilleri eklemeli?</h2>\n<p>Her dili eklemek yerine misafirlerinize bakın. İngilizce çoğu durumda temel tercihtir; bulunduğunuz bölgeye göre Almanca, Rusça, Arapça ya da Farsça gibi diller öne çıkabilir. Garsonlarınıza hangi dilde soru geldiğini sormak, en pratik veri kaynağıdır.</p>\n\n<h2 id=\"alerjen\">Alerjen ve içerik bilgisi her dilde</h2>\n<p>Yabancı misafir, alerjisini garsona anlatmakta zorlanabilir. Alerjen bilgisinin menüde, misafirin kendi dilinde ve simgelerle gösterilmesi bu riski azaltır. Ayrıntısı için <a href=\"@/blog/restoran-menude-alerjen-bilgisi/\">alerjen bilgisi rehberine</a> bakın.</p>\n\n<h2 id=\"fiyat\">Fiyat ve para birimi</h2>\n<p>Fiyatı Türk lirası olarak açıkça gösterin. Döviz karşılığı yazmak, kur değiştikçe yanlış bilgi verme riski taşır; yazacaksanız tahmini olduğunu belirtin. Servis ücreti ya da kuver gibi kalemler varsa, Fiyat Etiketi Yönetmeliği'ndeki kurallara uygun olduğundan emin olun.</p>\n\n<h2 id=\"qr-dil\">QR menüde dil seçici</h2>\n<p>Basılı menüde her dil için ayrı sayfa ya da ayrı menü gerekir; fiyat değiştiğinde hepsi yeniden basılır. QR menüde ise misafir aynı karekodu okutur ve dil seçiciden kendi dilini seçer. Fiyat tek yerde değişir, bütün dillerde güncellenir.</p>\n<p>QR Menu Official'da <a href=\"@/moduller/coklu-dil/\">Çoklu Dil</a> modülü Temel paketten itibaren vardır. Çeviriler panelden elle ya da CSV dosyasıyla toplu olarak girilir; sistem otomatik çeviri yapmaz, böylece metnin kontrolü sizde kalır. Misafir menüde arama yaptığında, seçtiği dildeki ürün adlarında da arama yapılır.</p>\n\n<h2 id=\"kontrol-listesi\">Çok dilli menü kontrol listesi</h2>\n<ol>\n  <li>Misafirlerimin en çok konuştuğu dilleri belirledim.</li>\n  <li>Yerel yemek adlarını koruyup altına kısa açıklama yazdım.</li>\n  <li>Çeviriyi o dili bilen birine kontrol ettirdim.</li>\n  <li>Alerjen bilgisini her dilde ve simgeyle gösterdim.</li>\n  <li>Fiyatları Türk lirası olarak net yazdım.</li>\n  <li>Garsonların \"bu yemekte ne var?\" sorusuna kısa bir İngilizce cevabı var.</li>\n</ol>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Dil seçicinin telefonda nasıl çalıştığını görün.</strong> Demo menüyü açıp dili değiştirin.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Yemek adlarını tamamen İngilizceye çevirmeli miyim?",
+          "a": "Yerel yemeklerde Türkçe adı korumak ve altına kısa bir açıklama eklemek daha iyi sonuç verir. Misafir hem ne yediğini anlar hem de yemeği garsona adıyla söyleyebilir."
+        },
+        {
+          "q": "Otomatik çeviri kullanmak yeterli mi?",
+          "a": "Başlangıç için yardımcı olabilir ama yemek adlarında sık hata yapar. Çeviriyi o dili iyi bilen birine kontrol ettirmenizi öneririz."
+        },
+        {
+          "q": "Menüde döviz fiyatı yazmalı mıyım?",
+          "a": "Fiyatı Türk lirası olarak net gösterin. Döviz karşılığı yazacaksanız kur değişeceği için tahmini olduğunu belirtin."
+        },
+        {
+          "q": "QR menüde her dil için ayrı karekod gerekir mi?",
+          "a": "Hayır. Dil seçici olan bir QR menüde misafir aynı karekodu okutur ve menüde kendi dilini seçer."
+        },
+        {
+          "q": "QR Menu Official menüyü otomatik çevirir mi?",
+          "a": "Hayır. Çeviriler panelden elle ya da CSV ile toplu olarak girilir. Bu sayede metnin doğruluğunu siz kontrol edersiniz."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Çoklu Dil modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/coklu-dil/"
+        },
+        {
+          "label": "T.C. Ticaret Bakanlığı — Fiyat etiketinde yeni dönem başlıyor",
+          "url": "https://ticaret.gov.tr/haberler/fiyat-etiketinde-yeni-donem-basliyor"
+        },
+        {
+          "label": "T.C. Kültür ve Turizm Bakanlığı",
+          "url": "https://www.ktb.gov.tr/"
+        }
+      ],
+      "related": [
+        "restoran-menude-alerjen-bilgisi",
+        "qr-menu-nedir",
+        "dijital-menu-nasil-hazirlanir"
+      ],
+      "products": [
+        {
+          "label": "Çoklu Dil modülü",
+          "path": "moduller/coklu-dil/"
+        },
+        {
+          "label": "Akıllı Filtreleme modülü",
+          "path": "moduller/akilli-filtreleme/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        }
+      ]
+    },
+    {
+      "slug": "restoran-menude-alerjen-bilgisi",
+      "category": "mevzuat",
+      "date": "2026-11-10",
+      "readMin": 8,
+      "title": "Restoran Menüsünde Alerjen Bilgisi: Neden Önemli, Nasıl Gösterilir?",
+      "seoTitle": "Menüde Alerjen Bilgisi Nasıl Gösterilir? Restoran Rehberi",
+      "description": "Restoran ve kafe menüsünde alerjen bilgisi nasıl gösterilir? 14 temel alerjen, mutfakta çapraz bulaşma, garsonun rolü ve dijital menüde alerjen filtresi.",
+      "excerpt": "Gıda alerjisi olan bir misafir için yanlış bilgi verilmiş bir tabak ciddi bir sağlık sorunudur. Alerjen bilgisini menüde açıkça göstermek hem misafiri hem işletmeyi korur.",
+      "cover": "restoran-menude-alerjen-bilgisi",
+      "coverAlt": "Menü kartında buğday, süt, yumurta ve fıstık simgelerini gösteren illüstrasyon",
+      "answer": "Alerjen bilgisi, her ürünün hangi alerjenleri içerdiğinin menüde yazı ve simgeyle gösterilmesidir. Bilgi mutfakla birlikte reçeteden doğrulanmalı, çapraz bulaşma riski belirtilmeli ve garsonlar bu bilgiye hâkim olmalıdır. Dijital menüde alerjen tanımlandığında misafir, istemediği alerjeni içeren ürünleri filtreleyebilir.",
+      "body": "\n<p class=\"qb-note\">Bu yazı genel bilgilendirme amaçlıdır; tıbbi ya da hukuki görüş değildir. İşletmeniz için güncel yükümlülükleri Tarım ve Orman Bakanlığı'nın ve Resmî Gazete'nin güncel metinlerinden doğrulayın.</p>\n\n<h2 id=\"neden\">Alerjen bilgisi neden bu kadar önemli?</h2>\n<p>Gıda alerjisi olan biri için tek bir yanlış bilgi, hafif bir rahatsızlıktan ciddi bir sağlık sorununa kadar sonuç doğurabilir. Misafir çoğu zaman garsona sorar; garson mutfağa sorar; mutfaktaki kişi de reçeteyi ezberden hatırlamaya çalışır. Zincirin herhangi bir halkasındaki hata misafire yansır.</p>\n<p>Menüde yazılı ve doğrulanmış alerjen bilgisi bu zinciri kısaltır: misafir bilgiyi kendisi okur, garson aynı bilgiye bakar, mutfak bilgiyi bir kez doğru girer.</p>\n\n<h2 id=\"mevzuat\">Mevzuat ne diyor?</h2>\n<p>Türkiye'de gıda bilgilerinin tüketiciye sunulması, Türk Gıda Kodeksi kapsamındaki etiketleme ve tüketiciyi bilgilendirme yönetmeliğiyle düzenlenir. Bu düzenleme alerjen bilgisini önemli bilgiler arasında sayar ve ambalajsız sunulan gıdalar için de tüketicinin bilgilendirilmesini öngörür. Avrupa Birliği'nde aynı konu 1169/2011 sayılı tüketiciyi gıda konusunda bilgilendirme tüzüğüyle düzenlenir ve 14 alerjen grubunu listeler.</p>\n<p>Ayrıntılar ve işletmenize düşen somut yükümlülük zaman içinde değişebileceği için, güncel metni resmî kaynaklardan kontrol etmenizi öneririz.</p>\n\n<h2 id=\"14-alerjen\">14 temel alerjen grubu</h2>\n<p>AB tüzüğünün ekinde sayılan ve Türk mevzuatında da esas alınan alerjen grupları şunlardır:</p>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Alerjen</th><th>Menüde sık görüldüğü yerler</th></tr></thead>\n  <tbody>\n    <tr><td>Gluten içeren tahıllar (buğday, arpa, çavdar, yulaf)</td><td>Ekmek, makarna, börek, pane, sos kıvamlaştırıcı</td></tr>\n    <tr><td>Süt ve süt ürünleri</td><td>Peynir, tereyağı, krema, yoğurt, tatlılar</td></tr>\n    <tr><td>Yumurta</td><td>Hamur işleri, mayonez, pane harcı, tatlılar</td></tr>\n    <tr><td>Yer fıstığı</td><td>Soslar, tatlılar, kavrulmuş garnitür</td></tr>\n    <tr><td>Sert kabuklu yemişler (fındık, ceviz, badem, antep fıstığı vb.)</td><td>Baklava, kadayıf, salata, pesto</td></tr>\n    <tr><td>Susam</td><td>Simit, tahin, humus, hamburger ekmeği</td></tr>\n    <tr><td>Balık</td><td>Balık yemekleri, bazı soslar</td></tr>\n    <tr><td>Kabuklular (karides, yengeç)</td><td>Deniz ürünleri, makarna</td></tr>\n    <tr><td>Yumuşakçalar (midye, kalamar)</td><td>Midye dolma, kalamar tava</td></tr>\n    <tr><td>Soya</td><td>Soslar, hazır karışımlar</td></tr>\n    <tr><td>Kereviz</td><td>Çorbalar, et suyu, salata</td></tr>\n    <tr><td>Hardal</td><td>Soslar, marinasyon, sandviç</td></tr>\n    <tr><td>Sülfitler</td><td>Kuru meyve, şarap, sirke</td></tr>\n    <tr><td>Acı bakla (lupin)</td><td>Bazı unlar ve hamur işleri</td></tr>\n  </tbody>\n</table></div>\n\n<h2 id=\"mutfak\">Bilgiyi mutfakta doğru toplamak</h2>\n<ol>\n  <li><strong>Reçeteden çalışın.</strong> Her ürünün bütün malzemelerini, soslar ve garnitürler dahil, yazılı hale getirin.</li>\n  <li><strong>Hazır ürünlerin etiketine bakın.</strong> Satın aldığınız sos, baharat karışımı ya da hamurun etiketinde alerjen bilgisi yazar.</li>\n  <li><strong>Çapraz bulaşmayı belirtin.</strong> Aynı fritözde pane ürün ve patates kızartılıyorsa, patatesin \"gluten izi içerebilir\" olarak belirtilmesi dürüst olandır.</li>\n  <li><strong>Değişiklikleri güncelleyin.</strong> Tedarikçi ya da reçete değiştiğinde alerjen bilgisi de değişebilir.</li>\n</ol>\n\n<h2 id=\"gosterim\">Menüde nasıl gösterilmeli?</h2>\n<ul>\n  <li><strong>Simge ve yazı birlikte.</strong> Yalnızca simge kullanmak, simgeyi bilmeyen misafir için yetersizdir.</li>\n  <li><strong>Her ürünün yanında.</strong> Menünün sonundaki genel bir dipnot (\"ürünlerimiz alerjen içerebilir\") misafire hangi ürünün güvenli olduğunu söylemez.</li>\n  <li><strong>Misafirin dilinde.</strong> Turist misafir için alerjen bilgisi de çevrilmelidir. Bkz. <a href=\"@/blog/turist-icin-cok-dilli-menu/\">çok dilli menü rehberi</a>.</li>\n  <li><strong>\"Glutensiz\" gibi iddialarda dikkat.</strong> Çapraz bulaşma riski varsa bir ürünü kesin dille \"glutensiz\" diye sunmak yanıltıcı olabilir.</li>\n</ul>\n\n<h2 id=\"dijital\">Dijital menüde alerjen filtresi</h2>\n<p>Basılı menüde alerjen bilgisini her ürünün altına sığdırmak zordur. Dijital menüde ürün detayında alerjenler simgeleriyle gösterilebilir; misafir de istemediği alerjeni seçip o alerjeni içeren ürünleri listeden çıkarabilir.</p>\n<p>QR Menu Official'da alerjen tanımları ve <a href=\"@/moduller/akilli-filtreleme/\">Akıllı Filtreleme</a> Temel paketten itibaren vardır. Filtre, yalnızca ürünlere girdiğiniz alerjen bilgisine dayanır; sistem bir ürünün içeriğini kendisi tahmin etmez. Misafir menüde \"glutensiz\" ya da \"sütsüz\" gibi bir arama yaptığında da, o alerjen tanımlıysa onu içermeyen ürünler listelenir.</p>\n\n<h2 id=\"garson\">Garsonun rolü</h2>\n<p>Yazılı bilgi garsonun yerini tutmaz. Alerjisini söyleyen misafiri mutfağa bildirmek, emin olunmayan bir soruda \"kontrol edip geliyorum\" demek ve tahminle cevap vermemek, ekibin her üyesinin bilmesi gereken kurallardır.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Alerjen filtresinin telefonda nasıl çalıştığını görün.</strong> Demo menüde filtre panelini açın.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Restoranlarda alerjen bilgisi vermek zorunlu mu?",
+          "a": "Türk Gıda Kodeksi kapsamındaki tüketiciyi bilgilendirme düzenlemesi alerjen bilgisini önemli bilgiler arasında sayar. İşletmenize düşen güncel yükümlülüğü Tarım ve Orman Bakanlığı ve Resmî Gazete kaynaklarından doğrulayın."
+        },
+        {
+          "q": "Kaç tane temel alerjen vardır?",
+          "a": "AB'nin 1169/2011 sayılı tüzüğü 14 alerjen grubunu sayar: gluten içeren tahıllar, kabuklular, yumurta, balık, yer fıstığı, soya, süt, sert kabuklu yemişler, kereviz, hardal, susam, sülfitler, acı bakla ve yumuşakçalar."
+        },
+        {
+          "q": "Menünün sonuna genel bir alerjen uyarısı yazmak yeterli mi?",
+          "a": "Genel bir uyarı, misafire hangi ürünün hangi alerjeni içerdiğini söylemez. Bilgiyi ürün bazında göstermek daha güvenli ve kullanışlıdır."
+        },
+        {
+          "q": "Çapraz bulaşma menüde belirtilmeli mi?",
+          "a": "Aynı ekipmanda hazırlanan ürünlerde alerjen izi kalma riski varsa bunu belirtmek dürüst olandır. Bu durumda ürünü kesin dille 'alerjensiz' diye sunmaktan kaçının."
+        },
+        {
+          "q": "Dijital menü alerjenleri otomatik algılar mı?",
+          "a": "Hayır. QR Menu Official'da alerjen filtresi, ürünlere girdiğiniz alerjen bilgisine dayanır. Doğru filtre için bilginin mutfakla birlikte doğru girilmesi gerekir."
+        }
+      ],
+      "sources": [
+        {
+          "label": "EUR-Lex — (AB) 1169/2011 sayılı tüketiciyi gıda konusunda bilgilendirme tüzüğü",
+          "url": "https://eur-lex.europa.eu/eli/reg/2011/1169/oj"
+        },
+        {
+          "label": "T.C. Tarım ve Orman Bakanlığı",
+          "url": "https://www.tarimorman.gov.tr/"
+        },
+        {
+          "label": "Mevzuat Bilgi Sistemi",
+          "url": "https://www.mevzuat.gov.tr/"
+        }
+      ],
+      "related": [
+        "turist-icin-cok-dilli-menu",
+        "dijital-menu-nasil-hazirlanir",
+        "karekod-fiyat-listesi-yonetmeligi"
+      ],
+      "products": [
+        {
+          "label": "Akıllı Filtreleme modülü",
+          "path": "moduller/akilli-filtreleme/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Çoklu Dil modülü",
+          "path": "moduller/coklu-dil/"
+        }
+      ]
+    },
+    {
+      "slug": "menude-olmayan-urun-aramalari",
+      "category": "karlilik",
+      "date": "2026-11-09",
+      "readMin": 7,
+      "title": "Menüde Olmayan Ürünü Arayan Müşteri: Arama Verisiyle Menü Nasıl Geliştirilir?",
+      "seoTitle": "Müşteri Menüde Ne Arıyor? Arama Verisiyle Menü Geliştirme",
+      "description": "Misafirler dijital menüde neyi arıyor ve bulamıyor? Bulunamayan arama verisini okumak, menüye ürün eklemek ya da adlandırmayı düzeltmek için pratik rehber.",
+      "excerpt": "Misafir menüde 'limonata' yazıp sonuç alamıyorsa iki ihtimal vardır: ya bu ürün yok, ya da sizde başka bir adla duruyor. İkisi de bilmeniz gereken bir şeydir.",
+      "cover": "menude-olmayan-urun-aramalari",
+      "coverAlt": "Menü arama kutusu, büyüteç ve bulunamayan arama listesini gösteren illüstrasyon",
+      "answer": "Dijital menüde misafirlerin arayıp bulamadığı kelimeler, menünüzdeki eksiklerin ve adlandırma sorunlarının doğrudan göstergesidir. Bu listeyi düzenli okuyun: sık aranan bir ürün yoksa eklemeyi değerlendirin, varsa ama farklı adla duruyorsa ürün adını ya da açıklamasını misafirin kullandığı kelimeye göre düzeltin.",
+      "body": "\n<h2 id=\"neden\">Basılı menüde göremediğiniz bir veri</h2>\n<p>Basılı menüde misafirin aklından ne geçtiğini bilemezsiniz. Garsona \"milkshake var mı?\" diye soran misafir, \"yok\" cevabını alır ve konu orada kapanır. Kimse bunu not etmez; aynı soru haftada kaç kez sorulduğu bilinmez.</p>\n<p>Dijital menüde arama kutusu olduğunda bu sorular yazılı hale gelir. Misafir aradığı şeyi kendisi yazar; sonuç çıkmadıysa, bu bir kayıttır.</p>\n\n<h2 id=\"ne-anlatir\">Bulunamayan aramalar size ne anlatır?</h2>\n<h3 id=\"eksik-urun\">Gerçekten eksik bir ürün</h3>\n<p>Aynı kelime düzenli olarak aranıyor ve menünüzde karşılığı yoksa, misafirleriniz bu ürünü bekliyor demektir. Bu, menüye eklemeyi değerlendirmek için somut bir başlangıç noktasıdır.</p>\n<h3 id=\"farkli-ad\">Var ama farklı adla duran ürün</h3>\n<p>Misafir \"kola\" arıyor, menüde ürün marka adıyla duruyor; misafir \"sufle\" arıyor, menüde \"çikolatalı volkan\" yazıyor. Ürün var ama bulunamıyor. Bu durumda ürün adını değiştirmek ya da açıklamaya misafirin kullandığı kelimeyi eklemek yeterlidir.</p>\n<h3 id=\"kategori\">Beklenen bir kategori</h3>\n<p>\"Vegan\", \"çocuk menüsü\", \"glutensiz\" gibi aramalar tek bir üründen çok bir ihtiyacı gösterir. Bu ürünler sizde varsa etiket ya da filtre bilgisini eksiksiz girmek, yoksa küçük bir seçki oluşturmak düşünülebilir.</p>\n<h3 id=\"yazim\">Yazım farkları</h3>\n<p>\"Kahvalti\", \"lahmacun\", \"laktozsuz\" gibi aramalar Türkçe karakter kullanmadan ya da farklı yazımla gelir. İyi bir arama bu farkları tolere etmelidir; tolere etmiyorsa kaybettiğiniz aramaları da bu listede görürsünüz.</p>\n\n<h2 id=\"nasil-okunur\">Listeyi nasıl okumalı?</h2>\n<ol>\n  <li><strong>Tek seferlik aramalara takılmayın.</strong> Bir kez aranan bir kelime karar için yeterli değildir; tekrar eden aramalara bakın.</li>\n  <li><strong>Dönem seçin.</strong> Haftalık ya da aylık bakmak, sezon etkisini görmenizi sağlar. Yazın soğuk içecek, kışın sıcak tatlı aramaları artabilir.</li>\n  <li><strong>Garsonlara danışın.</strong> Arama listesindeki kelimeleri garsonların masada duydukları sorularla karşılaştırın.</li>\n  <li><strong>Değişikliği yapıp tekrar bakın.</strong> Bir ürünün adını değiştirdiyseniz, sonraki dönemde o kelimenin listeden düşüp düşmediğini kontrol edin.</li>\n</ol>\n\n<h2 id=\"karar\">Ürün eklemeden önce düşünülmesi gerekenler</h2>\n<p>Çok aranan bir ürünü menüye eklemek her zaman doğru karar değildir. Mutfağınızda bu ürünü yapabilecek ekipman ve malzeme var mı? Ürünün maliyeti ve satış fiyatı kârlı bir aralığa düşüyor mu? Mevcut bir ürünü yavaşlatır mı? Bu soruların cevabı için <a href=\"@/blog/menu-muhendisligi-nedir/\">menü mühendisliği</a> yaklaşımı yardımcı olur.</p>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da bulunamayan aramalar</h2>\n<p>QR Menu Official'ın Plus paketindeki <a href=\"@/moduller/qr-analytics/\">Menü Analitiği</a>, misafirlerin menüde arayıp sonuç alamadığı kelimeleri \"Menüde Bulunamayan Aramalar\" listesinde gösterir. Misafir kelimeyi harf harf yazarken oluşan ara aramalar tek bir arama olarak birleştirilir; liste, seçtiğiniz dönemde her kelimenin kaç kez arandığını verir.</p>\n<p>Menü araması ürün adı ve açıklamasının yanında kategori adlarında, tanımlıysa malzeme ve alerjen adlarında ve seçilen dildeki çevirilerde de arar; \"100 tl altı\" gibi fiyat ifadelerini fiyat aralığına çevirir. Bu yüzden listede kalan kelimeler, menünüzde gerçekten karşılığı olmayan ya da misafirin bulamadığı ürünlerdir.</p>\n<p class=\"qb-note\">Arama verisi bir ilgi göstergesidir, satış verisi değildir. Bir ürünün çok aranması, menüye eklendiğinde aynı oranda satacağı anlamına gelmez.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Menü analitiği Plus pakette.</strong> Paketlerin içeriğini karşılaştırın.</p>\n  <a class=\"qb-btn\" href=\"@/paketler/\">Paketleri İncele <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Bulunamayan arama ne demek?",
+          "a": "Misafirin dijital menüdeki arama kutusuna yazdığı ve hiçbir ürünle eşleşmeyen kelimedir. Menüde eksik bir ürünü ya da yanlış adlandırılmış bir ürünü gösterebilir."
+        },
+        {
+          "q": "Çok aranan her ürünü menüye eklemeli miyim?",
+          "a": "Hayır. Arama ilgi göstergesidir; ekipman, maliyet ve kârlılık açısından değerlendirmeden ürün eklemek doğru olmayabilir."
+        },
+        {
+          "q": "Misafir Türkçe karakter kullanmadan ararsa ürün bulunur mu?",
+          "a": "QR Menu Official'ın menü araması 'ı' ve 'i' gibi farkları tolere eder; örneğin 'kahvalti' araması 'Kahvaltı' ürünlerini bulur."
+        },
+        {
+          "q": "Bulunamayan aramalar kişisel veri içerir mi?",
+          "a": "Liste, aranan kelimeleri ve sayılarını gösterir. Misafirin adı ya da iletişim bilgisi tutulmaz."
+        },
+        {
+          "q": "Hangi pakette bulunamayan aramalar listesi var?",
+          "a": "QR Menu Official'da Menü Analitiği ve bulunamayan aramalar listesi Plus pakette sunulur."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Menü Analitiği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/qr-analytics/"
+        },
+        {
+          "label": "QR Menu Official — Akıllı Filtreleme modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/akilli-filtreleme/"
+        }
+      ],
+      "related": [
+        "menu-muhendisligi-nedir",
+        "restoran-fiyat-artisi-menuye-nasil-yansitilir",
+        "dijital-menu-nasil-hazirlanir"
+      ],
+      "products": [
+        {
+          "label": "Menü Analitiği modülü",
+          "path": "moduller/qr-analytics/"
+        },
+        {
+          "label": "Menü Mühendisliği modülü",
+          "path": "moduller/menu-muhendisligi/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "restoran-siparis-hatalari",
+      "category": "servis",
+      "date": "2026-11-08",
+      "readMin": 7,
+      "title": "Restoranlarda Sipariş Hataları Neden Olur ve Nasıl Azaltılır?",
+      "seoTitle": "Restoran Sipariş Hataları: Nedenleri ve Çözüm Yolları",
+      "description": "Yanlış giden sipariş, unutulan ekstra, karışan masa: restoranda sipariş hatalarının nedenleri ve el yazısı, sözlü iletim ile yoğun saat sorunlarına pratik çözümler.",
+      "excerpt": "Yanlış giden bir tabak, mutfakta boşa giden malzeme, bekleyen bir misafir ve özür dileyen bir garson demektir. Hataların çoğu birkaç tekrar eden noktadan doğar.",
+      "cover": "restoran-siparis-hatalari",
+      "coverAlt": "Mutfak fişi, karışmış sipariş notları ve düzenli sipariş ekranını gösteren illüstrasyon",
+      "answer": "Restoranda sipariş hataları çoğunlukla dört noktada doğar: misafirle garson arasındaki yanlış anlaşılma, okunmayan ya da eksik not, mutfağa sözlü iletim ve masa karışıklığı. Siparişi yazılı, masa numaralı ve ekstralarıyla birlikte mutfağa ileten bir akış bu noktaların çoğunu azaltır.",
+      "body": "\n<h2 id=\"maliyet\">Bir sipariş hatasının gerçek maliyeti</h2>\n<p>Yanlış giden bir tabağın maliyeti yalnızca yeniden yapılan yemek değildir. Mutfakta zaman kaybedilir, misafir bekler, garson özür diler ve aynı süre içinde diğer masalar ihmal edilir. Yoğun bir akşamda birkaç hata, bütün servisin ritmini bozabilir.</p>\n\n<h2 id=\"nedenler\">Hatalar nereden doğar?</h2>\n<h3 id=\"anlasma\">Yanlış anlaşılma</h3>\n<p>Gürültülü bir salonda \"az acılı\" ile \"acısız\" karışabilir; misafir \"patates yerine salata\" derken garson bunu not etmeyi unutabilir. Özellikle porsiyon, pişirme derecesi ve ekstra tercihleri yanlış anlaşılmaya açıktır.</p>\n<h3 id=\"not\">Okunmayan ya da eksik not</h3>\n<p>Aceleyle yazılmış bir sipariş fişi, mutfakta farklı okunabilir. Kısaltmalar kişiden kişiye değişir; yeni bir aşçı ya da garson bu kısaltmaları bilmeyebilir.</p>\n<h3 id=\"sozlu\">Sözlü iletim</h3>\n<p>Siparişin mutfağa bağırarak ya da kapıdan söylenerek iletilmesi, yoğun saatte bilginin kaybolmasına yol açar. Kimin neyi duyduğu belli olmaz.</p>\n<h3 id=\"masa\">Masa karışıklığı</h3>\n<p>Benzer siparişler veren iki masa, birleştirilen masalar ya da yer değiştiren misafirler, tabağın yanlış masaya gitmesine neden olabilir.</p>\n<h3 id=\"menu\">Menüdeki belirsizlik</h3>\n<p>Porsiyonu, yanında ne geldiği ya da hangi ekstraların seçilebileceği menüde açık değilse, bu belirsizlik siparişe de taşınır.</p>\n\n<h2 id=\"cozumler\">Hataları azaltmanın yolları</h2>\n<h3 id=\"tekrar\">Siparişi tekrar edin</h3>\n<p>Garsonun siparişi alırken özellikle ekstra ve tercihleri misafire tekrar okuması basit ama etkili bir alışkanlıktır.</p>\n<h3 id=\"standart\">Kısaltmaları standart hale getirin</h3>\n<p>Fişte kullanılan kısaltmaları yazılı bir listeye dönüştürüp mutfağa ve salona asın. Yeni personel ilk gün bu listeyi öğrenir.</p>\n<h3 id=\"yazili\">Siparişi yazılı ve masa numaralı iletin</h3>\n<p>Siparişin mutfağa yazılı, masa numarasıyla ve ekstralarıyla birlikte ulaşması, sözlü iletimin hatalarını ortadan kaldırır. Bu bir fiş yazıcısı, bir ekran ya da masadan verilen dijital sipariş olabilir.</p>\n<h3 id=\"menu-net\">Menüyü netleştirin</h3>\n<p>Porsiyon seçeneklerini, yanında gelenleri ve seçilebilir ekstraları menüde açıkça yazın. Misafir neyi seçtiğini net görürse, siparişi de net verir.</p>\n\n<h2 id=\"qr-siparis\">Masadan QR ile sipariş</h2>\n<p>Misafirin siparişi masadaki karekodla açılan menüden kendisinin vermesi, yanlış anlaşılma ve okunmayan not kaynaklı hataların önemli bir kısmını ortadan kaldırır: misafir porsiyonu ve ekstrayı kendisi seçer, sipariş yazılı ve masa numarasıyla gelir.</p>\n<p>QR Menu Official'da QR ile sipariş Pro paketten itibaren vardır. Sipariş, masa bilgisiyle birlikte <a href=\"@/moduller/servis-paneli/\">Servis Paneli</a>'ne düşer; porsiyon ve ekstralar <a href=\"@/moduller/restoran-menu/\">Restoran Menü</a> modülünde tanımladığınız seçeneklerden gelir. Masaya ait olmayan birinin o masa adına sipariş vermesini zorlaştırmak için siparişler imzalı ve süresi sınırlı bir masa oturumuna bağlanır.</p>\n<p class=\"qb-note\">Masadan sipariş, garsonun masaya gitmesini ortadan kaldırmaz. Misafirin sorusu, önerisi ya da özel bir isteği için garson hâlâ oradadır.</p>\n\n<h2 id=\"olcum\">Hataları kaydedin</h2>\n<p>Hangi hatanın ne sıklıkla olduğunu bilmeden çözüm bulmak zordur. Bir ay boyunca geri dönen her tabağı kısa bir notla kaydedin: ne oldu, hangi masa, hangi saat, nedeni neydi. Bu liste, en çok hangi noktaya odaklanmanız gerektiğini gösterir.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Masadan siparişin servis panelinde nasıl göründüğünü görün.</strong> Pro ve Plus demo menülerini açın.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Restoranda en sık sipariş hatası nedir?",
+          "a": "Genellikle ekstra ve tercihlerin (pişirme derecesi, çıkarılacak malzeme, garnitür değişimi) yanlış anlaşılması ya da not edilmemesidir."
+        },
+        {
+          "q": "Sipariş fişi yerine ekran kullanmak hataları azaltır mı?",
+          "a": "Siparişin yazılı ve masa numarasıyla iletilmesi, sözlü iletim ve okunmayan not kaynaklı hataları azaltır. Fiş yazıcısı da ekran da bu amaca hizmet eder."
+        },
+        {
+          "q": "QR ile sipariş verince garsona gerek kalmaz mı?",
+          "a": "Kalır. QR sipariş, notu taşıma ve yanlış anlaşılma kısmını azaltır; misafirle ilgilenme ve servis garsonun işidir."
+        },
+        {
+          "q": "Masada oturmayan biri QR ile sipariş verebilir mi?",
+          "a": "QR Menu Official'da siparişler imzalı ve süresi sınırlı bir masa oturumuna bağlanır; bu, masaya ait olmayan siparişleri zorlaştırır. Mutlak bir güvenlik iddiası değildir."
+        },
+        {
+          "q": "Hangi pakette QR ile sipariş var?",
+          "a": "QR Menu Official'da QR ile sipariş ve servis paneli Pro paketten itibaren sunulur."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Servis Paneli modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/servis-paneli/"
+        },
+        {
+          "label": "QR Menu Official — Masa Oturum Güvenliği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/"
+        }
+      ],
+      "related": [
+        "garson-eksikligi-az-personelle-servis",
+        "garson-cagirma-sistemi",
+        "dijital-menu-nasil-hazirlanir"
+      ],
+      "products": [
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        },
+        {
+          "label": "Masa Oturum Güvenliği",
+          "path": "moduller/masa-oturum-guvenligi/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        }
+      ]
+    },
+    {
+      "slug": "restoran-menu-tasarimi",
+      "category": "qr-menu",
+      "date": "2026-11-07",
+      "readMin": 8,
+      "title": "Restoran Menü Tasarımı: Telefonda Okunan ve Seçimi Kolaylaştıran Menü İçin İlkeler",
+      "seoTitle": "Restoran Menü Tasarımı: Mobil Menü İçin 10 İlke",
+      "description": "İyi bir restoran menüsü nasıl tasarlanır? Kategori sırası, ürün açıklaması, fotoğraf, fiyat gösterimi ve telefonda okunabilirlik için uygulanabilir ilkeler.",
+      "excerpt": "Menü, misafirin elindeki ilk satış aracıdır. Karışık, uzun ve okunmayan bir menü misafiri en tanıdık ürüne iter; düzenli bir menü ise seçmeyi kolaylaştırır.",
+      "cover": "restoran-menu-tasarimi",
+      "coverAlt": "Telefon ekranında kategori sekmeleri, ürün fotoğrafları ve fiyatlarla düzenlenmiş menüyü gösteren illüstrasyon",
+      "answer": "İyi bir restoran menüsü az sayıda net kategoriden oluşur, her üründe kısa ve somut bir açıklama ile gerçek bir fotoğraf taşır, fiyatı okunur şekilde gösterir ve telefonda tek elle rahatça kaydırılır. Tasarımın amacı süs değil, misafirin aradığını hızla bulup karar vermesidir.",
+      "body": "\n<h2 id=\"amac\">Menü tasarımının asıl amacı</h2>\n<p>Menü bir broşür değil, bir karar aracıdır. Misafir masaya oturduğunda birkaç dakika içinde ne yiyeceğine karar vermek ister. Menü bu kararı kolaylaştırıyorsa iyi tasarlanmıştır; uzatıyorsa, ne kadar şık görünürse görünsün işini yapmıyordur.</p>\n<p>Bugün misafirlerin önemli bir kısmı menüye telefonla bakıyor. Bu yüzden aşağıdaki ilkeler, basılı menünün yanında mobil menü için de geçerlidir.</p>\n\n<h2 id=\"ilkeler\">10 ilke</h2>\n<h3 id=\"ilke-1\">1. Kategorileri azaltın ve mantıklı sıralayın</h3>\n<p>Misafirin yemek yeme sırasını izleyin: başlangıçlar, ana yemekler, tatlılar, içecekler. Çok fazla kategori, misafiri sekmeler arasında kaybettirir. Benzer kategorileri birleştirmek çoğu zaman daha iyidir.</p>\n<h3 id=\"ilke-2\">2. Ürün adını tutarlı yazın</h3>\n<p>Büyük-küçük harf, kısaltma ve marka adı kullanımında tutarlı olun. \"tatlı\", \"TATLILAR\" ve \"Tatlılar\" aynı menüde dağınık bir izlenim bırakır.</p>\n<h3 id=\"ilke-3\">3. Açıklamayı kısa ve somut tutun</h3>\n<p>Ana malzeme, pişirme yöntemi ve yanında gelen. \"Şefin özel lezzeti\" gibi ifadeler bilgi vermez; \"Odun ateşinde pişmiş kuzu şiş, közlenmiş biber ve bulgur pilavı ile\" verir.</p>\n<h3 id=\"ilke-4\">4. Gerçek ve tutarlı fotoğraf kullanın</h3>\n<p>Fotoğraf, misafirin önüne gelecek tabağı göstermelidir. Aynı ışıkta, aynı açıdan ve aynı arka planla çekilmiş fotoğraflar menüye düzen verir. Stok fotoğraf, misafiri yanlış beklentiye sokar.</p>\n<h3 id=\"ilke-5\">5. Fiyatı okunur gösterin</h3>\n<p>Fiyat, ürün adıyla aynı satırda ya da hemen altında, net bir yazı tipiyle durmalıdır. Kampanyalı fiyatlarda eski ve yeni fiyatın açıkça ayrılması gerekir.</p>\n<h3 id=\"ilke-6\">6. Seçenekleri görünür kılın</h3>\n<p>Porsiyon, ekstra ve değişim seçenekleri menüde yazılı değilse misafir bunları bilmez; garson da her masada aynı şeyi anlatmak zorunda kalır.</p>\n<h3 id=\"ilke-7\">7. Öne çıkarmak istediğinizi işaretleyin</h3>\n<p>\"Şefin önerisi\", \"yeni\" ya da \"vegan\" gibi rozetler misafirin gözünü yönlendirir. Ama her ürüne rozet koyarsanız hiçbiri öne çıkmaz. Hangi ürünleri öne çıkaracağınıza karar vermek için <a href=\"@/blog/menu-muhendisligi-nedir/\">menü mühendisliği</a> yaklaşımı yardımcı olur.</p>\n<h3 id=\"ilke-8\">8. Okunabilirliği ihmal etmeyin</h3>\n<p>Telefonda gövde metni rahat okunacak büyüklükte olmalı, yazı ile zemin arasında yeterli kontrast bulunmalı. Koyu zeminde ince ve küçük yazı, özellikle dış mekânda okunmaz. Web erişilebilirlik yönergeleri, normal metin için en az 4,5:1 kontrast oranı önerir.</p>\n<h3 id=\"ilke-9\">9. Aramayı ve filtreyi kolaylaştırın</h3>\n<p>Uzun bir menüde arama kutusu ve alerjen, vegan gibi filtreler misafirin aradığını hızla bulmasını sağlar. Filtreler ancak ürün bilgisi eksiksiz girildiğinde doğru çalışır.</p>\n<h3 id=\"ilke-10\">10. Hızlı açılsın</h3>\n<p>Misafir menüyü masada, çoğu zaman mobil veriyle açar. Büyük ve sıkıştırılmamış görseller menünün geç açılmasına yol açar. Fotoğrafları web için küçültmek ve modern biçimlerde (ör. WebP) sunmak, açılış süresini kısaltır.</p>\n\n<h2 id=\"hatalar\">Sık yapılan hatalar</h2>\n<ul>\n  <li>Basılı menünün fotoğrafını ya da PDF'ini dijital menü olarak kullanmak.</li>\n  <li>Her ürüne uzun paragraf açıklama yazmak.</li>\n  <li>Fotoğrafı olan ve olmayan ürünleri düzensiz karıştırmak.</li>\n  <li>Fiyatı küçük ve soluk yazmak.</li>\n  <li>Satıştan kalkan ürünü menüde bırakmak.</li>\n</ul>\n\n<h2 id=\"dijital\">Dijital menüde bu ilkeleri uygulamak</h2>\n<p>QR Menu Official'ın <a href=\"@/moduller/restoran-menu/\">Restoran Menü</a> modülü, kategoriler, ürün fotoğrafı, açıklama, porsiyon ve ekstra seçenekleri ile ürün rozetlerini Temel paketten itibaren sunar. Biten bir ürünü tek dokunuşla \"tükendi\" olarak işaretleyebilir, kampanyalı fiyatları ayrı gösterebilirsiniz. Menü hazırlarken adım adım ilerlemek için <a href=\"@/blog/dijital-menu-nasil-hazirlanir/\">dijital menü hazırlama rehberine</a> de bakabilirsiniz.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Bu ilkelerin uygulandığı bir menüyü telefonunuzda görün.</strong></p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Bir restoran menüsünde kaç kategori olmalı?",
+          "a": "Kesin bir sayı yoktur. Misafirin yemek sırasını izleyen ve benzer ürünleri birleştiren az sayıda net kategori, uzun bir sekme listesinden daha kolay gezilir."
+        },
+        {
+          "q": "Her ürüne fotoğraf koymak gerekli mi?",
+          "a": "Gerekli değil ama fotoğrafı olan ürünlerde gerçek ve tutarlı fotoğraf kullanmak önemlidir. Stok fotoğraf misafiri yanlış beklentiye sokar."
+        },
+        {
+          "q": "Ürün açıklaması ne kadar uzun olmalı?",
+          "a": "Bir ya da iki kısa cümle: ana malzeme, pişirme yöntemi ve yanında gelen. Uzun paragraflar telefonda okunmaz."
+        },
+        {
+          "q": "Dijital menü neden yavaş açılır?",
+          "a": "En sık neden büyük ve sıkıştırılmamış görsellerdir. Fotoğrafları web için küçültmek ve WebP gibi modern biçimlerde sunmak açılışı hızlandırır."
+        },
+        {
+          "q": "PDF menüyü dijital menü olarak kullanabilir miyim?",
+          "a": "Kullanılabilir ama telefonda yakınlaştırma gerektirir, arama ve filtre sunmaz ve her değişiklikte yeniden yüklenmelidir."
+        }
+      ],
+      "sources": [
+        {
+          "label": "W3C — WCAG 2.1, Kontrast (en az) başarı ölçütü",
+          "url": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
+        },
+        {
+          "label": "web.dev — Görselleri optimize etme",
+          "url": "https://web.dev/learn/images"
+        },
+        {
+          "label": "QR Menu Official — Restoran Menü modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/restoran-menu/"
+        }
+      ],
+      "related": [
+        "dijital-menu-nasil-hazirlanir",
+        "menu-muhendisligi-nedir",
+        "qr-menu-fiyatlari"
+      ],
+      "products": [
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Akıllı Filtreleme modülü",
+          "path": "moduller/akilli-filtreleme/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "qr-menu-fiyatlari",
+      "category": "qr-menu",
+      "date": "2026-11-06",
+      "readMin": 7,
+      "title": "QR Menü Fiyatları: Ücret Neye Göre Değişir, Neyi Karşılaştırmalı?",
+      "seoTitle": "QR Menü Fiyatları 2026: Ücret Neye Göre Değişir?",
+      "description": "QR menü fiyatları neye göre değişir? Aylık ve yıllık ücret, paketlerin içeriği, gizli maliyetler ve teklif karşılaştırırken sorulması gereken sorular.",
+      "excerpt": "İki QR menü teklifinin fiyatı yakın görünse de içerdikleri çok farklı olabilir. Doğru karşılaştırma, fiyattan önce neyin dahil olduğuna bakmaktır.",
+      "cover": "qr-menu-fiyatlari",
+      "coverAlt": "Üç paket kartı, fiyat etiketleri ve QR kodlu masa kartını gösteren illüstrasyon",
+      "answer": "QR menü fiyatı, sistemin yalnızca menü mü yoksa sipariş, garson çağrısı ve analitik gibi servis özellikleri de mi sunduğuna, ödeme modeline (aylık ya da yıllık) ve kurulum, çoklu dil ve destek gibi kalemlerin dahil olup olmadığına göre değişir. Teklifleri karşılaştırırken aylık ücret kadar neyin dahil olduğuna bakın.",
+      "body": "\n<h2 id=\"neden-farkli\">Fiyatlar neden bu kadar farklı?</h2>\n<p>\"QR menü\" adı altında çok farklı ürünler satılır. Bir ucunda bir PDF'i karekoda bağlayan basit hizmetler, diğer ucunda masadan sipariş, garson çağrısı, servis ekranı ve analitik sunan sistemler vardır. Fiyat farkı da çoğu zaman bu kapsam farkından gelir.</p>\n\n<h2 id=\"belirleyenler\">Fiyatı belirleyen başlıca kalemler</h2>\n<h3 id=\"kapsam\">Kapsam: yalnızca menü mü, servis de mi?</h3>\n<p>Yalnızca menü gösteren bir sistemle, masadan gelen sipariş ve çağrıları bir servis paneline düşüren sistem aynı şey değildir. İkincisi işletmenin servis akışının parçası olur ve daha fazla özellik içerir.</p>\n<h3 id=\"odeme\">Ödeme modeli</h3>\n<p>Çoğu sistem aylık abonelikle çalışır; yıllık ödemede indirim sunulabilir. Tek seferlik ödeme modellerinde güncelleme ve destek kapsamını ayrıca sorun.</p>\n<h3 id=\"dil\">Çoklu dil</h3>\n<p>Turist misafiri olan işletmeler için önemlidir. Bazı sistemlerde ek ücretlidir; çevirinin nasıl girildiğini (elle, dosyayla, otomatik) de sorun.</p>\n<h3 id=\"kurulum\">Kurulum ve menü girişi</h3>\n<p>Menünün sisteme kimin tarafından girileceği, toplu aktarma (ör. CSV) olup olmadığı ve fotoğrafların nasıl ekleneceği, gizli bir iş yükü ya da ek maliyet olabilir.</p>\n<h3 id=\"baski\">Karekod baskısı</h3>\n<p>Karekodların masa kartı, stand ya da etiket olarak basılması genellikle ayrı bir maliyettir. Masa bazlı kod gerekiyorsa masa sayınız baskı maliyetini belirler.</p>\n<h3 id=\"odeme-alma\">Ödeme alma</h3>\n<p>Sistem online ödeme alıyorsa, abonelik dışında işlem başına komisyon olabilir. Ödeme almayan sistemlerde bu kalem yoktur.</p>\n\n<h2 id=\"sorular\">Teklif karşılaştırırken sorulacak sorular</h2>\n<ol>\n  <li>Fiyat aylık mı, yıllık mı? KDV dahil mi?</li>\n  <li>Ürün ve kategori sayısında sınır var mı?</li>\n  <li>Fiyatı ve ürünü kendim mi güncelliyorum, yoksa talep mi açıyorum?</li>\n  <li>Çoklu dil, alerjen ve filtre dahil mi?</li>\n  <li>Masa bazlı karekod var mı? Garson çağrısı ve sipariş hangi pakette?</li>\n  <li>Sistem ödeme alıyor mu? Alıyorsa komisyon ne kadar?</li>\n  <li>Aboneliği bırakırsam menü verilerimi dışa aktarabilir miyim?</li>\n  <li>Destek hangi kanaldan ve hangi saatlerde?</li>\n</ol>\n\n<h2 id=\"qr-menu-official\">QR Menu Official paketleri</h2>\n<p>Şeffaflık için kendi fiyatlarımızı da yazıyoruz. Kasım 2026 itibarıyla aylık fiyatlar şöyledir; güncel fiyat ve paket içeriği için her zaman <a href=\"@/paketler/\">paketler sayfasını</a> esas alın.</p>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Paket</th><th>Aylık</th><th>Kimin için</th><th>Öne çıkanlar</th></tr></thead>\n  <tbody>\n    <tr><td>Temel</td><td>749 TL</td><td>Menüsünü dijitalleştirmek isteyen işletmeler</td><td>Dijital QR menü, panelden ürün ve fiyat yönetimi, CSV aktarma, porsiyon ve ekstra, rozetler, kampanya ve kombo, akıllı filtreleme, çoklu dil, QR masa</td></tr>\n    <tr><td>Pro</td><td>1.490 TL</td><td>Masa ve servis akışını düzenlemek isteyen işletmeler</td><td>Temel'e ek olarak QR ile sipariş, servis paneli, garson çağrısı, hesap talebi, personel rolleri, masa oturum güvenliği, açılış ekranı</td></tr>\n    <tr><td>Plus</td><td>2.990 TL</td><td>Menüsünü veriyle yönetmek isteyen işletmeler</td><td>Pro'ya ek olarak menü analitiği, yorum ve geri bildirim, maliyet ve reçete, menü mühendisliği, menü asistanı</td></tr>\n  </tbody>\n</table></div>\n<p>Yıllık ödemede 12 ay kullanım için 10 aylık ücret ödenir. Sistem online ödeme almaz; sipariş ve hesap talepleri servis paneline iletilir, ödeme işletmenin kendi yöntemiyle alınır.</p>\n\n<h2 id=\"hangisi\">Hangi paket size uygun?</h2>\n<ul>\n  <li><strong>Yalnızca menünüzü dijitalleştirmek istiyorsanız</strong> ve garson çağrısı ya da masadan sipariş gerekmiyorsa Temel yeterlidir.</li>\n  <li><strong>Garson az, masa çoksa</strong> ve çağrıların, siparişlerin bir ekranda toplanmasını istiyorsanız Pro'ya bakın.</li>\n  <li><strong>Hangi ürünün kâr getirdiğini ve misafirin menüde ne aradığını</strong> görmek istiyorsanız Plus'taki analitik ve menü mühendisliği işinize yarar.</li>\n</ul>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Paketleri yan yana karşılaştırın.</strong> Her özelliğin hangi pakette olduğu tek tabloda.</p>\n  <a class=\"qb-btn\" href=\"@/paketler/\">Paketleri İncele <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "QR menü fiyatları ne kadar?",
+          "a": "Kapsama göre değişir. Yalnızca menü gösteren sistemler ile sipariş, garson çağrısı ve analitik sunan sistemler arasında belirgin fiyat farkı vardır. QR Menu Official'da Kasım 2026 itibarıyla aylık fiyatlar Temel 749 TL, Pro 1.490 TL ve Plus 2.990 TL'dir."
+        },
+        {
+          "q": "Yıllık ödemede indirim var mı?",
+          "a": "QR Menu Official'da yıllık ödemede 12 ay kullanım için 10 aylık ücret ödenir."
+        },
+        {
+          "q": "QR menü sistemi ödeme alır mı?",
+          "a": "Sisteme göre değişir. QR Menu Official ödeme almaz; sipariş ve hesap talepleri servis paneline iletilir."
+        },
+        {
+          "q": "Karekod baskısı fiyata dahil mi?",
+          "a": "Çoğu sistemde baskı ayrı bir maliyettir. QR Menu Official'da karekodları panelden PNG ya da PDF olarak indirip istediğiniz matbaada bastırabilirsiniz."
+        },
+        {
+          "q": "Teklif karşılaştırırken en çok neye dikkat etmeliyim?",
+          "a": "Aylık ücretten önce kapsamı karşılaştırın: güncellemeyi kendiniz yapıp yapamadığınız, çoklu dil, masa bazlı kod, sipariş ve garson çağrısı, veri dışa aktarma ve destek."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Paketler ve fiyatlar",
+          "url": "https://qrmenuofficial.com/paketler/"
+        },
+        {
+          "label": "QR Menu Official — Modüller",
+          "url": "https://qrmenuofficial.com/moduller/"
+        }
+      ],
+      "related": [
+        "qr-menu-nedir",
+        "restoran-menu-tasarimi",
+        "garson-eksikligi-az-personelle-servis"
+      ],
+      "products": [
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        }
+      ]
+    },
+    {
+      "slug": "qr-menu-programi-secimi",
+      "category": "qr-menu",
+      "date": "2026-11-05",
+      "readMin": 8,
+      "title": "QR Menü Programı Seçerken Sorulacak 12 Soru",
+      "seoTitle": "QR Menü Programı Nasıl Seçilir? Sorulacak 12 Soru",
+      "description": "En iyi QR menü programı hangisi? Kendi işletmenize uygun sistemi seçmek için güncelleme, mobil görünüm, çoklu dil, sipariş, veri ve destek üzerine 12 soru.",
+      "excerpt": "Her işletme için 'en iyi' QR menü programı farklıdır. Doğru seçimi listeler değil, sizin ihtiyacınıza göre sorduğunuz sorular belirler.",
+      "cover": "qr-menu-programi-secimi",
+      "coverAlt": "Kontrol listesi, onay işaretleri ve telefonda QR menü ekranını gösteren illüstrasyon",
+      "answer": "QR menü programı seçerken önce ihtiyacınızı netleştirin: yalnızca menü mü, yoksa sipariş ve garson çağrısı da mı gerekiyor? Ardından fiyatı kendiniz güncelleyip güncelleyemediğinizi, menünün telefonda nasıl göründüğünü, çoklu dil ve alerjen desteğini, verilerinizi dışa aktarıp aktaramadığınızı ve desteğin nasıl verildiğini sorun.",
+      "body": "\n<h2 id=\"neden-sorular\">Neden liste değil, sorular?</h2>\n<p>\"En iyi QR menü\" listeleri genellikle tek bir ölçüte göre sıralanır ve sizin işletmenizi bilmez. Tek şubeli bir kafe ile yoğun bir restoranın ihtiyacı aynı değildir. Aşağıdaki sorular, teklif aldığınız her sisteme aynı şekilde sorabileceğiniz bir kontrol listesidir.</p>\n\n<h2 id=\"ihtiyac\">Önce ihtiyacınızı yazın</h2>\n<p>Teklif istemeden önce üç soruyu kendinize sorun:</p>\n<ul>\n  <li><strong>Yalnızca menüyü mü dijitalleştirmek istiyorum,</strong> yoksa garson çağrısı ve masadan sipariş de mi gerekiyor?</li>\n  <li><strong>Misafirlerim hangi dilleri konuşuyor?</strong></li>\n  <li><strong>Menüm ne sıklıkla değişiyor?</strong> Fiyatlar her ay mı, yılda bir mi güncelleniyor?</li>\n</ul>\n\n<h2 id=\"yonetim\">Yönetim ve güncelleme</h2>\n<h3 id=\"soru-1\">1. Fiyat ve ürünü kendim güncelleyebiliyor muyum?</h3>\n<p>Her değişiklik için destek talebi açmak zorundaysanız, fiyatın güncel kalması bir başkasının hızına bağlı olur.</p>\n<h3 id=\"soru-2\">2. Toplu aktarma var mı?</h3>\n<p>Yüzlerce ürününüz varsa, menüyü tek tek girmek yerine tablo (ör. CSV) ile yükleyebilmek ciddi zaman kazandırır.</p>\n<h3 id=\"soru-3\">3. Biten ürünü hızla kapatabiliyor muyum?</h3>\n<p>Akşam servisinin ortasında tükenen bir ürünü menüden kaldırmak tek dokunuş sürmelidir.</p>\n\n<h2 id=\"misafir\">Misafir deneyimi</h2>\n<h3 id=\"soru-4\">4. Menü telefonda nasıl görünüyor?</h3>\n<p>Demo menüyü kendi telefonunuzda, mobil veriyle ve dış mekânda açın. Yavaş açılan ya da küçük yazılı bir menü, misafirin ilk izlenimidir.</p>\n<h3 id=\"soru-5\">5. Arama ve filtre var mı?</h3>\n<p>Uzun menülerde misafirin aradığını bulması için arama kutusu, alerjen ve vegan gibi filtreler önemlidir. Filtrelerin, ürünlere girdiğiniz bilgiye dayandığını unutmayın.</p>\n<h3 id=\"soru-6\">6. Çoklu dil nasıl çalışıyor?</h3>\n<p>Çevirinin elle mi, dosyayla mı girildiğini sorun. Ayrıntısı için <a href=\"@/blog/turist-icin-cok-dilli-menu/\">çok dilli menü rehberine</a> bakın.</p>\n<h3 id=\"soru-7\">7. Porsiyon, ekstra ve alerjen bilgisi tutulabiliyor mu?</h3>\n<p>Bu bilgiler hem misafirin karar vermesine hem de siparişin doğru gitmesine yardımcı olur.</p>\n\n<h2 id=\"servis\">Servis</h2>\n<h3 id=\"soru-8\">8. Garson çağrısı ve sipariş hangi pakette?</h3>\n<p>Bu özellikler bir servis ekranı gerektirir. Hangi pakette olduklarını ve talebin personele nasıl bildirildiğini sorun.</p>\n<h3 id=\"soru-9\">9. Sistem ödeme alıyor mu?</h3>\n<p>Ödeme alan sistemlerde işlem başına komisyon olabilir; almayan sistemlerde ödeme sizin yönteminizle yapılır. İkisini karıştırmayın.</p>\n\n<h2 id=\"veri\">Veri ve süreklilik</h2>\n<h3 id=\"soru-10\">10. Menü verilerimi dışa aktarabilir miyim?</h3>\n<p>Sistemi değiştirmek istediğinizde ürünlerinizi yeniden yazmak zorunda kalmamalısınız.</p>\n<h3 id=\"soru-11\">11. Neyi ölçebiliyorum?</h3>\n<p>Menü görüntüleme, ürün tıklaması ya da misafirin aradığı kelimeler, menünüzü geliştirmek için veri sağlar. Bu verinin satış verisi olmadığını akılda tutun.</p>\n<h3 id=\"soru-12\">12. Destek nasıl verilir?</h3>\n<p>Hangi kanaldan, hangi saatlerde ve kurulumda ne kadar yardım alacağınızı sorun.</p>\n\n<h2 id=\"qr-menu-official\">QR Menu Official bu sorulara ne cevap verir?</h2>\n<ul>\n  <li>Ürün ve fiyatı panelden kendiniz güncellersiniz; CSV ile toplu aktarma, porsiyon, ekstra, rozet ve tükendi işareti Temel paketten itibaren vardır.</li>\n  <li>Çoklu dil, akıllı filtreleme ve masa bazlı QR kod Temel pakettedir. Çeviriler elle ya da CSV ile girilir.</li>\n  <li>QR ile sipariş, garson çağrısı, hesap talebi ve servis paneli Pro paketten itibaren sunulur. Sistem ödeme almaz.</li>\n  <li>Menü analitiği, yorum ve geri bildirim, maliyet ve menü mühendisliği Plus pakettedir.</li>\n  <li>Taşıma aracıyla menü, ayarlar ve görseller başka bir siteye aktarılabilir.</li>\n</ul>\n<p>Fiyatlar ve karşılaştırma için <a href=\"@/blog/qr-menu-fiyatlari/\">QR menü fiyatları yazısına</a> ve <a href=\"@/paketler/\">paketler sayfasına</a> bakın.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Soruların cevabını kendi gözünüzle görün.</strong> Demo menüleri telefonunuzda açın.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "En iyi QR menü programı hangisi?",
+          "a": "Tek bir cevap yoktur. İşletmenizin yalnızca menüye mi yoksa sipariş ve garson çağrısına da mı ihtiyacı olduğuna, menünün ne sıklıkla değiştiğine ve misafirlerinizin dillerine göre değişir."
+        },
+        {
+          "q": "QR menü programında hangi özellikler olmalı?",
+          "a": "Fiyat ve ürünü kendinizin güncelleyebilmesi, telefonda iyi görünmesi, arama ve filtre, gerekiyorsa çoklu dil ve verilerinizi dışa aktarabilmeniz temel beklentilerdir."
+        },
+        {
+          "q": "QR menü programı sipariş de alır mı?",
+          "a": "Sisteme göre değişir. QR Menu Official'da QR ile sipariş Pro paketten itibaren vardır ve servis paneline düşer; sistem ödeme almaz."
+        },
+        {
+          "q": "Programı değiştirirsem menümü kaybeder miyim?",
+          "a": "Dışa aktarma desteği olan sistemlerde hayır. Teklif alırken verilerinizi dışa aktarıp aktaramayacağınızı mutlaka sorun."
+        },
+        {
+          "q": "Demo menüyü nasıl değerlendirmeliyim?",
+          "a": "Kendi telefonunuzda, mobil veriyle ve dış mekânda açın; ürün aramayı, filtreyi ve dil değiştirmeyi deneyin."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Paketler ve fiyatlar",
+          "url": "https://qrmenuofficial.com/paketler/"
+        },
+        {
+          "label": "QR Menu Official — Modüller",
+          "url": "https://qrmenuofficial.com/moduller/"
+        }
+      ],
+      "related": [
+        "qr-menu-fiyatlari",
+        "qr-menu-nedir",
+        "ucretsiz-qr-menu"
+      ],
+      "products": [
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        }
+      ]
+    },
+    {
+      "slug": "qr-ile-masadan-siparis",
+      "category": "servis",
+      "date": "2026-11-04",
+      "readMin": 7,
+      "title": "QR ile Masadan Sipariş: Nasıl Çalışır, Kime Uygun?",
+      "seoTitle": "QR ile Masadan Sipariş Sistemi: Nasıl Çalışır?",
+      "description": "QR kod ile masadan sipariş nasıl çalışır? Misafir, garson ve mutfak açısından akış, hangi işletmeye uygun olduğu ve geçiş öncesi dikkat edilmesi gerekenler.",
+      "excerpt": "Misafir masadaki kodu okutur, menüden seçer, sipariş verir. Kulağa basit geliyor; ama doğru kurulmazsa garsonun işini azaltacağına artırabilir.",
+      "cover": "qr-ile-masadan-siparis",
+      "coverAlt": "Telefonda sepet ekranı, masa numarası ve servis paneline giden sipariş kartını gösteren illüstrasyon",
+      "answer": "QR ile masadan siparişte misafir masadaki karekodu okutur, menüden ürün, porsiyon ve ekstraları seçer ve siparişi gönderir. Sipariş masa numarasıyla birlikte personelin ekranına düşer. Garsonun not alıp mutfağa taşıma işini azaltır; misafirle ilgilenmeyi ve servisi ortadan kaldırmaz.",
+      "body": "\n<h2 id=\"akis\">Masadan sipariş nasıl işler?</h2>\n<ol>\n  <li><strong>Misafir masadaki kodu okutur.</strong> Kod masaya özeldir; menü hangi masada açıldığını bilir.</li>\n  <li><strong>Menüden seçer.</strong> Ürün, porsiyon ve ekstralar menüde tanımlandığı şekilde seçilir.</li>\n  <li><strong>Siparişi gönderir.</strong> Sipariş yazılı olarak, masa numarasıyla gider.</li>\n  <li><strong>Personel ekranda görür.</strong> Garson ya da mutfak siparişi panelde görür ve hazırlığa alır.</li>\n  <li><strong>Servis ve hesap.</strong> Yemek masaya garsonla gelir; hesap işletmenin kendi yöntemiyle alınır.</li>\n</ol>\n\n<h2 id=\"kime-uygun\">Kime uygun, kime değil?</h2>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Uygun olduğu durumlar</th><th>Dikkat edilmesi gereken durumlar</th></tr></thead>\n  <tbody>\n    <tr><td>Masa sayısı garson sayısına göre fazla</td><td>Misafirle uzun sohbetin deneyimin parçası olduğu fine dining</td></tr>\n    <tr><td>Hızlı servis, kafe, bahçe ve teras</td><td>Menüsü sürekli sözlü anlatılan, yazılı olmayan mekânlar</td></tr>\n    <tr><td>Yabancı misafiri çok olan işletmeler</td><td>Mutfağın yazılı sipariş akışına hazır olmadığı yerler</td></tr>\n  </tbody>\n</table></div>\n<p>Pek çok işletmede en iyi sonuç, iki yöntemin birlikte sunulmasıyla alınır: isteyen misafir telefondan sipariş verir, isteyen garsona söyler.</p>\n\n<h2 id=\"faydalar\">Kimin işi kolaylaşır?</h2>\n<ul>\n  <li><strong>Misafir:</strong> Garsonu beklemeden, kendi hızında ve kendi dilinde seçim yapar.</li>\n  <li><strong>Garson:</strong> Not alma ve mutfağa taşıma yükü azalır; zamanını servise ve misafire ayırır.</li>\n  <li><strong>Mutfak:</strong> Sipariş yazılı ve okunur gelir; ekstralar atlanmaz.</li>\n</ul>\n<p>Sipariş hatalarının nerelerden doğduğunu <a href=\"@/blog/restoran-siparis-hatalari/\">sipariş hataları yazısında</a> ayrıntılı anlattık.</p>\n\n<h2 id=\"hazirlik\">Geçişten önce hazırlık</h2>\n<ol>\n  <li>Menüdeki her ürünün porsiyon ve ekstra seçeneklerini netleştirin.</li>\n  <li>Masaları numaralandırıp her masaya kendi karekodunu koyun.</li>\n  <li>Siparişin düşeceği ekranı (tablet, bilgisayar ya da telefon) belirleyin ve sesli uyarıyı açın.</li>\n  <li>Garsonlara akışı anlatın: kim siparişi onaylar, kim mutfağa iletir?</li>\n  <li>İlk günlerde masadaki misafire sistemi kısaca tanıtın.</li>\n</ol>\n\n<h2 id=\"guvenlik\">Masada olmayan biri sipariş verebilir mi?</h2>\n<p>Karekodun fotoğrafı çekilip paylaşılırsa, masada olmayan biri de menüyü açabilir. Bunu zorlaştırmak için siparişleri masaya bağlı, süresi sınırlı bir oturuma bağlamak gerekir. Ayrıntısı için <a href=\"@/blog/qr-menu-guvenligi/\">QR menü güvenliği yazısına</a> bakın.</p>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da masadan sipariş</h2>\n<p>QR ile sipariş Pro paketten itibaren vardır. Sipariş, masa bilgisiyle <a href=\"@/moduller/servis-paneli/\">Servis Paneli</a>'ne düşer; panel sesli uyarı ve masaüstü bildirimi verebilir. Porsiyon ve ekstralar <a href=\"@/moduller/restoran-menu/\">Restoran Menü</a> modülünde tanımladığınız seçeneklerden gelir. Siparişler imzalı ve süresi sınırlı bir masa oturumuna bağlanır. Sistem ödeme almaz.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Masadan siparişi kendi telefonunuzda deneyin.</strong></p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "QR ile sipariş için uygulama indirmek gerekir mi?",
+          "a": "Hayır. Misafir karekodu telefon kamerasıyla okutur, menü tarayıcıda açılır ve sipariş oradan verilir."
+        },
+        {
+          "q": "QR sipariş sistemi ödeme alır mı?",
+          "a": "Sisteme göre değişir. QR Menu Official ödeme almaz; sipariş servis paneline iletilir, hesap işletmenin kendi yöntemiyle alınır."
+        },
+        {
+          "q": "Misafir hem garsona hem telefona sipariş verebilir mi?",
+          "a": "Evet. Pek çok işletme iki yöntemi birlikte sunar; misafir hangisini isterse onu kullanır."
+        },
+        {
+          "q": "Sipariş mutfağa nasıl ulaşır?",
+          "a": "Sipariş, masa numarasıyla birlikte personelin izlediği servis paneline düşer. Mutfağa iletim işletmenin kendi düzenine göre yapılır."
+        },
+        {
+          "q": "Hangi pakette QR ile sipariş var?",
+          "a": "QR Menu Official'da QR ile sipariş ve servis paneli Pro paketten itibaren sunulur."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Servis Paneli modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/servis-paneli/"
+        },
+        {
+          "label": "QR Menu Official — Masa Oturum Güvenliği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/"
+        }
+      ],
+      "related": [
+        "restoran-siparis-hatalari",
+        "garson-cagirma-sistemi",
+        "qr-menu-guvenligi"
+      ],
+      "products": [
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        },
+        {
+          "label": "QR Masa modülü",
+          "path": "moduller/qr-masa/"
+        },
+        {
+          "label": "Masa Oturum Güvenliği",
+          "path": "moduller/masa-oturum-guvenligi/"
+        }
+      ]
+    },
+    {
+      "slug": "restoranda-ek-satis",
+      "category": "karlilik",
+      "date": "2026-11-03",
+      "readMin": 7,
+      "title": "Restoranda Ek Satış: Israrcı Olmadan Öneri Yapmanın Yolları",
+      "seoTitle": "Restoranda Ek Satış (Upselling): Israrsız Öneri Rehberi",
+      "description": "Restoranda ek satış nasıl yapılır? Garsonun doğru öneri cümleleri, menüde eşleştirme, porsiyon ve ekstra seçenekleri ile misafiri rahatsız etmeden önerinin yolları.",
+      "excerpt": "İyi bir öneri misafire yardım eder; kötü bir öneri satış baskısı gibi hissettirir. Aradaki fark, önerinin misafirin seçimine ne kadar uyduğudur.",
+      "cover": "restoranda-ek-satis",
+      "coverAlt": "Ana yemeğin yanında içecek ve tatlı önerisi kartlarını gösteren illüstrasyon",
+      "answer": "Restoranda ek satış, misafirin seçtiği ürüne uyan bir içecek, yan ürün, tatlı ya da daha büyük porsiyon önermektir. Israrsız ek satışın yolu, öneriyi misafirin seçimine göre kişiselleştirmek, tek ve net bir seçenek sunmak ve menüde bu eşleştirmeleri görünür kılmaktır.",
+      "body": "\n<h2 id=\"tanim\">Ek satış nedir, ne değildir?</h2>\n<p>Ek satış (upselling), misafirin zaten vereceği siparişe bir şey eklemek ya da daha uygun bir seçeneğe yönlendirmektir: ızgaranın yanına bir içecek, tatlıya bir kahve, küçük porsiyon yerine paylaşımlık tabak. Amaç misafiri istemediği bir şeye ikna etmek değil, deneyimini tamamlayan bir seçeneği hatırlatmaktır.</p>\n\n<h2 id=\"garson\">Garson için öneri ilkeleri</h2>\n<h3 id=\"kisisel\">Öneriyi kişiselleştirin</h3>\n<p>\"Başka bir şey ister misiniz?\" sorusu genellikle \"hayır\" ile biter. \"Adana'nın yanına evde yaptığımız şalgam çok gider\" ise misafirin seçimine dayanan somut bir öneridir.</p>\n<h3 id=\"tek-secenek\">Tek ve net seçenek sunun</h3>\n<p>Beş farklı tatlı saymak karar vermeyi zorlaştırır. En uygun bir ya da iki seçeneği söylemek yeterlidir.</p>\n<h3 id=\"zamanlama\">Doğru anı seçin</h3>\n<p>İçecek önerisi sipariş anında, tatlı ve kahve önerisi ana yemek bittiğinde yapılır. Yemek gelmeden tatlı önermek misafiri bunaltır.</p>\n<h3 id=\"dogruluk\">Bildiğinizi önerin</h3>\n<p>Garsonun önerdiği ürünü tatmış olması, önerinin samimi görünmesini sağlar. Yeni ürünleri ekibe tattırmak bu yüzden önemlidir.</p>\n\n<h2 id=\"menu\">Menüde ek satışı görünür kılmak</h2>\n<ul>\n  <li><strong>Eşleştirme önerisi:</strong> Ürün açıklamasında \"yanında ayran ile\" gibi kısa bir öneri.</li>\n  <li><strong>Porsiyon seçenekleri:</strong> Küçük ve büyük porsiyonu yan yana göstermek, misafirin büyük porsiyonu da düşünmesini sağlar.</li>\n  <li><strong>Ekstralar:</strong> Ekstra peynir, sos ya da garnitür, misafire seçim özgürlüğü verir.</li>\n  <li><strong>Kombo:</strong> Ana yemek, yan ürün ve içeceği bir arada sunmak. Ayrıntısı <a href=\"@/blog/kombo-menu/\">kombo menü yazısında</a>.</li>\n  <li><strong>Rozetler:</strong> \"Şefin önerisi\" gibi işaretler, misafirin gözünü belirli ürünlere yönlendirir.</li>\n</ul>\n\n<h2 id=\"neyi\">Neyi önermeli?</h2>\n<p>Ek satışın amacı yalnızca hesabı büyütmek değil, kârlı ürünleri öne çıkarmaktır. Hangi ürünün size gerçekten kazandırdığını bilmeden yapılan öneri, düşük kârlı bir ürünü satmanıza da yol açabilir. Bunun için ürün maliyetlerini bilmek gerekir: <a href=\"@/blog/recete-maliyeti-hesaplama/\">reçete maliyeti</a> ve <a href=\"@/blog/menu-muhendisligi-nedir/\">menü mühendisliği</a> yazılarına bakın.</p>\n\n<h2 id=\"kacinin\">Kaçınılması gerekenler</h2>\n<ul>\n  <li>Her masaya aynı ezber cümleyi söylemek.</li>\n  <li>Misafir \"hayır\" dedikten sonra ısrar etmek.</li>\n  <li>Fiyatı söylemeden pahalı bir seçenek önermek.</li>\n  <li>Tükenmiş ya da hazırlanması uzun süren bir ürünü önermek.</li>\n</ul>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da ilgili özellikler</h2>\n<p>Porsiyon ve ekstra seçenekleri, ürün rozetleri ve kampanya ile kombo tanımları Temel paketten itibaren <a href=\"@/moduller/restoran-menu/\">Restoran Menü</a> modülündedir. Menü önerileri bölümünde öne çıkarmak istediğiniz ürünleri seçebilirsiniz. Plus paketindeki <a href=\"@/moduller/menu-asistani/\">Menü Asistanı</a>, misafirin sorusuna göre menüden ürün önerebilir; cevaplayamadığı soruları raporlar.</p>\n",
+      "faq": [
+        {
+          "q": "Upselling ile cross-selling arasındaki fark nedir?",
+          "a": "Upselling daha büyük ya da daha üst bir seçeneğe yönlendirmektir (büyük porsiyon gibi). Cross-selling ise seçilen ürüne uyan başka bir ürün önermektir (yemeğin yanına içecek gibi). Günlük kullanımda ikisi de 'ek satış' olarak anılır."
+        },
+        {
+          "q": "Ek satış misafiri rahatsız eder mi?",
+          "a": "Ezber ve ısrarcı öneri eder. Misafirin seçimine uyan, tek ve net bir öneri genellikle yardım olarak algılanır."
+        },
+        {
+          "q": "Hangi ürünler önerilmeli?",
+          "a": "Misafirin seçimine uyan ve işletme için kârlı olan ürünler. Bunun için ürün maliyetlerini bilmek gerekir."
+        },
+        {
+          "q": "Dijital menü ek satışa yardımcı olur mu?",
+          "a": "Porsiyon, ekstra, kombo ve öneri rozetlerinin menüde görünür olması misafirin bu seçenekleri fark etmesini kolaylaştırır. Satışa etkisi işletmeden işletmeye değişir."
+        },
+        {
+          "q": "Garsonlara ek satış nasıl öğretilir?",
+          "a": "Ürünleri tattırmak, her ana yemek için bir eşleştirme önerisi belirlemek ve doğru zamanlamayı rol yaparak çalışmak etkili yöntemlerdir."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Restoran Menü modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/restoran-menu/"
+        },
+        {
+          "label": "QR Menu Official — Menü Asistanı modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/menu-asistani/"
+        }
+      ],
+      "related": [
+        "kombo-menu",
+        "menu-muhendisligi-nedir",
+        "recete-maliyeti-hesaplama"
+      ],
+      "products": [
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Menü Asistanı modülü",
+          "path": "moduller/menu-asistani/"
+        },
+        {
+          "label": "Menü Mühendisliği modülü",
+          "path": "moduller/menu-muhendisligi/"
+        }
+      ]
+    },
+    {
+      "slug": "recete-maliyeti-hesaplama",
+      "category": "karlilik",
+      "date": "2026-11-02",
+      "readMin": 8,
+      "title": "Reçete Maliyeti Nasıl Hesaplanır? Fire Payı Dahil Adım Adım",
+      "seoTitle": "Reçete Maliyeti ve Food Cost Hesaplama: Adım Adım",
+      "description": "Yemek maliyeti ve food cost nasıl hesaplanır? Reçete kartı, gramaj, fire payı, birim maliyet ve maliyet oranı hesabı için örnekli adım adım rehber.",
+      "excerpt": "Bir tabağın size kaça mal olduğunu bilmeden doğru fiyat koyamazsınız. Reçete maliyeti, menüdeki her kararın başlangıç noktasıdır.",
+      "cover": "recete-maliyeti-hesaplama",
+      "coverAlt": "Reçete kartı, terazi ve hesap makinesini gösteren illüstrasyon",
+      "answer": "Reçete maliyeti, bir porsiyonda kullanılan her malzemenin gramajının, fire payı eklenmiş birim fiyatıyla çarpılıp toplanmasıyla bulunur. Maliyet oranı (food cost) ise porsiyon maliyetinin vergisiz satış fiyatına bölünüp 100 ile çarpılmasıdır.",
+      "body": "\n<h2 id=\"neden\">Neden reçete maliyeti?</h2>\n<p>Malzeme fiyatları değiştikçe aynı tabağın maliyeti de değişir. Reçete maliyetini bilmeyen bir işletme, fiyatını tahminle belirler; artan maliyeti fark ettiğinde kâr çoktan erimiş olabilir.</p>\n\n<h2 id=\"recete-karti\">1. Adım: Reçete kartı hazırlayın</h2>\n<p>Her ürün için bir porsiyonda kullanılan bütün malzemeleri gramaj ya da adetle yazın. Garnitür, sos, yağ ve servis ekmeği de maliyetin parçasıdır.</p>\n\n<h2 id=\"fire\">2. Adım: Fire payını hesaplayın</h2>\n<p>Satın aldığınız malzemenin tamamı tabağa girmez. Sebzenin kabuğu, etin sinir ve yağ kısmı, pişirme kaybı fire olarak düşer. Fire payını bulmak için malzemeyi temizleyip tartın:</p>\n<p><strong>Kullanılabilir oran = Temizlenmiş ağırlık ÷ Satın alınan ağırlık</strong></p>\n<p>Örneğin 1.000 g soğanın temizlendikten sonra 900 g kaldığını varsayalım. Kullanılabilir oran 0,90'dır. 1 kg soğana 40 TL ödüyorsanız, kullanılabilir soğanın kilogram maliyeti 40 ÷ 0,90 ≈ 44,4 TL olur.</p>\n<p class=\"qb-note\">Örnekteki rakamlar hesap yöntemini göstermek içindir; kendi alış fiyatlarınızı ve tartımlarınızı kullanın.</p>\n\n<h2 id=\"hesap\">3. Adım: Porsiyon maliyetini toplayın</h2>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Malzeme</th><th>Porsiyondaki miktar</th><th>Fire sonrası birim maliyet</th><th>Tutar</th></tr></thead>\n  <tbody>\n    <tr><td>Kıyma</td><td>150 g</td><td>A TL / kg</td><td>0,150 × A</td></tr>\n    <tr><td>Soğan</td><td>30 g</td><td>B TL / kg</td><td>0,030 × B</td></tr>\n    <tr><td>Lavaş</td><td>1 adet</td><td>C TL / adet</td><td>C</td></tr>\n    <tr><td>Garnitür ve sos</td><td>—</td><td>—</td><td>D</td></tr>\n    <tr><td colspan=\"3\"><strong>Porsiyon maliyeti</strong></td><td><strong>Toplam</strong></td></tr>\n  </tbody>\n</table></div>\n\n<h2 id=\"oran\">4. Adım: Maliyet oranını bulun</h2>\n<p><strong>Maliyet oranı (%) = Porsiyon maliyeti ÷ Vergisiz satış fiyatı × 100</strong></p>\n<p>Bu oran, satış fiyatının ne kadarının malzemeye gittiğini gösterir. Hangi oranın uygun olduğu, işletmenizin kira, personel ve enerji gibi diğer giderlerine bağlıdır; başka bir işletmenin oranını doğrudan kopyalamak yanıltıcı olabilir.</p>\n\n<h2 id=\"guncelleme\">5. Adım: Düzenli güncelleyin</h2>\n<p>Reçete maliyeti bir kez hesaplanıp unutulacak bir rakam değildir. Malzeme fiyatı değiştiğinde ya da tedarikçi değiştirdiğinizde ilgili ürünlerin maliyetini yeniden hesaplayın. Fiyat artışını menüye nasıl yansıtacağınızı <a href=\"@/blog/restoran-fiyat-artisi-menuye-nasil-yansitilir/\">fiyat artışı rehberinde</a> anlattık.</p>\n\n<h2 id=\"hatalar\">Sık yapılan hatalar</h2>\n<ul>\n  <li>Fire payını hesaba katmamak.</li>\n  <li>Sos, yağ, baharat ve servis ekmeğini maliyete eklememek.</li>\n  <li>Porsiyonu ölçmeden, göz kararı servis etmek.</li>\n  <li>Eski alış fiyatlarıyla hesap yapmak.</li>\n  <li>KDV dahil satış fiyatıyla oran hesaplamak.</li>\n</ul>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da maliyet ve reçete</h2>\n<p>Plus paketindeki <a href=\"@/moduller/menu-muhendisligi/\">Maliyet ve Reçete</a> ekranında malzeme fiyatlarını ve ürün reçetelerini girersiniz; sistem ürün maliyetini sizin verinizle hesaplar ve menü mühendisliği raporunda kullanır. Maliyet bilgisi girilmeden otomatik hesap yapılmaz.</p>\n",
+      "faq": [
+        {
+          "q": "Food cost nedir?",
+          "a": "Food cost (yemek maliyeti oranı), bir porsiyonun malzeme maliyetinin vergisiz satış fiyatına oranıdır. Porsiyon maliyeti ÷ satış fiyatı × 100 ile hesaplanır."
+        },
+        {
+          "q": "Fire payı nasıl hesaplanır?",
+          "a": "Malzemeyi temizleyip tartın ve temizlenmiş ağırlığı satın alınan ağırlığa bölün. Birim fiyatı bu orana böldüğünüzde kullanılabilir malzemenin gerçek birim maliyetini bulursunuz."
+        },
+        {
+          "q": "İdeal maliyet oranı kaçtır?",
+          "a": "Tek bir doğru oran yoktur. Uygun oran işletmenin kira, personel ve diğer giderlerine bağlıdır; başka işletmelerin oranını doğrudan uygulamak yanıltıcı olabilir."
+        },
+        {
+          "q": "Reçete maliyeti ne sıklıkla güncellenmeli?",
+          "a": "Malzeme fiyatı ya da tedarikçi değiştiğinde. Fiyatların sık değiştiği dönemlerde düzenli kontrol önerilir."
+        },
+        {
+          "q": "QR Menu Official maliyeti otomatik hesaplar mı?",
+          "a": "Plus paketindeki maliyet ve reçete ekranı, girdiğiniz malzeme fiyatları ve reçetelerle maliyeti hesaplar. Veri girilmeden maliyet üretmez."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Menü Mühendisliği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/menu-muhendisligi/"
+        },
+        {
+          "label": "Gelir İdaresi Başkanlığı — KDV",
+          "url": "https://www.gib.gov.tr/"
+        }
+      ],
+      "related": [
+        "menu-fiyatlandirma",
+        "menu-muhendisligi-nedir",
+        "restoran-fiyat-artisi-menuye-nasil-yansitilir"
+      ],
+      "products": [
+        {
+          "label": "Menü Mühendisliği (maliyet ve reçete)",
+          "path": "moduller/menu-muhendisligi/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "menu-fiyatlandirma",
+      "category": "karlilik",
+      "date": "2026-11-01",
+      "readMin": 7,
+      "title": "Menü Fiyatlandırma Yöntemleri: Restoran Fiyatı Nasıl Belirlenir?",
+      "seoTitle": "Menü Fiyatlandırma: Restoranda Fiyat Nasıl Belirlenir?",
+      "description": "Restoran menüsünde fiyat nasıl belirlenir? Maliyet artı, katkı payı, rakip ve değer bazlı fiyatlandırma yöntemleri ile menüde fiyat gösterimi için rehber.",
+      "excerpt": "Fiyatı yalnızca maliyete bakarak koyarsanız değeri, yalnızca rakibe bakarak koyarsanız kârı kaçırabilirsiniz. Doğru fiyat, birkaç yöntemin birlikte kullanılmasıyla bulunur.",
+      "cover": "menu-fiyatlandirma",
+      "coverAlt": "Fiyat etiketleri, terazi ve menü kartını gösteren illüstrasyon",
+      "answer": "Menü fiyatı belirlenirken önce reçete maliyeti hesaplanır, ardından ürünün işletmeye bırakması gereken katkı, benzer işletmelerin fiyatları ve misafirin ürüne biçtiği değer birlikte değerlendirilir. Tek bir yönteme dayanmak yerine maliyeti taban, değeri tavan kabul etmek daha sağlıklıdır.",
+      "body": "\n<h2 id=\"taban\">Önce tabanı bilin: maliyet</h2>\n<p>Hangi yöntemi seçerseniz seçin, ürünün size kaça mal olduğunu bilmeden fiyat koyamazsınız. Hesabın nasıl yapıldığını <a href=\"@/blog/recete-maliyeti-hesaplama/\">reçete maliyeti rehberinde</a> anlattık.</p>\n\n<h2 id=\"yontemler\">Dört temel yöntem</h2>\n<h3 id=\"maliyet-arti\">1. Maliyet artı yöntemi</h3>\n<p>Porsiyon maliyetine sabit bir çarpan ya da hedef maliyet oranı uygulanır. Uygulaması kolaydır ve her ürünün maliyetini karşılar. Zayıf yanı, misafirin ürüne biçtiği değeri hesaba katmamasıdır: ucuz malzemeli ama çok sevilen bir ürün gereğinden düşük, pahalı malzemeli bir ürün ise satılamayacak kadar yüksek fiyatlanabilir.</p>\n<h3 id=\"katki\">2. Katkı payı yöntemi</h3>\n<p>Her ürünün, maliyeti çıktıktan sonra işletmeye bıraktığı tutara (katkı payı) odaklanılır. Yüzde yerine tutara bakmak, pahalı malzemeli ürünlerin düşük oranlı ama yüksek tutarlı katkı bırakabileceğini gösterir. <a href=\"@/blog/menu-muhendisligi-nedir/\">Menü mühendisliği</a> bu yöntemi satış adediyle birleştirir.</p>\n<h3 id=\"rakip\">3. Rakip bazlı yöntem</h3>\n<p>Çevrenizdeki benzer işletmelerin fiyatlarına bakılır. Misafirin beklentisini anlamak için faydalıdır; ama rakibin maliyet yapısını bilmeden onun fiyatını kopyalamak riskli olabilir.</p>\n<h3 id=\"deger\">4. Değer bazlı yöntem</h3>\n<p>Misafirin ürüne biçtiği değer esas alınır: imza yemekleri, özel sunumlar ya da yerel olarak bilinen lezzetler. Değer, maliyetin çok üstünde bir fiyatı haklı kılabilir; bunun için ürünün gerçekten farklı olması gerekir.</p>\n\n<h2 id=\"birlikte\">Yöntemleri birlikte kullanmak</h2>\n<ol>\n  <li>Maliyeti hesaplayın; bu, altına inmemeniz gereken tabandır.</li>\n  <li>Benzer işletmelerin fiyat aralığına bakın; bu, misafirin beklentisidir.</li>\n  <li>Ürünün sizdeki farkını değerlendirin; bu, aralığın neresinde durabileceğinizi belirler.</li>\n  <li>Satış adedini ve katkı payını izleyip fiyatı zamanla düzeltin.</li>\n</ol>\n\n<h2 id=\"gosterim\">Fiyatı menüde nasıl gösterirsiniz?</h2>\n<ul>\n  <li>Fiyatı net ve okunur yazın; misafirin fiyatı aramak zorunda kalması güven sarsar.</li>\n  <li>Kampanyalı fiyatlarda eski ve yeni fiyatı açıkça ayırın.</li>\n  <li>Porsiyon seçeneklerinin fiyatlarını yan yana gösterin.</li>\n  <li>Fiyat listesinin Fiyat Etiketi Yönetmeliği'ne uygun olduğundan emin olun. Bkz. <a href=\"@/blog/karekod-fiyat-listesi-yonetmeligi/\">karekodla fiyat listesi rehberi</a>.</li>\n</ul>\n<p>Menüde fiyat gösterimine dair tasarım ilkelerini <a href=\"@/blog/restoran-menu-tasarimi/\">menü tasarımı yazısında</a> ele aldık.</p>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da ilgili özellikler</h2>\n<p>Fiyat, porsiyon ve kampanyalı fiyat Temel paketten itibaren panelden güncellenir. Plus paketindeki <a href=\"@/moduller/menu-muhendisligi/\">Menü Mühendisliği</a>, girdiğiniz maliyetlerle her ürünün katkı payını ve popülerliğini birlikte gösterir.</p>\n",
+      "faq": [
+        {
+          "q": "Menü fiyatı nasıl hesaplanır?",
+          "a": "Önce porsiyon maliyeti hesaplanır. Ardından hedef katkı, benzer işletmelerin fiyatları ve ürünün misafir için değeri birlikte değerlendirilerek fiyat belirlenir."
+        },
+        {
+          "q": "Maliyetin kaç katı fiyat konmalı?",
+          "a": "Sabit bir çarpan her işletme için doğru değildir. Uygun çarpan, işletmenin diğer giderlerine ve ürünün değerine bağlıdır."
+        },
+        {
+          "q": "Rakibin fiyatını kopyalamak doğru mu?",
+          "a": "Misafirin beklentisini anlamak için rakip fiyatlarına bakmak faydalıdır; ama rakibin maliyet yapısını bilmeden fiyatını kopyalamak kârı riske atabilir."
+        },
+        {
+          "q": "Katkı payı nedir?",
+          "a": "Satış fiyatından ürün maliyetinin çıkarılmasıyla kalan tutardır; ürünün işletmenin diğer giderlerine ve kârına ne kadar katkı bıraktığını gösterir."
+        },
+        {
+          "q": "Fiyatlar ne sıklıkla gözden geçirilmeli?",
+          "a": "Maliyetler değiştiğinde ve satış verisi biriktiğinde. Düzenli küçük güncellemeler, uzun aralıklı büyük zamlardan daha az fark edilir."
+        }
+      ],
+      "sources": [
+        {
+          "label": "T.C. Ticaret Bakanlığı — Fiyat etiketinde yeni dönem başlıyor",
+          "url": "https://ticaret.gov.tr/haberler/fiyat-etiketinde-yeni-donem-basliyor"
+        },
+        {
+          "label": "QR Menu Official — Menü Mühendisliği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/menu-muhendisligi/"
+        }
+      ],
+      "related": [
+        "recete-maliyeti-hesaplama",
+        "menu-muhendisligi-nedir",
+        "restoran-fiyat-artisi-menuye-nasil-yansitilir"
+      ],
+      "products": [
+        {
+          "label": "Menü Mühendisliği modülü",
+          "path": "moduller/menu-muhendisligi/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "pdf-menu-mu-dijital-menu-mu",
+      "category": "qr-menu",
+      "date": "2026-10-31",
+      "readMin": 6,
+      "title": "PDF Menü mü, Dijital Menü mü? QR Kodlu Menüde Doğru Seçim",
+      "seoTitle": "PDF Menü mü Dijital Menü mü? QR Kod Menü Karşılaştırması",
+      "description": "QR koda PDF menü bağlamak yeterli mi? PDF menü ile panelden yönetilen dijital menünün telefonda okunma, güncelleme, arama, dil ve ölçüm açısından karşılaştırması.",
+      "excerpt": "Basılı menünün PDF'ini karekoda bağlamak en hızlı başlangıçtır. Ama misafir telefonda yakınlaştırıp kaydırırken siz de her fiyat değişikliğinde dosyayı yeniden hazırlarsınız.",
+      "cover": "pdf-menu-mu-dijital-menu-mu",
+      "coverAlt": "Sol tarafta PDF menü sayfası, sağ tarafta telefona uyumlu dijital menü ekranını gösteren illüstrasyon",
+      "answer": "PDF menü, basılı menünün dosyasının karekoda bağlanmasıdır; kurulumu hızlıdır ama telefonda yakınlaştırma gerektirir ve her değişiklikte yeniden yüklenir. Dijital menü ise telefona göre düzenlenir, ürün bazında güncellenir, arama, filtre ve çoklu dil sunabilir. Az ürünlü ve nadiren değişen menüler için PDF yeterli olabilir; sık değişen menülerde dijital menü daha pratiktir.",
+      "body": "\n<h2 id=\"fark\">Temel fark</h2>\n<p>Her ikisinde de misafir masadaki karekodu okutur. Fark, kodun arkasında ne olduğudur: PDF menüde sabit bir dosya, dijital menüde ise ürünlerin tek tek yönetildiği bir sayfa.</p>\n\n<h2 id=\"karsilastirma\">Yan yana karşılaştırma</h2>\n<div class=\"qb-table-wrap\"><table>\n  <thead><tr><th>Ölçüt</th><th>PDF menü</th><th>Dijital menü</th></tr></thead>\n  <tbody>\n    <tr><td>Kurulum</td><td>Hızlı: mevcut dosya yüklenir</td><td>Ürünler bir kez sisteme girilir</td></tr>\n    <tr><td>Telefonda okuma</td><td>Yakınlaştırma ve kaydırma gerekir</td><td>Ekrana göre düzenlenir</td></tr>\n    <tr><td>Fiyat güncelleme</td><td>Dosya yeniden hazırlanır ve yüklenir</td><td>Ürün kaydında değiştirilir</td></tr>\n    <tr><td>Biten ürün</td><td>Dosya değişmedikçe menüde kalır</td><td>Tek dokunuşla kapatılır</td></tr>\n    <tr><td>Arama ve filtre</td><td>Yok</td><td>Ürün verisi girildiyse var</td></tr>\n    <tr><td>Çoklu dil</td><td>Her dil için ayrı dosya</td><td>Dil seçiciyle aynı menü</td></tr>\n    <tr><td>Açılış hızı</td><td>Dosya boyutuna bağlı; büyük PDF yavaş açılır</td><td>Görseller optimize edildiyse hızlı</td></tr>\n    <tr><td>Ölçüm</td><td>Yok denecek kadar sınırlı</td><td>Görüntüleme ve ürün ilgisi izlenebilir</td></tr>\n  </tbody>\n</table></div>\n\n<h2 id=\"ne-zaman-pdf\">PDF menü ne zaman yeterli?</h2>\n<ul>\n  <li>Menünüz kısa ve yılda bir iki kez değişiyorsa.</li>\n  <li>Turist misafiriniz azsa ve tek dil yeterliyse.</li>\n  <li>Garson çağrısı ya da masadan sipariş gibi bir ihtiyacınız yoksa.</li>\n</ul>\n<p>Bu durumda dosyanın telefonda okunur olması için PDF'i yatay değil dikey, büyük yazıyla ve küçük dosya boyutuyla hazırlayın.</p>\n\n<h2 id=\"ne-zaman-dijital\">Dijital menü ne zaman gerekir?</h2>\n<ul>\n  <li>Fiyatlarınız sık değişiyorsa.</li>\n  <li>Biten ürünü menüden hızla kaldırmanız gerekiyorsa.</li>\n  <li>Yabancı misafiriniz çoksa.</li>\n  <li>Alerjen, vegan gibi bilgileri filtrelenebilir sunmak istiyorsanız.</li>\n  <li>Menüyü garson çağrısı ve siparişle servis akışına bağlamak istiyorsanız.</li>\n</ul>\n\n<h2 id=\"yasal\">Yasal açıdan fark var mı?</h2>\n<p>Fiyat Etiketi Yönetmeliği'ndeki 2025 değişikliği, masada fiyat listesinin karekodla gösterilmesine izin verir; karekodun bir PDF'e ya da dijital menüye gitmesi arasında ayrım yapmaz. Her iki durumda da misafir isterse fiziksel liste gösterilmelidir. Ayrıntılar için <a href=\"@/blog/karekod-fiyat-listesi-yonetmeligi/\">karekodla fiyat listesi rehberine</a> bakın.</p>\n\n<h2 id=\"gecis\">PDF'ten dijital menüye geçiş</h2>\n<p>Elinizdeki PDF, dijital menünün ilk taslağıdır: kategorileri ve ürünleri bir tabloya aktarıp sisteme toplu yükleyebilirsiniz. Adım adım anlatım için <a href=\"@/blog/dijital-menu-nasil-hazirlanir/\">dijital menü hazırlama rehberine</a> bakın. QR Menu Official'da CSV ile toplu ürün aktarma Temel paketten itibaren vardır.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Farkı telefonunuzda görün.</strong> Dijital menü demosunu açın.</p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "QR koda PDF menü bağlamak yasal mı?",
+          "a": "Fiyat Etiketi Yönetmeliği masada karekodla fiyat listesi gösterimine izin verir ve PDF ile dijital menü arasında ayrım yapmaz. Misafir isterse fiziksel liste gösterilmelidir."
+        },
+        {
+          "q": "PDF menü neden telefonda zor okunur?",
+          "a": "PDF sabit sayfa düzeninde olduğu için telefon ekranına göre yeniden düzenlenmez; misafir yakınlaştırıp kaydırmak zorunda kalır."
+        },
+        {
+          "q": "PDF menüyü dijital menüye nasıl çeviririm?",
+          "a": "Ürünleri ve fiyatları bir tabloya aktarıp dijital menü sistemine toplu yükleyebilirsiniz. QR Menu Official'da CSV ile aktarma Temel pakettedir."
+        },
+        {
+          "q": "PDF menü için de karekod gerekir mi?",
+          "a": "Evet. Karekod PDF dosyasının adresini taşır; dosyayı değiştirirken adres aynı kalırsa basılı kodu yenilemeniz gerekmez."
+        },
+        {
+          "q": "Dijital menü daha hızlı mı açılır?",
+          "a": "Görselleri optimize edilmiş bir dijital menü genellikle büyük bir PDF'ten hızlı açılır. Sonuç, dosya ve görsel boyutuna bağlıdır."
+        }
+      ],
+      "sources": [
+        {
+          "label": "T.C. Ticaret Bakanlığı — Fiyat etiketinde yeni dönem başlıyor",
+          "url": "https://ticaret.gov.tr/haberler/fiyat-etiketinde-yeni-donem-basliyor"
+        },
+        {
+          "label": "web.dev — Görselleri optimize etme",
+          "url": "https://web.dev/learn/images"
+        }
+      ],
+      "related": [
+        "qr-menu-nedir",
+        "dijital-menu-nasil-hazirlanir",
+        "restoran-menu-tasarimi"
+      ],
+      "products": [
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Çoklu Dil modülü",
+          "path": "moduller/coklu-dil/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        }
+      ]
+    },
+    {
+      "slug": "restoran-cirosu-artirma",
+      "category": "karlilik",
+      "date": "2026-10-30",
+      "readMin": 8,
+      "title": "Restoran Cirosunu Etkileyen 10 Operasyonel Kalem",
+      "seoTitle": "Restoran Cirosu Nasıl Artırılır? 10 Operasyonel Kalem",
+      "description": "Restoran cirosu nasıl artırılır? Masa devri, bekleme süresi, ortalama hesap, menü düzeni, tükenen ürün ve geri dönen misafir gibi ölçülebilir 10 operasyonel kalem.",
+      "excerpt": "Ciroyu tek bir hamle değil, her gün tekrarlanan küçük kalemler belirler. Bu kalemleri ölçmeden neyi iyileştirdiğinizi bilemezsiniz.",
+      "cover": "restoran-cirosu-artirma",
+      "coverAlt": "Masa devri, saat ve hesap fişi simgelerini gösteren illüstrasyon",
+      "answer": "Restoran cirosu, kabaca misafir sayısı ile misafir başına harcamanın çarpımıdır. İkisini de etkileyen operasyonel kalemler vardır: masa devri, sipariş ve servis süresi, ortalama hesap, menü düzeni, tükenen ürün yönetimi, geri dönen misafir ve yerel görünürlük. Her kalemi ölçüp birer birer iyileştirmek, tek bir büyük kampanyadan daha kalıcı sonuç verir.",
+      "body": "\n<p class=\"qb-note\">Bu yazı kalıcı bir sonuç garanti etmez; her işletmenin koşulu farklıdır. Amaç, ölçülebilir kalemleri ve bunları nasıl izleyeceğinizi göstermektir.</p>\n\n<h2 id=\"formul\">Ciroyu iki parçada düşünün</h2>\n<p><strong>Ciro ≈ Misafir sayısı × Misafir başına harcama</strong></p>\n<p>Misafir sayısını; masa sayısı, açık saatler, masa devri ve yeni ile geri dönen misafir belirler. Misafir başına harcamayı ise menü düzeni, öneri, porsiyon seçenekleri ve fiyat belirler.</p>\n\n<h2 id=\"kalemler\">10 kalem</h2>\n<h3 id=\"k1\">1. Masa devri</h3>\n<p>Yoğun saatte bir masanın oturma ile kalkma arasında geçen süre. Misafiri acele ettirmeden, bekleme sürelerini kısaltarak masa devri iyileşebilir.</p>\n<h3 id=\"k2\">2. Oturma ile sipariş arası süre</h3>\n<p>Misafirin menüye bakıp sipariş verene kadar beklediği süre. Menüyü masaya getirme ve sipariş alma gecikmesi burada birikir. Bkz. <a href=\"@/blog/qr-ile-masadan-siparis/\">QR ile masadan sipariş</a>.</p>\n<h3 id=\"k3\">3. Sipariş ile servis arası süre</h3>\n<p>Mutfağın hızı ve siparişin doğru iletilmesi. Yanlış giden tabak bu süreyi uzatır. Bkz. <a href=\"@/blog/restoran-siparis-hatalari/\">sipariş hataları</a>.</p>\n<h3 id=\"k4\">4. Hesap isteme süresi</h3>\n<p>Misafirin hesap istedikten sonra beklediği süre, masanın boşalmasını geciktirir ve son izlenimi belirler.</p>\n<h3 id=\"k5\">5. Ortalama hesap</h3>\n<p>Masa başına ya da kişi başına ortalama harcama. Doğru öneri, porsiyon ve kombo seçenekleri bu rakamı etkiler. Bkz. <a href=\"@/blog/restoranda-ek-satis/\">ek satış</a>.</p>\n<h3 id=\"k6\">6. Menü düzeni</h3>\n<p>Misafirin kârlı ürünleri fark edip etmediği, menünün düzenine bağlıdır. Bkz. <a href=\"@/blog/restoran-menu-tasarimi/\">menü tasarımı</a>.</p>\n<h3 id=\"k7\">7. Ürün kârlılığı</h3>\n<p>Çok satan bir ürünün düşük kâr bırakması ciroyu artırırken kârı artırmayabilir. Bkz. <a href=\"@/blog/menu-muhendisligi-nedir/\">menü mühendisliği</a>.</p>\n<h3 id=\"k8\">8. Tükenen ürün yönetimi</h3>\n<p>Menüde duran ama biten bir ürün, misafirin hayal kırıklığı ve garsonun açıklama süresi demektir. Biten ürünü hızla kapatmak bu kaybı azaltır.</p>\n<h3 id=\"k9\">9. Geri dönen misafir</h3>\n<p>Memnun misafirin tekrar gelmesi, yeni misafir kazanmaktan genellikle daha az emek ister. Geri bildirimi toplayıp şikâyetleri hızla çözmek burada belirleyicidir.</p>\n<h3 id=\"k10\">10. Yerel görünürlük</h3>\n<p>Yakındaki birinin sizi bulması. Bkz. <a href=\"@/blog/google-isletme-profili-restoran-yerel-seo/\">Google İşletme Profili rehberi</a> ve <a href=\"@/blog/restoran-google-yorumlari-nasil-artirilir/\">Google yorumları</a>.</p>\n\n<h2 id=\"olcum\">Nasıl ölçülür?</h2>\n<p>Bu kalemlerin çoğu kasa ve rezervasyon kayıtlarınızdan, bir kısmı ise birkaç vardiya boyunca yapılacak basit gözlemle ölçülebilir. Her ay aynı yöntemle ölçüp değişikliğin etkisini karşılaştırın. Aynı anda birden fazla şeyi değiştirmek, hangisinin işe yaradığını görmeyi zorlaştırır.</p>\n\n<h2 id=\"qr-menu-official\">QR Menu Official hangi kalemlere dokunur?</h2>\n<ul>\n  <li><strong>2, 4:</strong> QR ile sipariş ve hesap talebi (Pro).</li>\n  <li><strong>5, 6, 8:</strong> Porsiyon, ekstra, kombo, rozet ve tükendi işareti (Temel).</li>\n  <li><strong>7:</strong> Maliyet ve menü mühendisliği (Plus).</li>\n  <li><strong>9:</strong> Yorum ve geri bildirim (Plus).</li>\n</ul>\n<p>Menü analitiği verileri (görüntüleme, ürün tıklaması, aranan kelimeler) ilgi göstergesidir; kasa satışının yerini tutmaz.</p>\n",
+      "faq": [
+        {
+          "q": "Restoran cirosu nasıl hesaplanır?",
+          "a": "Belirli bir dönemdeki toplam satış tutarıdır. Kabaca misafir sayısı ile misafir başına ortalama harcamanın çarpımı olarak düşünülebilir."
+        },
+        {
+          "q": "Ciroyu artırmanın en hızlı yolu nedir?",
+          "a": "Tek bir hızlı yol yoktur. Bekleme sürelerini kısaltmak, menüde kârlı ürünleri görünür kılmak ve biten ürünü hızla kapatmak gibi ölçülebilir kalemler üzerinde çalışmak daha kalıcı sonuç verir."
+        },
+        {
+          "q": "Ciro artarken kâr neden artmayabilir?",
+          "a": "Çok satan ürünlerin kârlılığı düşükse ya da maliyetler satıştan hızlı artıyorsa ciro artışı kâra yansımayabilir. Ürün bazında kârlılığı izlemek gerekir."
+        },
+        {
+          "q": "Masa devri nasıl iyileştirilir?",
+          "a": "Misafiri acele ettirmeden sipariş, servis ve hesap aşamalarındaki bekleme sürelerini kısaltarak."
+        },
+        {
+          "q": "QR menü ciroyu artırır mı?",
+          "a": "Garanti edilemez. QR menü bekleme sürelerini, tükenen ürün yönetimini ve menüdeki görünürlüğü etkileyebilir; sonuç işletmeye göre değişir."
+        }
+      ],
+      "sources": [
+        {
+          "label": "TÜİK — Hizmet sektörü istatistikleri",
+          "url": "https://data.tuik.gov.tr/"
+        },
+        {
+          "label": "QR Menu Official — Paketler ve fiyatlar",
+          "url": "https://qrmenuofficial.com/paketler/"
+        }
+      ],
+      "related": [
+        "restoranda-ek-satis",
+        "menu-muhendisligi-nedir",
+        "garson-eksikligi-az-personelle-servis"
+      ],
+      "products": [
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        },
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        },
+        {
+          "label": "Menü Mühendisliği modülü",
+          "path": "moduller/menu-muhendisligi/"
+        }
+      ]
+    },
+    {
+      "slug": "ucretsiz-qr-menu",
+      "category": "qr-menu",
+      "date": "2026-10-29",
+      "readMin": 6,
+      "title": "Ücretsiz QR Menü Araçlarının Sınırları: Ne Zaman Yeterli, Ne Zaman Değil?",
+      "seoTitle": "Ücretsiz QR Menü Yeterli mi? Sınırlar ve Dikkat Edilecekler",
+      "description": "Ücretsiz QR menü araçları ne zaman yeterli? Reklam, kalıcı adres, güncelleme, veri sahipliği ve marka görünümü açısından dikkat edilmesi gerekenler.",
+      "excerpt": "Ücretsiz bir QR menü aracıyla başlamak mantıklı olabilir. Ama masalara basılan kod yıllarca kalır; aracın sınırlarını baştan bilmek, ileride yeniden baskı masrafından kurtarır.",
+      "cover": "ucretsiz-qr-menu",
+      "coverAlt": "Hediye kutusu, QR kodlu masa kartı ve soru işaretini gösteren illüstrasyon",
+      "answer": "Ücretsiz QR menü araçları kısa ve nadiren değişen menüler için yeterli olabilir. Seçmeden önce kodun kalıcı olup olmadığını, menüde reklam gösterilip gösterilmediğini, fiyatı kendiniz güncelleyip güncelleyemediğinizi ve verilerinizi dışa aktarıp aktaramadığınızı kontrol edin; çünkü basılı kodu değiştirmek ileride masraf çıkarır.",
+      "body": "\n<h2 id=\"neden-ucretsiz\">Ücretsiz araçla başlamak mantıklı mı?</h2>\n<p>Yeni açılan ya da menüsü çok küçük bir işletme için ücretsiz bir araç, dijital menüyü denemenin kolay yoludur. Sorun, ücretsiz aracın sınırlarının genellikle kod masaya basıldıktan sonra fark edilmesidir.</p>\n\n<h2 id=\"kontrol\">Seçmeden önce kontrol edilecekler</h2>\n<h3 id=\"kalici\">Kod kalıcı mı?</h3>\n<p>Bazı araçlar \"dinamik\" kodu belirli bir süre ya da okutma sayısıyla sınırlar; süre dolunca kod çalışmayabilir. Masalara basılmış yüzlerce kodu yenilemek hem masraf hem de o arada çalışmayan bir menü demektir.</p>\n<h3 id=\"reklam\">Menüde reklam var mı?</h3>\n<p>Misafirin menüyü açtığında başka bir markanın reklamını görmesi işletmenin imajını etkiler.</p>\n<h3 id=\"guncelleme\">Güncellemeyi kim yapıyor?</h3>\n<p>Fiyatı kendiniz değiştirebiliyor musunuz, yoksa dosyayı her seferinde yeniden mi yüklüyorsunuz?</p>\n<h3 id=\"veri\">Veriler kimin?</h3>\n<p>Aracı bırakırsanız menünüzü dışa aktarabilir misiniz? Menünün adresi sizin alan adınızda mı, aracın alan adında mı?</p>\n<h3 id=\"sinirlar\">Ürün ve dil sınırı var mı?</h3>\n<p>Ücretsiz sürümlerde ürün sayısı, dil ya da görsel sınırı olabilir.</p>\n<h3 id=\"destek\">Bir sorun olduğunda kime ulaşacaksınız?</h3>\n<p>Cumartesi akşamı menü açılmıyorsa, kimden ve ne kadar sürede yardım alabileceğinizi bilmek önemlidir.</p>\n\n<h2 id=\"ne-zaman-yeter\">Ne zaman yeterli?</h2>\n<ul>\n  <li>Menünüz kısa ve nadiren değişiyorsa.</li>\n  <li>Tek dil yeterliyse.</li>\n  <li>Garson çağrısı, masadan sipariş ya da ölçüme ihtiyacınız yoksa.</li>\n  <li>Kodun kalıcı olduğundan ve reklam gösterilmediğinden eminseniz.</li>\n</ul>\n\n<h2 id=\"ne-zaman-degil\">Ne zaman yetersiz kalır?</h2>\n<ul>\n  <li>Fiyatlarınız sık değişiyorsa ve hızlı güncellemeniz gerekiyorsa.</li>\n  <li>Yabancı misafiriniz çoksa.</li>\n  <li>Alerjen ve diyet filtreleri sunmak istiyorsanız.</li>\n  <li>Menüyü servis akışına (çağrı, sipariş, hesap) bağlamak istiyorsanız.</li>\n  <li>Menünün sizin markanızla, reklamsız görünmesini istiyorsanız.</li>\n</ul>\n\n<h2 id=\"maliyet\">Gerçek maliyeti hesaplayın</h2>\n<p>Ücretsiz bir aracın maliyeti sıfır değildir: güncellemeye harcanan zaman, ileride yeniden basılacak kodlar ve araç değiştirildiğinde menünün yeniden girilmesi de maliyettir. Ücretli bir sistemi değerlendirirken neye bakmanız gerektiğini <a href=\"@/blog/qr-menu-programi-secimi/\">QR menü programı seçimi</a> ve <a href=\"@/blog/qr-menu-fiyatlari/\">QR menü fiyatları</a> yazılarında anlattık.</p>\n\n<div class=\"qb-cta-inline\">\n  <p><strong>Reklamsız, panelden yönetilen bir menünün nasıl göründüğüne bakın.</strong></p>\n  <a class=\"qb-btn\" href=\"@/canli-menu/\">Canlı Menüyü Gör <span aria-hidden=\"true\">→</span></a>\n</div>\n",
+      "faq": [
+        {
+          "q": "Ücretsiz QR menü güvenilir mi?",
+          "a": "Araca göre değişir. Kodun kalıcı olup olmadığını, menüde reklam gösterilip gösterilmediğini ve verilerinizi dışa aktarıp aktaramadığınızı kontrol edin."
+        },
+        {
+          "q": "Ücretsiz QR kodun süresi dolar mı?",
+          "a": "Bazı araçlarda dinamik kodlar süre ya da okutma sayısıyla sınırlıdır. Seçmeden önce aracın koşullarını okuyun."
+        },
+        {
+          "q": "Ücretsiz araçtan ücretli sisteme geçerken kodları yeniden basmam gerekir mi?",
+          "a": "Kod aracın adresine gidiyorsa genellikle evet. Bu yüzden baştan kalıcı bir adres seçmek ileride masraftan kurtarır."
+        },
+        {
+          "q": "Ücretsiz QR menüde garson çağrısı olur mu?",
+          "a": "Genellikle hayır. Garson çağrısı ve sipariş bir servis ekranı gerektirdiği için çoğunlukla ücretli sistemlerde bulunur."
+        },
+        {
+          "q": "Canva ile QR menü yapılır mı?",
+          "a": "Tasarım araçlarıyla menü görseli ya da PDF hazırlayıp karekoda bağlayabilirsiniz. Bu bir PDF menüdür; panelden ürün bazında yönetilen dijital menüden farklıdır."
+        }
+      ],
+      "sources": [
+        {
+          "label": "ISO/IEC 18004 — QR Code bar code symbology specification",
+          "url": "https://www.iso.org/standard/62021.html"
+        },
+        {
+          "label": "QR Menu Official — Paketler ve fiyatlar",
+          "url": "https://qrmenuofficial.com/paketler/"
+        }
+      ],
+      "related": [
+        "qr-menu-programi-secimi",
+        "qr-menu-fiyatlari",
+        "pdf-menu-mu-dijital-menu-mu"
+      ],
+      "products": [
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
+        },
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "QR Masa modülü",
+          "path": "moduller/qr-masa/"
+        }
+      ]
+    },
+    {
+      "slug": "qr-menu-guvenligi",
+      "category": "servis",
+      "date": "2026-10-28",
+      "readMin": 7,
+      "title": "QR Menü Güvenliği: Masa Oturumu Neyi Çözer, Neyi Çözmez?",
+      "seoTitle": "QR Menü Güvenliği: Masa Oturumu Neyi Çözer?",
+      "description": "QR menüde masada olmayan biri sipariş verebilir mi? Masa oturumu, süre sınırı ve kilit ekranının neyi çözdüğü, neyi çözmediği ve sahte karekoda karşı önlemler.",
+      "excerpt": "Karekodun fotoğrafını çeken biri, masada olmadan menüyü açabilir. Masadan sipariş ve garson çağrısı varsa bu bir sorun olabilir. Peki ne kadarı önlenebilir?",
+      "cover": "qr-menu-guvenligi",
+      "coverAlt": "Kalkan, kilit simgesi ve masa QR kodunu gösteren illüstrasyon",
+      "answer": "QR menüde masa oturumu, siparişin ve çağrının yalnızca kayıtlı bir masadan ve sınırlı bir süre içinde verilmesini sağlar. Oturum süresi dolduğunda ya da hesap kapandığında yeni sipariş için kodun yeniden okutulması gerekir. Ancak kodun gerçek fotoğrafına sahip biri süre içinde menüyü açabilir; hiçbir yöntem bunu tamamen engellemez.",
+      "body": "\n<h2 id=\"risk\">Risk nerede?</h2>\n<p>Yalnızca menü gösteren bir QR kodda risk düşüktür: menüyü başka biri görse de bir şey değişmez. Masadan sipariş ve garson çağrısı devreye girdiğinde ise iki durum önemli hale gelir:</p>\n<ul>\n  <li><strong>Uzaktan sipariş ya da çağrı:</strong> Kodun fotoğrafı paylaşılırsa, masada olmayan biri o masa adına talep gönderebilir.</li>\n  <li><strong>Sahte karekod:</strong> Masadaki kodun üzerine başka bir kod yapıştırılarak misafir farklı bir sayfaya yönlendirilebilir.</li>\n</ul>\n\n<h2 id=\"oturum\">Masa oturumu nedir?</h2>\n<p>Misafir masadaki kodu okuttuğunda, o masaya bağlı ve süresi sınırlı bir oturum açılır. Sipariş ve çağrılar bu oturum üzerinden gönderilir. Oturum dışarıdan değiştirilemeyecek şekilde imzalıdır ve yalnızca sisteme kayıtlı masalar için açılır.</p>\n\n<h2 id=\"cozer\">Neyi çözer?</h2>\n<ul>\n  <li><strong>Kayıtsız masa adresleri:</strong> Sistemde tanımlı olmayan bir masa adresiyle oturum açılamaz; misafire bir kilit ekranı gösterilir.</li>\n  <li><strong>Eski fotoğraflar:</strong> Oturum süresi dolduğunda yeni talep için kodun yeniden okutulması gerekir. Günler önce çekilmiş bir fotoğrafla açılan eski oturum çalışmaz.</li>\n  <li><strong>Hesap sonrası talepler:</strong> Hesap tamamlandığında oturum sona erer; masadan kalkan misafirin telefonundan yeni sipariş gitmez.</li>\n  <li><strong>Açık oturumun değiştirilmesi:</strong> Oturum imzalı olduğu için, açılmış bir oturumun masa bilgisi ya da süresi sonradan değiştirilemez.</li>\n</ul>\n\n<h2 id=\"cozmez\">Neyi çözmez?</h2>\n<ul>\n  <li><strong>Gerçek kodun fotoğrafı:</strong> Kodun gerçek fotoğrafına sahip biri, oturum süresi içinde menüyü açabilir. Masa oturumu bunu tamamen engellemez; yalnızca süreyi sınırlar.</li>\n  <li><strong>Başka bir kayıtlı masanın adresi:</strong> Masa adresleri tahmin edilebilir biçimdeyse (masa-1, masa-2), adresi değiştiren biri kayıtlı başka bir masa için de oturum açabilir. Servis panelinde masayla uyuşmayan talepleri kontrol etmek bu yüzden önemlidir.</li>\n  <li><strong>Sahte karekod:</strong> Masadaki kodun üzerine yapıştırılan sahte bir kod, sistemin dışında kalır. Bunun önlemi fiziksel kontroldür.</li>\n</ul>\n<p class=\"qb-note\">\"Hacklenemez\" ya da \"tamamen güvenli\" gibi iddialar gerçekçi değildir. Amaç riski azaltmak ve kötüye kullanımı zorlaştırmaktır.</p>\n\n<h2 id=\"pratik\">İşletme için pratik önlemler</h2>\n<ol>\n  <li>Karekodları değiştirilmesi zor bir şekilde basın: lamine kart, gömme stand ya da kalıcı etiket.</li>\n  <li>Garsonlar günlük açılışta kodların yerinde ve sağlam olduğunu kontrol etsin.</li>\n  <li>Servis panelinde gelen bir talep şüpheliyse masayı kontrol edin.</li>\n  <li>Oturum süresini işletmenizin ortalama oturma süresine göre ayarlayın.</li>\n  <li>Misafire menünün adresini (alan adınızı) gösterin; farklı bir adres açılırsa fark edebilsin.</li>\n</ol>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da masa oturum güvenliği</h2>\n<p>Pro paketten itibaren sunulan <a href=\"@/moduller/masa-oturum-guvenligi/\">Masa Oturum Güvenliği</a>'nde oturum imzalıdır ve yalnızca kayıtlı masalar için açılır. Varsayılan süre toplam 90 dakika ve 30 dakika hareketsizliktir; işletme bu süreleri ayarlayabilir. Hesap tamamlandığında oturum sona erer. Kayıtlı olmayan ya da geçersiz bir masa adresinde misafire \"Oturum Gerekli\" kilit ekranı gösterilir.</p>\n",
+      "faq": [
+        {
+          "q": "QR menüde masada olmayan biri sipariş verebilir mi?",
+          "a": "Masa oturumu olmayan sistemlerde kodun fotoğrafıyla mümkün olabilir. Masa oturumu bunu süreyle sınırlar ve kayıtsız masa adreslerini engeller; ancak gerçek kodun fotoğrafına sahip birini süre içinde tamamen engellemez."
+        },
+        {
+          "q": "Masa oturumu ne kadar sürer?",
+          "a": "QR Menu Official'da varsayılan süre toplam 90 dakika ve 30 dakika hareketsizliktir; işletme ayarlayabilir. Hesap tamamlandığında oturum sona erer."
+        },
+        {
+          "q": "Sahte karekoda karşı ne yapılabilir?",
+          "a": "Kodları değiştirilmesi zor şekilde basmak ve garsonların günlük kontrol yapması en etkili önlemdir. Sahte kod sistemin dışında kaldığı için yazılımla engellenemez."
+        },
+        {
+          "q": "QR menü hacklenebilir mi?",
+          "a": "Hiçbir sistem için 'hacklenemez' demek gerçekçi değildir. İmzalı ve süresi sınırlı oturum gibi önlemler kötüye kullanımı zorlaştırır."
+        },
+        {
+          "q": "Yalnızca menü gösteren QR kodda güvenlik önemli mi?",
+          "a": "Risk düşüktür; menüyü başkasının görmesi bir şey değiştirmez. Sipariş ve garson çağrısı eklendiğinde masa oturumu önem kazanır."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Masa Oturum Güvenliği modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/"
+        },
+        {
+          "label": "OWASP — Session Management Cheat Sheet",
+          "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html"
+        }
+      ],
+      "related": [
+        "qr-ile-masadan-siparis",
+        "garson-cagirma-sistemi",
+        "qr-menu-nedir"
+      ],
+      "products": [
+        {
+          "label": "Masa Oturum Güvenliği",
+          "path": "moduller/masa-oturum-guvenligi/"
+        },
+        {
+          "label": "Servis Paneli modülü",
+          "path": "moduller/servis-paneli/"
+        },
+        {
+          "label": "QR Masa modülü",
+          "path": "moduller/qr-masa/"
+        }
+      ]
+    },
+    {
+      "slug": "kombo-menu",
+      "category": "karlilik",
+      "date": "2026-10-27",
+      "readMin": 6,
+      "title": "Kampanya ve Kombo Menü Nasıl Kurgulanır?",
+      "seoTitle": "Kombo Menü ve Restoran Kampanyası Nasıl Kurgulanır?",
+      "description": "Kombo menü ve restoran kampanyası nasıl hazırlanır? Doğru ürün eşleştirmesi, fiyat ve kârlılık hesabı, menüde gösterim ve kampanyayı zamanında kapatmak için rehber.",
+      "excerpt": "İyi kurgulanmış bir kombo, misafire kolay bir seçim, işletmeye öngörülebilir bir satış sunar. Kötü kurgulanmış bir kombo ise kârı sessizce eritir.",
+      "cover": "kombo-menu",
+      "coverAlt": "Hamburger, patates ve içecekten oluşan kombo tabağı ve indirim etiketini gösteren illüstrasyon",
+      "answer": "Kombo menü, birlikte sık tercih edilen ürünlerin (ana yemek, yan ürün, içecek) tek fiyatla sunulmasıdır. Kurgularken kombo fiyatının ürünlerin toplam maliyetini rahatça karşıladığından emin olun, kârlı ürünleri komboya dahil edin, menüde net gösterin ve kampanyaların başlangıç ve bitişini önceden planlayıp elle kapatmayı unutmayın.",
+      "body": "\n<h2 id=\"neden\">Kombo neden işe yarar?</h2>\n<p>Kombo, misafirin karar verme yükünü azaltır: ana yemeği seçen misafir, yanına ne alacağını ayrıca düşünmez. İşletme açısından ise içecek ve yan ürün gibi kârlı ürünlerin satışını ana yemeğe bağlar.</p>\n\n<h2 id=\"eslestirme\">1. Doğru ürünleri eşleştirin</h2>\n<ul>\n  <li>Misafirlerinizin zaten birlikte sipariş ettiği ürünlere bakın. Garsonlar bu eşleşmeleri genellikle bilir.</li>\n  <li>Kârlı ürünleri (içecek, yan ürün, tatlı) komboya dahil edin.</li>\n  <li>Hazırlaması mutfağı zorlayan ürünleri yoğun saat kombolarına koymayın.</li>\n</ul>\n\n<h2 id=\"fiyat\">2. Fiyatı ve kârlılığı hesaplayın</h2>\n<p>Kombo fiyatı, ürünlerin ayrı ayrı toplamından düşük olmalıdır ki misafir için anlamlı olsun; ama ürünlerin toplam maliyetini rahatça karşılamalıdır. Her kombo için şunu hesaplayın:</p>\n<p><strong>Kombo katkısı = Kombo fiyatı − Kombodaki ürünlerin toplam maliyeti</strong></p>\n<p>Bu tutarı, ürünlerin ayrı ayrı satıldığındaki katkıyla karşılaştırın. Kombo, ayrı satıştan daha düşük katkı bırakıyorsa satış adedini artırması gerekir. Maliyet hesabı için <a href=\"@/blog/recete-maliyeti-hesaplama/\">reçete maliyeti rehberine</a> bakın.</p>\n\n<h2 id=\"gosterim\">3. Menüde net gösterin</h2>\n<ul>\n  <li>Kombonun içinde ne olduğunu tek satırda yazın.</li>\n  <li>Kombo fiyatını ve varsa ayrı alındığındaki toplamı açıkça gösterin.</li>\n  <li>İçecek veya yan ürün seçimi varsa seçenekleri belirtin.</li>\n  <li>Kampanyanın geçerli olduğu gün ve saatleri yazın.</li>\n</ul>\n\n<h2 id=\"kampanya\">4. Kampanyayı planlayın ve zamanında kapatın</h2>\n<p>Süreli kampanyalar (öğle menüsü, hafta içi indirimi) misafire bir neden sunar. Ama süresi geçmiş bir kampanyanın menüde kalması, misafirle tartışmaya ve güven kaybına yol açar. Kampanyanın başlangıç ve bitiş tarihini önceden belirleyin ve bitişte kampanyayı kapatmayı birinin görevi yapın.</p>\n\n<h2 id=\"olcum\">5. Sonucu ölçün</h2>\n<p>Birkaç hafta sonra kombonun satış adedine ve bıraktığı katkıya bakın. Hiç satmayan ya da kârı eriten bir komboyu değiştirmekten çekinmeyin. Kampanyanın etkisini ölçmek için aynı dönemde başka büyük değişiklik yapmamaya çalışın.</p>\n\n<h2 id=\"qr-menu-official\">QR Menu Official'da kampanya ve kombo</h2>\n<p>Kampanya ve kombo tanımları Temel paketten itibaren <a href=\"@/moduller/restoran-menu/\">Restoran Menü</a> modülündedir; kampanyalı fiyat menüde ayrıca gösterilir ve kampanya görselleri menüde banner olarak yayınlanabilir. Kampanyalar panelden açılıp kapatılır; belirli saatlerde kendiliğinden devreye giren bir zamanlama varmış gibi planlamayın. Ek satış için öneri ilkelerini <a href=\"@/blog/restoranda-ek-satis/\">ek satış yazısında</a> anlattık.</p>\n",
+      "faq": [
+        {
+          "q": "Kombo menü nedir?",
+          "a": "Birlikte sık tercih edilen ürünlerin (örneğin ana yemek, yan ürün ve içecek) tek bir fiyatla sunulmasıdır."
+        },
+        {
+          "q": "Kombo fiyatı nasıl belirlenir?",
+          "a": "Ürünlerin ayrı ayrı toplamından düşük, ama toplam maliyeti rahatça karşılayacak şekilde. Kombo katkısını ayrı satıştaki katkıyla karşılaştırın."
+        },
+        {
+          "q": "Hangi ürünler komboya konmalı?",
+          "a": "Misafirlerin zaten birlikte tercih ettiği ve işletme için kârlı olan ürünler. Mutfağı yoğun saatte zorlayan ürünlerden kaçının."
+        },
+        {
+          "q": "Kampanya süresi geçince ne olur?",
+          "a": "Menüde kalırsa misafirle tartışmaya yol açabilir. Bitiş tarihini önceden belirleyip kampanyayı zamanında kapatmak gerekir."
+        },
+        {
+          "q": "QR Menu Official kampanyaları otomatik başlatır mı?",
+          "a": "Kampanyalar panelden açılıp kapatılır. Belirli saatlerde kendiliğinden devreye giren bir zamanlama özelliği varmış gibi planlamayın."
+        }
+      ],
+      "sources": [
+        {
+          "label": "QR Menu Official — Restoran Menü modül sayfası",
+          "url": "https://qrmenuofficial.com/moduller/restoran-menu/"
+        },
+        {
+          "label": "T.C. Ticaret Bakanlığı — Fiyat etiketinde yeni dönem başlıyor",
+          "url": "https://ticaret.gov.tr/haberler/fiyat-etiketinde-yeni-donem-basliyor"
+        }
+      ],
+      "related": [
+        "restoranda-ek-satis",
+        "recete-maliyeti-hesaplama",
+        "menu-fiyatlandirma"
+      ],
+      "products": [
+        {
+          "label": "Restoran Menü modülü",
+          "path": "moduller/restoran-menu/"
+        },
+        {
+          "label": "Menü Mühendisliği modülü",
+          "path": "moduller/menu-muhendisligi/"
+        },
+        {
+          "label": "Paketler ve fiyatlar",
+          "path": "paketler/"
         }
       ]
     }
