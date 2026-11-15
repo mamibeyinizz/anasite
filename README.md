@@ -86,3 +86,8 @@ Site artık **PHP + MySQL** destekli hostingde çalışır: `/yonetim/` yönetim
 - Section 3'teki doğrulanmamış "+150% Gelir potansiyeli" / "86% Tekrar ziyaret potansiyeli" istatistikleri kaldırılmış, yerine rakamsız ve doğrulanmış bir not konmuştur.
 
 Ayrıntılar: `HOMEPAGE_ARCHITECTURE.md` madde 13.
+
+### SEO yardımcı komutları
+- `node tools/home-css-extract.mjs` — Ana sayfadaki ardışık gömülü `<style>` bloklarını kural sırasını koruyarak `css/home-sections.css`'e taşır (önbelleğe alınır, HTML küçülür). Bir bölüm `sections/*.html`'den yeniden yapıştırılırsa tekrar çalıştırın; tekrar çalıştırmak güvenlidir.
+- `node tools/home-jsonld.mjs` — Ana sayfanın Organization + WebSite + SoftwareApplication yapılandırılmış verisini yazar; fiyatları `paketler/packages-data.js`'ten okur. Fiyat değişince tekrar çalıştırın.
+- Site haritası (`sitemap-paketler-moduller.xml`) `node moduller/build.js` ile üretilir; `noindex` sayfalar (ör. mesafeli satış) haritaya konmaz.

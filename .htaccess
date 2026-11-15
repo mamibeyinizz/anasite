@@ -19,6 +19,13 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
 RewriteCond %{REQUEST_URI} !^/\.well-known/
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
+# Yinelenen adresler tek adrese: /index.html → /, eski /sss.html → /sss/.
+# THE_REQUEST yalnızca tarayıcının açıkça istediği adresi yakalar; DirectoryIndex'in
+# iç eşlemesi (/ → index.html) yönlendirilmez, döngü olmaz.
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^sss\.html$ /sss/ [R=301,L]
+
 # TRACE/TRACK kapalı
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)$ [NC]
 RewriteRule ^ - [F,L]

@@ -154,7 +154,7 @@ export const PAGES = [
     title: "Çerez Politikası",
     h1: "Çerez Politikası",
     description:
-      "QR Menu Official sitesi ölçüm veya reklam çerezi yerleştirmez; giriş yaparsanız yalnızca oturumunuzu sürdüren zorunlu bir çerez yazılır. Ziyaret ölçümü yalnızca onayınızla çalışır; tercihinizi buradan değiştirebilirsiniz.",
+      "QR Menu Official reklam çerezi kullanmaz; ziyaret ölçümü yalnızca onayınızla çalışır. Hangi çerezin neden yazıldığını ve tercihinizi nasıl değiştireceğinizi görün.",
     lead: "Bu site ölçüm veya reklam amaçlı çerez (cookie) yerleştirmez ve reklam aracı yüklemez. Giriş yaparsanız yalnızca oturumunuzu sürdüren zorunlu bir çerez yazılır. Ziyaret ölçümü yalnızca sizin onayınızla ve kendi sunucumuzda yapılır; tercihinizi aşağıdan istediğiniz zaman değiştirebilirsiniz.",
     sections: [
       {

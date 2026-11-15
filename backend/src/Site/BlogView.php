@@ -170,7 +170,9 @@ final class BlogView
 			);
 		}
 		$extra = '<meta property="article:published_time" content="' . $this->e($p['published_on']) . '">' . "\n" . '<meta property="article:section" content="' . $this->e($c['name']) . '">' . "\n";
-		$h = $this->head($p['seo_title'] . ' | ' . self::SITE, (string) $p['description'], $url, 'article', $ogImage, (string) $p['cover_alt'], $r, $extra, $jsonld);
+		$baslik = (string) $p['seo_title'];
+		// Google ~60 karakterden sonra keser; uzunsa marka eki düşer (og:site_name markayı taşır).
+		$h = $this->head(mb_strlen($baslik . ' | ' . self::SITE) <= 60 ? $baslik . ' | ' . self::SITE : $baslik, (string) $p['description'], $url, 'article', $ogImage, (string) $p['cover_alt'], $r, $extra, $jsonld);
 
 		$tocItems = '';
 		foreach ($items as $it) {
