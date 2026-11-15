@@ -204,7 +204,7 @@ function renderPost(p) {
     }
   ];
   const extra = `<meta property="article:published_time" content="${p.date}">\n<meta property="article:section" content="${esc(c.name)}">\n`;
-  return `${head({ title: `${p.seoTitle} | ${SITE}`, description: p.description, canonical: url, ogType: "article", image: `${ORIGIN}/assets/blog/${p.cover}-og.jpg`, imageAlt: p.coverAlt, r, extra, jsonld })}
+  return `${head({ title: (p.seoTitle + ' | ' + SITE).length <= 60 ? `${p.seoTitle} | ${SITE}` : p.seoTitle, /* Google ~60 karakterden sonra keser; marka eki o zaman düşer (og:site_name markayı taşır) */ description: p.description, canonical: url, ogType: "article", image: `${ORIGIN}/assets/blog/${p.cover}-og.jpg`, imageAlt: p.coverAlt, r, extra, jsonld })}
 <body class="qb-page qb-page--post">
 <main id="icerik" class="qb">
   <article class="qb-article">

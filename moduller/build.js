@@ -1629,7 +1629,7 @@ ${groups}${hubRailsScript()}
 
   return head({
     title: `Modüller — Ürün Özellikleri | ${MOD.site.brand}`,
-    description: "QR Menu Official modülleri: restoran menü, QR masa, çeviri, filtreleme, servis paneli, analitik ve daha fazlası. Her modülün ne yaptığını ve hangi pakette olduğunu görün.",
+    description: "QR Menu Official modülleri: menü, QR masa, çeviri, filtre, servis paneli ve analitik. Her modülün ne yaptığını ve hangi pakette olduğunu görün.",
     url, breadcrumb: [["Ana Sayfa", MOD.site.baseUrl + "/"], ["Modüller", url]],
     cssPath: "module-page.css"
   }) + `
@@ -1691,7 +1691,7 @@ function validate(faqById) {
 
   /* Site haritası: mevcut bir dağıtım sistemi varsayılmaz; dosya yalnızca üretilir.
      robots.txt'e eklemek veya mevcut sitemap'e katmak dağıtım tarafının işidir. */
-  const urls = [`${MOD.site.baseUrl}/`, `${MOD.site.baseUrl}/paketler/`, `${MOD.site.baseUrl}/iletisim/`, `${MOD.site.baseUrl}/canli-menu/`, `${MOD.site.baseUrl}/gizlilik/`, `${MOD.site.baseUrl}/cerez-politikasi/`, `${MOD.site.baseUrl}/kullanim-sartlari/`, `${MOD.site.baseUrl}/mesafeli-satis/`, `${MOD.site.baseUrl}/moduller/`]
+  const urls = [`${MOD.site.baseUrl}/`, `${MOD.site.baseUrl}/paketler/`, `${MOD.site.baseUrl}/iletisim/`, `${MOD.site.baseUrl}/canli-menu/`, `${MOD.site.baseUrl}/gizlilik/`, `${MOD.site.baseUrl}/cerez-politikasi/`, `${MOD.site.baseUrl}/kullanim-sartlari/`, `${MOD.site.baseUrl}/sss/`, `${MOD.site.baseUrl}/moduller/`]  /* mesafeli-satis noindex: haritada yok */
     .concat(MOD.modules.map((m) => `${MOD.site.baseUrl}/moduller/${m.slug}/`));
   fs.writeFileSync(path.join(ROOT, "..", "sitemap-paketler-moduller.xml"),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
