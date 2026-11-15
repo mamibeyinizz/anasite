@@ -7,11 +7,15 @@
    h2'ler id taşır; içindekiler bunlardan üretilir.
 ========================================================= */
 
+import { POSTS_2A } from "./posts-2a.mjs";
+import { POSTS_2B } from "./posts-2b.mjs";
+
 export const CATEGORIES = [
   { id: "qr-menu", name: "QR Menü", lead: "Dijital menüye geçiş, kurulum ve seçim rehberleri." },
   { id: "mevzuat", name: "Mevzuat", lead: "Fiyat listesi ve tüketici kurallarının işletmeye etkisi." },
   { id: "karlilik", name: "Menü & Kârlılık", lead: "Maliyet, fiyat ve menü mühendisliği." },
-  { id: "servis", name: "Servis & Operasyon", lead: "Masa, garson çağrısı ve servis akışı." }
+  { id: "servis", name: "Servis & Operasyon", lead: "Masa, garson çağrısı ve servis akışı." },
+  { id: "isletme", name: "İşletme & Görünürlük", lead: "Google yorumları, yerel arama ve misafir kazanma." }
 ];
 
 export const AUTHOR = { name: "QR Menu Official Editör Ekibi", url: "https://qrmenuofficial.com/" };
@@ -490,5 +494,7 @@ export const POSTS = [
       { label: "QR Masa modülü", path: "moduller/qr-masa/" },
       { label: "Masa Oturum Güvenliği", path: "moduller/masa-oturum-guvenligi/" }
     ]
-  }
+  },
+  ...POSTS_2A,
+  ...POSTS_2B
 ];
