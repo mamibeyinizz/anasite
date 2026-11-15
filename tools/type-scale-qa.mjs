@@ -16,7 +16,8 @@ const PAGES = process.argv.slice(3).length ? process.argv.slice(3) : [
   "/moduller/qr-analytics/", "/moduller/qr-masa/", "/moduller/restoran-menu/", "/moduller/servis-paneli/",
   "/moduller/yorum-geri-bildirim/", "/blog/", "/blog/dijital-menu-nasil-hazirlanir/",
   "/blog/garson-cagirma-sistemi/", "/blog/karekod-fiyat-listesi-yonetmeligi/",
-  "/blog/menu-muhendisligi-nedir/", "/blog/qr-menu-nedir/", "/canli-menu/", "/iletisim/", "/sss/",
+  "/blog/menu-muhendisligi-nedir/", "/blog/qr-menu-nedir/",
+  "/blog/restoran-fiyat-artisi-menuye-nasil-yansitilir/", "/blog/garson-eksikligi-az-personelle-servis/", "/blog/restoran-google-yorumlari-nasil-artirilir/", "/blog/google-isletme-profili-restoran-yerel-seo/", "/blog/turist-icin-cok-dilli-menu/", "/blog/restoran-menude-alerjen-bilgisi/", "/blog/menude-olmayan-urun-aramalari/", "/blog/restoran-siparis-hatalari/", "/blog/restoran-menu-tasarimi/", "/blog/qr-menu-fiyatlari/", "/canli-menu/", "/iletisim/", "/sss/",
   "/gizlilik/", "/kullanim-sartlari/", "/cerez-politikasi/", "/mesafeli-satis/"
 ];
 const VIEWPORTS = [["mobil", 390, 844], ["tablet", 820, 1100], ["masaüstü", 1440, 900]];

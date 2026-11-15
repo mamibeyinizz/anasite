@@ -7,6 +7,7 @@ import path from "path";
 import http from "http";
 import { fileURLToPath } from "url";
 import { createRequire } from "module";
+import { POSTS } from "./posts.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -85,7 +86,8 @@ if (pw) {
     await page.goto(base + "blog/");
     await page.click('[data-filter="karlilik"]');
     const vis = await page.$$eval(".qb-card", (cs) => cs.filter((c) => !c.hidden).length);
-    if (vis !== 1) fail(`${w}px: filtre sonrası ${vis} kart (beklenen 1)`);
+    const beklenen = POSTS.filter((p) => p.category === "karlilik").length;
+    if (vis !== beklenen) fail(`${w}px: filtre sonrası ${vis} kart (beklenen ${beklenen})`);
     await page.close();
   }
   await browser.close();
