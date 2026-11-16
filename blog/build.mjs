@@ -10,6 +10,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { applyGlobal } from "../global/inject.mjs";
 import { POSTS, CATEGORIES, AUTHOR } from "./posts.mjs";
+import { writeLlms } from "../tools/llms-txt.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
@@ -114,7 +115,7 @@ function renderIndex() {
   const featured = sorted.find((p) => p.featured) || sorted[0];
   const rest = sorted.filter((p) => p !== featured);
   const url = `${ORIGIN}/blog/`;
-  const title = "Restoran ve Kafe Blogu: QR Menü, Menü Yönetimi ve Servis | QR Menu Official";
+  const title = "Restoran ve Kafe Blogu: QR Menü Rehberi | QR Menu Official";
   const description = "Restoran ve kafe sahipleri için QR menü, dijital menü, menü mühendisliği, servis akışı ve mevzuat rehberleri. Rakam uydurmadan, uygulanabilir içerik.";
   const jsonld = [
     crumbs([["Ana Sayfa", `${ORIGIN}/`], ["Blog", url]]),
@@ -291,3 +292,7 @@ ${[...POSTS].sort((a, b) => b.date.localeCompare(a.date)).map((p) => `<item><tit
 `
 );
 console.log("sitemap-blog.xml + blog/feed.xml yazıldı");
+
+/* llms.txt: yapay zekâ arama motorları için site özeti (yazı listesiyle eşit kalsın). */
+await writeLlms();
+console.log("llms.txt yazıldı");

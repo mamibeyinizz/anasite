@@ -90,4 +90,6 @@ Ayrıntılar: `HOMEPAGE_ARCHITECTURE.md` madde 13.
 ### SEO yardımcı komutları
 - `node tools/home-css-extract.mjs` — Ana sayfadaki ardışık gömülü `<style>` bloklarını kural sırasını koruyarak `css/home-sections.css`'e taşır (önbelleğe alınır, HTML küçülür). Bir bölüm `sections/*.html`'den yeniden yapıştırılırsa tekrar çalıştırın; tekrar çalıştırmak güvenlidir.
 - `node tools/home-jsonld.mjs` — Ana sayfanın Organization + WebSite + SoftwareApplication yapılandırılmış verisini yazar; fiyatları `paketler/packages-data.js`'ten okur. Fiyat değişince tekrar çalıştırın.
+- `node tools/llms-txt.mjs` — Yapay zekâ arama motorları için `llms.txt` (site özeti, paketler, modüller, blog). `node blog/build.mjs` her çalıştığında kendiliğinden yenilenir. Canlı blog veritabanında olduğu için panelden eklenen yazılar bu dosyaya `blog/posts.mjs`'e de eklenmedikçe girmez.
+- `node tools/paketler-statik.mjs` — `/paketler/` sayfasındaki `<noscript>` özetine paket verisinden tam fiyat ve özellik tablosu yazar (JavaScript çalıştırmayan tarayıcılar ve yapay zekâ tarayıcıları için). `packages-data.js` değişince tekrar çalıştırın.
 - Site haritası (`sitemap-paketler-moduller.xml`) `node moduller/build.js` ile üretilir; `noindex` sayfalar (ör. mesafeli satış) haritaya konmaz.

@@ -2044,3 +2044,7 @@ body.qrmo-pricing-page {
 .qrmo-pricing-period-note { max-width: var(--ts-measure); min-height: 2.9em; margin: 0 auto 20px !important; color: var(--ts-ink-soft); text-align: center; }
 @media (max-width: 480px) { .qrmo-pricing-period { width: 100%; } .qrmo-pricing-period-opt { flex: 1 1 0; padding-inline: 10px; } }
 @media (prefers-reduced-motion: reduce) { .qrmo-pricing-period-opt { transition: none; } }
+.qrmo-pricing-fallback table { width: 100%; margin-top: 12px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.qrmo-pricing-fallback th, .qrmo-pricing-fallback td { padding: 8px 10px; border-bottom: 1px solid rgba(13, 43, 34, .12); text-align: left; }
+.qrmo-pricing-fallback td { white-space: nowrap; }
+.qrmo-pricing-fallback a { color: var(--ts-gold-ink, #7f6419); font-weight: 700; text-decoration: none; }
