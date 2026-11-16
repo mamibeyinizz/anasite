@@ -1,0 +1,89 @@
+# QR Menu Official
+
+> Türkiye'deki restoran ve kafeler için dijital QR menü ve masa servis sistemi. Misafir masadaki karekodu okutur, menüyü uygulama indirmeden telefonunda açar; işletme ürün ve fiyatları panelden günceller. Pro paketten itibaren garson çağrısı, hesap talebi ve QR ile sipariş bir servis paneline düşer.
+
+Ürün hakkında kesin bilgiler:
+
+- Sistem online ödeme almaz; sipariş ve hesap talebi servis paneline iletilir, ödeme işletmenin kendi yöntemiyle alınır.
+- Çoklu dil desteği 30 dildir; çeviriler elle ya da CSV ile girilir, otomatik çeviri yapılmaz.
+- Alerjen ve diyet filtreleri, ürünlere girilen bilgiye dayanır; içerik otomatik algılanmaz.
+- Menü mühendisliği ve maliyet hesabı, işletmenin girdiği malzeme fiyatları ve reçetelerle çalışır.
+- Menü asistanı (Google Gemini tabanlı) cevaplayamadığı soruları raporlar; personel görüşmeyi devralabilir.
+- Masa oturumu imzalı ve süresi sınırlıdır (varsayılan 90 dakika toplam, 30 dakika hareketsizlik); yalnızca kayıtlı masalar için açılır.
+- Menü analitiği görüntüleme, ürün tıklaması ve menüde bulunamayan aramaları gösterir; kasa satış verisi değildir.
+
+## Paketler
+
+- [Temel — aylık 749 TL, yıllık 7.490 TL](https://qrmenuofficial.com/paketler/): Menünüzü dijitalleştirin ve ürünlerinizi tek panelden yönetin. İçerik: Dijital QR menü, Panelden ürün ve fiyat yönetimi, CSV ile ürün aktarma, Porsiyon ve ekstra, Ürün rozetleri, Kampanya ve kombo, Akıllı filtreleme, Çoklu dil, QR masa.
+- [Pro — aylık 1.490 TL, yıllık 14.900 TL](https://qrmenuofficial.com/paketler/): Masa ve servis süreçlerinizi daha düzenli yönetin. Ek olarak: Açılış ekranı, QR ile sipariş, Servis paneli, Garson çağrısı, Hesap talebi, Personel ve servis rolleri, Masa oturum güvenliği.
+- [Plus — aylık 2.990 TL, yıllık 29.900 TL](https://qrmenuofficial.com/paketler/): İşletmenizi gelişmiş dijital araçlar ve verilerle geliştirin. Ek olarak: Menü analitiği, Yorum ve geri bildirim, Maliyet ve reçete, Menü mühendisliği, Menü asistanı.
+
+Yıllık ödemede 12 ay kullanım için 10 aylık ücret ödenir. Güncel fiyat için https://qrmenuofficial.com/paketler/ esas alınır.
+
+## Modüller
+
+- [Restoran Menü](https://qrmenuofficial.com/moduller/restoran-menu/): Fiyat ve ürünleri tek panelden güncelleyin; menü baskısız güncel kalsın.
+- [QR Masa](https://qrmenuofficial.com/moduller/qr-masa/): Her masaya özel QR kodu üretin; misafir menüyü masa bilgisiyle açsın.
+- [Çoklu Dil](https://qrmenuofficial.com/moduller/coklu-dil/): Menüyü seçtiğiniz dillerde sunun; misafir ürünü kendi dilinde okusun.
+- [Akıllı Filtreleme](https://qrmenuofficial.com/moduller/akilli-filtreleme/): Alerjen, kalori, fiyat ve ürün özelliğiyle uygun seçeneği bulun.
+- [Menü Asistanı](https://qrmenuofficial.com/moduller/menu-asistani/): Menü verinize göre soruları yanıtlar; bilemediğini size bırakır.
+- [Servis Paneli](https://qrmenuofficial.com/moduller/servis-paneli/): Garson çağrısı, hesap isteği ve siparişleri tek ekranda izleyin.
+- [QR Analytics](https://qrmenuofficial.com/moduller/qr-analytics/): Menü görüntüleme ve ürün tıklamasını görün; kasa satışı değil.
+- [Masa Oturum Güvenliği](https://qrmenuofficial.com/moduller/masa-oturum-guvenligi/): Kayıtlı masada imzalı oturum açın; süre ve hareketsizlik limitini siz koyun.
+- [Yorum & Geri Bildirim](https://qrmenuofficial.com/moduller/yorum-geri-bildirim/): Puan ve yorumları toplayın; yayına hangisinin çıkacağına siz karar verin.
+- [Menü Mühendisliği](https://qrmenuofficial.com/moduller/menu-muhendisligi/): Maliyet ve satışla popülerlik ile kârlılığı yan yana görün.
+
+## Önemli sayfalar
+
+- [Ana sayfa](https://qrmenuofficial.com/): Ürünün genel tanıtımı.
+- [Paketler ve fiyatlar](https://qrmenuofficial.com/paketler/): Temel, Pro ve Plus paketlerinin özellik karşılaştırması.
+- [Canlı demo menüler](https://qrmenuofficial.com/canli-menu/): Paketlere göre çalışan demo menüler.
+- [Sıkça sorulan sorular](https://qrmenuofficial.com/sss/): Menü, sipariş, analitik ve paketler hakkında sorular.
+- [İletişim](https://qrmenuofficial.com/iletisim/): Telefon ve e-posta.
+
+## Blog: QR Menü
+
+- [Turist Misafir İçin Çok Dilli Menü: Yabancı Müşteriye Menü Nasıl Hazırlanır?](https://qrmenuofficial.com/blog/turist-icin-cok-dilli-menu/): Turist misafir için çok dilli menüde yemek adını çevirmekle yetinmeyin: Türkçe adı koruyun, altına kısa ve doğru bir açıklama ekleyin, alerjen ve içerik bilgisini her dilde verin. QR menüde dil seçiciyle aynı menüyü birden çok dilde göstermek, her dil için ayrı menü bastırmaktan daha kolay güncellenir.
+- [Restoran Menü Tasarımı: Telefonda Okunan ve Seçimi Kolaylaştıran Menü İçin İlkeler](https://qrmenuofficial.com/blog/restoran-menu-tasarimi/): İyi bir restoran menüsü az sayıda net kategoriden oluşur, her üründe kısa ve somut bir açıklama ile gerçek bir fotoğraf taşır, fiyatı okunur şekilde gösterir ve telefonda tek elle rahatça kaydırılır. Tasarımın amacı süs değil, misafirin aradığını hızla bulup karar vermesidir.
+- [QR Menü Fiyatları: Ücret Neye Göre Değişir, Neyi Karşılaştırmalı?](https://qrmenuofficial.com/blog/qr-menu-fiyatlari/): QR menü fiyatı, sistemin yalnızca menü mü yoksa sipariş, garson çağrısı ve analitik gibi servis özellikleri de mi sunduğuna, ödeme modeline (aylık ya da yıllık) ve kurulum, çoklu dil ve destek gibi kalemlerin dahil olup olmadığına göre değişir. Teklifleri karşılaştırırken aylık ücret kadar neyin dahil olduğuna bakın.
+- [QR Menü Programı Seçerken Sorulacak 12 Soru](https://qrmenuofficial.com/blog/qr-menu-programi-secimi/): QR menü programı seçerken önce ihtiyacınızı netleştirin: yalnızca menü mü, yoksa sipariş ve garson çağrısı da mı gerekiyor? Ardından fiyatı kendiniz güncelleyip güncelleyemediğinizi, menünün telefonda nasıl göründüğünü, çoklu dil ve alerjen desteğini, verilerinizi dışa aktarıp aktaramadığınızı ve desteğin nasıl verildiğini sorun.
+- [PDF Menü mü, Dijital Menü mü? QR Kodlu Menüde Doğru Seçim](https://qrmenuofficial.com/blog/pdf-menu-mu-dijital-menu-mu/): PDF menü, basılı menünün dosyasının karekoda bağlanmasıdır; kurulumu hızlıdır ama telefonda yakınlaştırma gerektirir ve her değişiklikte yeniden yüklenir. Dijital menü ise telefona göre düzenlenir, ürün bazında güncellenir, arama, filtre ve çoklu dil sunabilir. Az ürünlü ve nadiren değişen menüler için PDF yeterli olabilir; sık değişen menülerde dijital menü daha pratiktir.
+- [Dijital Menü Nasıl Hazırlanır? Kafe ve Restoranlar İçin Adım Adım](https://qrmenuofficial.com/blog/dijital-menu-nasil-hazirlanir/): Dijital menü hazırlamak için önce tüm ürünleri kategori, ad, açıklama, fiyat, porsiyon ve alerjen sütunları olan tek bir tabloda toplayın; kategorileri misafirin sipariş sırasına göre dizin; ürün fotoğraflarını aynı standartta çekin; menüyü bir dijital menü sistemine aktarıp karekodu masalarda test ederek yayına alın.
+- [QR Menü Nedir? Restoran ve Kafeler İçin Kapsamlı Rehber](https://qrmenuofficial.com/blog/qr-menu-nedir/): QR menü, masaya veya kapıya konan karekodun telefon kamerasıyla okutulmasıyla açılan web tabanlı menüdür. Misafir uygulama indirmez; işletme fiyat ve ürünleri panelden günceller, menü yeniden basılmadan güncel kalır.
+- [Ücretsiz QR Menü Araçlarının Sınırları: Ne Zaman Yeterli, Ne Zaman Değil?](https://qrmenuofficial.com/blog/ucretsiz-qr-menu/): Ücretsiz QR menü araçları kısa ve nadiren değişen menüler için yeterli olabilir. Seçmeden önce kodun kalıcı olup olmadığını, menüde reklam gösterilip gösterilmediğini, fiyatı kendiniz güncelleyip güncelleyemediğinizi ve verilerinizi dışa aktarıp aktaramadığınızı kontrol edin; çünkü basılı kodu değiştirmek ileride masraf çıkarır.
+
+## Blog: Mevzuat
+
+- [Restoran Menüsünde Alerjen Bilgisi: Neden Önemli, Nasıl Gösterilir?](https://qrmenuofficial.com/blog/restoran-menude-alerjen-bilgisi/): Alerjen bilgisi, her ürünün hangi alerjenleri içerdiğinin menüde yazı ve simgeyle gösterilmesidir. Bilgi mutfakla birlikte reçeteden doğrulanmalı, çapraz bulaşma riski belirtilmeli ve garsonlar bu bilgiye hâkim olmalıdır. Dijital menüde alerjen tanımlandığında misafir, istemediği alerjeni içeren ürünleri filtreleyebilir.
+- [Karekodla Fiyat Listesi: Restoran ve Kafeler İçin Yönetmelik Rehberi](https://qrmenuofficial.com/blog/karekod-fiyat-listesi-yonetmeligi/): Fiyat Etiketi Yönetmeliği'nde 11 Ekim 2025'te yürürlüğe giren değişiklikle lokanta, restoran, kafe ve pastanelerde masadaki fiyat listesi karekodla da gösterilebilir. Tüketici talep ederse fiyat listesi fiziksel olarak da gösterilmek zorundadır.
+
+## Blog: Menü & Kârlılık
+
+- [Restoranlarda Fiyat Artışı Menüye Nasıl Yansıtılır? Misafiri Kaçırmadan Zam Rehberi](https://qrmenuofficial.com/blog/restoran-fiyat-artisi-menuye-nasil-yansitilir/): Fiyat artışını menünün tamamına aynı oranda yansıtmak yerine ürün bazında karar verin: önce maliyeti en çok artan ve en çok satan ürünleri hesaplayın, artışı küçük ve düzenli adımlarla yapın, porsiyon ve kombo seçenekleriyle misafire alternatif bırakın. Fiyat listesini her değişiklikte güncel tutmak yasal zorunluluktur.
+- [Menüde Olmayan Ürünü Arayan Müşteri: Arama Verisiyle Menü Nasıl Geliştirilir?](https://qrmenuofficial.com/blog/menude-olmayan-urun-aramalari/): Dijital menüde misafirlerin arayıp bulamadığı kelimeler, menünüzdeki eksiklerin ve adlandırma sorunlarının doğrudan göstergesidir. Bu listeyi düzenli okuyun: sık aranan bir ürün yoksa eklemeyi değerlendirin, varsa ama farklı adla duruyorsa ürün adını ya da açıklamasını misafirin kullandığı kelimeye göre düzeltin.
+- [Restoranda Ek Satış: Israrcı Olmadan Öneri Yapmanın Yolları](https://qrmenuofficial.com/blog/restoranda-ek-satis/): Restoranda ek satış, misafirin seçtiği ürüne uyan bir içecek, yan ürün, tatlı ya da daha büyük porsiyon önermektir. Israrsız ek satışın yolu, öneriyi misafirin seçimine göre kişiselleştirmek, tek ve net bir seçenek sunmak ve menüde bu eşleştirmeleri görünür kılmaktır.
+- [Reçete Maliyeti Nasıl Hesaplanır? Fire Payı Dahil Adım Adım](https://qrmenuofficial.com/blog/recete-maliyeti-hesaplama/): Reçete maliyeti, bir porsiyonda kullanılan her malzemenin gramajının, fire payı eklenmiş birim fiyatıyla çarpılıp toplanmasıyla bulunur. Maliyet oranı (food cost) ise porsiyon maliyetinin vergisiz satış fiyatına bölünüp 100 ile çarpılmasıdır.
+- [Menü Fiyatlandırma Yöntemleri: Restoran Fiyatı Nasıl Belirlenir?](https://qrmenuofficial.com/blog/menu-fiyatlandirma/): Menü fiyatı belirlenirken önce reçete maliyeti hesaplanır, ardından ürünün işletmeye bırakması gereken katkı, benzer işletmelerin fiyatları ve misafirin ürüne biçtiği değer birlikte değerlendirilir. Tek bir yönteme dayanmak yerine maliyeti taban, değeri tavan kabul etmek daha sağlıklıdır.
+- [Restoran Cirosunu Etkileyen 10 Operasyonel Kalem](https://qrmenuofficial.com/blog/restoran-cirosu-artirma/): Restoran cirosu, kabaca misafir sayısı ile misafir başına harcamanın çarpımıdır. İkisini de etkileyen operasyonel kalemler vardır: masa devri, sipariş ve servis süresi, ortalama hesap, menü düzeni, tükenen ürün yönetimi, geri dönen misafir ve yerel görünürlük. Her kalemi ölçüp birer birer iyileştirmek, tek bir büyük kampanyadan daha kalıcı sonuç verir.
+- [Menü Mühendisliği Nedir? Restoran Menüsünde Kârlılık Analizi](https://qrmenuofficial.com/blog/menu-muhendisligi-nedir/): Menü mühendisliği, menüdeki her ürünü iki ölçüye göre sınıflandırma yöntemidir: ne kadar satıldığı (popülerlik) ve satış fiyatından maliyet düşüldükten sonra tabak başına ne bıraktığı (katkı payı). Sonuç dört gruptur: yıldız, at, bulmaca ve köpek.
+- [Kampanya ve Kombo Menü Nasıl Kurgulanır?](https://qrmenuofficial.com/blog/kombo-menu/): Kombo menü, birlikte sık tercih edilen ürünlerin (ana yemek, yan ürün, içecek) tek fiyatla sunulmasıdır. Kurgularken kombo fiyatının ürünlerin toplam maliyetini rahatça karşıladığından emin olun, kârlı ürünleri komboya dahil edin, menüde net gösterin ve kampanyaların başlangıç ve bitişini önceden planlayıp elle kapatmayı unutmayın.
+
+## Blog: Servis & Operasyon
+
+- [Garson Eksikliği: Az Personelle Restoran Servisi Nasıl Yürütülür?](https://qrmenuofficial.com/blog/garson-eksikligi-az-personelle-servis/): Az personelle servis yürütmek için garsonun zamanını en çok alan işleri azaltın: menüyü masaya getirip anlatmak, siparişi not alıp mutfağa taşımak ve salonu dolaşıp kimin ne istediğini aramak. Masadan QR ile menü, garson çağrısı ve sipariş, bu yürüyüşlerin bir kısmını ortadan kaldırır; kalan zamanı karşılama ve servise ayırırsınız.
+- [Restoranlarda Sipariş Hataları Neden Olur ve Nasıl Azaltılır?](https://qrmenuofficial.com/blog/restoran-siparis-hatalari/): Restoranda sipariş hataları çoğunlukla dört noktada doğar: misafirle garson arasındaki yanlış anlaşılma, okunmayan ya da eksik not, mutfağa sözlü iletim ve masa karışıklığı. Siparişi yazılı, masa numaralı ve ekstralarıyla birlikte mutfağa ileten bir akış bu noktaların çoğunu azaltır.
+- [QR ile Masadan Sipariş: Nasıl Çalışır, Kime Uygun?](https://qrmenuofficial.com/blog/qr-ile-masadan-siparis/): QR ile masadan siparişte misafir masadaki karekodu okutur, menüden ürün, porsiyon ve ekstraları seçer ve siparişi gönderir. Sipariş masa numarasıyla birlikte personelin ekranına düşer. Garsonun not alıp mutfağa taşıma işini azaltır; misafirle ilgilenmeyi ve servisi ortadan kaldırmaz.
+- [Garson Çağırma Sistemi: QR ile Masadan Servis Talebi Nasıl Yönetilir?](https://qrmenuofficial.com/blog/garson-cagirma-sistemi/): Garson çağırma sistemi, misafirin masadan bir butona veya QR menüdeki bir düğmeye dokunarak personele haber vermesini sağlar. QR tabanlı sistemde talep, masa bilgisiyle birlikte personelin izlediği bir servis paneline düşer; personel talebi görüp karşılar.
+- [QR Menü Güvenliği: Masa Oturumu Neyi Çözer, Neyi Çözmez?](https://qrmenuofficial.com/blog/qr-menu-guvenligi/): QR menüde masa oturumu, siparişin ve çağrının yalnızca kayıtlı bir masadan ve sınırlı bir süre içinde verilmesini sağlar. Oturum süresi dolduğunda ya da hesap kapandığında yeni sipariş için kodun yeniden okutulması gerekir. Ancak kodun gerçek fotoğrafına sahip biri süre içinde menüyü açabilir; hiçbir yöntem bunu tamamen engellemez.
+
+## Blog: İşletme & Görünürlük
+
+- [Restoran Google Yorumları Nasıl Artırılır? Kurallara Uygun Yöntemler](https://qrmenuofficial.com/blog/restoran-google-yorumlari-nasil-artirilir/): Google yorumlarını artırmanın kurallara uygun yolu, memnun misafire deneyimin hemen ardından kolay bir bağlantıyla yorum bırakmayı hatırlatmaktır. Yorum karşılığında indirim vermek, sahte yorum yazdırmak ya da yalnızca memnun misafirlerden yorum istemek Google'ın politikalarına aykırıdır ve hesabınızı riske atar.
+- [Restoran ve Kafeler İçin Google İşletme Profili ve Yerel SEO Rehberi](https://qrmenuofficial.com/blog/google-isletme-profili-restoran-yerel-seo/): Restoranın yerel aramalarda görünmesi için Google İşletme Profili'ni eksiksiz doldurun: doğru kategori, adres, telefon ve çalışma saatleri, güncel fotoğraflar ve menü bağlantısı. Google yerel sıralamada alaka düzeyi, mesafe ve bilinirliğe baktığını belirtir; bunlardan ikisini, profili eksiksiz tutarak ve düzenli yorum alarak etkileyebilirsiniz.
+
+## Optional
+
+- [Gizlilik Politikası ve KVKK Aydınlatma Metni](https://qrmenuofficial.com/gizlilik/)
+- [Çerez Politikası](https://qrmenuofficial.com/cerez-politikasi/)
+- [Kullanım Şartları](https://qrmenuofficial.com/kullanim-sartlari/)
+- [Blog RSS](https://qrmenuofficial.com/blog/feed.xml)

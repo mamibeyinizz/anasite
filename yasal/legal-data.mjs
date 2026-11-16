@@ -48,7 +48,7 @@ export const PAGES = [
   {
     slug: "gizlilik",
     nav: "Gizlilik ve KVKK",
-    title: "Gizlilik Politikası ve KVKK Aydınlatma Metni",
+    title: "Gizlilik Politikası ve KVKK Metni",
     h1: "Gizlilik Politikası ve KVKK Aydınlatma Metni",
     description:
       "QR Menu Official sitesinde hangi kişisel verilerin, neden ve nasıl işlendiği; 6698 sayılı KVKK kapsamındaki haklarınız.",

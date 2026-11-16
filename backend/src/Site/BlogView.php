@@ -59,7 +59,7 @@ final class BlogView
 		$featured = $featured ?? ($posts[0] ?? null);
 		$rest = array_values(array_filter($posts, static fn (array $p): bool => $featured === null || $p['slug'] !== $featured['slug']));
 		$url = self::ORIGIN . '/blog/';
-		$title = 'Restoran ve Kafe Blogu: QR Menü, Menü Yönetimi ve Servis | QR Menu Official';
+		$title = 'Restoran ve Kafe Blogu: QR Menü Rehberi | QR Menu Official';
 		$description = 'Restoran ve kafe sahipleri için QR menü, dijital menü, menü mühendisliği, servis akışı ve mevzuat rehberleri. Rakam uydurmadan, uygulanabilir içerik.';
 		$counts = array();
 		foreach ($posts as $p) {
