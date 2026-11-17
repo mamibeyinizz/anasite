@@ -9,10 +9,10 @@
 
 /* Token'lar global/src/type-scale.css içindedir (:root). */
 
-/* —— Display: adım numarası —— */
+/* —— Eyebrow: adım etiketi ("Adım 01"; kurulum kartı, css/home-setup-v3.css) —— */
 body.qrmo-home-ctx .qrmo-setup-v2__num {
-  font-size: var(--ts-fs-display) !important; font-weight: var(--ts-fw-display) !important;
-  line-height: var(--ts-lh-display) !important; letter-spacing: var(--ts-ls-display) !important;
+  font-size: var(--ts-fs-eyebrow) !important; font-weight: var(--ts-fw-eyebrow) !important;
+  line-height: var(--ts-lh-eyebrow) !important; letter-spacing: var(--ts-ls-eyebrow) !important;
 }
 
 /* —— H1 —— */

@@ -1,0 +1,108 @@
+/* =========================================================
+   Ana sayfa — Kurulum (qrmo-setup-v2) hizalama katmanı.
+   home-sections.css'ten SONRA yüklenir; yalnız yerleşimi ve kart düzenini
+   düzeltir, yazı boyutları home-type-scale.css'te kalır.
+
+   Kartın satırları (üst bilgi · başlık · açıklama · çıktı · bağlantı) CSS
+   subgrid ile tek ızgaraya bağlanır: bir kartta başlık iki satıra çıkarsa
+   diğer kartlar da aynı yüksekliği ayırır, açıklamalar ve bağlantılar aynı
+   çizgide başlar.
+   ========================================================= */
+
+body .qrmo-setup-v2__rail {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  column-gap: clamp(14px, 1.6vw, 24px);
+  row-gap: 0;
+  align-items: stretch;
+}
+
+body .qrmo-setup-v2__step {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  padding-top: 34px;
+}
+
+body .qrmo-setup-v2__card,
+body .qrmo-setup-v2__step + .qrmo-setup-v2__step .qrmo-setup-v2__card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  align-content: start;
+  height: auto;
+  padding: 24px 24px 22px;
+  border: 1px solid rgba(13, 43, 34, .1);
+  border-radius: 20px;
+  background: #FFFDF8;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 18px 40px -28px rgba(13, 43, 34, .35);
+}
+
+/* Satırlar: her öğe kendi satırında, aynı boşlukla. */
+body .qrmo-setup-v2__top { margin: 0 0 18px; align-self: start; }
+body .qrmo-setup-v2__step h3 { margin: 0; padding: 0; align-self: start; }
+body .qrmo-setup-v2__step p { margin: 10px 0 0; align-self: start; }
+body .qrmo-setup-v2__out { margin: 18px 0 0; align-self: end; justify-self: start; }
+body .qrmo-setup-v2__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  min-height: 44px;
+  margin: 6px 0 0;
+  padding: 0;
+  align-self: end;
+  text-decoration: none;
+}
+
+/* Numara: dev soluk rakam yerine küçük, okunur "Adım 01". */
+body .qrmo-setup-v2__num,
+body.qrmo-home-ctx .qrmo-setup-v2__num {
+  position: static;
+  transform: none;
+  z-index: auto;
+  pointer-events: auto;
+  margin-left: 0;
+  text-transform: uppercase; /* boyut/kalınlık: eyebrow rolü (css/home-type-scale.css) */
+  color: #7F6419;
+  -webkit-text-stroke: 0;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+body .qrmo-setup-v2__num::before { content: "Adım "; }
+body .qrmo-setup-v2__badge { margin-left: auto; }
+
+/* Öne çıkan adım: altın çerçeve; başlık diğerleriyle aynı renkte kalır. */
+body .qrmo-setup-v2__step.is-hot .qrmo-setup-v2__card {
+  border: 1.5px solid #C9A84C;
+  background:
+    radial-gradient(120% 70% at 0% 0%, rgba(232, 199, 102, .16), rgba(232, 199, 102, 0) 60%),
+    #FFFDF8;
+}
+body .qrmo-setup-v2__step.is-hot h3,
+body.qrmo-home-ctx .qrmo-setup-v2__step.is-hot h3 {
+  color: #0D2B22;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+body .qrmo-setup-v2__step.is-hot .qrmo-setup-v2__num { background: none; }
+
+/* Tablet: iki sütun (her satırda iki kart yine kendi içinde hizalı). */
+@media (max-width: 1023px) {
+  body .qrmo-setup-v2__rail { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; padding-left: 0; }
+  body .qrmo-setup-v2__track,
+  body .qrmo-setup-v2__node { display: none; }
+  body .qrmo-setup-v2__step { padding-top: 0; }
+}
+
+/* Telefon: tek sütun; ızgara bağı gerekmez. */
+@media (max-width: 640px) {
+  body .qrmo-setup-v2__rail { grid-template-columns: minmax(0, 1fr); row-gap: 16px; padding-left: 0; }
+  body .qrmo-setup-v2__step { display: block; padding: 0; margin: 0; }
+  body .qrmo-setup-v2__node { display: none; }
+  body .qrmo-setup-v2__card { display: flex; flex-direction: column; align-items: flex-start; margin: 0; }
+  body .qrmo-setup-v2__top { align-self: stretch; }
+  body .qrmo-setup-v2__out,
+  body .qrmo-setup-v2__link { align-self: flex-start; margin-left: 0; }
+}
