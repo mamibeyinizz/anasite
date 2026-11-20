@@ -19,12 +19,16 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !^https$ [NC]
 RewriteCond %{REQUEST_URI} !^/\.well-known/
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# Yinelenen adresler tek adrese: /index.html → /, eski /sss.html → /sss/.
+# Temiz adresler: adreste .html görünmez.
 # THE_REQUEST yalnızca tarayıcının açıkça istediği adresi yakalar; DirectoryIndex'in
-# iç eşlemesi (/ → index.html) yönlendirilmez, döngü olmaz.
-RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-RewriteRule ^index\.html$ / [R=301,L]
-RewriteRule ^sss\.html$ /sss/ [R=301,L]
+# iç eşlemesi (/canli-menu/ → canli-menu/index.html) yönlendirilmez, döngü olmaz.
+# 1) /klasor/index.html (ve /index.html) → /klasor/
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L,NE]
+# 2) /sayfa.html → /sayfa/ (aynı adla klasör varsa; ör. eski /sss.html → /sss/)
+RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
+RewriteRule ^ /%1/ [R=301,L,NE]
 
 # TRACE/TRACK kapalı
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)$ [NC]
