@@ -1,0 +1,79 @@
+{
+ "ffprobe": {
+  "boyut": "1080x1920",
+  "fps": "30/1",
+  "sure": 28.0,
+  "renk": [
+   "bt709",
+   "bt709",
+   "bt709"
+  ],
+  "video_bps": 6509286
+ },
+ "ses": {
+  "LUFS": -14.0,
+  "tepe_dBTP": -3.9
+ },
+ "layout": {
+  "ihlal": 0,
+  "kurallar": {},
+  "ornek": 561,
+  "kontrast": {
+   "enDusukOran": 6.1,
+   "olcum": 150
+  },
+  "otuz_dile_kadar_sn": 1.35,
+  "en_uzun_metinsiz_sn": 0.2,
+  "ekran_metin_px": {
+   "satir_aciklama_px": 28.4,
+   "dil_ogesi_px": 28.4,
+   "urun_adi_px": 34.3,
+   "panel_alt_yazi_px": 36.5
+  },
+  "doluluk": {
+   "3B grup (0,3–7,9 sn)": {
+    "genislik_px_min": 660,
+    "yukseklik_px_min": 624,
+    "medya_bandi_doluluk_min": 0.93
+   },
+   "telefon": {
+    "yukseklik_px": 625,
+    "genislik_px": [
+     310,
+     310.5,
+     311.5,
+     312,
+     312.5
+    ],
+    "oran": [
+     0.496,
+     0.5
+    ],
+    "medya_bandi_doluluk": 0.93
+   },
+   "panel": {
+    "pencere_px": [
+     920,
+     568
+    ],
+    "medya_bandi_doluluk": 0.85
+   },
+   "lens": {
+    "lens-dd": [
+     581,
+     640
+    ],
+    "lens-satir": [
+     581,
+     470
+    ],
+    "lens-cta": [
+     581,
+     365
+    ]
+   }
+  },
+  "pencere_kesik_kutu": {},
+  "satir_karti_kenardan_kesik": true
+ }
+}

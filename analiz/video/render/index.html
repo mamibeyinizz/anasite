@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<title>Çoklu Dil Reels v3</title>
+<title>Çoklu Dil Reels v4</title>
 <script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js"}}</script>
 <style>
 /* Yazı tipi: yalnızca Manrope, kendi sunucumuzdan (assets/fonts). Konumlar layout.js'ten JS ile atanır (burada mutlak koordinat yok). */
@@ -16,15 +16,10 @@ html,body{margin:0;background:#0D2B22;overflow:hidden}
 canvas#gl{position:absolute;left:0;top:0;width:1080px;height:1920px}
 .ui{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none}
 .ui>*{position:absolute;opacity:0}
-.hero{font-weight:800;line-height:1.1;letter-spacing:-.03em;text-wrap:balance}
-.hero.k{font-size:80px}
-.hero.m{font-size:68px}
-.hero b,.adres{color:var(--altin);font-weight:800}
-#cta{font-size:64px}
-#cta .hero{position:static;font-size:64px}
-.adres{font-size:54px;line-height:1.15;letter-spacing:-.01em;margin-top:10px}
-/* altyazı: tek satır, yalnız ALTYAZI bandı */
-.cap{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;text-align:center;font-size:44px;font-weight:700;letter-spacing:-.01em;color:var(--krem);padding:0 24px;border-radius:24px;background:rgba(7,24,18,.78)}
+#bas{font-weight:800;line-height:1.1;letter-spacing:-.03em;text-wrap:balance;font-size:76px;color:var(--krem)}
+#bas b,.adres{color:var(--altin);font-weight:800}
+.adres{font-size:54px;line-height:1.15;letter-spacing:-.01em;white-space:nowrap}
+.adres span{display:block}
 .badge,.chip{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:999px;font-size:40px;font-weight:800;line-height:1;padding:0 26px;background:rgba(7,24,18,.78);color:var(--krem);border:3px solid rgba(201,168,76,.5)}
 .badge{border-color:var(--altin)} .badge b{color:var(--altin);margin-right:.32em;font-weight:800}
 .chip{padding:0 20px;color:rgba(244,241,232,.82)}
@@ -37,18 +32,12 @@ canvas#gl{position:absolute;left:0;top:0;width:1080px;height:1920px}
 <div id="stage">
   <canvas id="gl" width="1080" height="1920"></canvas>
   <div class="ui" id="ui">
-    <div class="hero k" id="h1">Yabancı misafir geldi.<br><b>Menüyü kim anlatacak?</b></div>
-    <div class="hero m" id="h2a">Garsonunuz <b>tercümana dönüşüyor,</b> diğer masalar bekliyor.</div>
-    <div class="hero m" id="h2b">Anlamayan misafir de <b>sormaya çekinir.</b></div>
-    <div class="hero m" id="h3">Çözüm menünün <b>kendisinde.</b></div>
-    <div class="hero m" id="h5">Bu, <b>Çoklu Dil modülü.</b></div>
-    <div class="hero m" id="h6a">Garsonunuz <b>servise dönsün.</b></div>
-    <div id="cta"><div class="hero m" id="h6b">Canlı menüyü <b>telefonunuzda</b> deneyin</div><div class="adres" id="adres">qrmenuofficial.com/canli-menu</div></div>
+    <div id="bas"></div>
     <img class="logo" id="logo" src="/brand/qr-menu-official-logo-v4.svg" alt="">
     <div class="ok" id="ok"><svg viewBox="0 0 68 68" fill="none" stroke="#C9A84C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M56 56 L12 12"/><path d="M12 40 L12 12 L40 12"/></svg></div>
+    <div class="adres" id="adres"><span>qrmenuofficial.com</span><span>/canli-menu</span></div>
     <div class="badge" id="badge"><b>Gerçek</b>demo menü</div>
     <div class="chip" id="cTR">TR</div><div class="chip" id="cEN">EN</div><div class="chip" id="cDE">DE</div><div class="chip" id="cFR">FR</div>
-    <div class="cap" id="c0"></div>
   </div>
 </div>
 <script type="module" src="/scene.mjs"></script>
