@@ -1,0 +1,30 @@
+{
+ "ffprobe": {
+  "boyut": "1080x1920",
+  "fps": "30/1",
+  "sure": 28.0,
+  "renk": [
+   "bt709",
+   "bt709",
+   "bt709"
+  ],
+  "video_bps": 6485112
+ },
+ "ses": {
+  "LUFS": -14.0,
+  "tepe_dBTP": -3.9
+ },
+ "layout": {
+  "ihlal": 0,
+  "kurallar": {},
+  "ornek": 318,
+  "telefon_px": [
+   413.5
+  ],
+  "kontrast": {
+   "enDusukOran": 5.95,
+   "olcum": 189
+  },
+  "otuz_dile_kadar_sn": 1.4
+ }
+}
