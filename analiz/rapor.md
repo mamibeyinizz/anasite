@@ -210,7 +210,7 @@ Ortak kural: hiçbir içerikte "anında", "saniyeler içinde", "sınırsız", "o
 - Senaryo: dil seçici → Türkçe ad + kısa açıklama kendi dilinde; panelde **Diller & Çeviriler** tablosunda girişler (CSV içe aktarma).
 - Ekran: **Diller & Çeviriler** tablo ekranı; müşteri menüsünde dil değişimi.
 - Caption: "Dilleri siz tanımlarsınız, çeviriyi elle ya da CSV ile girersiniz; müşteri kendi dilinde okur. 30 dile kadar."
-- CTA: DM "dil". Hashtag: #çokludilmenü #turizm #restoran #qrmenu #kafe
+- CTA: canlı menüyü telefonunuzda deneyin (profil linki, UTM'li); ikincil DM "menü". Ayrıntı: `analiz/video/ses-metni.md`. Hashtag: #çokludilmenü #turizm #restoran #qrmenu #kafe
 - Metrik: izlenme tutma, paylaşım, DM.
 
 **5. Menü Mühendisliği (Reels)**
