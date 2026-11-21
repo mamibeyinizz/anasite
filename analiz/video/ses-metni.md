@@ -63,3 +63,27 @@ Notlar:
 - "QR" yanlış okunursa yalnızca ses için "kü-ar" yaz (altyazı "QR" kalır). "CSV" "si-es-vi" okunur.
 - Teslim: `ses/anlatim.mp3` (44,1/48 kHz, mono/stereo fark etmez). `encode-v2.sh` miksler ve -14 LUFS'a getirir.
 - Sahne zamanları: hook 0–2,5 · acı 2,5–8 · dönüş 8–10 · çözüm 10–17 · modül 17–22 · fayda 22–24 · CTA 24–28. Kayıt bu zamanlardan >0,3 sn sapıyorsa kullanılan zamanları söyle, başlık süreleri ona göre ayarlanır.
+
+---
+
+## ElevenLabs deneme 1 analizi ve telaffuz alternatifleri
+
+Ölçüm [Kesin] (`Gamze Özdemir, pvc s50 sim75 v4`): süre 34,69 sn (videodan 6,69 sn uzun), konuşma 28,8 sn + ~5,9 sn duraklama (17 boşluk, çoğu 0,3–0,45 sn), -30,6 LUFS (ham, miksle yükseltilecek), tepe -10,3 dBTP, 44,1 kHz mono. Telaffuzu dinleyemiyorum; "QR" ve "CSV" hataları kullanıcı bildirimi.
+
+### Telaffuz blokları (tek seferde yapıştır)
+**A — harf okunuşu (altyazı DEĞİŞMEZ, yalnız ses):**
+```
+Yabancı misafir geldi. Menüyü kim anlatacak? Garsonunuz tercümana dönüşüyor, diğer masalar bekliyor. Anlamayan misafir de sormaya çekinir. Çözüm menünün kendisinde. Misafir kü ar kodunu okutur, dilini seçer. Ürün adı, açıklama, kategori, hepsi kendi dilinde açılır. Bu, Çoklu Dil modülü. Dilleri siz tanımlarsınız. Çevirileri elle ya da si es vi dosyasıyla girersiniz. Otuz dile kadar. Garsonunuz servise dönsün. Aynı menüyü kendi telefonunuzda deneyin, dil seçiciyi siz değiştirin. Bağlantı profilimizde.
+```
+**B — Türkçe harf adları (altyazı değişmez):** A'daki "kü ar kodunu" aynı kalsın; "si es vi" yerine "ce se ve" yaz.
+**C — Türkçe karşılık (altyazı da değişir: "kare kodu", "tablo dosyasıyla"):**
+```
+... Misafir kare kodu okutur, dilini seçer. ... Çevirileri elle ya da tablo dosyasıyla girersiniz. ...
+```
+Not: "QR'ı" gibi ek almış kısaltma sesi bozuyor: ses için "kü ar kodunu" kullan. Altyazıda "QR'ı" kalabilir (ses/altyazı farkı kabul edilir).
+
+### Süre sorunu
+Ses 34,7 sn, video 28 sn. Seçenekler: (1) video süresini sese uyarla (önerilen; ~33 sn, duraklamaları 0,25 sn'ye sıkıştır); (2) hız 1,15–1,2 + duraklama sıkıştırma (acele ses); (3) iki cümleyi kes ("Anlamayan misafir de sormaya çekinir." + "Çözüm menünün kendisinde.") ve videoyu yeniden kur. Telaffuz düzeltildikten SONRA son sesi üret, sonra video süresini bu son ses dosyasına göre ayarla.
+
+### ElevenLabs ayar önerisi
+Model: Multilingual v2 (ya da v3), dil Türkçe; stabilite ~50, benzerlik 75, stil 0–10, hız 1,0, speaker boost açık. Cümle cümle (14 ayrı klip) üretmek senkron ve düzeltme için en rahatı.
