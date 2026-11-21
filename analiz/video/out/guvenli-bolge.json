@@ -1,0 +1,89 @@
+{
+ "guvenli": {
+  "l": 65,
+  "r": 1015,
+  "t": 270,
+  "b": 1248
+ },
+ "enKucukYazi": 40,
+ "ihlalSayisi": 0,
+ "ihlaller": [],
+ "gorunenKareSayisi": {
+  "h1": 68,
+  "c0": 616,
+  "h2a": 67,
+  "h2b": 64,
+  "h3": 34,
+  "cTR": 188,
+  "cEN": 185,
+  "badge": 185,
+  "cDE": 181,
+  "cFR": 178,
+  "h5": 163,
+  "l1": 119,
+  "l2": 71,
+  "l3": 14,
+  "h6a": 36,
+  "h6b": 89,
+  "logo": 83,
+  "ok": 83,
+  "adres": 77
+ },
+ "kaptan": [
+  [
+   2.8,
+   5.4,
+   "Garsonunuz tercümana dönüşüyor, diğer masalar bekliyor."
+  ],
+  [
+   5.5,
+   8,
+   "Anlamayan misafir de sormaya çekinir."
+  ],
+  [
+   10,
+   12.6,
+   "Misafir QR’ı okutur, dilini seçer."
+  ],
+  [
+   12.6,
+   17,
+   "Ürün adı, açıklama, kategori, hepsi kendi dilinde açılır."
+  ],
+  [
+   17,
+   18.7,
+   "Bu, Çoklu Dil modülü."
+  ],
+  [
+   18.7,
+   20.3,
+   "Dilleri siz tanımlarsınız."
+  ],
+  [
+   20.3,
+   22.2,
+   "Çevirileri elle ya da CSV ile girersiniz."
+  ],
+  [
+   22.2,
+   23,
+   "Otuz dile kadar."
+  ],
+  [
+   23,
+   24.5,
+   "Garsonunuz servise dönsün."
+  ],
+  [
+   24.5,
+   27,
+   "Aynı menüyü kendi telefonunuzda deneyin, dil seçiciyi siz değiştirin."
+  ],
+  [
+   27,
+   28,
+   "Bağlantı profilimizde."
+  ]
+ ]
+}
