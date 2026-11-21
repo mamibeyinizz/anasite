@@ -405,7 +405,7 @@ window.kapakKur2 = (opt = {}) => {
   for (let j = 0; j < 4; j++) { const dx = L.MEDYA.cx - (r.x0 + r.x1) / 2, dy = (gy[0] + gy[1]) / 2 - (r.y0 + r.y1) / 2; root12.position.x += dx; root12.position.y -= dy; root12.scale.setScalar(root12.scale.x * hedefH / r.h); r = hepsi(); }
   const qr = ekranRect(turist.userData.q), br = ekranRect(garson.userData.b);
   // metin
-  const b = el.bas, W2 = opt.genislik || 950; Object.assign(b.style, { left: ((1080 - W2) / 2) + 'px', width: W2 + 'px', top: opt.metinY + 'px', letterSpacing: '-.058em', textWrap: 'nowrap', whiteSpace: 'nowrap', lineHeight: '0.98', textAlign: 'center', opacity: '1' });
+  const b = el.bas, W2 = opt.genislik || 950; Object.assign(b.style, { left: ((1080 - W2) / 2) + 'px', width: W2 + 'px', top: opt.metinY + 'px', letterSpacing: (opt.ls || '-.058em'), textWrap: 'nowrap', whiteSpace: 'nowrap', lineHeight: '0.98', textAlign: 'center', opacity: '1' });
   b.innerHTML = opt.html; let fs = 230; b.style.fontSize = fs + 'px'; while (b.scrollWidth > W2 && fs > 60) { fs -= 1; b.style.fontSize = fs + 'px'; }
   const rg = document.createRange(); rg.selectNodeContents(b); const tb = rg.getBoundingClientRect();
   const pill = document.getElementById('pill'); pill.textContent = 'RESTORAN SAHİBİ İÇİN'; Object.assign(pill.style, { opacity: '1', fontSize: '46px', height: '76px', padding: '0 44px', top: opt.pilY + 'px', letterSpacing: '.06em' }); pill.style.left = (540 - pill.getBoundingClientRect().width / 2) + 'px';

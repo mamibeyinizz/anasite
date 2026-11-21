@@ -1,0 +1,51 @@
+{
+ "dosya": "kapak/coklu-dil-kapak-A2.jpg",
+ "jpg_mb": 0.31,
+ "jpg_kalite": 92,
+ "kanca_px": 170,
+ "kanca_murekkep": {
+  "x0": 34,
+  "x1": 1049,
+  "y0": 452,
+  "y1": 799
+ },
+ "satir_yuksekligi_330px_font": 50.9,
+ "satir_yuksekligi_330px_murekkep": 64.0,
+ "kontrast_330px": {
+  "krem/zemin_330px": 11.88,
+  "altin/zemin_330px": 5.87
+ },
+ "grup_genislik": 914,
+ "grup_y": [
+  785,
+  1400
+ ],
+ "soru_balonu_px": [
+  206,
+  235
+ ],
+ "hap_y": [
+  342,
+  418
+ ],
+ "logo_genislik": 270,
+ "logo_y": [
+  1415,
+  1495
+ ],
+ "kenar_payi_3x4": {
+  "hap": 102,
+  "kanca_murekkep": 140,
+  "grup": 280.0,
+  "logo": 184.8
+ },
+ "kenar_payi_1x1": {
+  "hap": "dışarıda",
+  "kanca_murekkep": 32,
+  "grup": 100.0,
+  "logo": 4.8
+ },
+ "sag_ust_160x160_bos": true,
+ "kayma_A_ya_gore_px": -120,
+ "not_": "İlk ölçüm pencereye hapı da kattı; kanca mürekkebi y≥422 aranarak yeniden ölçüldü."
+}
