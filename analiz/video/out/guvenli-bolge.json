@@ -8,38 +8,73 @@
  "enKucukYazi": 40,
  "ihlalSayisi": 0,
  "ihlaller": [],
- "gorunenKareSayisi": {
-  "h1": 68,
-  "c0": 616,
-  "h2a": 67,
-  "h2b": 64,
-  "h3": 34,
-  "cTR": 188,
-  "cEN": 185,
-  "badge": 185,
-  "cDE": 181,
-  "cFR": 178,
-  "h5": 163,
-  "l1": 119,
-  "l2": 71,
-  "l3": 14,
-  "h6a": 36,
-  "h6b": 89,
-  "logo": 83,
-  "ok": 83,
-  "adres": 77
+ "baslikCakismaKareSayisi": 0,
+ "baslikCakismalari": [],
+ "olcek": {
+  "SP": 0.56,
+  "K_PHONE": 1.9,
+  "K_TAB": 2.15,
+  "tabletKartBaslikPx": 29.73673870333988,
+  "urunAdiPx": 36.176,
+  "urunAciklamaPx": 29.792
  },
- "kaptan": [
+ "baslik": [
   [
-   2.8,
+   0,
+   2.6,
+   "h1",
+   "Yabancı misafir geldi. Menüyü kim anlatacak?"
+  ],
+  [
+   2.65,
    5.4,
+   "h2a",
    "Garsonunuz tercümana dönüşüyor, diğer masalar bekliyor."
   ],
   [
    5.5,
    8,
+   "h2b",
    "Anlamayan misafir de sormaya çekinir."
   ],
+  [
+   8,
+   10,
+   "h3",
+   "Çözüm menünün kendisinde."
+  ],
+  [
+   17,
+   22.4,
+   "h5",
+   "Bu, Çoklu Dil modülü."
+  ],
+  [
+   22.6,
+   23.9,
+   "h6a",
+   "Garsonunuz servise dönsün."
+  ]
+ ],
+ "gorunenKareSayisi": {
+  "h1": 93,
+  "h2a": 73,
+  "h2b": 65,
+  "h3": 50,
+  "c0": 380,
+  "badge": 191,
+  "cTR": 185,
+  "cEN": 182,
+  "cDE": 179,
+  "cFR": 176,
+  "h5": 152,
+  "h6a": 29,
+  "h6b": 86,
+  "adres": 74,
+  "logo": 68,
+  "ok": 68
+ },
+ "kaptan": [
   [
    10,
    12.6,
@@ -51,38 +86,28 @@
    "Ürün adı, açıklama, kategori, hepsi kendi dilinde açılır."
   ],
   [
-   17,
-   18.7,
-   "Bu, Çoklu Dil modülü."
-  ],
-  [
-   18.7,
-   20.3,
+   18.4,
+   19.8,
    "Dilleri siz tanımlarsınız."
   ],
   [
-   20.3,
-   22.2,
+   19.8,
+   21.6,
    "Çevirileri elle ya da CSV ile girersiniz."
   ],
   [
-   22.2,
-   23,
+   21.6,
+   22.6,
    "Otuz dile kadar."
   ],
   [
-   23,
-   24.5,
-   "Garsonunuz servise dönsün."
-  ],
-  [
-   24.5,
-   27,
+   23.9,
+   25.9,
    "Aynı menüyü kendi telefonunuzda deneyin, dil seçiciyi siz değiştirin."
   ],
   [
+   25.9,
    27,
-   28,
    "Bağlantı profilimizde."
   ]
  ]

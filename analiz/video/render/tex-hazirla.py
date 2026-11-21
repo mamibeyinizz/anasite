@@ -14,7 +14,7 @@ def telefon(ad, kaynak, y0, y1, ust=140):
     tuval.save(os.path.join(TEX, ad + '.jpg'), quality=94)
     print(ad, 'kırpma', (y0, y1), 'zemin', zemin)
 
-telefon('p02', '02-dil-secici.png', 100, 1120)   # dil seçici açık
+telefon('p02', '02-dil-secici.png', 0, 1300, ust=0)   # dil seçici açık: üst çubuk + logo + açılır liste tam çerçevede (v2)
 telefon('p03', '03-menu-tr.png', 480, 1500)      # Türkçe menü (banner ve alt çubuk dışarıda)
 telefon('p04', '04-menu-en.png', 480, 1500)
 telefon('p06', '06-menu-fr.png', 480, 1500)

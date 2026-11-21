@@ -15,3 +15,12 @@ node analiz/video/render/render.mjs --times 0,10.6,19 --out /tmp/on  # tek kare 
 
 Panel ekranları (salt okunur): `tools/panel-video/giris-env.js` (kimlik bilgisi yalnız `PANEL_HOST/PANEL_USER/PANEL_PASS` ortam değişkenlerinden),
 `ceviri-ekran.js`, `ceviri-kutular.js`. Oturum çerezleri `tools/panel-video/w/` (gitignore'da) altına yazılır ve iş bitince silinir.
+
+## v2 (düzeltme turu)
+```
+python3 analiz/video/render/ses-uret.py                              # ambient bed (ses/ambient-bed.wav, git'e girmez)
+node analiz/video/render/render.mjs --out /tmp/kare2 --workers 4     # 840 kare
+analiz/video/encode-v2.sh /tmp/kare2 analiz/video/out/coklu-dil-reels_v2.mp4
+python3 analiz/video/render/dogrula-v2.py /tmp/kare2                  # ffprobe, LUFS, boş kare, kontrast, güvenli bölge, altyazı, kontrol kareleri
+```
+v1 kaynağı: `render/scene-v1.mjs`, `render/index-v1.html` (v1 mp4: `out/coklu-dil-reels.mp4`). Rapor: `video-v2-rapor.md`.
