@@ -22,7 +22,7 @@ BÖLÜM B — VİDEO
 2. Teknik: three.js'in yerel kopyası (CDN yok), Playwright + `--use-gl=angle --use-angle=swiftshader`, kare kare render (`window.frame(t)` deseni), 840 kare, paralel işçiler; ffmpeg: H.264 high, yuv420p, bt709 etiketli, AAC 48 kHz stereo, `+faststart`. Şablon olarak `insta/src/aura` boru hattının yapısına bakabilirsin; içeriğini, metnini ve sesini KULLANMA (başka markaya ait).
 3. Ses: `ses/anlatim.mp3` varsa -14 LUFS (±1) normalize et ve altyazıyı kelimesi kelimesine eşle; yoksa sessiz render al, altyazıları `ses-metni.md` sürelerine göre koy.
 4. Tipografi/renk: Manrope (`assets/fonts`, yerel), #0D2B22 / #C9A84C / #F4F1E8; altı çizili metin yok; en küçük yazı 40 px; Reels güvenli bölge: üst 270, alt 672, yan 65 px. Hareket: transform/opacity, ease-out `cubic-bezier(.22,1,.36,1)`, her sahne ≥1,2 sn.
-5. YASAK içerik: "yapay zeka/AI", "otomatik çeviri", yüzde/oran, "anında", "devrim", "ücretsiz", "sınırsız", uydurma müşteri/sonuç, sahte panel arayüzü. Demoda yalnızca TR/EN/DE/FR dil seçicide görünür: ekranda 30 dil gösterme; "30 dile kadar" yalnızca yazı olarak.
+5. YASAK içerik: "yapay zeka/AI", "otomatik çeviri", yüzde/oran, "anında", "devrim", "ücretsiz", "sınırsız", uydurma müşteri/sonuç, sahte panel arayüzü. Demo dil seçicisi kaydırılabilir uzun bir liste içerir (Türkçe, English, Deutsch, Français, Español, Italiano, Русский, العربية…; panelde "28 dil etkin" yazar). Listeyi gerçek ekranla göster; "30 dile kadar" modül kapasitesidir, sayı olarak yalnızca yazıyla ver.
 
 BÖLÜM C — DOĞRULAMA VE TESLİM
 1. `out/` altına her sahneden kontrol karesi ve 4×6 saniye sheet'i; güvenli bölge dışı metin, bozuk kırpma, kişisel veri taraması.

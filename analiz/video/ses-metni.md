@@ -20,7 +20,7 @@ Doğrulama:
 - Ürün adı/açıklama/kategori/rozet/arayüz çevirisi: demo ekran görüntüleri (`04-menu-en.png`) [Kesin].
 - Elle/CSV ve 30 dil: `qr-ceviri` kodu, `llms.txt` [Kesin]. Harici çeviri API'si yok.
 - "Anlamayan misafir sormaya çekinir": genel gözlem, ölçüm değil [Muhtemel]; sayı yok.
-- Not: demo menüde yalnızca TR/EN/DE/FR açık; ekranda 30 dil gösterilmez.
+- Not (düzeltme): demo dil seçici kaydırılabilir uzun liste; ilk görünümde 4 dil görünür, devamı kaydırılınca gelir.
 
 A/B hook alternatifleri (ilk 2,5 sn): (A) "Yabancı misafir geldi. Menüyü kim anlatacak?" · (B) "Garsonunuz kaç dilde menü anlatabiliyor?" (B mevcut #13 gönderisinin sorusu; tek başına ölçme için aynı Reels'in iki sürümünü farklı günlerde paylaşın).
 
