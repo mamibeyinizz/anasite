@@ -41,7 +41,7 @@ if (arg('olc')) {   // güvenli bölge + en küçük yazı ölçümü (DOM kutul
   const p = await (await b.newContext({ viewport: { width: 1080, height: 1920 } })).newPage();
   await p.goto(URL); await p.waitForFunction('window.hazir === true', null, { timeout: 120000 });
   const SAFE = { l: 65, r: 1015, t: 270, b: 1248 };
-  const ihlal = [], gorunen = {}; let enKucuk = 999;
+  const ihlal = [], gorunen = {}; let enKucuk = 999; const cakisma = [];
   for (let i = 0; i < N; i++) {
     const t = i / FPS;
     const r = await p.evaluate((tt) => { window.frame(tt); const out = [];
@@ -49,6 +49,9 @@ if (arg('olc')) {   // güvenli bölge + en küçük yazı ölçümü (DOM kutul
         const q = e.getBoundingClientRect(); const fs = parseFloat(getComputedStyle(e).fontSize);
         out.push({ id: e.id, l: q.left, r: q.right, t: q.top, b: q.bottom, fs: e.tagName === 'IMG' || e.id === 'ok' ? null : fs, txt: (e.textContent || '').slice(0, 30) }); });
       return out; }, t);
+    const H = r.filter((e) => /^h[1-6]/.test(e.id)).map((e) => e.id);
+    const T = r.filter((e) => /^(h[1-6]|c0|adres|badge)/.test(e.id)).map((e) => e.id);
+    if (H.length > 1 || (H.includes('h1') && T.length > 1) || (H.some((x) => /^h6/.test(x)) && T.includes('h1'))) cakisma.push({ t: +t.toFixed(2), gorunen: T });
     for (const e of r) {
       gorunen[e.id] = (gorunen[e.id] || 0) + 1;
       if (e.fs !== null) enKucuk = Math.min(enKucuk, e.fs);
@@ -57,7 +60,7 @@ if (arg('olc')) {   // güvenli bölge + en küçük yazı ölçümü (DOM kutul
   }
   fs.mkdirSync(OUT, { recursive: true });
   const kaptan = await p.evaluate(() => window.__kaptan);
-  fs.writeFileSync(path.join(OUT, 'guvenli-bolge.json'), JSON.stringify({ guvenli: SAFE, enKucukYazi: enKucuk, ihlalSayisi: ihlal.length, ihlaller: ihlal.slice(0, 60), gorunenKareSayisi: gorunen, kaptan }, null, 1));
+  fs.writeFileSync(path.join(OUT, 'guvenli-bolge.json'), JSON.stringify({ guvenli: SAFE, enKucukYazi: enKucuk, ihlalSayisi: ihlal.length, ihlaller: ihlal.slice(0, 60), baslikCakismaKareSayisi: cakisma.length, baslikCakismalari: cakisma.slice(0, 20), olcek: await p.evaluate(() => window.__olcek), baslik: await p.evaluate(() => window.__baslik), gorunenKareSayisi: gorunen, kaptan }, null, 1));
   console.log('olçüm bitti: ihlal', ihlal.length, '| en küçük yazı', enKucuk, 'px');
   await b.close(); server.close(); process.exit(0);
 }

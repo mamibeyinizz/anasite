@@ -1,3 +1,6 @@
 render/tex/
 render/kare/
 out/kare/
+ses/*.wav
+out/kontrol-v2/kaplama.txt
+out/kontrol-v2/bos-referans.png
