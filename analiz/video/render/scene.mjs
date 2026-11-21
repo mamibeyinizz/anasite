@@ -387,6 +387,38 @@ window.kapakKur = (opt = {}) => {
   return { grup: r, baslikPx: fs, baslik: { x0: tb.left, x1: tb.right, y0: tb.top, y1: tb.bottom }, pil: R2(pill), logo: R2(el.logo), yay };
 };
 
+
+/* ───────── kapak v2 (A/B/C): yakın kadraj, abartılı garson, büyük "?" balonu; aynı v5 3B malzemesi ───────── */
+window.kapakKur2 = (opt = {}) => {
+  frame(V[2] - 0.3);
+  for (const g of [phone, panel, stripG, lensDD, lensRows, lensCTA]) g.visible = false;
+  for (const m of [phItem, lensFrame.dd, lensFrame.cta, pFrame, link, nodeA, nodeB]) m.visible = false;
+  Object.values(el).forEach((n) => { n.style.opacity = '0'; });
+  root12.visible = true; setOp(tableA, 1); setOp(turist, 1); setOp(garson, 1);
+  garson.userData.armR.rotation.z = 2.25; garson.userData.armL.rotation.z = -2.25;      // kollar iki yanda, bunalmış
+  garson.scale.setScalar(1.06); turist.userData.q.scale.setScalar(1.55); garson.userData.b.scale.setScalar(1.15);
+  turist.userData.q.position.set(-6, 262 + 40, 14);
+  const parts = () => [tableA, turist, garson, turist.userData.q, garson.userData.b];
+  const hepsi = () => { let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9; for (const o of parts()) { const r = ekranRect(o); x0 = Math.min(x0, r.x0); x1 = Math.max(x1, r.x1); y0 = Math.min(y0, r.y0); y1 = Math.max(y1, r.y1); } return { x0, x1, y0, y1, w: x1 - x0, h: y1 - y0 }; };
+  const gy = opt.grupY || [905, 1520], hedefH = gy[1] - gy[0]; let yay = 0, r;
+  for (let i = 0; i < 60; i++) { garson.position.x = OFS.garson[0] - yay; turist.position.x = OFS.turist[0] + yay; root12.scale.setScalar(1); root12.position.set(0, 0, 0); r = hepsi(); root12.scale.setScalar(hedefH / r.h); r = hepsi(); if (r.w >= (opt.minW || 920)) break; yay += 10; }
+  for (let j = 0; j < 4; j++) { const dx = L.MEDYA.cx - (r.x0 + r.x1) / 2, dy = (gy[0] + gy[1]) / 2 - (r.y0 + r.y1) / 2; root12.position.x += dx; root12.position.y -= dy; root12.scale.setScalar(root12.scale.x * hedefH / r.h); r = hepsi(); }
+  const qr = ekranRect(turist.userData.q), br = ekranRect(garson.userData.b);
+  // metin
+  const b = el.bas, W2 = opt.genislik || 950; Object.assign(b.style, { left: ((1080 - W2) / 2) + 'px', width: W2 + 'px', top: opt.metinY + 'px', letterSpacing: '-.058em', textWrap: 'nowrap', whiteSpace: 'nowrap', lineHeight: '0.98', textAlign: 'center', opacity: '1' });
+  b.innerHTML = opt.html; let fs = 230; b.style.fontSize = fs + 'px'; while (b.scrollWidth > W2 && fs > 60) { fs -= 1; b.style.fontSize = fs + 'px'; }
+  const rg = document.createRange(); rg.selectNodeContents(b); const tb = rg.getBoundingClientRect();
+  const pill = document.getElementById('pill'); pill.textContent = 'RESTORAN SAHİBİ İÇİN'; Object.assign(pill.style, { opacity: '1', fontSize: '46px', height: '76px', padding: '0 44px', top: opt.pilY + 'px', letterSpacing: '.06em' }); pill.style.left = (540 - pill.getBoundingClientRect().width / 2) + 'px';
+  Object.assign(el.logo.style, { opacity: '1', left: (540 - 135) + 'px', top: opt.logoY + 'px', width: '270px', height: 'auto' });
+  const st = document.getElementById('stage');
+  const glow = document.createElement('div'); glow.style.cssText = `position:absolute;left:0;top:${(tb.top + tb.bottom) / 2 - 520}px;width:1080px;height:1040px;pointer-events:none;background:radial-gradient(ellipse 52% 46% at 50% 50%,rgba(70,150,118,.55) 0%,rgba(40,100,78,.28) 45%,rgba(0,0,0,0) 100%)`; st.insertBefore(glow, document.getElementById('gl'));
+  const vin = document.createElement('div'); vin.style.cssText = 'position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 50% 46%,rgba(0,0,0,0) 55%,rgba(2,12,8,.42) 100%)'; st.appendChild(vin);
+  renderer.render(scene, cam);
+  const R2 = (n) => { const q = n.getBoundingClientRect(); return { x0: q.left, x1: q.right, y0: q.top, y1: q.bottom }; };
+  const alt = (e) => ({ x0: e.x0, x1: e.x1, y0: e.y0, y1: e.y1 });
+  return { grup: r, soruBalonu: { w: qr.x1 - qr.x0, h: qr.y1 - qr.y0, ...alt(qr) }, garsonBalon: alt(br), metinPx: fs, metin: { x0: tb.left, x1: tb.right, y0: tb.top, y1: tb.bottom }, pil: R2(pill), logo: R2(el.logo), yay };
+};
+
 /* ───────── yükleme ───────── */
 for (const k of ['01', '02', ...KEYS]) { const b = await loadU(`/tex/e-${k}.jpg`); TEX[k] = b; }
 TEX.panel = await loadU('/tex/panel.jpg');
