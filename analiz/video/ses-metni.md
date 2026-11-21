@@ -49,3 +49,17 @@ A/B hook alternatifleri (ilk 2,5 sn): (A) "Yabancı misafir geldi. Menüyü kim 
 > Merhaba, ilginiz için teşekkürler. Menünüzü sizin için daha doğru anlatabilmemiz için üç şey soralım: 1) Kaç şubeniz var? 2) Menünüz şu an basılı mı, PDF mi, dijital mi? 3) Hangi dillerde misafir ağırlıyorsunuz? Cevabınıza göre size uygun paketi ve bir gösterim zamanı önerelim.
 
 **Ölçüm (14 gün sonra)** [Tahmin eşikleri; veri yok]: profil bağlantısı tıklaması (Insights), UTM'li oturum sayısı, "menü" DM sayısı. Karar kuralı: ≥10 tıklama ve ≥2 DM → CTA kalır; tıklama var, DM yok → ikincil CTA'yı güçlendir; tıklama <10 → hook'u değil önce profil linki/bio'yu kontrol et.
+
+---
+
+## TTS / ses kaydı için tek blok (kopyala-yapıştır)
+
+```
+Yabancı misafir geldi. Menüyü kim anlatacak? Garsonunuz tercümana dönüşüyor, diğer masalar bekliyor. Anlamayan misafir de sormaya çekinir. Çözüm menünün kendisinde. Misafir QR'ı okutur, dilini seçer. Ürün adı, açıklama, kategori, hepsi kendi dilinde açılır. Bu, Çoklu Dil modülü. Dilleri siz tanımlarsınız. Çevirileri elle ya da CSV ile girersiniz. Otuz dile kadar. Garsonunuz servise dönsün. Aynı menüyü kendi telefonunuzda deneyin, dil seçiciyi siz değiştirin. Bağlantı profilimizde.
+```
+
+Notlar:
+- Türkçe, sakin ve net erkek ya da kadın anlatıcı; kampanya reklamı tonu yok. Hedef ~28 sn (≈2,5 kelime/sn); süre aşılırsa hızı artır, metni kısaltma (altyazı birebir bu metindir).
+- "QR" yanlış okunursa yalnızca ses için "kü-ar" yaz (altyazı "QR" kalır). "CSV" "si-es-vi" okunur.
+- Teslim: `ses/anlatim.mp3` (44,1/48 kHz, mono/stereo fark etmez). `encode-v2.sh` miksler ve -14 LUFS'a getirir.
+- Sahne zamanları: hook 0–2,5 · acı 2,5–8 · dönüş 8–10 · çözüm 10–17 · modül 17–22 · fayda 22–24 · CTA 24–28. Kayıt bu zamanlardan >0,3 sn sapıyorsa kullanılan zamanları söyle, başlık süreleri ona göre ayarlanır.
