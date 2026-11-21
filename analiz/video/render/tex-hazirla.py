@@ -4,7 +4,7 @@ import json, os, subprocess
 import numpy as np
 from PIL import Image
 KOK = os.path.dirname(os.path.abspath(__file__)); EKRAN = os.path.join(KOK, '..', 'ekran'); TEX = os.path.join(KOK, 'tex'); os.makedirs(TEX, exist_ok=True)
-LY = json.loads(subprocess.run(['node', '-e', "import('" + os.path.join(KOK, 'layout.js') + "').then(m=>console.log(JSON.stringify({s:m.LENS.s,texW:m.LENS.texW,satirH:m.LENS.satirH,ddH:m.LENS.ddH,ctaH:m.LENS.ctaH,ps:m.PANEL})))"], capture_output=True, text=True, check=True).stdout)
+LY = json.loads(subprocess.run(['node', '-e', "import('" + os.path.join(KOK, 'layout.js') + "').then(m=>console.log(JSON.stringify({s:m.LENS.s,texW:m.LENS.texW,satirH:m.LENS.satirH,ddH:m.LENS.ddH,ddW:m.LENS.ddW,ctaH:m.LENS.ctaH,ps:m.PANEL})))"], capture_output=True, text=True, check=True).stdout)
 S, LW = LY['s'], LY['texW']
 EK = {'01': '01-acilis-tr.png', '02': '02-dil-secici.png', 'tr': '03-menu-tr.png', 'en': '04-menu-en.png', 'de': '05-menu-de.png', 'fr': '06-menu-fr.png'}
 odak = {'S': S, 'LW': LW, 'ekranlar': {}}
@@ -65,8 +65,8 @@ for i in range(8):
     itemler.append(dict(y0=prev, y1=nxt, ad=['Türkçe', 'English', 'Deutsch', 'Français', 'Español', 'Italiano', 'Русский', 'العربية'][i], metin=[18, gr[i][0], 330, gr[i][1]])); prev = nxt
 dd = odak['ekranlar']['02']; dd['itemler'] = itemler
 y1dd = top + LY['ddH'] / S; y1cta = top + LY['ctaH'] / S
-dd['pencereDD'] = dict(x0=0.0, x1=LW, y0=float(top), y1=y1dd); dd['pencereCTA'] = dict(x0=0.0, x1=LW, y0=float(top), y1=y1cta)
-assert abs(y1dd - itemler[6]['y1']) < 4, ('dd pencere ≠ 7 öğe', y1dd, itemler[6]['y1']); assert abs(y1cta - itemler[3]['y1']) < 4, ('cta pencere ≠ 4 öğe', y1cta, itemler[3]['y1'])
+dd['pencereDD'] = dict(x0=4.0, x1=4.0 + LY['ddW'] / S, y0=float(top), y1=y1dd); dd['pencereCTA'] = dict(x0=0.0, x1=LW, y0=float(top), y1=y1cta)
+assert (y1dd - itemler[6]['y1']) * S >= 16, ('dd son satır–alt kenar < 16 px', (y1dd - itemler[6]['y1']) * S); assert dd['pencereDD']['x1'] <= 345, 'dd penceresi kategori metnini içeriyor'; assert y1dd < itemler[7]['metin'][1], 'dd penceresi 8. öğe metnini içeriyor'; assert abs(y1cta - itemler[3]['y1']) < 4, ('cta pencere ≠ 4 öğe', y1cta, itemler[3]['y1'])
 dd['kutuYanal'] = dict(x0=16, x1=342)
 # panel hub
 Image.open(os.path.join(EKRAN, '07b-panel-hub.png')).convert('RGB').crop((260, 0, 2560, 1600)).save(os.path.join(TEX, 'panel.jpg'), quality=95)
@@ -75,6 +75,7 @@ P = LY['ps']; cw, ch = P['cssPencereW'], P['h'] / (P['w'] / P['cssPencereW'])
 odak['panel'] = dict(css_x0=130, css_x1=1280, css_y0=0, css_y1=800, cssPencereW=cw, cssPencereH=ch, cssY0=P['cssY0'],
     sol=dict(x0=P['cssSol'], x1=P['cssSol'] + cw, y0=P['cssY0'], y1=P['cssY0'] + ch), sag=dict(x0=P['cssSag'], x1=P['cssSag'] + cw, y0=P['cssY0'], y1=P['cssY0'] + ch),
     kartlar={k: dict(x0=v['x'], y0=v['y'], x1=v['x'] + v['w'], y1=v['y'] + v['h']) for k, v in B.items() if isinstance(v, dict)},
-    diger=dict(banner=dict(x0=282, y0=91, x1=1260, y1=195), baslik=dict(x0=280, y0=8, x1=482, y1=64), arama=dict(x0=551, y0=14, x1=1071, y1=58), sahip=dict(x0=1140, y0=18, x1=1260, y1=54), kenarCubugu=dict(x0=0, y0=0, x1=260, y1=800)))
+    diger=dict(banner=dict(x0=282, y0=91, x1=1260, y1=195), baslik=dict(x0=280, y0=12, x1=482, y1=62), arama=dict(x0=551, y0=14, x1=1071, y1=58), sahip=dict(x0=1140, y0=18, x1=1260, y1=54), kenarCubugu=dict(x0=0, y0=0, x1=260, y1=800)),
+    serit=dict(x0=P['serit']['cssX0'], x1=P['serit']['cssX1'], y0=P['serit']['cssY0'], y1=P['serit']['cssY1']))
 json.dump(odak, open(os.path.join(TEX, 'odak.json'), 'w'), indent=1, ensure_ascii=False)
 print('tamam', {k: v.get('pencereSatir') and {a: round(b, 1) for a, b in v['pencereSatir'].items()} for k, v in odak['ekranlar'].items() if 'pencereSatir' in v}); print('dd', itemler[6]['y1'], y1dd, itemler[3]['y1'], y1cta)

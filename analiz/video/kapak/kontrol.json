@@ -1,0 +1,45 @@
+{
+ "boyut": [
+  1080,
+  1920
+ ],
+ "png_bayt": 2212800,
+ "jpg_bayt": 290879,
+ "jpg_kalite": 92,
+ "baslik_px": 88,
+ "baslik_330px_yazi_yuksekligi": 26.9,
+ "grup_genislik": 771,
+ "grup_y": [
+  860,
+  1420
+ ],
+ "pil_y": [
+  470,
+  546
+ ],
+ "pil_yazi_px": 48,
+ "logo_genislik": 220,
+ "baslik_y": [
+  558,
+  775
+ ],
+ "kenar_payi_3x4_px": 65,
+ "kenar_payi_1x1_px": 50,
+ "kirpimda_tam_3x4": {
+  "baslik": true,
+  "pil": true,
+  "grup": true,
+  "logo": true
+ },
+ "kirpimda_tam_1x1": {
+  "baslik": true,
+  "pil": true,
+  "grup": true
+ },
+ "kontrast": {
+  "krem/zemin": 12.04,
+  "altin/zemin": 5.95,
+  "pil altin/zemin": 5.95
+ },
+ "yasak_icerik": "rakam/yüzde/AI/ücretsiz/anında/CTA/URL/altı çizili/telefon-ekran: yok (yalnız başlık, hap, 3B grup, logo)"
+}

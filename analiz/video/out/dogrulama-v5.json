@@ -1,0 +1,263 @@
+{
+ "ffprobe": {
+  "boyut": "1080x1920",
+  "fps": "30/1",
+  "sure": 35.766667,
+  "hedef_sure": 35.754,
+  "sure_farki": 0.013,
+  "renk": [
+   "bt709",
+   "bt709",
+   "bt709"
+  ],
+  "video_bps": 6533650,
+  "ses": "aac 48000 Hz 2 kanal"
+ },
+ "ses": {
+  "LUFS": -14.1,
+  "tepe_dBTP": -1.3,
+  "sessizlik_1sn_ustu_adet": 0
+ },
+ "miks": {
+  "konusma_LUFS_ham": -19.9,
+  "bed_LUFS_ham": -19.2,
+  "bed_kazanc_dB": -20.7,
+  "konusma_altinda_bed_dB": -26.4,
+  "not_": "bed konuşma altında ducking sonrası, konuşma süresi boyunca; bed konuşmanın ≈-20 dB altına ayarlı, sidechain ≈-6 dB"
+ },
+ "layout": {
+  "ihlal": 0,
+  "kurallar": {},
+  "ornek": 716,
+  "telefon_oran": [
+   0.496,
+   0.5
+  ],
+  "doluluk": {
+   "3B grup (0,3–7,9 sn)": {
+    "genislik_px_min": 660,
+    "yukseklik_px_min": 624,
+    "medya_bandi_doluluk_min": 0.93
+   },
+   "telefon": {
+    "yukseklik_px": 625,
+    "genislik_px": [
+     310.5,
+     310,
+     311,
+     311.5,
+     312,
+     312.5
+    ],
+    "oran": [
+     0.496,
+     0.5
+    ],
+    "medya_bandi_doluluk": 0.93
+   },
+   "panel": {
+    "pencere_px": [
+     920,
+     560
+    ],
+    "medya_bandi_doluluk": 0.84
+   },
+   "lens": {
+    "lens-dd": [
+     366,
+     657
+    ],
+    "lens-satir": [
+     581,
+     470
+    ],
+    "lens-cta": [
+     581,
+     365
+    ]
+   }
+  },
+  "metinsiz_max_sn": 0.35,
+  "kontrast": {
+   "enDusukOran": 6.1,
+   "olcum": 192
+  },
+  "ekran_metin_px": {
+   "satir_aciklama_px": 28.4,
+   "dil_ogesi_px": 28.4,
+   "urun_adi_px": 34.3,
+   "panel_alt_yazi_px": 36.5
+  },
+  "dd_alt_bosluk_px": 16.6,
+  "senkron_en_buyuk_fark_sn": 0.05,
+  "otuz_dile_kadar_tam_opak_sn": 0.9,
+  "pencere_kesik_kutu": {},
+  "uv_pencere": 15,
+  "satir_karti_kenardan_kesik": true
+ },
+ "senkron_tablosu": [
+  {
+   "parca": "c0",
+   "metin": "Yabancı misafir geldi. Menüyü kim anlatacak?",
+   "cueBaslangic": 0,
+   "cueBitis": 3.04,
+   "baslikGiris": 0,
+   "baslikCikis": 3,
+   "farkGiris": 0,
+   "farkCikis": -0.04
+  },
+  {
+   "parca": "c1",
+   "metin": "Garsonunuz tercümana dönüşüyor,",
+   "cueBaslangic": 3.378,
+   "cueBitis": 5.296,
+   "baslikGiris": 3.35,
+   "baslikCikis": 5.25,
+   "farkGiris": -0.03,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c2",
+   "metin": "diğer masalar bekliyor.",
+   "cueBaslangic": 5.484,
+   "cueBitis": 6.845,
+   "baslikGiris": 5.45,
+   "baslikCikis": 6.8,
+   "farkGiris": -0.03,
+   "farkCikis": -0.04
+  },
+  {
+   "parca": "c3",
+   "metin": "Anlamayan misafir de sormaya çekinir.",
+   "cueBaslangic": 7.148,
+   "cueBitis": 9.452,
+   "baslikGiris": 7.1,
+   "baslikCikis": 9.4,
+   "farkGiris": -0.05,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c4",
+   "metin": "Çözüm menünün kendisinde.",
+   "cueBaslangic": 9.75,
+   "cueBitis": 11.407,
+   "baslikGiris": 9.7,
+   "baslikCikis": 11.4,
+   "farkGiris": -0.05,
+   "farkCikis": -0.01
+  },
+  {
+   "parca": "c5",
+   "metin": "Misafir QR’ı okutur, dilini seçer.",
+   "cueBaslangic": 11.705,
+   "cueBitis": 14.618,
+   "baslikGiris": 11.65,
+   "baslikCikis": 14.6,
+   "farkGiris": -0.05,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c6",
+   "metin": "Ürün adı, açıklama, kategori,",
+   "cueBaslangic": 14.972,
+   "cueBitis": 17.152,
+   "baslikGiris": 14.95,
+   "baslikCikis": 17.1,
+   "farkGiris": -0.02,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c7",
+   "metin": "hepsi kendi dilinde açılır.",
+   "cueBaslangic": 17.361,
+   "cueBitis": 18.922,
+   "baslikGiris": 17.35,
+   "baslikCikis": 18.9,
+   "farkGiris": -0.01,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c8",
+   "metin": "Bu, Çoklu Dil modülü.",
+   "cueBaslangic": 19.179,
+   "cueBitis": 20.577,
+   "baslikGiris": 19.15,
+   "baslikCikis": 20.55,
+   "farkGiris": -0.03,
+   "farkCikis": -0.03
+  },
+  {
+   "parca": "c9",
+   "metin": "Dilleri siz tanımlarsınız.",
+   "cueBaslangic": 20.979,
+   "cueBitis": 22.511,
+   "baslikGiris": 20.95,
+   "baslikCikis": 22.5,
+   "farkGiris": -0.03,
+   "farkCikis": -0.01
+  },
+  {
+   "parca": "c10",
+   "metin": "Çevirileri elle ya da CSV ile girersiniz.",
+   "cueBaslangic": 22.783,
+   "cueBitis": 26.134,
+   "baslikGiris": 22.75,
+   "baslikCikis": 26.1,
+   "farkGiris": -0.03,
+   "farkCikis": -0.03
+  },
+  {
+   "parca": "c11",
+   "metin": "Otuz dile kadar.",
+   "cueBaslangic": 26.335,
+   "cueBitis": 27.279,
+   "baslikGiris": 26.3,
+   "baslikCikis": 27.25,
+   "farkGiris": -0.04,
+   "farkCikis": -0.03
+  },
+  {
+   "parca": "c12",
+   "metin": "Garsonunuz servise dönsün.",
+   "cueBaslangic": 27.54,
+   "cueBitis": 29.12,
+   "baslikGiris": 27.5,
+   "baslikCikis": 29.1,
+   "farkGiris": -0.04,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c13",
+   "metin": "Aynı menüyü kendi telefonunuzda deneyin,",
+   "cueBaslangic": 29.365,
+   "cueBitis": 31.568,
+   "baslikGiris": 29.35,
+   "baslikCikis": 31.55,
+   "farkGiris": -0.01,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c14",
+   "metin": "dil seçiciyi siz değiştirin.",
+   "cueBaslangic": 31.907,
+   "cueBitis": 33.403,
+   "baslikGiris": 31.9,
+   "baslikCikis": 33.35,
+   "farkGiris": -0.01,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c15",
+   "metin": "Bağlantı profilimizde.",
+   "cueBaslangic": 33.719,
+   "cueBitis": 34.954,
+   "baslikGiris": 33.7,
+   "baslikCikis": 34.95,
+   "farkGiris": -0.02,
+   "farkCikis": 0
+  }
+ ],
+ "ilk_kare_baslik": [
+  "Yabancı misafir geldi.Menüyü kim anlatacak?"
+ ]
+}

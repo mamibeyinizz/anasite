@@ -1,0 +1,354 @@
+{
+ "dosya": "ses/anlatim.mp3",
+ "sure": 35.161,
+ "konusmaBaslangic": 0.0,
+ "konusmaBitis": 34.954,
+ "videoSure": 35.754,
+ "kabaParcaSayisi": 16,
+ "cumleSayisi": 14,
+ "bosluklar": [
+  {
+   "baslangic": 3.04,
+   "bitis": 3.378,
+   "sure": 0.338
+  },
+  {
+   "baslangic": 5.296,
+   "bitis": 5.484,
+   "sure": 0.188
+  },
+  {
+   "baslangic": 6.845,
+   "bitis": 7.148,
+   "sure": 0.303
+  },
+  {
+   "baslangic": 9.452,
+   "bitis": 9.75,
+   "sure": 0.298
+  },
+  {
+   "baslangic": 11.407,
+   "bitis": 11.705,
+   "sure": 0.298
+  },
+  {
+   "baslangic": 14.618,
+   "bitis": 14.972,
+   "sure": 0.353
+  },
+  {
+   "baslangic": 17.152,
+   "bitis": 17.361,
+   "sure": 0.209
+  },
+  {
+   "baslangic": 18.922,
+   "bitis": 19.179,
+   "sure": 0.257
+  },
+  {
+   "baslangic": 20.577,
+   "bitis": 20.979,
+   "sure": 0.402
+  },
+  {
+   "baslangic": 22.511,
+   "bitis": 22.783,
+   "sure": 0.272
+  },
+  {
+   "baslangic": 26.134,
+   "bitis": 26.335,
+   "sure": 0.201
+  },
+  {
+   "baslangic": 27.279,
+   "bitis": 27.54,
+   "sure": 0.261
+  },
+  {
+   "baslangic": 29.12,
+   "bitis": 29.365,
+   "sure": 0.245
+  },
+  {
+   "baslangic": 31.568,
+   "bitis": 31.907,
+   "sure": 0.339
+  },
+  {
+   "baslangic": 33.403,
+   "bitis": 33.719,
+   "sure": 0.316
+  }
+ ],
+ "enUzunBosluk": 0.402,
+ "kirpma": [],
+ "kabaParcalar": [
+  [
+   0.0,
+   3.04
+  ],
+  [
+   3.378,
+   5.296
+  ],
+  [
+   5.484,
+   6.845
+  ],
+  [
+   7.148,
+   9.452
+  ],
+  [
+   9.75,
+   11.407
+  ],
+  [
+   11.705,
+   14.618
+  ],
+  [
+   14.972,
+   17.152
+  ],
+  [
+   17.361,
+   18.922
+  ],
+  [
+   19.179,
+   20.577
+  ],
+  [
+   20.979,
+   22.511
+  ],
+  [
+   22.783,
+   26.134
+  ],
+  [
+   26.335,
+   27.279
+  ],
+  [
+   27.54,
+   29.12
+  ],
+  [
+   29.365,
+   31.568
+  ],
+  [
+   31.907,
+   33.403
+  ],
+  [
+   33.719,
+   34.954
+  ]
+ ],
+ "parcalar": [
+  {
+   "id": "c0",
+   "metin": "Yabancı misafir geldi. Menüyü kim anlatacak?",
+   "cumle": 0,
+   "baslangic": 0.0,
+   "bitis": 3.04
+  },
+  {
+   "id": "c1",
+   "metin": "Garsonunuz tercümana dönüşüyor,",
+   "cumle": 2,
+   "baslangic": 3.378,
+   "bitis": 5.296
+  },
+  {
+   "id": "c2",
+   "metin": "diğer masalar bekliyor.",
+   "cumle": 2,
+   "baslangic": 5.484,
+   "bitis": 6.845
+  },
+  {
+   "id": "c3",
+   "metin": "Anlamayan misafir de sormaya çekinir.",
+   "cumle": 3,
+   "baslangic": 7.148,
+   "bitis": 9.452
+  },
+  {
+   "id": "c4",
+   "metin": "Çözüm menünün kendisinde.",
+   "cumle": 4,
+   "baslangic": 9.75,
+   "bitis": 11.407
+  },
+  {
+   "id": "c5",
+   "metin": "Misafir QR’ı okutur, dilini seçer.",
+   "cumle": 5,
+   "baslangic": 11.705,
+   "bitis": 14.618
+  },
+  {
+   "id": "c6",
+   "metin": "Ürün adı, açıklama, kategori,",
+   "cumle": 6,
+   "baslangic": 14.972,
+   "bitis": 17.152
+  },
+  {
+   "id": "c7",
+   "metin": "hepsi kendi dilinde açılır.",
+   "cumle": 6,
+   "baslangic": 17.361,
+   "bitis": 18.922
+  },
+  {
+   "id": "c8",
+   "metin": "Bu, Çoklu Dil modülü.",
+   "cumle": 7,
+   "baslangic": 19.179,
+   "bitis": 20.577
+  },
+  {
+   "id": "c9",
+   "metin": "Dilleri siz tanımlarsınız.",
+   "cumle": 8,
+   "baslangic": 20.979,
+   "bitis": 22.511
+  },
+  {
+   "id": "c10",
+   "metin": "Çevirileri elle ya da CSV ile girersiniz.",
+   "cumle": 9,
+   "baslangic": 22.783,
+   "bitis": 26.134
+  },
+  {
+   "id": "c11",
+   "metin": "Otuz dile kadar.",
+   "cumle": 10,
+   "baslangic": 26.335,
+   "bitis": 27.279
+  },
+  {
+   "id": "c12",
+   "metin": "Garsonunuz servise dönsün.",
+   "cumle": 11,
+   "baslangic": 27.54,
+   "bitis": 29.12
+  },
+  {
+   "id": "c13",
+   "metin": "Aynı menüyü kendi telefonunuzda deneyin,",
+   "cumle": 12,
+   "baslangic": 29.365,
+   "bitis": 31.568
+  },
+  {
+   "id": "c14",
+   "metin": "dil seçiciyi siz değiştirin.",
+   "cumle": 12,
+   "baslangic": 31.907,
+   "bitis": 33.403
+  },
+  {
+   "id": "c15",
+   "metin": "Bağlantı profilimizde.",
+   "cumle": 13,
+   "baslangic": 33.719,
+   "bitis": 34.954
+  }
+ ],
+ "cumleler": [
+  {
+   "no": 0,
+   "metin": "Yabancı misafir geldi.",
+   "baslangic": 0.0,
+   "bitis": 1.58934
+  },
+  {
+   "no": 1,
+   "metin": "Menüyü kim anlatacak?",
+   "baslangic": 1.72195,
+   "bitis": 3.04039
+  },
+  {
+   "no": 2,
+   "metin": "Garsonunuz tercümana dönüşüyor, diğer masalar bekliyor.",
+   "baslangic": 3.378,
+   "bitis": 6.845
+  },
+  {
+   "no": 3,
+   "metin": "Anlamayan misafir de sormaya çekinir.",
+   "baslangic": 7.148,
+   "bitis": 9.452
+  },
+  {
+   "no": 4,
+   "metin": "Çözüm menünün kendisinde.",
+   "baslangic": 9.75,
+   "bitis": 11.407
+  },
+  {
+   "no": 5,
+   "metin": "Misafir QR'ı okutur, dilini seçer.",
+   "baslangic": 11.705,
+   "bitis": 14.618
+  },
+  {
+   "no": 6,
+   "metin": "Ürün adı, açıklama, kategori, hepsi kendi dilinde açılır.",
+   "baslangic": 14.972,
+   "bitis": 18.922
+  },
+  {
+   "no": 7,
+   "metin": "Bu, Çoklu Dil modülü.",
+   "baslangic": 19.179,
+   "bitis": 20.577
+  },
+  {
+   "no": 8,
+   "metin": "Dilleri siz tanımlarsınız.",
+   "baslangic": 20.979,
+   "bitis": 22.511
+  },
+  {
+   "no": 9,
+   "metin": "Çevirileri elle ya da CSV ile girersiniz.",
+   "baslangic": 22.783,
+   "bitis": 26.134
+  },
+  {
+   "no": 10,
+   "metin": "Otuz dile kadar.",
+   "baslangic": 26.335,
+   "bitis": 27.279
+  },
+  {
+   "no": 11,
+   "metin": "Garsonunuz servise dönsün.",
+   "baslangic": 27.54,
+   "bitis": 29.12
+  },
+  {
+   "no": 12,
+   "metin": "Aynı menüyü kendi telefonunuzda deneyin, dil seçiciyi siz değiştirin.",
+   "baslangic": 29.365,
+   "bitis": 33.403
+  },
+  {
+   "no": 13,
+   "metin": "Bağlantı profilimizde.",
+   "baslangic": 33.719,
+   "bitis": 34.954
+  }
+ ]
+}

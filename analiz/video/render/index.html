@@ -25,7 +25,7 @@ canvas#gl{position:absolute;left:0;top:0;width:1080px;height:1920px}
 .chip{padding:0 20px;color:rgba(244,241,232,.82)}
 .chip.on{background:var(--altin);border-color:var(--altin);color:#0D2B22}
 .logo{display:block}
-.ok svg{display:block;width:100%;height:100%}
+.pill{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:999px;font-weight:800;line-height:1;background:rgba(7,24,18,.78);color:var(--altin);border:4px solid var(--altin)}
 </style>
 </head>
 <body>
@@ -34,8 +34,8 @@ canvas#gl{position:absolute;left:0;top:0;width:1080px;height:1920px}
   <div class="ui" id="ui">
     <div id="bas"></div>
     <img class="logo" id="logo" src="/brand/qr-menu-official-logo-v4.svg" alt="">
-    <div class="ok" id="ok"><svg viewBox="0 0 68 68" fill="none" stroke="#C9A84C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M56 56 L12 12"/><path d="M12 40 L12 12 L40 12"/></svg></div>
     <div class="adres" id="adres"><span>qrmenuofficial.com</span><span>/canli-menu</span></div>
+    <div class="pill" id="pill">Çoklu Dil modülü</div>
     <div class="badge" id="badge"><b>Gerçek</b>demo menü</div>
     <div class="chip" id="cTR">TR</div><div class="chip" id="cEN">EN</div><div class="chip" id="cDE">DE</div><div class="chip" id="cFR">FR</div>
   </div>

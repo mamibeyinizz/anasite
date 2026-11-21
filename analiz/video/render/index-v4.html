@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Çoklu Dil Reels v4</title>
+<script type="importmap">{"imports":{"three":"/vendor/three/three.module.min.js"}}</script>
+<style>
+/* Yazı tipi: yalnızca Manrope, kendi sunucumuzdan (assets/fonts). Konumlar layout.js'ten JS ile atanır (burada mutlak koordinat yok). */
+@font-face{font-family:"Manrope";src:url("/fonts/manrope-var-latin.woff2") format("woff2");font-weight:200 800;font-display:block;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";src:url("/fonts/manrope-var-latin-ext.woff2") format("woff2");font-weight:200 800;font-display:block;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--yesil:#0D2B22;--altin:#C9A84C;--krem:#F4F1E8}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0D2B22;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:"Manrope","Manrope Fallback",system-ui,sans-serif;color:var(--krem);
+  background:radial-gradient(900px 900px at 50% 40%,#17463a 0%,#0f342a 45%,#0a2119 100%)}
+canvas#gl{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.ui{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none}
+.ui>*{position:absolute;opacity:0}
+#bas{font-weight:800;line-height:1.1;letter-spacing:-.03em;text-wrap:balance;font-size:76px;color:var(--krem)}
+#bas b,.adres{color:var(--altin);font-weight:800}
+.adres{font-size:54px;line-height:1.15;letter-spacing:-.01em;white-space:nowrap}
+.adres span{display:block}
+.badge,.chip{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:999px;font-size:40px;font-weight:800;line-height:1;padding:0 26px;background:rgba(7,24,18,.78);color:var(--krem);border:3px solid rgba(201,168,76,.5)}
+.badge{border-color:var(--altin)} .badge b{color:var(--altin);margin-right:.32em;font-weight:800}
+.chip{padding:0 20px;color:rgba(244,241,232,.82)}
+.chip.on{background:var(--altin);border-color:var(--altin);color:#0D2B22}
+.logo{display:block}
+.ok svg{display:block;width:100%;height:100%}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div class="ui" id="ui">
+    <div id="bas"></div>
+    <img class="logo" id="logo" src="/brand/qr-menu-official-logo-v4.svg" alt="">
+    <div class="ok" id="ok"><svg viewBox="0 0 68 68" fill="none" stroke="#C9A84C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M56 56 L12 12"/><path d="M12 40 L12 12 L40 12"/></svg></div>
+    <div class="adres" id="adres"><span>qrmenuofficial.com</span><span>/canli-menu</span></div>
+    <div class="badge" id="badge"><b>Gerçek</b>demo menü</div>
+    <div class="chip" id="cTR">TR</div><div class="chip" id="cEN">EN</div><div class="chip" id="cDE">DE</div><div class="chip" id="cFR">FR</div>
+  </div>
+</div>
+<script type="module" src="/scene.mjs"></script>
+</body>
+</html>

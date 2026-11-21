@@ -8,7 +8,9 @@ const DIR = path.dirname(fileURLToPath(import.meta.url));
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const has = (k) => process.argv.includes('--' + k);
 const OUT = path.resolve(arg('out', path.join(DIR, 'kare')));
-const FPS = 30, N = 840;
+import { kur } from './timeline.js';
+const CUE = JSON.parse(fs.readFileSync(path.join(DIR, '..', 'ses', 'cue.json'), 'utf8')); const TLN = kur(CUE);
+const FPS = 30, N = TLN.KARE;
 if (!has('atla-layout') && !arg('times')) {
   const r = spawnSync('node', [path.join(DIR, 'layout_check.mjs')], { stdio: 'inherit', env: process.env });
   if (r.status !== 0) { console.error('\nYERLEŞİM TESTİ KIRMIZI — render durduruldu.'); process.exit(3); }
