@@ -30,3 +30,14 @@ Düz #EADFC1 zemin (gradyan yok), yeşil #0D2B22, gold-ink #7F6419, altın #C9A8
 
 ## Bir sonraki modüle uygulama
 Aynı üç bölge ve ölçek; yalnız (1) soru, (2) cevap ve (3) alt şerit içeriği değişir. Alt şerit modüle göre: Çoklu Dil → dil çipleri; Garson & Hesap → "Garson · Hesap" çipleri; QR Masa → masa numaraları çipleri; Yorum → kriter çipleri.
+
+---
+
+## Işık sürümü (3'lü sistemin 1. parçası, bağlayıcı olan)
+Önceki "nizami" sürüm ortalı ve marka metin şeritliydi; "Işık" kombinasyonundan sapıyordu. Bağlayıcı sürüm: `post1-dil-isik-nizami.html` / `.jpg` — Işık'ın 1. parça düzeni:
+- **Sol eksen (x=96)**: hap etiket "RESTORAN SAHİBİ İÇİN" üstte solda; soru ve cevap sola yaslı; kısa altın ayraç (96×4 px, #C9A84C) sol kenardan başlar.
+- **Soru:** cümle düzeni (Title Case yok), tek vurgu kelime grubu "kaç dilde" gold-ink #7F6419; 3 satır, 112 px.
+- **Cevap:** 56 px; eylem kelimeleri "okusun," "versin." gold-ink kalın; paralel satırlar.
+- **Alt:** gerçek logo (v4-dark), ortalı, 300 px.
+- **Boşluklar (ölçüm):** pill→soru 208 px, soru→ayraç 68 px, ayraç→cevap 68 px, cevap→logo 205 px. Soru/ayraç/cevap boşlukları optik eşit; üst ve alt boşluk ≈ eşit.
+- Yan marj sol 96 / sağ 98; sağ üst 160×160 boş; JPG 0,14 MB.
