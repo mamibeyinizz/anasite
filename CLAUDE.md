@@ -41,3 +41,8 @@
 - Aynı kapsayıcıdaki başlık + açıklama çiftinde ikisi aynı rol olmasın (hero özellik satırı: başlık bodyb, açıklama cap). Masaüstü/mobil varyant `span` taşıyan sarmalayıcılarda (`.qrmo-hm-d/m`) rolü sarmalayıcıya ver, sınıfı taşıyan anchor/kapsayıcıya değil.
 - Başlık harf aralığı mobilde H1 -0.04em, H2 -0.03em, H3 -0.02em (tablet/masaüstü daha gevşek). Daha gevşek iz Manrope 800'de satır sayısını artırır (6 kelimelik H1 3 satıra çıkıyordu); başlık rol değerini değiştirirken eski sürümle satır sayısını karşılaştır.
 - Ana sayfa mobil modül sahneleri (S3–S8) bir ekran (100dvh) içine sığmalı: 412×880, 390×844, 360×740 genişliklerinde sahne yüksekliği ≤ 100dvh (yaklaşık). Bu yüzden orada lead→gövde, özellik başlığı→bodyb, özellik açıklaması→cap kullanılır (`css/home-type-scale.css`, ≤767 bloğu).
+
+## Instagram @qrmenuofficial — acı noktası görselleri
+- Her modülün "acı → avantaj" görseli **birebir aynı** şablonla üretilir: `tools/ig-aci/` (`sablon.html` + `uret.mjs`). Yalnız modül adı, soru ve cevap metni değişir; renk, boyut, aralık, arka plan (yeşil halkalar), üst modül adı, alt logo DEĞİŞMEZ.
+- Ayrıntı ve kontrol listesi: `tools/ig-aci/SPEC.md`. Referans çıktı: `analiz/post1-dil/post1-dil-final.jpg`.
+- Bu görsellerde hap etiket, figür, çip veya saydam kelime dekoru kullanılmaz.

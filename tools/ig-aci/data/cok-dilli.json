@@ -1,0 +1,6 @@
+{
+  "id": "coklu-dil",
+  "modul": "ÇOKLU DİL MODÜLÜ",
+  "soru": ["Personeliniz", "menüyü [[kaç dilde]]", "anlatabiliyor?"],
+  "cevap": ["Turist müşteri", "menüyü kendi dilinde [[okusun,]]", "siparişini kendi dilinde [[versin.]]"]
+}
