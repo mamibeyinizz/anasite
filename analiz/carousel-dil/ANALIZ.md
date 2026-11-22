@@ -37,3 +37,12 @@ Ortak: tek bir koyu yeşil zemin (monoton, kapanış vurgusuz), çerçeve+köşe
 **Sıra:** altın (dikkat) → krem (okuma) → zümrüt (kapanış); kapanış Reels kapağıyla (zümrüt) aynı ailede.
 **UX:** vurgu = altın pill (krem üstünde) / koyu pill (altın üstünde); sorularda kilit ifadeler kalın; numara daireleri dolu altın; kaydırma düğmesi tutarlı (metin + daire ok); rakamlar koyu yeşil 120 px + dikey altın çubuk, açıklama dikey ortalı; slayt 5 sade: başlık, rozetler (28 px), altın CTA düğmesi, kanal notu.
 Dosyalar: `carousel-v2.html`, `v2-slayt-1..5.jpg`, `sheet-v2.jpg`.
+
+---
+
+## Tek renk karşılaştırması (kullanıcı sorusu: hepsi aynı renk olmaz mıydı?)
+Dosyalar: `carousel-v3.html?s=<1-5>&bg=krem|zumrut|altin`, `c3-<renk>-<n>.jpg`, `tek-renk-karsilastirma.jpg`.
+- **A · hepsi krem:** en okunur; ama acı gönderi de krem → gridde krem | krem | zümrüt (iki açık tipografik karo yan yana, tek geniş blok gibi okunur); altın pill krem üstünde zayıf.
+- **B · hepsi zümrüt:** en yüksek kontrast (krem/zümrüt 10,5:1, altın/zümrüt 5,2:1); altın vurgu parlıyor (60/30/10 doğru oturuyor); hesabın eski koyu carousel'larıyla ve Reels kapağıyla aynı aile; gridde krem | zümrüt | zümrüt (koyu çift, ama biri tipografik biri 3B).
+- **C · hepsi altın:** 5 slaytta hardal yorgunluğu; vurgu pill'leri koyu yeşile döner; en zor okunan.
+Öneri: B.
