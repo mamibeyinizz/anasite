@@ -25,3 +25,15 @@ Ortak: tek bir koyu yeşil zemin (monoton, kapanış vurgusuz), çerçeve+köşe
 - "AI destekli" ve "yapay zekanın gücü" ifadeleri kodla uyuşmuyor (çeviri elle/CSV); çıkarıldı. Geri istenirse söylenmeli.
 - "%150 artıracak" gelecek zaman vaadi olarak aynen duruyor (rakam korunması istendi); kaynak/kanıt dosyası hazır tutulmalı.
 - Instagram carousel'ı düzenlenemez: eski gönderi arşivlenip yenisi yüklenmeli; müziği/orijinal sesi eklemeyin.
+
+---
+
+## v2 (kullanıcı geri bildirimi: renkler uyumsuz, UX hataları sürüyor)
+**v1'in gerçek sorunları (kendi tasarımım):**
+- Renk: altın düz zemin iki slaytı kaplıyordu (≈%40; vurgu rengi baskın renk oldu, hardal gibi okundu); büyük başlık ve rakamlar gold-ink (#7F6419, kahverengi-zeytin) olduğundan krem üstünde bulanık; altın, krem ve gold-ink aynı sıcak orta tonlar ailesinde yan yana, ayırt edici kontrast yok.
+- UX: soru metni hâlâ duvar; vurgu yok; rakam–açıklama hizası kaymış; "modül." kelimesine anlamsız vurgu; slayt 5 aynı anda başlık + 6 rozet + düğme + not yığını.
+
+**v2 renk sistemi (60 / 30 / 10):** baskın zemin krem #EADFC1 (içerik) ve zümrüt gradyan #1E3D2F→#0D2B22 (kapanış); ikincil koyu yeşil metin; altın yalnız vurgu (pill, numara dairesi, ✓, dikey çubuk). Kapak: altın gradyan #E8C766→#C9A84C (yeşil metin 6,6–9:1). Büyük metinde gold-ink YOK (yalnız küçük etiket).
+**Sıra:** altın (dikkat) → krem (okuma) → zümrüt (kapanış); kapanış Reels kapağıyla (zümrüt) aynı ailede.
+**UX:** vurgu = altın pill (krem üstünde) / koyu pill (altın üstünde); sorularda kilit ifadeler kalın; numara daireleri dolu altın; kaydırma düğmesi tutarlı (metin + daire ok); rakamlar koyu yeşil 120 px + dikey altın çubuk, açıklama dikey ortalı; slayt 5 sade: başlık, rozetler (28 px), altın CTA düğmesi, kanal notu.
+Dosyalar: `carousel-v2.html`, `v2-slayt-1..5.jpg`, `sheet-v2.jpg`.
