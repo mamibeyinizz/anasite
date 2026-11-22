@@ -30,3 +30,19 @@
 | 10 | Her sezon yeni eleman, yeni dil eğitimi. | Dil bilgisi menüde dursun, eleman değişse de. | 40/45 |
 
 Etiket önerisi: "RESTORAN SAHİBİ İÇİN" yerine "TURİZM BÖLGESİ RESTORANLARI İÇİN" (niş çağrısı daha keskin; 33 karakter pill'e sığar).
+
+
+## Sabit 1. cümle: "Personeliniz menüyü kaç dilde anlatabiliyor?" — 2. cümle seçenekleri
+
+| # | 2. cümle | Karakter |
+|---|---|---|
+| 1 | Personel değil, menü anlatsın. | 30 |
+| 2 | Menü, sizin seçtiğiniz dillerde anlatsın. | 41 |
+| 3 | Dilleri siz tanımlayın, menü hepsini anlatsın. | 46 |
+| 4 | Garson sipariş alsın, anlatmayı menü yapsın. | 44 |
+| 5 | Personeliniz servise baksın, menü anlatsın. | 43 |
+| 6 | Turist hangi dili konuşuyorsa menü o dilde. | 43 |
+| 7 | Menü, her misafirle kendi dilinde konuşsun. | 43 |
+| 8 | Eleman değişse de menü aynı dillerde anlatsın. | 46 |
+| 9 | Anlaşma işini personelden menüye devredin. | 42 |
+| 10 | Cevap menüde: 30 dile kadar, siz tanımlarsınız. | 47 |
