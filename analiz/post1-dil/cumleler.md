@@ -12,3 +12,21 @@
 | 8 | Çeviri işi kime kalacak? | Çevirileri siz girersiniz, kontrol sizde. | 24/41 |
 | 9 | Çeviri tablonuz hazır mı? | CSV ile içe aktarın, menüye eklensin. | 25/37 |
 | 10 | Turist sezonu geliyor, menü hazır mı? | Dilleri sezondan önce siz tanımlayın. | 37/37 |
+
+
+## Turizm bölgesi odaklı 10 öneri (acı: turistle anlaşamama, memnun edememe, personelin yabancı dil bilmemesi)
+
+| # | Acı | Avantaj | Karakter |
+|---|---|---|---|
+| 1 | Turist geldi, anlaşamadık. | Menü onun dilinde konuşsun. | 26/27 |
+| 2 | Elemanlarınız yabancı dil bilmiyor. | Menü onlar yerine anlatsın. | 35/27 |
+| 3 | Sezonda turist yağıyor, dil bilen garson yok. | Dilleri siz tanımlayın, garson servise baksın. | 45/46 |
+| 4 | Turist menüye bakıyor, anlamıyor. | Kendi dilinde okusun, rahatça seçsin. | 33/37 |
+| 5 | Her masada el kol hareketi. | Dil seçici hazır, tercümana gerek kalmasın. | 27/43 |
+| 6 | Turistle sadece “hello” yetmiyor. | Ürün açıklamaları misafirin dilinde. | 33/36 |
+| 7 | Her elemana yabancı dil öğretemezsiniz. | Menü, misafirle kendi dilinde konuşsun. | 39/39 |
+| 8 | Turist soramıyor, siz anlayamıyorsunuz. | Menü baştan kendi dilinde cevap versin. | 39/39 |
+| 9 | Sezon açılıyor, menü hazır mı? | Dilleri sezondan önce siz tanımlayın. | 30/37 |
+| 10 | Her sezon yeni eleman, yeni dil eğitimi. | Dil bilgisi menüde dursun, eleman değişse de. | 40/45 |
+
+Etiket önerisi: "RESTORAN SAHİBİ İÇİN" yerine "TURİZM BÖLGESİ RESTORANLARI İÇİN" (niş çağrısı daha keskin; 33 karakter pill'e sığar).
