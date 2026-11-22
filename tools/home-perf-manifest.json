@@ -1,0 +1,51 @@
+{
+  "cssA": [
+    "css/global.css",
+    "css/home-cta-foundation.css",
+    "css/home-context-nav.css",
+    "css/home-mod-snap-v2.css",
+    "css/home-mod-story-v2.css",
+    "css/home-mod-story-v3.css",
+    "css/home-mod-landing-v3.css",
+    "css/home-mod-scrollfx-v1.css",
+    "css/home-splash.css"
+  ],
+  "cssB": [
+    "css/home-sections.css",
+    "css/home-demo-layout.css",
+    "css/home-mod-story-v4.css",
+    "css/home-inline-icons-mobile.css",
+    "css/home-mod-icon-motion.css",
+    "css/home-mod-3d-icons.css",
+    "css/home-mod-s3-editorial.css",
+    "css/home-mod-s4-editorial.css",
+    "css/home-mod-s5-editorial.css",
+    "css/home-mod-type-desktop.css",
+    "css/home-mod-phone-standard.css",
+    "css/home-mod-demo-caps.css",
+    "css/home-hero-mobile.css",
+    "css/home-hero-phone-v2.css",
+    "css/home-reviews.css",
+    "css/home-mod-s6-icons.css",
+    "css/home-inline-s7-servis.css",
+    "css/home-mod-gold-underline.css",
+    "css/home-mod-mobile-polish.css",
+    "css/home-mod-mobile-icons.css",
+    "css/home-type-scale.css",
+    "css/home-setup-v3.css",
+    "css/home-a11y-contrast.css"
+  ],
+  "jsA": [
+    "js/home-context-nav.js",
+    "js/home-mod-snap-v2.js",
+    "js/home-mod-story-v2.js",
+    "js/home-mod-story-v3.js",
+    "js/home-mod-landing-v3.js",
+    "js/home-mod-scrollfx-v1.js",
+    "js/home-mod-story-v4.js",
+    "js/home-mod-icon-motion.js"
+  ],
+  "jsB": [
+    "js/home-reviews.js"
+  ]
+}

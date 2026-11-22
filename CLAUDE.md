@@ -41,3 +41,10 @@
 - Aynı kapsayıcıdaki başlık + açıklama çiftinde ikisi aynı rol olmasın (hero özellik satırı: başlık bodyb, açıklama cap). Masaüstü/mobil varyant `span` taşıyan sarmalayıcılarda (`.qrmo-hm-d/m`) rolü sarmalayıcıya ver, sınıfı taşıyan anchor/kapsayıcıya değil.
 - Başlık harf aralığı mobilde H1 -0.04em, H2 -0.03em, H3 -0.02em (tablet/masaüstü daha gevşek). Daha gevşek iz Manrope 800'de satır sayısını artırır (6 kelimelik H1 3 satıra çıkıyordu); başlık rol değerini değiştirirken eski sürümle satır sayısını karşılaştır.
 - Ana sayfa mobil modül sahneleri (S3–S8) bir ekran (100dvh) içine sığmalı: 412×880, 390×844, 360×740 genişliklerinde sahne yüksekliği ≤ 100dvh (yaklaşık). Bu yüzden orada lead→gövde, özellik başlığı→bodyb, özellik açıklaması→cap kullanılır (`css/home-type-scale.css`, ≤767 bloğu).
+
+## Ana sayfa performans paketi (CSS/JS)
+- `index.html` artık `css/*.css` ve `js/*.js` dosyalarını doğrudan bağlamaz; kaynaklar `tools/home-perf-bundle.mjs` ile **sırası korunarak** küçültülüp `assets/build/home-*.{css,js}` içinde birleştirilir (işaretçiler: `QRMO:PERF:CSSA/CSSB/JSA/JSB`).
+- `css/` veya `js/` altındaki bir dosyayı değiştirince: `npm i --no-save esbuild` (bir kez) → `node tools/home-perf-bundle.mjs`; üretilen `assets/build/*` ve `index.html` birlikte commit edilir.
+- Yeni ana sayfa CSS/JS dosyası eklerken `index.html`'e `<link>`/`<script>` YAZMA; `tools/home-perf-manifest.json` listesinin doğru yerine ekle (sıra = kaskad sırası). Sayfaya gömülü `<style>` ekleme (CLS/render-blocking); `css/` dosyası yap ve manifeste ekle.
+- `assets/build/` ve `global/dist/` `.htaccess` ile 1 yıl immutable önbelleklenir (adlar/`?v=` içerik özetine bağlı). Aynı içerikle özetsiz dosya buraya koyma.
+- Ana sayfada `<main>` işaretçisi (`display:contents`) ve kontrast düzeltmeleri (`css/home-a11y-contrast.css`) vardır; kaldırma.

@@ -1,0 +1,10 @@
+# Bu dizindeki dosyalar sayfalarda ?v=<özet> ile çağrılır (global/inject.mjs); içerik değişince adres değişir → 1 yıl immutable güvenli.
+<IfModule mod_headers.c>
+Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType text/javascript "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+</IfModule>

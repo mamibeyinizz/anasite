@@ -1,0 +1,14 @@
+/* Erişilebilirlik: yalnızca kontrastı <4.5:1 olan metin renkleri, aynı tonda biraz koyulaştırıldı/açıldı.
+   Yerleşim, boyut ve kalınlık değişmez. Ölçüm: axe color-contrast (açık zemin #f8f6f0/#fff, koyu #101210).
+   Kaynak kurallar -webkit-text-fill-color / opacity kullandığı için ikisi de burada eşitlenir. */
+.qrmo-hero-v3-phone-cap { color: #64736c !important; -webkit-text-fill-color: #64736c !important; }
+.qrmo-smart-filter-kicker-core,
+.qrmo-chatbot-feature__kicker-core,
+.qrmo-tables-v5__flow { color: #64726c !important; -webkit-text-fill-color: #64726c !important; }
+.qrmo-tables-v5__create-status { color: #6b726e !important; opacity: 1 !important; }
+.qrmo-tables-v5__screen-kicker,
+.qrmo-tables-v5__range-count,
+.qrmo-tables-v5__eyebrow-mod,
+.qrmo-service-v2__eyebrow-mod,
+.qrmo-analytics-v3__eyebrow-mod { opacity: 1 !important; color: var(--ts-gold-ink, #7f6419) !important; -webkit-text-fill-color: var(--ts-gold-ink, #7f6419) !important; }
+span[data-input-text] { color: #7d807b !important; -webkit-text-fill-color: #7d807b !important; }

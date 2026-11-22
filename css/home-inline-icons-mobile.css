@@ -1,0 +1,130 @@
+@media (max-width: 767px) {
+  html body svg.qrmo-pi { display: none !important; }
+}
+@media (min-width: 768px) {
+html body .qrmo-translation-v3-benefit-icon > svg:not(.qrmo-pi),
+html body .qrmo-benefit-check > svg:not(.qrmo-pi),
+html body .qrmo-chatbot-feature__icon > svg:not(.qrmo-pi),
+html body .qrmo-tables-v5__check > svg:not(.qrmo-pi),
+html body .qrmo-service-v2__feature-icon > svg:not(.qrmo-pi),
+html body .qrmo-analytics-v3__pillar-icon > svg:not(.qrmo-pi) { display: none !important; }
+/* =========================================================
+   MODÜL LİSTE İKONLARI — tek standart (S3–S8, hero ile aynı)
+   Yalnızca ≥768 (masaüstü + tablet). Mobil eski ikonlarla aynen kalır.
+========================================================= */
+html body .qrmo-translation-v3-benefit-icon,
+html body .qrmo-benefit-check,
+html body .qrmo-chatbot-feature__icon,
+html body .qrmo-tables-v5__check,
+html body .qrmo-service-v2__feature-icon,
+html body .qrmo-analytics-v3__pillar-icon {
+  position: relative !important;
+  isolation: isolate;
+  overflow: hidden;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 15px !important;
+  color: #F1DB94 !important;
+  background:
+    radial-gradient(120% 90% at 28% 0%, rgba(232,199,102,.26), rgba(232,199,102,0) 55%),
+    linear-gradient(155deg, #1C4635 0%, #0D2B22 55%, #08201A 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 -1px 0 rgba(0,0,0,.35),
+    0 12px 24px -14px rgba(13,43,34,.75),
+    0 2px 4px rgba(13,43,34,.12) !important;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease;
+}
+html body .qrmo-translation-v3-benefit-icon::before,
+html body .qrmo-benefit-check::before,
+html body .qrmo-chatbot-feature__icon::before,
+html body .qrmo-tables-v5__check::before,
+html body .qrmo-service-v2__feature-icon::before,
+html body .qrmo-analytics-v3__pillar-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(140deg, rgba(246,227,161,.95), rgba(201,168,76,.22) 45%, rgba(201,168,76,.75)) !important;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+html body .qrmo-translation-v3-benefit-icon::after,
+html body .qrmo-benefit-check::after,
+html body .qrmo-chatbot-feature__icon::after,
+html body .qrmo-tables-v5__check::after,
+html body .qrmo-service-v2__feature-icon::after,
+html body .qrmo-analytics-v3__pillar-icon::after {
+  content: none !important;
+}
+html body .qrmo-translation-v3-benefit-icon svg.qrmo-pi,
+html body .qrmo-benefit-check svg.qrmo-pi,
+html body .qrmo-chatbot-feature__icon svg.qrmo-pi,
+html body .qrmo-tables-v5__check svg.qrmo-pi,
+html body .qrmo-service-v2__feature-icon svg.qrmo-pi,
+html body .qrmo-analytics-v3__pillar-icon svg.qrmo-pi {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 27px !important;
+  height: 27px !important;
+  min-width: 27px !important;
+  max-width: 27px !important;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,.3));
+  animation: none !important;
+  transform: none !important;
+}
+/* Modül CSS'lerindeki svg path/stroke kurallarını ezmek için !important */
+html body svg.qrmo-pi :is(path,rect,circle,ellipse) { fill: none !important; stroke: currentColor !important; stroke-width: 1.6px !important; opacity: 1 !important; }
+html body svg.qrmo-pi .ic-f { fill: #0F3227 !important; }
+html body svg.qrmo-pi .ic-a { fill: rgba(232,199,102,.22) !important; stroke: #E8C766 !important; }
+html body svg.qrmo-pi .ic-s { stroke: #E8C766 !important; }
+html body svg.qrmo-pi .ic-dot { fill: #E8C766 !important; stroke: #0D2B22 !important; stroke-width: 1.4px !important; }
+html body svg.qrmo-pi .ic-dot0 { fill: #E8C766 !important; stroke: none !important; }
+html body svg.qrmo-pi .ic-k { stroke: #0D2B22 !important; stroke-width: 1.5px !important; }
+
+/* S6 / S7 satır kolonları karo genişliğine göre */
+html body .qrmo-tables-v5__benefit,
+html body .qrmo-service-v2__feature {
+  grid-template-columns: 50px minmax(0, 1fr) !important;
+  column-gap: 16px !important;
+  align-items: center !important;
+}
+@media (hover: hover) {
+  html body :hover > .qrmo-translation-v3-benefit-icon,
+html body :hover > .qrmo-benefit-check,
+html body :hover > .qrmo-chatbot-feature__icon,
+html body :hover > .qrmo-tables-v5__check,
+html body :hover > .qrmo-service-v2__feature-icon,
+html body :hover > .qrmo-analytics-v3__pillar-icon {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.16),
+      inset 0 -1px 0 rgba(0,0,0,.35),
+      0 16px 28px -14px rgba(201,168,76,.55),
+      0 2px 4px rgba(13,43,34,.12) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .qrmo-translation-v3-benefit-icon,
+html body .qrmo-benefit-check,
+html body .qrmo-chatbot-feature__icon,
+html body .qrmo-tables-v5__check,
+html body .qrmo-service-v2__feature-icon,
+html body .qrmo-analytics-v3__pillar-icon { transition: none; }
+}
+}

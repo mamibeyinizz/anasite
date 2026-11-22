@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* =========================================================
    Ana sayfa gömülü CSS → css/home-sections.css (önbelleğe alınabilir tek dosya).
+   (ESKİ — ana sayfa artık tools/home-perf-bundle.mjs ile paketleniyor; bu araç kullanılmıyor.)
    Kullanım: node tools/home-css-extract.mjs   (tekrar çalıştırılabilir)
 
    Kural sırası korunur: yalnızca <head>'deki son stil dosyasından sonra, gövdede
