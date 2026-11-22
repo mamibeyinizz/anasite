@@ -59,3 +59,12 @@ Kelime dekoru ve nokta deseni elendi; seçilen: saydam altın halkalar. Dosya: `
 - **Yörünge noktaları:** halkalar üzerinde 4 küçük altın nokta + ince halka (dilin yayılma/"yayın" çağrışımı), yalnız metinden uzak boş alanlarda.
 - **Dengeleyici:** sol altta ters yönlü ikinci halka grubu (yarıçap ≤520, logoya girmez), kompozisyonu çapraz dengeler.
 - **Kurallar:** yalnız marka altını (#C9A84C); metin kutularına çizgi girmez-girse ince ve arkada; kontrast örnekleri: gold-ink 4,01–4,23:1, yeşil 10,8–11,4:1 (büyük metin ≥3:1).
+
+---
+
+## FİNAL (kullanıcı seçimi): yeşil halka
+`post1-dil-final.jpg` (1080×1440) · kaynak `post1-dil-bg-YESIL.html` · montaj `grid-montaj-final.jpg`.
+- Halkalar marka yeşili #0D2B22 (opaklık ≈×0,42 ile .18→.03), ışıma #1E3D2F %10, noktalar yeşil.
+- Üst: `ÇOKLU DİL MODÜLÜ`; soru "Personeliniz menüyü **kaç dilde** anlatabiliyor?"; cevap "Turist müşteri / menüyü kendi dilinde **okusun,** / siparişini kendi dilinde **versin.**"; alt orta logo.
+- Ölçüm: soru→ayraç 68 px = ayraç→cevap 68 px; metin yan marjı sol 96 / sağ 99; kontrast gold-ink 3,99–4,23:1, yeşil 10,8–11,4:1 (büyük metin ≥3:1).
+- Not: yeşil ışıma krem üstünde hafif gri-zeytin okunur; karar kullanıcıya aittir ve bu sürüm final olarak seçilmiştir.
