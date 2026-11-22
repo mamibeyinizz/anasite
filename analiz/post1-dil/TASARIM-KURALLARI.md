@@ -41,3 +41,11 @@ Aynı üç bölge ve ölçek; yalnız (1) soru, (2) cevap ve (3) alt şerit içe
 - **Alt:** gerçek logo (v4-dark), ortalı, 300 px.
 - **Boşluklar (ölçüm):** pill→soru 208 px, soru→ayraç 68 px, ayraç→cevap 68 px, cevap→logo 205 px. Soru/ayraç/cevap boşlukları optik eşit; üst ve alt boşluk ≈ eşit.
 - Yan marj sol 96 / sağ 98; sağ üst 160×160 boş; JPG 0,14 MB.
+
+---
+
+## Modül adı + saydam arka plan (güncel)
+- **Üst şerit:** modül adı, sola yaslı, harf aralığı .5em, gold-ink: `ÇOKLU DİL MODÜLÜ` (ürün adı site ve kodla aynı: "Çoklu Dil"). Hap etiket yok.
+- **Saydam arka plan:** modüle konu olan selamlama kelimeleri (Hello, Ciao, Bonjour, Hola), Manrope 800, #0D2B22 %6 opaklık, hafif eğik, kenardan taşan; yalnız Latin alfabe (yalnızca Manrope kuralı). Soru–cevap metninin arkasına bilerek girmez, logonun arkasına da girmez.
+- **Kontrast (ölçüm):** dekor üstü zemin #DDD4B7 ≈ (221,212,183); gold-ink 3,79:1, yeşil 10,2:1 (büyük metin eşiği ≥3:1 geçer). Dekor opaklığı %6'yı geçmesin.
+- Dosyalar: `post1-dil-isik-modul.html` / `.jpg`.
