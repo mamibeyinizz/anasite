@@ -1,0 +1,326 @@
+{
+ "garson-kollarAcik": {
+  "dosya": "figur/garson-kollarAcik.png",
+  "genislik": 316,
+  "yukseklik": 296,
+  "px2x": [
+   632,
+   592
+  ],
+  "bbox": [
+   -159.93862876956553,
+   -110,
+   159.93862876956553,
+   180
+  ],
+  "kirpOfs": [
+   684,
+   634
+  ],
+  "anchors": {
+   "govde": [
+    158,
+    183
+   ]
+  }
+ },
+ "garson-elSallayan": {
+  "dosya": "figur/garson-elSallayan.png",
+  "genislik": 238.5,
+  "yukseklik": 296,
+  "px2x": [
+   477,
+   592
+  ],
+  "bbox": [
+   -120.50970825460925,
+   -110,
+   119.68626441071564,
+   180
+  ],
+  "kirpOfs": [
+   761,
+   634
+  ],
+  "anchors": {
+   "govde": [
+    119.5,
+    183
+   ]
+  }
+ },
+ "garson-tepsi": {
+  "dosya": "figur/garson-tepsi.png",
+  "genislik": 353,
+  "yukseklik": 296,
+  "px2x": [
+   706,
+   592
+  ],
+  "bbox": [
+   -115.55577241487384,
+   -110,
+   232,
+   180
+  ],
+  "kirpOfs": [
+   770,
+   634
+  ],
+  "anchors": {
+   "govde": [
+    115,
+    183
+   ]
+  }
+ },
+ "misafir-menuUzat": {
+  "dosya": "figur/misafir-menuUzat.png",
+  "genislik": 226,
+  "yukseklik": 296,
+  "px2x": [
+   452,
+   592
+  ],
+  "bbox": [
+   -174.46555398502397,
+   -110,
+   46,
+   180
+  ],
+  "kirpOfs": [
+   646,
+   634
+  ],
+  "anchors": {
+   "el": [
+    9,
+    79
+   ]
+  }
+ },
+ "misafir-saskin": {
+  "dosya": "figur/misafir-saskin.png",
+  "genislik": 263.5,
+  "yukseklik": 296,
+  "px2x": [
+   527,
+   592
+  ],
+  "bbox": [
+   -139.97411197904486,
+   -111.75152110529274,
+   127.27713677748673,
+   181.37561389806814
+  ],
+  "kirpOfs": [
+   724,
+   634
+  ],
+  "anchors": {}
+ },
+ "masa": {
+  "dosya": "figur/masa.png",
+  "genislik": 357,
+  "yukseklik": 296.5,
+  "px2x": [
+   714,
+   593
+  ],
+  "bbox": [
+   -174.5,
+   -212.43676608467098,
+   174.5,
+   82.46479206443564
+  ],
+  "kirpOfs": [
+   643,
+   841
+  ],
+  "anchors": {
+   "ust": [
+    178.5,
+    79.5
+   ]
+  }
+ },
+ "menuKarti": {
+  "dosya": "figur/menuKarti.png",
+  "genislik": 170.5,
+  "yukseklik": 223,
+  "px2x": [
+   341,
+   446
+  ],
+  "bbox": [
+   -82.1482847795707,
+   -108.16577694370645,
+   82.18409069425587,
+   108.16577694370645
+  ],
+  "kirpOfs": [
+   829,
+   778
+  ],
+  "anchors": {}
+ },
+ "balon-ucNokta": {
+  "dosya": "figur/balon-ucNokta.png",
+  "genislik": 156,
+  "yukseklik": 149.5,
+  "px2x": [
+   312,
+   299
+  ],
+  "bbox": [
+   -75,
+   -73,
+   75,
+   73
+  ],
+  "kirpOfs": [
+   844,
+   848
+  ],
+  "anchors": {}
+ },
+ "balon-soru": {
+  "dosya": "figur/balon-soru.png",
+  "genislik": 134,
+  "yukseklik": 149.5,
+  "px2x": [
+   268,
+   299
+  ],
+  "bbox": [
+   -64,
+   -73,
+   64,
+   73
+  ],
+  "kirpOfs": [
+   866,
+   848
+  ],
+  "anchors": {}
+ },
+ "zil": {
+  "dosya": "figur/zil.png",
+  "genislik": 220,
+  "yukseklik": 157.5,
+  "px2x": [
+   440,
+   315
+  ],
+  "bbox": [
+   -108,
+   -96.99728746854746,
+   108,
+   65.88626762346851
+  ],
+  "kirpOfs": [
+   780,
+   892
+  ],
+  "anchors": {}
+ },
+ "tablet": {
+  "dosya": "figur/tablet.png",
+  "genislik": 354,
+  "yukseklik": 475,
+  "px2x": [
+   708,
+   950
+  ],
+  "bbox": [
+   -173,
+   -233,
+   173,
+   233
+  ],
+  "kirpOfs": [
+   646,
+   525
+  ],
+  "anchors": {
+   "ekranMerkez": [
+    177,
+    237.5
+   ],
+   "ekranBoyut": [
+    473,
+    -178.5
+   ]
+  },
+  "ekran": {
+   "merkez": [
+    177,
+    237.5
+   ],
+   "boyut": [
+    296,
+    416
+   ]
+  }
+ },
+ "yildiz": {
+  "dosya": "figur/yildiz.png",
+  "genislik": 258,
+  "yukseklik": 254.5,
+  "px2x": [
+   516,
+   509
+  ],
+  "bbox": [
+   -123.26192364882552,
+   -114.51725691988737,
+   132.17726664266726,
+   143.01930011303008
+  ],
+  "kirpOfs": [
+   748,
+   719
+  ],
+  "anchors": {}
+ },
+ "qrTabela": {
+  "dosya": "figur/qrTabela.png",
+  "genislik": 215.5,
+  "yukseklik": 307.5,
+  "px2x": [
+   431,
+   615
+  ],
+  "bbox": [
+   -104.1059543528201,
+   -122.51783465300784,
+   103.99683954127967,
+   176.4687474013902
+  ],
+  "kirpOfs": [
+   786,
+   642
+  ],
+  "anchors": {}
+ },
+ "saat": {
+  "dosya": "figur/saat.png",
+  "genislik": 231,
+  "yukseklik": 232,
+  "px2x": [
+   462,
+   464
+  ],
+  "bbox": [
+   -112.35015801855486,
+   -112,
+   112.35015801855486,
+   112
+  ],
+  "kirpOfs": [
+   770,
+   768
+  ],
+  "anchors": {}
+ }
+}

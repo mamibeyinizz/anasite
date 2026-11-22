@@ -1,0 +1,16 @@
+{
+  "_not": "yeni: en yeni → en eski (3 kolonlu gridde sol üstten satır satır). mevcut: hesabın şu anki grid'i (analiz/ekran/grid-1.jpg), en yeni → en eski.",
+  "yeni": [
+    { "id": "dil-kanca-A", "aile": "kanca", "zemin": "koyu" },
+    { "id": "dil-kanit", "aile": "kanit", "zemin": "krem" },
+    { "id": "dil-cumle-koyu", "aile": "cumle", "zemin": "koyu" },
+    { "id": "taslak-chatbot", "aile": "kanca", "zemin": "koyu" },
+    { "id": "dil-cumle-krem", "aile": "cumle", "zemin": "krem" },
+    { "id": "taslak-qr-masa", "aile": "kanca", "zemin": "koyu" }
+  ],
+  "mevcut": [
+    { "id": "eski-1", "aile": "eski-tipografi", "zemin": "koyu" }, { "id": "eski-2", "aile": "eski-tipografi", "zemin": "koyu" }, { "id": "eski-3", "aile": "eski-tipografi", "zemin": "koyu" },
+    { "id": "eski-4", "aile": "eski-tipografi", "zemin": "krem" }, { "id": "eski-5", "aile": "eski-modul", "zemin": "koyu" }, { "id": "eski-6", "aile": "eski-tipografi", "zemin": "krem" },
+    { "id": "eski-7", "aile": "eski-tipografi", "zemin": "krem" }, { "id": "eski-8", "aile": "eski-modul", "zemin": "koyu" }, { "id": "eski-9", "aile": "eski-tipografi", "zemin": "krem" }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+ "mevcutCakisma": [
+  {
+   "yon": "dikey",
+   "a": "dil-kanca-A",
+   "b": "taslak-chatbot",
+   "neden": "aynı aile: kanca",
+   "konum": [
+    0,
+    3
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "dil-kanca-A",
+   "b": "taslak-chatbot",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    0,
+    3
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "dil-kanit",
+   "b": "dil-cumle-krem",
+   "neden": "aynı zemin tonu: krem",
+   "konum": [
+    1,
+    4
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "dil-cumle-koyu",
+   "b": "taslak-qr-masa",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    2,
+    5
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "taslak-chatbot",
+   "b": "eski-1",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    3,
+    6
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "taslak-qr-masa",
+   "b": "eski-3",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    5,
+    8
+   ]
+  }
+ ],
+ "oneriSkor": 4,
+ "oneri": [
+  "dil-kanca-A",
+  "dil-kanit",
+  "taslak-chatbot",
+  "dil-cumle-koyu",
+  "taslak-qr-masa",
+  "dil-cumle-krem"
+ ],
+ "uyari": 6
+}
