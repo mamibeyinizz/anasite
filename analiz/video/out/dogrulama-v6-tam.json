@@ -1,0 +1,503 @@
+{
+ "ffprobe": {
+  "boyut": "1080x1920",
+  "fps": "30/1",
+  "sure": 35.766667,
+  "hedef": 35.754,
+  "fark": 0.013,
+  "renk": [
+   "bt709",
+   "bt709",
+   "bt709"
+  ],
+  "video_bps": 6550191,
+  "ses": "aac 48000 Hz 2 kanal"
+ },
+ "ses": {
+  "LUFS": -14.1,
+  "tepe_dBTP": -1.3,
+  "sessizlik_1sn_ustu": 0
+ },
+ "layout": {
+  "ihlal": 0,
+  "kurallar": {},
+  "ornek": 716,
+  "dolgusuz_sn": 0.7,
+  "csv_kelime_sn": 24.48,
+  "metinsiz_max_sn": 0.35,
+  "senkron_en_buyuk_fark_sn": 0.05,
+  "kontrast": {
+   "enDusukOran": 6.1,
+   "olcum": 192
+  },
+  "telefon_oran": [
+   0.496,
+   0.5
+  ],
+  "pencere_kesik_kutu": {},
+  "video": {
+   "sure": 35.754,
+   "kare": 1073,
+   "konusmaBitis": 34.954,
+   "enUzunKonusmaBosluguSn": 0.402
+  }
+ },
+ "senkron_tablosu": [
+  {
+   "parca": "c0",
+   "metin": "Yabancı misafir geldi. Menüyü kim anlatacak?",
+   "cueBaslangic": 0,
+   "cueBitis": 3.04,
+   "baslikGiris": 0,
+   "baslikCikis": 3,
+   "farkGiris": 0,
+   "farkCikis": -0.04
+  },
+  {
+   "parca": "c1",
+   "metin": "Garsonunuz tercümana dönüşüyor,",
+   "cueBaslangic": 3.378,
+   "cueBitis": 5.296,
+   "baslikGiris": 3.35,
+   "baslikCikis": 5.25,
+   "farkGiris": -0.03,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c2",
+   "metin": "diğer masalar bekliyor.",
+   "cueBaslangic": 5.484,
+   "cueBitis": 6.845,
+   "baslikGiris": 5.45,
+   "baslikCikis": 6.8,
+   "farkGiris": -0.03,
+   "farkCikis": -0.04
+  },
+  {
+   "parca": "c3",
+   "metin": "Anlamayan misafir de sormaya çekinir.",
+   "cueBaslangic": 7.148,
+   "cueBitis": 9.452,
+   "baslikGiris": 7.1,
+   "baslikCikis": 9.4,
+   "farkGiris": -0.05,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c4",
+   "metin": "Çözüm menünün kendisinde.",
+   "cueBaslangic": 9.75,
+   "cueBitis": 11.407,
+   "baslikGiris": 9.7,
+   "baslikCikis": 11.4,
+   "farkGiris": -0.05,
+   "farkCikis": -0.01
+  },
+  {
+   "parca": "c5",
+   "metin": "Misafir QR’ı okutur, dilini seçer.",
+   "cueBaslangic": 11.705,
+   "cueBitis": 14.618,
+   "baslikGiris": 11.65,
+   "baslikCikis": 14.6,
+   "farkGiris": -0.05,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c6",
+   "metin": "Ürün adı, açıklama, kategori,",
+   "cueBaslangic": 14.972,
+   "cueBitis": 17.152,
+   "baslikGiris": 14.95,
+   "baslikCikis": 17.1,
+   "farkGiris": -0.02,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c7",
+   "metin": "hepsi kendi dilinde açılır.",
+   "cueBaslangic": 17.361,
+   "cueBitis": 18.922,
+   "baslikGiris": 17.35,
+   "baslikCikis": 18.9,
+   "farkGiris": -0.01,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c8",
+   "metin": "Bu, Çoklu Dil modülü.",
+   "cueBaslangic": 19.179,
+   "cueBitis": 20.577,
+   "baslikGiris": 19.15,
+   "baslikCikis": 20.55,
+   "farkGiris": -0.03,
+   "farkCikis": -0.03
+  },
+  {
+   "parca": "c9",
+   "metin": "Dilleri siz tanımlarsınız.",
+   "cueBaslangic": 20.979,
+   "cueBitis": 22.511,
+   "baslikGiris": 20.95,
+   "baslikCikis": 22.5,
+   "farkGiris": -0.03,
+   "farkCikis": -0.01
+  },
+  {
+   "parca": "c10",
+   "metin": "Çevirileri elle ya da CSV ile girersiniz.",
+   "cueBaslangic": 22.783,
+   "cueBitis": 26.134,
+   "baslikGiris": 22.75,
+   "baslikCikis": 26.1,
+   "farkGiris": -0.03,
+   "farkCikis": -0.03
+  },
+  {
+   "parca": "c11",
+   "metin": "Otuz dile kadar.",
+   "cueBaslangic": 26.335,
+   "cueBitis": 27.279,
+   "baslikGiris": 26.3,
+   "baslikCikis": 27.25,
+   "farkGiris": -0.04,
+   "farkCikis": -0.03
+  },
+  {
+   "parca": "c12",
+   "metin": "Garsonunuz servise dönsün.",
+   "cueBaslangic": 27.54,
+   "cueBitis": 29.12,
+   "baslikGiris": 27.5,
+   "baslikCikis": 29.1,
+   "farkGiris": -0.04,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c13",
+   "metin": "Aynı menüyü kendi telefonunuzda deneyin,",
+   "cueBaslangic": 29.365,
+   "cueBitis": 31.568,
+   "baslikGiris": 29.35,
+   "baslikCikis": 31.55,
+   "farkGiris": -0.01,
+   "farkCikis": -0.02
+  },
+  {
+   "parca": "c14",
+   "metin": "dil seçiciyi siz değiştirin.",
+   "cueBaslangic": 31.907,
+   "cueBitis": 33.403,
+   "baslikGiris": 31.9,
+   "baslikCikis": 33.35,
+   "farkGiris": -0.01,
+   "farkCikis": -0.05
+  },
+  {
+   "parca": "c15",
+   "metin": "Bağlantı profilimizde.",
+   "cueBaslangic": 33.719,
+   "cueBitis": 34.954,
+   "baslikGiris": 33.7,
+   "baslikCikis": 34.95,
+   "farkGiris": -0.02,
+   "farkCikis": 0
+  }
+ ],
+ "vurgu_ornekleri": [
+  {
+   "t": 22.6,
+   "kart": null,
+   "gorunum": "sol",
+   "alfa": 0
+  },
+  {
+   "t": 22.7,
+   "kart": null,
+   "gorunum": "sol",
+   "alfa": 0
+  },
+  {
+   "t": 22.8,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 0.45
+  },
+  {
+   "t": 22.9,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.1,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.2,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.3,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.4,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.5,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.6,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.7,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.8,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 23.9,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 24,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 24.1,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 0.58
+  },
+  {
+   "t": 24.2,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 0
+  },
+  {
+   "t": 24.3,
+   "kart": null,
+   "gorunum": "sol",
+   "alfa": 0
+  },
+  {
+   "t": 24.4,
+   "kart": null,
+   "gorunum": "sag",
+   "alfa": 0
+  },
+  {
+   "t": 24.5,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 0.75
+  },
+  {
+   "t": 24.6,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 24.7,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 24.8,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 24.9,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.1,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.2,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.3,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.4,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.5,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.6,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.7,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.8,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 25.9,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 1
+  },
+  {
+   "t": 26,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 0.58
+  },
+  {
+   "t": 26.1,
+   "kart": "csvIce",
+   "gorunum": "sag",
+   "alfa": 0
+  },
+  {
+   "t": 26.2,
+   "kart": null,
+   "gorunum": "sag",
+   "alfa": 0
+  },
+  {
+   "t": 26.3,
+   "kart": null,
+   "gorunum": "sol",
+   "alfa": 0
+  },
+  {
+   "t": 26.4,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 0.94
+  },
+  {
+   "t": 26.5,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 26.6,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 26.7,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 26.8,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 26.9,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 27,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 27.1,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 1
+  },
+  {
+   "t": 27.2,
+   "kart": "diller",
+   "gorunum": "sol",
+   "alfa": 0.05
+  },
+  {
+   "t": 27.3,
+   "kart": null,
+   "gorunum": "sol",
+   "alfa": 0
+  },
+  {
+   "t": 27.4,
+   "kart": null,
+   "gorunum": "sol",
+   "alfa": 0
+  }
+ ]
+}

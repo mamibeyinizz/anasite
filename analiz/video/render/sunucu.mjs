@@ -2,7 +2,7 @@
 import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
 const DIR = path.dirname(fileURLToPath(import.meta.url)); const VIDEO = path.resolve(DIR, '..'); const ROOT = path.resolve(VIDEO, '..', '..');
 const MIME = { '.html': 'text/html; charset=utf-8', '.mjs': 'text/javascript', '.js': 'text/javascript', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.woff2': 'font/woff2', '.svg': 'image/svg+xml' };
-const ROUTES = [['/scene.mjs', path.join(DIR, 'scene.mjs')], ['/layout.js', path.join(DIR, 'layout.js')], ['/render/boxes.json', path.join(DIR, 'boxes.json')], ['/timeline.js', path.join(DIR, 'timeline.js')], ['/cue.json', path.join(VIDEO, 'ses', 'cue.json')], ['/tex/', path.join(DIR, 'tex') + '/'], ['/vendor/', path.join(VIDEO, 'vendor') + '/'], ['/fonts/', path.join(ROOT, 'assets/fonts') + '/'], ['/brand/', path.join(ROOT, 'assets/brand') + '/']];
+const ROUTES = [['/scene.mjs', path.join(DIR, 'scene.mjs')], ['/layout.js', path.join(DIR, 'layout.js')], ['/render/boxes.json', path.join(DIR, 'boxes.json')], ['/timeline.js', path.join(DIR, 'timeline.js')], ['/cue.json', process.env.CUE_DOSYA ? path.resolve(process.env.CUE_DOSYA) : path.join(VIDEO, 'ses', 'cue.json')], ['/tex/', path.join(DIR, 'tex') + '/'], ['/vendor/', path.join(VIDEO, 'vendor') + '/'], ['/fonts/', path.join(ROOT, 'assets/fonts') + '/'], ['/brand/', path.join(ROOT, 'assets/brand') + '/']];
 export async function baslat() {
   const server = http.createServer((req, res) => {
     const u = decodeURIComponent(req.url.split('?')[0]); let f = u === '/' ? path.join(DIR, 'index.html') : null;

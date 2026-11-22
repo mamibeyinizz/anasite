@@ -9,7 +9,7 @@ const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ?
 const has = (k) => process.argv.includes('--' + k);
 const OUT = path.resolve(arg('out', path.join(DIR, 'kare')));
 import { kur } from './timeline.js';
-const CUE = JSON.parse(fs.readFileSync(path.join(DIR, '..', 'ses', 'cue.json'), 'utf8')); const TLN = kur(CUE);
+const CUE = JSON.parse(fs.readFileSync(process.env.CUE_DOSYA ? path.resolve(process.env.CUE_DOSYA) : path.join(DIR, '..', 'ses', 'cue.json'), 'utf8')); const TLN = kur(CUE);
 const FPS = 30, N = TLN.KARE;
 if (!has('atla-layout') && !arg('times')) {
   const r = spawnSync('node', [path.join(DIR, 'layout_check.mjs')], { stdio: 'inherit', env: process.env });

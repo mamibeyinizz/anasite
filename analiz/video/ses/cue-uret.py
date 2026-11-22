@@ -36,7 +36,11 @@ CH = [  # [kimlik, başlık parçası, cümle no (0 tabanlı)]
 print('ince konuşma parçası:', len(ince))
 if len(ince) != len(CH):
     print('EŞLEŞME YOK: ince parça', len(ince), '≠ başlık parçası', len(CH)); print([(round(a, 3), round(b, 3)) for a, b in ince]); sys.exit(2)
+# 'CSV' kelimesinin başlangıcı (karakter oranı tahmini): c10 = "Çevirileri | elle ya da CSV ile girersiniz." → ilk iç sessizlikten sonra 11/30
+ic = [x for x in sil(0.05) if 22.78 < x[0] < 26.2]
 parcalar = [dict(id=c[0], metin=c[1], cumle=c[2], baslangic=round(s[0], 3), bitis=round(s[1], 3)) for c, s in zip(CH, ince)]
+c10 = [p for p in parcalar if p['id'] == 'c10'][0]; g = ic[0][1] if ic else c10['baslangic'] + 0.7
+c10['kelime'] = dict(csv=round(g + (11 / 30) * (c10['bitis'] - g), 3), kaynak='karakter oranı tahmini (Çevirileri sonrası sessizlikten)')
 # cümle bazında
 cum = []
 for i, c in enumerate(cumleler):

@@ -5,10 +5,10 @@ import { baslat, CHROME_ARGS } from './sunucu.mjs'; import * as L from './layout
 const require = createRequire(import.meta.url); const { chromium } = require('playwright');
 const DIR = path.dirname(fileURLToPath(import.meta.url)); const OUT = path.resolve(DIR, '..', 'out');
 const ODAK = JSON.parse(fs.readFileSync(path.join(DIR, 'tex', 'odak.json'), 'utf8'));
-const CUE = JSON.parse(fs.readFileSync(path.join(DIR, '..', 'ses', 'cue.json'), 'utf8')); const TL = kur(CUE);
+const CUE = JSON.parse(fs.readFileSync(process.env.CUE_DOSYA ? path.resolve(process.env.CUE_DOSYA) : path.join(DIR, '..', 'ses', 'cue.json'), 'utf8')); const TL = kur(CUE);
 const sunucu = await baslat(); const env = { ...process.env, NO_PROXY: '127.0.0.1,localhost', no_proxy: '127.0.0.1,localhost' };
 const b = await chromium.launch({ args: CHROME_ARGS, env });
-const p = await (await b.newContext({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 })).newPage();
+const ctx = await b.newContext({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 }); let p = await ctx.newPage();
 p.on('pageerror', (e) => console.error('[sayfa hatası]', e.message));
 await p.goto(sunucu.URL); await p.waitForFunction('window.hazir === true', null, { timeout: 120000 });
 
@@ -20,6 +20,7 @@ const AD_SINIRLARI = { baslik: { x0: L.S.x0, x1: L.S.x1, y0: L.BAND.baslik.y0, y
 const telefonGenislik = new Set(); const telefonOran = []; const otuz = [];
 const zamanlar = []; for (let i = 0; i <= Math.floor(TL.SURE / 0.05); i++) zamanlar.push(+(i * 0.05).toFixed(2));
 const kontrastIsleri = [];
+const C10 = CUE.parcalar.find((x) => x.id === 'c10'), C11 = CUE.parcalar.find((x) => x.id === 'c11'); const TCSV = C10.kelime ? C10.kelime.csv : C10.baslangic + 0.54 * (C10.bitis - C10.baslangic); let ilkTelefon = null, ilkLens = null; const vurguOrnek = [];
 const alfaSeri = {}; const sahne3d = []; const telefonBoy = []; const panelBoy = []; const lensBoy = {}; const baslikVar = []; const baslikFont = {};
 const uvBirlesik = await p.evaluate(() => window.__uv());
 for (const u of uvBirlesik) if (u.u0 < -1e-9 || u.u1 > 1 + 1e-9 || u.v0 < -1e-9 || u.v1 > 1 + 1e-9) bildir('uv-sinir-disi', 0, u);
@@ -63,7 +64,7 @@ for (const t of zamanlar) {
   const agirlik = og.filter((o) => MEDYA.has(o.kind) && o.kind !== 'balon' && o.alpha > 0.3);
   if (agirlik.length) { let a0 = 1e9, a1 = -1e9; for (const o of agirlik) { a0 = Math.min(a0, o.rect.y0); a1 = Math.max(a1, o.rect.y1); } const cy = (a0 + a1) / 2; if (cy < L.AGIRLIK_Y[0] || cy > L.AGIRLIK_Y[1]) bildir('agirlik-merkezi-disinda', t, { cy: +cy.toFixed(1) }); }
   const s3 = og.filter((o) => (o.kind === 'sahne' || o.kind === 'balon') && o.alpha > 0.5);
-  if (s3.length && t >= 0.3 && t < 7.9) { let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9; for (const o of s3) { x0 = Math.min(x0, o.rect.x0); x1 = Math.max(x1, o.rect.x1); y0 = Math.min(y0, o.rect.y0); y1 = Math.max(y1, o.rect.y1); }
+  if (s3.length && t >= 0.3 && t < TL.sunumBasla - 0.1) { let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9; for (const o of s3) { x0 = Math.min(x0, o.rect.x0); x1 = Math.max(x1, o.rect.x1); y0 = Math.min(y0, o.rect.y0); y1 = Math.max(y1, o.rect.y1); }
     sahne3d.push({ t, w: x1 - x0, h: y1 - y0 }); if (x1 - x0 < L.DOLULUK.grup3dMinW) bildir('doluluk-3b-grup-genislik<640', t, { w: +(x1 - x0).toFixed(1) }); if (y1 - y0 < L.DOLULUK.grup3dMinH) bildir('doluluk-3b-grup-yukseklik<%70', t, { h: +(y1 - y0).toFixed(1) }); }
   // 7) figür/balon örtüşmesi
   const bul = (id) => og.find((o) => o.id === id);
@@ -85,6 +86,13 @@ for (const t of zamanlar) {
   if (t >= TL.W(24.5) && t <= TL.ctaKapan[0] - 0.05) { const c = bul('lens-cta'); if (!c || c.alpha < 0.9 || d.faz.telefon !== '02') bildir('cta-dil-secici-gorunmuyor', t, { lens: !!c, telefon: d.faz.telefon }); }
   if (t >= TL.W(24.5) && t <= TL.ctaKapan[0] - 0.05) { const lg = bul('logo'); const ur = bul('adres'); if (!lg || !ur || lg.alpha < 0.9 || ur.alpha < 0.9) bildir('cta-logo/url-eksik', t, {}); }
   { const ph = bul('telefon'), pn = bul('panel'); if (ph && pn) bildir('panel-telefon-capraz', t, { telefon: +ph.alpha.toFixed(2), panel: +pn.alpha.toFixed(2) }); }
+  // 11) vurgu–cümle eşleşmesi (cue'ya bağlı): "elle" → Diller, "CSV" → CSV İçe Aktar (sağ görünüm), "Otuz dile kadar" → Diller (28 dil etkin); CSV Dışa Aktar hiç vurgulanmaz
+  { const vg = d.vurgu; if (vg.kart === 'csvDisa') bildir('vurgu-csv-disa-aktar', t, {});
+    if (t >= C10.baslangic + 0.15 && t <= TCSV - 0.45 && !(vg.kart === 'diller' && vg.alfa > 0.5)) bildir('vurgu-elle≠diller', t, { kart: vg.kart });
+    if (t >= TCSV + 0.1 && t <= C10.bitis - 0.2) { if (!(vg.kart === 'csvIce' && vg.gorunum === 'sag' && vg.alfa > 0.5)) bildir('vurgu-csv≠csv-ice-aktar', t, { kart: vg.kart, gorunum: vg.gorunum }); }
+    if (t >= C11.baslangic + 0.15 && t <= C11.bitis - 0.15 && !(vg.kart === 'diller' && vg.alfa > 0.5)) bildir('vurgu-otuz-dile≠diller', t, { kart: vg.kart });
+    if (Math.abs(t * 10 - Math.round(t * 10)) < 1e-6 && t >= C10.baslangic - 0.2 && t <= C11.bitis + 0.2) vurguOrnek.push({ t, kart: vg.kart, gorunum: vg.gorunum, alfa: +vg.alfa.toFixed(2) }); }
+  { const ph = bul('telefon'), ln = og.find((o) => o.id.startsWith('lens-')); if (ph && ilkTelefon === null) ilkTelefon = t; if (ln && ilkLens === null) ilkLens = t; }
   // 10) metinsiz süre (başlık alfa)
   const bv = og.some((o) => o.kind === 'baslik' && o.alpha > 0.05); baslikVar.push([t, bv]);
   for (const o of og.filter((x) => x.kind === 'baslik')) { baslikFont[d.aktifBaslik] = o.font; if (t < TL.kancaGeri[0]) (alfaSeri[d.aktifBaslik] = alfaSeri[d.aktifBaslik] || []).push([t, o.alpha]); }
@@ -107,6 +115,8 @@ for (const [k, v] of Object.entries(ekranMetin)) if (v < L.TIP.ekranMetinMin) bi
 // statik: dil seçici büyüteci — kategori metni dışarıda, son satır–alt kenar ≥ 16 px, ≥ 8. öğe metni yok
 { const dd = ODAK.ekranlar['02'], w = dd.pencereDD, it = dd.itemler; const alt = (w.y1 - it[6].y1) * L.LENS.s;
   if (alt < 16) bildir('dd-alt-bosluk<16px', 0, { alt: +alt.toFixed(1) }); if (w.x1 > 345) bildir('dd-kategori-metni-icinde', 0, { x1: w.x1 }); if (w.y1 > it[7].metin[1]) bildir('dd-8-ogenin-metni-icinde', 0, {}); ekranMetinDD = +alt.toFixed(1); }
+if (ilkTelefon === null || ilkLens === null || ilkLens - ilkTelefon > 0.8 + 1e-6) bildir('dolgusuz-sure>0.8sn', ilkTelefon ?? 0, { telefon: ilkTelefon, lens: ilkLens });
+{ const kt = ODAK.panel.kartlar.csvIce, sg = ODAK.panel.sag; if (!(kt.x0 >= sg.x0 && kt.x1 <= sg.x1 && kt.y0 >= sg.y0 && kt.y1 <= sg.y1)) bildir('csv-ice-karti-sag-pencerede-degil', 0, {}); }
 // başlık–ses senkronu: her parça için alfa ≥ 0,5 giriş/çıkış anı − cue.json başlangıç/bitiş (≤ 0,15 sn)
 const senkron = [];
 for (let i = 0; i < CUE.parcalar.length; i++) { const seri = (alfaSeri[i] || []).filter(([, a]) => a >= 0.5); if (!seri.length) { bildir('senkron-baslik-yok', 0, { parca: i }); continue; }
@@ -115,7 +125,7 @@ for (let i = 0; i < CUE.parcalar.length; i++) { const seri = (alfaSeri[i] || [])
   if (Math.abs(dOn) > 0.15) bildir('senkron-giris>0.15sn', on, { parca: pc.id, fark: +dOn.toFixed(2) }); if (i < CUE.parcalar.length - 1 && Math.abs(dOff) > 0.15) bildir('senkron-cikis>0.15sn', off, { parca: pc.id, fark: +dOff.toFixed(2) }); }
 
 // kontrast ≥ 4,5:1 (piksel örneklemesi, 0,5 sn aralık)
-await p.goto(sunucu.URL); await p.waitForFunction('window.hazir === true', null, { timeout: 120000 });   // örnekleme sonrası sayfayı tazele (GL belleği)
+await p.close(); p = await ctx.newPage(); p.setDefaultTimeout(180000); await p.goto(sunucu.URL, { timeout: 180000 }); await p.waitForFunction('window.hazir === true', null, { timeout: 180000 });   // örnekleme sonrası yeni sayfa (GL belleği)
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-')); const isler = [];
 for (const k of kontrastIsleri) { if (!k.ogeler.length) continue; await p.evaluate((tt) => window.frame(tt), k.t); const f = path.join(tmp, `k-${k.t.toFixed(2)}.jpg`); await p.screenshot({ path: f, type: 'jpeg', quality: 98, timeout: 120000 }); isler.push({ t: k.t, dosya: f, ogeler: k.ogeler.map((o) => ({ id: o.id, kind: o.kind, rect: R(o.rect), color: o.color, alpha: o.alpha, text: o.text })) }); }
 fs.writeFileSync(path.join(tmp, 'isler.json'), JSON.stringify(isler));
@@ -132,9 +142,9 @@ const doluluk = {
   panel: { pencere_px: panelBoy.length ? [+panelBoy[0][0].toFixed(0), +panelBoy[0][1].toFixed(0)] : null, medya_bandi_doluluk: +(L.PANEL.h / (L.BAND.medya.y1 - L.BAND.medya.y0)).toFixed(2) },
   lens: Object.fromEntries(Object.entries(lensBoy).map(([k, v]) => [k, [+v[0][0].toFixed(0), +v[0][1].toFixed(0)]])),
 };
-const ozet = { video: { sure: +TL.SURE.toFixed(3), kare: TL.KARE, konusmaBitis: CUE.konusmaBitis, enUzunKonusmaBosluguSn: CUE.enUzunBosluk }, senkronEnBuyukFark: +Math.max(...senkron.map((x) => Math.max(Math.abs(x.farkGiris), Math.abs(x.farkCikis)))).toFixed(2), ddAltBoslukPx: ekranMetinDD, kurallar: say, ihlalSayisi: ihlal.length, ornekSayisi: zamanlar.length, telefonGenislikPx: [...telefonGenislik], otuzDileKadarTamOpakSn: +sure.toFixed(2), enUzunMetinsizSnHaric: +enUzunBos.toFixed(2), kontrast: { enDusukOran: kontrast.en_dusuk, olcum: kontrast.olcum }, ekranMetinPx: ekranMetin, doluluk, pencereKesikKutu: kesikRapor, satirKartiBuyutecteKenardanKesik: kartKenar > 0, uvPencereSayisi: uvBirlesik.length };
+const ozet = { dolgusuzSn: +((ilkLens ?? 0) - (ilkTelefon ?? 0)).toFixed(2), csvKelimeSn: +TCSV.toFixed(2), vurguOrnekleri: vurguOrnek, video: { sure: +TL.SURE.toFixed(3), kare: TL.KARE, konusmaBitis: CUE.konusmaBitis, enUzunKonusmaBosluguSn: CUE.enUzunBosluk }, senkronEnBuyukFark: +Math.max(...senkron.map((x) => Math.max(Math.abs(x.farkGiris), Math.abs(x.farkCikis)))).toFixed(2), ddAltBoslukPx: ekranMetinDD, kurallar: say, ihlalSayisi: ihlal.length, ornekSayisi: zamanlar.length, telefonGenislikPx: [...telefonGenislik], otuzDileKadarTamOpakSn: +sure.toFixed(2), enUzunMetinsizSnHaric: +enUzunBos.toFixed(2), kontrast: { enDusukOran: kontrast.en_dusuk, olcum: kontrast.olcum }, ekranMetinPx: ekranMetin, doluluk, pencereKesikKutu: kesikRapor, satirKartiBuyutecteKenardanKesik: kartKenar > 0, uvPencereSayisi: uvBirlesik.length };
 fs.mkdirSync(OUT, { recursive: true });
-fs.writeFileSync(path.join(OUT, 'layout.json'), JSON.stringify({ parametreler: { S: L.S, BAND: L.BAND, MEDYA: L.MEDYA, TELEFON: L.TELEFON, LENS: L.LENS, PANEL: L.PANEL, GAP: L.GAP, AGIRLIK_Y: L.AGIRLIK_Y, DOLULUK: L.DOLULUK }, ozet, uv: uvBirlesik, senkron, baslikFontPx: baslikFont, metinsizAraliklar: bosAralik, ihlaller: ihlal.slice(0, 400), ornekler: ornek }));
+fs.writeFileSync(path.join(OUT, process.env.LAYOUT_CIKTI || 'layout.json'), JSON.stringify({ parametreler: { S: L.S, BAND: L.BAND, MEDYA: L.MEDYA, TELEFON: L.TELEFON, LENS: L.LENS, PANEL: L.PANEL, GAP: L.GAP, AGIRLIK_Y: L.AGIRLIK_Y, DOLULUK: L.DOLULUK }, ozet, uv: uvBirlesik, senkron, baslikFontPx: baslikFont, metinsizAraliklar: bosAralik, ihlaller: ihlal.slice(0, 400), ornekler: ornek }));
 console.log('YERLEŞİM TESTİ:', ihlal.length === 0 ? 'YEŞİL' : 'KIRMIZI', JSON.stringify(ozet));
 if (ihlal.length) { const g = {}; for (const i of ihlal) (g[i.kural] = g[i.kural] || []).push(i); for (const [k, v] of Object.entries(g)) console.log(' •', k, v.length, 'örnek; ilk:', JSON.stringify(v[0]).slice(0, 240)); }
 process.exit(ihlal.length ? 1 : 0);
