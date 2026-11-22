@@ -49,3 +49,13 @@ Aynı üç bölge ve ölçek; yalnız (1) soru, (2) cevap ve (3) alt şerit içe
 - **Saydam arka plan:** modüle konu olan selamlama kelimeleri (Hello, Ciao, Bonjour, Hola), Manrope 800, #0D2B22 %6 opaklık, hafif eğik, kenardan taşan; yalnız Latin alfabe (yalnızca Manrope kuralı). Soru–cevap metninin arkasına bilerek girmez, logonun arkasına da girmez.
 - **Kontrast (ölçüm):** dekor üstü zemin #DDD4B7 ≈ (221,212,183); gold-ink 3,79:1, yeşil 10,2:1 (büyük metin eşiği ≥3:1 geçer). Dekor opaklığı %6'yı geçmesin.
 - Dosyalar: `post1-dil-isik-modul.html` / `.jpg`.
+
+---
+
+## Arka plan: "Yayılma" (seçilen B, geliştirilmiş)
+Kelime dekoru ve nokta deseni elendi; seçilen: saydam altın halkalar. Dosya: `post1-dil-bg-B2.html` → `post1-dil-final-B.jpg`.
+- **Kaynak:** sağ kenarda (1200, 300) bir yayılma merkezi; 7 eşmerkezli halka (180–900 px), çizgi kalınlığı 3→1,2 px, opaklık .44→.07 (merkezden uzaklaştıkça incelir ve solar).
+- **Işıma:** merkezde altın radyal ışıma (%30 → 0), düz krem yerine hafif derinlik; sol üst ve sol alt zemin #EADFC1'e yakın kalır (komşu karolarla uyum).
+- **Yörünge noktaları:** halkalar üzerinde 4 küçük altın nokta + ince halka (dilin yayılma/"yayın" çağrışımı), yalnız metinden uzak boş alanlarda.
+- **Dengeleyici:** sol altta ters yönlü ikinci halka grubu (yarıçap ≤520, logoya girmez), kompozisyonu çapraz dengeler.
+- **Kurallar:** yalnız marka altını (#C9A84C); metin kutularına çizgi girmez-girse ince ve arkada; kontrast örnekleri: gold-ink 4,01–4,23:1, yeşil 10,8–11,4:1 (büyük metin ≥3:1).
