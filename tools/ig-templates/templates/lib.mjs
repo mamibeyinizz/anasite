@@ -31,29 +31,33 @@ export function logo(ctx, y, w) {
 }
 
 export async function sahneKur(ctx, liste, kutu) {
-  const { root } = ctx; const M = await (await fetch('/figur/manifest.json')).json(); const ad = (s) => s.replace(':', '-');
+  const { root } = ctx; const M = await (await fetch(`/figur/${ctx.T.sprite}/manifest.json`)).json(); const ad = (s) => s.replace(':', '-');
   const g = (n) => { const m = M[ad(n)]; if (!m) throw new Error('bilinmeyen figür/sprite: ' + n); return m; }; const tur = (s) => s.split(':')[0];
   const gars = liste.filter((s) => tur(s) === 'garson'), misa = liste.filter((s) => tur(s) === 'misafir'), masa = liste.includes('masa');
   const it = []; const put = (n, x0, y0, sc = 1, z = 2, ekstra = {}) => { const m = g(n); const o = { n, m, x0, y0, w: m.genislik * sc, h: m.yukseklik * sc, sc, z, ...ekstra }; it.push(o); return o; };
   let tw = 0, th = 0, surf = 0; if (masa) { const m = g('masa'); tw = m.genislik; th = m.yukseklik; put('masa', -tw / 2, -th, 1, 1); surf = -th + 0.24 * th; }
-  let G = null, Mi = null;
-  if (gars[0]) { const m = g(gars[0]); const sc = 1; G = put(gars[0], -(tw / 2 + m.genislik * 0.45) , -m.yukseklik * sc, sc, 2); }
-  if (misa[0]) { const m = g(misa[0]); Mi = put(misa[0], tw / 2 - m.genislik * 0.05 + 0, -m.yukseklik, 1, 2); }
+  const yay = kutu.yayilim || 1; let G = null, Mi = null;
+  if (gars[0]) { const m = g(gars[0]); const sc = 1; G = put(gars[0], -(tw / 2 + m.genislik * 0.45 * yay), -m.yukseklik * sc, sc, 2); }
+  if (misa[0]) { const m = g(misa[0]); Mi = put(misa[0], tw / 2 - m.genislik * 0.05 + tw * 0.0 + m.genislik * 0.45 * (yay - 1), -m.yukseklik, 1, 2); }
   for (const n of liste) { const t = tur(n);
     if (n === 'menuKarti') { const m = g(n); if (Mi && Mi.m.anchors.el) { const hx = Mi.x0 + Mi.m.anchors.el[0], hy = Mi.y0 + Mi.m.anchors.el[1]; put(n, hx - m.genislik * 0.5, hy - m.yukseklik * 0.5 - 4, 1, 3); } else put(n, -m.genislik / 2, surf - m.yukseklik * 0.55, 1, 3); }
-    else if (n === 'balon:ucNokta') { const m = g(n); const sc = 1.1, bw = m.genislik * sc, bh = m.yukseklik * sc; if (G) put(n, G.x0 + G.w * 0.5 - bw * 0.26, G.y0 - bh - 8, sc, 5); else put(n, -tw * 0.3 - bw * 0.26, (surf - bh - 60), sc, 5); }
-    else if (n === 'balon:soru') { const m = g(n); const sc = 1.35, bw = m.genislik * sc, bh = m.yukseklik * sc; if (Mi) put(n, Mi.x0 + Mi.w * 0.5 - bw * 0.74, Mi.y0 - bh - 8, sc, 5); else put(n, tw * 0.3 - bw * 0.74, (surf - bh - 60), sc, 5); }
+    else if (n === 'balon:ucNokta') { const m = g(n); const sc = 1.0, bw = m.genislik * sc, bh = m.yukseklik * sc; if (G) put(n, G.x0 + G.w * 0.5 - bw * 0.26, G.y0 - bh + 14, sc, 5); else put(n, -tw * 0.3 - bw * 0.26, (surf - bh - 60), sc, 5); }
+    else if (n === 'balon:soru') { const m = g(n); const sc = 1.2, bw = m.genislik * sc, bh = m.yukseklik * sc; if (Mi) put(n, Mi.x0 + Mi.w * 0.5 - bw * 0.74, Mi.y0 - bh + 14, sc, 5); else put(n, tw * 0.3 - bw * 0.74, (surf - bh - 60), sc, 5); }
     else if (n === 'zil') { const m = g(n), sc = 0.6; put(n, -tw * 0.18 - m.genislik * sc / 2, surf + 0.07 * th - m.yukseklik * sc, sc, 3); }
     else if (n === 'qrTabela') { const m = g(n), sc = 0.7; put(n, tw * 0.16 - m.genislik * sc / 2, surf + 0.09 * th - m.yukseklik * sc, sc, 3); }
     else if (n === 'tablet') { const m = g(n), sc = 0.7; put(n, -m.genislik * sc / 2, -m.yukseklik * sc, sc, 1); } }
   const ust = () => Math.min(...it.map((o) => o.y0));
-  const sayac = {}; for (const n of liste) if (n === 'yildiz' || n === 'saat') { const m = g(n), sc = n === 'yildiz' ? 0.42 : 0.55; const k = (sayac[n] = (sayac[n] || 0) + 1);
-    if (n === 'yildiz') { const adet = liste.filter((q) => q === 'yildiz').length; const gap = m.genislik * sc * 1.08; put(n, (k - 1 - (adet - 1) / 2) * gap - m.genislik * sc / 2, ust() - m.yukseklik * sc - 18, sc, 3); } else put(n, -m.genislik * sc / 2, ust() - m.yukseklik * sc - 24, sc, 3); }
+  const stars = liste.filter((q) => q === 'yildiz'); const saatlar = liste.filter((q) => q === 'saat');
+  { const ix0 = Math.min(...it.map((o) => o.x0)), ix1 = Math.max(...it.map((o) => o.x0 + o.w)), iy0 = Math.min(...it.map((o) => o.y0)); const iw = ix1 - ix0, icx = (ix0 + ix1) / 2;
+    for (const _ of saatlar) { const m = g('saat'), sc = 0.4; put('saat', tw * 0.30 - m.genislik * sc / 2, surf + 0.05 * th - m.yukseklik * sc, sc, 3); }       // masa üstü küçük saat (başlık altında yüzmez)
+    if (stars.length) { const m = g('yildiz'), N = stars.length, yayG = 0.6 * iw, aralik = N > 1 ? yayG / (N - 1) : 0, sw = Math.min(yayG / Math.max(N - 1, 1) * 0.92, 150), sc = sw / m.genislik, c = (N - 1) / 2;   // yay: grup genişliğinin %60'ı
+      for (let i = 0; i < N; i++) { const t = N > 1 ? (i - c) / c : 0; const yb = iy0 - 10 - 0.3 * sw * (1 - t * t); put('yildiz', icx + (i - c) * aralik - sw / 2, yb - m.yukseklik * sc, sc, 3, { yildiz: true }); } } }
   const ux0 = Math.min(...it.map((o) => o.x0)), ux1 = Math.max(...it.map((o) => o.x0 + o.w)), uy0 = Math.min(...it.map((o) => o.y0)), uy1 = Math.max(...it.map((o) => o.y0 + o.h)); const uw = ux1 - ux0, uh = uy1 - uy0;
-  const bw = kutu.x1 - kutu.x0, bh = kutu.y1 - kutu.y0; const s = Math.min(bw / uw, bh / uh, kutu.enCokOlcek || 1.7); const ox = kutu.x0 + (bw - uw * s) / 2, oy = kutu.y0 + (bh - uh * s) / 2;
-  const sp = []; for (const o of it.sort((a, b) => a.z - b.z)) { const e = mk('img', 'sprite', { left: (ox + (o.x0 - ux0) * s) + 'px', top: (oy + (o.y0 - uy0) * s) + 'px', width: (o.w * s) + 'px', height: (o.h * s) + 'px', zIndex: o.z }, root); e.src = '/' + o.m.dosya; sp.push({ ad: o.n, el: e }); }
+  const bw = kutu.x1 - kutu.x0, bh = kutu.y1 - kutu.y0; const s = Math.min(bw / uw, bh / uh, kutu.enCokOlcek || 1.7); const ox = kutu.x0 + (bw - uw * s) / 2, oy = kutu.ustHizala ? kutu.y0 : kutu.y0 + (bh - uh * s) / 2;
+  if (kutu.dry) return { grup: { w: uw * s, h: uh * s } };
+  const sp = []; for (const o of it.sort((a, b) => a.z - b.z)) { const e = mk('img', 'sprite', { left: (ox + (o.x0 - ux0) * s) + 'px', top: (oy + (o.y0 - uy0) * s) + 'px', width: (o.w * s) + 'px', height: (o.h * s) + 'px', zIndex: o.z }, root); e.src = '/' + o.m.dosya; sp.push({ ad: o.n, el: e, yildiz: !!o.yildiz }); }
   await Promise.all(sp.map(({ el }) => el.decode()));
-  return { olcek: s, grup: { x0: ox, x1: ox + uw * s, y0: oy, y1: oy + uh * s, w: uw * s, h: uh * s }, sprites: sp.map(({ ad, el }) => ({ ad, rect: rect(el) })) };
+  return { olcek: s, grup: { x0: ox, x1: ox + uw * s, y0: oy, y1: oy + uh * s, w: uw * s, h: uh * s }, sprites: sp.map(({ ad, el }) => ({ ad, rect: rect(el) })), yildizlar: sp.filter((q) => q.yildiz).map((q) => rect(q.el)), figurGrup: (() => { const f = it.filter((o) => !o.yildiz && !['balon:ucNokta', 'balon:soru'].includes(o.n)); const a0 = Math.min(...f.map((o) => o.x0)), a1 = Math.max(...f.map((o) => o.x0 + o.w)); return { x0: ox + (a0 - ux0) * s, x1: ox + (a1 - ux0) * s, w: (a1 - a0) * s }; })() };
 }
 
 // Gerçek ekran görüntüsünde ürün satırlarını bul (resim değiştirilmez; yalnız okunur). 860×1800 telefon ekranı.

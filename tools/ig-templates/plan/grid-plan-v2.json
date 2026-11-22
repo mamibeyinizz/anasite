@@ -1,0 +1,88 @@
+{
+ "_not": "v2: yeni krem DÜZ #EADFC1 (mevcut krem karolarla aynı ton) — krem–krem komşuluğu mevcut karolarla da sayılır.",
+ "yeni": [
+  {
+   "id": "dil-kanca-A",
+   "aile": "kanca",
+   "zemin": "koyu"
+  },
+  {
+   "id": "dil-kanit",
+   "aile": "kanit",
+   "zemin": "krem"
+  },
+  {
+   "id": "dil-cumle-prop-koyu",
+   "aile": "cumle",
+   "zemin": "koyu"
+  },
+  {
+   "id": "dil-cumle-tipo-krem",
+   "aile": "cumle",
+   "zemin": "krem"
+  },
+  {
+   "id": "taslak-chatbot",
+   "aile": "kanca",
+   "zemin": "koyu"
+  },
+  {
+   "id": "dil-cumle-prop-krem",
+   "aile": "cumle",
+   "zemin": "krem"
+  }
+ ],
+ "mevcut": [
+  {
+   "id": "eski-1",
+   "aile": "eski-tipografi",
+   "zemin": "koyu"
+  },
+  {
+   "id": "eski-2",
+   "aile": "eski-tipografi",
+   "zemin": "koyu"
+  },
+  {
+   "id": "eski-3",
+   "aile": "eski-tipografi",
+   "zemin": "koyu"
+  },
+  {
+   "id": "eski-4",
+   "aile": "eski-tipografi",
+   "zemin": "krem"
+  },
+  {
+   "id": "eski-5",
+   "aile": "eski-modul",
+   "zemin": "koyu"
+  },
+  {
+   "id": "eski-6",
+   "aile": "eski-tipografi",
+   "zemin": "krem"
+  },
+  {
+   "id": "eski-7",
+   "aile": "eski-tipografi",
+   "zemin": "krem"
+  },
+  {
+   "id": "eski-8",
+   "aile": "eski-modul",
+   "zemin": "koyu"
+  },
+  {
+   "id": "eski-9",
+   "aile": "eski-tipografi",
+   "zemin": "krem"
+  }
+ ],
+ "_bekleyen": [
+  "taslak-garson-cagrisi",
+  "taslak-yorum",
+  "taslak-qr-masa",
+  "dil-cumle-tipo-koyu"
+ ]
+}

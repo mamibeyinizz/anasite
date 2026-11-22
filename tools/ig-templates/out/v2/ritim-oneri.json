@@ -1,0 +1,86 @@
+{
+ "oneriSkor": 2,
+ "yeniYeni": 1,
+ "yeniMevcut": 1,
+ "kremKremMevcutla": 0,
+ "oneri": [
+  "dil-kanca-A",
+  "dil-kanit",
+  "dil-cumle-prop-koyu",
+  "dil-cumle-tipo-krem",
+  "taslak-chatbot",
+  "dil-cumle-prop-krem"
+ ],
+ "mevcutCakisma": [
+  {
+   "yon": "dikey",
+   "a": "dil-kanca-A",
+   "b": "dil-cumle-prop-koyu",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    0,
+    3
+   ]
+  },
+  {
+   "yon": "yatay",
+   "a": "dil-kanit",
+   "b": "dil-cumle-tipo-krem",
+   "neden": "aynı zemin tonu: krem",
+   "konum": [
+    1,
+    2
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "dil-cumle-tipo-krem",
+   "b": "dil-cumle-prop-krem",
+   "neden": "aynı aile: cumle",
+   "konum": [
+    2,
+    5
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "dil-cumle-tipo-krem",
+   "b": "dil-cumle-prop-krem",
+   "neden": "aynı zemin tonu: krem",
+   "konum": [
+    2,
+    5
+   ]
+  },
+  {
+   "yon": "yatay",
+   "a": "dil-cumle-prop-koyu",
+   "b": "taslak-chatbot",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    3,
+    4
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "dil-cumle-prop-koyu",
+   "b": "eski-1",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    3,
+    6
+   ]
+  },
+  {
+   "yon": "dikey",
+   "a": "taslak-chatbot",
+   "b": "eski-2",
+   "neden": "aynı zemin tonu: koyu",
+   "konum": [
+    4,
+    7
+   ]
+  }
+ ]
+}

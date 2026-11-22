@@ -16,8 +16,8 @@ try {
   for (const e of root.querySelectorAll('*')) { const cs = getComputedStyle(e); fontlar.add(cs.fontFamily.split(',')[0].replace(/"/g, '').trim());
     if (cs.textDecorationLine !== 'none') altCizgili.push(e.className || e.tagName);
     for (const p of ['color', 'borderTopColor', 'backgroundColor']) if (cs[p] === 'rgb(201, 168, 76)') yasakRenk.push(p); }
-  for (const e of root.querySelectorAll('.kanca,.hap,.rozet,.chip')) { const cs = getComputedStyle(e); metinler.push(e.textContent); renkler.push({ sinif: e.className, renk: cs.color, rect: lib.rect(e) }); }
-  for (const e of root.querySelectorAll('.kanca .v')) { const cs = getComputedStyle(e); renkler.push({ sinif: 'v', renk: cs.color, rect: lib.rect(e) }); }
+  for (const e of root.querySelectorAll('.kanca,.hap,.rozet,.chip')) { const cs = getComputedStyle(e); metinler.push(e.textContent); renkler.push({ sinif: e.className, renk: cs.color, rect: lib.rect(e), px: parseFloat(cs.fontSize), agirlik: parseInt(cs.fontWeight) }); }
+  for (const e of root.querySelectorAll('.kanca .v')) { const cs = getComputedStyle(e); renkler.push({ sinif: 'v', renk: cs.color, rect: lib.rect(e), px: parseFloat(cs.fontSize), agirlik: parseInt(cs.fontWeight) }); }
   const yuklu = [...document.fonts].filter((f) => f.family.replace(/"/g, '') === 'Manrope' && f.status === 'loaded').length;
   window.__olcum = { id: V.id, aile: fam, format: V.format, zemin, w: FM.w, h: FM.h, metinler, renkler, fontlar: [...fontlar], manropeYuklu: yuklu, yasakRenk, altCizgili, fontKontrol: document.fonts.check('800 40px Manrope'), ...ozel };
   window.__hata = null;

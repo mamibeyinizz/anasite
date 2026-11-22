@@ -1,0 +1,27 @@
+{
+  "_not": "Tek kaynak. Şablonlar, render, test ve ritim yalnız buradan okur. Renkler: açık zeminde altın YALNIZ #7F6419; #C9A84C yalnız koyu zeminde.",
+  "renk": {
+    "yesil": "#0D2B22", "zeminKenar": "#08241A", "glowMerkez": "#174233", "glowEnFazla": "#25503D",
+    "krem": "#EADFC1", "kremParlak": "#F4F1E8", "kremMetin": "#F4F1E8", "altinKoyuZemin": "#C9A84C", "altinAcikZemin": "#7F6419",
+    "koyuMetinAcikZemin": "#0D2B22", "yasakAcikZemin": "#C9A84C", "zeminMedyanAralik": ["#08241A", "#0E2F26"]
+  },
+  "font": { "aile": "Manrope", "agirliklar": [400, 500, 700, 800], "dosyalar": ["/fonts/manrope-var-latin.woff2", "/fonts/manrope-var-latin-ext.woff2"], "satirAraligi": 0.98, "harfAraligi": -0.058, "harfAraligiEnAz": -0.075 },
+  "formatlar": {
+    "reels": {
+      "w": 1080, "h": 1920, "yanMarj": 80, "ustAltMarj": 0, "kirpim34": [240, 1680], "kirpimPay": 40, "reelsUi": { "ust": 270, "alt": 672, "yan": 65 }, "sagUstBos": [920, 240, 1080, 400],
+      "kancaPx": [152, 190], "satirYukseklik330Min": 45,
+      "kanca": { "hapY": 342, "hapH": 76, "hapPx": 46, "metinY": 428, "grupY": [785, 1400], "logoY": 1415, "logoW": 270 }
+    },
+    "post34": {
+      "w": 1080, "h": 1440, "yanMarj": 80, "ustAltMarj": 96, "kirpim34": [0, 1440], "kirpimPay": 40, "sagUstBos": [920, 0, 1080, 160],
+      "kancaPx": [140, 170], "satirYukseklik330Min": 40,
+      "kanca": { "hapY": 96, "hapH": 76, "hapPx": 46, "metinY": 200, "grupY": [540, 1215], "logoY": 1250, "logoW": 270 },
+      "kanit": { "hapY": 96, "hapH": 76, "hapPx": 46, "metinY": 196, "telefonY": 560, "rozetPx": 40, "logoY": 1250, "logoW": 270 },
+      "cumle": { "hapY": 96, "hapH": 76, "hapPx": 46, "metinY": 230, "figurY": [640, 1215], "logoY": 1250, "logoW": 270, "kancaPx": [120, 170] }
+    }
+  },
+  "telefon": { "ekranPencere": { "x0": 14, "y0": 0, "x1": 830, "y1": 1708 }, "yukseklik": 640, "cerceve": 8, "kose": 44, "bevel": 3 },
+  "lens": { "s": 1.075, "w": 581, "satirH": 470, "kose": 28, "ekranMetinMin": 28 },
+  "yasakIcerik": ["\\d", "%", "\\bAI\\b", "yapay zeka", "otomatik çeviri", "ücretsiz", "anında", "devrim", "garantili", "sınırsız"],
+  "limitler": { "kancaKelimeEnCok": 5, "satir": 2, "logoEnAz": 260, "hapEnAz": 44, "jpgKalite": 92, "jpgBayt": 2000000 }
+}

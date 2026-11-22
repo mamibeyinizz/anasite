@@ -1,0 +1,2 @@
+{ "id": "dil-kanca-A", "aile": "kanca", "format": "reels", "etiket": "RESTORAN SAHİBİ İÇİN", "kanca": ["Garsonunuz", "tercüman mı?"], "vurgu": "tercüman",
+  "figur": ["garson:kollarAcik", "misafir:menuUzat", "masa", "menuKarti", "balon:ucNokta", "balon:soru"], "logo": true }
