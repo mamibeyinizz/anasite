@@ -227,7 +227,11 @@
    "metin": "Çevirileri elle ya da CSV ile girersiniz.",
    "cumle": 9,
    "baslangic": 22.783,
-   "bitis": 26.134
+   "bitis": 26.134,
+   "kelime": {
+    "csv": 24.484,
+    "kaynak": "karakter oranı tahmini (Çevirileri sonrası sessizlikten)"
+   }
   },
   {
    "id": "c11",

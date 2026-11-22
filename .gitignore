@@ -8,3 +8,4 @@ sss/.qa-screenshots/
 backend/config.php
 backend/storage/
 analiz/video/out/kontrol-v5/k/
+analiz/video/out/kontrol-v6-*/k/

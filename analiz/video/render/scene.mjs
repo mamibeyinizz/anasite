@@ -135,10 +135,13 @@ const KEYS = ['tr', 'en', 'de', 'fr'];
 const EW = L.EKRAN_TEX.w, EH = L.EKRAN_TEX.h;
 const TEX = {}, PT = {}, LT = {};
 const V = TL.V, Ev = TL.Ev;
-const tDD = w(9.0), tSlide = w(9.5), tTR = w(11.7), tEN = w(13.0), tDE = w(14.5), tFR = w(15.8);
-const tCikis = [V[8] - 0.25, V[8] - 0.05];                                   // telefon/büyüteç/rozet çıkışı; panel V[8]'de girer (çapraz yok)
-const tPanelCikis = [V[12] - 0.25, V[12] - 0.05];                          // panel çıkışı; telefon V[12]'de girer (çapraz yok)
-const SIRA = [[0, '01'], [tDD, '02'], [tTR, 'tr'], [tEN, 'en'], [tDE, 'de'], [tFR, 'fr'], [V[8] + 0.3, '02']];
+const vc = (id) => V[TL.ix(id)], cC = (id) => CUE.parcalar[TL.ix(id)];
+const vSunum = TL.sunumBasla;                                              // telefon girişi (c4 yoksa c5)
+const tDD = vSunum + 0.25, tLensDD = vSunum + 0.7;                          // telefon solda açılır; büyüteç ≤0,8 sn içinde gelir (dolgusuz süre ≤0,8)
+const tTR = w(11.7), tEN = w(13.0), tDE = w(14.5), tFR = w(15.8);
+const tCikis = [vc('c8') - 0.25, vc('c8') - 0.05];                                   // telefon/büyüteç/rozet çıkışı; panel V[8]'de girer (çapraz yok)
+const tPanelCikis = [vc('c12') - 0.25, vc('c12') - 0.05];                          // panel çıkışı; telefon V[12]'de girer (çapraz yok)
+const SIRA = [[0, '01'], [tDD, '02'], [tTR, 'tr'], [tEN, 'en'], [tDE, 'de'], [tFR, 'fr'], [vc('c8') + 0.3, '02']];
 function telefonKaresi(t) {
   let i = 0; for (let k = 0; k < SIRA.length; k++) if (t >= SIRA[k][0] - 0.1) i = k;
   const xf = i > 0 && t < SIRA[i][0] + 0.1; const mix = xf ? smooth(clamp((t - (SIRA[i][0] - 0.1)) / 0.2)) : 1;
@@ -196,11 +199,14 @@ const stripG = new THREE.Group(); scene.add(stripG);
   const p = px2w(sp.x0 + sp.w / 2, sp.y0 + sp.h / 2); stripG.position.set(p.x, p.y, 0); }
 
 const PAN_METIN_PX = 13.5 * PN.s;                       // kart alt yazısı (en küçük vurgulu metin) ≈ 13,5 css → ≥ 36 px
-function panelDurum(t) {                                // [görünüm, vurgulu kart, vurgu alfa] — zamanlar konuşmaya oturtulmuş (v4 olay zamanları → w)
-  const v = (t >= w(20.2) && t < w(20.7)) ? 'sag' : 'sol';
-  const fa = (a, b) => Math.min(E(seg(t, a, a + .2)), 1 - E(seg(t, b - .2, b)));
-  const S2 = [['diller', 18.5, 19.4], ['csvDisa', 19.65, 20.1], ['csvIce', 20.3, 20.65], ['diller', 20.85, 22.2]];
-  for (const [k, a, b] of S2) if (t >= w(a) && t < w(b)) return [v, k, fa(w(a), w(b))];
+const c9 = cC('c9'), c10 = cC('c10'), c11 = cC('c11');
+const tCSV = c10.kelime ? c10.kelime.csv : c10.baslangic + 0.54 * (c10.bitis - c10.baslangic);   // "CSV" kelimesinin başlangıcı (cue'dan)
+const tSwapR = tCSV - 0.15, tSwapL = c10.bitis + 0.1;
+function panelDurum(t) {                                // [görünüm, vurgulu kart, vurgu alfa] — cue'ya bağlı: "elle" → Diller, "CSV" → CSV İçe Aktar, "Otuz dile kadar" → Diller (28 dil etkin)
+  const v = (t >= tSwapR && t < tSwapL) ? 'sag' : 'sol';
+  const fa = (a, b) => Math.min(E(seg(t, a, a + .15)), 1 - E(seg(t, b - .15, b)));
+  const S2 = [['diller', c9.baslangic + 0.05, c9.bitis], ['diller', c10.baslangic, tSwapR - 0.1], ['csvIce', tCSV - 0.02, c10.bitis], ['diller', c11.baslangic, c11.bitis]];
+  for (const [k, a, b] of S2) if (t >= a && t < b) return [v, k, fa(a, b)];
   return [v, null, 0];
 }
 
@@ -217,17 +223,30 @@ Object.assign(el.adres.style, { left: L.LENS.x0 + 'px', top: L.LENS.urlY0 + 'px'
 }
 const fadeEl = (n, a) => { n.style.opacity = clamp(a).toFixed(3); };
 
-const HTML = [
-  'Yabancı misafir geldi.<br><b>Menüyü kim anlatacak?</b>', 'Garsonunuz <b>tercümana dönüşüyor,</b>', 'diğer masalar bekliyor.', 'Anlamayan misafir de <b>sormaya çekinir.</b>',
-  'Çözüm menünün <b>kendisinde.</b>', 'Misafir QR’ı okutur, <b>dilini seçer.</b>', 'Ürün adı, açıklama, kategori,', 'hepsi <b>kendi dilinde</b> açılır.', 'Bu, <b>Çoklu Dil modülü.</b>',
-  '<b>Dilleri</b> siz tanımlarsınız.', 'Çevirileri elle ya da <b>CSV</b> ile girersiniz.', '<b>Otuz dile</b> kadar.', 'Garsonunuz <b>servise dönsün.</b>', 'Aynı menüyü kendi telefonunuzda deneyin,',
-  'dil seçiciyi <b>siz değiştirin.</b>', 'Bağlantı <b>profilimizde.</b>'];
-const BASLIK = CUE.parcalar.map((p, i) => [V[i], Ev[i], HTML[i], p.metin]);          // [görünür başlangıç, görünür bitiş, html, düz metin]
+const HTML = {
+  c0: 'Yabancı misafir geldi.<br><b>Menüyü kim anlatacak?</b>',
+  c1: 'Garsonunuz <b>tercümana dönüşüyor,</b>',
+  c2: 'diğer masalar bekliyor.',
+  c3: 'Anlamayan misafir de <b>sormaya çekinir.</b>',
+  c4: 'Çözüm menünün <b>kendisinde.</b>',
+  c5: 'Misafir QR’ı okutur, <b>dilini seçer.</b>',
+  c6: 'Ürün adı, açıklama, kategori,',
+  c7: 'hepsi <b>kendi dilinde</b> açılır.',
+  c8: 'Bu, <b>Çoklu Dil modülü.</b>',
+  c9: '<b>Dilleri</b> siz tanımlarsınız.',
+  c10: 'Çevirileri elle ya da <b>CSV</b> ile girersiniz.',
+  c11: '<b>Otuz dile</b> kadar.',
+  c12: 'Garsonunuz <b>servise dönsün.</b>',
+  c13: 'Aynı menüyü kendi telefonunuzda deneyin,',
+  c14: 'dil seçiciyi <b>siz değiştirin.</b>',
+  c15: 'Bağlantı <b>profilimizde.</b>'
+};
+const BASLIK = CUE.parcalar.map((p, i) => [V[i], Ev[i], HTML[p.id], p.metin]);          // [görünür başlangıç, görünür bitiş, html, düz metin]
 const BAS_FONT = BASLIK.map(([, , html]) => { const b = el.bas; b.innerHTML = html; let fs = L.TIP.baslikMax; b.style.fontSize = fs + 'px'; b.style.opacity = '0';
   const satir = () => Math.round(b.offsetHeight / (fs * 1.1));
   while ((satir() > L.TIP.baslikSatir || b.offsetHeight > L.BAND.baslik.y1 - L.BAND.baslik.y0 || b.scrollWidth > b.clientWidth + 1) && fs > L.TIP.baslikMin) { fs -= 2; b.style.fontSize = fs + 'px'; }
   return { fs, h: b.offsetHeight, satir: satir() }; });
-window.__baslik = BASLIK.map(([a, b, , s], i) => [a, b, 'bas' + i, s]); window.__baslikFont = BAS_FONT; window.__tl = { V, Ev, SURE: TL.SURE, KARE: TL.KARE, dongu: TL.dongu };
+window.__baslik = BASLIK.map(([a, b, , s], i) => [a, b, 'bas' + i, s]); window.__baslikFont = BAS_FONT; window.__tl = { tCSV, tSwapR, tSwapL, tLensDD, vSunum, V, Ev, SURE: TL.SURE, KARE: TL.KARE, dongu: TL.dongu };
 const CTA_ACIK = w(24.0), CTA_KAPAN = TL.ctaKapan, HOOK_GERI = TL.kancaGeri;
 const aktifDil = (t) => (t >= tFR ? 'fr' : t >= tDE ? 'de' : t >= tEN ? 'en' : 'tr');
 const segW = (t, a, b) => seg(t, w(a), w(a) + (b - a)), eoW = (t, a, b) => E(segW(t, a, b));
@@ -243,7 +262,7 @@ function frame(t) {
   const ts = loop ? 0 : t;
 
   /* 3B: sahne 1–3 */
-  const on12 = ts < V[4] + 0.6 || loop; const a12 = loop ? hookIn : 1 - eo(t, V[4], V[4] + 0.5);
+  const on12 = ts < vSunum + 0.6 || loop; const a12 = loop ? hookIn : 1 - eo(t, vSunum, vSunum + 0.5);
   root12.visible = on12;
   tableA.rotation.y = .1 * Math.sin(ts * .6);
   const geri = E(seg(ts, w(5.0), w(7.8)));
@@ -251,33 +270,33 @@ function frame(t) {
   turist.userData.armR.rotation.z = -1.78 + Math.sin(ts * 2.3) * .07 + .35 * geri;
   turist.userData.menu.position.set(-168 + 10 * Math.sin(ts * 2.3), 104, 34); turist.userData.menu.rotation.set(0, .18, .08 * Math.sin(ts * 2.3));
   turist.userData.q.position.set(-6, 262 + 6 * Math.sin(ts * 3.1), 14);
-  const gIn = eo(ts, V[1] - 0.15, V[1] + 0.65); garson.position.set(OFS.garson[0], -OFS.garson[1] + 6 * Math.sin(ts * 4.2), 40); garson.scale.setScalar(lerp(.86, 1, gIn));
+  const gIn = eo(ts, vc('c1') - 0.15, vc('c1') + 0.65); garson.position.set(OFS.garson[0], -OFS.garson[1] + 6 * Math.sin(ts * 4.2), 40); garson.scale.setScalar(lerp(.86, 1, gIn));
   garson.userData.armR.rotation.z = .4 + Math.sin(ts * 7.2) * .5; garson.userData.armL.rotation.z = -.4 - Math.sin(ts * 7.2 + 1.1) * .5;
-  garson.userData.b.position.set(78, 262, 14); const bs = eo(ts, V[1] + 0.55, V[1] + 1.05); garson.userData.b.scale.setScalar(Math.max(bs, .001)); garson.userData.b.visible = bs > .01;
+  garson.userData.b.position.set(78, 262, 14); const bs = eo(ts, vc('c1') + 0.55, vc('c1') + 1.05); garson.userData.b.scale.setScalar(Math.max(bs, .001)); garson.userData.b.visible = bs > .01;
   setOp(tableA, on12 ? a12 : 0);
   setOp(turist, on12 ? a12 * lerp(1, .6, geri) : 0); setOp(garson, on12 ? a12 * gIn : 0);
 
   /* telefon: SABİT boyut; yalnız konum: orta → sol; panel/telefon arasında çapraz YOK (eski söner, yenisi gelir) */
   const faz = telefonKaresi(t);
-  const sunumA = t >= V[4] && t < V[8] - 0.04, ctaA0 = t >= V[12] && t < TL.dongu;
+  const sunumA = t >= vSunum && t < vc('c8') - 0.04, ctaA0 = t >= vc('c12') && t < TL.dongu;
   const phoneVis = sunumA || ctaA0;
   let cx = TP.cxSol, pop = 1;
-  if (sunumA) { cx = t < tSlide ? lerp(L.MEDYA.cx + 220, TP.cxOrta, eo(t, V[4], V[4] + 0.6)) : lerp(TP.cxOrta, TP.cxSol, smooth(seg(t, tSlide, tSlide + 0.6))); pop = Math.min(eo(t, V[4], V[4] + 0.35), 1 - eo(t, tCikis[0], tCikis[1])); }
-  else if (ctaA0) { const ts2 = w(23.5); cx = lerp(TP.cxOrta, TP.cxSol, smooth(seg(t, ts2, ts2 + 0.45))); pop = eo(t, V[12], V[12] + 0.3) * fo; }
+  if (sunumA) { cx = lerp(TP.cxSol + 140, TP.cxSol, eo(t, vSunum, vSunum + 0.5)); pop = Math.min(eo(t, vSunum, vSunum + 0.35), 1 - eo(t, tCikis[0], tCikis[1])); }   // telefon zaten sol konumda açılır
+  else if (ctaA0) { const ts2 = w(23.5); cx = lerp(TP.cxOrta, TP.cxSol, smooth(seg(t, ts2, ts2 + 0.45))); pop = eo(t, vc('c12'), vc('c12') + 0.3) * fo; }
   const pw = px2w(cx, TP.cy); phone.position.set(pw.x, pw.y, 0); phone.scale.setScalar(1); phone.rotation.set(-.02, 0, 0);
   setOp(phone, phoneVis ? pop : 0);
 
   /* büyüteç: dil seçici · ürün satırları · CTA dil seçici */
   const lang = aktifDil(t);
   const dipSw = Math.min(dip(t, tEN), dip(t, tDE), dip(t, tFR));
-  const aDD = (t >= V[5] && t < tTR ? Math.min(eo(t, V[5], V[5] + 0.3), 1 - eo(t, tTR - 0.2, tTR - 0.05)) : 0);
-  const aRows = (t >= tTR && t < V[8] ? Math.min(eo(t, tTR, tTR + 0.15), 1 - eo(t, tCikis[0], tCikis[1])) : 0) * dipSw;
+  const aDD = (t >= tLensDD && t < tTR ? Math.min(eo(t, tLensDD, tLensDD + 0.3), 1 - eo(t, tTR - 0.2, tTR - 0.05)) : 0);
+  const aRows = (t >= tTR && t < vc('c8') ? Math.min(eo(t, tTR, tTR + 0.15), 1 - eo(t, tCikis[0], tCikis[1])) : 0) * dipSw;
   const aCTA = (t >= CTA_ACIK && t < TL.dongu ? eo(t, CTA_ACIK, CTA_ACIK + 0.3) * fo : 0);
   setOp(lensDD, aDD); setOp(lensRows, aRows); setOp(lensCTA, aCTA);
   lensRows.userData.m.material.map = LT[lang].satir;
   /* dil öğesi çerçeveleri */
   const idxCta = smooth(segW(t, 24.85, 25.05)) + smooth(segW(t, 25.2, 25.4)) + smooth(segW(t, 25.55, 25.75));
-  const ddA = aDD * eo(t, V[5] + 0.1, V[5] + 0.3);
+  const ddA = aDD * eo(t, tLensDD + 0.1, tLensDD + 0.3);
   fOp(lensFrame.dd, ddA); { const p = lensItemPos(0, ddWin, L.LENS.ddY0, 0); lensFrame.dd.position.set(p.x, p.y, 0.9); }
   const ctaA = aCTA * eo(t, CTA_ACIK + 0.3, CTA_ACIK + 0.5);
   fOp(lensFrame.cta, ctaA); { const i0 = Math.floor(idxCta + 1e-6), f = idxCta - i0; const y0 = itemMerkezY(Math.min(i0, 3)), y1 = itemMerkezY(Math.min(i0 + 1, 3)); const yy = lerp(y0, y1, f);
@@ -295,8 +314,8 @@ function frame(t) {
   setLink(xPhR + 4, ly0, lx1, ly1, linkA * (phoneVis ? pop : 0));
 
   /* panel: başlık şeridi + 920×560 pencere. Telefonla çapraz YOK: önce biri söner (0,2 sn), sonra diğeri gelir */
-  const panOn = t >= V[8] && t < V[12] - 0.04; const panA = panOn ? Math.min(eo(t, V[8], V[8] + 0.3), 1 - eo(t, tPanelCikis[0], tPanelCikis[1])) : 0;
-  const [view, kart, fa] = panelDurum(t); const vd = Math.min(dip(t, w(20.2)), dip(t, w(20.7)));
+  const panOn = t >= vc('c8') && t < vc('c12') - 0.04; const panA = panOn ? Math.min(eo(t, vc('c8'), vc('c8') + 0.3), 1 - eo(t, tPanelCikis[0], tPanelCikis[1])) : 0;
+  const [view, kart, fa] = panelDurum(t); const vd = Math.min(dip(t, tSwapR), dip(t, tSwapL));
   pScr.material.map = PAN[view]; setOp(panel, panA); pScr.material.opacity = panA * vd; pRing.material.opacity = panA; setOp(stripG, panA);
   { const wv = view === 'sag' ? PD.sag : PD.sol; if (kart) { const k = kartRect(kart); const cxx = (k.x0 + k.x1) / 2, cyy = (k.y0 + k.y1) / 2;
       pFrame.position.set((cxx - (wv.x0 + wv.x1) / 2) * PN.s, -(cyy - (wv.y0 + wv.y1) / 2) * PN.s, 0.9); } fOp(pFrame, panA * fa * vd); }
@@ -309,7 +328,7 @@ function frame(t) {
   // CTA: logo + URL (sağ sütun)
   const ca = t >= CTA_ACIK && !loop ? eo(t, CTA_ACIK, CTA_ACIK + .4) * fo : 0; fadeEl(el.logo, ca); fadeEl(el.adres, ca);
   // rozet + çipler (satır büyüteci ile birlikte)
-  const ra = t >= tTR && t < V[8] ? Math.min(eo(t, tTR, tTR + 0.3), 1 - eo(t, tCikis[0], tCikis[1])) : 0;
+  const ra = t >= tTR && t < vc('c8') ? Math.min(eo(t, tTR, tTR + 0.3), 1 - eo(t, tCikis[0], tCikis[1])) : 0;
   fadeEl(el.badge, ra); [['cTR', 'tr'], ['cEN', 'en'], ['cDE', 'de'], ['cFR', 'fr']].forEach(([id, k]) => { fadeEl(el[id], ra); el[id].classList.toggle('on', lang === k && ra > 0); });
 
   renderer.render(scene, cam);
@@ -351,9 +370,10 @@ window.__layout = (t) => {
   if (lensDD.userData.a > 0.05) pencereler.push({ id: 'lens-dd', ekran: '02', win: ddWin, alpha: lensDD.userData.a });
   if (lensRows.userData.a > 0.05) pencereler.push({ id: 'lens-satir', ekran: dil, win: ODAK.ekranlar[dil].pencereSatir, alpha: lensRows.userData.a });
   if (lensCTA.userData.a > 0.05) pencereler.push({ id: 'lens-cta', ekran: '02', win: ctaWin, alpha: lensCTA.userData.a });
-  if (panel.userData.a > 0.05 && panelDurum(t)[0]) { const v = panelDurum(t)[0]; pencereler.push({ id: 'panel', ekran: 'panel', pencere: v, win: v === 'sag' ? PD.sag : PD.sol, alpha: panel.userData.a * Math.min(dip(t, 20.2), dip(t, 20.7)) }); }
+  if (panel.userData.a > 0.05 && panelDurum(t)[0]) { const v = panelDurum(t)[0]; pencereler.push({ id: 'panel', ekran: 'panel', pencere: v, win: v === 'sag' ? PD.sag : PD.sol, alpha: panel.userData.a * Math.min(dip(t, tSwapR), dip(t, tSwapL)) }); }
   if (stripG.userData.a > 0.05) pencereler.push({ id: 'panel-serit', ekran: 'panel', pencere: 'serit', win: PD.serit, alpha: stripG.userData.a });
-  return { t, ogeler: out, faz, pencereler, ekranMetin: { lens_px: LS, panel_s: PN.s }, aktifBaslik: el.bas.dataset.i };
+  const pd = panelDurum(t); const vurgu = { kart: pd[1], gorunum: pd[0], alfa: pd[2] * panel.userData.a };
+  return { t, vurgu, ogeler: out, faz, pencereler, ekranMetin: { lens_px: LS, panel_s: PN.s }, aktifBaslik: el.bas.dataset.i };
 };
 window.__uv = () => UVLOG;
 window.__olcek = { lens_s: LS, panel_s: PN.s, telefon_ekran_olcek: PS, panel_alt_yazi_px: PAN_METIN_PX };
@@ -362,7 +382,7 @@ window.blank = () => { root12.visible = false; phone.visible = false; panel.visi
 
 /* ───────── kapak (1080×1920): v4/v5 3B sahnesinin aynı malzemesi; yeni karakter/stil yok ───────── */
 window.kapakKur = (opt = {}) => {
-  const K = L.KAPAK; frame(V[2] - 0.3);                                   // garson + turist + balonlar yerinde, turist geri çekilmeden
+  const K = L.KAPAK; frame(vc('c2') - 0.3);                                   // garson + turist + balonlar yerinde, turist geri çekilmeden
   for (const g of [phone, panel, stripG, lensDD, lensRows, lensCTA]) g.visible = false;
   for (const m of [phItem, lensFrame.dd, lensFrame.cta, pFrame, link, nodeA, nodeB]) m.visible = false;
   Object.values(el).forEach((n) => { n.style.opacity = '0'; });
@@ -390,7 +410,7 @@ window.kapakKur = (opt = {}) => {
 
 /* ───────── kapak v2 (A/B/C): yakın kadraj, abartılı garson, büyük "?" balonu; aynı v5 3B malzemesi ───────── */
 window.kapakKur2 = (opt = {}) => {
-  frame(V[2] - 0.3);
+  frame(vc('c2') - 0.3);
   for (const g of [phone, panel, stripG, lensDD, lensRows, lensCTA]) g.visible = false;
   for (const m of [phItem, lensFrame.dd, lensFrame.cta, pFrame, link, nodeA, nodeB]) m.visible = false;
   Object.values(el).forEach((n) => { n.style.opacity = '0'; });
