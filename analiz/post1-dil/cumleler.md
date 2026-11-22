@@ -62,3 +62,20 @@ Etiket önerisi: "RESTORAN SAHİBİ İÇİN" yerine "TURİZM BÖLGESİ RESTORANL
 | 8 | Menü konuşsun, siz misafirle ilgilenin. | 39 |
 | 9 | Turist anlasın, personel yorulmasın. | 36 |
 | 10 | Dil bilgisi personelde değil, menüde olsun. | 43 |
+
+
+## Uyum + sipariş avantajı (menü misafirin diline uyar, sipariş kendi dilinde verilir)
+
+| # | 2. cümle | Karakter |
+|---|---|---|
+| 1 | Menü de sipariş de turistin dilinde. | 36 |
+| 2 | Kendi dilinde okusun, seçsin, sipariş versin. | 45 |
+| 3 | Menü misafire uyum sağlasın, sipariş kendi dilinde olsun. | 57 |
+| 4 | Turist menüyü okusun, siparişi kendi dilinde versin. | 52 |
+| 5 | Personeliniz bilmiyorsa menü bilsin, sipariş de kendi dilinde. | 62 |
+| 6 | Menü dile uyar, sipariş kendi dilinde verilir. | 46 |
+| 7 | Dilini seçsin: menü de sipariş de ona uysun. | 44 |
+| 8 | Menü uyum sağlasın, turist siparişi kendi dilinde versin. | 57 |
+| 9 | Menü sizin dilleriniz kadar konuşsun, sipariş de. | 49 |
+
+Not: 'sipariş' ifadesi yalnız QR ile sipariş açık paketlerde (Pro ve üstü) doğru; sepet/sipariş metinleri çeviri tablosunda (item_type=cart) sizin girdiğiniz çevirilerle çalışır. 'Her dile' ifadesi kullanılmadı (kapasite 30 dile kadar).
