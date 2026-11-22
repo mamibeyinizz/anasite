@@ -46,3 +46,19 @@ Etiket önerisi: "RESTORAN SAHİBİ İÇİN" yerine "TURİZM BÖLGESİ RESTORANL
 | 8 | Eleman değişse de menü aynı dillerde anlatsın. | 46 |
 | 9 | Anlaşma işini personelden menüye devredin. | 42 |
 | 10 | Cevap menüde: 30 dile kadar, siz tanımlarsınız. | 47 |
+
+
+## Daha güçlü 2. cümleler (sabit soru: Personeliniz menüyü kaç dilde anlatabiliyor?)
+
+| # | 2. cümle | Karakter |
+|---|---|---|
+| 1 | Dil bilmeyen eleman, dil konuşan menü. | 38 |
+| 2 | Eleman bilmese de menü anlatır. | 31 |
+| 3 | Bu soruyu artık menü cevaplasın. | 32 |
+| 4 | Garson ağırlasın, menü anlatsın. | 32 |
+| 5 | Sipariş garsonda, anlatmak menüde. | 34 |
+| 6 | Personeliniz bilmiyorsa menü bilsin. | 36 |
+| 7 | Dil bilmeyen eleman da turisti rahat ağırlasın. | 47 |
+| 8 | Menü konuşsun, siz misafirle ilgilenin. | 39 |
+| 9 | Turist anlasın, personel yorulmasın. | 36 |
+| 10 | Dil bilgisi personelde değil, menüde olsun. | 43 |
