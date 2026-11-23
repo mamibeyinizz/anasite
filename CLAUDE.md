@@ -46,3 +46,4 @@
 - Her modülün "acı → avantaj" görseli **birebir aynı** şablonla üretilir: `tools/ig-aci/` (`sablon.html` + `uret.mjs`). Yalnız modül adı, soru ve cevap metni değişir; renk, boyut, aralık, arka plan (yeşil halkalar), üst modül adı, alt logo DEĞİŞMEZ.
 - Ayrıntı ve kontrol listesi: `tools/ig-aci/SPEC.md`. Referans çıktı: `analiz/post1-dil/post1-dil-final.jpg`.
 - Bu görsellerde hap etiket, figür, çip veya saydam kelime dekoru kullanılmaz.
+- **Tasarım standardı (yalnız Instagram @qrmenuofficial; web sitesi kurallarından ayrı):** 1. görsel = `tools/ig-aci/` (krem acı görseli), 2. kaydırmalı gönderi = `tools/ig-carousel/` (zümrüt, 5 slayt). Yeni modül/gönderi bu iki standarda göre üretilir; değerler ve slayt tipleri `tools/ig-carousel/SPEC.md`'dedir, referans `referans-coklu-dil.html`. Sapma için kullanıcı onayı gerekir. Yayından önce SPEC'teki piksel kontrolü (ilk içerik y=276, sol eksen 120, merkez 540±2) ölçülür.
