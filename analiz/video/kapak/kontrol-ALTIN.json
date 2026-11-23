@@ -1,0 +1,104 @@
+{
+ "boyut": [
+  1080,
+  1920
+ ],
+ "png_mb": 2.22,
+ "jpg_mb": 0.31,
+ "jpg_kalite": 92,
+ "kanca_px": 170,
+ "satir_yuksekligi_330px": 50.9,
+ "kontrast": {
+  "kanca_Garsonunuz/zemin": 7.99,
+  "kanca_mı?/zemin": 7.09,
+  "tercuman_krem/pill": 13.42,
+  "tercuman_pill/zemin(grafik)": 7.9,
+  "modul_adi/zemin": 7.9,
+  "logo/zemin": 5.98,
+  "garson_govde/zemin(grafik)": 5.86,
+  "turist_govde/zemin(grafik)": 3.31,
+  "masa_ustu/zemin(grafik)": 5.57,
+  "garson_ile_turist(birbirinden)": 1.75,
+  "soru_balon_dolgu/zemin": 1.81,
+  "soru_balon_cizgi(#0D2B22)/zemin": 7.41,
+  "nokta_balon_dolgu/zemin": 7.01,
+  "soru_isareti/balon": 13.42
+ },
+ "kontrast_min_metin": 5.98,
+ "yerlesim": {
+  "ink": {
+   "x0": 18,
+   "x1": 1052,
+   "y0": 356,
+   "y1": 1489
+  },
+  "ust_240px_dolu_piksel": 0,
+  "sag_ust_160x160_dolu_piksel": 0,
+  "kirpim34_icinde": true,
+  "kenar_payi_3x4_alt": 191,
+  "kenar_payi_3x4_ust": 116,
+  "metin_x": [
+   18,
+   1049
+  ],
+  "tercuman_pill_x": [
+   18,
+   770
+  ],
+  "yan_marj_ihlali_65": true,
+  "metin_y": [
+   395,
+   804
+  ],
+  "reels_ust_270_ihlal": false,
+  "kanca_metni_alt_672_icinde": true,
+  "modul_adi_y": [
+   352,
+   407
+  ],
+  "figur_grubu": {
+   "w": 914,
+   "y": [
+    785,
+    1400
+   ]
+  },
+  "logo_genislik": 270
+ },
+ "yesil_artik": {
+  "tum_zemin": {
+   "ort": "#C0A047",
+   "ort_rgb": [
+    192.5,
+    159.5,
+    70.8
+   ],
+   "yesil_baskin_oran": 0.0,
+   "g_eksi_r_ort": -32.94,
+   "piksel": 1490154
+  },
+  "kenar_40px": {
+   "ort": "#B69540",
+   "ort_rgb": [
+    181.9,
+    149.4,
+    63.9
+   ],
+   "yesil_baskin_oran": 0.0,
+   "g_eksi_r_ort": -32.48,
+   "piksel": 226755
+  },
+  "referans_yalniz_zemin_render": {
+   "ort": "#C5A44A",
+   "ort_rgb": [
+    196.8,
+    163.8,
+    73.9
+   ],
+   "yesil_baskin_oran": 0.0,
+   "g_eksi_r_ort": -32.97,
+   "piksel": 2073600
+  },
+  "hue_yesil_aralik_piksel_orani": 0.0
+ }
+}
