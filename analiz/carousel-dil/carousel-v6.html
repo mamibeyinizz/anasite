@@ -97,8 +97,8 @@ body{background:linear-gradient(var(--y2),var(--y))!important;color:var(--off)!i
 .hero{display:flex;align-items:baseline;gap:24px;line-height:.9}
 .hero .big{font-weight:800;font-size:220px;letter-spacing:-.05em;color:var(--g)}
 .hero .unit{font-weight:800;font-size:96px;letter-spacing:-.03em;color:var(--off)}
-.p3{margin-top:28px;font-weight:500;font-size:44px;line-height:1.3;letter-spacing:-.01em}
-.p4{font-weight:500;font-size:40px;line-height:1.32;letter-spacing:-.01em}
+.p3{margin-top:52px;font-weight:500;font-size:42px;line-height:1.3;letter-spacing:-.01em}
+.p4{font-weight:500;font-size:42px;line-height:1.32;letter-spacing:-.01em}
 .p4 b{color:var(--g)}
 .p3 span,.p4 span{display:block;white-space:nowrap}
 </style></head><body>
@@ -139,12 +139,12 @@ const SL={
   <div class="q"><div class="n">3</div><div class="t">${B(`Anlaşılamayan turistin Google ve TripAdvisor'daki düşük puanı,<br>{{yeni müşterinizi etkiliyor mu?}}`)}</div></div>
  </div></div>${nx('Çözümü görün','#F4F1E8')}`},
 3:{bg:'krem',html:()=>`<div class="lab" style="font-size:30px;padding-top:34px">ÇOKLU DİL MODÜLÜ</div>
- <div class="area top" style="top:236px;bottom:240px">
+ <div class="area top" style="top:252px;bottom:240px">
   <div class="hero"><span class="big">20+</span><span class="unit">dil</span></div>
-  <div class="p3" id="P3">${L(["Türkiye'de en çok talep gören","dilleri QR menümüze","entegre ettik."])}</div>
+  <div class="p3" id="P3">${L(["Türkiye'de en çok talep gören dilleri","QR menümüze entegre ettik."])}</div>
   <div class="rule" style="margin:48px 0"></div>
-  <div class="p4" id="P4">${L(['Sadece işletmeler için değil,','{{turist müşteriler için de}}','{{fark yarattı.}}'])}</div>
-  <div class="h" id="H" data-max="84" data-min="68" style="margin-top:72px">${L(['Peki sonuçlar','ne oldu?'])}</div>
+  <div class="p4" id="P4">${L(['Sadece işletmeler için değil,','{{turist müşteriler için de fark yarattı.}}'])}</div>
+  <div class="h" id="H" data-max="84" data-min="68" style="margin-top:112px">${L(["Peki sonuçlar",'ne oldu?'])}</div>
  </div>${nx('Sonuçları görün','#F4F1E8')}`},
 4:{bg:'krem',html:()=>`<div class="lab">${MOD}</div>
  <div class="area top"><div class="h" id="H" data-max="84" data-min="64">${L(['[[Sonuçlar:]]'])}</div>
@@ -165,6 +165,7 @@ const SL={
 const n=+(new URLSearchParams(location.search).get('s')||1);
 document.body.className='zumrut';
 document.getElementById('S').innerHTML=SL[n].html();
+if(n==3)document.querySelectorAll('svg circle[r="3"]').forEach(c=>{if(+c.getAttribute('cy')<500&&+c.getAttribute('cx')<700)c.remove()});
 document.fonts.ready.then(()=>{const W=840;
  for(const id of ['H','P','P2']){const e=document.getElementById(id);if(!e)continue;let f=+e.dataset.max||56;const mn=+e.dataset.min||40;
   const w=()=>Math.max(...[...e.children].map(c=>{const r=document.createRange();r.selectNodeContents(c);return r.getBoundingClientRect().width}));
