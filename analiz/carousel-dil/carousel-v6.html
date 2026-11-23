@@ -135,7 +135,7 @@ body{background:linear-gradient(var(--y2),var(--y))!important;color:var(--off)!i
 .tk i svg{stroke:#C9A84C!important}
 .tk .c2t{font-size:38px;line-height:1.26;font-weight:500;letter-spacing:-.01em}
 .tk .c2t b{color:var(--g);font-weight:800}
-.s5 .eb{margin-top:44px;font-weight:800;font-size:26px;letter-spacing:.3em;padding-left:.3em;color:var(--g)}
+.s5 .eb{margin-top:48px;font-weight:800;font-size:26px;letter-spacing:.3em;padding-left:.3em;color:var(--g)}
 .mods{display:grid;grid-template-columns:1fr 1fr;width:100%;margin-top:24px;border-top:2px solid #C9A84C55}
 .mods span{font-weight:600;font-size:36px;padding:22px 0;border-bottom:2px solid #C9A84C55;letter-spacing:-.01em;text-align:center}
 .mods span:nth-child(odd){border-right:2px solid #C9A84C55}
@@ -197,7 +197,7 @@ const SL={
  </div></div>${nx('Nasıl başlarsınız?','#F4F1E8')}`},
 5:{bg:'zumrut',html:()=>`<div class="lab" style="font-size:30px;padding-top:34px">ÇOKLU DİL MODÜLÜ</div>
  <div class="area c s5" style="top:266px;bottom:230px;justify-content:flex-start">
-  <div class="h" id="H" data-max="66" data-min="56">${L(['Sadece bir dil modülü değil:','satışlarınızı [[%150]]','artıracak QR menü.'])}</div>
+  <div class="h" id="H" data-max="70" data-min="56">${L(['Sadece bir dil modülü değil:','satışlarınızı [[%150]]','artıracak QR menü.'])}</div>
   <div class="eb">DİĞER MODÜLLER</div>
   <div class="mods"><span>Garson &amp; Hesap</span><span>QR Masa</span><span>Yorum &amp; Feedback</span><span>Menü Asistanı</span><span>Akıllı Filtreleme</span><span>Menü Analitiği</span></div>
   <div class="h" id="H2" data-max="64" data-min="52" style="margin-top:88px">${L(['Bir sonraki turist masasını','[[kaybetmeyin.]]'])}</div>
@@ -208,7 +208,7 @@ const n=+(new URLSearchParams(location.search).get('s')||1);
 document.body.className='zumrut';
 document.getElementById('S').innerHTML=SL[n].html();
 if(n==4)document.querySelectorAll('svg circle[r="3"]').forEach(c=>{if(+c.getAttribute('cy')>330&&+c.getAttribute('cy')<1210)c.remove()});
-if(n==5)document.querySelectorAll('svg circle[r="3"]').forEach(c=>{if(+c.getAttribute('cy')>230&&+c.getAttribute('cy')<1170)c.remove()});
+if(n==5)document.querySelectorAll('svg circle[r="3"]').forEach(c=>{if(+c.getAttribute('cy')>230&&+c.getAttribute('cy')<1240)c.remove()});
 if(n==3)document.querySelectorAll('svg circle[r="3"]').forEach(c=>{if(+c.getAttribute('cy')<500&&+c.getAttribute('cx')<700)c.remove()});
 document.fonts.ready.then(()=>{const W=840;
  for(const id of ['H','H2','P','P2']){const e=document.getElementById(id);if(!e)continue;let f=+e.dataset.max||56;const mn=+e.dataset.min||40;
