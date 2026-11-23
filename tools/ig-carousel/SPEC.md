@@ -5,7 +5,7 @@ Yeni modül = referans dosyadaki `SL` içeriğini (metin) değiştir; aşağıda
 
 ## DEĞİŞMEZ
 - **Tuval** 1080×1440 (3:4). Zemin dikey gradyan #1E3D2F → #0D2B22. Metin krem #F4F1E8, vurgu altın #C9A84C, pill üstü koyu yeşil #0D2B22. Renk oranı 60/30/10 (zümrüt/krem/altın). Tek zemin: 5 slaytın hepsi zümrüt.
-- **Zemin süsü:** altın ince çerçeve (inset 64, 2 px, %55) + köşe ayraçları (kol 120, 5 px) + silik nokta ızgarası (60 px aralık, r=3, altın %17). Halka motifi KAPALI. Noktalar her metin bloğunun 40 px çevresinden otomatik silinir (tüm slaytlarda aynı kural; script `CLR` listesi); noktanın harf/rakam arasına denk gelmesi hata.
+- **Zemin süsü:** altın ince çerçeve (inset 64, 2 px, %55) + köşe ayraçları (kol 120, 5 px) + silik nokta ızgarası (60 px aralık, r=3, altın %11). Halka motifi KAPALI. Nokta ızgarası %11 opaklıkta, tüm tuvalde kesintisiz (metin arkasından SİLİNMEZ: kısmi silme boşluklarda 'noktalı çizgi' gibi sahte ayraçlar üretiyor — denendi, reddedildi); noktanın harf/rakam arasına denk gelmesi hata.
 - **Üst etiket** "<MODÜL ADI> MODÜLÜ": 30 px, 800, altın, harf aralığı .42em; ortalı slaytlarda ortalı (S1, S5), sola dayalı slaytlarda sola (S2–S4). Marka adı etikette YOK (logo altta).
 - **Marjlar:** yan 120; sola dayalı slaytlarda tek sol eksen x=120; ortalı öğelerin merkezi 540±2. **İlk içeriğin üst ucu S2–S5'te y=276** (ölçülür). Sağ üst 160×160 boş (IG sayacı). Boşluklar 8 px katı.
 - **Alt:** CTA/geçiş satırı (28 px, 800, .14em, büyük harf + altın daire ok) bottom 96 px, ortalı; S1'de 232 px (logonun üstünde). Logo (altın, 240 px) yalnız S1 ve S5'te, alt ortada.
