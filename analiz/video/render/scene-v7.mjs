@@ -79,7 +79,8 @@ const seqRect = (t, seq) => { let i = 0; for (let k = 0; k < seq.length; k++) if
 /* ───────── olay zamanları (cue'dan) ───────── */
 const vZ = has('c4') ? vc('c4') : vc('c5');                                           // altın → zümrüt perde
 const wipe1 = [vZ - 0.30, vZ + 0.15], wipe2 = [vc('c12') - 0.30, vc('c12') + 0.15];     // 450 ms perde
-const tPhoneIn = has('c4') ? vc('c4') + 0.7 : vc('c5') + 0.05; const tDD = tPhoneIn + 0.9, tTR = w(11.7), tEN = w(13.0), tDE = w(14.5), tFR = w(15.8);
+const tPhoneIn = vc('c5') - 0.05;                                                  // telefon, "Çözüm menünün kendisinde." yazısıyla çakışmasın diye c5'te girer
+const tDD = tPhoneIn + 0.9, tTR = w(11.7), tEN = w(13.0), tDE = w(14.5), tFR = w(15.8);
 const tCikis = vc('c8') - 0.3;                                                       // telefon sahnesi çıkış
 const SIRA = [[0, '01'], [tDD, '02'], [tTR, 'tr'], [tEN, 'en'], [tDE, 'de'], [tFR, 'fr']];
 const c9 = P.c9, c10 = P.c10, c11 = P.c11; const tCSV = c10.kelime ? c10.kelime.csv : c10.baslangic + 0.54 * (c10.bitis - c10.baslangic);
@@ -125,4 +126,14 @@ function frame(t) {
   for (const id of ['c13', 'c14', 'c15']) bloklar[id].el.style.opacity = String((parseFloat(bloklar[id].el.style.opacity) * fo).toFixed(3));
   return true;
 }
+const KART_AD = ['diller', 'diller', 'csvIce', 'diller'];
+window.__vurgu = (t) => { frame(t); let i = -1; for (let k = 0; k < HL.length; k++) if (t >= HL[k].t) i = k; return { kart: i >= 0 && pA_(t) > 0.5 ? KART_AD[i] : null }; };
+const pA_ = (t) => parseFloat(pan.style.opacity || '0');
+window.__ol = (t) => { frame(t); const out = []; const goster = (e) => e && parseFloat(e.style.opacity || '0') > 0.05 && e.style.visibility !== 'hidden';
+  for (const p of Object.values(P)) { const b = bloklar[p.id]; const a = parseFloat(b.el.style.opacity || '0'); out.push({ id: p.id, a, fs: b.fs, rect: (() => { const r = b.el.getBoundingClientRect(); return { x0: r.left, x1: r.right, y0: r.top, y1: r.bottom }; })(), renk: getComputedStyle(b.el).color, gorunur: goster(b.el) }); }
+  const ekle = (id, e, fs) => { if (goster(e)) { const r = e.getBoundingClientRect(); out.push({ id, a: parseFloat(e.style.opacity), fs, rect: { x0: r.left, x1: r.right, y0: r.top, y1: r.bottom }, renk: getComputedStyle(e).color, gorunur: true }); } };
+  ekle('adres', adres, 54); ekle('tipo', tipo, 56); ekle('cta', ctaB, ctaB.fs); ekle('rozet', rozet, 36);
+  for (const [k, e] of Object.entries(dilEl)) ekle('dil-' + k, e, 40);
+  const zumGor = parseFloat((zum.style.clipPath.match(/inset\(([\d.]+)%/) || [0, 100])[1]) < 100;
+  return { t, ogeler: out, zumTop: parseFloat((zum.style.clipPath.match(/inset\(([\d.]+)%/) || [0, 100])[1]) }; };
 window.frame = frame; window.hazir = true;
