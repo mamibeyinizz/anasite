@@ -9,19 +9,19 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:Manrope,sans-se
 .h{position:absolute;left:96px;top:470px;font-weight:800;letter-spacing:-.05em;line-height:1.02}
 .h span{display:block;white-space:nowrap}
 .pill{display:inline-block;background:var(--y);color:var(--off);padding:0 26px 14px;border-radius:30px;line-height:1.02;margin-left:-4px}
-.play{position:absolute;left:96px;top:1236px;display:flex;align-items:center;gap:36px}
+.play{position:absolute;left:96px;top:1290px;display:flex;align-items:center;gap:36px}
 .play .c{width:168px;height:168px;border-radius:50%;background:var(--y);display:grid;place-items:center}
 .play .c svg{margin-left:10px}
 .play .t{font-weight:800;font-size:52px;line-height:1.12;letter-spacing:-.02em}
-.bar{position:absolute;left:96px;width:888px;top:1470px;height:8px;border-radius:4px;background:#0D2B2230}
+.bar{position:absolute;left:96px;width:888px;top:1510px;height:8px;border-radius:4px;background:#0D2B2230}
 .bar i{display:block;height:100%;width:34%;border-radius:4px;background:var(--y)}
-.logo{position:absolute;left:96px;top:1522px}.logo svg{width:280px;display:block}
-.rule{position:absolute;left:96px;top:960px;width:96px;height:6px;border-radius:3px;background:var(--y)}
-.s{position:absolute;left:96px;top:996px;font-size:56px;line-height:1.2;letter-spacing:-.02em;font-weight:500}
+.logo{position:absolute;left:96px;top:1556px}.logo svg{width:280px;display:block}
+.rule{position:absolute;left:96px;top:1052px;width:96px;height:6px;border-radius:3px;background:var(--y)}
+.s{position:absolute;left:96px;top:1088px;font-size:56px;line-height:1.2;letter-spacing:-.02em;font-weight:500}
 .s b{font-weight:800}
 </style></head><body>
 <div class="lab">ÇOKLU DİL MODÜLÜ</div>
-<div class="h" id="H"><span>Menü okunmazsa</span><span>sipariş</span><span style="margin-top:22px"><b class="pill">verilmez.</b></span></div>
+<div class="h" id="H"><span>Turist</span><span>müşterilerinizle</span><span>anlaşmak</span><span style="margin-top:30px"><b class="pill">artık daha kolay.</b></span></div>
 <div class="rule"></div><div class="s">Her masaya tercüman biz oluyoruz,<br><b>satışınız artıyor.</b></div>
 <div class="play"><div class="c"><svg width="64" height="72" viewBox="0 0 64 72"><path d="M6 4 L58 36 L6 68 Z" fill="#F4F1E8"/></svg></div><div class="t">Detayları<br>videoda izleyin</div></div>
 <div class="bar"><i></i></div>
@@ -33,7 +33,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;font-family:Manrope,sans-se
 </svg>
 </div>
 <script>
-document.fonts.ready.then(()=>{const e=document.getElementById('H');let f=210;e.style.fontSize=f+'px';
+document.fonts.ready.then(()=>{const e=document.getElementById('H');let f=140;e.style.fontSize=f+'px';
  const w=()=>Math.max(...[...e.children].map(c=>{const r=document.createRange();r.selectNodeContents(c);return r.getBoundingClientRect().width}));
  while(w()>888&&f>100){f--;e.style.fontSize=f+'px'}document.body.dataset.ready=1});
 </script></body></html>
