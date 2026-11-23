@@ -1,6 +1,14 @@
 {
   "id": "yorum-feedback",
   "modul": "YORUM & FEEDBACK MODÜLÜ",
-  "soru": ["Bir kötü yorum", "[[kaç masayı]]", "kaybettiriyor?"],
-  "cevap": ["Yorumları siz [[toplayın,]]", "yayına çıkanı siz [[seçin,]]", "itibarınızı siz [[yönetin.]]"]
+  "soru": [
+    "Tek bir kötü",
+    "yorum [[kaç masayı]]",
+    "kaybettiriyor?"
+  ],
+  "cevap": [
+    "Yorumları siz [[toplayın,]]",
+    "yayına çıkanı siz [[seçin,]]",
+    "itibarınızı siz [[yönetin.]]"
+  ]
 }
