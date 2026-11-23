@@ -22,6 +22,16 @@ Turistli bölgede restoranı olan birine gönderin.
 
 Personeliniz menüyü kaç dilde anlatabiliyor?
 
-Turist müşteri menüyü kendi dilinde okusun, siparişini kendi dilinde versin. Detaylar bir önceki gönderide 👆
+Turistli bölgede restoran işletiyorsanız bu sorunun cevabı kasanıza yansır:
+• Menüyü okuyamayan turist ne istediğini anlatamaz; sipariş yanlış çıkar ya da hiç verilmez.
+• Garson el kol hareketiyle uğraşırken bekleyen diğer masalar kaybedilir.
+• Anlaşılamayan müşteri Google ve TripAdvisor'a düşük puan olarak döner.
 
-#qrmenü #dijitalmenü #restoran #kafe #turizm
+Çözüm, garsona dil öğretmek değil: turist menüyü kendi dilinde okusun, siparişini kendi dilinde versin.
+
+QR Menü Official'ın Çoklu Dil modülü tam bunu yapıyor: 20'den fazla dil, tek QR.
+
+Nasıl çalıştığını ve sonuçları bir önceki gönderide kaydırarak görün 👆
+Canlı menüyü denemek için profildeki bağlantıya tıklayın.
+
+#qrmenü #dijitalmenü #restoran #kafe #turizm #çokludil #restoranişletmeciliği
