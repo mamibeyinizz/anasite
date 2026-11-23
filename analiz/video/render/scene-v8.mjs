@@ -9,7 +9,7 @@ const stage = document.getElementById('stage'); const SURE = CUE.konusmaBitis + 
 const ROW = { r1: [0], r2: [1], r3: [2], r4: [3, 4], r5: [5], r6: [6, 7, 8], r7: [9], r8: [10, 11] };
 const rA = (r) => S[ROW[r][0]].baslangic - 0.08, rB = (r) => S[ROW[r].slice(-1)[0]].bitis + 0.12;
 const T = { r1: 0, r2: rA('r2'), r3: rA('r3'), r4: rA('r4'), r6: rA('r6'), r7: rA('r7'), r8: rA('r8') }; T.r5 = rA('r5');
-const KAPAN = rB('r8'), LOOP = KAPAN + 0.1;
+const KAPAN = rB('r8'), LOOP = KAPAN;
 
 /* ───────── katmanlar ───────── */
 const HALKA = (kol) => { const ns = 'http://www.w3.org/2000/svg'; const sv = document.createElementNS(ns, 'svg'); sv.setAttribute('class', 'halka'); sv.setAttribute('viewBox', '0 0 1080 1920'); for (let r = 150; r <= 1250; r += 150) { const c = document.createElementNS(ns, 'circle'); c.setAttribute('cx', 540); c.setAttribute('cy', 960); c.setAttribute('r', r); c.setAttribute('fill', 'none'); c.setAttribute('stroke', kol); c.setAttribute('stroke-width', 3); sv.appendChild(c); } return sv; };
@@ -28,7 +28,7 @@ const CARD = (kat, i, dolu) => { const col = i % 2, row = Math.floor(i / 2); con
 const tm = $('div', 'tmr', { top: '660px' }, s2, '0:12'); $('div', 'tmrc', { top: '930px' }, s2, 'Bekleme süresi');
 const mc = [0, 1, 2, 3].map((i) => CARD(s2, i, i === 0));
 const s3 = sahne(zum, 'donus'); const k3 = $('div', 'blok', { top: '360px', fontSize: '140px' }, s3, '<span class="l">Çözüm:</span><span class="l" style="margin-top:14px"><b class="pill">Çoklu Dil</b></span>');
-const KS3 = [['TR · EN · DE', 740, 100, '#F4F1E8'], ['FR · RU · AR', 870, 100, '#F4F1E8'], ['+20 dil', 1290, 240, '#C9A84C'], ['ES · IT · PT · NL', 1620, 100, '#F4F1E8'], ['PL · SV · CS · EL', 1750, 100, '#F4F1E8']]; const kodlar = KS3.map(([t, y, f, c]) => $('div', 'kod', { left: '96px', top: y + 'px', opacity: 0, fontSize: f + 'px', color: c }, s3, t));
+const KS3 = [['TR · EN · DE', 740, 100, '#F4F1E8'], ['FR · RU · AR', 870, 100, '#F4F1E8'], ['+20 dil', 1300, 240, '#C9A84C'], ['ES · IT · PT · NL', 1620, 100, '#F4F1E8'], ['PL · SV · CS · EL', 1750, 100, '#F4F1E8']]; const kodlar = KS3.map(([t, y, f, c]) => $('div', 'kod', { left: '96px', top: y + 'px', opacity: 0, fontSize: f + 'px', color: c }, s3, t));
 // telefon (r4–r5)
 const s4 = sahne(zum, 'telefon'); const EP = { x0: 14, x1: 830 }; const ekW = 760, ps = ekW / (EP.x1 - EP.x0), ekH = Math.round((1707 - 710) * ps); const PX = 148, PY = 390;
 const tel = $('div', 'telefon', { left: PX + 'px', top: PY + 'px', width: (ekW + 24) + 'px', height: (ekH + 24) + 'px' }, s4); const ekr = $('div', 'ekr', { left: '12px', top: '12px', width: ekW + 'px', height: ekH + 'px', borderRadius: '44px' }, tel);
@@ -60,7 +60,7 @@ const parcala = (i) => { const m = S[i].metin; const kelime = m.split(' '); cons
   for (let k = 0; k + anah.length <= kelime.length; k++) if (anah.every((a, j) => norm(kelime[k + j]) === a)) { for (let j = 0; j < anah.length; j++) isK[k + j] = true; break; }
   const satir = []; let cur = []; kelime.forEach((w, k) => { const dene = cur.concat(k); if (olc(dene.map((x) => kelime[x]).join(' ')) > 840 && cur.length) { satir.push(cur); cur = [k]; } else cur = dene; }); if (cur.length) satir.push(cur);
   const chunks = []; for (let k = 0; k < satir.length; k += 2) chunks.push(satir.slice(k, k + 2)); const html = (ln) => ln.map((idx) => idx.map((k) => (isK[k] ? `<b class="k">${kelime[k]}</b>` : kelime[k])).join(' '));
-  const chars = chunks.map((c) => c.flat().map((k) => kelime[k].length + 1).reduce((a, b) => a + b, 0)); const tot = chars.reduce((a, b) => a + b, 0); const a0 = S[i].baslangic - 0.05, b0 = S[i].bitis + 0.1; const dur = b0 - a0; let t = a0; const out = [];
+  const chars = chunks.map((c) => c.flat().map((k) => kelime[k].length + 1).reduce((a, b) => a + b, 0)); const tot = chars.reduce((a, b) => a + b, 0); const a0 = Math.max(0, S[i].baslangic - 0.05), b0 = S[i].bitis + 0.1; const dur = b0 - a0; let t = a0; const out = [];
   chunks.forEach((c, j) => { const d = Math.max(0.9, dur * chars[j] / tot); out.push({ a: t, b: Math.min(b0, t + d), satirlar: html(c), cumle: i }); t += d; }); if (out.length) out[out.length - 1].b = b0; return out; };
 const CH = S.flatMap((_, i) => parcala(i)); const tpl = (c) => c.satirlar.map((s) => `<span class="l">${s}</span>`).join('');
 const plA = $('div', 'plaka', null, altin), plZ = $('div', 'plaka', null, zum); const zumSahne = new Set(['r3', 'r4', 'r5', 'r6']);
@@ -73,14 +73,14 @@ const tCSV = S[7].baslangic + 0.48 * (S[7].bitis - S[7].baslangic); window.__tl.
 const kayma = (e, a, dy) => { e.style.opacity = a.toFixed(3); e.style.transform = `translateY(${(dy * (1 - e3(clamp(a)))).toFixed(1)}px) scale(${(0.985 + 0.015 * e3(clamp(a))).toFixed(4)})`; e.style.visibility = a > 0.004 ? 'visible' : 'hidden'; };
 const pencere = (t, a, b, iy = 0.4, oy = 0.3) => Math.min(eo(t, a, iy), 1 - eo(t, b - oy, oy));
 function frame(t) {
-  t = clamp(t, 0, SURE); const loop = t >= LOOP; const hookIn = loop ? eo(t, LOOP, 0.5) : 0; const tt = loop ? 0 : t;   // döngü: kancaya geri
+  t = clamp(t, 0, SURE); const loop = t >= LOOP; const hookIn = loop ? seg(t, LOOP, LOOP + 0.69) : 0; const tt = loop ? 0 : t;   // döngü: kancaya geri
   // perde (zümrüt alttan yukarı; altın üstten aşağı)
   const pin = e5(seg(t, T.r3 - 0.3, T.r3 + 0.15)), pout = e5(seg(t, T.r7 - 0.3, T.r7 + 0.15)); zum.style.clipPath = `inset(${Math.max(1 - pin, pout) * 100}% 0 0 0)`;
   const tonA = eo(t, T.r2, 0.6) * (1 - eo(t, T.r3 - 0.3, 0.4)); ton.style.opacity = (0.2 * tonA).toFixed(3);
   // sahne görünürlükleri
-  const vis = (a, b) => pencere(t, a, b);
-  const a1 = loop ? hookIn : (t < T.r2 ? 1 : Math.max(0, 1 - eo(t, T.r2 - 0.1, 0.3))); kayma(s1, a1, 0); kayma(s2, vis(T.r2, T.r3), 36); kayma(s3, vis(T.r3, T.r4), 36); kayma(s4, vis(T.r4, T.r6), 40); kayma(s6, vis(T.r6, T.r7), 36); kayma(s7, vis(T.r7, T.r8), 36);
-  const a8 = loop ? 0 : pencere(t, T.r8, KAPAN + 0.3, 0.4, 0.35) * (t > KAPAN ? 1 - eo(t, KAPAN, 0.3) : 1); kayma(s8, a8, 36);
+  const vis = (a, b) => pencere(t, a - 0.05, b, 0.35, 0.18);
+  const a1 = loop ? hookIn : (t < T.r2 ? 1 : Math.max(0, 1 - eo(t, T.r2 - 0.25, 0.2))); kayma(s1, a1, 0); kayma(s2, vis(T.r2, T.r3), 36); kayma(s3, vis(T.r3, T.r4), 36); kayma(s4, vis(T.r4, T.r6), 40); kayma(s6, vis(T.r6, T.r7), 36); kayma(s7, vis(T.r7, T.r8), 36);
+  const a8 = pencere(t, T.r8 - 0.05, SURE + 1, 0.35, 0.1) * (t > KAPAN ? 1 - seg(t, KAPAN, KAPAN + 0.69) : 1); kayma(s8, a8, 36);
   etA.style.opacity = String((a8 > 0.05 ? 0 : 1)); etZ.style.opacity = '1';
   // kanca: selamlar
   sel.forEach((e, i) => { const a = (loop ? 0 : eo(tt, 0.3 + i * 0.5, 0.4)) * 0.62; kayma(e, a / 0.62 * 0.62, 24); e.style.opacity = a.toFixed(3); });

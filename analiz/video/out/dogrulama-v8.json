@@ -1,0 +1,116 @@
+{
+ "video": "out/coklu-dil-reels_v8.mp4",
+ "cozunurluk": "1080x1920 30fps H.264 bt709 ~6.67 Mbps",
+ "sure": 31.9,
+ "lufs": -14.1,
+ "ses_sessizlik_gt0_3sn": 0,
+ "guvenliBolgeIhlali": [],
+ "sagRayIhlali": [],
+ "altyazi": {
+  "cumle": 12,
+  "metinEsleme": 12,
+  "farkli": [],
+  "baslangicSapmasi": [
+   0,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05
+  ],
+  "enBuyukBaslangicSapmasi": 0.05,
+  "parcaSayisi": 14,
+  "enKisaParca": 0.62,
+  "bayatKare": 0,
+  "bayatZamanlar": [],
+  "satirIhlali": []
+ },
+ "csv": {
+  "tCSV": 21.71332,
+  "iceAktarVurguAraligi": [
+   21.7,
+   23.5
+  ],
+  "disaAktarDahaOnce": false,
+  "kartSayisi": 2,
+  "disaAktarKartiYok": true
+ },
+ "tarama": {
+  "yasakAnimasyon": [],
+  "threejs": true,
+  "kiril_arap": false,
+  "otuz": false,
+  "yirmidenFazla": true,
+  "minFont": 32
+ },
+ "kontrastPlaka_en_dusuk": 7.79,
+ "dikeyDoluluk": {
+  "r1": {
+   "kare": 23,
+   "icerikOrt": 47.2,
+   "icerikEnDusuk": 32.8,
+   "dekorOrt": 90.6,
+   "dekorEnDusuk": 85.4
+  },
+  "r2": {
+   "kare": 16,
+   "icerikOrt": 57.4,
+   "icerikEnDusuk": 1.6,
+   "dekorOrt": 81.5,
+   "dekorEnDusuk": 60.9
+  },
+  "r3": {
+   "kare": 11,
+   "icerikOrt": 39.5,
+   "icerikEnDusuk": 26.8,
+   "dekorOrt": 65.9,
+   "dekorEnDusuk": 62.1
+  },
+  "r4": {
+   "kare": 24,
+   "icerikOrt": 78.9,
+   "icerikEnDusuk": 78.8,
+   "dekorOrt": 83.1,
+   "dekorEnDusuk": 83.0
+  },
+  "r5": {
+   "kare": 19,
+   "icerikOrt": 76.8,
+   "icerikEnDusuk": 38.6,
+   "dekorOrt": 82.0,
+   "dekorEnDusuk": 63.3
+  },
+  "r6": {
+   "kare": 32,
+   "icerikOrt": 56.0,
+   "icerikEnDusuk": 10.2,
+   "dekorOrt": 72.4,
+   "dekorEnDusuk": 69.4
+  },
+  "r7": {
+   "kare": 13,
+   "icerikOrt": 48.3,
+   "icerikEnDusuk": 1.6,
+   "dekorOrt": 92.4,
+   "dekorEnDusuk": 79.2
+  },
+  "r8": {
+   "kare": 22,
+   "icerikOrt": 37.5,
+   "icerikEnDusuk": 22.6,
+   "dekorOrt": 89.5,
+   "dekorEnDusuk": 82.7
+  }
+ },
+ "oluKareAdaylari": [
+  7.7,
+  24.9,
+  27.5
+ ]
+}

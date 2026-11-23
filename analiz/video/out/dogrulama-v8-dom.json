@@ -1,0 +1,4019 @@
+{
+ "yazi": [
+  {
+   "t": 0,
+   "metin": "ÇOKLU DİL MODÜLÜ",
+   "fs": 32,
+   "bolge": "AB"
+  },
+  {
+   "t": 0,
+   "metin": "Dil",
+   "fs": 150,
+   "bolge": "AB"
+  },
+  {
+   "t": 0,
+   "metin": "engeli,",
+   "fs": 150,
+   "bolge": "AB"
+  },
+  {
+   "t": 0,
+   "metin": "kayıp masa.",
+   "fs": 150,
+   "bolge": "AB"
+  },
+  {
+   "t": 0.1,
+   "metin": "Garsonunuz",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 0.1,
+   "metin": "yabancı",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 0.1,
+   "metin": "dil",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 0.1,
+   "metin": "bilmiyorsa, turist masası",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 0.6,
+   "metin": "Hello?",
+   "fs": 88,
+   "bolge": "D"
+  },
+  {
+   "t": 1.1,
+   "metin": "Hallo?",
+   "fs": 88,
+   "bolge": "D"
+  },
+  {
+   "t": 1.6,
+   "metin": "Bonjour?",
+   "fs": 88,
+   "bolge": "D"
+  },
+  {
+   "t": 2.1,
+   "metin": "¿Hola?",
+   "fs": 88,
+   "bolge": "D"
+  },
+  {
+   "t": 3,
+   "metin": "sizi bırakıp gidebilir.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 4.6,
+   "metin": "Diğer masalar",
+   "fs": 128,
+   "bolge": "AB"
+  },
+  {
+   "t": 4.6,
+   "metin": "bekliyor.",
+   "fs": 128,
+   "bolge": "AB"
+  },
+  {
+   "t": 4.6,
+   "metin": "0:20",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 4.6,
+   "metin": "Bekleme süresi",
+   "fs": 44,
+   "bolge": "AB"
+  },
+  {
+   "t": 4.6,
+   "metin": "MASA 1",
+   "fs": 36,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "GARSON",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "yabancı masada",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "MASA 2",
+   "fs": 36,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "BEKLİYOR",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "MASA 3",
+   "fs": 36,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "MASA 4",
+   "fs": 36,
+   "bolge": "D"
+  },
+  {
+   "t": 4.6,
+   "metin": "Sipariş yanlış anlaşılır, diğer",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 4.6,
+   "metin": "masalar",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 4.6,
+   "metin": "bekler.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 4.7,
+   "metin": "0:28",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 4.8,
+   "metin": "0:36",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 4.9,
+   "metin": "0:45",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5,
+   "metin": "0:53",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.1,
+   "metin": "1:01",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.2,
+   "metin": "1:09",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.3,
+   "metin": "1:18",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.4,
+   "metin": "1:26",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.5,
+   "metin": "1:34",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.6,
+   "metin": "1:43",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.7,
+   "metin": "1:51",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.8,
+   "metin": "1:59",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 5.9,
+   "metin": "2:07",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6,
+   "metin": "2:16",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.1,
+   "metin": "2:24",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.2,
+   "metin": "2:32",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.3,
+   "metin": "2:41",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.4,
+   "metin": "2:49",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.5,
+   "metin": "2:57",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.6,
+   "metin": "3:05",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.7,
+   "metin": "3:14",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.8,
+   "metin": "3:22",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 6.9,
+   "metin": "3:30",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7,
+   "metin": "3:38",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.1,
+   "metin": "3:47",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.2,
+   "metin": "3:55",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.3,
+   "metin": "4:03",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.4,
+   "metin": "4:12",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.5,
+   "metin": "4:20",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.6,
+   "metin": "4:28",
+   "fs": 230,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.9,
+   "metin": "Çözüm:",
+   "fs": 140,
+   "bolge": "AB"
+  },
+  {
+   "t": 7.9,
+   "metin": "Çoklu Dil",
+   "fs": 140,
+   "bolge": "AB"
+  },
+  {
+   "t": 8,
+   "metin": "Çoklu",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 8,
+   "metin": "Dil",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 8,
+   "metin": "modülü bunu",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 8,
+   "metin": "çözüyor.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 8.4,
+   "metin": "TR · EN · DE",
+   "fs": 100,
+   "bolge": "AB"
+  },
+  {
+   "t": 8.7,
+   "metin": "FR · RU · AR",
+   "fs": 100,
+   "bolge": "AB"
+  },
+  {
+   "t": 9,
+   "metin": "+20 dil",
+   "fs": 240,
+   "bolge": "D"
+  },
+  {
+   "t": 9.3,
+   "metin": "ES · IT · PT · NL",
+   "fs": 100,
+   "bolge": "D"
+  },
+  {
+   "t": 9.6,
+   "metin": "PL · SV · CS · EL",
+   "fs": 100,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "Turist QR'ı okutur,",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 10,
+   "metin": "dilini",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 10,
+   "metin": "seçer.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 10,
+   "metin": "TR",
+   "fs": 96,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "Türkçe",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "EN",
+   "fs": 96,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "English",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "DE",
+   "fs": 96,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "Deutsch",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "FR",
+   "fs": 96,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "Français",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 10,
+   "metin": "Gerçek demo menü",
+   "fs": 40,
+   "bolge": "AB"
+  },
+  {
+   "t": 12.5,
+   "metin": "Menü ve sipariş",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 12.5,
+   "metin": "kendi",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 12.5,
+   "metin": "dilinde",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 12.5,
+   "metin": "açılır.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 14.9,
+   "metin": "Ürün adı, açıklama,",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 14.9,
+   "metin": "kategori, hepsi",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 17.8,
+   "metin": "dilinde.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 18.6,
+   "metin": "20+ dil",
+   "fs": 190,
+   "bolge": "AB"
+  },
+  {
+   "t": 18.6,
+   "metin": "RU",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "AR",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "ES",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "IT",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "PT",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "NL",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "PL",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.6,
+   "metin": "+20",
+   "fs": 56,
+   "bolge": "D"
+  },
+  {
+   "t": 18.7,
+   "metin": "Dilleri",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 18.7,
+   "metin": "siz seçersiniz.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 20.4,
+   "metin": "Çevirileri tek tek ya da",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 20.4,
+   "metin": "dosyadan",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 20.4,
+   "metin": "toplu yüklersiniz.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 23.6,
+   "metin": "Yirmiden",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 23.6,
+   "metin": "fazla",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 23.6,
+   "metin": "dil.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 25.1,
+   "metin": "Dil değil,",
+   "fs": 146,
+   "bolge": "AB"
+  },
+  {
+   "t": 25.1,
+   "metin": "servis.",
+   "fs": 146,
+   "bolge": "AB"
+  },
+  {
+   "t": 25.1,
+   "metin": "SERVİS",
+   "fs": 44,
+   "bolge": "D"
+  },
+  {
+   "t": 25.2,
+   "metin": "Garsonunuz dil değil,",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 25.2,
+   "metin": "servis",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 25.2,
+   "metin": "yapsın.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 27.7,
+   "metin": "Canlı menüyü",
+   "fs": 118,
+   "bolge": "AB"
+  },
+  {
+   "t": 27.7,
+   "metin": "telefonunuzda",
+   "fs": 118,
+   "bolge": "AB"
+  },
+  {
+   "t": 27.7,
+   "metin": "deneyin",
+   "fs": 118,
+   "bolge": "AB"
+  },
+  {
+   "t": 27.7,
+   "metin": "qrmenuofficial.com/canli-menu",
+   "fs": 52,
+   "bolge": "AB"
+  },
+  {
+   "t": 27.7,
+   "metin": "Aynı menüyü",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 27.7,
+   "metin": "telefonunuzda",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 27.7,
+   "metin": "deneyin.",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 30,
+   "metin": "Bağlantı",
+   "fs": 64,
+   "bolge": "C"
+  },
+  {
+   "t": 30,
+   "metin": "profilimizde.",
+   "fs": 64,
+   "bolge": "C"
+  }
+ ],
+ "ihlal": {
+  "guvenliBolge": [],
+  "sagRay": [],
+  "minYazi": [
+   {
+    "t": 0,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 0.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 1.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 2.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 3.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 4.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 5.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 6.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 7.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 8.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 9.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 10.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 11.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 12.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 13.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 14.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 15.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 16.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 17.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 18.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 19.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 20.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 21.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 22.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 23.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 24.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 25.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 26.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 27.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 28.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 29.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 30.9,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.1,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.2,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.3,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.4,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.5,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.6,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.7,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   },
+   {
+    "t": 31.8,
+    "metin": "ÇOKLU DİL MODÜLÜ",
+    "fs": 32
+   }
+  ],
+  "kontrast": [
+   {
+    "k": "+20|sahne",
+    "oran": 1.12,
+    "esik": 3
+   },
+   {
+    "k": "servis.|sahne",
+    "oran": 1.74,
+    "esik": 3
+   },
+   {
+    "k": "MASA 1|sahne",
+    "oran": 1.16,
+    "esik": 3
+   },
+   {
+    "k": "SERVİS|sahne",
+    "oran": 1.16,
+    "esik": 3
+   },
+   {
+    "k": "MASA 2|sahne",
+    "oran": 1.16,
+    "esik": 3
+   },
+   {
+    "k": "MASA 3|sahne",
+    "oran": 1.16,
+    "esik": 3
+   },
+   {
+    "k": "MASA 4|sahne",
+    "oran": 1.16,
+    "esik": 3
+   }
+  ]
+ },
+ "altyazi": {
+  "cumle": 12,
+  "metinEsleme": 12,
+  "farkli": [],
+  "baslangicSapmasi": [
+   0,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05,
+   -0.05
+  ],
+  "enBuyukBaslangicSapmasi": 0.05,
+  "parcaSayisi": 14,
+  "enKisaParca": 0.62,
+  "bayatKare": 0,
+  "bayatZamanlar": [],
+  "satirIhlali": []
+ },
+ "csv": {
+  "tCSV": 21.71332,
+  "iceAktarVurguAraligi": [
+   21.7,
+   23.5
+  ],
+  "disaAktarDahaOnce": false,
+  "kartSayisi": 2,
+  "disaAktarKartiYok": true
+ },
+ "tarama": {
+  "yasakAnimasyon": [],
+  "threejs": true,
+  "kiril_arap": false,
+  "otuz": false,
+  "yirmidenFazla": true,
+  "minFont": 32
+ },
+ "kontrastEnDusuk": {
+  "ÇOKLU DİL MODÜLÜ|sahne": 5.92,
+  "Dil|sahne": 7.72,
+  "engeli,|sahne": 7.72,
+  "kayıp masa.|sahne": 7.72,
+  "Hello?|sahne": 7.72,
+  "Garsonunuz|plaka": 13.42,
+  "yabancı|plaka": 7.79,
+  "dil|plaka": 7.79,
+  "bilmiyorsa, turist masası|plaka": 13.42,
+  "Turist QR'ı okutur,|plaka": 13.42,
+  "dilini|plaka": 7.79,
+  "seçer.|plaka": 7.79,
+  "TR|sahne": 11.98,
+  "Türkçe|sahne": 11.98,
+  "EN|sahne": 11.98,
+  "English|sahne": 11.98,
+  "DE|sahne": 11.98,
+  "Deutsch|sahne": 11.98,
+  "FR|sahne": 11.98,
+  "Français|sahne": 11.98,
+  "Gerçek demo menü|sahne": 11.98,
+  "Dilleri|plaka": 7.79,
+  "siz seçersiniz.|plaka": 13.42,
+  "20+ dil|sahne": 5.92,
+  "RU|sahne": 11.98,
+  "AR|sahne": 11.98,
+  "ES|sahne": 11.98,
+  "IT|sahne": 11.98,
+  "PT|sahne": 11.98,
+  "NL|sahne": 11.98,
+  "PL|sahne": 11.98,
+  "+20|sahne": 1.12,
+  "Dil değil,|sahne": 7.72,
+  "servis.|sahne": 1.74,
+  "MASA 1|sahne": 1.16,
+  "SERVİS|sahne": 1.16,
+  "MASA 2|sahne": 1.16,
+  "MASA 3|sahne": 1.16,
+  "MASA 4|sahne": 1.16,
+  "Garsonunuz dil değil,|plaka": 13.42,
+  "servis|plaka": 7.79,
+  "yapsın.|plaka": 13.42
+ },
+ "ozet": {
+  "guvenliBolge": 0,
+  "sagRay": 0,
+  "minYazi": 633,
+  "kontrast": 7
+ }
+}
