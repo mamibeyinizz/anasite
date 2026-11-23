@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><title>Çoklu Dil Reels v7 — kurumsal</title>
+<style>
+@font-face{font-family:"Manrope";src:url("/fonts/manrope-var-latin.woff2") format("woff2");font-weight:200 800;font-display:block;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";src:url("/fonts/manrope-var-latin-ext.woff2") format("woff2");font-weight:200 800;font-display:block;unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--y:#0D2B22;--y2:#1E3D2F;--g:#C9A84C;--g2:#E8C766;--g3:#B8963F;--off:#F4F1E8}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0D2B22}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:"Manrope","Manrope Fallback",system-ui,sans-serif;text-decoration:none}
+.katman{position:absolute;inset:0}
+#altin{background:linear-gradient(170deg,var(--g2) 0%,var(--g) 55%,var(--g3) 100%)}
+#zum{background:linear-gradient(var(--y2),var(--y))}
+#zum .nokta{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(201,168,76,.11) 3px,transparent 3.5px);background-size:60px 60px;background-position:30px 30px}
+.ton{position:absolute;inset:0;background:var(--y);opacity:0}
+.brk{position:absolute;inset:0}
+.etiket{position:absolute;left:96px;top:326px;font-weight:800;font-size:36px;line-height:1;letter-spacing:.42em;white-space:nowrap}
+#altin .etiket{color:var(--y)} #zum .etiket{color:var(--g)}
+.blok{position:absolute;left:96px;opacity:0;font-weight:800;letter-spacing:-.04em;line-height:1.06;will-change:transform,opacity}
+.blok .l{display:block;white-space:nowrap;width:max-content}
+.blok.ince{font-weight:800;letter-spacing:-.025em;line-height:1.18}
+#altin .blok{color:var(--y)} #zum .blok{color:var(--off)}
+.pill{display:inline-block;padding:0 .24em .08em;border-radius:.26em;line-height:1.02;margin-left:-.06em}
+#altin .pill{background:var(--y);color:var(--off)} #zum .pill{background:var(--g);color:var(--y)}
+.op{position:absolute;opacity:0}
+.telefon{position:absolute;background:#08241A;border:2px solid #061a13;box-shadow:0 22px 48px rgba(0,0,0,.32)}
+.telefon .ekr{position:absolute;overflow:hidden;background:#000}
+.telefon .ekr img{position:absolute;display:block;max-width:none;opacity:0}
+.dim{position:absolute;inset:0;background:rgba(0,0,0,.55);pointer-events:none}
+.vurgu{position:absolute;border:3px solid var(--g);border-radius:10px;pointer-events:none;box-sizing:border-box}
+.panel{position:absolute;overflow:hidden;border-radius:14px;border:2px solid #061a13;box-shadow:0 22px 48px rgba(0,0,0,.32);background:#EADFC1}
+.panel img{position:absolute;display:block;max-width:none}
+.dil{position:absolute;display:flex;align-items:center;gap:22px;opacity:0;color:var(--off)}
+.dil .kod{font-weight:800;font-size:56px;letter-spacing:-.02em;width:96px;line-height:1}
+.dil .ad{font-weight:500;font-size:40px;line-height:1}
+.dil .cubuk{position:absolute;left:-26px;top:6px;bottom:6px;width:6px;border-radius:3px;background:var(--g);opacity:0}
+.rozet{position:absolute;font-weight:800;font-size:36px;letter-spacing:.06em;color:var(--off);display:flex;align-items:center;gap:16px;opacity:0;white-space:nowrap}
+.rozet i{width:14px;height:14px;border-radius:50%;background:var(--g);display:block}
+.masa{position:absolute}
+.logo{position:absolute;display:block}
+.adres{position:absolute;left:96px;font-weight:800;font-size:54px;letter-spacing:-.02em;line-height:1.1;white-space:nowrap;opacity:0}
+#altin .adres{color:var(--y)}
+.tipo{position:absolute;left:96px;font-weight:800;font-size:56px;letter-spacing:-.02em;line-height:1.1;white-space:nowrap;color:var(--g);opacity:0}
+</style></head><body><div id="stage"></div><script type="module" src="/scene.mjs"></script></body></html>

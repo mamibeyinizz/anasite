@@ -1,0 +1,33 @@
+{
+ "tam": {
+  "boyut": "1080x1920",
+  "fps": "30/1",
+  "sure": 35.766667,
+  "renk": [
+   "bt709",
+   "bt709",
+   "bt709"
+  ],
+  "video_mbps": 6.58,
+  "LUFS": -14.1,
+  "tepe_dBTP": -1.3,
+  "sessizlik_1sn_ustu": 0,
+  "layout": {
+   "kurallar": {},
+   "ihlalSayisi": 0,
+   "ornekSayisi": 716,
+   "enKucukYaziPx": 36,
+   "enUzunMetinsizSn": 0.35,
+   "kontrast": {
+    "enDusukOran": 5.52,
+    "olcum": 51
+   },
+   "senkronEnBuyukFark": 0.1,
+   "csvKelimeSn": 24.484,
+   "video": {
+    "sure": 35.754,
+    "kare": 1073
+   }
+  }
+ }
+}
