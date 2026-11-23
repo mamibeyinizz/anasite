@@ -2,13 +2,13 @@
   "id": "yorum-feedback",
   "modul": "YORUM & FEEDBACK MODÜLÜ",
   "soru": [
-    "Tek bir kötü",
-    "yorum [[kaç masayı]]",
-    "kaybettiriyor?"
+    "Mutsuz misafir",
+    "şikayetini [[kime]]",
+    "anlatıyor?"
   ],
   "cevap": [
-    "Yorumları siz [[toplayın,]]",
-    "yayına çıkanı siz [[seçin,]]",
-    "itibarınızı siz [[yönetin.]]"
+    "Yorumu menüde [[toplayın,]]",
+    "şikayeti önce siz [[okuyun,]]",
+    "yayına siz [[karar verin.]]"
   ]
 }
