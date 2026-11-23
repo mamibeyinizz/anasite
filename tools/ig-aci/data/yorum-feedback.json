@@ -1,6 +1,6 @@
 {
   "id": "yorum-feedback",
   "modul": "YORUM & FEEDBACK MODÜLÜ",
-  "soru": ["Bir kötü yorumun", "bedelini [[kaç ay]]", "ödüyorsunuz?"],
-  "cevap": ["Misafir önce size [[yazsın,]]", "yayına çıkacak yorumu", "[[siz seçin.]]"]
+  "soru": ["Bir kötü yorum", "[[kaç masayı]]", "kaybettiriyor?"],
+  "cevap": ["Yorumları siz [[toplayın,]]", "yayına çıkanı siz [[seçin,]]", "itibarınızı siz [[yönetin.]]"]
 }
