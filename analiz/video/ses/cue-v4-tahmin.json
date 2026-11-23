@@ -1,0 +1,79 @@
+{
+ "dosya": "TAHMIN (ses yok)",
+ "konusmaBitis": 29.0,
+ "tahmin": true,
+ "cumleler": [
+  {
+   "no": 0,
+   "metin": "Garsonunuz yabancı dil bilmiyorsa, turist masası sizi bırakıp gidebilir.",
+   "baslangic": 0.05,
+   "bitis": 3.88
+  },
+  {
+   "no": 1,
+   "metin": "Sipariş yanlış anlaşılır, diğer masalar bekler.",
+   "baslangic": 4.05,
+   "bitis": 6.68
+  },
+  {
+   "no": 2,
+   "metin": "Çoklu Dil modülü bunu çözüyor.",
+   "baslangic": 6.85,
+   "bitis": 8.88
+  },
+  {
+   "no": 3,
+   "metin": "Turist QR'ı okutur, dilini seçer.",
+   "baslangic": 9.05,
+   "bitis": 11.15
+  },
+  {
+   "no": 4,
+   "metin": "Menü ve sipariş kendi dilinde açılır.",
+   "baslangic": 11.32,
+   "bitis": 13.88
+  },
+  {
+   "no": 5,
+   "metin": "Ürün adı, açıklama, kategori, hepsi kendi dilinde.",
+   "baslangic": 14.05,
+   "bitis": 17.88
+  },
+  {
+   "no": 6,
+   "metin": "Dilleri siz seçersiniz.",
+   "baslangic": 18.05,
+   "bitis": 18.95
+  },
+  {
+   "no": 7,
+   "metin": "Çevirileri tek tek ya da dosyadan toplu yüklersiniz.",
+   "baslangic": 19.12,
+   "bitis": 21.81
+  },
+  {
+   "no": 8,
+   "metin": "Yirmiden fazla dil.",
+   "baslangic": 21.98,
+   "bitis": 22.88
+  },
+  {
+   "no": 9,
+   "metin": "Garsonunuz dil değil, servis yapsın.",
+   "baslangic": 23.05,
+   "bitis": 24.88
+  },
+  {
+   "no": 10,
+   "metin": "Aynı menüyü kendi telefonunuzda deneyin.",
+   "baslangic": 25.05,
+   "bitis": 27.74
+  },
+  {
+   "no": 11,
+   "metin": "Bağlantı profilimizde.",
+   "baslangic": 27.91,
+   "bitis": 28.88
+  }
+ ]
+}
