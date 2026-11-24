@@ -26,6 +26,15 @@ Yöntem: `tools/panel-video/` (salt okunur); kimlik bilgisi YALNIZCA `PANEL_HOST
 7. **Uyarı (ZÜMRÜT):** cümle 7. B: ekran 4 (uyarı kutusu). Ekran yoksa bu sahneyi ATLAMA: DUR ve kullanıcıya sor (cümle 7'yi çıkarmak ses değişikliği ister).
 8. **Kapanış (ALTIN) [v6'da URL/CTA YOK; v6 dosyasındaki kapanışı uygula]:** cümle 8. A: logo (sol, 240 px) + etiket (sağ). B: "Canlı menü" 140 px + URL `qrmenuofficial.com/canli-menu` 56 px tam opak (UTM yazma). Ok/çizgi yok. Son kare→ilk kare 0,7 sn: yalnız zemin çapraz, metin önce söner, sonra yenisi girer.
 
+## v6 GÜNCELLEME (kullanıcı kararı): ses hazır, tam üretim; ekranlar TEST SİTESİNDEN
+- **Ses hazır:** `ses/anlatim-yorum.mp3` (30,85 sn, Deniz) repoda; metin `ses-metni-yorum-v6.md`. Faz A'yı ATLA: ekranlar alınınca doğrudan Faz B'ye geç (cue → tam render). Sesi dinleyemiyorsan cümle sayısı eşleşmezse (v6: 6 cümle, ≈11 konuşma parçası) DUR ve parça listesini yaz. Ayrıca KISA sürüm üret: cümle 4 ("İsterseniz Google yorumu yapana küçük bir ödülle teşekkür edersiniz.") çıkarılmış (`kisa-uret` mantığı: 0,25 sn boşluk + 20 ms solma, hız değişmez); hangi cümleyi çıkardığını raporla. Tam ve kısa birlikte teslim, ikisi için de testler.
+- **Ekran kaynağı:** Gerçek arayüzü TEST SİTESİNDEN al (`https://test.qrmenuofficial.com/` = Pro demo; yorum modülü Plus paketinde olabilir: yorum formu/ panel görünmüyorsa `https://full.qrmenuofficial.com/` (Plus demo) dene; canlı menü sayfası `qrmenuofficial.com/canli-menu/` bu adresleri listeler).
+  1. **Müşteri yorum formu** (mobil, 390×844 viewport, DPR 2): test sitesinin menü sayfasındaki puan + yorum formu. Herkese açık sayfa, kimlik bilgisi GEREKMEZ. Formu doldurmak/göndermek YOK (test sitesine veri yazma); yalnız görünür hâlini yakala.
+  2. **Panel ekranları (bekleyen yorumlar, masa raporu, düşüş uyarısı/trend):** `tools/panel-video/` ile, kimlik bilgisi YALNIZCA `PANEL_HOST/PANEL_USER/PANEL_PASS` ortam değişkenlerinden. Tanımlı değilse bu üç ekran için DUR ve kullanıcıya yaz (sahte arayüz yok); form ekranını (1) yine de al ve kaydet.
+  Salt okunur: hiçbir ayarı değiştirme, yorum onaylama/silme, kayıt oluşturma YOK.
+- **"Gerçek veri" sınırı:** Test sitesindeki verinin gerçek müşteriye ait olmadığını doğrula (ad/telefon/e-posta/IP/yorum metni). Gerçek kişi verisi görünüyorsa kullanma: farklı ekran/kırpma seç ya da DUR. Demo/örnek yorum ve "Masa 1" gibi etiketler serbest. İzinli Kişiler bloğu, gerçek Google yorum linki ve gerçek ödül kodu ekranda OLMAYACAK (maske/kırp).
+- Kimlik bilgisi sohbete/log'a/repoya yazılmaz; çerezler `tools/panel-video/w/` altında tutulur ve iş bitince silinir.
+
 ## Kısıtlar (katı)
 - Ses metnindeki dışında İDDİA YOK: "puan yükselir", rakam/yüzde/süre, "ücretsiz/anında/garanti" kodda ve ekranda taranacak (test ekle).
 - v4: Google yönlendirme ve isteğe bağlı ödül ANLATILIYOR (kullanıcı kararı). Ekranda gerçek Google yorum linki, gerçek ödül kodu, indirim oranı/rakamı ve kişisel veri görünmeyecek; ayar ekranı kırpması maskeli ya da boş alanla alınır. Rakamlı sonuç vaadi ve 'garanti' yazma.
