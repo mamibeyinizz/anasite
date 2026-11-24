@@ -3,7 +3,7 @@
 Dal: `claude/qr-menu-instagram-strategy-rs76jf` (PR yok, ana dala push yok). Mevcut Çoklu Dil v9 hattını (`analiz/video/render/*-v9.*`, `ses/cue-uret-v4.py`, `ses/kisa-uret-v4.py`, `test-v9.mjs`, `encode-v9.sh`) KOPYALAYIP genelleştir; v1–v9 dosyaları DEĞİŞMEZ. Yeni çıktılar `analiz/yorum-feedback/video/` altında (`render/`, `ses/`, `out/`, `ekran/`).
 
 ## Girdiler
-- Ses metni: `analiz/yorum-feedback/video/ses-metni-yorum-v5.md` GEÇERLİ sürümdür (v1–v4 kullanılmayacak; sahne planı v5 dosyasındaki 'Sahne eşleşmesi' bölümüdür; ses: Deniz). DEĞİŞTİRME. Ses: kullanıcı üretip `analiz/yorum-feedback/video/ses/anlatim-yorum.mp3` olarak koyacak. Ses yoksa Faz A (anahtar kareler, tahmini zaman) ile DUR.
+- Ses metni: `analiz/yorum-feedback/video/ses-metni-yorum-v6.md` GEÇERLİ sürümdür (v1–v5 kullanılmayacak; sahne planı v6 dosyasındaki 'Sahne eşleşmesi' bölümüdür; ses: Deniz). DEĞİŞTİRME. Ses: kullanıcı üretip `analiz/yorum-feedback/video/ses/anlatim-yorum.mp3` olarak koyacak. Ses yoksa Faz A (anahtar kareler, tahmini zaman) ile DUR.
 - Marka/tasarım: `tools/ig-carousel/SPEC.md`, `analiz/yorum-feedback/final/2-carousel-*.jpg` (carousel), `analiz/video/video-v9-prompt.md` ve `video-v9-rapor.md` (bölge sistemi, altyazı, test listesi). Aynı dil: Manrope, altın açılış/kapanış + zümrüt orta, 1080×1920, bölgeler A (270–330 etiket "YORUM & FEEDBACK MODÜLÜ"), B (330–1020 ana görsel), C (1040–1236 altyazı plakası), D (1248+ yalnız dekor), güvenli bölge x65–1015, sağ ray boş.
 - Altyazı = ses metninin aynısı; plaka yalnız konuşma varken görünür (sessizlik >0,15 sn → plaka ve metin 120 ms'de söner; boş plaka süresi 0 testi).
 
@@ -24,7 +24,7 @@ Yöntem: `tools/panel-video/` (salt okunur); kimlik bilgisi YALNIZCA `PANEL_HOST
 5. **Önce siz (ZÜMRÜT):** cümle 5. B: ekran 2 (bekleyen yorumlar) 900 px kırpma, "bekleyen" durumu karartma %55 + 3 px altın çerçeve ile vurgulu. Anahtar kart: "Önce siz." (kartın üstünde, y 330–420).
 6. **Rapor (ZÜMRÜT):** cümle 6. B: ekran 3 (masa raporu) 900 px kırpma, masa ve saat kolonları vurgulu.
 7. **Uyarı (ZÜMRÜT):** cümle 7. B: ekran 4 (uyarı kutusu). Ekran yoksa bu sahneyi ATLAMA: DUR ve kullanıcıya sor (cümle 7'yi çıkarmak ses değişikliği ister).
-8. **Kapanış (ALTIN):** cümle 8. A: logo (sol, 240 px) + etiket (sağ). B: "Canlı menü" 140 px + URL `qrmenuofficial.com/canli-menu` 56 px tam opak (UTM yazma). Ok/çizgi yok. Son kare→ilk kare 0,7 sn: yalnız zemin çapraz, metin önce söner, sonra yenisi girer.
+8. **Kapanış (ALTIN) [v6'da URL/CTA YOK; v6 dosyasındaki kapanışı uygula]:** cümle 8. A: logo (sol, 240 px) + etiket (sağ). B: "Canlı menü" 140 px + URL `qrmenuofficial.com/canli-menu` 56 px tam opak (UTM yazma). Ok/çizgi yok. Son kare→ilk kare 0,7 sn: yalnız zemin çapraz, metin önce söner, sonra yenisi girer.
 
 ## Kısıtlar (katı)
 - Ses metnindeki dışında İDDİA YOK: "puan yükselir", rakam/yüzde/süre, "ücretsiz/anında/garanti" kodda ve ekranda taranacak (test ekle).
