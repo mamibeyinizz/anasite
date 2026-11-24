@@ -3,7 +3,7 @@
 Dal: `claude/qr-menu-instagram-strategy-rs76jf` (PR yok, ana dala push yok). Mevcut Çoklu Dil v9 hattını (`analiz/video/render/*-v9.*`, `ses/cue-uret-v4.py`, `ses/kisa-uret-v4.py`, `test-v9.mjs`, `encode-v9.sh`) KOPYALAYIP genelleştir; v1–v9 dosyaları DEĞİŞMEZ. Yeni çıktılar `analiz/yorum-feedback/video/` altında (`render/`, `ses/`, `out/`, `ekran/`).
 
 ## Girdiler
-- Ses metni: `analiz/yorum-feedback/video/ses-metni-yorum-v3.md` GEÇERLİ sürümdür (v1/v2 kullanılmayacak; sahne planı v3 dosyasındaki 'Sahne eşleşmesi' bölümüdür; ses: Deniz). DEĞİŞTİRME. Ses: kullanıcı üretip `analiz/yorum-feedback/video/ses/anlatim-yorum.mp3` olarak koyacak. Ses yoksa Faz A (anahtar kareler, tahmini zaman) ile DUR.
+- Ses metni: `analiz/yorum-feedback/video/ses-metni-yorum-v4.md` GEÇERLİ sürümdür (v1–v3 kullanılmayacak; sahne planı v4 dosyasındaki 'Sahne eşleşmesi' bölümüdür; ses: Deniz). DEĞİŞTİRME. Ses: kullanıcı üretip `analiz/yorum-feedback/video/ses/anlatim-yorum.mp3` olarak koyacak. Ses yoksa Faz A (anahtar kareler, tahmini zaman) ile DUR.
 - Marka/tasarım: `tools/ig-carousel/SPEC.md`, `analiz/yorum-feedback/final/2-carousel-*.jpg` (carousel), `analiz/video/video-v9-prompt.md` ve `video-v9-rapor.md` (bölge sistemi, altyazı, test listesi). Aynı dil: Manrope, altın açılış/kapanış + zümrüt orta, 1080×1920, bölgeler A (270–330 etiket "YORUM & FEEDBACK MODÜLÜ"), B (330–1020 ana görsel), C (1040–1236 altyazı plakası), D (1248+ yalnız dekor), güvenli bölge x65–1015, sağ ray boş.
 - Altyazı = ses metninin aynısı; plaka yalnız konuşma varken görünür (sessizlik >0,15 sn → plaka ve metin 120 ms'de söner; boş plaka süresi 0 testi).
 
@@ -27,8 +27,8 @@ Yöntem: `tools/panel-video/` (salt okunur); kimlik bilgisi YALNIZCA `PANEL_HOST
 8. **Kapanış (ALTIN):** cümle 8. A: logo (sol, 240 px) + etiket (sağ). B: "Canlı menü" 140 px + URL `qrmenuofficial.com/canli-menu` 56 px tam opak (UTM yazma). Ok/çizgi yok. Son kare→ilk kare 0,7 sn: yalnız zemin çapraz, metin önce söner, sonra yenisi girer.
 
 ## Kısıtlar (katı)
-- Ses metnindeki dışında İDDİA YOK: Google, yönlendirme, "puan yükselir", rakam/yüzde/süre, "ücretsiz/anında/garanti" kodda ve ekranda taranacak (test ekle).
-- Ekran görüntülerinde Google yönlendirme/ödül/indirim popup'ı, Google linki, ödül kodu alanı GÖRÜNMEMELİ (kırp ya da başka ekran al). Bu özellikler reklamı yapılmayan (politika riskli) özelliklerdir.
+- Ses metnindeki dışında İDDİA YOK: "puan yükselir", rakam/yüzde/süre, "ücretsiz/anında/garanti" kodda ve ekranda taranacak (test ekle).
+- v4: Google yönlendirme ve isteğe bağlı ödül ANLATILIYOR (kullanıcı kararı). Ekranda gerçek Google yorum linki, gerçek ödül kodu, indirim oranı/rakamı ve kişisel veri görünmeyecek; ayar ekranı kırpması maskeli ya da boş alanla alınır. Rakamlı sonuç vaadi ve 'garanti' yazma.
 - Hareket: yalnız opaklık + 24–48 px kayma + ≤%3 ölçek, ease-out; bounce/elastic/rotasyon YOK. Çocuksu öğe (figür, balon, emoji) YOK. Kiril/Arapça glif yok.
 - Süre hedefi ≤30 sn; aşarsa ayrıca "kısa" sürüm üret (en zayıf cümleyi çıkar; `kisa-uret` mantığı: 0,25 sn boşluk + 20 ms solma, hız değişmez) ve hangi cümleyi çıkardığını raporla.
 
