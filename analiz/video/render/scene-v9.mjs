@@ -17,40 +17,42 @@ const sahne = (kat) => $('div', 'sahne', null, kat);
 const etiket = (p, st) => $('div', 'etiket', Object.assign({ left: '96px' }, st || {}), p, 'ÇOKLU DİL MODÜLÜ');
 const blok = (par, html, top, fs, left = 96) => $('div', 'blok', { top: top + 'px', left: left + 'px', fontSize: fs + 'px' }, par, html.map((s) => `<span class="l">${s}</span>`).join(''));
 const fit = (e, mx, mn, W = 880) => { let fs = mx; e.style.fontSize = fs + 'px'; const o = () => Math.max(...[...e.children].map((c) => c.getBoundingClientRect().width)); while (o() > W && fs > mn) { fs -= 2; e.style.fontSize = fs + 'px'; } return fs; };
-const GH = (p, n, y0) => { for (let i = 0; i < n; i++) $('div', 'gh dekor', { left: (100 + (i % 2) * 450) + 'px', top: (y0 + Math.floor(i / 2) * 240) + 'px' }, p); };
-const CARD = (p, i, html, dolu) => $('div', 'masa ' + (dolu ? 'dolu' : 'bos'), { left: (100 + (i % 2) * 450) + 'px', top: (540 + Math.floor(i / 2) * 240) + 'px' }, p, html);
+const GH = (p, n, y0, tur) => { for (let i = 0; i < n; i++) { const e = CARD(p, i, tur === 'bekle' ? `<div class="b">MASA ${i + 5}</div><div class="d">BEKLİYOR</div><div class="z"><i style="width:${[60, 35, 80, 20][i]}%"></i></div>` : `<div class="b">MASA ${i + 5}</div><div class="d">SERVİSTE</div>`, tur !== 'bekle', y0, true); } };
+const CARD = (p, i, html, dolu, y0 = 540, dek = false) => $('div', 'masa ' + (dolu ? 'dolu' : 'bos') + (dek ? ' dekor' : ''), { left: (100 + (i % 2) * 450) + 'px', top: (y0 + Math.floor(i / 2) * 240) + 'px', opacity: dek ? '.5' : '1' }, p, html);
 
 // S1 kanca (altın)
 const s1 = sahne(altin); etiket(s1); const k1 = blok(s1, ['Dil', 'engeli,', 'kayıp masa.'], 360, 140); fit(k1, 140, 120);
 const SEL = ['Hello?', 'Hallo?', 'Bonjour?', '¿Hola?']; const sel = SEL.map((t, i) => $('div', 'sel dekor', { top: (1296 + i * 150) + 'px', left: '96px' }, s1, t));
 // S2 acı (altın)
-const s2 = sahne(altin); etiket(s2); const mc = [0, 1, 2, 3].map((i) => CARD(s2, i, i === 0 ? '<div class="b">MASA 1</div><div class="d">SİPARİŞ<br>ALINIYOR</div>' : `<div class="b">MASA ${i + 1}</div><div class="d">BEKLİYOR</div><div class="z"><i></i></div>`, i === 0)); GH(s2, 4, 1300);
+const s2 = sahne(altin); etiket(s2); const mc = [0, 1, 2, 3].map((i) => CARD(s2, i, i === 0 ? '<div class="b">MASA 1</div><div class="d">SİPARİŞ<br>ALINIYOR</div>' : `<div class="b">MASA ${i + 1}</div><div class="d">BEKLİYOR</div><div class="z"><i></i></div>`, i === 0)); GH(s2, 4, 1300, 'bekle');
 // S3 dönüş (zümrüt)
 const s3 = sahne(zum); etiket(s3); const k3 = $('div', 'blok', { top: '380px', fontSize: '150px' }, s3, '<span class="l"><b class="pill">Çoklu Dil</b></span>');
-const KOD = ['TR · EN · DE · FR', 'ES · IT · RU · AR']; const kodlar = KOD.map((t, i) => $('div', 'kod', { left: '96px', top: (660 + i * 140) + 'px', fontSize: '92px', color: '#F4F1E8' }, s3, t)); GH(s3, 4, 1300);
+const KOD = ['TR · EN · DE · FR', 'ES · IT · RU · AR']; const kodlar = KOD.map((t, i) => $('div', 'kod', { left: '96px', top: (660 + i * 140) + 'px', fontSize: '92px', color: '#F4F1E8' }, s3, t));
+const kod3 = $('div', 'kodsira', null, s3); ['TR', 'EN', 'DE', 'FR', 'ES', 'IT', 'RU', 'AR'].forEach((c) => $('span', 'dekor', null, kod3, c));
 // S4 çözüm: gerçek ekran kırpma kartı 900×600 (x90–990, y400–1000)
 const s4 = sahne(zum); etiket(s4); const KX = 90, KY = 400, KW = 900, KH = 600; const es4 = $('div', 'es', { left: '96px', top: '338px' }, s4, 'TR · Türkçe'); const rz = $('div', 'es s', { right: '90px', top: '344px' }, s4, 'Gerçek demo menü');
 const kt = $('div', 'kt', { left: KX + 'px', top: KY + 'px', width: KW + 'px', height: KH + 'px' }, s4);
 const SRC = { dd: '/ekran/02-dil-secici.png', tr: '/ekran/03-menu-tr.png', en: '/ekran/04-menu-en.png', de: '/ekran/05-menu-de.png', fr: '/ekran/06-menu-fr.png' };
-const KS = { dd: { k: 1.15, x0: 0, y0: 120 }, tr: { k: 1.125, x0: 30, y0: 868 }, en: { k: 1.125, x0: 30, y0: 868 }, de: { k: 1.125, x0: 30, y0: 868 }, fr: { k: 1.125, x0: 30, y0: 868 } }; const kim = {};
+const KS = { dd: { k: 1.0, x0: 0, y0: 122 }, tr: { k: 1.125, x0: 30, y0: 868 }, en: { k: 1.125, x0: 30, y0: 868 }, de: { k: 1.125, x0: 30, y0: 868 }, fr: { k: 1.125, x0: 30, y0: 868 } }; const kim = {};
 for (const [k, u] of Object.entries(SRC)) { const c = KS[k]; const im = $('img', '', { opacity: 0, left: (-c.x0 * c.k) + 'px', top: (-c.y0 * c.k) + 'px', width: (860 * c.k) + 'px', height: (1800 * c.k) + 'px' }, kt); im.src = u; kim[k] = im; }
 const ETI = { dd: 'Dil seçici', tr: 'TR · Türkçe', en: 'EN · English', de: 'DE · Deutsch', fr: 'FR · Français' };
 const sirit = $('div', 'sirit', null, s4); const chip = {}; ['tr', 'en', 'de', 'fr'].forEach((k, i) => { chip[k] = $('div', 'dekor', { left: (100 + (i % 2) * 430) + 'px', top: (1320 + Math.floor(i / 2) * 250) + 'px' }, sirit, `<b>${k.toUpperCase()}</b>`); });
 // S5 modül: Diller + CSV İçe Aktar kırpmaları (hub, css→px ×2, ölçek 1,15)
 const s5 = sahne(zum); etiket(s5); const k5 = $('div', 'es', { left: '96px', top: '350px', fontSize: '84px', letterSpacing: '-.03em' }, s5, '20\'den fazla dil');
-const HUB = '/ekran/07b-panel-hub.png'; const HK = 1.15; const mkP = (top, cx, cy, ch) => { const f = $('div', 'kt', { left: '90px', top: top + 'px', width: '900px', height: Math.round(ch * 2 * HK) + 'px', background: '#EADFC1' }, s5); const im = $('img', '', { left: (-cx * 2 * HK) + 'px', top: (-cy * 2 * HK) + 'px', width: (2560 * HK) + 'px' }, f); im.src = HUB; const d = $('div', 'dim', { opacity: 0 }, f), c = $('div', 'cer', null, f); return { f, d, c }; };
+const HUB = '/ekran/07b-panel-hub.png'; const HK = 1.15; const mkP = (top, cx, cy, ch) => { const f = $('div', 'kt', { left: '90px', top: top + 'px', width: '900px', height: Math.round(ch * 2 * HK) + 'px', background: '#F4F1E8' }, s5); const im = $('img', '', { left: (-cx * 2 * HK) + 'px', top: (-cy * 2 * HK) + 'px', width: (2560 * HK) + 'px' }, f); im.src = HUB; const d = $('div', 'dim', { opacity: 0, zIndex: 2 }, f), c = $('div', 'cer', { zIndex: 3 }, f); return { f, d, c }; };
 const pD = mkP(480, 264, 209, 98), pC = mkP(760, 604, 309, 98);
+const mask = (p, sol) => $('div', '', { position: 'absolute', top: '0', bottom: '0', left: sol + 'px', right: '0', background: '#F4F1E8', zIndex: 1 }, p.f); mask(pD, Math.round((604 - 264) * 2 * HK)); mask(pC, Math.round((936 - 604) * 2 * HK));
 const kod5 = $('div', 'kodsira', null, s5); ['TR', 'EN', 'DE', 'FR', 'ES', 'IT', 'RU', 'AR'].forEach((c) => $('span', 'dekor', null, kod5, c));
 // S6 fayda (altın): servis kartları
-const s6 = sahne(altin); etiket(s6); const sv = [0, 1, 2, 3].map((i) => CARD(s6, i, `<div class="b">MASA ${i + 1}</div><div class="d">SERVİSTE</div>`, true)); GH(s6, 4, 1300);
+const s6 = sahne(altin); etiket(s6); const sv = [0, 1, 2, 3].map((i) => CARD(s6, i, `<div class="b">MASA ${i + 1}</div><div class="d">SERVİSTE</div>`, true)); GH(s6, 4, 1300, 'servis');
 // S7 kapanış (altın)
-const s7 = sahne(altin); const logoK = $('img', 'logo', { left: '65px', top: '262px', width: '240px' }, s7); logoK.src = '/brand/qr-menu-official-logo-v4-dark.svg'; $('div', 'etiket', { top: '274px', left: '470px' }, s7, 'ÇOKLU DİL MODÜLÜ');
+const s7 = sahne(altin); const logoK = $('img', 'logo', { left: '65px', top: '262px', width: '240px' }, s7); logoK.src = '/brand/qr-menu-official-logo-v4-dark.svg'; $('div', 'etiket', { top: '274px', left: '420px' }, s7, 'ÇOKLU DİL MODÜLÜ');
 const k7 = blok(s7, ['Canlı menü'], 380, 150); const adres = $('div', 'adres', { top: '640px', left: '96px' }, s7, 'qrmenuofficial.com/canli-menu'); { let fs = 56; while (adres.getBoundingClientRect().width > 880 && fs > 48) { fs -= 2; adres.style.fontSize = fs + 'px'; } }
 
 /* ───────── altyazı ───────── */
 const ANAH = ['yabancı dil', 'bekler', 'Çoklu Dil', 'dilini seçer', 'kendi dilinde', 'kendi dilinde', 'Dilleri', 'dosyadan', 'Yirmiden fazla dil', 'servis', 'kendi telefonunuzda', 'profilimizde'];
 const _o = $('span', '', { position: 'absolute', visibility: 'hidden', whiteSpace: 'nowrap', fontWeight: 800, fontSize: '64px', letterSpacing: '-.025em' }, stage); const olc = (t) => { _o.textContent = t; return _o.getBoundingClientRect().width; };
-const parcala = (i) => { const m = S[i].metin; const kelime = m.split(' '); const anah = ANAH[i].split(' '); const isK = new Array(kelime.length).fill(false); const norm = (w) => w.replace(/[.,]/g, '');
+const parcala = (i) => { if (S[i].atla) return []; const m = S[i].metin; const kelime = m.split(' '); const anah = ANAH[i].split(' '); const isK = new Array(kelime.length).fill(false); const norm = (w) => w.replace(/[.,]/g, '');
   for (let k = 0; k + anah.length <= kelime.length; k++) if (anah.every((a, j) => norm(kelime[k + j]) === a)) { for (let j = 0; j < anah.length; j++) isK[k + j] = true; break; }
   const satir = []; let cur = []; kelime.forEach((w, k) => { const dene = cur.concat(k); if (olc(dene.map((x) => kelime[x]).join(' ')) > 840 && cur.length) { satir.push(cur); cur = [k]; } else cur = dene; }); if (cur.length) satir.push(cur);
   const chunks = []; for (let k = 0; k < satir.length; k += 2) chunks.push(satir.slice(k, k + 2)); const html = (ln) => ln.map((idx) => idx.map((k) => (isK[k] ? `<b class="k">${kelime[k]}</b>` : kelime[k])).join(' '));
@@ -73,7 +75,7 @@ function frame(t) {
   sel.forEach((e, i) => { const a = (loop ? 0 : eo(t, 0.3 + i * 0.5, 0.4)) * 0.62; e.style.opacity = a.toFixed(3); });
   mc.forEach((e, i) => { if (i === 0) return; e.querySelector('.z i').style.width = (seg(t, T.r2 + 0.5 + i * 0.3, S[1].bitis) * 100).toFixed(1) + '%'; });
   // S4 kart durumu
-  const tD = T.r4, tTR = S[4].baslangic, tEN = S[4].baslangic + 0.55 * (S[4].bitis - S[4].baslangic), tDE = S[5].baslangic + 0.1, tFR = S[5].baslangic + 0.55 * (S[5].bitis - S[5].baslangic);
+  const tD = T.r4, tTR = S[4].baslangic, d4 = S[4].bitis - S[4].baslangic, kisa = !!S[5].atla, tEN = S[4].baslangic + (kisa ? 0.4 : 0.55) * d4, tDE = kisa ? S[4].baslangic + 0.65 * d4 : S[5].baslangic + 0.1, tFR = kisa ? S[4].baslangic + 0.85 * d4 : S[5].baslangic + 0.55 * (S[5].bitis - S[5].baslangic);
   const SIRA = [[tD, 'dd'], [tTR, 'tr'], [tEN, 'en'], [tDE, 'de'], [tFR, 'fr']]; let ki = 0; for (let k = 0; k < SIRA.length; k++) if (t >= SIRA[k][0]) ki = k; const mix = ki > 0 ? clamp((t - SIRA[ki][0]) / 0.16) : 1; const kB = SIRA[ki][1], kA = ki > 0 ? SIRA[ki - 1][1] : kB;
   for (const [k, im] of Object.entries(kim)) im.style.opacity = k === kB ? String(mix) : (k === kA && mix < 1 ? '1' : '0');
   es4.textContent = ETI[kB]; for (const [k, e] of Object.entries(chip)) e.className = 'dekor' + (kB === k ? ' on' : '');

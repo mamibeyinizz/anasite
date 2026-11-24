@@ -1,0 +1,90 @@
+{
+ "dosya": "ses/anlatim-v4-kisa.mp3",
+ "sure": 27.507,
+ "konusmaBitis": 27.233,
+ "tahmin": false,
+ "kesilen": [
+  "Ürün adı, açıklama, kategori, hepsi kendi dilinde."
+ ],
+ "kesim": {
+  "a_end": 14.633,
+  "b_start": 18.491,
+  "kayma": 3.858,
+  "eklenenBosluk": 0.25
+ },
+ "cumleler": [
+  {
+   "no": 1,
+   "metin": "Garsonunuz yabancı dil bilmiyorsa, turist masası sizi bırakıp gidebilir.",
+   "baslangic": 0.0,
+   "bitis": 4.192
+  },
+  {
+   "no": 2,
+   "metin": "Sipariş yanlış anlaşılır, diğer masalar bekler.",
+   "baslangic": 4.586,
+   "bitis": 7.449
+  },
+  {
+   "no": 3,
+   "metin": "Çoklu Dil modülü bunu çözüyor.",
+   "baslangic": 7.92,
+   "bitis": 9.55
+  },
+  {
+   "no": 4,
+   "metin": "Turist QR'ı okutur, dilini seçer.",
+   "baslangic": 9.984,
+   "bitis": 12.148
+  },
+  {
+   "no": 5,
+   "metin": "Menü ve sipariş kendi dilinde açılır.",
+   "baslangic": 12.472,
+   "bitis": 14.508
+  },
+  {
+   "no": 6,
+   "metin": "Ürün adı, açıklama, kategori, hepsi kendi dilinde.",
+   "baslangic": 14.508,
+   "bitis": 14.508,
+   "atla": true
+  },
+  {
+   "no": 7,
+   "metin": "Dilleri siz seçersiniz.",
+   "baslangic": 14.758,
+   "bitis": 16.132
+  },
+  {
+   "no": 8,
+   "metin": "Çevirileri tek tek ya da dosyadan toplu yüklersiniz.",
+   "baslangic": 16.435,
+   "bitis": 19.394
+  },
+  {
+   "no": 9,
+   "metin": "Yirmiden fazla dil.",
+   "baslangic": 19.72,
+   "bitis": 20.926
+  },
+  {
+   "no": 10,
+   "metin": "Garsonunuz dil değil, servis yapsın.",
+   "baslangic": 21.273,
+   "bitis": 23.369
+  },
+  {
+   "no": 11,
+   "metin": "Aynı menüyü kendi telefonunuzda deneyin.",
+   "baslangic": 23.789,
+   "bitis": 25.809
+  },
+  {
+   "no": 12,
+   "metin": "Bağlantı profilimizde.",
+   "baslangic": 26.105,
+   "bitis": 27.233
+  }
+ ]
+}

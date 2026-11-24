@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:02,881
+Garsonunuz yabancı dil bilmiyorsa, turist masası
+
+2
+00:00:02,881 --> 00:00:04,292
+sizi bırakıp gidebilir.
+
+3
+00:00:04,536 --> 00:00:07,549
+Sipariş yanlış anlaşılır, diğer masalar bekler.
+
+4
+00:00:07,870 --> 00:00:09,650
+Çoklu Dil modülü bunu çözüyor.
+
+5
+00:00:09,934 --> 00:00:12,248
+Turist QR'ı okutur, dilini seçer.
+
+6
+00:00:12,422 --> 00:00:14,608
+Menü ve sipariş kendi dilinde açılır.
+
+7
+00:00:14,708 --> 00:00:16,232
+Dilleri siz seçersiniz.
+
+8
+00:00:16,385 --> 00:00:19,494
+Çevirileri tek tek ya da dosyadan toplu yüklersiniz.
+
+9
+00:00:19,670 --> 00:00:21,026
+Yirmiden fazla dil.
+
+10
+00:00:21,223 --> 00:00:23,469
+Garsonunuz dil değil, servis yapsın.
+
+11
+00:00:23,739 --> 00:00:25,909
+Aynı menüyü kendi telefonunuzda deneyin.
+
+12
+00:00:26,055 --> 00:00:27,333
+Bağlantı profilimizde.

@@ -1,0 +1,74 @@
+[
+ {
+  "a": 0,
+  "b": 2.880931506849315,
+  "cumle": 0,
+  "metin": "Garsonunuz yabancı dil bilmiyorsa, turist masası"
+ },
+ {
+  "a": 2.880931506849315,
+  "b": 4.292,
+  "cumle": 0,
+  "metin": "sizi bırakıp gidebilir."
+ },
+ {
+  "a": 4.5360000000000005,
+  "b": 7.5489999999999995,
+  "cumle": 1,
+  "metin": "Sipariş yanlış anlaşılır, diğer masalar bekler."
+ },
+ {
+  "a": 7.87,
+  "b": 9.65,
+  "cumle": 2,
+  "metin": "Çoklu Dil modülü bunu çözüyor."
+ },
+ {
+  "a": 9.934,
+  "b": 12.248,
+  "cumle": 3,
+  "metin": "Turist QR'ı okutur, dilini seçer."
+ },
+ {
+  "a": 12.421999999999999,
+  "b": 14.607999999999999,
+  "cumle": 4,
+  "metin": "Menü ve sipariş kendi dilinde açılır."
+ },
+ {
+  "a": 14.707999999999998,
+  "b": 16.232000000000003,
+  "cumle": 6,
+  "metin": "Dilleri siz seçersiniz."
+ },
+ {
+  "a": 16.384999999999998,
+  "b": 19.494,
+  "cumle": 7,
+  "metin": "Çevirileri tek tek ya da dosyadan toplu yüklersiniz."
+ },
+ {
+  "a": 19.669999999999998,
+  "b": 21.026,
+  "cumle": 8,
+  "metin": "Yirmiden fazla dil."
+ },
+ {
+  "a": 21.223,
+  "b": 23.469,
+  "cumle": 9,
+  "metin": "Garsonunuz dil değil, servis yapsın."
+ },
+ {
+  "a": 23.739,
+  "b": 25.909000000000002,
+  "cumle": 10,
+  "metin": "Aynı menüyü kendi telefonunuzda deneyin."
+ },
+ {
+  "a": 26.055,
+  "b": 27.333000000000002,
+  "cumle": 11,
+  "metin": "Bağlantı profilimizde."
+ }
+]

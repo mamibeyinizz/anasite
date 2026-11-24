@@ -1,0 +1,7 @@
+// En uzun "plaka dışı görünür öğe yok" süresi (30 fps). Öğe: plaka dışı metin, .kt kartı veya .masa.
+import { createRequire } from 'node:module'; import { baslat, CHROME_ARGS } from './sunucu-v9.mjs'; const { chromium } = createRequire(import.meta.url)('playwright');
+const s = await baslat(); const b = await chromium.launch({ args: CHROME_ARGS, env: { ...process.env, NO_PROXY: '127.0.0.1,localhost' } }); const p = await (await b.newContext({ viewport: { width: 1080, height: 1920 } })).newPage(); await p.goto(s.URL); await p.waitForFunction('window.hazir===true');
+const TL = await p.evaluate(() => window.__tl); let run = 0, best = 0, bt = 0, at = 0; const liste = [];
+for (let t = 0; t < TL.SURE; t += 1 / 30) { const n = await p.evaluate((t) => { window.frame(t); let c = 0; const vis = (e) => { let o = 1; for (let x = e; x && x !== document.body; x = x.parentElement) o *= parseFloat(getComputedStyle(x).opacity); return o; }; for (const e of document.querySelectorAll('.sahne')) if (parseFloat(getComputedStyle(e).opacity) > 0.15) c++; return c; }, t);
+  if (n === 0) { if (run === 0) at = t; run++; if (run / 30 > best) { best = run / 30; bt = at; } } else { if (run) liste.push([+at.toFixed(2), +(run / 30).toFixed(2)]); run = 0; } }
+console.log(JSON.stringify({ enUzunBosSure: +best.toFixed(2), baslangic: +bt.toFixed(2), bosAraliklar: liste })); await b.close(); s.kapat(); process.exit(0);

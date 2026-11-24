@@ -1,0 +1,202 @@
+{
+ "tam": {
+  "video": "out/coklu-dil-reels_v9.mp4",
+  "sure": 31.9,
+  "lufs": -14.1,
+  "ornekTepeDB": -1.81,
+  "dom": {
+   "ihlal": {
+    "cakisma": [],
+    "altOrtu": [],
+    "plakaOpak": [],
+    "guvenliBolge": [],
+    "sagRay": [],
+    "minYazi": [],
+    "kontrast": [],
+    "kanit": [],
+    "yasakIfade": [],
+    "cip": []
+   },
+   "altyazi": {
+    "cumle": 12,
+    "metinEsleme": 12,
+    "farkli": [],
+    "enBuyukBaslangicSapmasi": 0.05,
+    "parcaSayisi": 14,
+    "enKisaParca": 0.62,
+    "bayatKare": 0,
+    "bayatZamanlar": [],
+    "satirIhlali": []
+   },
+   "csv": {
+    "tCSV": 21.71332,
+    "iceAktarVurgu": [
+     21.63,
+     23.5
+    ],
+    "dillerVurgu": [
+     18.63,
+     25
+    ],
+    "disaAktar": "Kırpma pencereleri Dışa Aktar kartını geometrik olarak içermez (Diller: css y≤307; İçe Aktar: css x≥604); hiçbir karede vurgulanmaz"
+   },
+   "tarama": {
+    "yasakAnimasyon": [],
+    "halkaVarMi": false,
+    "kiril_arap": false
+   },
+   "kontrastEnDusukPlaka": 7.79,
+   "kanitKutulari": {
+    "900x600": 249,
+    "900x225": 370
+   },
+   "ozet": {
+    "cakisma": 0,
+    "altOrtu": 0,
+    "plakaOpak": 0,
+    "guvenliBolge": 0,
+    "sagRay": 0,
+    "minYazi": 0,
+    "kontrast": 0,
+    "kanit": 0,
+    "yasakIfade": 0,
+    "cip": 0
+   }
+  }
+ },
+ "kisa": {
+  "video": "out/coklu-dil-reels_v9-kisa.mp4",
+  "sure": 28.03,
+  "lufs": -14.1,
+  "ornekTepeDB": -1.68,
+  "dom": {
+   "ihlal": {
+    "cakisma": [],
+    "altOrtu": [],
+    "plakaOpak": [],
+    "guvenliBolge": [],
+    "sagRay": [],
+    "minYazi": [],
+    "kontrast": [],
+    "kanit": [],
+    "yasakIfade": [],
+    "cip": []
+   },
+   "altyazi": {
+    "cumle": 11,
+    "metinEsleme": 11,
+    "farkli": [],
+    "enBuyukBaslangicSapmasi": 0.05,
+    "parcaSayisi": 12,
+    "enKisaParca": 1.28,
+    "bayatKare": 0,
+    "bayatZamanlar": [],
+    "satirIhlali": []
+   },
+   "csv": {
+    "tCSV": 17.85532,
+    "iceAktarVurgu": [
+     17.77,
+     19.67
+    ],
+    "dillerVurgu": [
+     14.8,
+     21.13
+    ],
+    "disaAktar": "Kırpma pencereleri Dışa Aktar kartını geometrik olarak içermez (Diller: css y≤307; İçe Aktar: css x≥604); hiçbir karede vurgulanmaz"
+   },
+   "tarama": {
+    "yasakAnimasyon": [],
+    "halkaVarMi": false,
+    "kiril_arap": false
+   },
+   "kontrastEnDusukPlaka": 7.79,
+   "kanitKutulari": {
+    "900x600": 133,
+    "900x225": 372
+   },
+   "ozet": {
+    "cakisma": 0,
+    "altOrtu": 0,
+    "plakaOpak": 0,
+    "guvenliBolge": 0,
+    "sagRay": 0,
+    "minYazi": 0,
+    "kontrast": 0,
+    "kanit": 0,
+    "yasakIfade": 0,
+    "cip": 0
+   }
+  }
+ },
+ "bosGecis": {
+  "tam": {
+   "enUzunBosSure": 0.3,
+   "baslangic": 31.33,
+   "bosAraliklar": [
+    [
+     4.53,
+     0.03
+    ],
+    [
+     7.87,
+     0.03
+    ],
+    [
+     9.93,
+     0.03
+    ],
+    [
+     18.57,
+     0.03
+    ],
+    [
+     25.07,
+     0.03
+    ],
+    [
+     27.6,
+     0.03
+    ],
+    [
+     31.33,
+     0.3
+    ]
+   ]
+  },
+  "kisa": {
+   "enUzunBosSure": 0.27,
+   "baslangic": 27.5,
+   "bosAraliklar": [
+    [
+     4.53,
+     0.03
+    ],
+    [
+     7.87,
+     0.03
+    ],
+    [
+     9.93,
+     0.03
+    ],
+    [
+     14.7,
+     0.03
+    ],
+    [
+     21.2,
+     0.07
+    ],
+    [
+     23.73,
+     0.03
+    ],
+    [
+     27.5,
+     0.27
+    ]
+   ]
+  }
+ }
+}
