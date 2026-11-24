@@ -30,18 +30,17 @@ const s3 = sahne(zum); etiket(s3); const k3 = $('div', 'blok', { top: '380px', f
 const KOD = ['TR · EN · DE · FR', 'ES · IT · RU · AR']; const kodlar = KOD.map((t, i) => $('div', 'kod', { left: '96px', top: (660 + i * 140) + 'px', fontSize: '92px', color: '#F4F1E8' }, s3, t));
 const kod3 = $('div', 'kodsira', null, s3); ['TR', 'EN', 'DE', 'FR', 'ES', 'IT', 'RU', 'AR'].forEach((c) => $('span', 'dekor', null, kod3, c));
 // S4 çözüm: gerçek ekran kırpma kartı 900×600 (x90–990, y400–1000)
-const s4 = sahne(zum); etiket(s4); const KX = 90, KY = 400, KW = 900, KH = 600; const es4 = $('div', 'es', { left: '96px', top: '338px' }, s4, 'TR · Türkçe'); const rz = $('div', 'es s', { right: '90px', top: '344px' }, s4, 'Gerçek demo menü');
+const s4 = sahne(zum); etiket(s4); const KX = 90, KY = 372, KW = 900, KH = 628; const es4 = $('div', 'es', { left: '96px', top: '318px' }, s4, 'TR · Türkçe'); const rz = $('div', 'es s', { right: '90px', top: '324px' }, s4, 'Gerçek demo menü');
 const kt = $('div', 'kt', { left: KX + 'px', top: KY + 'px', width: KW + 'px', height: KH + 'px' }, s4);
 const SRC = { dd: '/ekran/02-dil-secici.png', tr: '/ekran/03-menu-tr.png', en: '/ekran/04-menu-en.png', de: '/ekran/05-menu-de.png', fr: '/ekran/06-menu-fr.png' };
-const KS = { dd: { k: 1.0, x0: 0, y0: 122 }, tr: { k: 1.125, x0: 30, y0: 868 }, en: { k: 1.125, x0: 30, y0: 868 }, de: { k: 1.125, x0: 30, y0: 868 }, fr: { k: 1.125, x0: 30, y0: 868 } }; const kim = {};
+const KS = { dd: { k: 1.0, x0: 0, y0: 122 }, tr: { k: 1.15, x0: 30, y0: 868 }, en: { k: 1.15, x0: 30, y0: 868 }, de: { k: 1.15, x0: 30, y0: 868 }, fr: { k: 1.15, x0: 30, y0: 868 } }; const kim = {};
 for (const [k, u] of Object.entries(SRC)) { const c = KS[k]; const im = $('img', '', { opacity: 0, left: (-c.x0 * c.k) + 'px', top: (-c.y0 * c.k) + 'px', width: (860 * c.k) + 'px', height: (1800 * c.k) + 'px' }, kt); im.src = u; kim[k] = im; }
 const ETI = { dd: 'Dil seçici', tr: 'TR · Türkçe', en: 'EN · English', de: 'DE · Deutsch', fr: 'FR · Français' };
 const sirit = $('div', 'sirit', null, s4); const chip = {}; ['tr', 'en', 'de', 'fr'].forEach((k, i) => { chip[k] = $('div', 'dekor', { left: (100 + (i % 2) * 430) + 'px', top: (1320 + Math.floor(i / 2) * 250) + 'px' }, sirit, `<b>${k.toUpperCase()}</b>`); });
 // S5 modül: Diller + CSV İçe Aktar kırpmaları (hub, css→px ×2, ölçek 1,15)
 const s5 = sahne(zum); etiket(s5); const k5 = $('div', 'es', { left: '96px', top: '350px', fontSize: '84px', letterSpacing: '-.03em' }, s5, '20\'den fazla dil');
-const HUB = '/ekran/07b-panel-hub.png'; const HK = 1.15; const mkP = (top, cx, cy, ch) => { const f = $('div', 'kt', { left: '90px', top: top + 'px', width: '900px', height: Math.round(ch * 2 * HK) + 'px', background: '#F4F1E8' }, s5); const im = $('img', '', { left: (-cx * 2 * HK) + 'px', top: (-cy * 2 * HK) + 'px', width: (2560 * HK) + 'px' }, f); im.src = HUB; const d = $('div', 'dim', { opacity: 0, zIndex: 2 }, f), c = $('div', 'cer', { zIndex: 3 }, f); return { f, d, c }; };
-const pD = mkP(480, 264, 209, 98), pC = mkP(760, 604, 309, 98);
-const mask = (p, sol) => $('div', '', { position: 'absolute', top: '0', bottom: '0', left: sol + 'px', right: '0', background: '#F4F1E8', zIndex: 1 }, p.f); mask(pD, Math.round((604 - 264) * 2 * HK)); mask(pC, Math.round((936 - 604) * 2 * HK));
+const HUB = '/ekran/07b-panel-hub.png'; const HK = 1.15; const mkP = (top, cx, cy, ch) => { const f = $('div', 'kt', { left: '158px', top: top + 'px', width: '764px', height: Math.round(ch * 2 * HK) + 'px', background: '#F4F1E8' }, s5); const im = $('img', '', { left: (-cx * 2 * HK) + 'px', top: (-cy * 2 * HK) + 'px', width: (2560 * HK) + 'px' }, f); im.src = HUB; const d = $('div', 'dim', { opacity: 0, zIndex: 2 }, f), c = $('div', 'cer', { zIndex: 3 }, f); return { f, d, c }; };
+const pD = mkP(480, 272, 209, 98), pC = mkP(760, 604, 309, 98);
 const kod5 = $('div', 'kodsira', null, s5); ['TR', 'EN', 'DE', 'FR', 'ES', 'IT', 'RU', 'AR'].forEach((c) => $('span', 'dekor', null, kod5, c));
 // S6 fayda (altın): servis kartları
 const s6 = sahne(altin); etiket(s6); const sv = [0, 1, 2, 3].map((i) => CARD(s6, i, `<div class="b">MASA ${i + 1}</div><div class="d">SERVİSTE</div>`, true)); GH(s6, 4, 1300, 'servis');
@@ -69,13 +68,13 @@ const pen = (t, a, b) => Math.min(a <= 0 ? 1 : eo(t, a, 0.3), 1 - seg(t, b - OUT
 function frame(t) {
   t = clamp(t, 0, SURE); const loop = t >= KAPAN;
   const pin = e5(seg(t, T.r3 - 0.3, T.r3 + 0.15)), pout = e5(seg(t, T.r7 - 0.3, T.r7 + 0.15)); zum.style.clipPath = `inset(${Math.max(1 - pin, pout) * 100}% 0 0 0)`;
-  const a1 = t < T.r2 ? 1 : 0; const hook = loop ? eo(t, KAPAN + 0.4, 0.3) : Math.min(1, pen(t, T.r1, T.r2)); kayma(s1, Math.min(1, loop ? hook : (t < T.r2 ? pen(t, 0, T.r2) : 0)), 0);
+  const a1 = t < T.r2 ? 1 : 0; const hook = loop ? eo(t, KAPAN + 0.2, 0.3) : Math.min(1, pen(t, T.r1, T.r2)); kayma(s1, Math.min(1, loop ? hook : (t < T.r2 ? pen(t, 0, T.r2) : 0)), 0);
   kayma(s2, pen(t, T.r2, T.r3), 30); kayma(s3, pen(t, T.r3, T.r4), 30); kayma(s4, pen(t, T.r4, T.r6), 30); kayma(s5, pen(t, T.r6, T.r7), 30); kayma(s6, pen(t, T.r7, T.r8), 30);
   kayma(s7, loop ? 1 - seg(t, KAPAN, KAPAN + OUT) : pen(t, T.r8, 1e9), 30);
   sel.forEach((e, i) => { const a = (loop ? 0 : eo(t, 0.3 + i * 0.5, 0.4)) * 0.62; e.style.opacity = a.toFixed(3); });
   mc.forEach((e, i) => { if (i === 0) return; e.querySelector('.z i').style.width = (seg(t, T.r2 + 0.5 + i * 0.3, S[1].bitis) * 100).toFixed(1) + '%'; });
   // S4 kart durumu
-  const tD = T.r4, tTR = S[4].baslangic, d4 = S[4].bitis - S[4].baslangic, kisa = !!S[5].atla, tEN = S[4].baslangic + (kisa ? 0.4 : 0.55) * d4, tDE = kisa ? S[4].baslangic + 0.65 * d4 : S[5].baslangic + 0.1, tFR = kisa ? S[4].baslangic + 0.85 * d4 : S[5].baslangic + 0.55 * (S[5].bitis - S[5].baslangic);
+  const tD = T.r4, tTR = S[4].baslangic - 1.0, d4 = S[4].bitis - S[4].baslangic, kisa = !!S[5].atla, tEN = S[4].baslangic + (kisa ? 0.45 : 0.55) * d4, tDE = kisa ? S[4].baslangic + 0.65 * d4 : S[5].baslangic + 0.1, tFR = kisa ? S[4].baslangic + 0.85 * d4 : S[5].baslangic + 0.55 * (S[5].bitis - S[5].baslangic);
   const SIRA = [[tD, 'dd'], [tTR, 'tr'], [tEN, 'en'], [tDE, 'de'], [tFR, 'fr']]; let ki = 0; for (let k = 0; k < SIRA.length; k++) if (t >= SIRA[k][0]) ki = k; const mix = ki > 0 ? clamp((t - SIRA[ki][0]) / 0.16) : 1; const kB = SIRA[ki][1], kA = ki > 0 ? SIRA[ki - 1][1] : kB;
   for (const [k, im] of Object.entries(kim)) im.style.opacity = k === kB ? String(mix) : (k === kA && mix < 1 ? '1' : '0');
   es4.textContent = ETI[kB]; for (const [k, e] of Object.entries(chip)) e.className = 'dekor' + (kB === k ? ' on' : '');
@@ -83,9 +82,10 @@ function frame(t) {
   const hlC = t >= tCSV - 0.1 && t < S[8].baslangic - 0.05; const kD = t >= S[6].baslangic - 0.05 && t < S[7].bitis ? 1 : 0; const hlD = !hlC && t >= S[6].baslangic - 0.05;
   pD.d.style.opacity = hlD ? '0' : '0.55'; pD.c.style.opacity = hlD ? '1' : '0'; pC.d.style.opacity = hlC ? '0' : '0.55'; pC.c.style.opacity = hlC ? '1' : '0';
   const kk = Math.min(eo(t, S[6].baslangic - 0.05, 0.25), 1 - seg(t, S[6].bitis + 0.05 - OUT, S[6].bitis + 0.05)); kayma(k5, clamp(kk), 16);
-  // altyazı: plaka HER karede opak; yalnız metin 60 ms ile değişir
-  let ch = null; for (const c of CH) if (t >= c.a && t < c.b) ch = c; let pa = 0; if (ch) { const h = tpl(ch); if (ptA.dataset.h !== h) { ptA.innerHTML = h; ptZ.innerHTML = h; ptA.dataset.h = h; } pa = Math.min(eo(t, ch.a, 0.06, (x) => x), 1 - seg(t, ch.b - 0.06, ch.b)); } if (loop) pa = 0;
-  ptA.style.opacity = pa.toFixed(3); ptZ.style.opacity = pa.toFixed(3); plA.style.opacity = '1'; plZ.style.opacity = '1';
+  // altyazı: plaka yalnız cümle varken görünür; sessizlik >0,15 sn ise plaka+metin 120 ms'de söner (boş plaka yok); bitişik parçalar arası anlık geçiş
+  let ci = -1; for (let k = 0; k < CH.length; k++) if (t >= CH[k].a && t < CH[k].b) ci = k; let pa = 0; if (ci >= 0) { const c = CH[ci], pv = CH[ci - 1], nx = CH[ci + 1]; const h = tpl(c); if (ptA.dataset.h !== h) { ptA.innerHTML = h; ptZ.innerHTML = h; ptA.dataset.h = h; }
+    const fi = !(pv && c.a - pv.b <= 0.15), fo = !(nx && nx.a - c.b <= 0.15); pa = (fi ? eo(t, c.a, 0.12, (x) => x) : 1) * (fo ? 1 - seg(t, c.b - 0.12, c.b) : 1); }
+  ptA.style.opacity = '1'; ptZ.style.opacity = '1'; plA.style.opacity = pa.toFixed(3); plZ.style.opacity = pa.toFixed(3);
   return true;
 }
 window.frame = frame;

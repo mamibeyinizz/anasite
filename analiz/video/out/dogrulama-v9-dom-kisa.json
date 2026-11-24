@@ -41,9 +41,11 @@
  },
  "kontrastEnDusukPlaka": 7.79,
  "kanitKutulari": {
-  "900x600": 133,
-  "900x225": 372
+  "900x628": 133,
+  "764x225": 372
  },
+ "bosPlakaSuresiSn": 0,
+ "plakaGorunurSn": 25.13,
  "ozet": {
   "cakisma": 0,
   "altOrtu": 0,

@@ -1,4 +1,13 @@
-# Çoklu Dil Reels v9 — rapor
+# Çoklu Dil Reels v9 — rapor (revizyon 2)
+
+## Revizyon 2 (inceleme düzeltmeleri)
+1. **Boş plaka yok:** plaka yalnız konuşma parçası varken görünür; parçalar arası sessizlik >0,15 sn ise plaka + metin 120 ms'de söner, yeni cümlede 120 ms'de geri gelir; bitişik parçalar arasında anlık geçiş. Testte "boş plaka süresi" = **0,000 sn** (tam ve kısa). Plaka görünür süre: tam 28,7 / kısa 25,13 sn.
+2. **Son 0,7 sn:** kapanış metni 160 ms'de çıkar, kanca metni 300 ms'de girer; plaka yok. Plaka dışı öğesiz en uzun an: tam 0,10 sn, kısa 0,07 sn (önceki 0,3 sn).
+3. **S5 kırpmaları:** sağdaki krem maske kaldırıldı; kart içeriğe oturdu (764×225, ortalı). Not: genişlik 900'den 764'e düştü (komşu kart şeridi kadrajda kalmasın diye).
+4. **S4 kanıt kartı:** 900×628 (önceki 900×600), menü ekranları ölçek 1,15 (etkin metin ürün adı ≈33, fiyat ≈32, açıklama ≈26 px). 900×720 mümkün değil: B bölgesi y 330–1020, plaka y 1040'ta; etiket satırı + kart toplam 690 px'e sığar. Sığmayan 3. satır kırpıldı.
+5. **Senkron:** dil seçici, cümle 5 ("Menü ve sipariş kendi dilinde açılır") başlamadan 1,0 sn önce kapanır; TR menü cümle başında görünür (kontrol: 12,27 sn karesi = TR menü, plaka henüz yok).
+Önceki sürümle aynı kalanlar aşağıda.
+
 
 Dosyalar: `out/coklu-dil-reels_v9.mp4` (31,9 sn) · `out/coklu-dil-reels_v9-kisa.mp4` (28,03 sn; cümle 6 çıkarıldı) · `.srt` (tam ve kısa) · `out/dogrulama-v9-*.json` · `out/sheet-v9-*.jpg` · `out/kontrol-v9/`.
 Ses ve metin değişmedi (`ses/anlatim-v4.mp3`, `ses-metni-v4.md`). Kısa sürüm: `ses/kisa-uret-v4.py` (kesim 0,25 sn boşluk + 20 ms solma, hız değişmez) → `ses/anlatim-v4-kisa.mp3`, `ses/cue-v4-kisa.json`.
@@ -9,7 +18,7 @@ Teslim: video 1080×1920, 30 fps, H.264 bt709 ≈6,7 Mbps, −14,1 LUFS, örnek 
 Kullanıcı kararları (Faz A): D dekor metni kalsın (testte `.dekor` muaf); aktif dil B'de yazılı ("TR · Türkçe" vb.); S2 boş çerçeveler MASA 5–8 ile dolduruldu, S3 boş çerçeveler kaldırıldı (yerine D'de dekor dil çipleri); Diller/CSV kırpmalarında komşu kart şeridi maskelendi; dil seçicide "Filtrele" artık tam görünüyor.
 
 ## Otomatik test sonuçları (30 fps, tam ve kısa; hepsi 0 ihlal)
-metin–metin çakışma 0 · y>1248'de işlevsel öğe 0 · plaka opaklığı <%95 olan kare 0 · güvenli bölge 0 · sağ ray 0 · min yazı ≥36 px (ihlal 0) · kontrast (dolgu-bilinçli; plaka ≥7:1, en düşük 7,79; diğer ≥4,5) 0 ihlal · kanıt kartı genişliği ≥900 (0 ihlal) · çipler yalnız 8 dil · yasak ifade ("Bekleme süresi", d:dd, otuz, 30 dil, PT/NL/PL) 0 · halka/karartma DOM'da yok · bounce/elastic/rotate yok · Kiril/Arapça glif yok · altyazı metni = ses metni (tam 12/12, kısa 11/11) · başlangıç sapması ≤0,05 sn · bayat metin 0 · satır ihlali 0 · CSV İçe Aktar vurgusu tam: 21,63–23,50 sn, kısa: 17,77–19,67 sn.
+metin–metin çakışma 0 · y>1248'de işlevsel öğe 0 · boş plaka (görünür ama metinsiz / konuşma penceresi dışında) kare 0 · güvenli bölge 0 · sağ ray 0 · min yazı ≥36 px (ihlal 0) · kontrast (dolgu-bilinçli; plaka ≥7:1, en düşük 7,79; diğer ≥4,5) 0 ihlal · kanıt kartı genişliği ≥900 (0 ihlal) · çipler yalnız 8 dil · yasak ifade ("Bekleme süresi", d:dd, otuz, 30 dil, PT/NL/PL) 0 · halka/karartma DOM'da yok · bounce/elastic/rotate yok · Kiril/Arapça glif yok · altyazı metni = ses metni (tam 12/12, kısa 11/11) · başlangıç sapması ≤0,05 sn · bayat metin 0 · satır ihlali 0 · CSV İçe Aktar vurgusu tam: 21,63–23,50 sn, kısa: 17,77–19,67 sn.
 Test notu: metin kutuları çakışma/güvenli bölge için dikeyde %18 daraltıldı (font içerik kutusu yerine glif yüksekliğine yakın); ilk denemede bu olmadan yanlış pozitif çıktı.
 
 ## Dürüstçe: sınırlı/başarısız noktalar
@@ -23,5 +32,8 @@ Test notu: metin kutuları çakışma/güvenli bölge için dikeyde %18 daraltı
 8. Plaka metni geçişlerinde (60 ms) kısa boş an olabilir; plaka kendisi her karede opak.
 9. Gerçek telefonda Reels arayüzü testi, telaffuz ve kesim kontrolü yapılmadı (ses dinlenemedi; kesim doğal sessizlik ortasında).
 
-## Hangi kareleri açıp bakıldı
+## Revizyon 2'de açıp bakılanlar
+Anahtar kareler 5-en-menu, 7-csv-vurgusu, 9c/9d-loop, 4-dil-secici tam boyutta; nihai tam videodan 4,3 / 12,27 / 31,5 sn kareleri tam boyutta; 1 fps kontak sayfası (tam). Kısa sürümün kontak sayfası bu revizyonda açılmadı (aynı kod yolu; testleri 0 ihlal).
+
+## Hangi kareleri açıp bakıldı (ilk sürüm)
 Faz A kontrol karelerinin TAMAMI tam boyutta: 1-kanca, 2-aci, 3-donus, 4-dil-secici, 5-en-menu, 6-diller, 7-csv-vurgusu, 8-kapanis, 9a-gecis-4.4s, 9b-gecis-4.6s, 9c-loop-gecis, 9d-loop-gecis (3, 4, 6, 7, 8 düzeltme sonrası yeniden). Son videolar için: tam ve kısa 1 fps kontak sayfaları (`sheet-v9-1sn.jpg`, `sheet-v9-kisa-1sn.jpg`) ve v8|v9 karşılaştırma (`kontrol-v9/karsilastirma-v8-v9.jpg`) açılıp bakıldı; nihai videodan tam boyutlu tek kare ayrıca açılmadı (kareler aynı render hattından).

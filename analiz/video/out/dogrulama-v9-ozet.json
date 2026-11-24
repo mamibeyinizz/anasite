@@ -1,4 +1,5 @@
 {
+ "revizyon": "v9 r2",
  "tam": {
   "video": "out/coklu-dil-reels_v9.mp4",
   "sure": 31.9,
@@ -47,9 +48,11 @@
    },
    "kontrastEnDusukPlaka": 7.79,
    "kanitKutulari": {
-    "900x600": 249,
-    "900x225": 370
+    "900x628": 249,
+    "764x225": 370
    },
+   "bosPlakaSuresiSn": 0,
+   "plakaGorunurSn": 28.7,
    "ozet": {
     "cakisma": 0,
     "altOrtu": 0,
@@ -112,9 +115,11 @@
    },
    "kontrastEnDusukPlaka": 7.79,
    "kanitKutulari": {
-    "900x600": 133,
-    "900x225": 372
+    "900x628": 133,
+    "764x225": 372
    },
+   "bosPlakaSuresiSn": 0,
+   "plakaGorunurSn": 25.13,
    "ozet": {
     "cakisma": 0,
     "altOrtu": 0,
@@ -131,7 +136,7 @@
  },
  "bosGecis": {
   "tam": {
-   "enUzunBosSure": 0.3,
+   "enUzunBosSure": 0.1,
    "baslangic": 31.33,
    "bosAraliklar": [
     [
@@ -160,13 +165,13 @@
     ],
     [
      31.33,
-     0.3
+     0.1
     ]
    ]
   },
   "kisa": {
-   "enUzunBosSure": 0.27,
-   "baslangic": 27.5,
+   "enUzunBosSure": 0.07,
+   "baslangic": 21.2,
    "bosAraliklar": [
     [
      4.53,
@@ -194,7 +199,7 @@
     ],
     [
      27.5,
-     0.27
+     0.07
     ]
    ]
   }
