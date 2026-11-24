@@ -14,7 +14,7 @@ const logo = fs.readFileSync(path.join(dir, '../../assets/brand/qr-menu-official
 html = html.replace(/<div class="logo">[\s\S]*?<\/div>\n<\/div>/, `<div class="logo">${logo}</div>\n</div>`);
 html = html.replace('{{MODUL}}', esc(veri.modul)).replace('{{Q}}', satir(veri.soru)).replace('{{S}}', satir(veri.cevap));
 const gecici = path.join(dir, `.tmp-${veri.id}.html`); fs.writeFileSync(gecici, html);
-const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1440 }, deviceScaleFactor: 1 });
+const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1440 }, deviceScaleFactor: +(process.env.DSF||1) });
 await p.goto('file://' + gecici); await p.waitForFunction(() => document.body.dataset.ready);
 const png = path.join(out, `${veri.id}.png`); await p.screenshot({ path: png }); await b.close(); fs.unlinkSync(gecici);
 console.log('yazıldı:', png);
