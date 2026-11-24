@@ -3,7 +3,7 @@
 Dal: `claude/qr-menu-instagram-strategy-rs76jf` (PR yok, ana dala push yok). Mevcut Çoklu Dil v9 hattını (`analiz/video/render/*-v9.*`, `ses/cue-uret-v4.py`, `ses/kisa-uret-v4.py`, `test-v9.mjs`, `encode-v9.sh`) KOPYALAYIP genelleştir; v1–v9 dosyaları DEĞİŞMEZ. Yeni çıktılar `analiz/yorum-feedback/video/` altında (`render/`, `ses/`, `out/`, `ekran/`).
 
 ## Girdiler
-- Ses metni: `analiz/yorum-feedback/video/ses-metni-yorum.md` (DEĞİŞTİRME). Ses: kullanıcı üretip `analiz/yorum-feedback/video/ses/anlatim-yorum.mp3` olarak koyacak. Ses yoksa Faz A (anahtar kareler, tahmini zaman) ile DUR.
+- Ses metni: `analiz/yorum-feedback/video/ses-metni-yorum-v2.md` GEÇERLİ sürümdür (v1 `ses-metni-yorum.md` kullanılmayacak; sahne planı v2 dosyasındaki 'Sahne eşleşmesi' bölümüdür). DEĞİŞTİRME. Ses: kullanıcı üretip `analiz/yorum-feedback/video/ses/anlatim-yorum.mp3` olarak koyacak. Ses yoksa Faz A (anahtar kareler, tahmini zaman) ile DUR.
 - Marka/tasarım: `tools/ig-carousel/SPEC.md`, `analiz/yorum-feedback/final/2-carousel-*.jpg` (carousel), `analiz/video/video-v9-prompt.md` ve `video-v9-rapor.md` (bölge sistemi, altyazı, test listesi). Aynı dil: Manrope, altın açılış/kapanış + zümrüt orta, 1080×1920, bölgeler A (270–330 etiket "YORUM & FEEDBACK MODÜLÜ"), B (330–1020 ana görsel), C (1040–1236 altyazı plakası), D (1248+ yalnız dekor), güvenli bölge x65–1015, sağ ray boş.
 - Altyazı = ses metninin aynısı; plaka yalnız konuşma varken görünür (sessizlik >0,15 sn → plaka ve metin 120 ms'de söner; boş plaka süresi 0 testi).
 
