@@ -16,6 +16,23 @@ Dal: `claude/qr-menu-instagram-strategy-rs76jf` (PR yok, ana dala push yok). Mev
 Yöntem: `tools/panel-video/` (salt okunur); kimlik bilgisi YALNIZCA `PANEL_HOST/PANEL_USER/PANEL_PASS` ortam değişkenlerinden, sohbet/log/repo'ya YAZMA, çerezleri `tools/panel-video/w/` (gitignore) altında tut ve iş bitince sil. Ortam değişkenleri yoksa ya da bir ekran alınamıyorsa: **UYDURMA, SAHTE ARAYÜZ ÇİZME**; hangi ekranların eksik olduğunu listele ve DUR (kullanıcı ekran görüntüsü verecek).
 **Mahremiyet (zorunlu):** Ekranlarda gerçek müşteri adı, telefon, e-posta, IP, yorum metni OLMAMALI. Yalnız demo/örnek veri. İzinli Kişiler (ad/telefon/e-posta) bloğunu HİÇ gösterme. Gerçek veri görünüyorsa bulanıklaştırma YETMEZ: ekranı yeniden al ya da o bölgeyi kırp.
 
+## v6 EKRAN İHTİYACI VE DEMO YORUM YETKİSİ (kullanıcının kendi sözleriyle verdiği yetki)
+Kullanıcı yazdı: "Test sitesine tutarlı yorumlar yapsın rastgele adlar mailler girip puan versin 10 tane, sonra videoyu alsın." Bu, yalnız aşağıdaki sınırlar içinde `test.qrmenuofficial.com` (kullanıcının kendi test ortamı) için YETKİDİR.
+
+**Daraltılmış ekran ihtiyacı (yukarıdaki 4 ekranlık listeyi geçersiz kılar):** v6 sesi iki ekran ister: (1) müşteri yorum formu (alındı: `ekran/01-yorum-formu.png`; kırpma: başlık + ilk üç kriter satırı, adım göstergesi hariç, tam form 0,5 sn ikinci kare) ve (2) panel masa/saat/kriter raporu (cümle 5). Bekleyen yorumlar, düşüş uyarısı ve trend ekranı GEREKMİYOR (kapanış sahnesi PUAN · YORUM · RAPOR · UYARI çipleriyle, ekransız).
+
+**Demo yorum gönderimi (tam 10 adet, daha fazla değil):**
+- Kaynak: menü sayfasındaki gerçek form, normal akışla (tarayıcı otomasyonu). Gönderim sayısını say; her gönderimde başarı yanıtını doğrula; hata olursa aynı yorumu TEKRAR gönderme (çift kayıt olmasın), dur ve raporla.
+- Masalar: `?masa=` ile 4 farklı masa (Masa 1–4); 2–3 yorum/masa. Tutarlı hikâye: Yemek ve Temizlik puanları genelde 4–5; **Masa 3'te Hizmet Hızı 1–2** (diğer masalarda 4–5), böylece raporda "sorunun nerede yaşandığı" görünür. Atmosfer ve Fiyat/Performans 3–5.
+- Yorum metni: kısa, anonim, Türkçe, tutarlı ("Yemekler çok lezzetliydi", "Servis çok yavaştı, uzun bekledik"). Kişi/işletme adı, telefon, adres YOK.
+- **Ad ve e-posta (kullanıcı kararı):** rastgele KURGUSAL adlar ("Demo Misafir 1…") ve e-postalar YALNIZ ayrılmış alan adlarıyla: `demo1@example.com`, `demo2@example.com`… (RFC 2606; gerçek bir posta kutusuna asla e-posta gitmesin). Form iletişim izni/telefon alanı isteğe bağlıysa BOŞ bırak; izin kutusunu işaretleme.
+- YAPMA: Google adımındaki bağlantıya tıklama; ödül/indirim kodu alma (ödül akışında e-posta gönderilir); aynı IP/e-posta için hız sınırına (rate limit) takılırsan AŞMAYA ÇALIŞMA (proxy, IP değiştirme, bekleme-döngüsü yok): DUR, kaç yorum gittiğini yaz.
+- Test verisi kalıcıdır (silme yok); yorumlar "onay bekleyen" kalır, onaylama YOK (herkese açık sayfada görünmez).
+
+**Rapor ekranı (ekran 3):** Gönderimlerden sonra panele `PANEL_*` ile salt okunur gir (kimlik bilgisi sohbete/log'a/repoya yazılmaz; çerez iş bitince silinir), Tüm Yorumlar → Rapor sekmesinde masa tablosu + saat dağılımı + kriter ortalamalarını yakala (`ekran/03-masa-rapor.png`). Ekranda gerçek kişi verisi olmamalı (sadece "Demo Misafir…" ve example.com görünebilir; İzinli Kişiler bloğunu KIRP). "Yeterli veri yok" görünüyorsa ya da Masa 3 hizmet farkı okunmuyorsa DUR, sahte ekran yok.
+
+**Sonra:** `cue-uret-yorum.py` → tam render + kısa sürüm (cümle 4 çıkarılır) → testler → `.srt` → rapor (kaç yorum gönderdiğin dahil).
+
 ## Sahne planı (süreler `ses/cue-yorum.json`'dan; sabit saniye yazma)
 1. **Kanca (ALTIN):** B: "Puanlar düşerken / siz **farkında** / mısınız?" (carousel kapağıyla aynı). D: dekor yok ya da yıldız-puan satırı (5 boş yıldız outline, metinsiz).
 2. **Acı (ALTIN):** cümle 2. B: tek soru-kart, 3 satırlık "Şikayet kime ulaşıyor?" benzeri ANAHTAR KART YASAK (altyazıyı tekrarlar). Yerine görsel: 2 sütunlu şema "Size" / "Yeni müşteriye" iki kutu, biri boş-soru işaretsiz nötr; metin ≥40 px. Satış cümlesi yok.
