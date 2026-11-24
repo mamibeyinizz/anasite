@@ -10,6 +10,7 @@ Modülün gerçekten yaptığı şeyler (başka özellik uydurma):
 3. Raporlar: masa bazlı özet (hangi masa kaç puan), saat dağılımı, vardiya kırılımı, kriter bazlı haftalık/aylık trend grafikleri, tarih aralığı filtresi.
 4. Düşüş uyarısı: bir kriterin puanı son 7 günde önceki 7 güne göre belirgin düştüğünde (en az 5 yorum varsa) panelde uyarı çıkar. Sorunu erken görmeyi sağlar.
 5. Özel formlar: işletme kendi şikayet/rezervasyon/anket formunu oluşturabilir; iletişim formu; izin veren müşterilerin iletişim bilgisi (ad/telefon/e-posta) raporda listelenir.
+6. Google yönlendirme (modülde var, ama başlıkta KULLANILMAYACAK; bilgi için): İşletme Google yorum linkini girer ve bir eşik seçer (3 / 3,5 / 4 / 4,5 / 5 ve üzeri; varsayılan açık, 3,5). Puan ortalaması eşiğin üstündeki müşteriye form sonunda "Google'da değerlendir" daveti gösterilir; eşiğin altındaki değerlendirme Google'a yönlendirilmez, yalnızca işletmeye ulaşır. Opsiyonel ödül kodu sistemi de vardır. DİKKAT: Bu, Google'ın yorum politikasının yasakladığı seçici yönlendirmedir (review gating); işletmenin kendi blogu da bunu "hesabı riske atar" diye yazıyor. Bu yüzden bu özellik başlıkta ve destek cümlesinde reklamı yapılacak bir fayda DEĞİLDİR.
 
 ## KAPAK BAŞLIĞI MEKANİZMASI (şu 4 işi aynı anda yapmalı)
 1. MODÜLÜ ANLAT: Okuyan restoran sahibi 2 saniyede "bu menüde müşteri puanı/yorumu toplayan, ben yöneten, raporlayan bir modül" olduğunu anlamalı. Soyut vaat ("itibarınızı yönetin") tek başına YETERSİZ.
@@ -19,7 +20,7 @@ Modülün gerçekten yaptığı şeyler (başka özellik uydurma):
 
 ## KATI KURALLAR
 - Rakam, yüzde, süre YOK. "garanti", "ücretsiz", "anında", "devrim", "sınırsız", "yapay zeka/AI" YOK.
-- GOOGLE'a seçici yönlendirme YOK: "memnun müşteriyi Google'a yönlendirin", "olumlu yorumları Google'a taşıyın", "şikayetleri Google'a gitmeden engelleyin" gibi ifadeleri yazma (Google politikasına aykırı). Google'dan bahsetmek istiyorsan yalnızca "her müşteriyi davet" çerçevesinde ya da hiç bahsetme.
+- GOOGLE'a seçici yönlendirme dili YOK (madde 6'daki özellik reklamı yapılmayacak): "memnun müşteriyi Google'a yönlendirin", "olumlu yorumları Google'a taşıyın", "şikayetleri Google'a gitmeden engelleyin", "Google puanınızı yükseltir" gibi ifadeleri yazma. Google'dan bahsetmek istiyorsan yalnızca "her müşteriyi davet" çerçevesinde ya da hiç bahsetme.
 - Modülün yapmadığı bir şeyi söz verme (ör. "Google puanınızı yükseltir", "kötü yorumları siler").
 - Müşteriyi/işletmeyi suçlama, korkutma dili yok; kurumsal ve sade.
 - Çocuksu/esprili/slogan klişesi ("fark yarat", "bir adım önde") yok. Doğal, dilbilgisi hatasız Türkçe; "İle", "Daha" gibi sözcüklerde gereksiz büyük harf yok (cümle düzeni).
