@@ -1,0 +1,6 @@
+{
+  "id": "garson-hesap",
+  "modul": "GARSON & HESAP MODÜLÜ",
+  "soru": ["Hangi masa çağırdı,", "[[kaç dakikadır]]", "bekliyor?"],
+  "cevap": ["Talep masa adıyla [[düşsün,]]", "bekleyen kart renkle [[uyarsın,]]", "ekip tek ekranda [[izlesin.]]"]
+}
