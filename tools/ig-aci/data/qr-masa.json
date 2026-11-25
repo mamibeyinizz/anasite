@@ -2,13 +2,13 @@
   "id": "qr-masa",
   "modul": "QR MASA MODÜLÜ",
   "soru": [
-    "Masa karışınca",
-    "yanlış masaya",
-    "[[kaç tabak]] gider?"
+    "Her QR kod için",
+    "[[ayrı ücret]] mi",
+    "ödüyorsunuz?"
   ],
   "cevap": [
-    "Her masaya ayrı kod [[üretin,]]",
-    "adı değişse de kod [[çalışsın,]]",
-    "talep masa adıyla [[gelsin.]]"
+    "Masa kadar QR [[üretin,]]",
+    "QR başına ücret [[ödemeyin,]]",
+    "adı değişse de kod [[çalışsın.]]"
   ]
 }
