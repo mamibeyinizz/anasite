@@ -1,0 +1,6 @@
+{
+  "id": "qr-servis",
+  "modul": "QR SERVİS UYGULAMASI",
+  "soru": ["Çağrıyı kim onayladı?", "Ne zaman? Neden", "[[iptal edildi?]]"],
+  "cevap": ["Onaylayanı ve zamanı [[görün,]]", "iptal nedenini [[öğrenin,]]", "vardiya ve molayı [[izleyin.]]"]
+}
