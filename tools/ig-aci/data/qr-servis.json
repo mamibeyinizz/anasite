@@ -1,6 +1,14 @@
 {
   "id": "qr-servis",
   "modul": "QR SERVİS UYGULAMASI",
-  "soru": ["Çağrıyı kim onayladı?", "Ne zaman? Neden", "[[iptal edildi?]]"],
-  "cevap": ["Onaylayanı ve zamanı [[görün,]]", "iptal nedenini [[öğrenin,]]", "vardiya ve molayı [[izleyin.]]"]
+  "soru": [
+    "Yoğun saatte masalar",
+    "[[garson bekliyor,]]",
+    "sipariş veremiyor mu?"
+  ],
+  "cevap": [
+    "Müşteri siparişi [[kendi göndersin,]]",
+    "çağrı masa adıyla [[düşsün,]]",
+    "garson sırayla [[yetişsin.]]"
+  ]
 }
