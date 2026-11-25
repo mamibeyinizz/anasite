@@ -176,9 +176,9 @@ const nx=(t,c)=>`<div class="nx">${t}<i>${ARW(c)}</i></div>`;
 const LAB='<div class="lab LCLS" style="font-size:30px;padding-top:34px">QR SERVİS UYGULAMASI</div>';
 const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
- <div class="area c" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="70">${L(['Yoğun saatte müşteriniz','garson bulamadığı için','[[sipariş veremiyor mu?]]'])}</div>
+ <div class="area c" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Yoğun saatte müşteriniz','garson bulamadığı için','[[sipariş veremiyor mu?]]'])}</div>
  <div class="langs">QR MENÜ + GARSON UYGULAMASI</div>
- <div class="p" id="P" data-max="42" data-min="36">${L(['QR Servis ile müşteriniz garson çağırır,','hesap ister; garson olmasa da','QR menüden sipariş gönderir.'])}</div></div>
+ <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['Müşteri QR menüden garson çağırır,','hesap ister; garson olmasa da','sipariş gönderir.'])}</div></div>
  ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
@@ -218,8 +218,8 @@ const SL={
 const n=+(new URLSearchParams(location.search).get('s')||1);
 document.body.className='zumrut';
 document.getElementById('S').innerHTML=SL[n].html();
-document.fonts.ready.then(()=>{const W=840;
- for(const id of ['H','H2','P','P2']){const e=document.getElementById(id);if(!e)continue;let f=+e.dataset.max||56;const mn=+e.dataset.min||40;
+document.fonts.ready.then(()=>{const W0=840;
+ for(const id of ['H','H2','P','P2']){const e=document.getElementById(id);if(!e)continue;const W=+e.dataset.w||W0;let f=+e.dataset.max||56;const mn=+e.dataset.min||40;
   const w=()=>Math.max(...[...e.children].map(c=>{const r=document.createRange();r.selectNodeContents(c);return r.getBoundingClientRect().width}));
   e.style.fontSize=f+'px';while(w()>W&&f>mn){f-=1;e.style.fontSize=f+'px'}}
  
