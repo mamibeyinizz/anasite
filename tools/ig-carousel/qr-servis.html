@@ -178,7 +178,7 @@ const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
  <div class="area c" style="top:200px;bottom:290px"><div class="h" id="H" data-max="92" data-min="76">${L(['Yoğun saatte','garson yetişemiyor,','[[masa bekliyor.]]'])}</div>
  <div class="langs">GARSON · HESAP · SİPARİŞ</div>
- <div class="p" id="P" data-max="42" data-min="36">${L(['Müşteri QR menüden çağırır,','sipariş verir; ekip canlı görür.'])}</div></div>
+ <div class="p" id="P" data-max="42" data-min="36">${L(['Çağrı garsonun telefonuna','masa adıyla, sesli düşer.'])}</div></div>
  ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
@@ -192,19 +192,19 @@ const SL={
 3:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:231px;bottom:240px">
   <div class="hero"><span class="big">Masa</span><span class="unit">adıyla gelir.</span></div>
-  <div class="p3" id="P3">${L(['Müşterinin çağrısı ve siparişi','QR menüden garsona ulaşır.'])}</div>
+  <div class="p3" id="P3">${L(['Müşteri QR menüden garson çağırır,','hesap ister, sipariş gönderir.'])}</div>
   <div class="rule" style="margin:48px 0"></div>
-  <div class="p4" id="P4">${L(['Garson çağrıyı canlı görür,','{{sırayla yetişir.}}'])}</div>
+  <div class="p4" id="P4">${L(['Garsonun telefonu sesli uyarır;','{{salonda aramak gerekmez.}}'])}</div>
   <div class="h" id="H" data-max="84" data-min="68" style="margin-top:112px">${L(['Peki yönetici','neyi görüyor?'])}</div>
  </div>${nx('Uygulamaya göz atın','#F4F1E8')}`},
 4:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top s4" style="top:250px;bottom:260px"><div class="h" id="H" data-max="76" data-min="64">${L(['[[Uygulamada]]'])}</div>
  <div class="tbl s4w">
-  <div class="tr big"><div class="c1">Canlı</div><div class="c2t">Gelen çağrıyı ve geçen<br>süreyi <b>canlı görürsünüz.</b></div></div>
-  <div class="tr big"><div class="c1">Geçmiş</div><div class="c2t">Onaylayan, zaman ve<br><b>iptal nedeni kayıtlıdır.</b></div></div>
-  <div class="tr big"><div class="c1">Ekip</div><div class="c2t">Aktif personeli, vardiya ve<br>molaları <b>takip edersiniz.</b></div></div>
-  <div class="tk"><i>${CHK}</i><div class="c2t">Hesap talebi <b>masa adıyla gelir.</b></div></div>
-  <div class="tk"><i>${CHK}</i><div class="c2t">Bildirim ve <b>sesli uyarı.</b></div></div>
+  <div class="tr big"><div class="c1">Canlı</div><div class="c2t">Bekleyen çağrı ve<br>geçen süre <b>canlı.</b></div></div>
+  <div class="tr big"><div class="c1">Geçmiş</div><div class="c2t">Kim, ne zaman onayladı;<br><b>iptal nedeni kayıtlı.</b></div></div>
+  <div class="tr big"><div class="c1">Ekip</div><div class="c2t">Aktif personel, vardiya<br>ve mola <b>takibi.</b></div></div>
+  <div class="tk"><i>${CHK}</i><div class="c2t">Yabancı müşterinin notu <b>Türkçe gelir.</b></div></div>
+  <div class="tk"><i>${CHK}</i><div class="c2t">Ekibe <b>duyuru gönderirsiniz.</b></div></div>
  </div></div>${nx('Nasıl başlarsınız?','#F4F1E8')}`},
 5:{bg:'zumrut',html:()=>LAB.replace('LCLS','')+`
  <div class="area c s5" style="top:266px;bottom:230px;justify-content:flex-start">
