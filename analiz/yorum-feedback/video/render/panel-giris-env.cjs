@@ -1,0 +1,12 @@
+const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
+const H = process.env.PANEL_HOST, U = process.env.PANEL_USER, P = process.env.PANEL_PASS; if (!H || !U || !P) process.exit(2);
+const proxy = process.env.HTTPS_PROXY ? { server: process.env.HTTPS_PROXY, bypass: '.qrmenuofficial.com' } : undefined;
+const DURUM = '/tmp/claude-0/-home-user/5ab85011-816d-562a-a5f8-3b50f950a4f4/scratchpad/ig/tools/panel-video/w/state-' + H + '.json';
+(async () => { fs.mkdirSync(path.dirname(DURUM), { recursive: true }); const b = await chromium.launch({ proxy }); const c = await b.newContext({ viewport: { width: 1280, height: 800 } }); const p = await c.newPage();
+  await p.goto('https://' + H + '/qrm', { timeout: 90000 }); await p.waitForSelector('#user_login', { timeout: 30000 }); await p.waitForTimeout(2000);
+  await p.click('#user_login'); await p.keyboard.type(U, { delay: 40 }); await p.click('#user_pass'); await p.keyboard.type(P, { delay: 40 });
+  await p.click('#wp-submit'); await p.waitForTimeout(8000);
+  const u = p.url().replace(/https:\/\/[^/]+/, ''); const txt = (await p.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ');
+  const err = await p.evaluate(() => { const e = document.querySelector('#login_error,.login-error,[class*=error]'); return e ? e.innerText.slice(0, 200) : ''; });
+  console.log('url', u, '| hata:', err, '| adminmenu', !!(await p.$('#adminmenu')), '| metin:', txt.replace(new RegExp(P.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), '***').slice(0, 300));
+  await p.screenshot({ path: 'login-sonuc.png' }); if (!/wp-login|\/qrm\/?$/.test(u) || await p.$('#adminmenu')) await c.storageState({ path: DURUM }); await b.close(); })();

@@ -13,3 +13,10 @@
 Giriş başarılı, yalnız gezildi; hiçbir kayıt oluşturulmadı/değiştirilmedi. Oturum çerezi iş bitince silindi.
 Hesapta **hiç yorum yok**: Onay bekleyen 0 · Toplam yorum 0 · Genel ortalama "Henüz puan yok". Liste "Henüz hiç yorum gelmemiş", rapor sekmesi (Masa / Vardiya / Saat Raporu, Kriter Trendleri) her kriter için "Yeterli veri yok". Düşüş uyarısı yok.
 Bu yüzden ekran 2 (bekleyen yorumlar), 3 (masa/saat/kriter raporu) ve 4 (uyarı/trend) için anlamlı görüntü alınamadı; veri üretmek (test yorumu göndermek) yasak olduğundan alınmadı. Boş ekranlar videoda "yeterli veri yok" mesajını gösterir; kullanılmadı.
+
+## Güncelleme 2: test.qrmenuofficial.com (kullanıcı yetkisiyle)
+- Panel girişi çalıştı (otomasyonda alanlara tuşla yazma gerekti; `fill` giriş formunda başarısız oluyordu). Çerez silindi.
+- Yorum kaynağı: ana sayfadaki "Bizi Değerlendirin." özel formu (`[qr_menu_form key="bizi-degerlendirin"]`, 4 adım). Gönderimler **Yorumlar** listesine düşüyor ("Özel form kaydı", otomatik "Yayında"). Masa, serbest metin alanı "Masa Numaranız".
+- Pilot yorum gönderildi: Demo Misafir 1 · Masa 3 · Yemek 5 / Hizmet 1 / Temizlik 5 / Atmosfer 4 / Fiyat-Perf 4 · demo1@example.com · iletişim izni/telefon boş. Yorumlar listesinde göründü (3,8 puan). Google bağlantısına tıklanmadı, ödül kodu alınmadı.
+- 2. gönderimde site hız sınırı verdi: "Çok sık gönderim yapıyorsunuz, lütfen 9 dakika sonra tekrar deneyin." Aşılmaya çalışılmadı; **toplam gönderilen: 1**. Kalan 9 gönderilmedi.
+- Not: sitede önceden 8 yorum var (QA, "TEST Claude" vb., 05.11.2026).
