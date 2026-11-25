@@ -177,26 +177,26 @@ const LAB='<div class="lab LCLS" style="font-size:30px;padding-top:34px">QR MASA
 const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
  <div class="area c" style="top:200px;bottom:290px"><div class="h" id="H" data-max="92" data-min="76">${L(['Sınırsız QR kod,','[[QR başına ücret]]','alınmaz.'])}</div>
- <div class="langs">MASA TAKİBİ · MASA ANALİZİ</div>
- <div class="p" id="P" data-max="42" data-min="36">${L(['Her masaya ayrı kod, hangi masa','ne kadar okutuluyor, görün.'])}</div></div>
+ <div class="langs">MASA TAKİBİ · MENÜ ANALİTİĞİ</div>
+ <div class="p" id="P" data-max="42" data-min="36">${L(['Her masaya ayrı kod; hangi masa','ne kadar hareket alıyor, görün.'])}</div></div>
  ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
  <div class="qs">
   <div class="q"><div class="n">1</div><div class="t">${B(`Her yeni masa için<br>her QR kod için<br>{{yeni ücret mi ödüyorsunuz?}}`)}</div></div>
   <div class="q"><div class="n">2</div><div class="t">${B(`Masa adı değişince<br>basılı kodlar<br>{{çöpe mi gidiyor?}}`)}</div></div>
-  <div class="q"><div class="n">3</div><div class="t">${B(`Çağrının hangi masadan<br>geldiğini {{nereden biliyorsunuz?}}`)}</div></div>
+  <div class="q"><div class="n">3</div><div class="t">${B(`Hangi masadan kaç hareket<br>geldiğini {{göremiyor musunuz?}}`)}</div></div>
  </div>
  <div class="tail">Biri bile “evet” ise, <b>para kaybediyorsunuz.</b></div>
  </div>${nx('Çözümü görün','#F4F1E8')}`},
 3:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:233px;bottom:240px">
   <div class="hero"><span class="big">Masa</span><span class="unit">kadar QR.</span></div>
-  <div class="p3" id="P3">${L(['Masaları tek tek ya da toplu açın,','her biri kendi kodunu alır.'])}</div>
+  <div class="p3" id="P3">${L(['Her QR kod, okutulduğu masanın','bilgisini menüye taşır.'])}</div>
   <div class="rule" style="margin:48px 0"></div>
   <div class="p4" id="P4">${L(['Yeni masa eklemek için','{{ek ücret ödemezsiniz.}}'])}</div>
-  <div class="h" id="H" data-max="84" data-min="68" style="margin-top:112px">${L(["Peki panelde",'ne yaparsınız?'])}</div>
- </div>${nx('Panele göz atın','#F4F1E8')}`},
+  <div class="h" id="H" data-max="84" data-min="68" style="margin-top:112px">${L(['Peki hangi masa','daha çok hareket alıyor?'])}</div>
+ </div>${nx('Cevabı görün','#F4F1E8')}`},
 4:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top s4" style="top:250px;bottom:260px"><div class="h" id="H" data-max="76" data-min="64">${L(['[[Panelde]]'])}</div>
  <div class="tbl s4w">
@@ -204,7 +204,7 @@ const SL={
   <div class="tr big"><div class="c1">Baskı</div><div class="c2t">PNG ya da PDF indirin,<br><b>tümünü yazdırın.</b></div></div>
   <div class="tr big"><div class="c1">Ad</div><div class="c2t">Masa adı değişse de<br>basılı <b>kod çalışır.</b></div></div>
   <div class="tk"><i>${CHK}</i><div class="c2t">Misafir menüyü <b>masa bilgisiyle açar.</b></div></div>
-  <div class="tk"><i>${CHK}</i><div class="c2t">Masaları gruplara ayırıp <b>süzersiniz.</b></div></div>
+  <div class="tk"><i>${CHK}</i><div class="c2t">Masaya göre hareketi Menü Analitiği'nde <b>görürsünüz.</b></div></div>
  </div></div>${nx('Nasıl başlarsınız?','#F4F1E8')}`},
 5:{bg:'zumrut',html:()=>LAB.replace('LCLS','')+`
  <div class="area c s5" style="top:266px;bottom:230px;justify-content:flex-start">
