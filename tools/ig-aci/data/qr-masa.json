@@ -1,0 +1,14 @@
+{
+  "id": "qr-masa",
+  "modul": "QR MASA MODÜLÜ",
+  "soru": [
+    "Masa karışınca",
+    "yanlış masaya",
+    "[[kaç tabak]] gider?"
+  ],
+  "cevap": [
+    "Her masaya ayrı kod [[üretin,]]",
+    "adı değişse de kod [[çalışsın,]]",
+    "talep masa adıyla [[gelsin.]]"
+  ]
+}
