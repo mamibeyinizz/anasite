@@ -19,6 +19,7 @@ body.altin .lab{color:var(--y)} body.krem .lab{color:var(--ink)} body.zumrut .la
 .h{font-weight:800;letter-spacing:-.04em;line-height:1.08}
 .p{font-weight:500;line-height:1.34;letter-spacing:-.01em}
 .h span,.p span{display:block;white-space:nowrap}
+.cv1 .h span:last-child{margin-top:22px}
 b{font-weight:800}
 .pill{display:inline-block;padding:0 14px 6px;border-radius:14px;line-height:1.05}
 body.altin .pill{background:var(--y);color:var(--off)}
@@ -176,8 +177,8 @@ const nx=(t,c)=>`<div class="nx">${t}<i>${ARW(c)}</i></div>`;
 const LAB='<div class="lab LCLS" style="font-size:30px;padding-top:34px">QR SERVİS UYGULAMASI</div>';
 const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
- <div class="area c" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Yoğun saatte müşteriniz','garson bulamadığı için','[[sipariş veremiyor mu?]]'])}</div>
- <div class="langs">QR MENÜ + GARSON UYGULAMASI</div>
+ <div class="area c cv1" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Yoğun saatte müşteriniz','garson bulamadığı için','[[sipariş veremiyor mu?]]'])}</div>
+ <div class="langs">GARSON · İŞLETME UYGULAMASI</div>
  <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['Müşteri QR menüden garson çağırır,','hesap ister; garson olmasa da','sipariş gönderir.'])}</div></div>
  ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
