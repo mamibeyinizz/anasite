@@ -31,7 +31,7 @@ body::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.06
 .dot{width:14px;height:14px;border-radius:50%;background:#5BD68F;box-shadow:0 0 0 6px #5BD68F2E}
 .nav{position:absolute;bottom:150px;left:0;width:1080px;display:flex;flex-direction:column;align-items:center;gap:26px}
 .nav span{font-weight:800;font-size:28px;letter-spacing:.32em;padding-left:.32em;color:var(--off)}
-.nav i{width:112px;height:112px;border-radius:50%;background:var(--g);display:grid;place-items:center;box-shadow:0 0 0 14px #C9A84C22,0 20px 50px #C9A84C40}
+.nav i{display:block;line-height:0}
 /* sağ */
 .R{left:2160px;padding:340px 150px 0 150px;display:flex;flex-direction:column;justify-content:flex-start}
 .R .h{font-size:128px;line-height:1.02;margin-top:40px}
@@ -81,7 +81,7 @@ body::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.06
 </div>
 <script>
 const CHK='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-const ARW='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0B241C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>';
+const ARW='<svg width="36" height="170" viewBox="0 0 36 170" fill="none"><defs><linearGradient id="lg1" gradientUnits="userSpaceOnUse" x1="18" y1="0" x2="18" y2="170"><stop offset="0" stop-color="#C9A84C" stop-opacity="0"/><stop offset=".35" stop-color="#C9A84C"/><stop offset="1" stop-color="#E8C766"/></linearGradient></defs><path d="M18 0V166" stroke="url(#lg1)" stroke-width="3" stroke-linecap="round"/><path d="M6 152L18 166L30 152" stroke="#E8C766" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 document.body.innerHTML=document.body.innerHTML.replaceAll('CHK',CHK).replace('ARW',ARW);
 // dekoratif QR deseni (temsili, okutulamaz)
 const c=document.getElementById('q'),x=c.getContext('2d'),N=29,s=316/N;let r=7;const rnd=()=>{r=(r*16807)%2147483647;return r/2147483647};
