@@ -1,0 +1,38 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>Modül başlık şeridi</title>
+<style>
+@font-face{font-family:Manrope;src:url(../../assets/fonts/manrope-var-latin.woff2) format('woff2');font-weight:200 800;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Manrope;src:url(../../assets/fonts/manrope-var-latin-ext.woff2) format('woff2');font-weight:200 800;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--y:#0D2B22;--y2:#1E3D2F;--g:#C9A84C;--off:#F4F1E8}
+*{box-sizing:border-box;margin:0}
+html,body{width:3240px;height:1440px;overflow:hidden;font-family:Manrope,sans-serif}
+body{background:linear-gradient(var(--y2),var(--y));color:var(--off);position:relative}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#C9A84C1C 2.2px,transparent 2.6px);background-size:72px 72px;background-position:36px 36px}
+.c{position:absolute;width:150px;height:150px;border:0 solid var(--g)}
+.c.tl{left:60px;top:60px;border-left-width:4px;border-top-width:4px}
+.c.tr{right:60px;top:60px;border-right-width:4px;border-top-width:4px}
+.c.bl{left:60px;bottom:60px;border-left-width:4px;border-bottom-width:4px}
+.c.br{right:60px;bottom:60px;border-right-width:4px;border-bottom-width:4px}
+.line{position:absolute;left:60px;right:60px;height:2px;background:#C9A84C55}
+.line.t{top:60px}.line.b{bottom:60px}
+.t3{position:absolute;top:0;width:1080px;height:1440px;display:flex;flex-direction:column;align-items:center}
+.lab{margin-top:176px;font-weight:800;font-size:30px;letter-spacing:.5em;color:var(--g);padding-left:.5em;height:30px}
+.w{position:absolute;top:560px;width:100%;text-align:center;font-weight:800;font-size:176px;letter-spacing:-.04em;line-height:1}
+.w.g{color:var(--g)}
+.rule{position:absolute;top:842px;left:60px;right:60px;height:3px;background:var(--g);opacity:.55}
+.dn{position:absolute;bottom:200px;display:flex;flex-direction:column;align-items:center;gap:28px}
+.dn span{font-weight:800;font-size:34px;letter-spacing:.18em;padding-left:.18em}
+.dn i{width:104px;height:104px;border-radius:50%;background:var(--g);display:grid;place-items:center}
+</style></head><body>
+<div class="dots"></div><div class="line t"></div><div class="line b"></div>
+<div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div>
+<div class="rule"></div>
+<div id="R"></div>
+<script>
+const V=JSON.parse(decodeURIComponent(new URLSearchParams(location.search).get('v')));
+const ARW='<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#0D2B22" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>';
+document.getElementById('R').innerHTML=V.tiles.map((t,i)=>`<div class="t3" style="left:${i*1080}px">
+ <div class="lab">${t.lab||''}</div>
+ <div class="w ${t.gold?'g':''}">${t.w}</div>
+ <div class="dn"><span>${t.alt}</span><i>${ARW}</i></div></div>`).join('');
+document.fonts.ready.then(()=>document.body.dataset.ready=1);
+</script></body></html>
