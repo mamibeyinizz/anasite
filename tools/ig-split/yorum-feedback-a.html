@@ -1,0 +1,107 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>T</title>
+<style>
+@font-face{font-family:Manrope;src:url(../../assets/fonts/manrope-var-latin.woff2) format('woff2');font-weight:200 800;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Manrope;src:url(../../assets/fonts/manrope-var-latin-ext.woff2) format('woff2');font-weight:200 800;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--y:#0D2B22;--y2:#1E4A37;--g:#C9A84C;--g2:#E8C766;--ink:#7F6419}
+*{box-sizing:border-box;margin:0}
+html,body{width:3240px;height:1440px;overflow:hidden;font-family:Manrope,sans-serif;background:#fff;color:var(--y)}
+.tile{position:absolute;top:0;width:1080px;height:1440px;perspective:2200px}
+.lg{position:absolute;width:260px}.lg svg{width:100%;height:auto;display:block}
+.eb{font-weight:800;font-size:28px;letter-spacing:.32em;color:var(--ink)}
+.h{margin-top:40px;font-weight:800;font-size:150px;line-height:.98;letter-spacing:-.045em}
+.h b{color:var(--ink);font-weight:800}
+.L,.R{padding:340px 150px 0 150px}
+.floor{position:absolute;left:50%;transform:translateX(-50%);width:520px;height:70px;border-radius:50%;background:radial-gradient(closest-side,#0D2B222e,#0D2B220d 60%,transparent)}
+/* orta: 3B stand */
+.st{position:absolute;left:270px;top:340px;width:540px;transform-origin:50% 0;transform:scale(.82) rotateY(-20deg) rotateX(10deg) rotateZ(1deg);transform-style:preserve-3d}
+
+.st .face{position:relative;padding:44px 44px 40px;border-radius:30px;background:linear-gradient(160deg,#FFFFFF,#F1F2F2 70%,#E6E8E8);color:#111;text-align:center;
+box-shadow:inset 0 0 0 2px #ffffffcc,1px 1px 0 #d9dcdc,2px 2px 0 #d3d6d6,3px 3px 0 #cdd0d0,4px 4px 0 #c7cbcb,5px 5px 0 #c1c5c5,6px 6px 0 #bbbfbf,7px 7px 0 #b5b9b9,8px 8px 0 #afb3b3,10px 10px 0 #a9adad,40px 60px 80px #0000002e,90px 120px 140px #0000001a}
+.st .face:before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(115deg,#ffffff 0%,#ffffff00 32%,#ffffff00 60%,#ffffff66 61%,#ffffff00 70%);pointer-events:none;mix-blend-mode:screen}
+.base{width:600px;height:64px;margin:-6px 0 0 -30px;border-radius:14px;background:linear-gradient(180deg,#C89B6A,#A87648 55%,#8A5E37);box-shadow:inset 0 3px 0 #E2BE91,10px 10px 0 #6f4a2a,40px 50px 60px #00000030}
+.st .br{font-weight:800;font-size:22px;letter-spacing:.3em;color:#6B6F70}
+.qr{margin:26px auto 24px;width:380px;height:380px;padding:24px;background:#fff;border-radius:18px;box-shadow:0 0 0 2px #e4e6e6}
+.qr canvas{width:332px;height:332px;display:block}
+.st .m{font-weight:800;font-size:64px;letter-spacing:-.03em;line-height:1}
+.st .s{margin-top:12px;font-weight:600;font-size:24px;color:#6B6F70}
+.nav{position:absolute;bottom:140px;left:0;width:1080px;display:flex;flex-direction:column;align-items:center;gap:34px}
+.nav span{font-weight:800;font-size:30px;letter-spacing:.32em;padding-left:.32em;color:var(--y)}
+/* sağ: 3B panel */
+.pw{margin-top:80px;transform:rotateY(18deg) rotateX(10deg);transform-style:preserve-3d;transform-origin:left center}
+.panel{border-radius:28px;background:#fff;padding:36px 38px 30px;color:#111827;
+box-shadow:inset 0 0 0 1.5px #E5E7EB,-1px 1px 0 #e6e8eb,-2px 2px 0 #dfe2e6,-3px 3px 0 #d9dce1,-4px 4px 0 #d3d7dc,-5px 5px 0 #cdd1d7,-6px 6px 0 #c7ccd2,-8px 8px 0 #c1c6cd,-10px 10px 0 #bbc1c8,-30px 60px 80px #0000002a,-70px 120px 140px #00000018}
+.panel .t{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:26px;color:#111827;margin-bottom:8px}.panel .t em{font-style:normal;font-size:20px;font-weight:600;color:#374151;background:#F3F4F6;border:1px solid #E5E7EB;padding:8px 14px;border-radius:10px}
+.kpi{display:flex;align-items:baseline;gap:14px;margin:6px 0 18px;padding-bottom:20px;border-bottom:1px solid #F0F1F3}.kpi b{font-size:54px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}.kpi span{font-size:22px;font-weight:600;color:#6B7280}
+.row{display:grid;grid-template-columns:140px 1fr 64px;align-items:center;gap:20px;margin:18px 0;font-weight:600;font-size:28px;color:#374151}
+.bar{height:18px;border-radius:6px;background:#F3F4F6;overflow:hidden}.bar b{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#10B981,#34D399)}
+.row .n{text-align:right;font-variant-numeric:tabular-nums;color:#111827;font-weight:700}
+.foot{margin-top:22px;font-weight:600;font-size:20px;letter-spacing:.04em;color:#9CA3AF}
+.stack{position:absolute;left:150px;top:795px;width:780px;height:420px;perspective:1800px}
+.mc{position:absolute;top:0;width:250px;padding:20px 20px 18px;border-radius:20px;background:linear-gradient(160deg,#FFFFFF,#F1F2F2 70%,#E6E8E8);text-align:center;transform-style:preserve-3d;
+box-shadow:inset 0 0 0 2px #ffffffcc,1px 1px 0 #d9dcdc,2px 2px 0 #d1d4d4,3px 3px 0 #c9cdcd,4px 4px 0 #c1c5c5,5px 5px 0 #b9bdbd,6px 6px 0 #b1b5b5,26px 40px 50px #0000002a,50px 80px 90px #00000014}
+.mc canvas{width:210px;height:210px;display:block;margin:0 auto;background:#fff;border-radius:10px;padding:10px;box-shadow:0 0 0 1.5px #e4e6e6}
+.mc b{display:block;margin-top:14px;font-weight:800;font-size:30px;letter-spacing:-.02em;color:#111}
+.lc{height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.lc i{font-style:normal;font-weight:800;font-size:96px;letter-spacing:-.03em;color:#111;line-height:1}
+.lc b{margin-top:18px;font-size:28px;color:#6B6F70}
+/* telefon */
+.ph{position:absolute;left:330px;top:340px;width:420px;height:860px;transform-origin:50% 0;transform:scale(.72) rotateY(-20deg) rotateX(8deg) rotateZ(1deg);border-radius:64px;background:linear-gradient(150deg,#2b2f33,#0e1012);padding:16px;
+box-shadow:inset 0 0 0 2px #4a4f55,1px 1px 0 #1a1c1f,2px 2px 0 #17191c,3px 3px 0 #141619,4px 4px 0 #121416,6px 6px 0 #0f1113,8px 8px 0 #0d0e10,40px 60px 80px #00000038,90px 120px 140px #0000001f}
+.scr{width:100%;height:100%;border-radius:50px;background:#fff;overflow:hidden;position:relative;font-family:Manrope,sans-serif;color:#111}
+.isl{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:120px;height:34px;border-radius:20px;background:#0e1012}
+.ap{padding:70px 26px 0}
+.ap .top{display:flex;justify-content:space-between;align-items:center}
+.ap .top b{font-size:28px;font-weight:800}
+.ap .pill{font-size:20px;font-weight:700;padding:8px 14px;border-radius:20px;background:#F3F4F6;border:1px solid #E5E7EB}
+.ap .tabs{display:flex;gap:10px;margin:22px 0 18px}.ap .tabs span{font-size:18px;font-weight:700;padding:8px 14px;border-radius:16px;background:#F3F4F6;color:#4B5563}.ap .tabs span.on{background:#111;color:#fff}
+.it{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid #F0F1F3}
+.it .im{width:78px;height:78px;border-radius:16px;flex:none}
+.it .tx{flex:1}.it .tx b{display:block;font-size:21px;font-weight:800}.it .tx span{font-size:15px;color:#6B7280;font-weight:600}
+.it .pr{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.btn{margin:18px 0 0;padding:16px;border-radius:16px;background:#111;color:#fff;text-align:center;font-weight:800;font-size:20px}
+/* sipariş fişi */
+.tk{border-radius:28px;background:#fff;padding:34px 36px 30px;color:#111827;
+box-shadow:inset 0 0 0 1.5px #E5E7EB,-1px 1px 0 #e6e8eb,-2px 2px 0 #dfe2e6,-3px 3px 0 #d9dce1,-4px 4px 0 #d3d7dc,-5px 5px 0 #cdd1d7,-6px 6px 0 #c7ccd2,-8px 8px 0 #c1c6cd,-10px 10px 0 #bbc1c8,-30px 60px 80px #0000002a,-70px 120px 140px #00000018}
+.tk .hd{display:flex;justify-content:space-between;align-items:center;padding-bottom:18px;border-bottom:1px solid #F0F1F3}
+.tk .hd b{font-size:28px;font-weight:800}.tk .hd em{font-style:normal;font-size:18px;font-weight:700;color:#047857;background:#ECFDF5;border:1px solid #A7F3D0;padding:7px 12px;border-radius:10px}
+.tk .ln{display:flex;justify-content:space-between;font-size:24px;font-weight:600;color:#374151;margin:18px 0 6px}
+.nt{margin-top:16px;border-radius:16px;background:#F9FAFB;border:1px solid #EEF0F2;padding:16px 18px}
+.nt small{display:block;font-size:16px;font-weight:700;color:#9CA3AF;letter-spacing:.04em;margin-bottom:6px}
+.nt p{font-size:22px;font-weight:600;color:#6B7280}
+.nt.tr{background:#ECFDF5;border-color:#A7F3D0}.nt.tr small{color:#047857}.nt.tr p{color:#064E3B;font-weight:700}
+.rc{height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rc .stars{display:flex}.rc b{margin-top:22px;font-size:28px;color:#111}
+.fm h4{font-size:30px;font-weight:800;margin:6px 0 6px}.fm p{font-size:19px;color:#6B7280;font-weight:600;margin-bottom:22px}
+.fm .stars{display:flex;justify-content:center;margin:14px 0 40px}
+.fm .ta{border:1.5px solid #E5E7EB;border-radius:16px;padding:18px;font-size:21px;font-weight:600;color:#374151;height:230px;line-height:1.45}
+.fm .lb{font-size:16px;font-weight:700;color:#9CA3AF;margin:0 0 10px}
+.dist .dr{display:grid;grid-template-columns:44px 1fr 50px;gap:16px;align-items:center;margin:12px 0;font-size:24px;font-weight:700;color:#374151}
+.dist .dr .bar b{background:linear-gradient(90deg,#F5B301,#FBBF24)}
+.avg{display:flex;align-items:center;gap:18px;padding-bottom:18px;margin-bottom:6px;border-bottom:1px solid #F0F1F3}.avg b{font-size:64px;font-weight:800;letter-spacing:-.03em}.avg span{font-size:20px;font-weight:600;color:#6B7280}
+</style></head><body>
+<div class="tile L" style="left:0"><div class="eb">QR MENU OFFICIAL</div><div class="h">Yorum &amp;<br><b>Feedback</b></div><div class="stack">
+ <div class="mc rc" style="left:0px;transform:rotateY(22deg) rotateZ(-6deg) translateY(40px)"><span class="stars"><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><b>“Harika”</b></div>
+ <div class="mc rc" style="left:265px;transform:rotateY(8deg) rotateZ(-1deg) translateY(10px)"><span class="stars"><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#E5E7EB" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><b>“Çok güzel”</b></div>
+ <div class="mc rc" style="left:530px;transform:rotateY(-8deg) rotateZ(4deg) translateY(30px)"><span class="stars"><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#E5E7EB" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#E5E7EB" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="30" height="30" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#E5E7EB" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><b>“Servis yavaş”</b></div>
+</div>
+</div>
+<div class="tile M" style="left:1080px">
+ <div class="floor" style="top:985px"></div>
+ <div class="ph"><div class="scr"><div class="isl"></div><div class="ap fm"><div class="top"><b>Menu</b><span class="pill">Masa 4</span></div><h4 style="margin-top:70px">Deneyiminizi puanlayın</h4><p>Görüşünüz bizim için önemli.</p><span class="stars"><svg width="52" height="52" viewBox="0 0 24 24" style="margin-right:8px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="52" height="52" viewBox="0 0 24 24" style="margin-right:8px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="52" height="52" viewBox="0 0 24 24" style="margin-right:8px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="52" height="52" viewBox="0 0 24 24" style="margin-right:8px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="52" height="52" viewBox="0 0 24 24" style="margin-right:8px"><path fill="#E5E7EB" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><div class="lb">YORUMUNUZ</div><div class="ta">Yemekler harikaydı, servis biraz yavaştı.</div><div class="btn" style="margin-top:34px;padding:20px;font-size:22px">Gönder</div></div></div></div>
+ <div class="nav"><span>MODÜLÜ İNCELEYİN</span><i>ARW</i></div>
+</div>
+<div class="tile R" style="left:2160px"><div class="eb">PANEL RAPORU</div><div class="h">Puan<br><b>Takibi</b></div>
+ <div class="pw"><div class="tk"><div class="hd"><b>Müşteri puanları</b><em>Bu ay</em></div><div class="avg"><b>4,3</b><span class="stars"><svg width="28" height="28" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="28" height="28" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="28" height="28" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="28" height="28" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#F5B301" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg width="28" height="28" viewBox="0 0 24 24" style="margin-right:3px"><path fill="#E5E7EB" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2 6.1 20.5l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span>111 değerlendirme</span></div><div class="dist"><div class="dr"><span>5</span><div class="bar"><b style="width:86%"></b></div><span class="n">62</span></div><div class="dr"><span>4</span><div class="bar"><b style="width:42%"></b></div><span class="n">31</span></div><div class="dr"><span>3</span><div class="bar"><b style="width:14%"></b></div><span class="n">10</span></div><div class="dr"><span>2</span><div class="bar"><b style="width:7%"></b></div><span class="n">5</span></div><div class="dr"><span>1</span><div class="bar"><b style="width:4%"></b></div><span class="n">3</span></div></div><div class="foot">Temsili veri</div></div></div>
+</div>
+<script>
+const ARW='<svg width="80" height="125" viewBox="-10 -10 230 360" fill="none" style="filter:drop-shadow(14px 22px 20px #7F641933)"><defs><linearGradient id="ag2" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E8C766"/><stop offset=".55" stop-color="#C9A84C"/><stop offset="1" stop-color="#B8963E"/></linearGradient><linearGradient id="hl2" x1="0" y1="0" x2="0" y2="320" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path transform="translate(12 12)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(11 11)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(10 10)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(9 9)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(8 8)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(7 7)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(6 6)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(5 5)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(4 4)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(3 3)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(2 2)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(1 1)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="url(#ag2)"/><path d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="url(#hl2)"/></svg>';
+document.body.innerHTML=document.body.innerHTML.replace('ARW',ARW);
+const c=document.getElementById('q')||document.createElement('canvas'),x=c.getContext('2d'),N=29,s=332/N;let r=7;const rnd=()=>{r=(r*16807)%2147483647;return r/2147483647};
+x.fillStyle='#111';const fin=(a,b)=>{x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#111';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s)};
+for(let i=0;i<N;i++)for(let j=0;j<N;j++){const f=(i<8&&j<8)||(i>N-9&&j<8)||(i<8&&j>N-9);if(!f&&rnd()>.52)x.fillRect(i*s,j*s,s+.5,s+.5)}
+fin(0,0);fin(N-7,0);fin(0,N-7);
+document.querySelectorAll('.qq').forEach(cv=>{const x=cv.getContext('2d'),N=25,s=cv.width/N;let r=+cv.dataset.seed;const rnd=()=>{r=(r*16807)%2147483647;return r/2147483647};
+x.fillStyle='#111';const fin=(a,b)=>{x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#111';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s)};
+for(let i=0;i<N;i++)for(let j=0;j<N;j++){const f=(i<8&&j<8)||(i>N-9&&j<8)||(i<8&&j>N-9);if(!f&&rnd()>.52)x.fillRect(i*s,j*s,s+.5,s+.5)}fin(0,0);fin(N-7,0);fin(0,N-7)});
+document.fonts.ready.then(()=>document.body.dataset.ready=1);
+</script></body></html>
