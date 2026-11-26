@@ -1,0 +1,85 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><title>QR Masa split</title>
+<style>
+@font-face{font-family:Manrope;src:url(../../assets/fonts/manrope-var-latin.woff2) format('woff2');font-weight:200 800;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Manrope;src:url(../../assets/fonts/manrope-var-latin-ext.woff2) format('woff2');font-weight:200 800;unicode-range:U+0100-02AF,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--y:#0B241C;--y2:#163829;--g:#C9A84C;--g2:#E8C766;--off:#F4F1E8;--mut:#F4F1E8B3}
+*{box-sizing:border-box;margin:0}
+html,body{width:3240px;height:1440px;overflow:hidden;font-family:Manrope,sans-serif;color:var(--off)}
+body{background:radial-gradient(1100px 900px at 1620px 640px,#245a40 0%,transparent 70%),linear-gradient(160deg,var(--y2),var(--y) 70%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:90px 90px;mask-image:radial-gradient(1300px 800px at 1620px 700px,#000 30%,transparent 80%)}
+.tile{position:absolute;top:0;width:1080px;height:1440px}
+.eb{font-weight:800;font-size:28px;letter-spacing:.32em;color:var(--g)}
+.h{font-weight:800;font-size:96px;line-height:1.06;letter-spacing:-.04em}
+.h b{color:var(--g);font-weight:800}
+.p{font-weight:500;font-size:38px;line-height:1.45;color:var(--mut)}
+.L{left:0;padding:0 120px 0 150px;display:flex;flex-direction:column;justify-content:center}
+.L .h{margin:36px 0 40px}
+.feat{margin-top:56px;display:flex;flex-direction:column;gap:22px}
+.feat div{display:flex;align-items:center;gap:20px;font-weight:700;font-size:34px}
+.feat i{width:44px;height:44px;border-radius:12px;background:#C9A84C26;border:1.5px solid #C9A84C66;display:grid;place-items:center;flex:none}
+/* orta */
+.M{left:1080px;display:flex;flex-direction:column;align-items:center}
+.stand{position:absolute;top:250px;left:270px;width:540px;padding:48px 48px 44px;border-radius:44px;background:linear-gradient(180deg,#FBF8EF,#EFE7D2);color:#0B241C;box-shadow:0 60px 120px #00000070,0 0 0 1px #ffffff30;text-align:center}
+.stand .br{font-weight:800;font-size:24px;letter-spacing:.3em;color:#7F6419}
+.qr{margin:30px auto 26px;width:360px;height:360px;padding:22px;background:#fff;border-radius:28px;box-shadow:inset 0 0 0 2px #0B241C14}
+.qr canvas{width:316px;height:316px;display:block}
+.stand .m{font-weight:800;font-size:64px;letter-spacing:-.03em;line-height:1}
+.stand .s{margin-top:12px;font-weight:600;font-size:24px;color:#0B241C99}
+.chip{position:absolute;z-index:3;padding:20px 26px;border-radius:24px;background:#ffffff14;backdrop-filter:blur(14px);border:1.5px solid #ffffff26;box-shadow:0 30px 60px #00000040;font-weight:700;font-size:28px;display:flex;align-items:center;gap:14px;white-space:nowrap}
+.chip em{font-style:normal;color:var(--g)}
+.dot{width:14px;height:14px;border-radius:50%;background:#5BD68F;box-shadow:0 0 0 6px #5BD68F2E}
+.nav{position:absolute;bottom:150px;left:0;width:1080px;display:flex;flex-direction:column;align-items:center;gap:26px}
+.nav span{font-weight:800;font-size:28px;letter-spacing:.32em;padding-left:.32em;color:var(--off)}
+.nav i{width:112px;height:112px;border-radius:50%;background:var(--g);display:grid;place-items:center;box-shadow:0 0 0 14px #C9A84C22,0 20px 50px #C9A84C40}
+/* sağ */
+.R{left:2160px;padding:0 150px 0 120px;display:flex;flex-direction:column;justify-content:center}
+.R .h{font-size:80px;margin:36px 0 52px}
+.panel{border-radius:36px;background:#ffffff0d;border:1.5px solid #ffffff1f;padding:40px 40px 34px;box-shadow:0 40px 80px #00000040}
+.panel .t{display:flex;justify-content:space-between;font-weight:700;font-size:26px;color:var(--mut);margin-bottom:30px}
+.panel .t em{font-style:normal;color:var(--g)}
+.row{display:grid;grid-template-columns:150px 1fr 70px;align-items:center;gap:22px;margin:22px 0;font-weight:700;font-size:30px}
+.bar{height:16px;border-radius:9px;background:#ffffff14;overflow:hidden}.bar b{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#C9A84C,#E8C766)}
+.row .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--off)}
+.foot{margin-top:40px;font-weight:600;font-size:26px;color:#F4F1E880}
+</style></head><body><div class="grid"></div>
+<div class="tile L">
+ <div class="eb">QR MASA MODÜLÜ</div>
+ <div class="h">Her masaya<br><b>kendi QR kodu.</b></div>
+ <div class="p">Masa kadar QR üretin,<br>QR başına ücret ödemeyin.</div>
+ <div class="feat">
+  <div><i>CHK</i>Sınırsız QR kod</div>
+  <div><i>CHK</i>Toplu üretim, tek seferde 200</div>
+  <div><i>CHK</i>Masa adı değişse de kod çalışır</div>
+ </div>
+</div>
+<div class="tile M">
+ <div class="stand"><div class="br">QR MENU OFFICIAL</div><div class="qr"><canvas id="q" width="316" height="316"></canvas></div><div class="m">Masa 7</div><div class="s">Menü için okutun</div></div>
+ <div class="chip" style="top:330px;left:30px"><span class="dot"></span>Bahçe 2 <em>aktif</em></div>
+ <div class="chip" style="top:930px;left:560px">Masa 7 · <em>okutuldu</em></div>
+ <div class="nav"><span>MODÜLÜ İNCELEYİN</span><i>ARW</i></div>
+</div>
+<div class="tile R">
+ <div class="eb">MENÜ ANALİTİĞİ</div>
+ <div class="h">Hangi masa<br><b>ilgi görüyor?</b></div>
+ <div class="panel">
+  <div class="t">Masalara göre görüntülenme <em>Bu hafta</em></div>
+  <div class="row"><span>Masa 7</span><div class="bar"><b style="width:92%"></b></div><span class="n">184</span></div>
+  <div class="row"><span>Bahçe 2</span><div class="bar"><b style="width:71%"></b></div><span class="n">142</span></div>
+  <div class="row"><span>Masa 3</span><div class="bar"><b style="width:48%"></b></div><span class="n">96</span></div>
+  <div class="row"><span>Teras 1</span><div class="bar"><b style="width:27%"></b></div><span class="n">54</span></div>
+  <div class="foot">Temsili görünüm</div>
+ </div>
+</div>
+<script>
+const CHK='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8C766" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const ARW='<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0B241C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>';
+document.body.innerHTML=document.body.innerHTML.replaceAll('CHK',CHK).replace('ARW',ARW);
+// dekoratif QR deseni (temsili, okutulamaz)
+const c=document.getElementById('q'),x=c.getContext('2d'),N=29,s=316/N;let r=7;const rnd=()=>{r=(r*16807)%2147483647;return r/2147483647};
+x.fillStyle='#0B241C';
+const fin=(a,b)=>{x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#0B241C';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s)};
+for(let i=0;i<N;i++)for(let j=0;j<N;j++){const f=(i<8&&j<8)||(i>N-9&&j<8)||(i<8&&j>N-9);if(!f&&rnd()>.52)x.fillRect(i*s,j*s,s+.5,s+.5)}
+fin(0,0);fin(N-7,0);fin(0,N-7);
+x.fillStyle='#C9A84C';x.fillRect(12*s,12*s,5*s,5*s);
+document.fonts.ready.then(()=>document.body.dataset.ready=1);
+</script></body></html>
