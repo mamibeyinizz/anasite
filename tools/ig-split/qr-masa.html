@@ -5,10 +5,8 @@
 :root{--y:#0B241C;--y2:#163829;--g:#C9A84C;--g2:#E8C766;--off:#F4F1E8;--mut:#F4F1E8B3}
 *{box-sizing:border-box;margin:0}
 html,body{width:3240px;height:1440px;overflow:hidden;font-family:Manrope,sans-serif;color:var(--off)}
-body{background:#0F2E23}
-.L{background:radial-gradient(900px 700px at 20% 15%,#FBF6E9 0%,transparent 70%),linear-gradient(160deg,#F3EBD7,#E4D6B3)}
-.M{background:radial-gradient(800px 700px at 50% 40%,#2A5A43 0%,transparent 70%),linear-gradient(180deg,#1E3D2F,#0B241C)}
-.R{background:linear-gradient(155deg,#ECCD70 0%,#C9A84C 70%,#B8963E 100%)}
+body{background:radial-gradient(1400px 900px at 50% 0%,#ffffff14,transparent 70%),linear-gradient(90deg in oklab,#F3EBD8 0%,#EADCB6 18%,#D9BE78 27%,#8C7A3E 32%,#24432F 36%,#13342A 50%,#24432F 64%,#8C7A3E 68%,#C9A84C 73%,#E6C566 100%)}
+body::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
 .grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:90px 90px;mask-image:radial-gradient(1300px 800px at 1620px 700px,#000 30%,transparent 80%)}
 .tile{position:absolute;top:0;width:1080px;height:1440px}
 .eb{font-weight:800;font-size:28px;letter-spacing:.32em;color:var(--g)}
