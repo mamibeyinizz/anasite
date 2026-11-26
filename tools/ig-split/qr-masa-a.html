@@ -13,26 +13,29 @@ html,body{width:3240px;height:1440px;overflow:hidden;font-family:Manrope,sans-se
 .L,.R{padding:340px 150px 0 150px}
 .floor{position:absolute;left:50%;transform:translateX(-50%);width:520px;height:70px;border-radius:50%;background:radial-gradient(closest-side,#0D2B222e,#0D2B220d 60%,transparent)}
 /* orta: 3B stand */
-.st{position:absolute;left:270px;top:190px;width:540px;transform:rotateY(-20deg) rotateX(10deg) rotateZ(1deg);transform-style:preserve-3d}
-.st .face{position:relative;padding:48px 48px 44px;border-radius:44px;background:linear-gradient(160deg,#245A43,#0D2B22 75%);color:#F4F1E8;text-align:center;
-box-shadow:1px 1px 0 #0a231b,2px 2px 0 #0a231b,3px 3px 0 #0a231b,4px 4px 0 #0a231b,5px 5px 0 #09201a,6px 6px 0 #09201a,7px 7px 0 #081d17,8px 8px 0 #081d17,9px 9px 0 #071a14,10px 10px 0 #071a14,12px 12px 0 #061712,40px 60px 80px #0D2B2240,90px 120px 140px #0D2B2226}
-.st .face:before{content:'';position:absolute;inset:0;border-radius:44px;background:linear-gradient(120deg,#ffffff22,transparent 40%);pointer-events:none}
-.st .br{font-weight:800;font-size:24px;letter-spacing:.3em;color:var(--g2)}
-.qr{margin:30px auto 26px;width:360px;height:360px;padding:22px;background:#fff;border-radius:28px}
-.qr canvas{width:316px;height:316px;display:block}
+.st{position:absolute;left:270px;top:150px;width:540px;transform:rotateY(-20deg) rotateX(10deg) rotateZ(1deg);transform-style:preserve-3d}
+
+.st .face{position:relative;padding:44px 44px 40px;border-radius:30px;background:linear-gradient(160deg,#FFFFFF,#F1F2F2 70%,#E6E8E8);color:#111;text-align:center;
+box-shadow:inset 0 0 0 2px #ffffffcc,1px 1px 0 #d9dcdc,2px 2px 0 #d3d6d6,3px 3px 0 #cdd0d0,4px 4px 0 #c7cbcb,5px 5px 0 #c1c5c5,6px 6px 0 #bbbfbf,7px 7px 0 #b5b9b9,8px 8px 0 #afb3b3,10px 10px 0 #a9adad,40px 60px 80px #0000002e,90px 120px 140px #0000001a}
+.st .face:before{content:'';position:absolute;inset:0;border-radius:30px;background:linear-gradient(115deg,#ffffff 0%,#ffffff00 32%,#ffffff00 60%,#ffffff66 61%,#ffffff00 70%);pointer-events:none;mix-blend-mode:screen}
+.base{width:600px;height:64px;margin:-6px 0 0 -30px;border-radius:14px;background:linear-gradient(180deg,#C89B6A,#A87648 55%,#8A5E37);box-shadow:inset 0 3px 0 #E2BE91,10px 10px 0 #6f4a2a,40px 50px 60px #00000030}
+.st .br{font-weight:800;font-size:22px;letter-spacing:.3em;color:#6B6F70}
+.qr{margin:26px auto 24px;width:380px;height:380px;padding:24px;background:#fff;border-radius:18px;box-shadow:0 0 0 2px #e4e6e6}
+.qr canvas{width:332px;height:332px;display:block}
 .st .m{font-weight:800;font-size:64px;letter-spacing:-.03em;line-height:1}
-.st .s{margin-top:12px;font-weight:600;font-size:24px;color:#F4F1E8AA}
+.st .s{margin-top:12px;font-weight:600;font-size:24px;color:#6B6F70}
 .nav{position:absolute;bottom:140px;left:0;width:1080px;display:flex;flex-direction:column;align-items:center;gap:34px}
 .nav span{font-weight:800;font-size:30px;letter-spacing:.32em;padding-left:.32em;color:var(--y)}
 /* sağ: 3B panel */
 .pw{margin-top:80px;transform:rotateY(18deg) rotateX(10deg);transform-style:preserve-3d;transform-origin:left center}
-.panel{border-radius:36px;background:linear-gradient(160deg,#245A43,#0D2B22 75%);padding:40px 40px 34px;color:#F4F1E8;
-box-shadow:-1px 1px 0 #0a231b,-2px 2px 0 #0a231b,-3px 3px 0 #0a231b,-4px 4px 0 #0a231b,-5px 5px 0 #09201a,-6px 6px 0 #09201a,-7px 7px 0 #081d17,-8px 8px 0 #081d17,-10px 10px 0 #071a14,-12px 12px 0 #061712,-30px 60px 80px #0D2B2240,-70px 120px 140px #0D2B2226}
-.panel .t{display:flex;justify-content:space-between;font-weight:700;font-size:26px;color:#F4F1E8B3;margin-bottom:30px}.panel .t em{font-style:normal;color:var(--g2)}
-.row{display:grid;grid-template-columns:150px 1fr 70px;align-items:center;gap:22px;margin:22px 0;font-weight:700;font-size:30px}
-.bar{height:16px;border-radius:9px;background:#ffffff1a;overflow:hidden}.bar b{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#C9A84C,#E8C766)}
-.row .n{text-align:right;font-variant-numeric:tabular-nums}
-.foot{margin-top:34px;font-weight:600;font-size:22px;letter-spacing:.06em;color:#F4F1E866}
+.panel{border-radius:28px;background:#fff;padding:36px 38px 30px;color:#111827;
+box-shadow:inset 0 0 0 1.5px #E5E7EB,-1px 1px 0 #e6e8eb,-2px 2px 0 #dfe2e6,-3px 3px 0 #d9dce1,-4px 4px 0 #d3d7dc,-5px 5px 0 #cdd1d7,-6px 6px 0 #c7ccd2,-8px 8px 0 #c1c6cd,-10px 10px 0 #bbc1c8,-30px 60px 80px #0000002a,-70px 120px 140px #00000018}
+.panel .t{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:26px;color:#111827;margin-bottom:8px}.panel .t em{font-style:normal;font-size:20px;font-weight:600;color:#374151;background:#F3F4F6;border:1px solid #E5E7EB;padding:8px 14px;border-radius:10px}
+.kpi{display:flex;align-items:baseline;gap:14px;margin:6px 0 18px;padding-bottom:20px;border-bottom:1px solid #F0F1F3}.kpi b{font-size:54px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}.kpi span{font-size:22px;font-weight:600;color:#6B7280}
+.row{display:grid;grid-template-columns:140px 1fr 64px;align-items:center;gap:20px;margin:18px 0;font-weight:600;font-size:28px;color:#374151}
+.bar{height:18px;border-radius:6px;background:#F3F4F6;overflow:hidden}.bar b{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#10B981,#34D399)}
+.row .n{text-align:right;font-variant-numeric:tabular-nums;color:#111827;font-weight:700}
+.foot{margin-top:22px;font-weight:600;font-size:20px;letter-spacing:.04em;color:#9CA3AF}
 </style></head><body>
 <div class="tile L" style="left:0"><div class="eb">QR MENU OFFICIAL</div><div class="h">QR Masa<br><b>Modülü</b></div><div class="lg" style="left:150px;bottom:150px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4363.25 1296.64" fill="none" role="img" aria-labelledby="logo-title">
 
@@ -43,11 +46,11 @@ box-shadow:-1px 1px 0 #0a231b,-2px 2px 0 #0a231b,-3px 3px 0 #0a231b,-4px 4px 0 #
 </div></div>
 <div class="tile M" style="left:1080px">
  <div class="floor" style="top:905px"></div>
- <div class="st"><div class="face"><div class="br">QR MENU OFFICIAL</div><div class="qr"><canvas id="q" width="316" height="316"></canvas></div><div class="m">Masa 7</div><div class="s">Menü için okutun</div></div></div>
+ <div class="st"><div class="face"><div class="br">QR MENU OFFICIAL</div><div class="qr"><canvas id="q" width="332" height="332"></canvas></div><div class="m">Masa 7</div><div class="s">Menü için okutun</div></div><div class="base"></div></div>
  <div class="nav"><span>MODÜLÜ İNCELEYİN</span><i>ARW</i></div>
 </div>
 <div class="tile R" style="left:2160px"><div class="eb">MENÜ ANALİTİĞİ</div><div class="h">Masa<br><b>Takibi</b></div>
- <div class="pw"><div class="panel"><div class="t">Masalara göre görüntülenme <em>Bu hafta</em></div>
+ <div class="pw"><div class="panel"><div class="t">Masalara göre görüntülenme <em>Bu hafta</em></div><div class="kpi"><b>476</b><span>toplam görüntülenme</span></div>
   <div class="row"><span>Masa 7</span><div class="bar"><b style="width:92%"></b></div><span class="n">184</span></div>
   <div class="row"><span>Bahçe 2</span><div class="bar"><b style="width:71%"></b></div><span class="n">142</span></div>
   <div class="row"><span>Masa 3</span><div class="bar"><b style="width:48%"></b></div><span class="n">96</span></div>
@@ -57,9 +60,9 @@ box-shadow:-1px 1px 0 #0a231b,-2px 2px 0 #0a231b,-3px 3px 0 #0a231b,-4px 4px 0 #
 <script>
 const ARW='<svg width="128" height="200" viewBox="-10 -10 230 360" fill="none" style="filter:drop-shadow(14px 22px 20px #7F641933)"><defs><linearGradient id="ag2" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#E8C766"/><stop offset=".55" stop-color="#C9A84C"/><stop offset="1" stop-color="#B8963E"/></linearGradient><linearGradient id="hl2" x1="0" y1="0" x2="0" y2="320" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path transform="translate(12 12)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(11 11)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(10 10)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(9 9)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(8 8)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(7 7)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#54420f"/><path transform="translate(6 6)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(5 5)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(4 4)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(3 3)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(2 2)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path transform="translate(1 1)" d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="#6b5414"/><path d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="url(#ag2)"/><path d="M86 0h28a6 6 0 0 1 6 6v234h40a6 6 0 0 1 4.5 10L104.5 316a6 6 0 0 1-9 0L35.5 250A6 6 0 0 1 40 240h40V6a6 6 0 0 1 6-6z" fill="url(#hl2)"/></svg>';
 document.body.innerHTML=document.body.innerHTML.replace('ARW',ARW);
-const c=document.getElementById('q'),x=c.getContext('2d'),N=29,s=316/N;let r=7;const rnd=()=>{r=(r*16807)%2147483647;return r/2147483647};
-x.fillStyle='#0D2B22';const fin=(a,b)=>{x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#0D2B22';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s)};
+const c=document.getElementById('q'),x=c.getContext('2d'),N=29,s=332/N;let r=7;const rnd=()=>{r=(r*16807)%2147483647;return r/2147483647};
+x.fillStyle='#111';const fin=(a,b)=>{x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#111';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s)};
 for(let i=0;i<N;i++)for(let j=0;j<N;j++){const f=(i<8&&j<8)||(i>N-9&&j<8)||(i<8&&j>N-9);if(!f&&rnd()>.52)x.fillRect(i*s,j*s,s+.5,s+.5)}
-fin(0,0);fin(N-7,0);fin(0,N-7);x.fillStyle='#C9A84C';x.fillRect(12*s,12*s,5*s,5*s);
+fin(0,0);fin(N-7,0);fin(0,N-7);
 document.fonts.ready.then(()=>document.body.dataset.ready=1);
 </script></body></html>
