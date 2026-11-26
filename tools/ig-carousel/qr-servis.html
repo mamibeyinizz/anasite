@@ -184,7 +184,7 @@ const SL={
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
  <div class="qs">
-  <div class="q"><div class="n">1</div><div class="t">${B(`Müşteriniz sipariş için<br>{{garson mu bekliyor?}}`)}</div></div>
+  <div class="q"><div class="n">1</div><div class="t">${B(`Müşteriniz hesap için<br>{{garson mu arıyor?}}`)}</div></div>
   <div class="q"><div class="n">2</div><div class="t">${B(`Garsonlarınız<br>{{her masaya yetişemiyor mu?}}`)}</div></div>
   <div class="q"><div class="n">3</div><div class="t">${B(`Çağıran masayı bulmak için<br>{{salonda mı dolaşıyorlar?}}`)}</div></div>
  </div>
@@ -193,7 +193,7 @@ const SL={
 3:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:231px;bottom:240px">
   <div class="hero"><span class="big">Masa</span><span class="unit">adıyla gelir.</span></div>
-  <div class="p3" id="P3">${L(['Müşteri QR menüden garson çağırır,','hesap ister, sipariş gönderir.'])}</div>
+  <div class="p3" id="P3">${L(['Çağrı, hesap isteği ve sipariş','garsonun telefonuna düşer.'])}</div>
   <div class="rule" style="margin:48px 0"></div>
   <div class="p4" id="P4">${L(['Garsonun telefonu sesli uyarır;','{{salonda aramak gerekmez.}}'])}</div>
   <div class="h" id="H" data-max="84" data-min="68" style="margin-top:112px">${L(['Peki yönetici','neyi görüyor?'])}</div>
@@ -201,7 +201,7 @@ const SL={
 4:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top s4" style="top:250px;bottom:260px"><div class="h" id="H" data-max="76" data-min="64">${L(['[[Uygulamada]]'])}</div>
  <div class="tbl s4w">
-  <div class="tr big"><div class="c1">Canlı</div><div class="c2t">Bekleyen çağrı ve<br>geçen süre <b>canlı.</b></div></div>
+  <div class="tr big"><div class="c1">Canlı</div><div class="c2t">Bekleyen çağrı ve<br>geçen süre <b>ekranda.</b></div></div>
   <div class="tr big"><div class="c1">Geçmiş</div><div class="c2t">Kim, ne zaman onayladı;<br><b>iptal nedeni kayıtlı.</b></div></div>
   <div class="tr big"><div class="c1">Ekip</div><div class="c2t">Aktif personel, vardiya<br>ve mola <b>takibi.</b></div></div>
   <div class="tk"><i>${CHK}</i><div class="c2t">Yabancı müşterinin notu <b>Türkçe gelir.</b></div></div>
@@ -213,7 +213,7 @@ const SL={
   <div class="eb">AYRICA 6 MODÜL DAHA</div>
   <div class="mods"><span>Çoklu Dil</span><span>QR Masa</span><span>Yorum &amp; Feedback</span><span>Menü Asistanı</span><span>Akıllı Filtreleme</span><span>Menü Analitiği</span></div>
   <div class="h" id="H2" data-max="58" data-min="48" style="margin-top:88px">${L(['Servis sürecinizi','[[kontrol edin.]]'])}</div>
-  <div class="how5">QR menüden uygulamaya.</div>
+  <div class="how5">QR menüde müşteri, uygulamada ekip.</div>
  </div><div class="logo">${LG()}</div>`}
 };
 const n=+(new URLSearchParams(location.search).get('s')||1);
