@@ -2,13 +2,13 @@
   "id": "qr-servis",
   "modul": "QR SERVİS UYGULAMASI",
   "soru": [
-    "Yoğun saatte masalar",
-    "[[garson bekliyor,]]",
-    "sipariş veremiyor mu?"
+    "Yoğun saatte müşteriniz",
+    "garson bulamadığı için",
+    "[[sipariş veremiyor mu?]]"
   ],
   "cevap": [
-    "Müşteri siparişi [[kendi göndersin,]]",
-    "çağrı masa adıyla [[düşsün,]]",
-    "garson sırayla [[yetişsin.]]"
+    "Müşteri QR menüden [[garson çağırsın,]]",
+    "[[hesap istesin,]] siparişini",
+    "beklemeden [[göndersin.]]"
   ]
 }
