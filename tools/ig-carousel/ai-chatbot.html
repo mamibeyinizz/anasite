@@ -178,15 +178,15 @@ const nx=(t,c)=>`<div class="nx">${t}<i>${ARW(c)}</i></div>`;
 const LAB='<div class="lab LCLS" style="font-size:30px;padding-top:34px">AI CHATBOT MODÜLÜ</div>';
 const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
- <div class="area c cv1" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Menünüzü bilen,','[[sipariş alan]]','dijital garson.'])}</div>
+ <div class="area c cv1" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Menünüzü bilen,','sipariş alan','[[dijital garson.]]'])}</div>
  <div class="langs">SORU · ÖNERİ · SİPARİŞ</div>
  <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['Soruları yanıtlar, ürün önerir,','sohbetten sipariş alır.'])}</div></div>
- ${nx('Soru cevaplamaktan fazlası','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
+ ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
  <div class="qs">
   <div class="q"><div class="n">1</div><div class="t">${B(`Garsonlarınız gün boyu<br>{{aynı soruları mı yanıtlıyor?}}`)}</div></div>
-  <div class="q"><div class="n">2</div><div class="t">${B(`Müşteri içerik ve alerjeni öğrenemeyip<br>{{kararsız mı kalıyor?}}`)}</div></div>
+  <div class="q"><div class="n">2</div><div class="t">${B(`Müşteri içerik ve alerjen için<br>{{kararsız mı kalıyor?}}`)}</div></div>
   <div class="q"><div class="n">3</div><div class="t">${B(`İçecek ve tatlı önerilmediği için<br>{{ek satış mı kaçıyor?}}`)}</div></div>
  </div>
  <div class="tail">Biri bile “evet” ise, <b>satış kaçıyor.</b></div>
@@ -214,7 +214,7 @@ const SL={
   <div class="h" id="H" data-max="70" data-min="56">${L(['Her masaya bir','[[dijital garson.]]'])}</div>
   <div class="eb">PANELDEN</div>
   <div class="mods"><span>Sohbet geçmişi</span><span>Cevapsız sorular</span><span>Öneri kuralları</span><span>Öneri dönüşüm raporu</span></div>
-  <div class="h" id="H2" data-max="58" data-min="48" style="margin-top:88px">${L(['Önerinin','[[satışa dönüşünü]] görün.'])}</div>
+  <div class="h" id="H2" data-max="58" data-min="48" style="margin-top:88px">${L(['Önerinin satışa','[[dönüşünü görün.]]'])}</div>
   <div class="how5">Demo için DM'den yazın.</div>
  </div><div class="logo">${LG()}</div>`}
 };
