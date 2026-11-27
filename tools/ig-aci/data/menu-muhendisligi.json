@@ -1,0 +1,14 @@
+{
+  "id": "menu-muhendisligi",
+  "modul": "MENÜ MÜHENDİSLİĞİ",
+  "soru": [
+    "Menünüzde hangi ürün",
+    "[[para kazandırıyor,]]",
+    "hangisi kaybettiriyor?"
+  ],
+  "cevap": [
+    "Maliyeti girin, rapor [[göstersin:]]",
+    "hangi ürün korunmalı, hangisi",
+    "[[öne çıkmalı,]] hangisi [[çıkmalı.]]"
+  ]
+}
