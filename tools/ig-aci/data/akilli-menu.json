@@ -1,0 +1,14 @@
+{
+  "id": "akilli-menu",
+  "modul": "AKILLI MENÜ",
+  "soru": [
+    "Fiyat her değiştiğinde",
+    "[[menüyü yeniden]]",
+    "bastırıyor musunuz?"
+  ],
+  "cevap": [
+    "Fiyatı panelden [[güncelleyin,]]",
+    "biten ürünü tek tıkla",
+    "[[tükendi]] olarak [[işaretleyin.]]"
+  ]
+}
