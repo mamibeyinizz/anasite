@@ -1,0 +1,14 @@
+{
+  "id": "ai-chatbot",
+  "modul": "AI CHATBOT MODÜLÜ",
+  "soru": [
+    "“Acı mı, glutensiz mi?”",
+    "sorusuna garsonunuz",
+    "[[yetişebiliyor mu?]]"
+  ],
+  "cevap": [
+    "Menünüzü bilen [[AI asistan]]",
+    "her soruyu masada [[yanıtlasın,]]",
+    "yanına uygun ürünü [[önersin.]]"
+  ]
+}
