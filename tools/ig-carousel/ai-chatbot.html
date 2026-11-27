@@ -178,15 +178,15 @@ const nx=(t,c)=>`<div class="nx">${t}<i>${ARW(c)}</i></div>`;
 const LAB='<div class="lab LCLS" style="font-size:30px;padding-top:34px">AI CHATBOT MODÜLÜ</div>';
 const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
- <div class="area c cv1" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Müşterinin sorusu','garsona kalırsa','[[satış kaçıyor.]]'])}</div>
- <div class="langs">MENÜYÜ BİLEN AI ASİSTAN</div>
- <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['İçerik, alerjen, porsiyon, öneri:','müşteri sorar, asistan menünüzden','kendi dilinde yanıtlar.'])}</div></div>
+ <div class="area c cv1" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Menünüzü ezbere','bilen bir garson:','[[AI asistan.]]'])}</div>
+ <div class="langs">İÇERİK · ALERJEN · ÖNERİ</div>
+ <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['Müşteri QR menüden sorar,','cevabı menünüzden, kendi','dilinde anında alır.'])}</div></div>
  ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
  <div class="qs">
-  <div class="q"><div class="n">1</div><div class="t">${B(`“Acı mı, glutensiz mi?” sorusuna<br>{{garson her masada yetişiyor mu?}}`)}</div></div>
-  <div class="q"><div class="n">2</div><div class="t">${B(`Yemeğin yanına içecek, tatlı<br>{{öneren oluyor mu?}}`)}</div></div>
+  <div class="q"><div class="n">1</div><div class="t">${B(`“Glutensiz mi?” sorusuna<br>{{her garson cevap verebiliyor mu?}}`)}</div></div>
+  <div class="q"><div class="n">2</div><div class="t">${B(`Yemeğin yanına içecek ya da<br>{{tatlı öneriliyor mu?}}`)}</div></div>
   <div class="q"><div class="n">3</div><div class="t">${B(`Yabancı müşteriye menüyü<br>{{kendi dilinde anlatabiliyor musunuz?}}`)}</div></div>
  </div>
  <div class="tail">Biri bile “hayır” ise, <b>satış kaçıyor.</b></div>
@@ -201,7 +201,7 @@ const SL={
   <div class="h" id="H" data-max="84" data-min="68" style="margin-top:64px">${L(['Peki asistan','neleri biliyor?'])}</div>
  </div>${nx('Asistana göz atın','#F4F1E8')}`},
 4:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
- <div class="area top s4" style="top:250px;bottom:260px"><div class="h" id="H" data-max="76" data-min="64">${L(['[[Asistan yanıtlar]]'])}</div>
+ <div class="area top s4" style="top:250px;bottom:260px"><div class="h" id="H" data-max="76" data-min="64">${L(['[[Menünüzü bilir]]'])}</div>
  <div class="tbl s4w">
   <div class="tr big"><div class="c1">İçerik</div><div class="c2t">Malzeme, alerjen<br>ve porsiyon <b>bilgisi.</b></div></div>
   <div class="tr big"><div class="c1">Öneri</div><div class="c2t">Yemeğin yanına<br><b>uygun ürün önerir.</b></div></div>
