@@ -2,13 +2,13 @@
   "id": "ai-chatbot",
   "modul": "AI CHATBOT MODÜLÜ",
   "soru": [
-    "“Acı mı, glutensiz mi?”",
-    "sorusuna garsonunuz",
-    "[[yetişebiliyor mu?]]"
+    "Garsonunuz",
+    "bütün menü içeriğine",
+    "[[hakim mi?]]"
   ],
   "cevap": [
-    "Menünüzü bilen [[AI asistan]]",
-    "her soruyu masada [[yanıtlasın,]]",
-    "yanına uygun ürünü [[önersin.]]"
+    "Hangi ürün [[glutensiz,]] hangisi acı?",
+    "Garson unutabilir, menünüzü bilen",
+    "[[AI asistan]] her masada [[yanıtlar.]]"
   ]
 }
