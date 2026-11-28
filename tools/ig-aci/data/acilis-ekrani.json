@@ -1,0 +1,14 @@
+{
+  "id": "acilis-ekrani",
+  "modul": "AÇILIŞ EKRANI",
+  "soru": [
+    "Müşteriniz Wi-Fi şifresini",
+    "hâlâ garsona",
+    "[[mı soruyor?]]"
+  ],
+  "cevap": [
+    "QR'ı okutan müşteri önce",
+    "[[karşılama ekranını]] görür:",
+    "Wi-Fi, yorum, rezervasyon [[tek dokunuşta.]]"
+  ]
+}
