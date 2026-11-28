@@ -6,7 +6,7 @@ Müşteriniz menünüzde ne arıyor, ne bulamıyor? 🔍
 Menüyü açan müşteri bir ürün arıyor, bulamıyor ve kapatıyor. Müşterinizin ne aradığını ve bulamadığını çoğu zaman fark etmiyorsunuz.
 
 Menü Analitiği'nde:
-• Menüde olmayan bir ürün aratıldığında panelinize düşer.
+• Menüde olmayan bir ürün arandığında panelde kaydedilir.
 • En çok ve en az tıklanan ürünleri görürsünüz.
 • Hangi masadan kaç kez menü okutulduğunu, hiç okutulmayan masalarla birlikte takip edersiniz.
 
@@ -23,7 +23,7 @@ Bu 3 sorudan birine “evet” diyorsanız, kararlarınız eksik veriye dayanıy
 3. Sepette kalan siparişleri fark etmiyor musunuz?
 
 Panelde neler var?
-• Menü okutma ve tekil ziyaretçi sayısı; saatlik, günlük, aylık grafik.
+• Menüyü açan müşteri sayısı; saatlikten aylığa grafikler.
 • En çok ve en az tıklanan ürünler, kategori dağılımı.
 • Masa bazında hareket; hiç okutulmayan masalar dahil.
 • Sepete eklenen, gönderilen ve yarım kalan siparişler.
@@ -37,8 +37,6 @@ Tahmin değil, veri.
 ## 3. gönderi (altın)
 Tahmin değil, veri.
 
-Okutmadan siparişe, menünüzdeki her hareket tek panelde. Neyin ilgi gördüğünü, neyin arandığını, hangi siparişin yarım kaldığını görün.
-
-Ücretsiz demo için DM'den yazın.
+Menüye girişten siparişe, her hareket tek panelde. Neyin ilgi gördüğünü, neyin arandığını, hangi siparişin yarım kaldığını görün.
 
 #qrmenü #dijitalmenü #restoran #qrmenuofficial
