@@ -182,22 +182,22 @@ const SL={
 1:{bg:'altin',html:()=>LAB.replace('LCLS','')+`
  <div class="area c cv1" style="top:200px;bottom:290px"><div class="h" id="H" data-max="82" data-min="58" data-w="760">${L(['Menünüz size','[[ne anlatıyor?]]'])}</div>
  <div class="langs">OKUTMA · ÜRÜN · SİPARİŞ</div>
- <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['Okutmadan siparişe, menünüzdeki','her hareketi tek panelde görün.'])}</div></div>
+ <div class="p" id="P" data-max="40" data-min="34" data-w="700">${L(['Ziyaretçiden siparişe tüm akışı','tek panelde takip edin.'])}</div></div>
  ${nx('Neden? Kaydırın','#F4F1E8').replace('class="nx"','class="nx" style="bottom:232px"')}<div class="logo">${LG()}</div>`},
 2:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:236px;bottom:240px"><div class="h" id="H" data-max="84" data-min="68">${L(['Bu 3 soruyu','kendinize [[sorun:]]'])}</div>
  <div class="qs">
   <div class="q"><div class="n">1</div><div class="t">${B(`Hangi ürünün hiç tıklanmadığını<br>{{tahminle mi biliyorsunuz?}}`)}</div></div>
-  <div class="q"><div class="n">2</div><div class="t">${B(`Müşterinin menüde arayıp<br>{{bulamadığı ürün kayboluyor mu?}}`)}</div></div>
-  <div class="q"><div class="n">3</div><div class="t">${B(`Sepete eklenip gönderilmeyen<br>{{siparişleri göremiyor musunuz?}}`)}</div></div>
+  <div class="q"><div class="n">2</div><div class="t">${B(`Bulunamayan ürün aramaları<br>{{gözünüzden kaçıyor mu?}}`)}</div></div>
+  <div class="q"><div class="n">3</div><div class="t">${B(`Sepete eklenip vazgeçilen ürün<br>{{size hiç ulaşmıyor mu?}}`)}</div></div>
  </div>
- <div class="tail">Biri bile “evet” ise, <b>kararlar tahminle veriliyor.</b></div>
+ <div class="tail">Biri bile “evet” ise, <b>kararlar eksik veriyle.</b></div>
 </div>
  </div>${nx('Çözümü görün','#F4F1E8')}`},
 3:{bg:'krem',html:()=>LAB.replace('LCLS','left')+`
  <div class="area top" style="top:224px;bottom:240px">
   <div class="hero"><span class="big">Aranan ürün</span><span class="unit">artık kaybolmaz.</span></div>
-  <div class="p3" id="P3">${L(['Müşteri menüde olmayan bir ürünü','aradığında, arama panelinize düşer.'])}</div>
+  <div class="p3" id="P3">${L(['Müşteri menüde olmayan bir ürünü','aradığında, arama panelde kayda geçer.'])}</div>
   <div class="rule" style="margin:40px 0"></div>
   <div class="p4" id="P4">${L(['Menüye neyi eklemeniz gerektiğini','{{müşteriniz söyler.}}'])}</div>
   <div class="h" id="H" data-max="84" data-min="68" style="margin-top:64px">${L(['Peki başka','neleri gösterir?'])}</div>
@@ -209,7 +209,7 @@ const SL={
   <div class="tr big"><div class="c1">Masalar</div><div class="c2t">Hangi masa kaç kez okuttu.<br><b>Okutulmayanlar dahil.</b></div></div>
   <div class="tr big"><div class="c1">Sipariş</div><div class="c2t">Eklenen ve gönderilenler.<br><b>Yarım kalanlar dahil.</b></div></div>
   <div class="tk"><i>${CHK}</i><div class="c2t">Saatlik, günlük, aylık <b>grafik.</b></div></div>
-  <div class="tk"><i>${CHK}</i><div class="c2t">Her raporu <b>dosya olarak indirin.</b></div></div>
+  <div class="tk"><i>${CHK}</i><div class="c2t">Tarih ve masaya göre <b>indirilebilir rapor.</b></div></div>
  </div></div>${nx('Nasıl başlarsınız?','#F4F1E8')}`},
 5:{bg:'zumrut',html:()=>LAB.replace('LCLS','')+`
  <div class="area c s5" style="top:200px;bottom:250px;justify-content:center">

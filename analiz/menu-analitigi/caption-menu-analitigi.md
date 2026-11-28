@@ -17,10 +17,10 @@ Menüye neyi eklemeniz gerektiğini müşteriniz söylesin.
 ## 2. gönderi (kaydırmalı)
 Menünüz size ne anlatıyor? 👉 Kaydırın.
 
-Bu 3 sorudan birine “evet” diyorsanız kararlar tahminle veriliyor:
+Bu 3 sorudan birine “evet” diyorsanız kararlar eksik veriyle veriliyor:
 1. Hangi ürünün hiç tıklanmadığını tahminle mi biliyorsunuz?
-2. Müşterinin menüde arayıp bulamadığı ürün kayboluyor mu?
-3. Sepete eklenip gönderilmeyen siparişleri göremiyor musunuz?
+2. Bulunamayan ürün aramaları gözünüzden kaçıyor mu?
+3. Sepete eklenip vazgeçilen ürün size hiç ulaşmıyor mu?
 
 Panelde neler var?
 • Menü okutma ve tekil ziyaretçi sayısı; saatlik, günlük, aylık grafik.
@@ -28,7 +28,7 @@ Panelde neler var?
 • Masa bazında hareket; hiç okutulmayan masalar dahil.
 • Sepete eklenen, gönderilen ve yarım kalan siparişler.
 • Menüde bulunamayan aramalar.
-• Her raporu dosya olarak indirme.
+• Tarih ve masaya göre filtrelenip indirilebilen raporlar.
 
 Tahmin değil, veri.
 
