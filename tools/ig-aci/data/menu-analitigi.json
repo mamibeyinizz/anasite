@@ -4,11 +4,11 @@
   "soru": [
     "Müşteriniz menünüzde",
     "ne arıyor,",
-    "[[biliyor musunuz?]]"
+    "[[ne bulamıyor?]]"
   ],
   "cevap": [
     "Hangi ürün ilgi görüyor, hangi",
-    "masa okutuyor, ne [[aranıp bulunamıyor:]]",
+    "masadan okutuluyor, ne [[aranıyor:]]",
     "hepsi [[tek panelde.]]"
   ]
 }

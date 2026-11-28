@@ -1,14 +1,14 @@
 # Menü Analitiği — gönderi metinleri
 
 ## 1. gönderi (acı görseli)
-Müşteriniz menünüzde ne arıyor? 🔍
+Müşteriniz menünüzde ne arıyor, ne bulamıyor? 🔍
 
-Menüyü açan müşteri bir ürün arıyor, bulamıyor ve kapatıyor. Siz bunu hiç öğrenmiyorsunuz.
+Menüyü açan müşteri bir ürün arıyor, bulamıyor ve kapatıyor. Müşterinizin ne aradığını ve bulamadığını çoğu zaman fark etmiyorsunuz.
 
 Menü Analitiği'nde:
 • Menüde olmayan bir ürün aratıldığında panelinize düşer.
 • En çok ve en az tıklanan ürünleri görürsünüz.
-• Hangi masanın kaç kez okuttuğunu, hiç okutulmayan masaları dahil görürsünüz.
+• Hangi masadan kaç kez menü okutulduğunu, hiç okutulmayan masalarla birlikte takip edersiniz.
 
 Menüye neyi eklemeniz gerektiğini müşteriniz söylesin.
 
@@ -17,10 +17,10 @@ Menüye neyi eklemeniz gerektiğini müşteriniz söylesin.
 ## 2. gönderi (kaydırmalı)
 Menünüz size ne anlatıyor? 👉 Kaydırın.
 
-Bu 3 sorudan birine “evet” diyorsanız kararlar eksik veriyle veriliyor:
-1. Hangi ürünün hiç tıklanmadığını tahminle mi biliyorsunuz?
-2. Bulunamayan ürün aramaları gözünüzden kaçıyor mu?
-3. Sepete eklenip vazgeçilen ürün size hiç ulaşmıyor mu?
+Bu 3 sorudan birine “evet” diyorsanız, kararlarınız eksik veriye dayanıyor:
+1. Hiç tıklanmayan ürünleri tahminle mi belirliyorsunuz?
+2. Müşterinin arayıp bulamadığı ürünleri kaçırıyor musunuz?
+3. Sepette kalan siparişleri fark etmiyor musunuz?
 
 Panelde neler var?
 • Menü okutma ve tekil ziyaretçi sayısı; saatlik, günlük, aylık grafik.
