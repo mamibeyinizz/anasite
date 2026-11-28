@@ -1,0 +1,14 @@
+{
+  "id": "menu-analitigi",
+  "modul": "MENÜ ANALİTİĞİ",
+  "soru": [
+    "Müşteriniz menünüzde",
+    "ne arıyor,",
+    "[[biliyor musunuz?]]"
+  ],
+  "cevap": [
+    "Hangi ürün ilgi görüyor, hangi",
+    "masa okutuyor, ne [[aranıp bulunamıyor:]]",
+    "hepsi [[tek panelde.]]"
+  ]
+}
